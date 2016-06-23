@@ -1,0 +1,8 @@
+<scope doc="# $Id$&#10;# #  Copyright (C) 2005   Gregory P. Smith (greg@krypto.org) #  Licensed to PSF under a Contributor Agreement." ilk="blob" lang="Python" name="md5">
+      <variable citdl="int" line="13" name="blocksize" />
+      <variable citdl="int" line="14" name="digest_size" />
+      <scope doc="Returns a md5 hash object; optionally initialized with a&#10;string" ilk="function" name="md5" />
+      <scope doc="Returns a md5 hash object; optionally initialized with a&#10;string" ilk="function" line="11" name="new" />
+      <import module="warnings" />
+    </scope>
+    

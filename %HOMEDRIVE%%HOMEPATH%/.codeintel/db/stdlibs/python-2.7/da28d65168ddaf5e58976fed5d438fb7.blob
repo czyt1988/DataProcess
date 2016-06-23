@@ -1,0 +1,17 @@
+<scope doc="Generic interface to all dbm clones.&#10;Instead of  import dbm d = dbm.open(file, 'w', 0666)  use  import anydbm d = anydbm.open(file, 'w') " ilk="blob" lang="Python" name="anydbm">
+      <import module="_defaultmod" />
+      <import module="_mod" />
+      <variable citdl="tuple" line="36" name="error" />
+      <scope doc="Open or create database at path given by *file*." ilk="function" line="57" lineend="85" name="open" returns="mod.open()" signature="open(file, flag='r', mode=438)">
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable citdl="__import__()" line="77" name="mod" />
+        <variable citdl="whichdb()" line="71" name="result" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="int" ilk="argument" name="mode" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="__import__()" line="45" name="_mod" />
+      <variable attributes="protected __hidden__" citdl="list" line="39" name="_names" />
+      <variable attributes="protected __hidden__" citdl="list" line="40" name="_errors" />
+      <variable attributes="protected __hidden__" citdl="__import__()" line="41" name="_defaultmod" />
+    </scope>
+    

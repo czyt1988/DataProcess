@@ -1,0 +1,1130 @@
+<scope doc="Generate Python documentation in HTML or text for interactive use.&#10;In the Python interpreter, do &quot;from pydoc import help&quot; to provide online help.  Calling help(thing) on a Python object documents the object.  Or, at the shell command line outside of Python:  Run &quot;pydoc &lt;name&gt;&quot; to show documentation on something.  &lt;name&gt; may be the name of a function, module, package, or a dotted reference to a class or function within a module or module in a package.  If the argument contains a path segment delimiter (e.g. slash on Unix, backslash on Windows) it is treated as the path to a Python source file." ilk="blob" lang="Python" name="pydoc">
+      <scope doc="&#10;" ilk="class" line="318" lineend="370" name="Doc">
+        <scope doc="Raise an exception for unimplemented types." ilk="function" line="343" name="docmodule" />
+        <scope doc="Raise an exception for unimplemented types." ilk="function" name="docother" />
+        <scope doc="Raise an exception for unimplemented types." ilk="function" name="docproperty" />
+        <scope doc="Raise an exception for unimplemented types." ilk="function" name="docdata" />
+        <scope doc="Raise an exception for unimplemented types." ilk="function" name="docroutine" />
+        <scope doc="Raise an exception for unimplemented types." ilk="function" name="docclass" />
+        <scope doc="Return the location of module docs or None" ilk="function" line="345" lineend="370" name="getdocloc" returns="tuple" signature="getdocloc(object)">
+          <variable citdl="os.environ.get()" line="353" name="docloc" />
+          <variable citdl="Doc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="os.path.join()" line="355" name="basedir" />
+          <variable citdl="str" line="349" name="file" />
+        </scope>
+        <scope doc="Raise an exception for unimplemented types." ilk="function" line="337" lineend="341" name="fail" signature="fail(object, name=None, *args)">
+          <variable citdl="Doc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="str" line="339" name="message" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Generate documentation for an object." ilk="function" line="319" lineend="335" name="document" returns="self.docother()" signature="document(object, name=None, *args)">
+          <variable citdl="Doc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="name" />
+          <variable attributes="varargs" citdl="tuple" ilk="argument" name="args" />
+        </scope>
+      </scope>
+      <scope classrefs="Exception" doc="Errors that occurred while trying to import something to document it.&#10;" ilk="class" line="234" lineend="247" name="ErrorDuringImport">
+        <scope ilk="function" line="243" lineend="247" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="ErrorDuringImport" ilk="argument" name="self" />
+          <variable citdl="exc.__name__" line="244" name="exc" />
+        </scope>
+        <scope ilk="function" line="236" lineend="241" name="__init__" signature="ErrorDuringImport(filename, exc_info)">
+          <variable ilk="argument" name="exc_info" />
+          <variable citdl="ErrorDuringImport" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" line="241" name="tb" />
+        <variable attributes="__instancevar__" line="239" name="exc" />
+        <variable attributes="__instancevar__" line="240" name="value" />
+        <variable attributes="__instancevar__" line="238" name="filename" />
+      </scope>
+      <scope classrefs="Doc" doc="Formatter class for HTML documentation.&#10;" ilk="class" name="HTMLDoc">
+        <scope doc="Make a link for a class." ilk="function" name="classlink" />
+        <scope doc="Format an argument default value as text." ilk="function" name="formatvalue" />
+        <scope doc="Produce HTML documentation for a data object." ilk="function" name="docother" />
+        <scope doc="Produce HTML for a class tree as given by&#10;inspect.getclasstree()." ilk="function" name="formattree" />
+        <scope ilk="function" name="escape" />
+        <scope doc="Produce HTML documentation for a function or method object." ilk="function" name="docroutine" />
+        <scope doc="Generate an HTML index for a directory of modules." ilk="function" name="index" />
+        <scope doc="Format a section with a heading." ilk="function" name="section" />
+        <scope doc="Make a link for a module." ilk="function" name="modulelink" />
+        <scope doc="Produce html documentation for a property." ilk="function" name="docproperty" />
+        <scope doc="Format literal preformatted text." ilk="function" name="preformat" />
+        <scope doc="Make a link for an identifier, given name-to-URL mappings." ilk="function" name="namelink" />
+        <scope ilk="function" name="_docdescriptor" />
+        <scope doc="Produce HTML documentation for a module object." ilk="function" name="docmodule" />
+        <scope ilk="function" name="repr" />
+        <scope doc="Produce html documentation for a data descriptor." ilk="function" name="docdata" />
+        <scope doc="Make a link for a module or package to display in an index." ilk="function" name="modpkglink" />
+        <scope doc="Format a section with a big heading." ilk="function" name="bigsection" />
+        <scope doc="Mark up some plain text, given a context of symbols to look&#10;for." ilk="function" name="markup" />
+        <scope ilk="function" name="grey" />
+        <scope doc="Format an HTML page." ilk="function" name="page" />
+        <scope doc="Produce HTML documentation for a class object." ilk="function" name="docclass" />
+        <scope doc="Format a list of items into a multi-column list." ilk="function" name="multicolumn" />
+        <scope doc="Format a page heading." ilk="function" name="heading" />
+      </scope>
+      <scope classrefs="Repr" doc="Class for safely making an HTML representation of a Python object.&#10;" ilk="class" line="374" lineend="414" name="HTMLRepr">
+        <scope ilk="function" line="408" lineend="412" name="repr_instance" returns="HTMLRepr.escape()" signature="repr_instance(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="406" name="repr_str" />
+        <scope ilk="function" line="395" lineend="404" name="repr_string" returns="str" signature="repr_string(x, level)">
+          <variable citdl="cram()" line="396" name="test" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+          <variable citdl="repr()" line="397" name="testrepr" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="385" lineend="386" name="repr" returns="Repr.repr()" signature="repr(object)">
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope ilk="function" line="388" lineend="393" name="repr1" returns="getattr()()" signature="repr1(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+          <variable citdl="join()" line="390" name="methodname" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="382" lineend="383" name="escape" returns="replace()" signature="escape(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="414" name="repr_unicode" />
+        <scope ilk="function" line="376" lineend="380" name="__init__" signature="HTMLRepr()">
+          <variable citdl="HTMLRepr" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="379" name="maxdict" />
+        <variable attributes="__instancevar__" citdl="int" line="380" name="maxstring" />
+        <variable attributes="__instancevar__" citdl="int" line="378" name="maxlist" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Helper">
+        <scope ilk="function" name="help" />
+        <scope ilk="function" name="intro" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="listkeywords" />
+        <scope ilk="function" name="interact" />
+        <scope ilk="function" name="__call__" />
+        <scope doc="Read one line, using raw_input when available." ilk="function" name="getline" />
+        <scope ilk="function" name="listtopics" />
+        <scope ilk="function" name="showsymbol" />
+        <scope ilk="function" name="listmodules" />
+        <scope ilk="function" name="listsymbols" />
+        <scope ilk="function" name="showtopic" />
+        <scope ilk="function" name="list" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope doc="An interruptible scanner that searches module synopses.&#10;" ilk="class" line="1920" lineend="1962" name="ModuleScanner">
+        <scope ilk="function" line="1923" lineend="1962" name="run" signature="run(callback, key=None, completer=None, onerror=None)">
+          <variable ilk="argument" name="onerror" />
+          <variable citdl="ModuleScanner" ilk="argument" name="self" />
+          <variable citdl="loader.load_module()" line="1955" name="module" />
+          <variable citdl="importer.find_module()" line="1944" name="loader" />
+          <variable ilk="argument" name="callback" />
+          <variable citdl="lower()" ilk="argument" name="key" />
+          <variable citdl="getattr()" line="1951" name="path" />
+          <variable citdl="dict" line="1926" name="seen" />
+          <variable ilk="argument" name="completer" />
+          <variable citdl="source_synopsis()" line="1934" name="desc" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="False" line="1925" name="quit" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Repr">
+        <scope ilk="function" name="repr_instance" />
+        <scope ilk="function" name="repr_array" />
+        <scope ilk="function" name="repr_tuple" />
+        <scope ilk="function" name="repr_list" />
+        <scope ilk="function" name="repr_str" />
+        <scope ilk="function" name="repr_long" />
+        <scope ilk="function" name="_repr_iterable" />
+        <scope ilk="function" name="repr" />
+        <scope ilk="function" name="repr_set" />
+        <scope ilk="function" name="repr_frozenset" />
+        <scope ilk="function" name="repr_deque" />
+        <scope ilk="function" name="repr1" />
+        <scope ilk="function" name="repr_dict" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="A generic tree iterator.&#10;" ilk="class" line="1896" lineend="1917" name="Scanner">
+        <scope ilk="function" line="1898" lineend="1902" name="__init__" signature="Scanner(roots, children, descendp)">
+          <variable citdl="Scanner" ilk="argument" name="self" />
+          <variable ilk="argument" name="children" />
+          <variable ilk="argument" name="descendp" />
+          <variable ilk="argument" name="roots" />
+        </scope>
+        <scope ilk="function" line="1904" lineend="1917" name="next" returns="children.pop()" signature="next()">
+          <variable citdl="Scanner" ilk="argument" name="self" />
+          <variable citdl="self.roots.pop()" line="1908" name="root" />
+          <variable citdl="children.pop()" line="1914" name="child" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="1900" name="state" />
+        <variable attributes="__instancevar__" line="1901" name="children" />
+        <variable attributes="__instancevar__" line="1902" name="descendp" />
+        <variable attributes="__instancevar__" citdl="list" line="1899" name="roots" />
+      </scope>
+      <scope classrefs="Doc" doc="Formatter class for text documentation.&#10;" ilk="class" name="TextDoc">
+        <scope doc="Indent text by prepending a given prefix to each line." ilk="function" name="indent" />
+        <scope doc="Format a string in bold by overstriking." ilk="function" name="bold" />
+        <scope ilk="function" name="_docdescriptor" />
+        <scope doc="Produce text documentation for a given module object." ilk="function" name="docmodule" />
+        <scope doc="Format a section with a given heading." ilk="function" name="section" />
+        <scope doc="Format an argument default value as text." ilk="function" name="formatvalue" />
+        <scope doc="Produce text documentation for a data object." ilk="function" name="docother" />
+        <scope ilk="function" name="repr" />
+        <scope doc="Produce text documentation for a data descriptor." ilk="function" name="docdata" />
+        <scope doc="Render in text a class tree as returned by&#10;inspect.getclasstree()." ilk="function" name="formattree" />
+        <scope doc="Produce text documentation for a given class object." ilk="function" name="docclass" />
+        <scope doc="Produce text documentation for a property." ilk="function" name="docproperty" />
+        <scope doc="Produce text documentation for a function or method object." ilk="function" name="docroutine" />
+      </scope>
+      <scope classrefs="Repr" doc="Class for safely making a text representation of a Python object.&#10;" ilk="class" line="945" lineend="975" name="TextRepr">
+        <scope ilk="function" line="971" lineend="975" name="repr_instance" returns="str" signature="repr_instance(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="TextRepr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="969" name="repr_str" />
+        <scope ilk="function" line="960" lineend="967" name="repr_string" returns="str" signature="repr_string(x, level)">
+          <variable citdl="cram()" line="961" name="test" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="TextRepr" ilk="argument" name="self" />
+          <variable citdl="repr()" line="962" name="testrepr" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="953" lineend="958" name="repr1" returns="getattr()()" signature="repr1(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="TextRepr" ilk="argument" name="self" />
+          <variable citdl="join()" line="955" name="methodname" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="947" lineend="951" name="__init__" signature="TextRepr()">
+          <variable citdl="TextRepr" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="950" name="maxdict" />
+        <variable attributes="__instancevar__" citdl="int" line="951" name="maxstring" />
+        <variable attributes="__instancevar__" citdl="int" line="949" name="maxlist" />
+      </scope>
+      <variable citdl="str" line="37" name="__author__" />
+      <import module="__builtin__" />
+      <variable citdl="str" line="41" name="__credits__" />
+      <variable citdl="str" line="38" name="__date__" />
+      <variable citdl="str" line="40" name="__version__" />
+      <variable citdl="dict" name="__warningregistry__" />
+      <scope ilk="function" line="132" lineend="140" name="allmethods" returns="dict" signature="allmethods(cl)">
+        <variable citdl="dict" line="133" name="methods" />
+        <variable ilk="argument" name="cl" />
+      </scope>
+      <scope doc="Print all the one-line module summaries that contain a&#10;substring." ilk="function" line="1964" lineend="1973" name="apropos" signature="apropos(key)">
+        <scope ilk="function" line="1966" lineend="1969" name="callback" signature="callback(path, modname, desc)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="list" ilk="argument" name="modname" />
+          <variable ilk="argument" name="desc" />
+        </scope>
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope doc="Wrap inspect.classify_class_attrs, with fixup for data&#10;descriptors." ilk="function" line="176" lineend="183" name="classify_class_attrs" returns="map()" signature="classify_class_attrs(object)">
+        <variable ilk="argument" name="object" />
+        <scope ilk="function" line="178" lineend="182" name="fixup" returns="tuple" signature="fixup(data)">
+          <variable ilk="argument" name="data" />
+          <variable citdl="str" line="181" name="kind" />
+        </scope>
+      </scope>
+      <scope doc="Get a class name and qualify it with a module name if&#10;necessary." ilk="function" line="95" lineend="100" name="classname" returns="object.__name__" signature="classname(object, modname)">
+        <variable ilk="argument" name="modname" />
+        <variable ilk="argument" name="object" />
+        <variable citdl="object.__name__" line="97" name="name" />
+      </scope>
+      <scope doc="Command-line interface (looks at sys.argv to decide what to&#10;do)." ilk="function" line="2254" lineend="2335" name="cli" signature="cli()">
+        <variable line="2268" name="args" />
+        <variable citdl="os.path.basename()" line="2311" name="cmd" />
+        <scope ilk="class" line="2257" lineend="2257" name="BadUsage" />
+        <variable citdl="int" line="2269" name="writing" />
+        <scope ilk="function" line="2285" lineend="2286" name="stopped" signature="stopped()" />
+        <variable citdl="importfile()" line="2299" name="arg" />
+        <scope ilk="function" line="2283" lineend="2284" name="ready" signature="ready(server)">
+          <variable ilk="argument" name="server" />
+        </scope>
+        <variable citdl="os.path.dirname()" line="2262" name="scriptdir" />
+        <variable citdl="int()" line="2280" name="port" />
+        <variable line="2268" name="opts" />
+      </scope>
+      <scope doc="Omit part of a string if needed to make it fit in a maximum&#10;length." ilk="function" line="115" lineend="121" name="cram" returns="str" signature="cram(text, maxlen)">
+        <variable citdl="max()" line="118" name="pre" />
+        <variable ilk="argument" name="text" />
+        <variable citdl="max()" line="119" name="post" />
+        <variable ilk="argument" name="maxlen" />
+      </scope>
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" line="63" lineend="65" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" line="64" lineend="65" name="popleft" returns="self.pop()" signature="popleft()">
+          <variable citdl="deque" ilk="argument" name="self" />
+        </scope>
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Produce a short description of the given thing." ilk="function" line="1418" lineend="1445" name="describe" returns="tuple" signature="describe(thing)">
+        <variable ilk="argument" name="thing" />
+      </scope>
+      <scope doc="Display text documentation, given an object or a path to an&#10;object." ilk="function" line="1508" lineend="1513" name="doc" signature="doc(thing, title='Python Library Documentation: %s', forceload=0)">
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable ilk="argument" name="thing" />
+        <variable citdl="str" ilk="argument" name="title" />
+      </scope>
+      <scope doc="Return a copy of the string s with all tab characters&#10;replaced by the appropriate number of spaces, depending on&#10;the current column, and the tabsize (default 8)." ilk="function" name="expandtabs" returns="str" signature="expandtabs(s [,tabsize]) -&gt; string" />
+      <scope doc="Return list of up to limit pre-processed entries from&#10;traceback." ilk="function" name="extract_tb" signature="extract_tb(tb, limit=None)" />
+      <scope doc="Return the lowest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="find" signature="find(s, sub [,start [,end]]) -&gt; in" />
+      <scope doc="Get the doc string or comments for an object." ilk="function" line="81" lineend="84" name="getdoc" returns="re.sub()" signature="getdoc(object)">
+        <variable ilk="argument" name="object" />
+        <variable citdl="inspect.getcomments()" line="83" name="result" />
+      </scope>
+      <scope doc="Decide what method to use for paging through text." ilk="function" line="1320" lineend="1349" name="getpager" returns="plainpager" signature="getpager()">
+        <variable line="1341" name="fd" />
+        <variable line="1341" name="filename" />
+      </scope>
+      <scope doc="Graphical interface (starts web server and pops up a control&#10;window)." ilk="function" line="2068" lineend="2247" name="gui" signature="gui()">
+        <scope ilk="class" line="2070" lineend="2232" name="GUI">
+          <scope attributes="__ctor__" ilk="function" line="2071" lineend="2138" name="__init__" signature="GUI(window, port=7464)">
+            <import line="2076" module="Tkinter" />
+            <import line="2136" module="threading" />
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="window" />
+            <variable citdl="int" ilk="argument" name="port" />
+            <variable citdl="tuple" line="2107" name="font" />
+          </scope>
+          <variable attributes="__instancevar__" line="2072" name="window" />
+          <variable attributes="__instancevar__" line="2073" name="server" />
+          <variable attributes="__instancevar__" citdl="ModuleScanner" line="2074" name="scanner" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Frame()" line="2077" name="server_frm" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Label()" line="2078" name="title_lbl" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Button()" line="2080" name="open_btn" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Button()" line="2082" name="quit_btn" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Frame()" line="2085" name="search_frm" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Label()" line="2086" name="search_lbl" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Entry()" line="2087" name="search_ent" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Button()" line="2089" name="stop_btn" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Listbox()" line="2108" name="result_lst" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Scrollbar()" line="2111" name="result_scr" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Frame()" line="2115" name="result_frm" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Button()" line="2116" name="goto_btn" />
+          <variable attributes="__instancevar__" citdl="Tkinter.Button()" line="2118" name="hide_btn" />
+          <variable attributes="__instancevar__" citdl="self.window.winfo_width()" line="2124" name="minwidth" />
+          <variable attributes="__instancevar__" citdl="self.window.winfo_height()" line="2125" name="minheight" />
+          <variable attributes="__instancevar__" citdl="self.search_frm.winfo_reqheight()" line="2126" name="bigminheight" />
+          <variable attributes="__instancevar__" citdl="self.search_frm.winfo_reqheight()" line="2130" name="bigheight" />
+          <variable attributes="__instancevar__" citdl="self.window.winfo_width()" line="2130" name="bigwidth" />
+          <variable attributes="__instancevar__" citdl="int" line="2131" name="expanded" />
+          <scope ilk="function" line="2140" lineend="2145" name="ready" signature="ready(server)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="server" />
+          </scope>
+          <scope ilk="function" line="2147" lineend="2157" name="open" signature="open(event=None, url=None)">
+            <import line="2150" module="webbrowser" />
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.server.url" ilk="argument" name="url" />
+            <variable citdl="os.system()" line="2156" name="rc" />
+          </scope>
+          <scope ilk="function" line="2159" lineend="2162" name="quit" signature="quit(event=None)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+          </scope>
+          <scope ilk="function" line="2164" lineend="2180" name="search" signature="search(event=None)">
+            <import line="2175" module="threading" />
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.search_ent.get()" line="2165" name="key" />
+          </scope>
+          <scope ilk="function" line="2182" lineend="2186" name="update" signature="update(path, modname, desc)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="path" />
+            <variable citdl="list" ilk="argument" name="modname" />
+            <variable ilk="argument" name="desc" />
+          </scope>
+          <scope ilk="function" line="2188" lineend="2191" name="stop" signature="stop(event=None)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+          </scope>
+          <scope ilk="function" line="2193" lineend="2199" name="done" signature="done()">
+            <variable citdl="GUI" ilk="argument" name="self" />
+          </scope>
+          <scope ilk="function" line="2201" lineend="2202" name="select" signature="select(event=None)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+          </scope>
+          <scope ilk="function" line="2204" lineend="2208" name="goto" signature="goto(event=None)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.result_lst.curselection()" line="2205" name="selection" />
+            <variable line="2207" name="modname" />
+          </scope>
+          <scope ilk="function" line="2210" lineend="2219" name="collapse" signature="collapse()">
+            <variable citdl="GUI" ilk="argument" name="self" />
+          </scope>
+          <scope ilk="function" line="2221" lineend="2228" name="expand" signature="expand()">
+            <variable citdl="GUI" ilk="argument" name="self" />
+          </scope>
+          <scope ilk="function" line="2230" lineend="2232" name="hide" signature="hide(event=None)">
+            <variable citdl="GUI" ilk="argument" name="self" />
+            <variable ilk="argument" name="event" />
+          </scope>
+        </scope>
+        <variable citdl="Tkinter.Tk()" line="2236" name="root" />
+        <variable citdl="GUI" line="2242" name="gui" />
+      </scope>
+      <variable citdl="Helper" line="1894" name="help" />
+      <scope doc="&#10;" ilk="class" line="1534" lineend="1892" name="Helper">
+        <scope ilk="function" line="1759" lineend="1775" name="help" signature="help(request)">
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="request.strip()" ilk="argument" name="request" />
+        </scope>
+        <scope ilk="function" line="1777" lineend="1792" name="intro" signature="intro()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1711" lineend="1713" name="__init__" signature="Helper(input=None, output=None)">
+          <variable ilk="argument" name="input" />
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable ilk="argument" name="output" />
+        </scope>
+        <scope ilk="function" line="1808" lineend="1813" name="listkeywords" signature="listkeywords()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1738" lineend="1748" name="interact" signature="interact()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="self.getline()" line="1742" name="request" />
+        </scope>
+        <scope ilk="function" line="1725" lineend="1736" name="__call__" signature="__call__(request=_GoInteractive)">
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="object()" ilk="argument" name="request" />
+        </scope>
+        <scope doc="Read one line, using raw_input when available." ilk="function" line="1750" lineend="1757" name="getline" returns="self.input.readline()" signature="getline(prompt)">
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable ilk="argument" name="prompt" />
+        </scope>
+        <scope ilk="function" line="1823" lineend="1828" name="listtopics" signature="listtopics()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1862" lineend="1865" name="showsymbol" signature="showsymbol(symbol)">
+          <variable line="1864" name="xrefs" />
+          <variable line="1863" name="target" />
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable line="1864" name="topic" />
+          <variable ilk="argument" name="symbol" />
+          <variable attributes="protected" line="1864" name="_" />
+        </scope>
+        <scope ilk="function" line="1867" lineend="1892" name="listmodules" signature="listmodules(key='')">
+          <scope ilk="function" line="1885" lineend="1886" name="onerror" signature="onerror(modname)">
+            <variable ilk="argument" name="modname" />
+          </scope>
+          <scope ilk="function" line="1880" lineend="1884" name="callback" signature="callback(path, modname, desc, modules=modules)">
+            <variable ilk="argument" name="path" />
+            <variable citdl="list" ilk="argument" name="modname" />
+            <variable ilk="argument" name="desc" />
+            <variable citdl="dict" ilk="argument" name="modules" />
+          </scope>
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="dict" line="1879" name="modules" />
+          <variable citdl="str" ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="1815" lineend="1821" name="listsymbols" signature="listsymbols()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1830" lineend="1860" name="showtopic" returns="Helper.showtopic()" signature="showtopic(topic, more_xrefs='')">
+          <variable citdl="str" line="1854" name="xrefs" />
+          <variable citdl="self.topics.get()" line="1839" name="target" />
+          <variable citdl="StringIO.StringIO()" line="1857" name="buffer" />
+          <variable line="1848" name="doc" />
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="more_xrefs" />
+          <variable ilk="argument" name="topic" />
+        </scope>
+        <scope ilk="function" line="1794" lineend="1806" name="list" signature="list(items, columns=4, width=80)">
+          <variable citdl="len()" line="1798" name="rows" />
+          <variable citdl="row" line="1801" name="i" />
+          <variable citdl="list" ilk="argument" name="items" />
+          <variable citdl="Helper" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="width" />
+          <variable citdl="int" line="1797" name="colw" />
+          <variable citdl="int" ilk="argument" name="columns" />
+        </scope>
+        <scope ilk="function" line="1718" lineend="1722" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Helper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1712" name="_input" />
+        <variable citdl="symbols.get()" line="1612" name="topics" />
+        <variable attributes="protected" citdl="object()" line="1724" name="_GoInteractive" />
+        <variable citdl="property()" line="1716" name="output" />
+        <variable citdl="dict" line="1593" name="symbols" />
+        <variable attributes="protected __instancevar__" line="1713" name="_output" />
+        <variable attributes="protected" citdl="dict" line="1582" name="_symbols_inverse" />
+        <variable citdl="dict" line="1547" name="keywords" />
+        <variable citdl="property()" line="1715" name="input" />
+      </scope>
+      <variable citdl="HTMLDoc" line="1468" name="html" />
+      <scope classrefs="Doc" doc="Formatter class for HTML documentation.&#10;" ilk="class" line="416" lineend="941" name="HTMLDoc">
+        <scope doc="Make a link for a class." ilk="function" line="499" lineend="505" name="classlink" returns="tuple" signature="classlink(object, modname)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="modname" />
+          <variable citdl="sys.modules.get()" line="501" name="module" />
+          <variable citdl="object.__name__" line="501" name="name" />
+        </scope>
+        <scope doc="Format an argument default value as text." ilk="function" line="847" lineend="849" name="formatvalue" returns="HTMLDoc.grey()" signature="formatvalue(object)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope doc="Produce HTML documentation for a data object." ilk="function" line="922" lineend="925" name="docother" returns="str" signature="docother(object, name=None, mod=None, *ignored)">
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="str" line="924" name="lhs" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Produce HTML for a class tree as given by&#10;inspect.getclasstree()." ilk="function" line="564" lineend="581" name="formattree" returns="join()" signature="formattree(tree, modname, parent=None)">
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable citdl="list" line="573" name="parents" />
+          <variable citdl="str" line="566" name="result" />
+        </scope>
+        <scope ilk="function" line="423" name="escape" />
+        <scope doc="Produce HTML documentation for a function or method object." ilk="function" line="851" lineend="903" name="docroutine" returns="HTMLDoc.classlink()" signature="docroutine(object, name=None, mod=None, funcs={}, classes={}, methods={}, cl=None)">
+          <variable citdl="dict" ilk="argument" name="funcs" />
+          <variable citdl="str" line="894" name="decl" />
+          <variable citdl="dict" ilk="argument" name="methods" />
+          <variable ilk="argument" name="cl" />
+          <variable citdl="int" line="858" name="skipdocs" />
+          <variable line="885" name="varkw" />
+          <variable citdl="str" line="873" name="title" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="str" line="857" name="note" />
+          <variable citdl="object.__name__" line="877" name="reallink" />
+          <variable citdl="object.im_func" ilk="argument" name="object" />
+          <variable citdl="object.__name__" line="854" name="realname" />
+          <variable line="885" name="args" />
+          <variable line="885" name="varargs" />
+          <variable ilk="argument" name="mod" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <variable citdl="markup()" line="900" name="doc" />
+          <variable citdl="object.im_class" line="860" name="imclass" />
+          <variable citdl="list" line="886" name="argspec" />
+          <variable citdl="dict" ilk="argument" name="classes" />
+          <variable line="885" name="defaults" />
+          <variable citdl="str" line="856" name="anchor" />
+        </scope>
+        <scope doc="Generate an HTML index for a directory of modules." ilk="function" line="931" lineend="941" name="index" returns="HTMLDoc.bigsection()" signature="index(dir, shadowed=None)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="shadowed" />
+          <variable citdl="list" line="933" name="modpkgs" />
+          <variable ilk="argument" name="dir" />
+          <variable citdl="multicolumn()" line="940" name="contents" />
+        </scope>
+        <scope doc="Format a section with a heading." ilk="function" line="445" lineend="465" name="section" returns="tuple" signature="section(title, fgcol, bgcol, contents, width=6, prelude='', marginalia=None, gap='&amp;nbsp;')">
+          <variable ilk="argument" name="bgcol" />
+          <variable ilk="argument" name="title" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="gap" />
+          <variable citdl="int" ilk="argument" name="width" />
+          <variable citdl="str" ilk="argument" name="marginalia" />
+          <variable ilk="argument" name="fgcol" />
+          <variable citdl="str" ilk="argument" name="prelude" />
+          <variable ilk="argument" name="contents" />
+          <variable citdl="str" line="450" name="result" />
+        </scope>
+        <scope doc="Make a link for a module." ilk="function" line="507" lineend="509" name="modulelink" returns="tuple" signature="modulelink(object)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope doc="Produce html documentation for a property." ilk="function" line="918" lineend="920" name="docproperty" returns="HTMLDoc._docdescriptor()" signature="docproperty(object, name=None, mod=None, cl=None)">
+          <variable ilk="argument" name="cl" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Format literal preformatted text." ilk="function" line="472" lineend="476" name="preformat" returns="replace()" signature="preformat(text)">
+          <variable citdl="escape()" ilk="argument" name="text" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Make a link for an identifier, given name-to-URL mappings." ilk="function" line="492" lineend="497" name="namelink" returns="tuple" signature="namelink(name, *dicts)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable attributes="varargs" ilk="argument" name="dicts" />
+        </scope>
+        <scope ilk="function" line="905" lineend="916" name="_docdescriptor" returns="str.join()" signature="_docdescriptor(name, value, mod)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="markup()" line="912" name="doc" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="list" line="906" name="results" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="results.append" line="907" name="push" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Produce HTML documentation for a module object." ilk="function" line="583" lineend="705" name="docmodule" returns="str" signature="docmodule(object, name=None, mod=None, *ignored)">
+          <variable citdl="list" line="644" name="funcs" />
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+          <variable citdl="object.__all__" line="587" name="all" />
+          <variable citdl="str()" line="609" name="version" />
+          <variable citdl="list" line="591" name="links" />
+          <variable citdl="map()" line="677" name="classlist" />
+          <variable citdl="sys.modules.get()" line="639" name="module" />
+          <variable citdl="HTMLDoc.bigsection()" line="622" name="result" />
+          <variable citdl="list" line="667" name="contents" />
+          <variable citdl="list" line="663" name="modpkgs" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="split()" line="590" name="parts" />
+          <variable citdl="join()" line="597" name="head" />
+          <variable citdl="join()" line="596" name="linkedname" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="base.__name__" line="638" name="key" />
+          <variable citdl="dict" line="644" name="fdict" />
+          <variable citdl="inspect.getabsfile()" line="599" name="path" />
+          <variable citdl="list" line="653" name="data" />
+          <variable ilk="argument" name="mod" />
+          <variable citdl="list" line="607" name="info" />
+          <variable citdl="base.__module__" line="638" name="modname" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <variable citdl="nturl2path.pathname2url()" line="600" name="url" />
+          <variable citdl="markup()" line="658" name="doc" />
+          <variable citdl="dict" line="628" name="cdict" />
+          <variable citdl="inspect.getmembers()" line="626" name="modules" />
+          <variable citdl="str" line="617" name="docloc" />
+          <variable citdl="str" line="604" name="filelink" />
+          <variable citdl="list" line="628" name="classes" />
+        </scope>
+        <scope ilk="function" line="422" name="repr" />
+        <scope doc="Produce html documentation for a data descriptor." ilk="function" line="927" lineend="929" name="docdata" returns="HTMLDoc._docdescriptor()" signature="docdata(object, name=None, mod=None, cl=None)">
+          <variable ilk="argument" name="cl" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Make a link for a module or package to display in an index." ilk="function" line="511" lineend="524" name="modpkglink" returns="tuple" signature="modpkglink(data)">
+          <variable citdl="str" line="517" name="url" />
+          <variable citdl="name" line="521" name="text" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Format a section with a big heading." ilk="function" line="467" lineend="470" name="bigsection" returns="HTMLDoc.section()" signature="bigsection(title, *args)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="str" ilk="argument" name="title" />
+        </scope>
+        <scope doc="Mark up some plain text, given a context of symbols to look&#10;for." ilk="function" line="526" lineend="560" name="markup" returns="join()" signature="markup(text, escape=None, funcs={}, classes={}, methods={})">
+          <variable citdl="dict" ilk="argument" name="funcs" />
+          <variable line="542" name="all" />
+          <variable line="539" name="end" />
+          <variable citdl="dict" ilk="argument" name="methods" />
+          <variable citdl="int()" line="544" name="url" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable line="542" name="pep" />
+          <variable citdl="list" line="530" name="results" />
+          <variable citdl="int" line="531" name="here" />
+          <variable line="542" name="rfc" />
+          <variable line="539" name="start" />
+          <variable citdl="dict" ilk="argument" name="classes" />
+          <variable citdl="_repr_instance.escape" ilk="argument" name="escape" />
+          <variable citdl="re.compile()" line="532" name="pattern" />
+          <variable line="542" name="scheme" />
+          <variable line="542" name="selfdot" />
+          <variable citdl="pattern.search()" line="537" name="match" />
+          <variable line="542" name="name" />
+        </scope>
+        <scope ilk="function" line="490" lineend="490" name="grey" returns="str" signature="grey(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Format an HTML page." ilk="function" line="425" lineend="432" name="page" returns="tuple" signature="page(title, contents)">
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="contents" />
+          <variable ilk="argument" name="title" />
+        </scope>
+        <scope doc="Produce HTML documentation for a class object." ilk="function" line="707" lineend="845" name="docclass" returns="HTMLDoc.section()" signature="docclass(object, name=None, mod=None, funcs={}, classes={}, *ignored)">
+          <variable citdl="dict" ilk="argument" name="funcs" />
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+          <variable citdl="str" line="803" name="tag" />
+          <variable citdl="spill()" line="779" name="attrs" />
+          <variable citdl="dict" line="781" name="mdict" />
+          <variable citdl="mro.popleft()" line="794" name="thisclass" />
+          <variable citdl="list" line="714" name="contents" />
+          <variable citdl="str" line="832" name="title" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="object.__bases__" line="712" name="bases" />
+          <scope ilk="class" line="718" lineend="724" name="HorizontalRule">
+            <scope attributes="__ctor__" ilk="function" line="719" lineend="720" name="__init__" signature="HorizontalRule()">
+              <variable citdl="HorizontalRule" ilk="argument" name="self" />
+            </scope>
+            <variable attributes="__instancevar__" citdl="int" line="720" name="needone" />
+            <scope ilk="function" line="721" lineend="724" name="maybe" signature="maybe()">
+              <variable citdl="HorizontalRule" ilk="argument" name="self" />
+            </scope>
+          </scope>
+          <variable line="797" name="inherited" />
+          <variable citdl="list" line="838" name="parents" />
+          <variable citdl="object.__name__" line="710" name="realname" />
+          <variable citdl="HorizontalRule" line="725" name="hr" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="contents.append" line="715" name="push" />
+          <variable ilk="argument" name="mod" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <variable citdl="deque" line="728" name="mro" />
+          <scope ilk="function" line="737" lineend="746" name="spill" signature="spill(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="738" name="ok" />
+          </scope>
+          <variable citdl="markup()" line="842" name="doc" />
+          <scope ilk="function" line="757" lineend="777" name="spilldata" signature="spilldata(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="758" name="ok" />
+            <variable citdl="self.docother()" line="763" name="base" />
+            <variable citdl="getattr()" line="766" name="doc" />
+          </scope>
+          <variable citdl="getattr()" line="784" name="value" />
+          <variable citdl="dict" ilk="argument" name="classes" />
+          <scope ilk="function" line="748" lineend="755" name="spilldescriptors" signature="spilldescriptors(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="749" name="ok" />
+          </scope>
+        </scope>
+        <scope doc="Format a list of items into a multi-column list." ilk="function" line="478" lineend="488" name="multicolumn" returns="str" signature="multicolumn(list, format, cols=4)">
+          <variable citdl="int" line="481" name="rows" />
+          <variable ilk="argument" name="format" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="int" ilk="argument" name="cols" />
+          <variable citdl="str" line="480" name="result" />
+        </scope>
+        <scope doc="Format a page heading." ilk="function" line="434" lineend="443" name="heading" returns="tuple" signature="heading(title, fgcol, bgcol, extras='')">
+          <variable ilk="argument" name="fgcol" />
+          <variable citdl="HTMLDoc" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="extras" />
+          <variable ilk="argument" name="bgcol" />
+          <variable ilk="argument" name="title" />
+        </scope>
+        <variable attributes="protected" citdl="HTMLRepr" line="421" name="_repr_instance" />
+      </scope>
+      <import module="imp" />
+      <scope doc="Import a Python source file or compiled file given its path." ilk="function" line="249" lineend="266" name="importfile" returns="imp.load_module()" signature="importfile(path)">
+        <variable citdl="imp.PY_SOURCE" line="254" name="kind" />
+        <variable citdl="imp.get_magic()" line="251" name="magic" />
+        <variable line="259" name="name" />
+        <variable citdl="imp.load_module()" line="262" name="module" />
+        <variable citdl="os.path.basename()" line="258" name="filename" />
+        <variable line="259" name="ext" />
+        <variable citdl="open()" line="252" name="file" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <import module="inspect" />
+      <scope doc="Check if an object is of a type that probably means it's&#10;data." ilk="function" line="102" lineend="106" name="isdata" returns="bool" signature="isdata(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Guess whether a path refers to a package directory." ilk="function" line="187" lineend="193" name="ispackage" returns="bool" signature="ispackage(path)">
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope ilk="function" line="2251" lineend="2252" name="ispath" returns="isinstance()" signature="ispath(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope doc="Return a string composed of the words in list, with&#10;intervening occurrences of sep." ilk="function" name="join" returns="str" signature="join(list [,sep]) -&gt; string" />
+      <scope doc="Locate an object by name or dotted path, importing as&#10;necessary." ilk="function" line="1447" lineend="1463" name="locate" returns="getattr()" signature="locate(path, forceload=0)">
+        <variable citdl="safeimport()" line="1452" name="nextmodule" />
+        <variable citdl="safeimport()" line="1456" name="object" />
+        <variable citdl="safeimport()" line="1450" name="module" />
+        <variable citdl="int" line="1450" name="n" />
+        <variable citdl="list" line="1449" name="parts" />
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Return a copy of the string s converted to lowercase." ilk="function" name="lower" returns="str" signature="lower(s) -&gt; string" />
+      <import module="os" />
+      <scope doc="The first time this is called, determine what kind of pager&#10;to use." ilk="function" line="1314" lineend="1318" name="pager" signature="pager(text)">
+        <variable ilk="argument" name="text" />
+        <variable citdl="getpager()" line="1317" name="pager" />
+      </scope>
+      <scope doc="Convert sys.path into a list of absolute, existing, unique&#10;paths." ilk="function" line="69" lineend="79" name="pathdirs" returns="list" signature="pathdirs()">
+        <variable citdl="list" line="71" name="dirs" />
+        <variable citdl="os.path.normcase()" line="75" name="normdir" />
+        <variable citdl="os.path.abspath()" line="74" name="dir" />
+        <variable citdl="list" line="72" name="normdirs" />
+      </scope>
+      <scope doc="Page through text by feeding it to another program." ilk="function" line="1355" lineend="1362" name="pipepager" signature="pipepager(text, cmd)">
+        <variable citdl="os.popen()" line="1357" name="pipe" />
+        <variable ilk="argument" name="text" />
+        <variable ilk="argument" name="cmd" />
+      </scope>
+      <import module="pkgutil" />
+      <scope doc="Remove boldface formatting from text." ilk="function" line="1351" lineend="1353" name="plain" returns="re.sub()" signature="plain(text)">
+        <variable ilk="argument" name="text" />
+      </scope>
+      <scope doc="Simply print unformatted text." ilk="function" line="1414" lineend="1416" name="plainpager" signature="plainpager(text)">
+        <variable ilk="argument" name="text" />
+      </scope>
+      <import module="re" />
+      <scope doc="Render text documentation, given an object or a path to an&#10;object." ilk="function" line="1483" lineend="1506" name="render_doc" returns="str" signature="render_doc(thing, title='Python Library Documentation: %s', forceload=0)">
+        <variable line="1485" name="name" />
+        <variable citdl="str" ilk="argument" name="title" />
+        <variable citdl="object.__class__" line="1485" name="object" />
+        <variable citdl="inspect.getmodule()" line="1487" name="module" />
+        <variable ilk="argument" name="thing" />
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable citdl="describe()" line="1486" name="desc" />
+      </scope>
+      <scope doc="Do a series of global replacements on a string." ilk="function" line="108" lineend="113" name="replace" returns="join()" signature="replace(text, *pairs)">
+        <variable citdl="join()" ilk="argument" name="text" />
+        <variable attributes="varargs" citdl="list" ilk="argument" name="pairs" />
+      </scope>
+      <scope doc="Given an object or a path to an object, get the object and&#10;its name." ilk="function" line="1473" lineend="1481" name="resolve" returns="tuple" signature="resolve(thing, forceload=0)">
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable ilk="argument" name="thing" />
+        <variable citdl="locate()" line="1476" name="object" />
+      </scope>
+      <scope doc="Return the highest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="rfind" returns="int" signature="rfind(s, sub [,start [,end]]) -&gt; int" />
+      <scope doc="Return a copy of the string s with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="rstrip(s [,chars]) -&gt; string" />
+      <scope doc="Import a module; handle errors; return None if the module&#10;isn't found." ilk="function" line="268" lineend="314" name="safeimport" returns="__import__()" signature="safeimport(path, forceload=0, cache={})">
+        <variable citdl="list" line="289" name="subs" />
+        <variable citdl="dict" ilk="argument" name="cache" />
+        <variable line="297" name="value" />
+        <variable citdl="getattr()" line="294" name="module" />
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable ilk="argument" name="path" />
+        <variable line="297" name="tb" />
+        <variable line="297" name="exc" />
+      </scope>
+      <scope ilk="function" line="1977" lineend="2064" name="serve" signature="serve(port, callback=None, completer=None)">
+        <scope classrefs="BaseHTTPServer.HTTPServer" ilk="class" line="2036" lineend="2053" name="DocServer">
+          <scope attributes="__ctor__" ilk="function" line="2037" lineend="2042" name="__init__" signature="DocServer(port, callback)">
+            <variable citdl="DocServer" ilk="argument" name="self" />
+            <variable ilk="argument" name="port" />
+            <variable ilk="argument" name="callback" />
+            <variable citdl="str" line="2038" name="host" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="tuple" line="2039" name="address" />
+          <variable attributes="__instancevar__" citdl="str" line="2040" name="url" />
+          <variable attributes="__instancevar__" line="2041" name="callback" />
+          <scope ilk="function" line="2044" lineend="2049" name="serve_until_quit" signature="serve_until_quit()">
+            <import line="2045" module="select" />
+            <variable citdl="DocServer" ilk="argument" name="self" />
+            <variable line="2048" name="rd" />
+            <variable line="2048" name="wr" />
+            <variable line="2048" name="ex" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="False" line="2046" name="quit" />
+          <scope ilk="function" line="2051" lineend="2053" name="server_activate" signature="server_activate()">
+            <variable citdl="DocServer" ilk="argument" name="self" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="BaseHTTPServer.HTTPServer" line="2055" name="base" />
+          <variable attributes="__instancevar__" citdl="serve.DocHandler" line="2056" name="handler" />
+        </scope>
+        <scope classrefs="BaseHTTPServer.BaseHTTPRequestHandler" ilk="class" line="1990" lineend="2034" name="DocHandler">
+          <scope ilk="function" line="1991" lineend="1997" name="send_document" signature="send_document(title, contents)">
+            <variable citdl="DocHandler" ilk="argument" name="self" />
+            <variable ilk="argument" name="title" />
+            <variable ilk="argument" name="contents" />
+          </scope>
+          <scope ilk="function" line="1999" lineend="2032" name="do_GET" signature="do_GET()">
+            <variable citdl="DocHandler" ilk="argument" name="self" />
+            <variable citdl="list" line="2000" name="path" />
+            <variable citdl="locate()" line="2005" name="obj" />
+            <variable citdl="html.heading()" line="2015" name="heading" />
+            <scope ilk="function" line="2018" lineend="2019" name="bltinlink" returns="tuple" signature="bltinlink(name)">
+              <variable ilk="argument" name="name" />
+            </scope>
+            <variable citdl="filter()" line="2020" name="names" />
+            <variable citdl="html.heading()" line="2022" name="contents" />
+            <variable citdl="list" line="2023" name="indices" />
+            <variable citdl="dict" line="2026" name="seen" />
+          </scope>
+          <scope ilk="function" line="2034" lineend="2034" name="log_message" signature="log_message(*args)">
+            <variable citdl="DocHandler" ilk="argument" name="self" />
+            <variable attributes="varargs" ilk="argument" name="args" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="serve.Message" line="2057" name="MessageClass" />
+        </scope>
+        <variable ilk="argument" name="callback" />
+        <scope classrefs="mimetools.Message" ilk="class" line="1981" lineend="1988" name="Message">
+          <scope attributes="__ctor__" ilk="function" line="1982" lineend="1988" name="__init__" signature="Message(fp, seekable=1)">
+            <variable citdl="Message" ilk="argument" name="self" />
+            <variable ilk="argument" name="fp" />
+            <variable citdl="int" ilk="argument" name="seekable" />
+            <variable citdl="self.__class__" line="1983" name="Message" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="self.getheader()" line="1985" name="encodingheader" />
+          <variable attributes="__instancevar__" citdl="self.getheader()" line="1986" name="typeheader" />
+        </scope>
+        <variable ilk="argument" name="completer" />
+        <variable ilk="argument" name="port" />
+      </scope>
+      <scope ilk="function" line="195" lineend="210" name="source_synopsis" returns="strip()" signature="source_synopsis(file)">
+        <variable citdl="list" line="196" name="line" />
+        <variable citdl="strip()" line="208" name="result" />
+        <variable ilk="argument" name="file" />
+      </scope>
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="split(s [,sep [,maxsplit]]) -&gt; list of strings" />
+      <scope doc="Split a doc string into a synopsis line (if any) and the&#10;rest." ilk="function" line="86" lineend="93" name="splitdoc" returns="tuple" signature="splitdoc(doc)">
+        <variable ilk="argument" name="doc" />
+        <variable citdl="split()" line="88" name="lines" />
+      </scope>
+      <scope doc="Return a copy of the string s with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="strip(s [,chars]) -&gt; string" />
+      <scope doc="Remove the hexadecimal id from a Python object&#10;representation." ilk="function" line="124" lineend="127" name="stripid" returns="_re_stripid.sub()" signature="stripid(text)">
+        <variable ilk="argument" name="text" />
+      </scope>
+      <scope doc="Get the one-line summary out of a module file." ilk="function" line="212" lineend="232" name="synopsis" returns="source_synopsis()" signature="synopsis(filename, cache={})">
+        <variable citdl="inspect.getmoduleinfo()" line="217" name="info" />
+        <variable line="215" name="lastupdate" />
+        <variable citdl="dict" ilk="argument" name="cache" />
+        <variable citdl="imp.load_module()" line="224" name="module" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="source_synopsis()" line="215" name="result" />
+        <variable citdl="open()" line="219" name="file" />
+        <variable line="214" name="mtime" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Page through text by invoking a program on a temporary file." ilk="function" line="1364" lineend="1374" name="tempfilepager" signature="tempfilepager(text, cmd)">
+        <variable ilk="argument" name="text" />
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="open()" line="1368" name="file" />
+        <variable citdl="tempfile.mktemp()" line="1367" name="filename" />
+      </scope>
+      <variable citdl="TextDoc" line="1467" name="text" />
+      <scope classrefs="Doc" doc="Formatter class for text documentation.&#10;" ilk="class" line="977" lineend="1310" name="TextDoc">
+        <scope doc="Indent text by prepending a given prefix to each line." ilk="function" line="989" lineend="995" name="indent" returns="join()" signature="indent(text, prefix='    ')">
+          <variable ilk="argument" name="text" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable citdl="split()" line="992" name="lines" />
+          <variable citdl="str" ilk="argument" name="prefix" />
+        </scope>
+        <scope doc="Format a string in bold by overstriking." ilk="function" line="985" lineend="987" name="bold" returns="join()" signature="bold(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1279" lineend="1290" name="_docdescriptor" returns="str.join()" signature="_docdescriptor(name, value, mod)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="str" line="1286" name="doc" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable citdl="list" line="1280" name="results" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="results.append" line="1281" name="push" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Produce text documentation for a given module object." ilk="function" line="1019" lineend="1117" name="docmodule" returns="TextDoc.section()" signature="docmodule(object, name=None, mod=None)">
+          <variable citdl="list" line="1050" name="funcs" />
+          <variable citdl="object.__all__" line="1026" name="all" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <variable citdl="list" line="1077" name="submodules" />
+          <variable ilk="argument" name="mod" />
+          <variable citdl="map()" line="1087" name="classlist" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="list" line="1062" name="modpkgs" />
+          <variable citdl="self.getdocloc()" line="1036" name="docloc" />
+          <variable citdl="set()" line="1063" name="modpkgs_names" />
+          <variable citdl="strip()" line="1107" name="version" />
+          <variable citdl="TextDoc.section()" line="1023" name="result" />
+          <variable citdl="str" line="1031" name="file" />
+          <variable line="1022" name="synop" />
+          <variable citdl="list" line="1043" name="classes" />
+          <variable citdl="list" line="1057" name="data" />
+          <variable citdl="list" line="1088" name="contents" />
+          <variable line="1022" name="desc" />
+        </scope>
+        <scope doc="Format a section with a given heading." ilk="function" line="997" lineend="999" name="section" returns="TextDoc.bold()" signature="section(title, contents)">
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="contents" />
+          <variable ilk="argument" name="title" />
+        </scope>
+        <scope doc="Format an argument default value as text." ilk="function" line="1232" lineend="1234" name="formatvalue" returns="TextDoc.repr()" signature="formatvalue(object)">
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope doc="Produce text documentation for a data object." ilk="function" line="1300" lineend="1310" name="docother" returns="TextDoc.bold()" signature="docother(object, name=None, mod=None, parent=None, maxlen=None, doc=None)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="parent" />
+          <variable ilk="argument" name="doc" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="list" line="1302" name="repr" />
+          <variable citdl="len()" line="1305" name="chop" />
+          <variable ilk="argument" name="maxlen" />
+          <variable citdl="str" line="1304" name="line" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope ilk="function" line="983" name="repr" />
+        <scope doc="Produce text documentation for a data descriptor." ilk="function" line="1296" lineend="1298" name="docdata" returns="TextDoc._docdescriptor()" signature="docdata(object, name=None, mod=None, cl=None)">
+          <variable ilk="argument" name="cl" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Render in text a class tree as returned by&#10;inspect.getclasstree()." ilk="function" line="1003" lineend="1017" name="formattree" returns="join()" signature="formattree(tree, modname, parent=None, prefix='')">
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable citdl="str" ilk="argument" name="prefix" />
+          <variable citdl="map()" line="1011" name="parents" />
+          <variable citdl="str" line="1005" name="result" />
+        </scope>
+        <scope doc="Produce text documentation for a given class object." ilk="function" line="1119" lineend="1230" name="docclass" returns="object.__name__" signature="docclass(object, name=None, mod=None, *ignored)">
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+          <variable citdl="str" line="1205" name="tag" />
+          <variable citdl="spill()" line="1192" name="attrs" />
+          <variable citdl="mro.popleft()" line="1196" name="thisclass" />
+          <variable citdl="list" line="1137" name="contents" />
+          <variable citdl="str" line="1129" name="title" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <scope ilk="function" line="1125" lineend="1126" name="makename" returns="classname()" signature="makename(c, m=object.__module__)">
+            <variable ilk="argument" name="c" />
+            <variable citdl="object.__module__" ilk="argument" name="m" />
+          </scope>
+          <variable citdl="map()" line="1133" name="parents" />
+          <variable line="1199" name="inherited" />
+          <scope ilk="class" line="1149" lineend="1155" name="HorizontalRule">
+            <scope attributes="__ctor__" ilk="function" line="1150" lineend="1151" name="__init__" signature="HorizontalRule()">
+              <variable citdl="HorizontalRule" ilk="argument" name="self" />
+            </scope>
+            <variable attributes="__instancevar__" citdl="int" line="1151" name="needone" />
+            <scope ilk="function" line="1152" lineend="1155" name="maybe" signature="maybe()">
+              <variable citdl="HorizontalRule" ilk="argument" name="self" />
+            </scope>
+          </scope>
+          <variable citdl="object.__name__" line="1121" name="realname" />
+          <variable citdl="HorizontalRule" line="1156" name="hr" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="contents.append" line="1138" name="push" />
+          <variable ilk="argument" name="mod" />
+          <variable citdl="object.__bases__" line="1123" name="bases" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <scope ilk="function" line="1158" lineend="1166" name="spill" signature="spill(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="1159" name="ok" />
+          </scope>
+          <variable citdl="getdoc()" line="1136" name="doc" />
+          <scope ilk="function" line="1177" lineend="1190" name="spilldata" signature="spilldata(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="1178" name="ok" />
+            <variable citdl="getdoc()" line="1185" name="doc" />
+          </scope>
+          <variable citdl="deque" line="1141" name="mro" />
+          <scope ilk="function" line="1168" lineend="1175" name="spilldescriptors" signature="spilldescriptors(msg, attrs, predicate)">
+            <variable ilk="argument" name="msg" />
+            <variable ilk="argument" name="attrs" />
+            <variable ilk="argument" name="predicate" />
+            <variable line="1169" name="ok" />
+          </scope>
+        </scope>
+        <scope doc="Produce text documentation for a property." ilk="function" line="1292" lineend="1294" name="docproperty" returns="TextDoc._docdescriptor()" signature="docproperty(object, name=None, mod=None, cl=None)">
+          <variable ilk="argument" name="cl" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Produce text documentation for a function or method object." ilk="function" line="1236" lineend="1277" name="docroutine" returns="inspect.formatargspec()" signature="docroutine(object, name=None, mod=None, cl=None)">
+          <variable citdl="str" line="1271" name="decl" />
+          <variable line="1263" name="args" />
+          <variable citdl="object.__name__" ilk="argument" name="name" />
+          <variable ilk="argument" name="cl" />
+          <variable citdl="int" line="1241" name="skipdocs" />
+          <variable citdl="str" line="1276" name="doc" />
+          <variable citdl="TextDoc" ilk="argument" name="self" />
+          <variable citdl="object.im_func" ilk="argument" name="object" />
+          <variable citdl="str" line="1240" name="note" />
+          <variable citdl="object.im_class" line="1243" name="imclass" />
+          <variable citdl="inspect.formatargspec()" line="1264" name="argspec" />
+          <variable line="1263" name="defaults" />
+          <variable line="1263" name="varargs" />
+          <variable citdl="str" line="1256" name="title" />
+          <variable ilk="argument" name="mod" />
+          <variable line="1263" name="varkw" />
+          <variable citdl="object.__name__" line="1238" name="realname" />
+        </scope>
+        <variable attributes="protected" citdl="TextRepr" line="982" name="_repr_instance" />
+      </scope>
+      <scope doc="Page through text on a text terminal." ilk="function" line="1376" lineend="1412" name="ttypager" signature="ttypager(text)">
+        <variable line="1386" name="tty" />
+        <variable citdl="tty.tcgetattr()" line="1382" name="old" />
+        <variable ilk="argument" name="text" />
+        <variable citdl="split()" line="1378" name="lines" />
+        <variable citdl="getchar()" line="1395" name="c" />
+        <variable citdl="inc" line="1390" name="r" />
+        <variable citdl="sys.stdin.fileno()" line="1381" name="fd" />
+        <variable line="1384" name="getchar" />
+      </scope>
+      <import module="types" />
+      <scope doc="Decide whether to show documentation on a variable." ilk="function" line="159" lineend="174" name="visiblename" returns="bool" signature="visiblename(name, all=None, obj=None)">
+        <variable ilk="argument" name="all" />
+        <variable ilk="argument" name="obj" />
+        <variable ilk="argument" name="name" />
+        <variable attributes="protected" citdl="tuple" line="162" name="_hidden_names" />
+      </scope>
+      <scope doc="Write HTML documentation to a file in the current directory." ilk="function" line="1515" lineend="1525" name="writedoc" signature="writedoc(thing, forceload=0)">
+        <variable line="1518" name="name" />
+        <variable line="1518" name="object" />
+        <variable ilk="argument" name="thing" />
+        <variable citdl="open()" line="1520" name="file" />
+        <variable citdl="int" ilk="argument" name="forceload" />
+        <variable citdl="html.page()" line="1519" name="page" />
+      </scope>
+      <scope doc="Write out HTML documentation for all modules in a directory&#10;tree." ilk="function" line="1527" name="writedocs" signature="writedocs(dir, pkgpath='', done=None)">
+        <variable citdl="dict" ilk="argument" name="done" />
+        <variable citdl="str" ilk="argument" name="pkgpath" />
+        <variable ilk="argument" name="dir" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="class" line="1470" lineend="1470" name="_OldStyleClass" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="123" name="_re_stripid" />
+      <scope attributes="protected __hidden__" ilk="function" line="129" lineend="130" name="_is_some_method" returns="inspect.ismethoddescriptor()" signature="_is_some_method(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="type()" line="1471" name="_OLD_INSTANCE_TYPE" />
+      <scope attributes="protected __hidden__" doc="Split sequence s via predicate, and return pair ([true],&#10;[false])." ilk="function" line="142" lineend="157" name="_split_list" returns="tuple" signature="_split_list(s, predicate)">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="predicate" />
+        <variable citdl="list" line="150" name="yes" />
+        <variable citdl="list" line="151" name="no" />
+      </scope>
+    </scope>
+    

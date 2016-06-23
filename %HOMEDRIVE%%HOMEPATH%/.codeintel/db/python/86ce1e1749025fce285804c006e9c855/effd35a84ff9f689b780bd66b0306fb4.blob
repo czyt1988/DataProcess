@@ -1,0 +1,1 @@
+<scope doc="Run the EasyInstall command" ilk="blob" lang="Python" name="easy_install" src="d:\Program Files (x86)\Python35-32\lib\site-packages\easy_install.py"><import line="4" module="setuptools.command.easy_install" symbol="main" /></scope>

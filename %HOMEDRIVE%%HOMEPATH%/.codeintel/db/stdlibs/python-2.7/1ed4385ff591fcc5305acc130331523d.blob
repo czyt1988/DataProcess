@@ -1,0 +1,156 @@
+<scope doc="Loading unittests.&#10;" ilk="blob" lang="Python" name="unittest.loader">
+      <scope classrefs="object" doc="This class is responsible for loading tests according to various criteria&#10;and returning them wrapped in a TestSuite" ilk="class" line="38" lineend="292" name="TestLoader">
+        <scope doc="Return a suite of all tests cases found using the given&#10;sequence of string specifiers." ilk="function" line="124" lineend="129" name="loadTestsFromNames" returns="TestLoader.suiteClass()" signature="loadTestsFromNames(names, module=None)">
+          <variable citdl="list" line="128" name="suites" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope ilk="function" line="229" lineend="231" name="_get_module_from_name" signature="_get_module_from_name(name)">
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="207" lineend="217" name="_get_directory_containing_module" returns="os.path.dirname()" signature="_get_directory_containing_module(module_name)">
+          <variable ilk="argument" name="module_name" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable citdl="os.path.abspath()" line="209" name="full_path" />
+          <variable line="208" name="module" />
+        </scope>
+        <scope doc="Find and return all test modules from the specified start&#10;directory, recursing into subdirectories to find them." ilk="function" line="143" lineend="205" name="discover" returns="TestLoader.suiteClass()" signature="discover(start_dir, pattern='test*.py', top_level_dir=None)">
+          <variable citdl="list()" line="204" name="tests" />
+          <variable line="194" name="the_module" />
+          <variable citdl="str" ilk="argument" name="pattern" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable citdl="True" line="164" name="set_implicit_top" />
+          <variable citdl="os.path.abspath()" ilk="argument" name="start_dir" />
+          <variable citdl="True" line="182" name="is_not_importable" />
+          <variable line="195" name="top_part" />
+          <variable citdl="os.path.abspath()" ilk="argument" name="top_level_dir" />
+        </scope>
+        <scope doc="Return a suite of all tests cases contained in the given&#10;module" ilk="function" line="59" lineend="75" name="loadTestsFromModule" returns="TestLoader.loadTestsFromModule.load_tests()" signature="loadTestsFromModule(module, use_load_tests=True)">
+          <variable citdl="suiteClass()" line="61" name="tests" />
+          <variable citdl="getattr()" line="63" name="obj" />
+          <variable citdl="True" ilk="argument" name="use_load_tests" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+          <variable citdl="getattr()" line="67" name="load_tests" />
+        </scope>
+        <scope doc="Return a suite of all tests cases contained in testCaseClass" ilk="function" line="48" lineend="57" name="loadTestsFromTestCase" returns="suiteClass()" signature="loadTestsFromTestCase(testCaseClass)">
+          <variable ilk="argument" name="testCaseClass" />
+          <variable citdl="suiteClass()" line="56" name="loaded_suite" />
+          <variable citdl="list" line="53" name="testCaseNames" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="219" lineend="227" name="_get_name_from_path" returns="_relpath.replace()" signature="_get_name_from_path(path)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable citdl="_relpath.replace()" line="226" name="name" />
+          <variable attributes="protected" citdl="os.path.relpath()" line="222" name="_relpath" />
+        </scope>
+        <scope ilk="function" line="233" lineend="235" name="_match_path" returns="fnmatch()" signature="_match_path(path, full_path, pattern)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="full_path" />
+          <variable ilk="argument" name="pattern" />
+        </scope>
+        <scope doc="Return a sorted sequence of method names found within&#10;testCaseClass" ilk="function" line="131" lineend="141" name="getTestCaseNames" returns="filter()" signature="getTestCaseNames(testCaseClass)">
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <scope ilk="function" line="134" lineend="137" name="isTestMethod" returns="attrname.startswith()" signature="isTestMethod(attrname, testCaseClass=testCaseClass, prefix=self.testMethodPrefix)">
+            <variable ilk="argument" name="attrname" />
+            <variable ilk="argument" name="testCaseClass" />
+            <variable citdl="str" ilk="argument" name="prefix" />
+          </scope>
+          <variable ilk="argument" name="testCaseClass" />
+          <variable citdl="filter()" line="138" name="testFnNames" />
+        </scope>
+        <scope doc="Return a suite of all tests cases given a string specifier." ilk="function" line="77" lineend="122" name="loadTestsFromName" returns="TestLoader.loadTestsFromModule()" signature="loadTestsFromName(name, module=None)">
+          <variable citdl="__import__()" line="98" name="obj" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="__import__()" line="100" name="parent" />
+          <variable citdl="list" line="88" name="parts_copy" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable citdl="__import__()" ilk="argument" name="module" />
+          <variable citdl="name.split()" line="86" name="parts" />
+          <variable citdl="obj()" line="113" name="test" />
+        </scope>
+        <scope doc="Used by discovery. Yields test suites it loads." ilk="function" line="237" lineend="292" name="_find_tests" signature="_find_tests(start_dir, pattern)">
+          <variable citdl="os.listdir()" line="239" name="paths" />
+          <variable citdl="loadTestsFromModule()" line="272" name="tests" />
+          <variable citdl="_get_name_from_path()" line="250" name="name" />
+          <variable line="257" name="realpath" />
+          <variable citdl="os.path.dirname()" line="262" name="expected_dir" />
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="TestLoader" ilk="argument" name="self" />
+          <variable citdl="_get_module_from_name()" line="276" name="package" />
+          <variable citdl="_get_module_from_name()" line="252" name="module" />
+          <variable line="258" name="fullpath_noext" />
+          <variable ilk="argument" name="start_dir" />
+          <variable citdl="os.path.dirname()" line="260" name="module_dir" />
+          <variable line="261" name="mod_name" />
+          <variable citdl="str" line="263" name="msg" />
+          <variable citdl="getattr()" line="271" name="load_tests" />
+          <variable citdl="os.path.join()" line="242" name="full_path" />
+          <variable citdl="os.path.abspath()" line="256" name="mod_file" />
+        </scope>
+        <variable citdl="cmp" line="44" name="sortTestMethodsUsing" />
+        <variable citdl="str" line="43" name="testMethodPrefix" />
+        <variable attributes="protected" citdl="self._get_directory_containing_module()" line="46" name="_top_level_dir" />
+        <variable citdl="suite.TestSuite" line="45" name="suiteClass" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="19" name="VALID_MODULE_NAME" />
+      <import module="case" />
+      <variable citdl="TestLoader" line="294" name="defaultTestLoader" />
+      <scope ilk="function" line="312" lineend="314" name="findTestCases" signature="findTestCases(module, prefix='test', sortUsing=&lt;built-in function cmp&gt;, suiteClass=&lt;class 'unittest.suite.TestSuite'&gt;)">
+        <variable citdl="cmp" ilk="argument" name="sortUsing" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="suite.TestSuite" ilk="argument" name="suiteClass" />
+        <variable ilk="argument" name="module" />
+      </scope>
+      <scope doc="Test whether FILENAME matches PATTERN." ilk="function" name="fnmatch" signature="fnmatch(name, pat)" />
+      <scope ilk="function" line="305" lineend="306" name="getTestCaseNames" signature="getTestCaseNames(testCaseClass, prefix, sortUsing=&lt;built-in function cmp&gt;)">
+        <variable citdl="cmp" ilk="argument" name="sortUsing" />
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="testCaseClass" />
+      </scope>
+      <scope ilk="function" line="308" lineend="310" name="makeSuite" signature="makeSuite(testCaseClass, prefix='test', sortUsing=&lt;built-in function cmp&gt;, suiteClass=&lt;class 'unittest.suite.TestSuite'&gt;)">
+        <variable citdl="cmp" ilk="argument" name="sortUsing" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable ilk="argument" name="testCaseClass" />
+        <variable citdl="suite.TestSuite" ilk="argument" name="suiteClass" />
+      </scope>
+      <import module="os" />
+      <import module="re" />
+      <import module="suite" />
+      <import module="sys" />
+      <import module="traceback" />
+      <import module="types" />
+      <scope attributes="protected __hidden__" ilk="function" line="22" lineend="25" name="_make_failed_import_test" returns="_make_failed_test()" signature="_make_failed_import_test(name, suiteClass)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="suiteClass" />
+        <variable citdl="str" line="23" name="message" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="30" lineend="35" name="_make_failed_test" returns="_make_failed_test.suiteClass()" signature="_make_failed_test(classname, methodname, exception, suiteClass)">
+        <variable ilk="argument" name="classname" />
+        <variable ilk="argument" name="methodname" />
+        <variable ilk="argument" name="exception" />
+        <variable ilk="argument" name="suiteClass" />
+        <scope ilk="function" line="31" lineend="32" name="testFailure" signature="testFailure(self)">
+          <variable ilk="argument" name="self" />
+        </scope>
+        <variable citdl="dict" line="33" name="attrs" />
+        <variable citdl="type()" line="34" name="TestClass" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="27" lineend="28" name="_make_failed_load_tests" returns="_make_failed_test()" signature="_make_failed_load_tests(name, exception, suiteClass)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="exception" />
+        <variable ilk="argument" name="suiteClass" />
+      </scope>
+      <variable attributes="private __hidden__" citdl="True" line="14" name="__unittest" />
+      <scope attributes="protected __hidden__" ilk="function" line="297" lineend="303" name="_makeLoader" returns="TestLoader" signature="_makeLoader(prefix, sortUsing, suiteClass=None)">
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="sortUsing" />
+        <variable ilk="argument" name="suiteClass" />
+        <variable citdl="TestLoader" line="298" name="loader" />
+      </scope>
+    </scope>
+    

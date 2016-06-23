@@ -1,0 +1,206 @@
+<scope doc="Simple XML-RPC Server.&#10;This module can be used to create simple XML-RPC servers by creating a server and either installing functions, a class instance, or by extending the SimpleXMLRPCServer class.  It can also be used to handle XML-RPC requests in a CGI environment using CGIXMLRPCRequestHandler.  A list of possible usage patterns follows: " ilk="blob" lang="Python" name="SimpleXMLRPCServer">
+      <import module="BaseHTTPServer" />
+      <scope classrefs="SimpleXMLRPCDispatcher" doc="Simple handler for XML-RPC data passed through CGI.&#10;" ilk="class" line="638" lineend="697" name="CGIXMLRPCRequestHandler">
+        <scope doc="Handle a single XML-RPC request passed through a CGI post&#10;method." ilk="function" line="677" lineend="697" name="handle_request" signature="handle_request(request_text=None)">
+          <variable citdl="CGIXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="int" line="691" name="length" />
+          <variable citdl="sys.stdin.read()" ilk="argument" name="request_text" />
+        </scope>
+        <scope doc="Handle a single XML-RPC request" ilk="function" line="644" lineend="652" name="handle_xmlrpc" signature="handle_xmlrpc(request_text)">
+          <variable citdl="CGIXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="self._marshaled_dispatch()" line="647" name="response" />
+          <variable ilk="argument" name="request_text" />
+        </scope>
+        <scope doc="Handle a single HTTP GET request." ilk="function" line="654" lineend="675" name="handle_get" signature="handle_get()">
+          <variable citdl="CGIXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="int" line="661" name="code" />
+          <variable citdl="BaseHTTPServer.DEFAULT_ERROR_MESSAGE" line="665" name="response" />
+        </scope>
+        <scope ilk="function" line="641" lineend="642" name="__init__" signature="CGIXMLRPCRequestHandler(allow_none=False, encoding=None)">
+          <variable citdl="CGIXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="allow_none" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+      </scope>
+      <scope classrefs="Error" doc="Indicates an XML-RPC fault package.&#10;" ilk="class" name="Fault">
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="SimpleXMLRPCServer" doc="Multipath XML-RPC Server&#10;This specialization of SimpleXMLRPCServer allows the user to create multiple Dispatcher instances and assign them to different HTTP request paths.  This makes it possible to run two or more 'virtual XML-RPC servers' at the same port. Make sure that the requestHandler accepts the paths in question." ilk="class" line="600" lineend="636" name="MultiPathXMLRPCServer">
+        <scope ilk="function" line="617" lineend="619" name="add_dispatcher" signature="add_dispatcher(path, dispatcher)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="MultiPathXMLRPCServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="dispatcher" />
+        </scope>
+        <scope ilk="function" line="624" lineend="636" name="_marshaled_dispatch" returns="xmlrpclib.dumps()" signature="_marshaled_dispatch(data, dispatch_method=None, path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="MultiPathXMLRPCServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="dispatch_method" />
+          <variable citdl="xmlrpclib.dumps()" line="626" name="response" />
+        </scope>
+        <scope ilk="function" line="621" lineend="622" name="get_dispatcher" signature="get_dispatcher(path)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="MultiPathXMLRPCServer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="608" lineend="615" name="__init__" signature="MultiPathXMLRPCServer(addr, requestHandler=SimpleXMLRPCRequestHandler, logRequests=True, allow_none=False, encoding=None, bind_and_activate=True)">
+          <variable ilk="argument" name="addr" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="True" ilk="argument" name="bind_and_activate" />
+          <variable citdl="MultiPathXMLRPCServer" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="logRequests" />
+          <variable citdl="False" ilk="argument" name="allow_none" />
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="requestHandler" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="False" line="614" name="allow_none" />
+        <variable attributes="__instancevar__" citdl="dict" line="613" name="dispatchers" />
+        <variable attributes="__instancevar__" line="615" name="encoding" />
+      </scope>
+      <scope doc="Mix-in class that dispatches XML-RPC requests.&#10;This class is used to register XML-RPC method handlers and then to dispatch them. This class doesn't need to be instanced directly when used by SimpleXMLRPCServer but it can be instanced when used by the MultiPathXMLRPCServer." ilk="class" line="160" lineend="422" name="SimpleXMLRPCDispatcher">
+        <scope doc="Registers the XML-RPC multicall method in the system&#10;namespace." ilk="function" line="233" lineend="239" name="register_multicall_functions" signature="register_multicall_functions()">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Dispatches an XML-RPC method from marshalled (XML) data." ilk="function" line="241" lineend="276" name="_marshaled_dispatch" returns="tuple" signature="_marshaled_dispatch(data, dispatch_method=None, path=None)">
+          <variable ilk="argument" name="dispatch_method" />
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable line="270" name="exc_type" />
+          <variable line="270" name="exc_value" />
+          <variable line="270" name="exc_tb" />
+          <variable line="254" name="params" />
+          <variable ilk="argument" name="path" />
+          <variable citdl="xmlrpclib.dumps()" line="258" name="response" />
+          <variable ilk="argument" name="data" />
+          <variable line="254" name="method" />
+        </scope>
+        <scope doc="Returns a string containing documentation for the specified&#10;method." ilk="function" line="314" lineend="344" name="system_methodHelp" returns="str" signature="system.methodHelp('add') =&gt; &quot;Adds two integers together&quot;">
+          <variable ilk="argument" name="method_name" />
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="resolve_dotted_attribute()" line="319" name="method" />
+        </scope>
+        <scope doc="Registers the XML-RPC introspection methods in the system&#10;namespace." ilk="function" line="222" lineend="231" name="register_introspection_functions" signature="register_introspection_functions()">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Registers a function to respond to XML-RPC requests." ilk="function" line="211" lineend="220" name="register_function" signature="register_function(function, name=None)">
+          <variable ilk="argument" name="function" />
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="function.__name__" ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="169" lineend="173" name="__init__" signature="SimpleXMLRPCDispatcher(allow_none=False, encoding=None)">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="allow_none" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope doc="Dispatches the XML-RPC method." ilk="function" line="378" lineend="422" name="_dispatch" returns="self.instance._dispatch()" signature="_dispatch(method, params)">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="params" />
+          <variable ilk="argument" name="method" />
+          <variable citdl="resolve_dotted_attribute()" line="399" name="func" />
+        </scope>
+        <scope doc="Allows the caller to package multiple XML-RPC calls into a&#10;single request." ilk="function" line="346" lineend="376" name="system_multicall" returns="list" signature="system.multicall([{'methodName': 'add', 'params': [2, 2]}, ...]) =&gt; [[4], ...]">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="list" line="356" name="results" />
+          <variable line="371" name="exc_type" />
+          <variable line="358" name="method_name" />
+          <variable line="359" name="params" />
+          <variable ilk="argument" name="call_list" />
+          <variable line="371" name="exc_value" />
+          <variable line="371" name="exc_tb" />
+        </scope>
+        <scope doc="Returns a list of the methods supported by the server." ilk="function" line="278" lineend="299" name="system_listMethods" returns="remove_duplicates()" signature="system.listMethods() =&gt; ['add', 'subtract', 'multiple']">
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="remove_duplicates()" line="283" name="methods" />
+        </scope>
+        <scope doc="Returns a list describing the signature of the method." ilk="function" line="301" lineend="312" name="system_methodSignature" returns="str" signature="system.methodSignature('add') =&gt; [double, int, int]">
+          <variable ilk="argument" name="method_name" />
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Registers an instance to respond to XML-RPC requests." ilk="function" line="175" lineend="209" name="register_instance" signature="register_instance(instance, allow_dotted_names=False)">
+          <variable ilk="argument" name="instance" />
+          <variable citdl="SimpleXMLRPCDispatcher" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="allow_dotted_names" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="170" name="funcs" />
+        <variable attributes="__instancevar__" line="171" name="instance" />
+        <variable attributes="__instancevar__" citdl="False" line="209" name="allow_dotted_names" />
+        <variable attributes="__instancevar__" citdl="False" line="172" name="allow_none" />
+        <variable attributes="__instancevar__" line="173" name="encoding" />
+      </scope>
+      <scope classrefs="BaseHTTPRequestHandler" doc="Simple XML-RPC request handler class.&#10;Handles all HTTP POST requests and attempts to decode them as XML-RPC requests." ilk="class" line="424" lineend="564" name="SimpleXMLRPCRequestHandler">
+        <scope ilk="function" line="534" lineend="549" name="decode_request_content" returns="xmlrpclib.gzip_decode()" signature="decode_request_content(data)">
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable line="536" name="encoding" />
+        </scope>
+        <scope ilk="function" line="460" lineend="465" name="is_rpc_path_valid" returns="bool" signature="is_rpc_path_valid()">
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="551" lineend="558" name="report_404" signature="report_404()">
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="str" line="554" name="response" />
+        </scope>
+        <scope ilk="function" line="449" lineend="458" name="accept_encodings" returns="dict" signature="accept_encodings()">
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="dict" line="450" name="r" />
+          <variable citdl="self.headers.get()" line="451" name="ae" />
+          <variable citdl="self.aepattern.match()" line="453" name="match" />
+          <variable citdl="match.group()" line="455" name="v" />
+        </scope>
+        <scope doc="Selectively log an accepted request." ilk="function" line="560" lineend="564" name="log_request" signature="log_request(code='-', size='-')">
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="code" />
+          <variable citdl="str" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Handles the HTTP POST request." ilk="function" line="467" lineend="532" name="do_POST" signature="do_POST()">
+          <variable line="523" name="q" />
+          <variable citdl="int" line="484" name="max_chunk_size" />
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="list" line="486" name="L" />
+          <variable citdl="int()" line="485" name="size_remaining" />
+          <variable citdl="min()" line="488" name="chunk_size" />
+          <variable citdl="self.decode_request_content()" line="491" name="data" />
+          <variable citdl="self.server._marshaled_dispatch()" line="502" name="response" />
+        </scope>
+        <variable citdl="int" line="440" name="wbufsize" />
+        <variable citdl="True" line="441" name="disable_nagle_algorithm" />
+        <variable citdl="tuple" line="433" name="rpc_paths" />
+        <variable citdl="int" line="436" name="encode_threshold" />
+        <variable citdl="re.compile()" line="444" name="aepattern" />
+      </scope>
+      <scope classrefs="TCPServer SimpleXMLRPCDispatcher" doc="Simple XML-RPC server.&#10;Simple XML-RPC server that allows functions and a single instance to be installed to handle requests. The default implementation attempts to dispatch XML-RPC calls to the functions or instance installed in the server. Override the _dispatch method inhereted from SimpleXMLRPCDispatcher to change this behavior." ilk="class" line="566" lineend="598" name="SimpleXMLRPCServer">
+        <scope ilk="function" line="585" lineend="598" name="__init__" signature="SimpleXMLRPCServer(addr, requestHandler=SimpleXMLRPCRequestHandler, logRequests=True, allow_none=False, encoding=None, bind_and_activate=True)">
+          <variable ilk="argument" name="addr" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="True" ilk="argument" name="bind_and_activate" />
+          <variable citdl="SimpleXMLRPCServer" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="logRequests" />
+          <variable citdl="False" ilk="argument" name="allow_none" />
+          <variable citdl="SimpleXMLRPCRequestHandler" ilk="argument" name="requestHandler" />
+          <variable citdl="fcntl.fcntl()" line="596" name="flags" />
+        </scope>
+        <variable citdl="True" line="577" name="allow_reuse_address" />
+        <variable attributes="protected" citdl="False" line="583" name="_send_traceback_header" />
+        <variable attributes="__instancevar__" citdl="True" line="587" name="logRequests" />
+      </scope>
+      <import module="SocketServer" />
+      <variable citdl="NoneType" line="113" name="fcntl" />
+      <scope doc="Returns a list of attribute strings, found in the specified&#10;object, which represent callable attributes" ilk="function" line="139" lineend="145" name="list_public_methods" returns="list" signature="list_public_methods(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Returns a copy of a list without duplicates." ilk="function" line="147" lineend="158" name="remove_duplicates" returns="u.keys()" signature="remove_duplicates([2,2,2,1,3,3]) =&gt; [3,1,2]">
+        <variable ilk="argument" name="lst" />
+        <variable citdl="dict" line="154" name="u" />
+      </scope>
+      <scope doc="Resolves a dotted attribute name to an object." ilk="function" line="115" lineend="137" name="resolve_dotted_attribute" returns="getattr()" signature="resolve_dotted_attribute(a, 'b.c.d') =&gt; a.b.c.d">
+        <variable citdl="True" ilk="argument" name="allow_dotted_names" />
+        <variable citdl="getattr()" ilk="argument" name="obj" />
+        <variable ilk="argument" name="attr" />
+        <variable citdl="list" line="126" name="attrs" />
+      </scope>
+      <import module="sys" />
+      <import module="traceback" />
+      <import module="xmlrpclib" />
+      <variable attributes="__hidden__" citdl="SimpleXMLRPCServer" line="701" name="server" />
+    </scope>
+    

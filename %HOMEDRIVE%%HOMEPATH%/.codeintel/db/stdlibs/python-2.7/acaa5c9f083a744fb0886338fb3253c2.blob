@@ -1,0 +1,64 @@
+<scope doc="######################################################################&#10;#  This file should be kept compatible with Python 2.3, see PEP 291. # ######################################################################" ilk="blob" lang="Python" name="ctypes.util">
+      <scope ilk="function" line="235" lineend="236" name="find_library" returns="_get_soname()" signature="find_library(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="Return the name of the VC runtime dll" ilk="function" line="32" lineend="47" name="find_msvcrt" returns="str" signature="find_msvcrt()">
+        <variable citdl="str" line="39" name="clibname" />
+        <variable citdl="_get_build_version()" line="34" name="version" />
+      </scope>
+      <import module="os" />
+      <import module="sys" />
+      <scope ilk="function" line="241" lineend="267" name="test" signature="test()" />
+      <scope attributes="protected __hidden__" ilk="function" line="185" lineend="205" name="_findLib_ldconfig" returns="res.group()" signature="_findLib_ldconfig(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="re.escape()" line="187" name="expr" />
+        <variable citdl="os.popen()" line="188" name="f" />
+        <variable citdl="f.read()" line="190" name="data" />
+        <variable citdl="re.search()" line="193" name="res" />
+        <variable citdl="str" line="196" name="cmd" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Return the version of MSVC that was used to build Python." ilk="function" line="9" lineend="30" name="_get_build_version" returns="int()" signature="_get_build_version()">
+        <variable citdl="str" line="16" name="prefix" />
+        <variable citdl="sys.version.find()" line="17" name="i" />
+        <variable line="21" name="rest" />
+        <variable line="21" name="s" />
+        <variable citdl="int()" line="22" name="majorVersion" />
+        <variable citdl="int" line="23" name="minorVersion" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="133" lineend="152" name="_get_soname" returns="res.group()" signature="_get_soname(f)">
+        <variable citdl="os.popen()" ilk="argument" name="f" />
+        <variable citdl="str" line="137" name="cmd" />
+        <variable citdl="f.read()" line="140" name="dump" />
+        <variable citdl="f.close()" line="141" name="rv" />
+        <variable citdl="f.read()" line="146" name="data" />
+        <variable citdl="re.search()" line="149" name="res" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="91" lineend="114" name="_findLib_gcc" returns="res.group()" signature="_findLib_gcc(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="re.escape()" line="92" name="expr" />
+        <variable line="93" name="ccout" />
+        <variable line="93" name="fdout" />
+        <variable citdl="str" line="95" name="cmd" />
+        <variable citdl="os.popen()" line="98" name="f" />
+        <variable citdl="f.read()" line="100" name="trace" />
+        <variable citdl="f.close()" line="102" name="rv" />
+        <variable citdl="re.search()" line="111" name="res" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="158" lineend="167" name="_num_version" returns="list" signature="_num_version(libname)">
+        <variable ilk="argument" name="libname" />
+        <variable citdl="libname.split()" line="160" name="parts" />
+        <variable citdl="list" line="161" name="nums" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="207" lineend="233" name="_findSoname_ldconfig" returns="res.group()" signature="_findSoname_ldconfig(name)">
+        <import line="208" module="struct" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="str" line="210" name="machine" />
+        <variable citdl="dict" line="213" name="mach_map" />
+        <variable citdl="mach_map.get()" line="220" name="abi_type" />
+        <variable citdl="str" line="223" name="expr" />
+        <variable citdl="os.popen()" line="225" name="f" />
+        <variable citdl="f.read()" line="227" name="data" />
+        <variable citdl="re.search()" line="230" name="res" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,408 @@
+<scope doc="# Copyright (C) 2005 Martin v. L&#246;wis&#10;# Licensed to PSF under a Contributor Agreement." ilk="blob" lang="Python" name="msilib">
+      <variable citdl="bool" line="7" name="AMD64" />
+      <scope doc="&#10;" ilk="class" line="391" lineend="395" name="Binary">
+        <scope ilk="function" line="394" lineend="395" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Binary" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="392" lineend="393" name="__init__" signature="Binary(fname)">
+          <variable citdl="Binary" ilk="argument" name="self" />
+          <variable ilk="argument" name="fname" />
+        </scope>
+        <variable attributes="__instancevar__" line="393" name="name" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="186" lineend="219" name="CAB">
+        <scope ilk="function" line="193" lineend="200" name="gen_id" returns="tuple" signature="gen_id(file)">
+          <variable citdl="CAB" ilk="argument" name="self" />
+          <variable citdl="str" line="194" name="logical" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="int" line="195" name="pos" />
+        </scope>
+        <scope ilk="function" line="187" lineend="191" name="__init__" signature="CAB(name)">
+          <variable citdl="CAB" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="211" lineend="219" name="commit" signature="commit(db)">
+          <variable citdl="CAB" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+          <variable citdl="mktemp()" line="213" name="filename" />
+        </scope>
+        <scope ilk="function" line="202" lineend="209" name="append" returns="tuple" signature="append(full, file, logical)">
+          <variable citdl="CAB" ilk="argument" name="self" />
+          <variable ilk="argument" name="full" />
+          <variable citdl="gen_id()" ilk="argument" name="logical" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="189" name="files" />
+        <variable attributes="__instancevar__" citdl="int" line="191" name="index" />
+        <variable attributes="__instancevar__" line="188" name="name" />
+        <variable attributes="__instancevar__" citdl="set()" line="190" name="filenames" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="410" lineend="426" name="Control">
+        <scope ilk="function" line="420" lineend="422" name="mapping" signature="mapping(event, attribute)">
+          <variable ilk="argument" name="attribute" />
+          <variable citdl="Control" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="415" lineend="418" name="event" signature="event(event, argument, condition='1', ordering=None)">
+          <variable ilk="argument" name="ordering" />
+          <variable citdl="Control" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+          <variable citdl="str" ilk="argument" name="condition" />
+          <variable ilk="argument" name="argument" />
+        </scope>
+        <scope ilk="function" line="411" lineend="413" name="__init__" signature="Control(dlg, name)">
+          <variable citdl="Control" ilk="argument" name="self" />
+          <variable ilk="argument" name="dlg" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="424" lineend="426" name="condition" signature="condition(action, condition)">
+          <variable ilk="argument" name="action" />
+          <variable citdl="Control" ilk="argument" name="self" />
+          <variable ilk="argument" name="condition" />
+        </scope>
+        <variable attributes="__instancevar__" line="412" name="dlg" />
+        <variable attributes="__instancevar__" line="413" name="name" />
+      </scope>
+      <scope doc="Wraps MsiCreateRecord" ilk="function" name="CreateRecord" signature="OpenDatabase(name, flags) -&gt; dbobj" />
+      <scope doc="&#10;" ilk="class" line="443" lineend="475" name="Dialog">
+        <scope ilk="function" line="450" lineend="453" name="control" returns="Control" signature="control(name, type, x, y, w, h, attr, prop, text, next, help)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="help" />
+          <variable ilk="argument" name="prop" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="next" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="474" lineend="475" name="checkbox" returns="Dialog.control()" signature="checkbox(name, x, y, w, h, attr, prop, text, next)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="prop" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="next" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="455" lineend="457" name="text" returns="Dialog.control()" signature="text(name, x, y, w, h, attr, text)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="465" lineend="466" name="pushbutton" returns="Dialog.control()" signature="pushbutton(name, x, y, w, h, attr, text, next)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="next" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="459" lineend="460" name="bitmap" returns="Dialog.control()" signature="bitmap(name, x, y, w, h, text)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="468" lineend="472" name="radiogroup" returns="RadioButtonGroup" signature="radiogroup(name, x, y, w, h, attr, prop, text, next)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="prop" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="next" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="462" lineend="463" name="line" returns="Dialog.control()" signature="line(name, x, y, w, h)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="444" lineend="448" name="__init__" signature="Dialog(db, name, x, y, w, h, attr, title, first, default, cancel)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="title" />
+          <variable ilk="argument" name="default" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+          <variable ilk="argument" name="cancel" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable ilk="argument" name="first" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <variable attributes="__instancevar__" line="446" name="name" />
+        <variable attributes="__instancevar__" line="447" name="h" />
+        <variable attributes="__instancevar__" line="445" name="db" />
+        <variable attributes="__instancevar__" line="447" name="w" />
+        <variable attributes="__instancevar__" line="447" name="y" />
+        <variable attributes="__instancevar__" line="447" name="x" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="222" lineend="389" name="Directory">
+        <scope ilk="function" line="286" lineend="325" name="make_short" returns="tuple" signature="make_short(file)">
+          <variable line="287" name="oldfile" />
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable citdl="int" line="312" name="pos" />
+          <variable citdl="list" line="292" name="prefix" />
+          <variable citdl="file.split()" line="290" name="parts" />
+          <variable citdl="str" ilk="argument" name="file" />
+          <variable citdl="list" line="293" name="suffix" />
+        </scope>
+        <scope doc="Add a list of files to the current component as specified in&#10;the glob pattern." ilk="function" line="376" lineend="383" name="glob" returns="glob.glob1()" signature="glob(pattern, exclude=None)">
+          <variable citdl="glob.glob1()" line="379" name="files" />
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable ilk="argument" name="exclude" />
+        </scope>
+        <scope doc="Remove .pyc/.pyo files on uninstall" ilk="function" line="385" lineend="389" name="remove_pyc" signature="remove_pyc()">
+          <variable citdl="Directory" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add a file to the current component of the directory,&#10;starting a new one one if there is no current component." ilk="function" line="327" lineend="374" name="add_file" signature="add_file(file, src=None, version=None, language=None)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="make_short()" line="348" name="short" />
+          <variable ilk="argument" name="language" />
+          <variable line="345" name="sequence" />
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable line="342" name="logical" />
+          <variable ilk="argument" name="version" />
+          <variable citdl="str" line="349" name="full" />
+          <variable line="350" name="filesize" />
+          <variable citdl="os.path.basename()" ilk="argument" name="file" />
+          <variable citdl="int" line="354" name="attributes" />
+          <variable citdl="os.path.join()" line="339" name="absolute" />
+        </scope>
+        <scope doc="Add an entry to the Component table, and make this component&#10;the current for this directory." ilk="function" line="257" lineend="284" name="start_component" signature="start_component(component=None, feature=None, flags=None, keyfile=None, uuid=None)">
+          <variable citdl="self.cab.gen_id()" line="275" name="keyid" />
+          <variable citdl="uuid.upper()" ilk="argument" name="uuid" />
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="component" />
+          <variable citdl="current_feature" ilk="argument" name="feature" />
+          <variable ilk="argument" name="flags" />
+          <variable ilk="argument" name="keyfile" />
+        </scope>
+        <scope doc="Create a new directory in the Directory table." ilk="function" line="223" lineend="255" name="__init__" signature="Directory(db, cab, basedir, physical, _logical, default, componentflags=None)">
+          <variable citdl="int" line="232" name="index" />
+          <variable ilk="argument" name="default" />
+          <variable citdl="make_id()" ilk="argument" name="_logical" />
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable ilk="argument" name="basedir" />
+          <variable ilk="argument" name="db" />
+          <variable citdl="str" line="234" name="logical" />
+          <variable ilk="argument" name="cab" />
+          <variable citdl="basedir.logical" line="251" name="blogical" />
+          <variable ilk="argument" name="componentflags" />
+          <variable ilk="argument" name="physical" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="make_id()" line="244" name="component" />
+        <variable attributes="__instancevar__" citdl="dict" line="247" name="keyfiles" />
+        <variable attributes="__instancevar__" line="241" name="basedir" />
+        <variable attributes="__instancevar__" line="239" name="db" />
+        <variable attributes="__instancevar__" citdl="set()" line="246" name="ids" />
+        <variable attributes="__instancevar__" citdl="make_id()" line="243" name="logical" />
+        <variable attributes="__instancevar__" line="248" name="componentflags" />
+        <variable attributes="__instancevar__" line="240" name="cab" />
+        <variable attributes="__instancevar__" citdl="os.path.join()" line="250" name="absolute" />
+        <variable attributes="__instancevar__" citdl="set()" line="245" name="short_names" />
+        <variable attributes="__instancevar__" line="242" name="physical" />
+      </scope>
+      <scope doc="fcicreate(cabname,files) -&gt; None" ilk="function" name="FCICreate" signature="fcicreate(cabname,files) -&gt; None" />
+      <scope doc="&#10;" ilk="class" line="397" lineend="408" name="Feature">
+        <scope ilk="function" line="406" lineend="408" name="set_current" signature="set_current()">
+          <variable citdl="Feature" ilk="argument" name="self" />
+          <variable citdl="Feature" line="408" name="current_feature" />
+        </scope>
+        <scope ilk="function" line="398" lineend="405" name="__init__" signature="Feature(db, id, title, desc, display, level=1, parent=None, directory=None, attributes=0)">
+          <variable citdl="parent.id" ilk="argument" name="parent" />
+          <variable ilk="argument" name="title" />
+          <variable citdl="Feature" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable ilk="argument" name="db" />
+          <variable ilk="argument" name="id" />
+          <variable ilk="argument" name="directory" />
+          <variable citdl="int" ilk="argument" name="attributes" />
+          <variable ilk="argument" name="display" />
+          <variable ilk="argument" name="desc" />
+        </scope>
+        <variable attributes="__instancevar__" line="400" name="id" />
+      </scope>
+      <variable citdl="bool" line="8" name="Itanium" />
+      <variable citdl="int" name="MSICOLINFO_NAMES" />
+      <variable citdl="int" name="MSICOLINFO_TYPES" />
+      <variable citdl="int" name="MSIDBOPEN_CREATE" />
+      <variable citdl="int" name="MSIDBOPEN_CREATEDIRECT" />
+      <variable citdl="int" name="MSIDBOPEN_DIRECT" />
+      <variable citdl="int" name="MSIDBOPEN_PATCHFILE" />
+      <variable citdl="int" name="MSIDBOPEN_READONLY" />
+      <variable citdl="int" name="MSIDBOPEN_TRANSACT" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="MSIError" />
+      <variable citdl="int" name="MSIMODIFY_ASSIGN" />
+      <variable citdl="int" name="MSIMODIFY_DELETE" />
+      <variable citdl="int" name="MSIMODIFY_INSERT" />
+      <variable citdl="int" name="MSIMODIFY_INSERT_TEMPORARY" />
+      <variable citdl="int" name="MSIMODIFY_MERGE" />
+      <variable citdl="int" name="MSIMODIFY_REFRESH" />
+      <variable citdl="int" name="MSIMODIFY_REPLACE" />
+      <variable citdl="int" name="MSIMODIFY_SEEK" />
+      <variable citdl="int" name="MSIMODIFY_UPDATE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_DELETE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_FIELD" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_NEW" />
+      <scope doc="Wraps MsiOpenDatabase" ilk="function" name="OpenDatabase" signature="OpenDatabase(name, flags) -&gt; dbobj" />
+      <variable citdl="int" name="PID_APPNAME" />
+      <variable citdl="int" name="PID_AUTHOR" />
+      <variable citdl="int" name="PID_CHARCOUNT" />
+      <variable citdl="int" name="PID_CODEPAGE" />
+      <variable citdl="int" name="PID_COMMENTS" />
+      <variable citdl="int" name="PID_CREATE_DTM" />
+      <variable citdl="int" name="PID_KEYWORDS" />
+      <variable citdl="int" name="PID_LASTAUTHOR" />
+      <variable citdl="int" name="PID_LASTPRINTED" />
+      <variable citdl="int" name="PID_LASTSAVE_DTM" />
+      <variable citdl="int" name="PID_PAGECOUNT" />
+      <variable citdl="int" name="PID_REVNUMBER" />
+      <variable citdl="int" name="PID_SECURITY" />
+      <variable citdl="int" name="PID_SUBJECT" />
+      <variable citdl="int" name="PID_TEMPLATE" />
+      <variable citdl="int" name="PID_TITLE" />
+      <variable citdl="int" name="PID_WORDCOUNT" />
+      <scope classrefs="Control" doc="&#10;" ilk="class" line="428" lineend="441" name="RadioButtonGroup">
+        <scope ilk="function" line="435" lineend="441" name="add" signature="add(name, x, y, w, h, text, value=None)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="h" />
+          <variable citdl="RadioButtonGroup" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="w" />
+          <variable ilk="argument" name="text" />
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="429" lineend="433" name="__init__" signature="RadioButtonGroup(dlg, name, property)">
+          <variable citdl="RadioButtonGroup" ilk="argument" name="self" />
+          <variable ilk="argument" name="property" />
+          <variable ilk="argument" name="dlg" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="433" name="index" />
+        <variable attributes="__instancevar__" line="432" name="property" />
+        <variable attributes="__instancevar__" line="430" name="dlg" />
+        <variable attributes="__instancevar__" line="431" name="name" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="28" lineend="81" name="Table">
+        <scope ilk="function" line="78" lineend="81" name="create" signature="create(db)">
+          <variable citdl="Table" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+          <variable citdl="db.OpenView()" line="79" name="v" />
+        </scope>
+        <scope ilk="function" line="33" lineend="34" name="add_field" signature="add_field(index, name, type)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Table" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="36" lineend="76" name="sql" returns="tuple" signature="sql()">
+          <variable citdl="list" line="38" name="keys" />
+          <variable citdl="list" line="37" name="fields" />
+          <variable citdl="Table" ilk="argument" name="self" />
+          <variable citdl="str" line="66" name="flags" />
+          <variable citdl="int" line="47" name="dtype" />
+          <variable citdl="str" line="50" name="tname" />
+          <variable citdl="int" line="43" name="unk" />
+          <variable citdl="int" line="46" name="size" />
+        </scope>
+        <scope ilk="function" line="29" lineend="31" name="__init__" signature="Table(name)">
+          <variable citdl="Table" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="31" name="fields" />
+        <variable attributes="__instancevar__" line="30" name="name" />
+      </scope>
+      <scope doc="UuidCreate() -&gt; string" ilk="function" name="UuidCreate" returns="str" signature="UuidCreate() -&gt; string" />
+      <variable citdl="bool" line="9" name="Win64" />
+      <scope ilk="function" line="96" lineend="120" name="add_data" signature="add_data(db, table, values)">
+        <variable line="98" name="count" />
+        <variable ilk="argument" name="db" />
+        <variable line="103" name="field" />
+        <variable citdl="CreateRecord()" line="99" name="r" />
+        <variable ilk="argument" name="values" />
+        <variable citdl="db.OpenView()" line="97" name="v" />
+        <variable ilk="argument" name="table" />
+      </scope>
+      <scope ilk="function" line="123" lineend="128" name="add_stream" signature="add_stream(db, name, path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="CreateRecord()" line="125" name="r" />
+        <variable ilk="argument" name="db" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="db.OpenView()" line="124" name="v" />
+      </scope>
+      <scope ilk="function" line="171" lineend="173" name="add_tables" signature="add_tables(db, module)">
+        <variable ilk="argument" name="db" />
+        <variable ilk="argument" name="module" />
+      </scope>
+      <scope doc="Change the sequence number of an action in a sequence list" ilk="function" line="84" lineend="94" name="change_sequence" signature="change_sequence(seq, action, seqno=&lt;class msilib._Unspecified at 0x03837378&gt;, cond=&lt;class msilib._Unspecified at 0x03837378&gt;)">
+        <variable ilk="argument" name="action" />
+        <variable citdl="_Unspecified" ilk="argument" name="seqno" />
+        <variable citdl="_Unspecified" ilk="argument" name="cond" />
+        <variable ilk="argument" name="seq" />
+      </scope>
+      <variable citdl="int" line="12" name="datasizemask" />
+      <scope ilk="function" line="183" lineend="184" name="gen_uuid" returns="str" signature="gen_uuid()" />
+      <scope ilk="function" line="130" lineend="169" name="init_database" returns="OpenDatabase()" signature="init_database(name, schema, ProductName, ProductCode, ProductVersion, Manufacturer)">
+        <variable citdl="ProductCode.upper()" ilk="argument" name="ProductCode" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="OpenDatabase()" line="139" name="db" />
+        <variable ilk="argument" name="ProductName" />
+        <variable citdl="db.GetSummaryInformation()" line="146" name="si" />
+        <variable ilk="argument" name="ProductVersion" />
+        <variable ilk="argument" name="schema" />
+        <variable ilk="argument" name="Manufacturer" />
+      </scope>
+      <variable citdl="int" line="25" name="knownbits" />
+      <scope ilk="function" line="175" lineend="181" name="make_id" returns="str" signature="make_id(str)">
+        <variable citdl="string.ascii_letters" line="176" name="identifier_chars" />
+        <variable citdl="str.join()" ilk="argument" name="str" />
+      </scope>
+      <import module="os" />
+      <import module="re" />
+      <import module="schema" />
+      <import module="sequence" />
+      <import module="string" />
+      <import module="sys" />
+      <import module="text" />
+      <variable citdl="int" line="20" name="type_binary" />
+      <variable citdl="int" line="23" name="type_key" />
+      <variable citdl="int" line="14" name="type_localizable" />
+      <variable citdl="int" line="17" name="type_long" />
+      <variable citdl="int" line="22" name="type_nullable" />
+      <variable citdl="int" line="18" name="type_short" />
+      <variable citdl="int" line="19" name="type_string" />
+      <variable citdl="int" line="13" name="type_valid" />
+      <variable citdl="int" line="16" name="typemask" />
+      <scope attributes="protected __hidden__" ilk="class" line="83" lineend="83" name="_Unspecified" />
+      <variable attributes="protected __hidden__" citdl="set()" line="221" name="_directories" />
+    </scope>
+    

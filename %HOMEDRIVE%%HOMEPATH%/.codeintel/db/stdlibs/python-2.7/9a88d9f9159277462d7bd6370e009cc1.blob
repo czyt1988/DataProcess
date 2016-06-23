@@ -1,0 +1,254 @@
+<scope doc="Basic message object for the email package object model.&#10;" ilk="blob" lang="Python" name="email.message">
+      <scope doc="Basic message object.&#10;A message object is defined as something that has a bunch of RFC 2822 headers and a payload.  It may optionally have an envelope header (a.k.a. Unix-From or From_ header).  If the message is a container (i.e. a multipart or a message/rfc822), then the payload is a list of Message objects, otherwise it is a string.  Message objects implement part of the `mapping' interface, which assumes there is exactly one occurrence of the header per message.  Some headers do in fact appear multiple times (e.g. Received) and for those headers, you must use the explicit API to set or get all the headers.  Not all of" ilk="class" line="92" lineend="797" name="Message">
+        <scope doc="Return a list of all the values for the named field." ilk="function" line="370" lineend="386" name="get_all" returns="list" signature="get_all(name, failobj=None)">
+          <variable citdl="list" line="379" name="values" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the entire formatted message as a string." ilk="function" line="124" lineend="138" name="as_string" returns="fp.getvalue()" signature="as_string(unixfrom=False)">
+          <variable citdl="StringIO()" line="135" name="fp" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="unixfrom" />
+          <variable citdl="Generator()" line="136" name="g" />
+        </scope>
+        <scope doc="Return the entire formatted message as a string." ilk="function" line="118" lineend="122" name="__str__" returns="self.as_string()" signature="__str__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Walk over the message tree, yielding each subpart." ilk="function" name="walk" />
+        <scope doc="Extended header setting." ilk="function" line="388" lineend="411" name="add_header" signature="add_header(_name, _value, **_params)">
+          <variable ilk="argument" name="_value" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="list" line="403" name="parts" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable ilk="argument" name="_name" />
+        </scope>
+        <scope doc="Return true if the message contains the header." ilk="function" line="319" lineend="322" name="has_key" returns="bool" signature="has_key(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="object()" line="321" name="missing" />
+        </scope>
+        <scope doc="Returns the message's sub-content type." ilk="function" line="465" lineend="472" name="get_content_subtype" signature="get_content_subtype()">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="get_content_type()" line="471" name="ctype" />
+        </scope>
+        <scope doc="Return the filename associated with the payload if present." ilk="function" line="673" lineend="687" name="get_filename" signature="get_filename(failobj=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="get_param()" line="682" name="filename" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="object()" line="681" name="missing" />
+        </scope>
+        <scope doc="Remove the given parameter completely from the Content-Type&#10;header." ilk="function" line="619" lineend="639" name="del_param" signature="del_param(param, header='content-type', requote=True)">
+          <variable citdl="str" ilk="argument" name="header" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="requote" />
+          <variable ilk="argument" name="param" />
+          <variable citdl="SEMISPACE.join()" line="629" name="new_ctype" />
+        </scope>
+        <scope ilk="function" line="107" lineend="116" name="__init__" signature="Message()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="492" lineend="511" name="_get_params_preserve" returns="list" signature="_get_params_preserve(failobj, header)">
+          <variable citdl="name.strip()" line="502" name="name" />
+          <variable citdl="val.strip()" line="502" name="val" />
+          <variable citdl="object()" line="495" name="missing" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="get()" line="496" name="value" />
+          <variable ilk="argument" name="header" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="list" line="499" name="params" />
+        </scope>
+        <scope doc="Get a header value." ilk="function" line="285" lineend="294" name="__getitem__" returns="self.get()" signature="__getitem__(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="316" lineend="317" name="__contains__" returns="bool" signature="__contains__(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the message's content type." ilk="function" line="432" lineend="454" name="get_content_type" returns="self.get_default_type()" signature="get_content_type()">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable line="450" name="ctype" />
+          <variable citdl="get()" line="446" name="value" />
+          <variable citdl="object()" line="445" name="missing" />
+        </scope>
+        <scope doc="Set a parameter in the Content-Type header." ilk="function" line="571" lineend="617" name="set_param" signature="set_param(param, value, header='Content-Type', requote=True, charset=None, language='')">
+          <variable citdl="str" ilk="argument" name="language" />
+          <variable citdl="True" ilk="argument" name="requote" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable citdl="tuple" ilk="argument" name="value" />
+          <variable citdl="str" ilk="argument" name="header" />
+          <variable citdl="str" line="593" name="ctype" />
+          <variable ilk="argument" name="param" />
+          <variable citdl="_formatparam()" line="606" name="append_param" />
+        </scope>
+        <scope doc="Return the message's Content-Type parameters, as a list." ilk="function" line="513" lineend="533" name="get_params" returns="list" signature="get_params(failobj=None, header='content-type', unquote=True)">
+          <variable citdl="True" ilk="argument" name="unquote" />
+          <variable citdl="object()" line="526" name="missing" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="header" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="_get_params_preserve()" line="527" name="params" />
+        </scope>
+        <scope doc="Add the given payload to the current payload." ilk="function" line="156" lineend="166" name="attach" signature="attach(payload)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="payload" />
+        </scope>
+        <scope doc="Set the boundary parameter in Content-Type to 'boundary'." ilk="function" line="702" lineend="745" name="set_boundary" signature="set_boundary(boundary)">
+          <variable citdl="False" line="719" name="foundp" />
+          <variable citdl="list" line="718" name="newparams" />
+          <variable citdl="object()" line="712" name="missing" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="list" line="735" name="parts" />
+          <variable citdl="_get_params_preserve()" line="713" name="params" />
+          <variable citdl="list" line="732" name="newheaders" />
+          <variable ilk="argument" name="boundary" />
+        </scope>
+        <scope doc="Set the charset of the payload to a given character set." ilk="function" line="228" lineend="271" name="set_charset" signature="set_charset(charset)">
+          <variable citdl="charset.get_body_encoding()" line="266" name="cte" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="email.charset.Charset()" ilk="argument" name="charset" />
+        </scope>
+        <scope doc="Return the total number of headers, including duplicates." ilk="function" line="281" lineend="283" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the payload to the given value." ilk="function" line="218" lineend="226" name="set_payload" signature="set_payload(payload, charset=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable ilk="argument" name="payload" />
+        </scope>
+        <scope ilk="function" line="150" lineend="151" name="get_unixfrom" signature="get_unixfrom()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the Charset instance associated with the message's&#10;payload." ilk="function" line="273" lineend="276" name="get_charset" returns="email.charset.Charset()" signature="get_charset()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get a header value." ilk="function" line="354" lineend="364" name="get" returns="v" signature="get(name, failobj=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return a list of all the message's header field names." ilk="function" line="324" lineend="332" name="keys" returns="list" signature="keys()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the main type and subtype for the Content-Type header." ilk="function" line="641" lineend="671" name="set_type" signature="set_type(type, header='Content-Type', requote=True)">
+          <variable citdl="str" ilk="argument" name="header" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="True" ilk="argument" name="requote" />
+          <variable citdl="get_params()" line="666" name="params" />
+        </scope>
+        <scope doc="# Unix From_ line" ilk="function" line="147" lineend="148" name="set_unixfrom" signature="set_unixfrom(unixfrom)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="unixfrom" />
+        </scope>
+        <scope doc="Set the value of a header." ilk="function" line="296" lineend="302" name="__setitem__" signature="__setitem__(name, val)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="val" />
+        </scope>
+        <scope doc="Return a list containing the charset(s) used in this&#10;message." ilk="function" line="778" lineend="794" name="get_charsets" returns="list" signature="get_charsets(failobj=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="failobj" />
+        </scope>
+        <scope doc="Return the `default' content type." ilk="function" line="474" lineend="481" name="get_default_type" returns="str" signature="get_default_type()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete all occurrences of a header, if present." ilk="function" line="304" lineend="314" name="__delitem__" signature="__delitem__(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+          <variable citdl="list" line="310" name="newheaders" />
+        </scope>
+        <scope doc="Return the message's main content type." ilk="function" line="456" lineend="463" name="get_content_maintype" signature="get_content_maintype()">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="get_content_type()" line="462" name="ctype" />
+        </scope>
+        <scope doc="Get all the message's header fields and values." ilk="function" line="344" lineend="352" name="items" returns="list" signature="items()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the message consists of multiple parts." ilk="function" line="140" lineend="142" name="is_multipart" returns="isinstance()" signature="is_multipart()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Replace a header." ilk="function" line="413" lineend="426" name="replace_header" signature="replace_header(_name, _value)">
+          <variable ilk="argument" name="_value" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="_name.lower()" ilk="argument" name="_name" />
+        </scope>
+        <scope doc="Return the charset parameter of the Content-Type header." ilk="function" line="747" lineend="776" name="get_content_charset" returns="charset.lower()" signature="get_content_charset(failobj=None)">
+          <variable citdl="str" line="760" name="pcharset" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="get_param()" line="755" name="charset" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="object()" line="754" name="missing" />
+        </scope>
+        <scope doc="Set the `default' content type." ilk="function" line="483" lineend="490" name="set_default_type" signature="set_default_type(ctype)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="ctype" />
+        </scope>
+        <scope doc="Return a list of all the message's header values." ilk="function" line="334" lineend="342" name="values" returns="list" signature="values()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the boundary associated with the payload if present." ilk="function" line="689" lineend="700" name="get_boundary" signature="get_boundary(failobj=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="failobj" />
+          <variable citdl="get_param()" line="696" name="boundary" />
+          <variable citdl="object()" line="695" name="missing" />
+        </scope>
+        <scope doc="Return a reference to the payload." ilk="function" line="168" lineend="216" name="get_payload" returns="utils._bdecode()" signature="get_payload(i=None, decode=False)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="StringIO()" line="207" name="sfp" />
+          <variable citdl="False" ilk="argument" name="decode" />
+          <variable line="197" name="cte" />
+          <variable citdl="sfp.getvalue()" line="189" name="payload" />
+        </scope>
+        <scope doc="Return the parameter value if found in the Content-Type&#10;header." ilk="function" line="535" lineend="569" name="get_param" returns="v" signature="get_param(param, failobj=None, header='content-type', unquote=True)">
+          <variable citdl="True" ilk="argument" name="unquote" />
+          <variable citdl="str" ilk="argument" name="header" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="failobj" />
+          <variable ilk="argument" name="param" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list" line="108" name="_headers" />
+        <variable attributes="protected __instancevar__" citdl="charset.body_encode()" line="110" name="_payload" />
+        <variable attributes="protected __instancevar__" citdl="email.charset.Charset()" line="111" name="_charset" />
+        <variable attributes="protected __instancevar__" citdl="str" line="116" name="_default_type" />
+        <variable attributes="protected __instancevar__" line="109" name="_unixfrom" />
+        <variable attributes="__instancevar__" citdl="list" line="114" name="defects" />
+        <variable attributes="__instancevar__" line="113" name="preamble" />
+      </scope>
+      <variable citdl="str" line="20" name="SEMISPACE" />
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="binascii" />
+      <import module="email" />
+      <import module="errors" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="24" name="tspecials" />
+      <import module="utils" />
+      <import module="uu" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="80" lineend="88" name="_unquotevalue" returns="tuple" signature="_unquotevalue(value)">
+        <variable ilk="argument" name="value" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="28" lineend="36" name="_splitparam" returns="tuple" signature="_splitparam(param)">
+        <variable ilk="argument" name="param" />
+        <variable line="33" name="a" />
+        <variable line="33" name="b" />
+        <variable line="33" name="sep" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="62" lineend="77" name="_parseparam" returns="list" signature="_parseparam(s)">
+        <variable citdl="list" ilk="argument" name="s" />
+        <variable citdl="list" line="63" name="plist" />
+        <variable citdl="s.find()" line="66" name="end" />
+        <variable citdl="list" line="71" name="f" />
+        <variable citdl="f.index()" line="73" name="i" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Convenience function to format and return a key=value pair." ilk="function" line="38" lineend="60" name="_formatparam" returns="tuple" signature="_formatparam(param, value=None, quote=True)">
+        <variable ilk="argument" name="param" />
+        <variable citdl="utils.encode_rfc2231()" ilk="argument" name="value" />
+        <variable citdl="True" ilk="argument" name="quote" />
+      </scope>
+    </scope>
+    

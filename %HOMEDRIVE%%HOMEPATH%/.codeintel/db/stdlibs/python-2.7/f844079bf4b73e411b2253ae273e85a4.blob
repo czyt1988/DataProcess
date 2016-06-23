@@ -1,0 +1,289 @@
+<scope doc="A user-defined wrapper around string objects&#10;Note: string objects have grown methods in Python 1.6 This module requires Python 1.6 or later." ilk="blob" lang="Python" name="UserString">
+      <scope classrefs="UserString MutableSequence" doc="mutable string objects&#10;Python strings are immutable objects.  This has the advantage, that strings may be used as dictionary keys.  If this property isn't needed and you insist on changing string values in place instead, you may cheat and use MutableString.  But the purpose of this class is an educational one: to prevent people from inventing their own mutable string class derived from UserString and than forget thereby to remove (override) the __hash__ method inherited from UserString.  This would lead to errors that would be very hard to track down." ilk="class" line="133" lineend="218" name="MutableString">
+        <scope ilk="function" line="178" lineend="192" name="__delitem__" signature="__delitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable citdl="int" line="180" name="stop" />
+          <variable line="180" name="step" />
+          <variable citdl="int" line="180" name="start" />
+        </scope>
+        <scope ilk="function" line="201" lineend="203" name="__delslice__" signature="__delslice__(start, end)">
+          <variable citdl="max()" ilk="argument" name="start" />
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="end" />
+        </scope>
+        <scope ilk="function" line="214" lineend="216" name="__imul__" returns="MutableString" signature="__imul__(n)">
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="217" lineend="218" name="insert" signature="insert(index, value)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="193" lineend="200" name="__setslice__" signature="__setslice__(start, end, sub)">
+          <variable citdl="max()" ilk="argument" name="start" />
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope ilk="function" line="206" lineend="213" name="__iadd__" returns="MutableString" signature="__iadd__(other)">
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="157" lineend="177" name="__setitem__" signature="__setitem__(index, sub)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="sub.data" ilk="argument" name="sub" />
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable citdl="int" line="163" name="stop" />
+          <variable citdl="int" line="163" name="start" />
+          <variable line="163" name="step" />
+        </scope>
+        <scope ilk="function" line="204" lineend="205" name="immutable" returns="UserString" signature="immutable()">
+          <variable citdl="MutableString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="148" lineend="152" name="__init__" signature="MutableString(string='')">
+          <variable citdl="MutableString" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="string" />
+        </scope>
+        <variable line="155" name="__hash__" />
+        <variable attributes="__instancevar__" citdl="list" line="152" name="data" />
+      </scope>
+      <scope classrefs="Sequence" doc="&#10;" ilk="class" line="13" lineend="131" name="UserString">
+        <scope ilk="function" line="23" lineend="23" name="__int__" returns="int()" signature="__int__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="130" lineend="130" name="upper" returns="self.__class__()" signature="upper()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="39" lineend="41" name="__getslice__" returns="self.__class__()" signature="__getslice__(start, end)">
+          <variable citdl="max()" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="end" />
+        </scope>
+        <scope ilk="function" line="104" lineend="104" name="lstrip" returns="self.__class__()" signature="lstrip(chars=None)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="chars" />
+        </scope>
+        <scope ilk="function" line="21" lineend="21" name="__str__" returns="str()" signature="__str__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="115" lineend="116" name="rpartition" returns="self.data.rpartition()" signature="rpartition(sep)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="sep" />
+        </scope>
+        <scope ilk="function" line="50" lineend="54" name="__radd__" returns="self.__class__()" signature="__radd__(other)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="57" name="__rmul__" />
+        <scope ilk="function" line="83" lineend="84" name="endswith" returns="self.data.endswith()" signature="endswith(suffix, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="suffix" />
+        </scope>
+        <scope ilk="function" line="122" lineend="122" name="splitlines" returns="self.data.splitlines()" signature="splitlines(keepends=0)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="keepends" />
+        </scope>
+        <scope ilk="function" line="85" lineend="86" name="expandtabs" returns="self.__class__()" signature="expandtabs(tabsize=8)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="tabsize" />
+        </scope>
+        <scope ilk="function" line="125" lineend="125" name="strip" returns="self.__class__()" signature="strip(chars=None)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="chars" />
+        </scope>
+        <scope ilk="function" line="94" lineend="94" name="isdigit" returns="self.data.isdigit()" signature="isdigit()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="101" lineend="102" name="ljust" returns="self.__class__()" signature="ljust(width, *args)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="93" lineend="93" name="isdecimal" returns="self.data.isdecimal()" signature="isdecimal()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="87" lineend="88" name="find" returns="self.data.find()" signature="find(sub, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope ilk="function" line="14" lineend="20" name="__init__" signature="UserString(seq)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="seq" />
+        </scope>
+        <scope ilk="function" line="26" lineend="26" name="__complex__" returns="complex()" signature="__complex__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="89" lineend="90" name="index" returns="self.data.index()" signature="index(sub, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope ilk="function" line="92" lineend="92" name="isalnum" returns="self.data.isalnum()" signature="isalnum()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="34" lineend="35" name="__contains__" returns="bool" signature="__contains__(char)">
+          <variable ilk="argument" name="char" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="111" lineend="112" name="rindex" returns="self.data.rindex()" signature="rindex(sub, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope doc="# the following methods are defined in alphabetical order:" ilk="function" line="62" lineend="62" name="capitalize" returns="self.__class__()" signature="capitalize()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="29" lineend="33" name="__cmp__" returns="cmp()" signature="__cmp__(string)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope ilk="function" line="67" lineend="74" name="decode" returns="self.__class__()" signature="decode(encoding=None, errors=None)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="errors" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope ilk="function" line="91" lineend="91" name="isalpha" returns="self.data.isalpha()" signature="isalpha()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="118" lineend="119" name="split" returns="self.data.split()" signature="split(sep=None, maxsplit=-1)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxsplit" />
+          <variable ilk="argument" name="sep" />
+        </scope>
+        <scope ilk="function" line="117" lineend="117" name="rstrip" returns="self.__class__()" signature="rstrip(chars=None)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="chars" />
+        </scope>
+        <scope ilk="function" line="96" lineend="96" name="isnumeric" returns="self.data.isnumeric()" signature="isnumeric()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="25" lineend="25" name="__float__" returns="float()" signature="__float__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="97" lineend="97" name="isspace" returns="self.data.isspace()" signature="isspace()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="37" lineend="37" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="55" lineend="56" name="__mul__" returns="self.__class__()" signature="__mul__(n)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="123" lineend="124" name="startswith" returns="self.data.startswith()" signature="startswith(prefix, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope ilk="function" line="27" lineend="27" name="__hash__" returns="hash()" signature="__hash__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="38" lineend="38" name="__getitem__" returns="self.__class__()" signature="__getitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="113" lineend="114" name="rjust" returns="self.__class__()" signature="rjust(width, *args)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="126" lineend="126" name="swapcase" returns="self.__class__()" signature="swapcase()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="75" lineend="82" name="encode" returns="self.__class__()" signature="encode(encoding=None, errors=None)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="errors" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope ilk="function" line="131" lineend="131" name="zfill" returns="self.__class__()" signature="zfill(width)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="43" lineend="49" name="__add__" returns="self.__class__()" signature="__add__(other)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="107" lineend="108" name="replace" returns="self.__class__()" signature="replace(old, new, maxsplit=-1)">
+          <variable ilk="argument" name="new" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="old" />
+          <variable citdl="int" ilk="argument" name="maxsplit" />
+        </scope>
+        <scope ilk="function" line="120" lineend="121" name="rsplit" returns="self.data.rsplit()" signature="rsplit(sep=None, maxsplit=-1)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxsplit" />
+          <variable ilk="argument" name="sep" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="count" returns="self.data.count()" signature="count(sub, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope ilk="function" line="103" lineend="103" name="lower" returns="self.__class__()" signature="lower()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="128" lineend="129" name="translate" returns="self.__class__()" signature="translate(*args)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="100" lineend="100" name="join" returns="self.data.join()" signature="join(seq)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="seq" />
+        </scope>
+        <scope ilk="function" line="63" lineend="64" name="center" returns="self.__class__()" signature="center(width, *args)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="58" lineend="59" name="__mod__" returns="self.__class__()" signature="__mod__(args)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="105" lineend="106" name="partition" returns="self.data.partition()" signature="partition(sep)">
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable ilk="argument" name="sep" />
+        </scope>
+        <scope ilk="function" line="109" lineend="110" name="rfind" returns="self.data.rfind()" signature="rfind(sub, start=0, end=sys.maxint)">
+          <variable citdl="int" ilk="argument" name="start" />
+          <variable citdl="UserString" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" ilk="argument" name="end" />
+          <variable ilk="argument" name="sub" />
+        </scope>
+        <scope ilk="function" line="98" lineend="98" name="istitle" returns="self.data.istitle()" signature="istitle()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="22" lineend="22" name="__repr__" returns="repr()" signature="__repr__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="95" lineend="95" name="islower" returns="self.data.islower()" signature="islower()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="127" lineend="127" name="title" returns="self.__class__()" signature="title()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="24" lineend="24" name="__long__" returns="long()" signature="__long__()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="99" lineend="99" name="isupper" returns="self.data.isupper()" signature="isupper()">
+          <variable citdl="UserString" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str()" line="16" name="data" />
+      </scope>
+      <variable citdl="list" line="11" name="__all__" />
+      <import module="collections" />
+      <import module="sys" />
+      <variable attributes="__hidden__" line="223" name="called_in_dir" />
+      <variable attributes="__hidden__" line="224" name="py" />
+      <variable attributes="__hidden__" line="223" name="called_as" />
+    </scope>
+    

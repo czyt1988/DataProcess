@@ -1,0 +1,116 @@
+<scope doc="runpy.py - locating and running Python code using the module namespace&#10;Provides support for locating and running Python scripts using the Python module namespace instead of the native filesystem.  This allows Python code to play nicely with non-filesystem based PEP 302 importers when locating support scripts as well as when importing modules." ilk="blob" lang="Python" name="runpy">
+      <variable citdl="list" line="20" name="__all__" />
+      <scope doc="Get a PEP 302 &quot;loader&quot; object for module_or_name" ilk="function" name="get_loader" signature="get_loader(module_or_name)" />
+      <import module="imp" />
+      <scope ilk="function" name="read_code" signature="read_code(stream)" />
+      <scope doc="Execute a module's code without importing it" ilk="function" line="164" lineend="180" name="run_module" returns="_run_code()" signature="run_module(mod_name, init_globals=None, run_name=None, alter_sys=False)">
+        <variable line="170" name="code" />
+        <variable line="170" name="fname" />
+        <variable citdl="False" ilk="argument" name="alter_sys" />
+        <variable line="170" name="loader" />
+        <variable ilk="argument" name="init_globals" />
+        <variable line="173" name="pkg_name" />
+        <variable ilk="argument" name="mod_name" />
+        <variable ilk="argument" name="run_name" />
+      </scope>
+      <scope doc="Execute code located at the specified filesystem location" ilk="function" line="223" lineend="269" name="run_path" returns="_run_module_code()" signature="run_path(path_name, init_globals=None, run_name=None)">
+        <variable ilk="argument" name="path_name" />
+        <variable citdl="_get_code_from_file()" line="239" name="code" />
+        <variable line="256" name="mod_name" />
+        <variable citdl="_get_importer()" line="235" name="importer" />
+        <variable line="256" name="loader" />
+        <variable citdl="dict" line="262" name="mod_globals" />
+        <variable ilk="argument" name="init_globals" />
+        <variable citdl="str" line="259" name="pkg_name" />
+        <variable line="256" name="fname" />
+        <variable citdl="str" ilk="argument" name="run_name" />
+        <variable line="253" name="saved_main" />
+        <variable citdl="str" line="252" name="main_name" />
+      </scope>
+      <import module="sys" />
+      <scope attributes="protected __hidden__" classrefs="object" doc="Temporarily replace a module in sys.modules with an empty namespace" ilk="class" line="24" lineend="45" name="_TempModule">
+        <scope attributes="__ctor__" ilk="function" line="26" lineend="29" name="__init__" signature="_TempModule(mod_name)">
+          <variable citdl="_TempModule" ilk="argument" name="self" />
+          <variable ilk="argument" name="mod_name" />
+        </scope>
+        <variable attributes="__instancevar__" line="27" name="mod_name" />
+        <variable attributes="__instancevar__" citdl="imp.new_module()" line="28" name="module" />
+        <variable attributes="protected __instancevar__" citdl="list" line="29" name="_saved_module" />
+        <scope ilk="function" line="31" lineend="38" name="__enter__" returns="_TempModule" signature="__enter__()">
+          <variable citdl="_TempModule" ilk="argument" name="self" />
+          <variable line="32" name="mod_name" />
+        </scope>
+        <scope ilk="function" line="40" lineend="45" name="__exit__" signature="__exit__(*args)">
+          <variable citdl="_TempModule" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Helper to run code in nominated namespace" ilk="function" line="62" lineend="73" name="_run_code" signature="_run_code(code, run_globals, init_globals=None, mod_name=None, mod_fname=None, mod_loader=None, pkg_name=None)">
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="run_globals" />
+        <variable ilk="argument" name="init_globals" />
+        <variable ilk="argument" name="mod_name" />
+        <variable ilk="argument" name="mod_fname" />
+        <variable ilk="argument" name="mod_loader" />
+        <variable ilk="argument" name="pkg_name" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="100" lineend="117" name="_get_module_details" returns="tuple" signature="_get_module_details(mod_name)">
+        <variable ilk="argument" name="mod_name" />
+        <variable citdl="get_loader()" line="101" name="loader" />
+        <variable citdl="str" line="108" name="pkg_main_name" />
+        <variable citdl="loader.get_code()" line="113" name="code" />
+        <variable citdl="_get_filename()" line="116" name="filename" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="213" lineend="221" name="_get_code_from_file" returns="compile()" signature="_get_code_from_file(fname)">
+        <variable ilk="argument" name="fname" />
+        <variable citdl="compile()" line="216" name="code" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="92" lineend="97" name="_get_filename" returns="_get_filename.meth()" signature="_get_filename(loader, mod_name)">
+        <variable ilk="argument" name="loader" />
+        <variable ilk="argument" name="mod_name" />
+        <variable citdl="getattr()" line="94" name="meth" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Helper to run code in new namespace with sys modified" ilk="function" line="75" lineend="85" name="_run_module_code" returns="mod_globals.copy()" signature="_run_module_code(code, init_globals=None, mod_name=None, mod_fname=None, mod_loader=None, pkg_name=None)">
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="init_globals" />
+        <variable ilk="argument" name="mod_name" />
+        <variable ilk="argument" name="mod_fname" />
+        <variable ilk="argument" name="mod_loader" />
+        <variable ilk="argument" name="pkg_name" />
+        <variable citdl="dict" line="80" name="mod_globals" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Runs the designated module in the __main__ namespace&#10;&#10;Note that the executed module will have full access to the&#10;__main__ namespace. If this is not desirable, the run_module()&#10;function should be used to run the module code in a fresh namespace.&#10;&#10;At the very least, these variables in __main__ will be overwritten:&#10;    __name__&#10;    __file__&#10;    __loader__&#10;    __package__" ilk="function" line="136" lineend="162" name="_run_module_as_main" returns="_run_code()" signature="_run_module_as_main(mod_name, alter_argv=True)">
+        <variable ilk="argument" name="mod_name" />
+        <variable citdl="True" ilk="argument" name="alter_argv" />
+        <variable line="151" name="code" />
+        <variable line="151" name="loader" />
+        <variable line="151" name="fname" />
+        <variable citdl="str" line="155" name="msg" />
+        <variable line="157" name="pkg_name" />
+        <variable line="158" name="main_globals" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="47" lineend="60" name="_ModifiedArgv0">
+        <scope attributes="__ctor__" ilk="function" line="48" lineend="50" name="__init__" signature="_ModifiedArgv0(value)">
+          <variable citdl="_ModifiedArgv0" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self._sentinel" line="49" name="value" />
+        <variable attributes="protected __instancevar__" citdl="object()" line="50" name="_saved_value" />
+        <scope ilk="function" line="52" lineend="56" name="__enter__" signature="__enter__()">
+          <variable citdl="_ModifiedArgv0" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="58" lineend="60" name="__exit__" signature="__exit__(*args)">
+          <variable citdl="_ModifiedArgv0" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Python version of PyImport_GetImporter C API function" ilk="function" line="185" lineend="211" name="_get_importer" returns="imp.NullImporter()" signature="_get_importer(path_name)">
+        <variable ilk="argument" name="path_name" />
+        <variable citdl="sys.path_importer_cache" line="187" name="cache" />
+        <variable citdl="hook()" line="189" name="importer" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="120" lineend="130" name="_get_main_module_details" returns="_get_module_details()" signature="_get_main_module_details()">
+        <variable citdl="str" line="123" name="main_name" />
+      </scope>
+    </scope>
+    

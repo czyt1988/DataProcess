@@ -1,0 +1,27 @@
+<scope doc="Common string manipulations, optimized for speed.&#10;Always use &quot;import string&quot; rather than referencing this module directly." ilk="blob" lang="Python" name="strop">
+      <scope doc="Return the floating point number represented by the string&#10;s." ilk="function" name="atof" returns="float" signature="atof(s) -&gt; float" />
+      <scope doc="Return the integer represented by the string s in the given&#10;base, which defaults to 10." ilk="function" name="atoi" returns="int" signature="atoi(s [,base]) -&gt; int" />
+      <scope doc="Return the long integer represented by the string s in the&#10;given base, which defaults to 10." ilk="function" name="atol" returns="long" signature="atol(s [,base]) -&gt; long" />
+      <scope doc="Return a copy of the string s with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="capitalize(s) -&gt; string" />
+      <scope doc="Return the number of occurrences of substring sub in string&#10;s[start:end]." ilk="function" name="count" returns="int" signature="count(s, sub[, start[, end]]) -&gt; int" />
+      <scope doc="Expand tabs in a string, i.e." ilk="function" name="expandtabs" returns="str" signature="expandtabs(string, [tabsize]) -&gt; string" />
+      <scope doc="Return the lowest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="find" signature="find(s, sub [,start [,end]]) -&gt; in" />
+      <scope doc="Return a string composed of the words in list, with&#10;intervening occurrences of sep." ilk="function" name="join" signature="join(list [,sep]) -&gt; string&#10;joinfields(list [,sep]) -&gt; string" />
+      <scope doc="Return a string composed of the words in list, with&#10;intervening occurrences of sep." ilk="function" name="joinfields" signature="join(list [,sep]) -&gt; string&#10;joinfields(list [,sep]) -&gt; string" />
+      <scope doc="Return a copy of the string s converted to lowercase." ilk="function" name="lower" returns="str" signature="lower(s) -&gt; string" />
+      <variable citdl="str" name="lowercase" />
+      <scope doc="Return a copy of the string s with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="lstrip(s) -&gt; string" />
+      <scope doc="Return a translation table (a string of 256 bytes long)&#10;suitable for use in string.translate." ilk="function" name="maketrans" returns="str" signature="maketrans(frm, to) -&gt; string" />
+      <scope doc="Return a copy of string str with all occurrences of&#10;substring old replaced by new." ilk="function" name="replace" returns="str" signature="replace (str, old, new[, maxsplit]) -&gt; string" />
+      <scope doc="Return the highest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="rfind" returns="int" signature="rfind(s, sub [,start [,end]]) -&gt; int" />
+      <scope doc="Return a copy of the string s with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="rstrip(s) -&gt; string" />
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string." ilk="function" name="split" signature="split(s [,sep [,maxsplit]]) -&gt; list of strings&#10;splitfields(s [,sep [,maxsplit]]) -&gt; list of strings" />
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string." ilk="function" name="splitfields" signature="split(s [,sep [,maxsplit]]) -&gt; list of strings&#10;splitfields(s [,sep [,maxsplit]]) -&gt; list of strings" />
+      <scope doc="Return a copy of the string s with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="strip(s) -&gt; string" />
+      <scope doc="Return a copy of the string s with upper case characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="swapcase(s) -&gt; string" />
+      <scope doc="Return a copy of the string s, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="translate(s,table [,deletechars]) -&gt; string" />
+      <scope doc="Return a copy of the string s converted to uppercase." ilk="function" name="upper" returns="str" signature="upper(s) -&gt; string" />
+      <variable citdl="str" name="uppercase" />
+      <variable citdl="str" name="whitespace" />
+    </scope>
+    

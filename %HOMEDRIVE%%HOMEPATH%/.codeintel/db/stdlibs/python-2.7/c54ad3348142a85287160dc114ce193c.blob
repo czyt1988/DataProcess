@@ -1,0 +1,105 @@
+<scope doc="Miscellaneous utilities.&#10;" ilk="blob" lang="Python" name="email.utils">
+      <variable citdl="str" line="45" name="COMMASPACE" />
+      <variable citdl="str" line="48" name="CRLF" />
+      <variable citdl="str" line="46" name="EMPTYSTRING" />
+      <variable citdl="str" line="49" name="TICK" />
+      <variable citdl="unicode" line="47" name="UEMPTYSTRING" />
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="base64" />
+      <scope ilk="function" line="313" lineend="324" name="collapse_rfc2231_value" returns="unquote()" signature="collapse_rfc2231_value(value, errors='replace', fallback_charset='us-ascii')">
+        <variable citdl="unquote()" line="316" name="rawval" />
+        <variable citdl="str" ilk="argument" name="errors" />
+        <variable citdl="str" ilk="argument" name="fallback_charset" />
+        <variable citdl="str" line="317" name="charset" />
+        <variable ilk="argument" name="value" />
+      </scope>
+      <scope doc="Decode parameters list according to RFC 2231." ilk="function" line="260" lineend="311" name="decode_params" returns="list" signature="decode_params(params)">
+        <variable citdl="False" line="292" name="extended" />
+        <variable line="272" name="name" />
+        <variable line="307" name="language" />
+        <variable citdl="list" line="267" name="new_params" />
+        <variable citdl="rfc2231_continuation.match()" line="281" name="mo" />
+        <variable line="307" name="charset" />
+        <variable citdl="quote()" line="272" name="value" />
+        <variable citdl="urllib.unquote()" line="302" name="s" />
+        <variable citdl="int()" line="283" name="num" />
+        <variable citdl="list" ilk="argument" name="params" />
+        <variable citdl="True" line="277" name="encoded" />
+        <variable citdl="dict" line="271" name="rfc2231_params" />
+      </scope>
+      <scope doc="Decode string according to RFC 2231" ilk="function" line="234" lineend="239" name="decode_rfc2231" returns="tuple" signature="decode_rfc2231(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="s.split()" line="236" name="parts" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="112" name="ecre" />
+      <scope doc="Encode string according to RFC 2231." ilk="function" line="242" lineend="255" name="encode_rfc2231" returns="tuple" signature="encode_rfc2231(s, charset=None, language=None)">
+        <variable citdl="urllib.quote()" ilk="argument" name="s" />
+        <variable ilk="argument" name="charset" />
+        <variable citdl="str" ilk="argument" name="language" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="52" name="escapesre" />
+      <scope doc="Replace all line-ending characters with ." ilk="function" line="75" lineend="81" name="fix_eols" returns="re.sub()" signature="fix_eols(s)">
+        <variable citdl="re.sub()" ilk="argument" name="s" />
+      </scope>
+      <scope doc="The inverse of parseaddr(), this takes a 2-tuple of the form&#10;(realname, email_address) and returns the string value&#10;suitable for an RFC 2822 From, To or Cc header." ilk="function" line="85" lineend="100" name="formataddr" returns="tuple" signature="formataddr(pair)">
+        <variable ilk="argument" name="pair" />
+        <variable citdl="str" line="95" name="quotes" />
+        <variable citdl="escapesre.sub()" line="98" name="name" />
+      </scope>
+      <scope doc="Returns a date string as specified by RFC 2822, e.g.:" ilk="function" line="124" lineend="173" name="formatdate" returns="tuple" signature="formatdate(timeval=None, localtime=False, usegmt=False)">
+        <variable citdl="str" line="159" name="zone" />
+        <variable citdl="str" line="156" name="sign" />
+        <variable citdl="time.time()" ilk="argument" name="timeval" />
+        <variable line="152" name="hours" />
+        <variable citdl="False" ilk="argument" name="usegmt" />
+        <variable citdl="time.timezone" line="149" name="offset" />
+        <variable citdl="time.localtime()" line="145" name="now" />
+        <variable line="152" name="minutes" />
+        <variable citdl="False" ilk="argument" name="localtime" />
+      </scope>
+      <scope doc="Return a list of (REALNAME, EMAIL) for each fieldvalue." ilk="function" line="104" lineend="108" name="getaddresses" returns="a.addresslist" signature="getaddresses(fieldvalues)">
+        <variable citdl="_AddressList()" line="107" name="a" />
+        <variable citdl="COMMASPACE.join()" line="106" name="all" />
+        <variable ilk="argument" name="fieldvalues" />
+      </scope>
+      <scope doc="Returns a string suitable for RFC 2822 compliant Message-ID,&#10;e.g:" ilk="function" line="177" lineend="195" name="make_msgid" returns="tuple" signature="make_msgid(idstring=None)">
+        <variable citdl="time.strftime()" line="186" name="utcdate" />
+        <variable citdl="random.randrange()" line="188" name="randint" />
+        <variable citdl="str" line="194" name="msgid" />
+        <variable citdl="os.getpid()" line="187" name="pid" />
+        <variable citdl="time.time()" line="185" name="timeval" />
+        <variable citdl="str" ilk="argument" name="idstring" />
+        <variable citdl="socket.getfqdn()" line="193" name="idhost" />
+      </scope>
+      <scope doc="Turn a 10-tuple as returned by parsedate_tz() into a UTC&#10;timestamp." ilk="function" name="mktime_tz" signature="mktime_tz(data)" />
+      <import module="os" />
+      <scope ilk="function" line="214" lineend="218" name="parseaddr" returns="tuple" signature="parseaddr(addr)">
+        <variable ilk="argument" name="addr" />
+        <variable line="215" name="addrs" />
+      </scope>
+      <scope doc="# These functions are in the standalone mimelib version only&#10;because they've # subsequently been fixed in the latest&#10;Python versions." ilk="function" line="202" lineend="205" name="parsedate" returns="_parsedate()" signature="parsedate(data)">
+        <variable ilk="argument" name="data" />
+      </scope>
+      <scope ilk="function" line="208" lineend="211" name="parsedate_tz" returns="_parsedate_tz()" signature="parsedate_tz(data)">
+        <variable ilk="argument" name="data" />
+      </scope>
+      <scope doc="Prepare string to be used in a quoted string." ilk="function" name="quote" signature="quote(str)" />
+      <import module="random" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="258" name="rfc2231_continuation" />
+      <import module="socket" />
+      <variable citdl="SRE_Pattern" line="51" name="specialsre" />
+      <import module="time" />
+      <scope doc="Remove quotes from a string." ilk="function" line="222" lineend="229" name="unquote" returns="list" signature="unquote(str)">
+        <variable ilk="argument" name="str" />
+      </scope>
+      <import module="urllib" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="58" lineend="59" name="_identity" signature="_identity(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Decodes a base64 string." ilk="function" line="62" lineend="71" name="_bdecode" returns="base64.decodestring()" signature="_bdecode(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+    </scope>
+    

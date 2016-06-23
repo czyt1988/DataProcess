@@ -1,0 +1,52 @@
+<scope doc="Simple class to read IFF chunks.&#10;An IFF chunk (used in formats such as AIFF, TIFF, RMFF (RealMedia File Format)) has the following structure:  +----------------+ | ID (4 bytes)   | +----------------+ | size (4 bytes) | +----------------+ | data           | | ...            |" ilk="blob" lang="Python" name="chunk">
+      <scope doc="&#10;" ilk="class" line="51" lineend="167" name="Chunk">
+        <scope ilk="function" line="91" lineend="94" name="isatty" returns="bool" signature="isatty()">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read at most size bytes from the chunk." ilk="function" line="120" lineend="141" name="read" returns="str" signature="read(size=-1)">
+          <variable citdl="self.file.read()" line="139" name="dummy" />
+          <variable citdl="Chunk" ilk="argument" name="self" />
+          <variable citdl="self.file.read()" line="134" name="data" />
+          <variable citdl="int" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Skip the rest of the chunk." ilk="function" line="143" lineend="167" name="skip" signature="skip()">
+          <variable citdl="read()" line="165" name="dummy" />
+          <variable citdl="Chunk" ilk="argument" name="self" />
+          <variable citdl="len()" line="154" name="n" />
+        </scope>
+        <scope doc="Return the name (ID) of the current chunk." ilk="function" line="78" lineend="80" name="getname" returns="file.read()" signature="getname()">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the size of the current chunk." ilk="function" line="82" lineend="84" name="getsize" returns="int" signature="getsize()">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="86" lineend="89" name="close" signature="close()">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Seek to specified position into the chunk." ilk="function" line="96" lineend="113" name="seek" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="Chunk" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="115" lineend="118" name="tell" returns="int" signature="tell()">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="52" lineend="76" name="__init__" signature="Chunk(file, align=True, bigendian=True, inclheader=False)">
+          <variable citdl="Chunk" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="bigendian" />
+          <variable citdl="False" ilk="argument" name="inclheader" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="str" line="57" name="strflag" />
+          <variable citdl="True" ilk="argument" name="align" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="65" name="chunksize" />
+        <variable attributes="__instancevar__" citdl="True" line="55" name="align" />
+        <variable attributes="__instancevar__" citdl="file.read()" line="61" name="chunkname" />
+        <variable attributes="__instancevar__" line="60" name="file" />
+        <variable attributes="__instancevar__" citdl="self.file.tell()" line="72" name="offset" />
+        <variable attributes="__instancevar__" citdl="False" line="74" name="seekable" />
+        <variable attributes="__instancevar__" citdl="len()" line="70" name="size_read" />
+        <variable attributes="__instancevar__" citdl="False" line="54" name="closed" />
+      </scope>
+    </scope>
+    

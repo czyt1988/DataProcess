@@ -1,0 +1,114 @@
+<scope doc="# ElementTree&#10;# $Id: ElementPath.py 3375 2008-02-13 08:05:08Z fredrik $ # # limited xpath support for element trees # # history: # 2003-05-23 fl   created # 2003-05-28 fl   added support for // etc # 2003-08-27 fl   fixed parsing of periods in element names # 2007-09-10 fl   new selection engine # 2007-09-12 fl   fixed parent selector" ilk="blob" lang="Python" name="xml.etree.ElementPath">
+      <scope ilk="function" line="283" lineend="287" name="find" signature="find(elem, path, namespaces=None)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="elem" />
+        <variable ilk="argument" name="namespaces" />
+      </scope>
+      <scope ilk="function" line="292" lineend="293" name="findall" returns="list()" signature="findall(elem, path, namespaces=None)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="elem" />
+        <variable ilk="argument" name="namespaces" />
+      </scope>
+      <scope ilk="function" line="298" lineend="303" name="findtext" returns="str" signature="findtext(elem, path, default=None, namespaces=None)">
+        <variable ilk="argument" name="default" />
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="elem" />
+        <variable ilk="argument" name="namespaces" />
+      </scope>
+      <scope ilk="function" line="87" lineend="94" name="get_parent_map" returns="context.parent_map" signature="get_parent_map(context)">
+        <variable citdl="context.parent_map" line="88" name="parent_map" />
+        <variable ilk="argument" name="context" />
+      </scope>
+      <scope ilk="function" line="247" lineend="278" name="iterfind" returns="list" signature="iterfind(elem, path, namespaces=None)">
+        <variable citdl="_SelectorContext" line="275" name="context" />
+        <variable ilk="argument" name="elem" />
+        <variable line="258" name="next" />
+        <variable citdl="next()" line="259" name="token" />
+        <variable citdl="select()" line="274" name="result" />
+        <variable ilk="argument" name="namespaces" />
+        <variable citdl="str" ilk="argument" name="path" />
+        <variable citdl="list" line="252" name="selector" />
+      </scope>
+      <variable citdl="dict" line="226" name="ops" />
+      <scope ilk="function" line="96" lineend="103" name="prepare_child" returns="prepare_child.select" signature="prepare_child(next, token)">
+        <variable ilk="argument" name="token" />
+        <variable line="97" name="tag" />
+        <scope ilk="function" line="98" lineend="102" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+        </scope>
+        <variable ilk="argument" name="next" />
+      </scope>
+      <scope ilk="function" line="118" lineend="131" name="prepare_descendant" returns="prepare_descendant.select" signature="prepare_descendant(next, token)">
+        <variable citdl="next()" ilk="argument" name="token" />
+        <variable citdl="str" line="121" name="tag" />
+        <scope ilk="function" line="126" lineend="130" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+        </scope>
+        <variable ilk="argument" name="next" />
+      </scope>
+      <scope ilk="function" line="133" lineend="144" name="prepare_parent" returns="prepare_parent.select" signature="prepare_parent(next, token)">
+        <variable ilk="argument" name="token" />
+        <scope ilk="function" line="134" lineend="143" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+          <variable citdl="get_parent_map()" line="136" name="parent_map" />
+          <variable citdl="dict" line="137" name="result_map" />
+          <variable line="140" name="parent" />
+        </scope>
+        <variable ilk="argument" name="next" />
+      </scope>
+      <scope ilk="function" line="146" lineend="224" name="prepare_predicate" returns="prepare_predicate.select" signature="prepare_predicate(next, token)">
+        <variable citdl="int()" line="201" name="index" />
+        <variable citdl="list" line="151" name="predicate" />
+        <variable line="173" name="value" />
+        <variable ilk="argument" name="next" />
+        <variable citdl="next()" ilk="argument" name="token" />
+        <variable line="181" name="tag" />
+        <variable line="164" name="key" />
+        <variable citdl="list" line="150" name="signature" />
+        <scope ilk="function" line="212" lineend="222" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+          <variable citdl="get_parent_map()" line="213" name="parent_map" />
+          <variable line="216" name="parent" />
+          <variable citdl="list()" line="218" name="elems" />
+        </scope>
+      </scope>
+      <scope ilk="function" line="112" lineend="116" name="prepare_self" returns="prepare_self.select" signature="prepare_self(next, token)">
+        <variable ilk="argument" name="token" />
+        <scope ilk="function" line="113" lineend="115" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+        </scope>
+        <variable ilk="argument" name="next" />
+      </scope>
+      <scope ilk="function" line="105" lineend="110" name="prepare_star" returns="prepare_star.select" signature="prepare_star(next, token)">
+        <variable ilk="argument" name="token" />
+        <scope ilk="function" line="106" lineend="109" name="select" signature="select(context, result)">
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="result" />
+        </scope>
+        <variable ilk="argument" name="next" />
+      </scope>
+      <import module="re" />
+      <scope ilk="function" line="73" lineend="85" name="xpath_tokenizer" signature="xpath_tokenizer(pattern, namespaces=None)">
+        <variable ilk="argument" name="pattern" />
+        <variable line="78" name="prefix" />
+        <variable line="75" name="tag" />
+        <variable line="78" name="uri" />
+        <variable ilk="argument" name="namespaces" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="61" name="xpath_tokenizer_re" />
+      <variable attributes="protected __hidden__" citdl="dict" line="235" name="_cache" />
+      <scope attributes="protected __hidden__" ilk="class" line="237" lineend="240" name="_SelectorContext">
+        <variable line="238" name="parent_map" />
+        <scope attributes="__ctor__" ilk="function" line="239" lineend="240" name="__init__" signature="_SelectorContext(root)">
+          <variable citdl="_SelectorContext" ilk="argument" name="self" />
+          <variable ilk="argument" name="root" />
+        </scope>
+        <variable attributes="__instancevar__" line="240" name="root" />
+      </scope>
+    </scope>
+    

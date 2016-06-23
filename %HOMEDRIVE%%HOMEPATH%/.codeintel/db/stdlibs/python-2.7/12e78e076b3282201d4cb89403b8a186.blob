@@ -1,0 +1,515 @@
+<scope doc="Test case implementation&#10;" ilk="blob" lang="Python" name="unittest.case">
+      <variable citdl="str" line="21" name="DIFF_OMITTED" />
+      <scope classrefs="TestCase" doc="A test case that wraps a test function.&#10;This is useful for slipping pre-existing test functions into the unittest framework. Optionally, set-up and tidy-up functions can be supplied. As with TestCase, the tidy-up ('tearDown') function will always be called if the set-up ('setUp') function ran successfully." ilk="class" line="1012" lineend="1070" name="FunctionTestCase">
+        <scope ilk="function" line="1051" lineend="1052" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="1032" lineend="1034" name="tearDown" signature="tearDown()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1042" lineend="1049" name="__eq__" returns="NotImplemented" signature="__eq__(other)">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="1028" lineend="1030" name="setUp" signature="setUp()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1036" lineend="1037" name="runTest" signature="runTest()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1058" lineend="1060" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1062" lineend="1064" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1054" lineend="1056" name="__hash__" returns="hash()" signature="__hash__()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1066" lineend="1070" name="shortDescription" returns="self._testFunc.__doc__" signature="shortDescription()">
+          <variable citdl="self._testFunc.__doc__" line="1069" name="doc" />
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1039" lineend="1040" name="id" returns="self._testFunc.__name__" signature="id()">
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1021" lineend="1026" name="__init__" signature="FunctionTestCase(testFunc, setUp=None, tearDown=None, description=None)">
+          <variable ilk="argument" name="tearDown" />
+          <variable citdl="FunctionTestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="setUp" />
+          <variable ilk="argument" name="testFunc" />
+          <variable ilk="argument" name="description" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1024" name="_tearDownFunc" />
+        <variable attributes="protected __instancevar__" line="1023" name="_setUpFunc" />
+        <variable attributes="protected __instancevar__" line="1025" name="_testFunc" />
+        <variable attributes="protected __instancevar__" line="1026" name="_description" />
+      </scope>
+      <scope classrefs="Exception" doc="Raise this exception in a test to skip it.&#10;Usually you can use TestResult.skip() or one of the skipping decorators instead of raising this directly." ilk="class" line="24" lineend="31" name="SkipTest" />
+      <scope classrefs="object" doc="A class whose instances are single test cases.&#10;By default, the test code itself should be placed in a method named 'runTest'.  If the fixture may be used for many test cases, create as many test methods as are needed. When instantiating such a TestCase subclass, specify in the constructor arguments the name of the test method that the instance is to execute.  Test authors should subclass TestCase for their own tests. Construction and deconstruction of the test's environment ('fixture') can be" ilk="class" line="132" lineend="1009" name="TestCase">
+        <scope doc="Fail if the two objects are equal as determined by the '=='&#10;operator." ilk="function" line="596" name="assertNotEquals" />
+        <scope ilk="function" line="277" lineend="278" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add a function, with arguments, to be called when the test&#10;is completed." ilk="function" line="221" lineend="227" name="addCleanup" signature="addCleanup(function, *args, **kwargs)">
+          <variable ilk="argument" name="function" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Get a detailed comparison function for the types of the two&#10;args." ilk="function" line="473" lineend="495" name="_getAssertEqualityFunc" returns="self._baseAssertEqual" signature="_getAssertEqualityFunc(first, second)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="self._type_equality_funcs.get()" line="491" name="asserter" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a &gt; b), but with a nicer default&#10;message." ilk="function" line="934" lineend="938" name="assertGreater" signature="assertGreater(a, b, msg=None)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="str" line="937" name="standardMsg" />
+        </scope>
+        <scope doc="Assert that two multi-line strings are equal." ilk="function" line="899" lineend="920" name="assertMultiLineEqual" signature="assertMultiLineEqual(first, second, msg=None)">
+          <variable citdl="list" line="912" name="secondlines" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="_truncateMessage()" line="916" name="standardMsg" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="str.join()" line="918" name="diff" />
+          <variable citdl="list" line="911" name="firstlines" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Included for symmetry with assertIsNone." ilk="function" line="952" lineend="956" name="assertIsNotNone" signature="assertIsNotNone(obj, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable citdl="str" line="955" name="standardMsg" />
+        </scope>
+        <scope ilk="function" line="284" lineend="291" name="_addSkip" signature="_addSkip(result, reason)">
+          <variable ilk="argument" name="result" />
+          <variable ilk="argument" name="reason" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="285" name="addSkip" />
+        </scope>
+        <scope ilk="function" line="722" lineend="726" name="_truncateMessage" returns="str" signature="_truncateMessage(message, diff)">
+          <variable citdl="int" line="723" name="max_diff" />
+          <variable ilk="argument" name="diff" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Fail if the two objects are equal as determined by the '=='&#10;operator." ilk="function" line="511" lineend="518" name="assertNotEqual" signature="assertNotEqual(first, second, msg=None)">
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Asserts that the message in a raised exception matches a&#10;regexp." ilk="function" line="971" lineend="987" name="assertRaisesRegexp" returns="_AssertRaisesContext" signature="assertRaisesRegexp(expected_exception, expected_regexp, callable_obj=None, *args, **kwargs)">
+          <variable ilk="argument" name="expected_exception" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="callable_obj" />
+          <variable citdl="_AssertRaisesContext" line="983" name="context" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="expected_regexp" />
+        </scope>
+        <scope doc="Fail if the two objects are equal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is less than the given delta." ilk="function" line="559" lineend="588" name="assertNotAlmostEqual" signature="assertNotAlmostEqual(first, second, places=None, msg=None, delta=None)">
+          <variable citdl="int" ilk="argument" name="places" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="delta" />
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="str" line="575" name="standardMsg" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Fail the test unless the text matches the regular&#10;expression." ilk="function" line="989" lineend="996" name="assertRegexpMatches" signature="assertRegexpMatches(text, expected_regexp, msg=None)">
+          <variable citdl="str" ilk="argument" name="msg" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="re.compile()" ilk="argument" name="expected_regexp" />
+        </scope>
+        <scope doc="The default assertEqual implementation, not type specific." ilk="function" line="497" lineend="502" name="_baseAssertEqual" signature="_baseAssertEqual(first, second, msg=None)">
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="second" />
+          <variable citdl="str" line="500" name="standardMsg" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a &lt;= b), but with a nicer default&#10;message." ilk="function" line="928" lineend="932" name="assertLessEqual" signature="assertLessEqual(a, b, msg=None)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="str" line="931" name="standardMsg" />
+        </scope>
+        <scope ilk="function" line="390" lineend="391" name="__call__" returns="TestCase.run()" signature="__call__(*args, **kwds)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope doc="Hook method for deconstructing the class fixture after&#10;running all tests in the class." ilk="function" line="242" name="tearDownClass" signature="tearDownClass()">
+          <variable citdl="TestCase" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="821" lineend="831" name="assertDictEqual" signature="assertDictEqual(d1, d2, msg=None)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="str.join()" line="827" name="diff" />
+          <variable ilk="argument" name="d2" />
+          <variable citdl="_truncateMessage()" line="826" name="standardMsg" />
+          <variable ilk="argument" name="d1" />
+        </scope>
+        <scope doc="An unordered sequence specific comparison." ilk="function" line="859" lineend="897" name="assertItemsEqual" signature="assertItemsEqual(expected_seq, actual_seq, msg=None)">
+          <variable ilk="argument" name="expected_seq" />
+          <variable citdl="str.join()" line="894" name="diffMsg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="_count_diff_hashable()" line="885" name="differences" />
+          <variable citdl="list" line="893" name="lines" />
+          <variable citdl="collections.Counter()" line="882" name="second" />
+          <variable citdl="list()" line="872" name="first_seq" />
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="list()" line="872" name="second_seq" />
+          <variable ilk="argument" name="actual_seq" />
+          <variable citdl="_truncateMessage()" line="892" name="standardMsg" />
+          <variable citdl="collections.Counter()" line="881" name="first" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a in b), but with a nicer default&#10;message." ilk="function" line="794" lineend="799" name="assertIn" signature="assertIn(member, container, msg=None)">
+          <variable ilk="argument" name="member" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="container" />
+          <variable citdl="str" line="797" name="standardMsg" />
+        </scope>
+        <scope doc="Fail if the two objects are unequal as determined by the&#10;'==' operator." ilk="function" line="595" name="assertEquals" />
+        <scope doc="Included for symmetry with assertIsInstance." ilk="function" line="965" lineend="969" name="assertNotIsInstance" signature="assertNotIsInstance(obj, cls, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable citdl="str" line="968" name="standardMsg" />
+          <variable ilk="argument" name="cls" />
+        </scope>
+        <scope doc="A tuple-specific equality assertion." ilk="function" line="740" lineend="749" name="assertTupleEqual" signature="assertTupleEqual(tuple1, tuple2, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable ilk="argument" name="tuple1" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="tuple2" />
+        </scope>
+        <scope doc="Same as self.assertTrue(obj is None), with a nicer default&#10;message." ilk="function" line="946" lineend="950" name="assertIsNone" signature="assertIsNone(obj, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable citdl="str" line="949" name="standardMsg" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a is b), but with a nicer default&#10;message." ilk="function" line="808" lineend="813" name="assertIs" signature="assertIs(expr1, expr2, msg=None)">
+          <variable ilk="argument" name="expr2" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="expr1" />
+          <variable citdl="str" line="811" name="standardMsg" />
+        </scope>
+        <scope doc="Same as self.assertTrue(isinstance(obj, cls)), with a nicer&#10;default message." ilk="function" line="958" lineend="963" name="assertIsInstance" signature="assertIsInstance(obj, cls, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable citdl="str" line="962" name="standardMsg" />
+          <variable ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="265" lineend="269" name="__eq__" returns="NotImplemented" signature="__eq__(other)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="615" name="failUnless" />
+        <scope doc="Fail if the two objects are unequal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is more than the given delta." ilk="function" line="521" lineend="557" name="assertAlmostEqual" signature="assertAlmostEqual(first, second, places=None, msg=None, delta=None)">
+          <variable citdl="int" ilk="argument" name="places" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="delta" />
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="str" line="543" name="standardMsg" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Hook method for setting up class fixture before running&#10;tests in the class." ilk="function" line="238" name="setUpClass" signature="setUpClass()">
+          <variable citdl="TestCase" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Skip this test." ilk="function" line="402" lineend="404" name="skipTest" signature="skipTest(reason)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="reason" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a is not b), but with a nicer&#10;default message." ilk="function" line="815" lineend="819" name="assertIsNot" signature="assertIsNot(expr1, expr2, msg=None)">
+          <variable ilk="argument" name="expr2" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="expr1" />
+          <variable citdl="str" line="818" name="standardMsg" />
+        </scope>
+        <scope doc="Fail if the two objects are unequal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is more than the given delta." ilk="function" line="597" name="assertAlmostEquals" />
+        <scope ilk="function" line="248" lineend="249" name="defaultTestResult" returns="result.TestResult()" signature="defaultTestResult()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="617" name="failIf" />
+        <scope doc="Run the test without collecting errors in a TestResult" ilk="function" line="393" lineend="400" name="debug" signature="debug()">
+          <variable line="399" name="function" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable line="399" name="args" />
+          <variable line="399" name="kwargs" />
+        </scope>
+        <scope doc="# These fail* assertion method names are pending deprecation&#10;and will # be a DeprecationWarning in 3.2;&#10;http://bugs.python.org/issue2578" ilk="function" line="603" lineend="609" name="_deprecate" returns="TestCase._deprecate.deprecated_func" signature="_deprecate()">
+          <scope ilk="function" line="604" lineend="608" name="deprecated_func" returns="TestCase._deprecate.original_func()" signature="deprecated_func(*args, **kwargs)">
+            <variable attributes="varargs" ilk="argument" name="args" />
+            <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          </scope>
+          <variable citdl="TestCase" ilk="argument" name="original_func" />
+        </scope>
+        <scope doc="A set-specific equality assertion." ilk="function" line="751" lineend="792" name="assertSetEqual" signature="assertSetEqual(set1, set2, msg=None)">
+          <variable citdl="set1.difference()" line="765" name="difference1" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="list" line="781" name="lines" />
+          <variable citdl="str.join()" line="791" name="standardMsg" />
+          <variable ilk="argument" name="set1" />
+          <variable ilk="argument" name="set2" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="set2.difference()" line="772" name="difference2" />
+        </scope>
+        <scope doc="Add a type specific assertEqual style function to compare a&#10;type." ilk="function" line="206" lineend="219" name="addTypeEqualityFunc" signature="addTypeEqualityFunc(typeobj, function)">
+          <variable ilk="argument" name="typeobj" />
+          <variable ilk="argument" name="function" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Hook method for deconstructing the test fixture after&#10;testing it." ilk="function" line="233" lineend="235" name="tearDown" signature="tearDown()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Fail if the two objects are equal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is less than the given delta." ilk="function" line="598" name="assertNotAlmostEquals" />
+        <scope doc="Fail immediately, with the given message." ilk="function" line="406" lineend="408" name="fail" signature="fail(msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Fail if the two objects are unequal as determined by the&#10;'==' operator." ilk="function" line="504" lineend="509" name="assertEqual" signature="assertEqual(first, second, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="_getAssertEqualityFunc()" line="508" name="assertion_func" />
+          <variable ilk="argument" name="second" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope doc="Returns a one-line description of the test, or None if no&#10;description has been provided." ilk="function" line="251" lineend="259" name="shortDescription" returns="testMethod.__doc__" signature="shortDescription()">
+          <variable citdl="testMethod.__doc__" line="258" name="doc" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="262" lineend="263" name="id" returns="tuple" signature="id()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create an instance of the class that will use the named test&#10;method when executed." ilk="function" line="180" lineend="204" name="__init__" signature="TestCase(methodName='runTest')">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="methodName" />
+          <variable citdl="getattr()" line="188" name="testMethod" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a &lt; b), but with a nicer default&#10;message." ilk="function" line="922" lineend="926" name="assertLess" signature="assertLess(a, b, msg=None)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="str" line="925" name="standardMsg" />
+        </scope>
+        <scope ilk="function" line="611" name="failUnlessEqual" />
+        <scope doc="An equality assertion for ordered sequences (like lists and&#10;tuples)." ilk="function" line="619" lineend="720" name="assertSequenceEqual" signature="assertSequenceEqual(seq1, seq2, msg=None, seq_type=None)">
+          <variable ilk="argument" name="seq_type" />
+          <variable citdl="tuple" line="668" name="elements" />
+          <variable line="680" name="item2" />
+          <variable citdl="safe_repr()" line="662" name="seq1_repr" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable line="673" name="item1" />
+          <variable citdl="str" line="644" name="differing" />
+          <variable citdl="len()" line="653" name="len2" />
+          <variable citdl="len()" line="646" name="len1" />
+          <variable citdl="_formatMessage()" ilk="argument" name="msg" />
+          <variable citdl="str.join()" line="715" name="diffMsg" />
+          <variable citdl="safe_repr()" line="663" name="seq2_repr" />
+          <variable ilk="argument" name="seq2" />
+          <variable ilk="argument" name="seq1" />
+          <variable citdl="seq_type.__name__" line="714" name="standardMsg" />
+          <variable citdl="seq_type.__name__" line="634" name="seq_type_name" />
+        </scope>
+        <scope doc="Just like self.assertTrue(a not in b), but with a nicer&#10;default message." ilk="function" line="801" lineend="806" name="assertNotIn" signature="assertNotIn(member, container, msg=None)">
+          <variable ilk="argument" name="member" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="container" />
+          <variable citdl="str" line="804" name="standardMsg" />
+        </scope>
+        <scope ilk="function" line="616" name="failUnlessRaises" />
+        <scope doc="Execute all cleanup functions." ilk="function" line="374" lineend="388" name="doCleanups" returns="bool" signature="doCleanups()">
+          <variable line="380" name="function" />
+          <variable citdl="True" line="378" name="ok" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable line="380" name="args" />
+          <variable citdl="defaultTestResult()" line="377" name="result" />
+          <variable line="380" name="kwargs" />
+        </scope>
+        <scope doc="Fail unless an exception of class excClass is thrown by&#10;callableObj when invoked with arguments args and keyword&#10;arguments kwargs." ilk="function" line="444" lineend="471" name="assertRaises" returns="_AssertRaisesContext" signature="assertRaises(excClass, callableObj=None, *args, **kwargs)">
+          <variable ilk="argument" name="callableObj" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="excClass" />
+          <variable citdl="_AssertRaisesContext" line="467" name="context" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Check that the expression is true." ilk="function" line="416" lineend="420" name="assertTrue" signature="assertTrue(expr, msg=None)">
+          <variable citdl="self._formatMessage()" ilk="argument" name="msg" />
+          <variable ilk="argument" name="expr" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="271" lineend="272" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="293" lineend="372" name="run" signature="run(result=None)">
+          <variable citdl="getattr()" line="304" name="testMethod" />
+          <variable citdl="False" line="316" name="success" />
+          <variable citdl="getattr()" line="370" name="stopTestRun" />
+          <variable citdl="self.doCleanups()" line="363" name="cleanUpSuccess" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="309" name="skip_why" />
+          <variable citdl="getattr()" line="297" name="startTestRun" />
+          <variable citdl="defaultTestResult()" ilk="argument" name="result" />
+          <variable citdl="getattr()" line="341" name="addUnexpectedSuccess" />
+          <variable line="294" name="orig_result" />
+          <variable citdl="getattr()" line="333" name="addExpectedFailure" />
+        </scope>
+        <scope doc="Checks whether actual is a superset of expected." ilk="function" line="833" lineend="857" name="assertDictContainsSubset" signature="assertDictContainsSubset(expected, actual, msg=None)">
+          <variable ilk="argument" name="actual" />
+          <variable citdl="list" line="835" name="missing" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="list" line="836" name="mismatched" />
+          <variable ilk="argument" name="expected" />
+          <variable citdl="str" line="848" name="standardMsg" />
+        </scope>
+        <scope ilk="function" line="612" name="failIfEqual" />
+        <scope ilk="function" line="613" name="failUnlessAlmostEqual" />
+        <scope doc="Hook method for setting up the test fixture before&#10;exercising it." ilk="function" line="229" lineend="231" name="setUp" signature="setUp()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Fail the test if the text matches the regular expression." ilk="function" line="998" lineend="1009" name="assertNotRegexpMatches" signature="assertNotRegexpMatches(text, unexpected_regexp, msg=None)">
+          <variable citdl="str" ilk="argument" name="msg" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable citdl="re.compile()" ilk="argument" name="unexpected_regexp" />
+          <variable citdl="unexpected_regexp.search()" line="1002" name="match" />
+        </scope>
+        <scope ilk="function" line="274" lineend="275" name="__hash__" returns="hash()" signature="__hash__()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Honour the longMessage attribute when generating failure&#10;messages." ilk="function" line="422" lineend="441" name="_formatMessage" returns="tuple" signature="_formatMessage(msg, standardMsg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="standardMsg" />
+        </scope>
+        <scope doc="Check that the expression is true." ilk="function" line="599" name="assert_" />
+        <scope doc="A list-specific equality assertion." ilk="function" line="728" lineend="738" name="assertListEqual" signature="assertListEqual(list1, list2, msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="list1" />
+          <variable ilk="argument" name="list2" />
+        </scope>
+        <scope ilk="function" line="280" lineend="282" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Check that the expression is false." ilk="function" line="410" lineend="414" name="assertFalse" signature="assertFalse(expr, msg=None)">
+          <variable citdl="self._formatMessage()" ilk="argument" name="msg" />
+          <variable ilk="argument" name="expr" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="245" lineend="246" name="countTestCases" returns="int" signature="countTestCases()">
+          <variable citdl="TestCase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="614" name="failIfAlmostEqual" />
+        <scope doc="Just like self.assertTrue(a &gt;= b), but with a nicer default&#10;message." ilk="function" line="940" lineend="944" name="assertGreaterEqual" signature="assertGreaterEqual(a, b, msg=None)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TestCase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="str" line="943" name="standardMsg" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="185" name="_testMethodName" />
+        <variable attributes="protected" citdl="int" line="174" name="_diffThreshold" />
+        <variable attributes="protected __instancevar__" citdl="defaultTestResult()" line="186" name="_resultForDoCleanups" />
+        <variable attributes="protected __instancevar__" citdl="list" line="193" name="_cleanups" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="198" name="_type_equality_funcs" />
+        <variable citdl="False" line="164" name="longMessage" />
+        <variable citdl="int" line="170" name="maxDiff" />
+        <variable citdl="AssertionError" line="158" name="failureException" />
+        <variable attributes="protected __instancevar__" citdl="testMethod.__doc__" line="192" name="_testMethodDoc" />
+        <variable attributes="protected" citdl="False" line="178" name="_classSetupFailed" />
+      </scope>
+      <import module="collections" />
+      <import module="difflib" />
+      <scope ilk="function" line="86" lineend="94" name="expectedFailure" returns="expectedFailure.wrapper" signature="expectedFailure(func)">
+        <scope ilk="function" line="88" lineend="93" name="wrapper" signature="wrapper(*args, **kwargs)">
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable ilk="argument" name="func" />
+      </scope>
+      <import module="functools" />
+      <import module="pprint" />
+      <import module="re" />
+      <import module="result" />
+      <scope ilk="function" name="safe_repr" signature="safe_repr(obj, short=False)" />
+      <scope doc="Unconditionally skip a test." ilk="function" line="53" lineend="67" name="skip" returns="skip.decorator" signature="skip(reason)">
+        <variable ilk="argument" name="reason" />
+        <scope ilk="function" line="57" lineend="66" name="decorator" returns="skip.decorator.skip_wrapper" signature="decorator(test_item)">
+          <variable citdl="skip.decorator.skip_wrapper" ilk="argument" name="test_item" />
+          <scope ilk="function" line="60" lineend="61" name="skip_wrapper" signature="skip_wrapper(*args, **kwargs)">
+            <variable attributes="varargs" ilk="argument" name="args" />
+            <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          </scope>
+        </scope>
+      </scope>
+      <scope doc="Skip a test if the condition is true." ilk="function" line="69" lineend="75" name="skipIf" returns="_id" signature="skipIf(condition, reason)">
+        <variable ilk="argument" name="reason" />
+        <variable ilk="argument" name="condition" />
+      </scope>
+      <scope doc="Skip a test unless the condition is true." ilk="function" line="77" lineend="83" name="skipUnless" returns="_id" signature="skipUnless(condition, reason)">
+        <variable ilk="argument" name="reason" />
+        <variable ilk="argument" name="condition" />
+      </scope>
+      <scope ilk="function" name="strclass" signature="strclass(cls)" />
+      <import module="sys" />
+      <scope doc="Same behavior as sorted_list_difference but for lists of&#10;unorderable items (like dicts)." ilk="function" name="unorderable_list_difference" signature="unorderable_list_difference(expected, actual, ignore_duplicate=False)" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" classrefs="Exception" doc="The test was supposed to fail, but it didn't!" ilk="class" line="44" lineend="48" name="_UnexpectedSuccess" />
+      <scope attributes="protected __hidden__" ilk="function" line="50" lineend="51" name="_id" signature="_id(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" doc="A context manager used to implement TestCase.assertRaises*&#10;methods." ilk="class" line="97" lineend="129" name="_AssertRaisesContext">
+        <scope attributes="__ctor__" ilk="function" line="100" lineend="103" name="__init__" signature="_AssertRaisesContext(expected, test_case, expected_regexp=None)">
+          <variable citdl="_AssertRaisesContext" ilk="argument" name="self" />
+          <variable ilk="argument" name="expected" />
+          <variable ilk="argument" name="test_case" />
+          <variable ilk="argument" name="expected_regexp" />
+        </scope>
+        <variable attributes="__instancevar__" line="101" name="expected" />
+        <variable attributes="__instancevar__" citdl="test_case.failureException" line="102" name="failureException" />
+        <variable attributes="__instancevar__" line="103" name="expected_regexp" />
+        <scope ilk="function" line="105" lineend="106" name="__enter__" returns="_AssertRaisesContext" signature="__enter__()">
+          <variable citdl="_AssertRaisesContext" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="108" lineend="129" name="__exit__" returns="bool" signature="__exit__(exc_type, exc_value, tb)">
+          <variable citdl="_AssertRaisesContext" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc_type" />
+          <variable ilk="argument" name="exc_value" />
+          <variable ilk="argument" name="tb" />
+          <variable citdl="self.expected.__name__" line="111" name="exc_name" />
+          <variable citdl="re.compile()" line="123" name="expected_regexp" />
+        </scope>
+        <variable attributes="__instancevar__" line="119" name="exception" />
+      </scope>
+      <variable attributes="private __hidden__" citdl="True" line="18" name="__unittest" />
+      <scope attributes="protected __hidden__" classrefs="Exception" doc="Raise this when a test is expected to fail." ilk="class" line="33" lineend="42" name="_ExpectedFailure">
+        <scope attributes="__ctor__" ilk="function" line="40" lineend="42" name="__init__" signature="_ExpectedFailure(exc_info)">
+          <variable citdl="_ExpectedFailure" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc_info" />
+        </scope>
+        <variable attributes="__instancevar__" line="42" name="exc_info" />
+      </scope>
+    </scope>
+    

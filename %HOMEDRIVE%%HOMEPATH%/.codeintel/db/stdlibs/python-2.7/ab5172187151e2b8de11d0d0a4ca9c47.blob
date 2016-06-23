@@ -1,0 +1,31 @@
+<scope doc="Filename globbing utility.&#10;" ilk="blob" lang="Python" name="glob">
+      <variable citdl="list" line="8" name="__all__" />
+      <import module="fnmatch" />
+      <scope doc="Return a list of paths matching a pathname pattern." ilk="function" line="10" lineend="16" name="glob" returns="list()" signature="glob(pathname)">
+        <variable ilk="argument" name="pathname" />
+      </scope>
+      <scope ilk="function" line="63" lineend="72" name="glob0" returns="list" signature="glob0(dirname, basename)">
+        <variable ilk="argument" name="basename" />
+        <variable ilk="argument" name="dirname" />
+      </scope>
+      <scope ilk="function" line="49" lineend="61" name="glob1" returns="list" signature="glob1(dirname, pattern)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="unicode()" ilk="argument" name="dirname" />
+        <variable citdl="os.listdir()" line="56" name="names" />
+      </scope>
+      <scope ilk="function" line="77" lineend="78" name="has_magic" returns="bool" signature="has_magic(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Return an iterator which yields the paths matching a&#10;pathname pattern." ilk="function" line="18" lineend="43" name="iglob" signature="iglob(pathname)">
+        <variable citdl="()" line="34" name="dirs" />
+        <variable line="28" name="basename" />
+        <variable citdl="glob0" line="38" name="glob_in_dir" />
+        <variable ilk="argument" name="pathname" />
+        <variable line="28" name="dirname" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="75" name="magic_check" />
+      <import module="os" />
+      <import module="re" />
+      <import module="sys" />
+    </scope>
+    

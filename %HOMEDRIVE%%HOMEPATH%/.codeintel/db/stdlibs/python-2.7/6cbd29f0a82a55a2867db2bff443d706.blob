@@ -1,0 +1,16 @@
+<scope doc="Class representing text/* type MIME documents.&#10;" ilk="blob" lang="Python" name="email.mime.text">
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" name="MIMENonMultipart">
+        <scope ilk="function" name="attach" />
+      </scope>
+      <scope classrefs="MIMENonMultipart" doc="Class for generating text/* type MIME documents.&#10;" ilk="class" line="14" lineend="30" name="MIMEText">
+        <scope doc="Create a text/* type MIME document." ilk="function" line="17" lineend="30" name="__init__" signature="MIMEText(_text, _subtype='plain', _charset='us-ascii')">
+          <variable citdl="str" ilk="argument" name="_charset" />
+          <variable citdl="MIMEText" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="_subtype" />
+          <variable ilk="argument" name="_text" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <scope doc="Set the Content-Transfer-Encoding header to 7bit or 8bit." ilk="function" name="encode_7or8bit" signature="encode_7or8bit(msg)" />
+    </scope>
+    

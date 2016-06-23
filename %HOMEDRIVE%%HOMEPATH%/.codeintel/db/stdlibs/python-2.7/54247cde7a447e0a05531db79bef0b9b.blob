@@ -1,0 +1,198 @@
+<scope doc="Interface to the compiler's internal symbol tables&#10;" ilk="blob" lang="Python" name="symtable">
+      <variable citdl="int" name="CELL" />
+      <scope classrefs="SymbolTable" doc="&#10;" ilk="class" line="159" lineend="169" name="Class">
+        <scope ilk="function" line="163" lineend="169" name="get_methods" returns="tuple()" signature="get_methods()">
+          <variable citdl="Class" ilk="argument" name="self" />
+          <variable citdl="dict" line="165" name="d" />
+        </scope>
+        <variable attributes="private" citdl="tuple()" line="161" name="__methods" />
+      </scope>
+      <variable citdl="int" name="DEF_BOUND" />
+      <variable citdl="int" name="DEF_GLOBAL" />
+      <variable citdl="int" name="DEF_IMPORT" />
+      <variable citdl="int" name="DEF_LOCAL" />
+      <variable citdl="int" name="DEF_PARAM" />
+      <variable citdl="int" name="FREE" />
+      <scope classrefs="SymbolTable" doc="&#10;" ilk="class" line="121" lineend="156" name="Function">
+        <scope ilk="function" line="133" lineend="136" name="get_parameters" returns="__idents_matching()" signature="get_parameters()">
+          <variable citdl="Function" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_Function__idents_matching" />
+        <scope ilk="function" line="145" lineend="150" name="get_globals" returns="__idents_matching()" signature="get_globals()">
+          <variable line="148" name="test" />
+          <variable citdl="Function" ilk="argument" name="self" />
+          <variable citdl="tuple" line="147" name="glob" />
+        </scope>
+        <scope ilk="function" line="152" lineend="156" name="get_frees" returns="__idents_matching()" signature="get_frees()">
+          <variable citdl="Function" ilk="argument" name="self" />
+          <variable line="154" name="is_free" />
+        </scope>
+        <scope ilk="function" line="138" lineend="143" name="get_locals" returns="__idents_matching()" signature="get_locals()">
+          <variable line="141" name="test" />
+          <variable citdl="tuple" line="140" name="locs" />
+          <variable citdl="Function" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private" citdl="__idents_matching()" line="126" name="__frees" />
+        <variable attributes="private" citdl="__idents_matching()" line="127" name="__globals" />
+        <variable attributes="private" citdl="__idents_matching()" line="124" name="__params" />
+        <scope attributes="private" ilk="function" line="129" lineend="131" name="__idents_matching" returns="tuple()" signature="__idents_matching(test_func)">
+          <variable citdl="Function" ilk="argument" name="self" />
+          <variable ilk="argument" name="test_func" />
+        </scope>
+        <variable attributes="private" citdl="__idents_matching()" line="125" name="__locals" />
+      </scope>
+      <variable citdl="int" name="GLOBAL_EXPLICIT" />
+      <variable citdl="int" name="GLOBAL_IMPLICIT" />
+      <variable citdl="int" name="LOCAL" />
+      <variable citdl="int" name="OPT_BARE_EXEC" />
+      <variable citdl="int" name="OPT_EXEC" />
+      <variable citdl="int" name="OPT_IMPORT_STAR" />
+      <variable citdl="int" name="SCOPE_MASK" />
+      <variable citdl="int" name="SCOPE_OFF" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="172" lineend="234" name="Symbol">
+        <scope ilk="function" line="198" lineend="199" name="is_local" returns="bool()" signature="is_local()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="186" lineend="187" name="is_referenced" returns="bool()" signature="is_referenced()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="207" lineend="208" name="is_assigned" returns="bool()" signature="is_assigned()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="189" lineend="190" name="is_parameter" returns="bool()" signature="is_parameter()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="195" lineend="196" name="is_declared_global" returns="bool()" signature="is_declared_global()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="204" lineend="205" name="is_imported" returns="bool()" signature="is_imported()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="183" lineend="184" name="get_name" signature="get_name()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of namespaces bound to this name" ilk="function" line="223" lineend="225" name="get_namespaces" returns="tuple" signature="get_namespaces()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns true if name binding introduces new namespace." ilk="function" line="210" lineend="221" name="is_namespace" returns="bool()" signature="is_namespace()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="180" lineend="181" name="__repr__" returns="str.format()" signature="__repr__()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the single namespace bound to this name." ilk="function" line="227" lineend="234" name="get_namespace" signature="get_namespace()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="201" lineend="202" name="is_free" returns="bool()" signature="is_free()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="192" lineend="193" name="is_global" returns="bool()" signature="is_global()">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="174" lineend="178" name="__init__" signature="Symbol(name, flags, namespaces=None)">
+          <variable citdl="Symbol" ilk="argument" name="self" />
+          <variable ilk="argument" name="flags" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="namespaces" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="int" line="177" name="__scope" />
+        <variable attributes="private __instancevar__" citdl="tuple" line="178" name="__namespaces" />
+        <variable attributes="private __instancevar__" line="176" name="__flags" />
+        <variable attributes="private __instancevar__" line="175" name="__name" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="40" lineend="118" name="SymbolTable">
+        <scope doc="Return true if the scope uses import *" ilk="function" line="93" lineend="95" name="has_import_star" returns="bool()" signature="has_import_star()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="has_children" returns="bool()" signature="has_children()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return true if the scope uses exec" ilk="function" line="89" lineend="91" name="has_exec" returns="bool()" signature="has_exec()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="76" lineend="77" name="get_lineno" returns="self._table.lineno" signature="get_lineno()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="70" lineend="71" name="get_id" returns="self._table.id" signature="get_id()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="60" lineend="68" name="get_type" returns="str" signature="get_type()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="116" lineend="118" name="get_children" returns="list" signature="get_children()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_SymbolTable__check_children" />
+        <scope ilk="function" line="97" lineend="98" name="get_identifiers" returns="self._table.symbols.keys()" signature="get_identifiers()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="108" lineend="109" name="get_symbols" returns="list" signature="get_symbols()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="81" name="is_optimized" returns="bool()" signature="is_optimized()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="83" lineend="84" name="is_nested" returns="bool()" signature="is_nested()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="73" lineend="74" name="get_name" returns="self._table.name" signature="get_name()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="100" lineend="106" name="lookup" returns="Symbol()" signature="lookup(name)">
+          <variable citdl="self.__check_children()" line="104" name="namespaces" />
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+          <variable line="103" name="flags" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="Symbol()" line="101" name="sym" />
+        </scope>
+        <scope ilk="function" line="47" lineend="58" name="__repr__" returns="str.format()" signature="__repr__()">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+          <variable citdl="str" line="49" name="kind" />
+        </scope>
+        <scope ilk="function" line="42" lineend="45" name="__init__" signature="SymbolTable(raw_table, filename)">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+          <variable ilk="argument" name="raw_table" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="44" name="_filename" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="45" name="_symbols" />
+        <variable attributes="protected __instancevar__" line="43" name="_table" />
+        <scope attributes="private" ilk="function" line="111" lineend="114" name="__check_children" returns="list" signature="__check_children(name)">
+          <variable citdl="SymbolTable" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="19" lineend="35" name="SymbolTableFactory">
+        <scope ilk="function" line="30" lineend="35" name="__call__" returns="new()" signature="__call__(table, filename)">
+          <variable ilk="argument" name="table" />
+          <variable citdl="SymbolTableFactory" ilk="argument" name="self" />
+          <variable citdl="self.__memo.get()" line="32" name="obj" />
+          <variable citdl="tuple" line="31" name="key" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="23" lineend="28" name="new" returns="Class()" signature="new(table, filename)">
+          <variable ilk="argument" name="table" />
+          <variable citdl="SymbolTableFactory" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="20" lineend="21" name="__init__" signature="SymbolTableFactory()">
+          <variable citdl="SymbolTableFactory" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="weakref.WeakValueDictionary()" line="21" name="__memo" />
+      </scope>
+      <variable citdl="int" name="USE" />
+      <variable citdl="list" line="10" name="__all__" />
+      <import module="_symtable" />
+      <scope ilk="function" line="12" lineend="17" name="symtable" returns="_newSymbolTable()" signature="symtable(code, filename, compile_type)">
+        <variable citdl="_symtable.symtable()" line="13" name="raw" />
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="compile_type" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="weakref" />
+      <variable attributes="__hidden__" citdl="mod.lookup()" line="241" name="info" />
+      <variable attributes="__hidden__" line="238" name="src" />
+      <variable attributes="protected __hidden__" citdl="SymbolTableFactory" line="37" name="_newSymbolTable" />
+      <variable attributes="__hidden__" citdl="symtable()" line="239" name="mod" />
+    </scope>
+    

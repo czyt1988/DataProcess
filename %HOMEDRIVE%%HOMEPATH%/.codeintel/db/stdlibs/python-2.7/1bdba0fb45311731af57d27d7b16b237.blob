@@ -1,0 +1,205 @@
+<scope doc="An RFC 2821 smtp proxy.&#10;Usage: %(program)s [options] [localhost:localport [remotehost:remoteport]]  Options:  --nosetuid -n This program generally tries to setuid `nobody', unless this flag is set.  The setuid call will fail if this program is not run as root (in which case, use this flag). " ilk="blob" lang="Python" name="smtpd">
+      <variable citdl="str" line="95" name="COMMASPACE" />
+      <variable citdl="Devnull" line="92" name="DEBUGSTREAM" />
+      <scope doc="&#10;" ilk="class" name="Devnull">
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="flush" />
+      </scope>
+      <scope classrefs="SMTPServer" doc="&#10;" ilk="class" line="330" lineend="342" name="DebuggingServer">
+        <scope doc="# Do something with the gathered message" ilk="function" line="332" lineend="342" name="process_message" signature="process_message(peer, mailfrom, rcpttos, data)">
+          <variable ilk="argument" name="mailfrom" />
+          <variable ilk="argument" name="rcpttos" />
+          <variable citdl="int" line="333" name="inheaders" />
+          <variable citdl="DebuggingServer" ilk="argument" name="self" />
+          <variable citdl="data.split()" line="334" name="lines" />
+          <variable ilk="argument" name="peer" />
+          <variable ilk="argument" name="data" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="87" lineend="89" name="Devnull">
+        <scope ilk="function" line="88" lineend="88" name="write" signature="write(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Devnull" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="89" lineend="89" name="flush" signature="flush()">
+          <variable citdl="Devnull" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable citdl="str" line="94" name="EMPTYSTRING" />
+      <scope classrefs="PureProxy" doc="&#10;" ilk="class" line="385" lineend="460" name="MailmanProxy">
+        <scope ilk="function" line="386" lineend="460" name="process_message" signature="process_message(peer, mailfrom, rcpttos, data)">
+          <variable ilk="argument" name="mailfrom" />
+          <variable ilk="argument" name="rcpttos" />
+          <variable citdl="list" line="394" name="listnames" />
+          <variable line="396" name="local" />
+          <variable citdl="MailmanProxy" ilk="argument" name="self" />
+          <variable citdl="self._deliver()" line="424" name="refused" />
+          <variable citdl="mlists.get()" line="440" name="mlist" />
+          <variable citdl="Message.Message()" line="430" name="msg" />
+          <variable citdl="StringIO()" line="429" name="s" />
+          <variable citdl="local.split()" line="404" name="parts" />
+          <variable citdl="str" line="409" name="command" />
+          <variable ilk="argument" name="peer" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="dict" line="428" name="mlists" />
+          <variable line="407" name="listname" />
+        </scope>
+      </scope>
+      <variable citdl="str" line="93" name="NEWLINE" />
+      <scope doc="&#10;" ilk="class" line="463" lineend="465" name="Options">
+        <variable citdl="int" line="464" name="setuid" />
+        <variable citdl="str" line="465" name="classname" />
+      </scope>
+      <scope classrefs="SMTPServer" doc="&#10;" ilk="class" line="345" lineend="382" name="PureProxy">
+        <scope ilk="function" line="346" lineend="358" name="process_message" signature="process_message(peer, mailfrom, rcpttos, data)">
+          <variable ilk="argument" name="mailfrom" />
+          <variable ilk="argument" name="rcpttos" />
+          <variable citdl="int" line="349" name="i" />
+          <variable citdl="PureProxy" ilk="argument" name="self" />
+          <variable citdl="data.split()" line="347" name="lines" />
+          <variable citdl="self._deliver()" line="356" name="refused" />
+          <variable ilk="argument" name="peer" />
+          <variable citdl="NEWLINE.join()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="360" lineend="382" name="_deliver" returns="s.sendmail()" signature="_deliver(mailfrom, rcpttos, data)">
+          <variable ilk="argument" name="mailfrom" />
+          <variable ilk="argument" name="rcpttos" />
+          <variable citdl="PureProxy" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="378" name="errcode" />
+          <variable citdl="e.recipients" line="362" name="refused" />
+          <variable citdl="smtplib.SMTP()" line="364" name="s" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="getattr()" line="379" name="errmsg" />
+        </scope>
+      </scope>
+      <scope classrefs="async_chat" doc="&#10;" ilk="class" line="105" lineend="273" name="SMTPChannel">
+        <scope ilk="function" line="202" lineend="206" name="smtp_NOOP" signature="smtp_NOOP(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="# SMTP and ESMTP commands" ilk="function" line="192" lineend="200" name="smtp_HELO" signature="smtp_HELO(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="240" lineend="251" name="smtp_RCPT" signature="smtp_RCPT(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable line="245" name="address" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="# Implementation of base class abstract method" ilk="function" line="139" lineend="140" name="collect_incoming_data" signature="collect_incoming_data(data)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="264" lineend="273" name="smtp_DATA" signature="smtp_DATA(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="253" lineend="262" name="smtp_RSET" signature="smtp_RSET(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="227" lineend="238" name="smtp_MAIL" signature="smtp_MAIL(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable line="229" name="address" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="# factored" ilk="function" name="_SMTPChannel__getaddr" />
+        <scope doc="# Overrides base class for convenience" ilk="function" line="135" lineend="136" name="push" signature="push(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Implementation of base class abstract method" ilk="function" line="143" lineend="189" name="found_terminator" signature="found_terminator()">
+          <variable citdl="self.__server.process_message()" line="178" name="status" />
+          <variable citdl="line.find()" line="152" name="i" />
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable citdl="line.upper()" line="154" name="command" />
+          <variable line="155" name="arg" />
+          <variable citdl="EMPTYSTRING.join()" line="144" name="line" />
+          <variable citdl="list" line="171" name="data" />
+          <variable citdl="getattr()" line="151" name="method" />
+        </scope>
+        <scope ilk="function" line="208" lineend="211" name="smtp_QUIT" signature="smtp_QUIT(arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="109" lineend="132" name="__init__" signature="SMTPChannel(server, conn, addr)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="addr" />
+          <variable ilk="argument" name="conn" />
+          <variable ilk="argument" name="server" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="list" line="118" name="__rcpttos" />
+        <variable attributes="private __instancevar__" line="112" name="__conn" />
+        <variable attributes="private __instancevar__" line="117" name="__mailfrom" />
+        <variable attributes="private __instancevar__" citdl="str" line="119" name="__data" />
+        <scope attributes="private" ilk="function" line="214" lineend="225" name="__getaddr" returns="list" signature="__getaddr(keyword, arg)">
+          <variable citdl="SMTPChannel" ilk="argument" name="self" />
+          <variable ilk="argument" name="keyword" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="list" line="215" name="address" />
+          <variable citdl="len()" line="216" name="keylen" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="socket.getfqdn()" line="120" name="__fqdn" />
+        <variable attributes="private __instancevar__" citdl="list" line="114" name="__line" />
+        <variable attributes="private __instancevar__" line="113" name="__addr" />
+        <variable attributes="private __instancevar__" line="111" name="__server" />
+        <variable citdl="int" line="106" name="COMMAND" />
+        <variable attributes="private __instancevar__" citdl="conn.getpeername()" line="122" name="__peer" />
+        <variable citdl="int" line="107" name="DATA" />
+        <variable attributes="private __instancevar__" citdl="int" line="116" name="__greeting" />
+        <variable attributes="private __instancevar__" citdl="int" line="115" name="__state" />
+      </scope>
+      <scope classrefs="dispatcher" doc="&#10;" ilk="class" line="276" lineend="327" name="SMTPServer">
+        <scope ilk="function" line="297" lineend="302" name="handle_accept" signature="handle_accept()">
+          <variable citdl="self.accept()" line="298" name="pair" />
+          <variable citdl="SMTPServer" ilk="argument" name="self" />
+          <variable citdl="SMTPChannel" line="302" name="channel" />
+        </scope>
+        <scope doc="Override this abstract method to handle messages from the&#10;client." ilk="function" line="305" lineend="327" name="process_message" signature="process_message(peer, mailfrom, rcpttos, data)">
+          <variable ilk="argument" name="peer" />
+          <variable ilk="argument" name="mailfrom" />
+          <variable citdl="SMTPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="rcpttos" />
+        </scope>
+        <scope ilk="function" line="277" lineend="292" name="__init__" signature="SMTPServer(localaddr, remoteaddr)">
+          <variable citdl="SMTPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="localaddr" />
+          <variable ilk="argument" name="remoteaddr" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="278" name="_localaddr" />
+        <variable attributes="protected __instancevar__" line="279" name="_remoteaddr" />
+      </scope>
+      <variable citdl="list" line="81" name="__all__" />
+      <variable citdl="str" line="84" name="__version__" />
+      <import module="asynchat" />
+      <import module="asyncore" />
+      <import module="errno" />
+      <import module="getopt" />
+      <import module="os" />
+      <scope ilk="function" line="468" lineend="521" name="parseargs" returns="Options" signature="parseargs()">
+        <variable citdl="sys.stderr" line="489" name="DEBUGSTREAM" />
+        <variable citdl="remotespec.find()" line="505" name="i" />
+        <variable line="471" name="args" />
+        <variable citdl="str" line="493" name="localspec" />
+        <variable citdl="str" line="494" name="remotespec" />
+        <variable citdl="Options" line="477" name="options" />
+        <variable line="471" name="opts" />
+      </scope>
+      <variable citdl="str" line="83" name="program" />
+      <import module="socket" />
+      <import module="sys" />
+      <import module="time" />
+      <scope ilk="function" line="98" lineend="102" name="usage" signature="usage(code, msg='')">
+        <variable citdl="str" ilk="argument" name="msg" />
+        <variable ilk="argument" name="code" />
+      </scope>
+      <variable attributes="__hidden__" line="534" name="nobody" />
+      <variable attributes="__hidden__" citdl="options.classname" line="542" name="classname" />
+      <variable attributes="__hidden__" citdl="getattr()" line="549" name="class_" />
+      <variable attributes="__hidden__" citdl="class_()" line="550" name="proxy" />
+      <variable attributes="__hidden__" citdl="classname.rfind()" line="544" name="lastdot" />
+      <variable attributes="__hidden__" citdl="parseargs()" line="525" name="options" />
+      <variable attributes="__hidden__" citdl="__import__()" line="545" name="mod" />
+    </scope>
+    

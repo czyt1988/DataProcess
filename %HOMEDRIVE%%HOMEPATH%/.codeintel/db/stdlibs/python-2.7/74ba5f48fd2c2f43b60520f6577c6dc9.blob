@@ -1,0 +1,8 @@
+<scope doc="This module contains functions that can read and write Python values in&#10;a binary format. The format is specific to Python, but independent of machine architecture issues.  Not all Python object types are supported; in general, only objects whose value is independent from a particular invocation of Python can be written and read by this module. The following types are supported: None, integers, long integers, floating point numbers, strings, Unicode objects, tuples, lists, sets, dictionaries, and code objects, where it should be understood that tuples, lists and dictionaries are only supported as long as the values contained therein are themselves" ilk="blob" lang="Python" name="marshal">
+      <scope doc="Write the value on the open file." ilk="function" name="dump" signature="dump(value, file[, version])" />
+      <scope doc="Return the string that would be written to a file by&#10;dump(value, file)." ilk="function" name="dumps" signature="dumps(value[, version])" />
+      <scope doc="Read one value from the open file and return it." ilk="function" name="load" signature="load(file)" />
+      <scope doc="Convert the string to a value." ilk="function" name="loads" signature="loads(string)" />
+      <variable citdl="int" name="version" />
+    </scope>
+    

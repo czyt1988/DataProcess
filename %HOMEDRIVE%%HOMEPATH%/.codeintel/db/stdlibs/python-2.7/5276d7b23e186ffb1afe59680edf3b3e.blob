@@ -1,0 +1,531 @@
+<scope doc="#-------------------------------------------------------------------------&#10;#  This file contains real Python object wrappers for DB and DBEnv #  C &quot;objects&quot; that can be usefully subclassed.  The previous SWIG #  based interface allowed this thanks to SWIG's shadow classes. #   --  Gregory P. Smith #------------------------------------------------------------------------- # # (C) Copyright 2001  Autonomous Zone Industries # # License:  This is free software.  You may use this software for any #           purpose including modification/redistribution, so long as" ilk="blob" lang="Python" name="bsddb.dbobj">
+      <scope classrefs="MutableMapping" doc="&#10;" ilk="class" line="128" lineend="235" name="DB">
+        <scope ilk="function" line="191" lineend="192" name="rename" returns="self._cobj.rename()" signature="rename(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="153" lineend="154" name="consume" returns="self._cobj.consume()" signature="consume(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="207" lineend="208" name="set_pagesize" returns="self._cobj.set_pagesize()" signature="set_pagesize(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="221" lineend="222" name="sync" returns="self._cobj.sync()" signature="sync(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="231" lineend="232" name="set_get_returns_none" returns="self._cobj.set_get_returns_none()" signature="set_get_returns_none(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="173" lineend="174" name="get_type" returns="self._cobj.get_type()" signature="get_type(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="215" lineend="216" name="set_re_source" returns="self._cobj.set_re_source()" signature="set_re_source(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="189" lineend="190" name="remove" returns="self._cobj.remove()" signature="remove(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="151" lineend="152" name="close" returns="self._cobj.close()" signature="close(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="open" returns="self._cobj.open()" signature="open(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="147" lineend="148" name="append" returns="self._cobj.append()" signature="append(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="234" lineend="235" name="set_encrypt" returns="self._cobj.set_encrypt()" signature="set_encrypt(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="169" lineend="170" name="get_byteswapped" returns="self._cobj.get_byteswapped()" signature="get_byteswapped(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="157" lineend="158" name="cursor" returns="self._cobj.cursor()" signature="cursor(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="225" lineend="226" name="upgrade" returns="self._cobj.upgrade()" signature="upgrade(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="213" lineend="214" name="set_re_pad" returns="self._cobj.set_re_pad()" signature="set_re_pad(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="229" lineend="230" name="verify" returns="self._cobj.verify()" signature="verify(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="183" lineend="184" name="keys" returns="self._cobj.keys()" signature="keys(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="149" lineend="150" name="associate" returns="self._cobj.associate()" signature="associate(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="171" lineend="172" name="get_size" returns="self._cobj.get_size()" signature="get_size(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="193" lineend="194" name="set_bt_minkey" returns="self._cobj.set_bt_minkey()" signature="set_bt_minkey(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="203" lineend="204" name="set_h_nelem" returns="self._cobj.set_h_nelem()" signature="set_h_nelem(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="129" lineend="131" name="__init__" signature="DB(dbenv, *args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="dbenv" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="138" lineend="139" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="223" lineend="224" name="type" returns="self._cobj.type()" signature="type(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="# TODO are there other dict methods that need to be&#10;overridden?" ilk="function" line="134" lineend="135" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="DB" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="199" lineend="200" name="set_flags" returns="self._cobj.set_flags()" signature="set_flags(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="219" lineend="220" name="stat" returns="self._cobj.stat()" signature="stat(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="136" lineend="137" name="__getitem__" signature="__getitem__(arg)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="163" lineend="164" name="get" returns="self._cobj.get()" signature="get(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="209" lineend="210" name="set_re_delim" returns="self._cobj.set_re_delim()" signature="set_re_delim(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="167" lineend="168" name="get_both" returns="self._cobj.get_both()" signature="get_both(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="197" lineend="198" name="set_cachesize" returns="self._cobj.set_cachesize()" signature="set_cachesize(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="144" lineend="145" name="__iter__" returns="self._cobj.__iter__()" signature="__iter__()">
+          <variable citdl="DB" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="161" lineend="162" name="fd" returns="self._cobj.fd()" signature="fd(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="187" lineend="188" name="put" returns="self._cobj.put()" signature="put(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="217" lineend="218" name="set_q_extentsize" returns="self._cobj.set_q_extentsize()" signature="set_q_extentsize(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="155" lineend="156" name="consume_wait" returns="self._cobj.consume_wait()" signature="consume_wait(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="177" lineend="178" name="key_range" returns="self._cobj.key_range()" signature="key_range(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="140" lineend="141" name="__delitem__" signature="__delitem__(arg)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="175" lineend="176" name="join" returns="self._cobj.join()" signature="join(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="195" lineend="196" name="set_bt_compare" returns="self._cobj.set_bt_compare()" signature="set_bt_compare(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="181" lineend="182" name="items" returns="self._cobj.items()" signature="items(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="205" lineend="206" name="set_lorder" returns="self._cobj.set_lorder()" signature="set_lorder(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="211" lineend="212" name="set_re_len" returns="self._cobj.set_re_len()" signature="set_re_len(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="165" lineend="166" name="pget" returns="self._cobj.pget()" signature="pget(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="179" lineend="180" name="has_key" returns="self._cobj.has_key()" signature="has_key(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="227" lineend="228" name="values" returns="self._cobj.values()" signature="values(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="201" lineend="202" name="set_h_ffactor" returns="self._cobj.set_h_ffactor()" signature="set_h_ffactor(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="159" lineend="160" name="delete" returns="self._cobj.delete()" signature="delete(*args, **kwargs)">
+          <variable citdl="DB" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="db.DB()" line="131" name="_cobj" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="43" lineend="125" name="DBEnv">
+        <scope ilk="function" line="115" lineend="116" name="dbrename" returns="self._cobj.dbrename()" signature="dbrename(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="117" lineend="118" name="set_encrypt" returns="self._cobj.set_encrypt()" signature="set_encrypt(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="124" lineend="125" name="lsn_reset" returns="self._cobj.lsn_reset()" signature="lsn_reset(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="txn_checkpoint" returns="self._cobj.txn_checkpoint()" signature="txn_checkpoint(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="107" lineend="108" name="set_get_returns_none" returns="self._cobj.set_get_returns_none()" signature="set_get_returns_none(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="94" lineend="95" name="lock_detect" returns="self._cobj.lock_detect()" signature="lock_detect(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="102" lineend="103" name="lock_stat" returns="self._cobj.lock_stat()" signature="lock_stat(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="76" lineend="77" name="set_lk_max_objects" returns="self._cobj.set_lk_max_objects()" signature="set_lk_max_objects(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="47" lineend="48" name="close" returns="self._cobj.close()" signature="close(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="49" lineend="50" name="open" returns="self._cobj.open()" signature="open(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="44" lineend="45" name="__init__" signature="DBEnv(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="113" lineend="114" name="dbremove" returns="self._cobj.dbremove()" signature="dbremove(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="96" lineend="97" name="lock_get" returns="self._cobj.lock_get()" signature="lock_get(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="121" lineend="122" name="fileid_reset" returns="self._cobj.fileid_reset()" signature="fileid_reset(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="63" lineend="64" name="set_lg_dir" returns="self._cobj.set_lg_dir()" signature="set_lg_dir(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="53" lineend="54" name="set_shm_key" returns="self._cobj.set_shm_key()" signature="set_shm_key(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="78" lineend="79" name="set_mp_mmapsize" returns="self._cobj.set_mp_mmapsize()" signature="set_mp_mmapsize(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="59" lineend="60" name="set_flags" returns="self._cobj.set_flags()" signature="set_flags(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="90" lineend="91" name="set_tx_max" returns="self._cobj.set_tx_max()" signature="set_tx_max(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="110" lineend="111" name="log_stat" returns="self._cobj.log_stat()" signature="log_stat(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="61" lineend="62" name="set_lg_bsize" returns="self._cobj.set_lg_bsize()" signature="set_lg_bsize(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="72" lineend="73" name="set_lk_max_locks" returns="self._cobj.set_lk_max_locks()" signature="set_lk_max_locks(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="82" lineend="83" name="set_tmp_dir" returns="self._cobj.set_tmp_dir()" signature="set_tmp_dir(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="100" lineend="101" name="lock_put" returns="self._cobj.lock_put()" signature="lock_put(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="55" lineend="56" name="set_cachesize" returns="self._cobj.set_cachesize()" signature="set_cachesize(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="57" lineend="58" name="set_data_dir" returns="self._cobj.set_data_dir()" signature="set_data_dir(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="set_lg_max" returns="self._cobj.set_lg_max()" signature="set_lg_max(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="98" lineend="99" name="lock_id" returns="self._cobj.lock_id()" signature="lock_id(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="88" lineend="89" name="txn_stat" returns="self._cobj.txn_stat()" signature="txn_stat(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="67" lineend="68" name="set_lk_detect" returns="self._cobj.set_lk_detect()" signature="set_lk_detect(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="51" lineend="52" name="remove" returns="self._cobj.remove()" signature="remove(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="74" lineend="75" name="set_lk_max_lockers" returns="self._cobj.set_lk_max_lockers()" signature="set_lk_max_lockers(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="104" lineend="105" name="log_archive" returns="self._cobj.log_archive()" signature="log_archive(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="80" lineend="81" name="set_timeout" returns="self._cobj.set_timeout()" signature="set_timeout(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="84" lineend="85" name="txn_begin" returns="self._cobj.txn_begin()" signature="txn_begin(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="92" lineend="93" name="set_tx_timestamp" returns="self._cobj.set_tx_timestamp()" signature="set_tx_timestamp(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="db.DBEnv()" line="45" name="_cobj" />
+        <scope ilk="function" line="70" lineend="71" name="set_lk_max" returns="self._cobj.set_lk_max()" signature="set_lk_max(*args, **kwargs)">
+          <variable citdl="DBEnv" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="238" lineend="269" name="DBSequence">
+        <scope ilk="function" line="268" lineend="269" name="get_range" returns="self._cobj.get_range()" signature="get_range(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="264" lineend="265" name="get_cachesize" returns="self._cobj.get_cachesize()" signature="get_cachesize(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="248" lineend="249" name="get_key" returns="self._cobj.get_key()" signature="get_key(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="246" lineend="247" name="get_dbp" returns="self._cobj.get_dbp()" signature="get_dbp(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="266" lineend="267" name="get_flags" returns="self._cobj.get_flags()" signature="get_flags(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="244" lineend="245" name="get" returns="self._cobj.get()" signature="get(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="256" lineend="257" name="stat" returns="self._cobj.stat()" signature="stat(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="250" lineend="251" name="init_value" returns="self._cobj.init_value()" signature="init_value(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="258" lineend="259" name="set_cachesize" returns="self._cobj.set_cachesize()" signature="set_cachesize(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="262" lineend="263" name="set_range" returns="self._cobj.set_range()" signature="set_range(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="254" lineend="255" name="remove" returns="self._cobj.remove()" signature="remove(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="242" lineend="243" name="close" returns="self._cobj.close()" signature="close(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="252" lineend="253" name="open" returns="self._cobj.open()" signature="open(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="239" lineend="240" name="__init__" signature="DBSequence(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="260" lineend="261" name="set_flags" returns="self._cobj.set_flags()" signature="set_flags(*args, **kwargs)">
+          <variable citdl="DBSequence" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="db.DBSequence()" line="240" name="_cobj" />
+      </scope>
+      <scope classrefs="Mapping" doc="&#10;" ilk="class" line="38" name="MutableMapping">
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="popitem" />
+      </scope>
+      <variable citdl="bool" line="25" name="absolute_import" />
+      <import module="collections" />
+      <import module="db" />
+      <import module="sys" />
+      <scope attributes="__hidden__" ilk="class" line="37" lineend="37" name="DictMixin" />
+    </scope>
+    

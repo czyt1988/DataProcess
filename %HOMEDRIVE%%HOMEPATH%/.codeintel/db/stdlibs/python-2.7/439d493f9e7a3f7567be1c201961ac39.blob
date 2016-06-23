@@ -1,0 +1,9 @@
+<scope doc="Bisection algorithms.&#10;This module provides support for maintaining a list in sorted order without having to sort the list after each insertion. For long lists of items with expensive comparison operations, this can be an improvement over the more common approach." ilk="blob" lang="Python" name="_bisect">
+      <scope doc="Alias for bisect_right()." ilk="function" name="bisect" />
+      <scope doc="Return the index where to insert item x in list a, assuming&#10;a is sorted." ilk="function" name="bisect_left" signature="bisect_left(a, x[, lo[, hi]]) -&gt; index" />
+      <scope doc="Return the index where to insert item x in list a, assuming&#10;a is sorted." ilk="function" name="bisect_right" signature="bisect_right(a, x[, lo[, hi]]) -&gt; index" />
+      <scope doc="Alias for insort_right()." ilk="function" name="insort" />
+      <scope doc="Insert item x in list a, and keep it sorted assuming a is&#10;sorted." ilk="function" name="insort_left" signature="insort_left(a, x[, lo[, hi]])" />
+      <scope doc="Insert item x in list a, and keep it sorted assuming a is&#10;sorted." ilk="function" name="insort_right" signature="insort_right(a, x[, lo[, hi]])" />
+    </scope>
+    

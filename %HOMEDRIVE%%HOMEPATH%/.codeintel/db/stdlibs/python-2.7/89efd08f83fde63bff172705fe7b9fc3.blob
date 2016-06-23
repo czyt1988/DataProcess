@@ -1,0 +1,666 @@
+<scope doc="# Module providing the `SyncManager` class for dealing&#10;# with shared objects # # multiprocessing/managers.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met:" ilk="blob" lang="Python" name="multiprocessing.managers">
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="983" lineend="992" name="AcquirerProxy">
+        <scope ilk="function" line="989" lineend="990" name="__enter__" returns="self._callmethod()" signature="__enter__()">
+          <variable citdl="AcquirerProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="991" lineend="992" name="__exit__" returns="self._callmethod()" signature="__exit__(exc_type, exc_val, exc_tb)">
+          <variable citdl="AcquirerProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc_type" />
+          <variable ilk="argument" name="exc_val" />
+          <variable ilk="argument" name="exc_tb" />
+        </scope>
+        <scope ilk="function" line="987" lineend="988" name="release" returns="self._callmethod()" signature="release()">
+          <variable citdl="AcquirerProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="985" lineend="986" name="acquire" returns="self._callmethod()" signature="acquire(blocking=True)">
+          <variable citdl="AcquirerProxy" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="blocking" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="984" name="_exposed_" />
+      </scope>
+      <scope ilk="function" line="959" lineend="960" name="Array" returns="array.array()" signature="Array(typecode, sequence, lock=True)">
+        <variable citdl="True" ilk="argument" name="lock" />
+        <variable ilk="argument" name="sequence" />
+        <variable ilk="argument" name="typecode" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1067" name="ArrayProxy">
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="__getslice__" />
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__setslice__" />
+        <scope ilk="function" name="__len__" />
+      </scope>
+      <scope classrefs="str" doc="&#10;" ilk="class" name="AuthenticationString">
+        <scope ilk="function" name="__reduce__" />
+      </scope>
+      <scope doc="Return an auto-proxy for `token`" ilk="function" line="906" lineend="929" name="AutoProxy" returns="ProxyType()" signature="AutoProxy(token, serializer, manager=None, authkey=None, exposed=None, incref=True)">
+        <variable citdl="MakeProxyType()" line="925" name="ProxyType" />
+        <variable citdl="True" ilk="argument" name="incref" />
+        <variable citdl="dispatch()" ilk="argument" name="exposed" />
+        <variable ilk="argument" name="manager" />
+        <variable citdl="manager._authkey" ilk="argument" name="authkey" />
+        <variable ilk="argument" name="token" />
+        <variable attributes="protected" line="911" name="_Client" />
+        <variable citdl="_Client()" line="914" name="conn" />
+        <variable ilk="argument" name="serializer" />
+        <variable citdl="ProxyType()" line="926" name="proxy" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1044" name="BaseListProxy">
+        <scope ilk="function" name="sort" />
+        <scope ilk="function" name="reverse" />
+        <scope ilk="function" name="__getslice__" />
+        <scope ilk="function" name="insert" />
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="__add__" />
+        <scope ilk="function" name="__rmul__" />
+        <scope ilk="function" name="append" />
+        <scope ilk="function" name="__imul__" />
+        <scope ilk="function" name="count" />
+        <scope ilk="function" name="index" />
+        <scope ilk="function" name="__reversed__" />
+        <scope ilk="function" name="__delslice__" />
+        <scope ilk="function" name="extend" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__setslice__" />
+        <scope ilk="function" name="remove" />
+        <scope ilk="function" name="__mul__" />
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="__len__" />
+      </scope>
+      <scope classrefs="object" doc="Base class for managers&#10;" ilk="class" line="466" lineend="676" name="BaseManager">
+        <scope doc="Create a new shared object; return the token and exposed&#10;tuple" ilk="function" line="560" lineend="570" name="_create" returns="tuple" signature="_create(typeid, *args, **kwds)">
+          <variable ilk="argument" name="typeid" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable line="567" name="exposed" />
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="567" name="id" />
+          <variable citdl="self._Client()" line="565" name="conn" />
+        </scope>
+        <scope doc="Return the number of shared objects" ilk="function" line="588" lineend="596" name="_number_of_objects" returns="dispatch()" signature="_number_of_objects()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable citdl="self._Client()" line="592" name="conn" />
+        </scope>
+        <scope ilk="function" line="601" lineend="602" name="__exit__" signature="__exit__(exc_type, exc_val, exc_tb)">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc_type" />
+          <variable ilk="argument" name="exc_val" />
+          <variable ilk="argument" name="exc_tb" />
+        </scope>
+        <scope ilk="function" line="483" lineend="485" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Shutdown the manager process; will be registered as a&#10;finalizer" ilk="function" line="605" lineend="634" name="_finalize_manager" signature="_finalize_manager(process, address, authkey, state, _Client)">
+          <variable citdl="BaseManager" ilk="argument" name="process" />
+          <variable ilk="argument" name="authkey" />
+          <variable ilk="argument" name="state" />
+          <variable ilk="argument" name="_Client" />
+          <variable ilk="argument" name="address" />
+          <variable citdl="_Client()" line="612" name="conn" />
+        </scope>
+        <scope doc="Return some info about the servers shared objects and&#10;connections" ilk="function" line="578" lineend="586" name="_debug_info" returns="dispatch()" signature="_debug_info()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable citdl="self._Client()" line="582" name="conn" />
+        </scope>
+        <scope doc="Connect manager object to the server process" ilk="function" line="495" lineend="502" name="connect" signature="connect()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable citdl="Client()" line="500" name="conn" />
+        </scope>
+        <scope ilk="function" line="473" lineend="481" name="__init__" signature="BaseManager(address=None, authkey=None, serializer='pickle')">
+          <variable ilk="argument" name="authkey" />
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="serializer" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope doc="Register a typeid with the manager type" ilk="function" line="639" lineend="676" name="register" signature="register(typeid, callable=None, proxytype=None, exposed=None, method_to_typeid=None, create_method=True)">
+          <variable ilk="argument" name="typeid" />
+          <scope ilk="function" line="665" lineend="674" name="temp" returns="proxytype()" signature="temp(self, *args, **kwds)">
+            <variable ilk="argument" name="self" />
+            <variable attributes="varargs" ilk="argument" name="args" />
+            <variable attributes="kwargs" ilk="argument" name="kwds" />
+            <variable line="667" name="token" />
+            <variable line="667" name="exp" />
+            <variable citdl="proxytype()" line="668" name="proxy" />
+            <variable citdl="self._Client()" line="672" name="conn" />
+            <variable line="675" name="__name__" />
+          </scope>
+          <variable citdl="AutoProxy" ilk="argument" name="proxytype" />
+          <variable citdl="getattr()" ilk="argument" name="exposed" />
+          <variable ilk="argument" name="callable" />
+          <variable citdl="getattr()" ilk="argument" name="method_to_typeid" />
+          <variable citdl="True" ilk="argument" name="create_method" />
+          <variable citdl="BaseManager" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Join the manager process (if it has been spawned)" ilk="function" line="572" lineend="576" name="join" signature="join(timeout=None)">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <scope ilk="function" line="598" lineend="599" name="__enter__" returns="BaseManager" signature="__enter__()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a server, report its address and run it" ilk="function" line="541" lineend="558" name="_run_server" signature="_run_server(registry, address, authkey, serializer, writer, initializer=None, initargs=())">
+          <variable ilk="argument" name="writer" />
+          <variable ilk="argument" name="initializer" />
+          <variable ilk="argument" name="authkey" />
+          <variable ilk="argument" name="registry" />
+          <variable ilk="argument" name="address" />
+          <variable citdl="tuple" ilk="argument" name="initargs" />
+          <variable citdl="_Server()" line="550" name="server" />
+          <variable ilk="argument" name="serializer" />
+          <variable citdl="BaseManager" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Return server object with serve_forever() method and address&#10;attribute" ilk="function" line="487" lineend="493" name="get_server" returns="Server" signature="get_server()">
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Spawn a server process for this manager object" ilk="function" line="504" lineend="537" name="start" signature="start(initializer=None, initargs=())">
+          <variable citdl="str.join()" line="522" name="ident" />
+          <variable citdl="BaseManager" ilk="argument" name="self" />
+          <variable line="514" name="writer" />
+          <variable ilk="argument" name="initializer" />
+          <variable line="514" name="reader" />
+          <variable citdl="tuple" ilk="argument" name="initargs" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="480" name="_serializer" />
+        <variable attributes="protected __instancevar__" citdl="reader.recv()" line="476" name="_address" />
+        <variable attributes="protected __instancevar__" citdl="State" line="478" name="_state" />
+        <variable attributes="protected __instancevar__" citdl="Process()" line="517" name="_process" />
+        <variable attributes="protected __instancevar__" citdl="AuthenticationString()" line="477" name="_authkey" />
+        <variable attributes="__instancevar__" citdl="util.Finalize()" line="533" name="shutdown" />
+        <variable citdl="property()" line="636" name="address" />
+        <variable attributes="protected" citdl="Server" line="471" name="_Server" />
+        <variable attributes="protected" citdl="cls._registry.copy()" line="470" name="_registry" />
+      </scope>
+      <scope classrefs="object" doc="A base for proxies of shared objects&#10;" ilk="class" line="692" lineend="857" name="BaseProxy">
+        <scope ilk="function" line="737" lineend="744" name="_connect" signature="_connect()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable line="739" name="name" />
+          <variable citdl="_Client()" line="742" name="conn" />
+        </scope>
+        <scope doc="Try to call a method of the referrent and return a copy of&#10;the result" ilk="function" line="746" lineend="773" name="_callmethod" returns="proxytype()" signature="_callmethod(methodname, args=(), kwds={})">
+          <variable line="765" name="proxytype" />
+          <variable line="759" name="kind" />
+          <variable ilk="argument" name="methodname" />
+          <variable citdl="dict" ilk="argument" name="kwds" />
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable line="759" name="result" />
+          <variable citdl="_Client()" line="751" name="conn" />
+          <variable citdl="proxytype()" line="766" name="proxy" />
+        </scope>
+        <scope ilk="function" line="843" lineend="844" name="__deepcopy__" returns="BaseProxy._getvalue()" signature="__deepcopy__(memo)">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="memo" />
+        </scope>
+        <scope doc="Return representation of the referent (or a fall-back if&#10;that fails)" ilk="function" line="850" lineend="857" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="781" lineend="794" name="_incref" signature="_incref()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable citdl="self._manager._state" line="788" name="state" />
+          <variable citdl="_Client()" line="782" name="conn" />
+        </scope>
+        <scope ilk="function" line="830" lineend="841" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable citdl="dict" line="831" name="kwds" />
+        </scope>
+        <scope doc="Get a copy of the value of the referent" ilk="function" line="775" lineend="779" name="_getvalue" returns="BaseProxy._callmethod()" signature="_getvalue()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="822" lineend="828" name="_after_fork" signature="_after_fork()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="798" lineend="820" name="_decref" signature="_decref(token, authkey, state, tls, idset, _Client)">
+          <variable ilk="argument" name="tls" />
+          <variable ilk="argument" name="state" />
+          <variable ilk="argument" name="authkey" />
+          <variable citdl="BaseProxy" ilk="argument" name="token" />
+          <variable ilk="argument" name="_Client" />
+          <variable ilk="argument" name="idset" />
+          <variable citdl="_Client()" line="806" name="conn" />
+        </scope>
+        <scope ilk="function" line="699" lineend="735" name="__init__" signature="BaseProxy(token, serializer, manager=None, authkey=None, exposed=None, incref=True)">
+          <variable citdl="True" ilk="argument" name="incref" />
+          <variable ilk="argument" name="exposed" />
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="token" />
+          <variable citdl="BaseProxy._address_to_local.get()" line="703" name="tls_idset" />
+          <variable ilk="argument" name="authkey" />
+          <variable ilk="argument" name="manager" />
+          <variable ilk="argument" name="serializer" />
+        </scope>
+        <scope ilk="function" line="846" lineend="848" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="BaseProxy" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="722" name="_serializer" />
+        <variable attributes="protected" citdl="util.ForkAwareThreadLock()" line="697" name="_mutex" />
+        <variable attributes="protected __instancevar__" line="721" name="_manager" />
+        <variable attributes="protected __instancevar__" line="719" name="_token" />
+        <variable attributes="protected __instancevar__" citdl="self._manager._authkey" line="726" name="_authkey" />
+        <variable attributes="protected __instancevar__" line="717" name="_idset" />
+        <variable attributes="protected __instancevar__" line="712" name="_tls" />
+        <variable attributes="protected __instancevar__" line="723" name="_Client" />
+        <variable attributes="protected" citdl="dict" line="696" name="_address_to_local" />
+        <variable attributes="protected __instancevar__" citdl="self._token.id" line="720" name="_id" />
+        <variable attributes="protected __instancevar__" citdl="util.Finalize()" line="790" name="_close" />
+      </scope>
+      <scope classrefs="AcquirerProxy" doc="&#10;" ilk="class" line="995" lineend="1003" name="ConditionProxy">
+        <scope ilk="function" line="1000" lineend="1001" name="notify" returns="self._callmethod()" signature="notify()">
+          <variable citdl="ConditionProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1002" lineend="1003" name="notify_all" returns="self._callmethod()" signature="notify_all()">
+          <variable citdl="ConditionProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="998" lineend="999" name="wait" returns="self._callmethod()" signature="wait(timeout=None)">
+          <variable citdl="ConditionProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="997" name="_exposed_" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1060" name="DictProxy">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="get" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="has_key" />
+        <scope ilk="function" name="popitem" />
+        <scope ilk="function" name="copy" />
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="items" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="keys" />
+        <scope ilk="function" name="values" />
+        <scope ilk="function" name="__len__" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1005" lineend="1014" name="EventProxy">
+        <scope ilk="function" line="1009" lineend="1010" name="set" returns="self._callmethod()" signature="set()">
+          <variable citdl="EventProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1007" lineend="1008" name="is_set" returns="self._callmethod()" signature="is_set()">
+          <variable citdl="EventProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1011" lineend="1012" name="clear" returns="self._callmethod()" signature="clear()">
+          <variable citdl="EventProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1013" lineend="1014" name="wait" returns="self._callmethod()" signature="wait(timeout=None)">
+          <variable citdl="EventProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="1006" name="_exposed_" />
+      </scope>
+      <scope classrefs="object" doc="Class which supports object finalization using weakrefs&#10;" ilk="class" name="Finalize">
+        <scope doc="Run the callback unless it has already been called or&#10;cancelled" ilk="function" name="__call__" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether this finalizer is still waiting to invoke&#10;callback" ilk="function" name="still_active" />
+        <scope doc="Cancel finalization of the object" ilk="function" name="cancel" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Pickler" doc="&#10;" ilk="class" name="ForkingPickler">
+        <scope ilk="function" name="register" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="966" lineend="980" name="IteratorProxy">
+        <scope ilk="function" line="971" lineend="972" name="__next__" returns="self._callmethod()" signature="__next__(*args)">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="975" lineend="976" name="send" returns="self._callmethod()" signature="send(*args)">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="973" lineend="974" name="next" returns="self._callmethod()" signature="next(*args)">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="969" lineend="970" name="__iter__" returns="IteratorProxy" signature="__iter__()">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="979" lineend="980" name="close" returns="self._callmethod()" signature="close(*args)">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="977" lineend="978" name="throw" returns="self._callmethod()" signature="throw(*args)">
+          <variable citdl="IteratorProxy" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="968" name="_exposed_" />
+      </scope>
+      <scope classrefs="BaseListProxy" doc="&#10;" ilk="class" line="1051" lineend="1057" name="ListProxy">
+        <scope ilk="function" line="1055" lineend="1057" name="__imul__" returns="ListProxy" signature="__imul__(value)">
+          <variable citdl="ListProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="1052" lineend="1054" name="__iadd__" returns="ListProxy" signature="__iadd__(value)">
+          <variable citdl="ListProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+      </scope>
+      <scope doc="Return an proxy type whose methods are given by `exposed`" ilk="function" line="884" lineend="903" name="MakeProxyType" returns="type()" signature="MakeProxyType(name, exposed, _cache={('ArrayProxy', ('__len__', '__getitem__', '__setitem__', '__getslice__', '__setslice__')): &lt;class 'multiprocessing.managers.ArrayProxy'&gt;, ('DictProxy', ('__contains__', '__delitem__', '__getitem__', '__len__', '__setitem__', 'clear', 'copy', 'get', 'has_key', 'items', 'keys', 'pop', 'popitem', 'setdefault', 'update', 'values')): &lt;class 'multiprocessing.managers.DictProxy'&gt;, ('BaseListProxy', ('__add__', '__contains__', '__delitem__', '__delslice__', '__getitem__', '__getslice__', '__len__', '__mul__', '__reversed__', '__rmul__', '__setitem__', '__setslice__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort', '__imul__')): &lt;class 'multiprocessing.managers.BaseListProxy'&gt;, ('PoolProxy', ('apply', 'apply_async', 'close', 'imap', 'imap_unordered', 'join', 'map', 'map_async', 'terminate')): &lt;class 'multiprocessing.managers.PoolProxy'&gt;})">
+        <variable citdl="dict" ilk="argument" name="_cache" />
+        <variable citdl="dict" line="894" name="dic" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="type()" line="900" name="ProxyType" />
+        <variable citdl="tuple()" ilk="argument" name="exposed" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="935" lineend="945" name="Namespace">
+        <scope ilk="function" line="938" lineend="945" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="self.__dict__.items()" line="939" name="items" />
+          <variable citdl="Namespace" ilk="argument" name="self" />
+          <variable citdl="list" line="940" name="temp" />
+        </scope>
+        <scope ilk="function" line="936" lineend="937" name="__init__" signature="Namespace(**kwds)">
+          <variable citdl="Namespace" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1016" lineend="1032" name="NamespaceProxy">
+        <scope ilk="function" line="1023" lineend="1027" name="__setattr__" returns="object.__setattr__()" signature="__setattr__(key, value)">
+          <variable citdl="object.__getattribute__()" line="1026" name="callmethod" />
+          <variable citdl="NamespaceProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="1018" lineend="1022" name="__getattr__" returns="NamespaceProxy.__getattr__.callmethod()" signature="__getattr__(key)">
+          <variable citdl="object.__getattribute__()" line="1021" name="callmethod" />
+          <variable citdl="NamespaceProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="1028" lineend="1032" name="__delattr__" returns="NamespaceProxy.__delattr__.callmethod()" signature="__delattr__(key)">
+          <variable citdl="object.__getattribute__()" line="1031" name="callmethod" />
+          <variable citdl="NamespaceProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="1017" name="_exposed_" />
+      </scope>
+      <scope classrefs="PickleError" doc="&#10;" ilk="class" name="PicklingError" />
+      <scope doc="Returns a process pool object" ilk="function" name="Pool" signature="Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)" />
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1072" name="PoolProxy">
+        <scope ilk="function" name="map" />
+        <scope ilk="function" name="apply_async" />
+        <scope ilk="function" name="join" />
+        <scope ilk="function" name="imap_unordered" />
+        <scope ilk="function" name="terminate" />
+        <scope ilk="function" name="map_async" />
+        <scope ilk="function" name="apply" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="imap" />
+      </scope>
+      <scope classrefs="object" doc="Start a subprocess to run the code of a process object&#10;" ilk="class" name="Popen">
+        <scope ilk="function" name="poll" />
+        <scope ilk="function" name="duplicate_for_child" signature="duplicate_for_child(handle)" />
+        <scope ilk="function" name="terminate" />
+        <scope ilk="function" name="thread_is_spawning" signature="thread_is_spawning()" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="wait" />
+      </scope>
+      <scope classrefs="object" doc="Process objects represent activity that is run in a separate process&#10;The class is analagous to `threading.Thread`" ilk="class" name="Process">
+        <scope doc="Method to be run in sub-process; can be overridden in sub-&#10;class" ilk="function" name="run" />
+        <scope doc="Terminate process; sends SIGTERM signal or uses&#10;TerminateProcess()" ilk="function" name="terminate" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Wait until child process terminates" ilk="function" name="join" />
+        <scope doc="Start child process" ilk="function" name="start" />
+        <scope ilk="function" name="_bootstrap" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether process is alive" ilk="function" name="is_alive" />
+      </scope>
+      <scope classrefs="set" doc="&#10;" ilk="class" line="682" lineend="686" name="ProcessLocalSet">
+        <scope ilk="function" line="685" lineend="686" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="ProcessLocalSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="683" lineend="684" name="__init__" signature="ProcessLocalSet()">
+          <variable citdl="ProcessLocalSet" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <import module="Queue" />
+      <scope doc="Function used for unpickling proxy objects." ilk="function" line="863" lineend="878" name="RebuildProxy" returns="RebuildProxy.func()" signature="RebuildProxy(func, token, serializer, kwds)">
+        <variable citdl="kwds.pop()" line="874" name="incref" />
+        <variable citdl="getattr()" line="869" name="server" />
+        <variable ilk="argument" name="token" />
+        <variable ilk="argument" name="func" />
+        <variable ilk="argument" name="serializer" />
+        <variable ilk="argument" name="kwds" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="119" lineend="121" name="RemoteError">
+        <scope ilk="function" line="120" lineend="121" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="RemoteError" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="Server class which runs in a process controlled by a manager object&#10;" ilk="class" line="148" lineend="441" name="Server">
+        <scope ilk="function" line="305" lineend="306" name="fallback_repr" returns="repr()" signature="fallback_repr(conn, ident, obj)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="ident" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="conn" />
+        </scope>
+        <scope doc="Handle a new connection" ilk="function" line="191" lineend="223" name="handle_request" signature="handle_request(c)">
+          <variable ilk="argument" name="c" />
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable citdl="c.recv()" line="199" name="request" />
+          <variable line="195" name="funcname" />
+          <variable citdl="func()" line="207" name="result" />
+          <variable citdl="getattr()" line="202" name="func" />
+          <variable citdl="tuple" line="204" name="msg" />
+        </scope>
+        <scope doc="Run the server forever" ilk="function" line="170" lineend="189" name="serve_forever" signature="serve_forever()">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable citdl="self.listener.accept()" line="179" name="c" />
+          <variable citdl="threading.Thread()" line="182" name="t" />
+        </scope>
+        <scope ilk="function" line="432" lineend="441" name="decref" signature="decref(c, ident)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="ident" />
+          <variable ilk="argument" name="c" />
+        </scope>
+        <scope ilk="function" line="299" lineend="300" name="fallback_getvalue" signature="fallback_getvalue(conn, ident, obj)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="ident" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="conn" />
+        </scope>
+        <scope doc="Shutdown this process" ilk="function" line="341" lineend="371" name="shutdown" signature="shutdown(c)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+        </scope>
+        <scope doc="Number of shared objects" ilk="function" line="335" lineend="339" name="number_of_objects" returns="len()" signature="number_of_objects(c)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+        </scope>
+        <scope doc="Return the methods of the shared object indicated by token" ilk="function" line="411" lineend="415" name="get_methods" returns="tuple()" signature="get_methods(c, token)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+          <variable ilk="argument" name="token" />
+        </scope>
+        <scope ilk="function" line="302" lineend="303" name="fallback_str" returns="str()" signature="fallback_str(conn, ident, obj)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="ident" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="conn" />
+        </scope>
+        <scope ilk="function" line="155" lineend="168" name="__init__" signature="Server(registry, address, authkey, serializer)">
+          <variable ilk="argument" name="authkey" />
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="registry" />
+          <variable ilk="argument" name="serializer" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope ilk="function" line="425" lineend="430" name="incref" signature="incref(c, ident)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="ident" />
+          <variable ilk="argument" name="c" />
+        </scope>
+        <scope ilk="function" line="314" lineend="315" name="dummy" signature="dummy(c)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+        </scope>
+        <scope doc="Spawn a new thread to serve this connection" ilk="function" line="417" lineend="423" name="accept_connection" signature="accept_connection(c, name)">
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Handle requests from the proxies in a particular&#10;process/thread" ilk="function" line="225" lineend="297" name="serve_client" signature="serve_client(conn)">
+          <variable citdl="getattr()" line="250" name="function" />
+          <variable citdl="gettypeid" line="257" name="typeid" />
+          <variable line="239" name="methodname" />
+          <variable line="259" name="rident" />
+          <variable citdl="function()" line="253" name="res" />
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable citdl="recv()" line="240" name="request" />
+          <variable citdl="Token" line="260" name="token" />
+          <variable citdl="conn.send" line="233" name="send" />
+          <variable citdl="dict" line="234" name="id_to_obj" />
+          <variable line="259" name="rexposed" />
+          <variable line="270" name="fallback_func" />
+          <variable citdl="tuple" line="255" name="msg" />
+          <variable citdl="conn.recv" line="232" name="recv" />
+          <variable ilk="argument" name="conn" />
+          <variable citdl="fallback_func()" line="271" name="result" />
+        </scope>
+        <scope doc="Create a new shared object and return its id" ilk="function" line="373" lineend="409" name="create" returns="tuple" signature="create(c, typeid, *args, **kwds)">
+          <variable ilk="argument" name="typeid" />
+          <variable ilk="argument" name="c" />
+          <variable citdl="id()" line="394" name="ident" />
+          <variable citdl="callable()" line="384" name="obj" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable citdl="list()" line="389" name="exposed" />
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Return some info --- useful to spot problems with&#10;refcounting" ilk="function" line="317" lineend="333" name="debug_info" returns="str.join()" signature="debug_info(c)">
+          <variable citdl="self.id_to_obj.keys()" line="324" name="keys" />
+          <variable citdl="Server" ilk="argument" name="self" />
+          <variable ilk="argument" name="c" />
+          <variable citdl="list" line="323" name="result" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="AuthenticationString()" line="158" name="authkey" />
+        <variable citdl="dict" line="308" name="fallback_mapping" />
+        <variable attributes="__instancevar__" citdl="int" line="168" name="stop" />
+        <variable attributes="__instancevar__" citdl="Listener()" line="162" name="listener" />
+        <variable attributes="__instancevar__" citdl="dict" line="165" name="id_to_obj" />
+        <variable attributes="__instancevar__" citdl="threading.RLock()" line="167" name="mutex" />
+        <variable attributes="__instancevar__" line="157" name="registry" />
+        <variable attributes="__instancevar__" citdl="dict" line="166" name="id_to_refcount" />
+        <variable attributes="__instancevar__" citdl="self.listener.address" line="163" name="address" />
+        <variable citdl="list" line="152" name="public" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="447" lineend="451" name="State">
+        <variable citdl="int" line="450" name="STARTED" />
+        <variable citdl="list" line="448" name="__slots__" />
+        <variable citdl="int" line="449" name="INITIAL" />
+        <variable citdl="int" line="451" name="SHUTDOWN" />
+      </scope>
+      <scope classrefs="BaseManager" doc="Subclass of `BaseManager` which supports a number of shared object types.&#10;The types registered are those intended for the synchronization of threads, plus `dict`, `list` and `Namespace`.  The `multiprocessing.Manager()` function creates started instances of this class." ilk="class" line="1087" name="SyncManager">
+        <scope ilk="function" name="JoinableQueue" />
+        <scope ilk="function" name="BoundedSemaphore" />
+        <scope ilk="function" name="Lock" />
+        <scope ilk="function" name="list" />
+        <scope ilk="function" name="RLock" />
+        <scope ilk="function" name="Event" />
+        <scope ilk="function" name="Queue" />
+        <scope ilk="function" name="Array" />
+        <scope ilk="function" name="dict" />
+        <scope ilk="function" name="Pool" />
+        <scope ilk="function" name="Semaphore" />
+        <scope ilk="function" name="Value" />
+        <scope ilk="function" name="Condition" />
+        <scope ilk="function" name="Namespace" />
+      </scope>
+      <scope classrefs="object" doc="Type to uniquely indentify a shared object&#10;" ilk="class" line="74" lineend="91" name="Token">
+        <scope ilk="function" line="89" lineend="91" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Token" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="Token" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="83" lineend="84" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="Token" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="80" lineend="81" name="__init__" signature="Token(typeid, address, id)">
+          <variable ilk="argument" name="typeid" />
+          <variable citdl="Token" ilk="argument" name="self" />
+          <variable ilk="argument" name="id" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <variable attributes="__instancevar__" line="81" name="typeid" />
+        <variable citdl="tuple" line="78" name="__slots__" />
+        <variable attributes="__instancevar__" line="81" name="id" />
+        <variable attributes="__instancevar__" line="81" name="address" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="947" lineend="957" name="Value">
+        <scope ilk="function" line="953" lineend="954" name="set" signature="set(value)">
+          <variable citdl="Value" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="955" lineend="956" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Value" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="948" lineend="950" name="__init__" signature="Value(typecode, value, lock=True)">
+          <variable citdl="True" ilk="argument" name="lock" />
+          <variable citdl="Value" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="typecode" />
+        </scope>
+        <scope ilk="function" line="951" lineend="952" name="get" signature="get()">
+          <variable citdl="Value" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="950" name="_value" />
+        <variable attributes="protected __instancevar__" line="949" name="_typecode" />
+        <variable citdl="property()" line="957" name="value" />
+      </scope>
+      <scope classrefs="BaseProxy" doc="&#10;" ilk="class" line="1035" lineend="1041" name="ValueProxy">
+        <scope ilk="function" line="1039" lineend="1040" name="set" returns="self._callmethod()" signature="set(value)">
+          <variable citdl="ValueProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="1037" lineend="1038" name="get" returns="self._callmethod()" signature="get()">
+          <variable citdl="ValueProxy" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="1036" name="_exposed_" />
+        <variable citdl="property()" line="1041" name="value" />
+      </scope>
+      <variable citdl="list" line="36" name="__all__" />
+      <scope doc="Return list of process objects corresponding to live child&#10;processes" ilk="function" name="active_children" signature="active_children()" />
+      <scope doc="Return a list of names of methods of `obj`" ilk="function" line="127" lineend="136" name="all_methods" returns="list" signature="all_methods(obj)">
+        <variable ilk="argument" name="obj" />
+        <variable citdl="getattr()" line="133" name="func" />
+        <variable citdl="list" line="131" name="temp" />
+      </scope>
+      <import module="array" />
+      <scope ilk="function" name="assert_spawning" signature="assert_spawning(self)" />
+      <import module="connection" />
+      <scope ilk="function" line="107" lineend="117" name="convert_to_error" returns="RemoteError()" signature="convert_to_error(kind, result)">
+        <variable ilk="argument" name="kind" />
+        <variable ilk="argument" name="result" />
+      </scope>
+      <scope doc="Return process object representing the current process" ilk="function" name="current_process" signature="current_process()" />
+      <scope doc="Send a message to manager using connection `c` and return&#10;response" ilk="function" line="97" lineend="105" name="dispatch" signature="dispatch(c, id, methodname, args=(), kwds={})">
+        <variable ilk="argument" name="c" />
+        <variable ilk="argument" name="methodname" />
+        <variable citdl="dict" ilk="argument" name="kwds" />
+        <variable citdl="tuple" ilk="argument" name="args" />
+        <variable line="102" name="kind" />
+        <variable line="102" name="result" />
+        <variable ilk="argument" name="id" />
+      </scope>
+      <scope doc="Exit to the system with specified status, without normal&#10;exit processing." ilk="function" name="exit" signature="_exit(status)" />
+      <scope doc="Like print_exc() but return a string." ilk="function" name="format_exc" signature="format_exc(limit=None)" />
+      <scope ilk="function" name="info" signature="info(msg, *args)" />
+      <variable citdl="dict" line="457" name="listener_client" />
+      <variable citdl="str" name="name" />
+      <import module="os" />
+      <scope doc="Return a list of names of methods of `obj` which do not&#10;start with '_'" ilk="function" line="138" lineend="142" name="public_methods" returns="list" signature="public_methods(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope ilk="function" line="64" lineend="65" name="reduce_array" returns="tuple" signature="reduce_array(a)">
+        <variable ilk="argument" name="a" />
+      </scope>
+      <import module="sys" />
+      <import module="threading" />
+      <import module="util" />
+      <variable citdl="list" line="68" name="view_types" />
+      <import module="weakref" />
+    </scope>
+    

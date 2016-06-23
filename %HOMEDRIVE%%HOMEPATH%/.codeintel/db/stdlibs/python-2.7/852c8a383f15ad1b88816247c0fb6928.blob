@@ -1,0 +1,873 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="compiler.pycodegen">
+      <scope doc="&#10;" ilk="class" line="1439" lineend="1459" name="AbstractClassCode">
+        <scope ilk="function" line="1453" lineend="1454" name="get_module" signature="get_module()">
+          <variable citdl="AbstractClassCode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1456" lineend="1459" name="finish" signature="finish()">
+          <variable citdl="AbstractClassCode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1441" lineend="1451" name="__init__" signature="AbstractClassCode(klass, scopes, module)">
+          <variable ilk="argument" name="scopes" />
+          <variable citdl="AbstractClassCode" ilk="argument" name="self" />
+          <variable citdl="walk()" line="1447" name="lnf" />
+          <variable ilk="argument" name="klass" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="klass.name" line="1442" name="class_name" />
+        <variable attributes="__instancevar__" citdl="pyassem.PyFlowGraph()" line="1444" name="graph" />
+        <variable attributes="__instancevar__" line="1443" name="module" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="68" lineend="87" name="AbstractCompileMode">
+        <scope ilk="function" line="77" lineend="81" name="_get_tree" returns="parse()" signature="_get_tree()">
+          <variable citdl="AbstractCompileMode" ilk="argument" name="self" />
+          <variable citdl="parse()" line="78" name="tree" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="getCode" signature="getCode()">
+          <variable citdl="AbstractCompileMode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="83" lineend="84" name="compile" signature="compile()">
+          <variable citdl="AbstractCompileMode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="72" lineend="75" name="__init__" signature="AbstractCompileMode(source, filename)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="AbstractCompileMode" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" line="73" name="source" />
+        <variable attributes="__instancevar__" line="75" name="code" />
+        <variable line="70" name="mode" />
+        <variable attributes="__instancevar__" line="74" name="filename" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="1346" lineend="1406" name="AbstractFunctionCode">
+        <scope ilk="function" line="1382" lineend="1386" name="finish" signature="finish()">
+          <variable citdl="AbstractFunctionCode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1388" lineend="1393" name="generateArgUnpack" signature="generateArgUnpack(args)">
+          <variable citdl="AbstractFunctionCode" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable line="1390" name="arg" />
+        </scope>
+        <scope ilk="function" line="1395" lineend="1404" name="unpackSequence" signature="unpackSequence(tup)">
+          <variable ilk="argument" name="tup" />
+          <variable citdl="AbstractFunctionCode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1379" lineend="1380" name="get_module" signature="get_module()">
+          <variable citdl="AbstractFunctionCode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1406" name="unpackTuple" />
+        <scope ilk="function" line="1350" lineend="1377" name="__init__" signature="AbstractFunctionCode(func, scopes, isLambda, class_name, mod)">
+          <variable ilk="argument" name="scopes" />
+          <variable citdl="klass.lambdaCount" line="1355" name="name" />
+          <variable ilk="argument" name="class_name" />
+          <variable ilk="argument" name="isLambda" />
+          <variable citdl="AbstractFunctionCode" ilk="argument" name="self" />
+          <variable line="1360" name="args" />
+          <variable line="1360" name="hasTupleArg" />
+          <variable citdl="FunctionCodeGenerator" line="1354" name="klass" />
+          <variable ilk="argument" name="func" />
+          <variable citdl="walk()" line="1369" name="lnf" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <variable citdl="int" line="1348" name="lambdaCount" />
+        <variable attributes="__instancevar__" line="1351" name="class_name" />
+        <variable attributes="__instancevar__" citdl="pyassem.PyFlowGraph()" line="1361" name="graph" />
+        <variable attributes="__instancevar__" line="1352" name="module" />
+        <variable citdl="int" line="1347" name="optimized" />
+        <variable attributes="__instancevar__" line="1363" name="isLambda" />
+      </scope>
+      <scope classrefs="Delegator" doc="&#10;" ilk="class" line="1531" lineend="1532" name="AugGetattr" />
+      <scope classrefs="Delegator" doc="&#10;" ilk="class" line="1534" lineend="1535" name="AugName" />
+      <scope classrefs="Delegator" doc="&#10;" ilk="class" line="1537" lineend="1538" name="AugSlice" />
+      <scope classrefs="Delegator" doc="&#10;" ilk="class" line="1540" lineend="1541" name="AugSubscript" />
+      <variable citdl="int" name="CO_FUTURE_ABSIMPORT" />
+      <variable citdl="int" name="CO_FUTURE_DIVISION" />
+      <variable citdl="int" name="CO_FUTURE_PRINT_FUNCTION" />
+      <variable citdl="int" name="CO_FUTURE_WITH_STATEMENT" />
+      <variable citdl="int" name="CO_GENERATOR" />
+      <variable citdl="int" name="CO_NESTED" />
+      <variable citdl="int" name="CO_NEWLOCALS" />
+      <variable citdl="int" name="CO_VARARGS" />
+      <variable citdl="int" name="CO_VARKEYWORDS" />
+      <scope classrefs="NestedScopeMixin AbstractClassCode CodeGenerator" doc="&#10;" ilk="class" line="1461" lineend="1478" name="ClassCodeGenerator">
+        <scope ilk="function" name="_ClassCodeGenerator__super_init" />
+        <scope ilk="function" line="1462" name="super_init" />
+        <scope ilk="function" line="1467" lineend="1478" name="__init__" signature="ClassCodeGenerator(klass, scopes, module)">
+          <variable ilk="argument" name="scopes" />
+          <variable citdl="ClassCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="klass" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <variable attributes="private" citdl="AbstractClassCode.__init__" line="1465" name="__super_init" />
+        <variable line="1463" name="scopes" />
+        <variable attributes="__instancevar__" line="1469" name="scope" />
+      </scope>
+      <scope doc="Defines basic code generator for Python bytecode&#10;This class is an abstract base class.  Concrete subclasses must define an __init__() that defines self.graph and then calls the __init__() defined in this class.  The concrete class must also define the class attributes NameFinder, FunctionGen, and ClassGen.  These attributes can be defined in the initClass() method, which is a hook for initializing these methods after all the classes have been defined." ilk="class" line="183" lineend="1286" name="CodeGenerator">
+        <scope ilk="function" line="1191" lineend="1192" name="visitDiv" returns="CodeGenerator.binaryOp()" signature="visitDiv(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1066" lineend="1076" name="visitExec" signature="visitExec(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1197" lineend="1198" name="visitMod" returns="CodeGenerator.binaryOp()" signature="visitMod(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="616" lineend="639" name="visitDictComp" signature="visitDictComp(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="624" name="cont" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="623" name="anchor" />
+          <variable line="623" name="start" />
+          <variable citdl="list" line="621" name="stack" />
+        </scope>
+        <scope ilk="function" line="950" lineend="952" name="visitGetattr" signature="visitGetattr(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="902" lineend="915" name="visitImport" signature="visitImport(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="910" name="mod" />
+          <variable line="904" name="level" />
+        </scope>
+        <scope ilk="function" line="1224" lineend="1225" name="visitUnaryInvert" returns="CodeGenerator.unaryOp()" signature="visitUnaryInvert(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="372" lineend="373" name="visitLambda" signature="visitLambda(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1227" lineend="1228" name="visitNot" returns="CodeGenerator.unaryOp()" signature="visitNot(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# list comprehensions" ilk="function" line="568" lineend="590" name="visitListComp" signature="visitListComp(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="576" name="cont" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="575" name="anchor" />
+          <variable line="575" name="start" />
+          <variable citdl="list" line="573" name="stack" />
+        </scope>
+        <scope ilk="function" line="1078" lineend="1096" name="visitCallFunc" signature="visitCallFunc(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="bool" line="1094" name="have_dstar" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" line="1079" name="pos" />
+          <variable line="1095" name="opcode" />
+          <variable citdl="bool" line="1093" name="have_star" />
+          <variable citdl="int" line="1080" name="kw" />
+        </scope>
+        <scope ilk="function" line="413" lineend="431" name="visitIf" signature="visitIf(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="423" name="nextTest" />
+          <variable citdl="newBlock()" line="414" name="end" />
+          <variable citdl="len()" line="415" name="numtests" />
+        </scope>
+        <scope ilk="function" line="843" lineend="875" name="visitWith" signature="visitWith(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="844" name="body" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="845" name="final" />
+          <variable citdl="str" line="847" name="valuevar" />
+        </scope>
+        <scope ilk="function" line="1133" lineend="1158" name="visitSlice" signature="visitSlice(node, aug_flag=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" line="1136" name="slice" />
+          <variable ilk="argument" name="aug_flag" />
+        </scope>
+        <scope ilk="function" line="1221" lineend="1222" name="visitUnaryAdd" returns="CodeGenerator.unaryOp()" signature="visitUnaryAdd(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This method is called once for each class" ilk="function" line="225" name="initClass" signature="initClass()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="484" lineend="489" name="visitBreak" signature="visitBreak(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="917" lineend="941" name="visitFrom" signature="visitFrom(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="tuple()" line="922" name="fromlist" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" line="919" name="level" />
+        </scope>
+        <scope ilk="function" line="879" lineend="882" name="visitDiscard" signature="visitDiscard(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="366" lineend="370" name="visitFunction" signature="visitFunction(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="518" lineend="525" name="visitTest" signature="visitTest(node, jump)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="jump" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="519" name="end" />
+        </scope>
+        <scope ilk="function" line="887" lineend="889" name="visitKeyword" signature="visitKeyword(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1278" lineend="1286" name="visitDict" signature="visitDict(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="272" lineend="273" name="loadName" signature="loadName(name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="346" lineend="357" name="visitModule" signature="visitModule(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="walk()" line="353" name="lnf" />
+        </scope>
+        <scope ilk="function" line="527" lineend="528" name="visitAnd" signature="visitAnd(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="460" lineend="482" name="visitFor" signature="visitFor(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="461" name="start" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="463" name="after" />
+          <variable citdl="newBlock()" line="462" name="anchor" />
+        </scope>
+        <scope ilk="function" line="660" lineend="670" name="_makeClosure" signature="_makeClosure(gen, args)">
+          <variable citdl="gen.scope.get_free_vars()" line="661" name="frees" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="gen" />
+        </scope>
+        <scope ilk="function" line="641" lineend="652" name="visitListCompFor" returns="tuple" signature="visitListCompFor(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="642" name="start" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="643" name="anchor" />
+        </scope>
+        <scope ilk="function" line="1261" lineend="1265" name="visitList" signature="visitList(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1235" lineend="1239" name="bitOp" signature="bitOp(nodes, op)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodes" />
+          <variable ilk="argument" name="op" />
+        </scope>
+        <scope ilk="function" line="1194" lineend="1195" name="visitFloorDiv" returns="CodeGenerator.binaryOp()" signature="visitFloorDiv(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1255" lineend="1259" name="visitTuple" signature="visitTuple(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="742" lineend="761" name="visitAssert" signature="visitAssert(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="746" name="end" />
+        </scope>
+        <scope ilk="function" line="375" lineend="392" name="_visitFuncOrLambda" signature="_visitFuncOrLambda(node, isLambda=0)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="int" ilk="argument" name="isLambda" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="FunctionGen()" line="383" name="gen" />
+          <variable citdl="int" line="379" name="ndecorators" />
+        </scope>
+        <scope doc="Verify that class is constructed correctly" ilk="function" line="228" lineend="237" name="checkClass" signature="checkClass()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="self.__class__.__name__" line="236" name="intro" />
+        </scope>
+        <scope ilk="function" line="533" lineend="542" name="visitIfExp" signature="visitIfExp(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="535" name="elseblock" />
+          <variable citdl="newBlock()" line="534" name="endblock" />
+        </scope>
+        <scope ilk="function" line="734" lineend="738" name="visitGenExprIf" signature="visitGenExprIf(node, branch)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="branch" />
+        </scope>
+        <scope ilk="function" line="359" lineend="364" name="visitExpression" signature="visitExpression(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="530" lineend="531" name="visitOr" signature="visitOr(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1267" lineend="1271" name="visitSet" signature="visitSet(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1042" lineend="1057" name="visitAugSlice" signature="visitAugSlice(node, mode)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" line="1046" name="slice" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="999" lineend="1000" name="visitAssList" signature="visitAssList(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1098" lineend="1112" name="visitPrint" signature="visitPrint(node, newline=0)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="newline" />
+        </scope>
+        <scope ilk="function" line="1185" lineend="1186" name="visitSub" returns="CodeGenerator.binaryOp()" signature="visitSub(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1241" lineend="1242" name="visitBitand" returns="CodeGenerator.bitOp()" signature="visitBitand(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="654" lineend="658" name="visitListCompIf" signature="visitListCompIf(node, branch)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="branch" />
+        </scope>
+        <scope ilk="function" line="1004" lineend="1010" name="visitAugAssign" signature="visitAugAssign(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="wrap_aug()" line="1006" name="aug_node" />
+        </scope>
+        <scope ilk="function" line="278" lineend="297" name="_nameOp" signature="_nameOp(prefix, name)">
+          <variable citdl="self.scope.check_name()" line="280" name="scope" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable citdl="mangle()" ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="592" lineend="614" name="visitSetComp" signature="visitSetComp(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="600" name="cont" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="599" name="anchor" />
+          <variable line="599" name="start" />
+          <variable citdl="list" line="597" name="stack" />
+        </scope>
+        <scope ilk="function" line="895" lineend="897" name="visitName" signature="visitName(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1215" lineend="1216" name="visitInvert" returns="CodeGenerator.unaryOp()" signature="visitInvert(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="433" lineend="458" name="visitWhile" signature="visitWhile(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="437" name="else_" />
+          <variable citdl="newBlock()" line="436" name="loop" />
+          <variable citdl="newBlock()" line="439" name="after" />
+        </scope>
+        <scope ilk="function" line="1027" lineend="1031" name="visitAugName" signature="visitAugName(node, mode)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="261" lineend="262" name="get_module" signature="get_module()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1182" lineend="1183" name="visitAdd" returns="CodeGenerator.binaryOp()" signature="visitAdd(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="976" lineend="984" name="visitAssAttr" signature="visitAssAttr(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="684" lineend="711" name="visitGenExprInner" signature="visitGenExprInner(node)">
+          <variable ilk="argument" name="node" />
+          <variable line="690" name="end" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="690" name="anchor" />
+          <variable line="690" name="start" />
+          <variable citdl="newBlock()" line="691" name="cont" />
+          <variable citdl="list" line="688" name="stack" />
+        </scope>
+        <scope ilk="function" line="891" lineend="893" name="visitGlobal" signature="visitGlobal(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1218" lineend="1219" name="visitUnarySub" returns="CodeGenerator.unaryOp()" signature="visitUnarySub(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1033" lineend="1040" name="visitAugGetattr" signature="visitAugGetattr(node, mode)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="1177" lineend="1180" name="binaryOp" signature="binaryOp(node, op)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="op" />
+        </scope>
+        <scope ilk="function" line="943" lineend="948" name="_resolveDots" signature="_resolveDots(name)">
+          <variable citdl="name.split()" line="944" name="elts" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="394" lineend="407" name="visitClass" signature="visitClass(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="ClassGen()" line="395" name="gen" />
+        </scope>
+        <scope doc="Emit SET_LINENO if necessary." ilk="function" line="316" lineend="336" name="set_lineno" returns="bool" signature="set_lineno(node, force=False)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="force" />
+          <variable citdl="getattr()" line="330" name="lineno" />
+        </scope>
+        <scope ilk="function" line="266" lineend="267" name="isLocalName" signature="isLocalName(name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="777" lineend="822" name="visitTryExcept" signature="visitTryExcept(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="778" name="body" />
+          <variable citdl="newBlock()" line="780" name="end" />
+          <variable citdl="newBlock()" line="779" name="handlers" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="803" name="next" />
+          <variable citdl="len()" line="795" name="last" />
+          <variable citdl="newBlock()" line="782" name="lElse" />
+        </scope>
+        <scope ilk="function" line="899" lineend="900" name="visitPass" signature="visitPass(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a code object" ilk="function" line="246" lineend="248" name="getCode" returns="self.graph.getCode()" signature="getCode()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="275" lineend="276" name="delName" signature="delName(name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="1160" lineend="1173" name="visitSubscript" signature="visitSubscript(node, aug_flag=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="aug_flag" />
+        </scope>
+        <scope ilk="function" line="491" lineend="516" name="visitContinue" signature="visitContinue(node)">
+          <variable ilk="argument" name="node" />
+          <variable line="495" name="kind" />
+          <variable citdl="len()" line="503" name="top" />
+          <variable citdl="str" line="515" name="msg" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="495" name="block" />
+        </scope>
+        <scope ilk="function" line="824" lineend="839" name="visitTryFinally" signature="visitTryFinally(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="825" name="body" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="826" name="final" />
+        </scope>
+        <scope ilk="function" line="1247" lineend="1248" name="visitBitxor" returns="CodeGenerator.bitOp()" signature="visitBitxor(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1059" lineend="1064" name="visitAugSubscript" signature="visitAugSubscript(node, mode)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="1188" lineend="1189" name="visitMul" returns="CodeGenerator.binaryOp()" signature="visitMul(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="996" lineend="997" name="visitAssTuple" signature="visitAssTuple(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="239" lineend="244" name="_setupGraphDelegation" signature="_setupGraphDelegation()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="763" lineend="775" name="visitRaise" signature="visitRaise(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="int" line="765" name="n" />
+        </scope>
+        <scope ilk="function" line="672" lineend="682" name="visitGenExpr" signature="visitGenExpr(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="GenExprCodeGenerator()" line="673" name="gen" />
+        </scope>
+        <scope ilk="function" line="250" lineend="254" name="mangle" returns="misc.mangle()" signature="mangle(name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="967" lineend="974" name="visitAssName" signature="visitAssName(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="269" lineend="270" name="storeName" signature="storeName(name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="1206" lineend="1207" name="visitRightShift" returns="CodeGenerator.binaryOp()" signature="visitRightShift(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="201" lineend="223" name="__init__" signature="CodeGenerator()">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="213" name="futures" />
+        </scope>
+        <scope ilk="function" line="986" lineend="990" name="_visitAssSequence" signature="_visitAssSequence(node, op='UNPACK_SEQUENCE')">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="op" />
+        </scope>
+        <scope ilk="function" line="544" lineend="565" name="visitCompare" signature="visitCompare(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="546" name="cleanup" />
+          <variable citdl="newBlock()" line="560" name="end" />
+        </scope>
+        <scope ilk="function" line="256" lineend="259" name="parseSymbols" returns="s.scopes" signature="parseSymbols(tree)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable citdl="symbols.SymbolVisitor()" line="257" name="s" />
+        </scope>
+        <scope ilk="function" line="1252" lineend="1253" name="visitEllipsis" signature="visitEllipsis(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1121" lineend="1124" name="visitReturn" signature="visitReturn(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1244" lineend="1245" name="visitBitor" returns="CodeGenerator.bitOp()" signature="visitBitor(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1200" lineend="1201" name="visitPower" returns="CodeGenerator.binaryOp()" signature="visitPower(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="713" lineend="732" name="visitGenExprFor" returns="tuple" signature="visitGenExprFor(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="newBlock()" line="714" name="start" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable citdl="newBlock()" line="716" name="end" />
+          <variable citdl="newBlock()" line="715" name="anchor" />
+        </scope>
+        <scope doc="Emit name ops for names generated implicitly by for loops" ilk="function" line="299" lineend="309" name="_implicitNameOp" signature="_implicitNameOp(prefix, name)">
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="956" lineend="965" name="visitAssign" signature="visitAssign(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable line="961" name="elt" />
+          <variable citdl="len()" line="959" name="dups" />
+        </scope>
+        <scope ilk="function" line="1203" lineend="1204" name="visitLeftShift" returns="CodeGenerator.binaryOp()" signature="visitLeftShift(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1273" lineend="1276" name="visitSliceobj" signature="visitSliceobj(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1211" lineend="1213" name="unaryOp" signature="unaryOp(node, op)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="op" />
+        </scope>
+        <scope ilk="function" line="1114" lineend="1119" name="visitPrintnl" signature="visitPrintnl(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1230" lineend="1231" name="visitBackquote" returns="CodeGenerator.unaryOp()" signature="visitBackquote(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1126" lineend="1129" name="visitYield" signature="visitYield(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="884" lineend="885" name="visitConst" signature="visitConst(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="CodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="parseSymbols()" line="347" name="scopes" />
+        <variable attributes="__instancevar__" citdl="self.graph.nextBlock" line="243" name="nextBlock" />
+        <variable citdl="LocalNameFinder" line="342" name="NameFinder" />
+        <variable line="199" name="class_name" />
+        <variable attributes="__instancevar__" citdl="self.graph.setDocstring" line="244" name="setDocstring" />
+        <variable attributes="__instancevar__" citdl="getattr()" line="208" name="last_lineno" />
+        <variable attributes="__instancevar__" citdl="int" line="930" name="namespace" />
+        <variable line="343" name="FunctionGen" />
+        <variable attributes="__instancevar__" citdl="self.graph.newBlock" line="241" name="newBlock" />
+        <variable attributes="__instancevar__" citdl="self.graph.startBlock" line="242" name="startBlock" />
+        <variable attributes="protected __instancevar__" citdl="str" line="210" name="_div_op" />
+        <variable citdl="int" line="197" name="optimized" />
+        <variable attributes="private" line="198" name="__initialized" />
+        <variable attributes="private" citdl="int" line="841" name="__with_count" />
+        <variable attributes="__instancevar__" citdl="misc.Stack()" line="207" name="setups" />
+        <variable attributes="__instancevar__" line="348" name="scope" />
+        <variable line="344" name="ClassGen" />
+        <variable attributes="__instancevar__" citdl="self.graph.emit" line="240" name="emit" />
+        <variable attributes="__instancevar__" citdl="misc.Stack()" line="206" name="locals" />
+        <variable attributes="protected" citdl="dict" line="1012" name="_augmented_opcode" />
+      </scope>
+      <scope doc="Base class to support delegation for augmented assignment nodes&#10;To generator code for augmented assignments, we use the following wrapper classes.  In visitAugAssign, the left-hand expression node is visited twice.  The first time the visit uses the normal method for that node .  The second time the visit uses a different method that generates the appropriate code to perform the assignment. These delegator classes wrap the original AST nodes in order to support the variant visit methods." ilk="class" line="1514" lineend="1529" name="Delegator">
+        <scope ilk="function" line="1525" lineend="1526" name="__init__" signature="Delegator(obj)">
+          <variable citdl="Delegator" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <scope ilk="function" line="1528" lineend="1529" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="Delegator" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <variable attributes="__instancevar__" line="1526" name="obj" />
+      </scope>
+      <variable citdl="int" line="35" name="END_FINALLY" />
+      <variable citdl="int" line="33" name="EXCEPT" />
+      <scope classrefs="AbstractCompileMode" doc="&#10;" ilk="class" line="89" lineend="96" name="Expression">
+        <scope ilk="function" line="93" lineend="96" name="compile" signature="compile()">
+          <variable citdl="Expression" ilk="argument" name="self" />
+          <variable citdl="self._get_tree()" line="94" name="tree" />
+          <variable citdl="ExpressionCodeGenerator()" line="95" name="gen" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="gen.getCode()" line="96" name="code" />
+        <variable citdl="str" line="91" name="mode" />
+      </scope>
+      <scope classrefs="NestedScopeMixin CodeGenerator" doc="&#10;" ilk="class" line="1309" lineend="1321" name="ExpressionCodeGenerator">
+        <scope ilk="function" name="_ExpressionCodeGenerator__super_init" />
+        <scope ilk="function" line="1320" lineend="1321" name="get_module" returns="ExpressionCodeGenerator" signature="get_module()">
+          <variable citdl="ExpressionCodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1315" lineend="1318" name="__init__" signature="ExpressionCodeGenerator(tree)">
+          <variable citdl="ExpressionCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+        </scope>
+        <variable attributes="private" citdl="CodeGenerator.__init__" line="1310" name="__super_init" />
+        <variable line="1312" name="scopes" />
+        <variable citdl="tuple" line="1313" name="futures" />
+        <variable attributes="__instancevar__" citdl="pyassem.PyFlowGraph()" line="1316" name="graph" />
+      </scope>
+      <scope classrefs="NestedScopeMixin AbstractFunctionCode CodeGenerator" doc="&#10;" ilk="class" line="1408" lineend="1422" name="FunctionCodeGenerator">
+        <scope ilk="function" name="_FunctionCodeGenerator__super_init" />
+        <scope ilk="function" line="1410" name="super_init" />
+        <scope ilk="function" line="1415" lineend="1422" name="__init__" signature="FunctionCodeGenerator(func, scopes, isLambda, class_name, mod)">
+          <variable ilk="argument" name="scopes" />
+          <variable ilk="argument" name="class_name" />
+          <variable ilk="argument" name="isLambda" />
+          <variable citdl="FunctionCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <variable attributes="private" citdl="AbstractFunctionCode.__init__" line="1413" name="__super_init" />
+        <variable line="1411" name="scopes" />
+        <variable attributes="__instancevar__" line="1417" name="scope" />
+      </scope>
+      <scope classrefs="NestedScopeMixin AbstractFunctionCode CodeGenerator" doc="&#10;" ilk="class" line="1424" lineend="1437" name="GenExprCodeGenerator">
+        <scope ilk="function" name="_GenExprCodeGenerator__super_init" />
+        <scope ilk="function" line="1426" name="super_init" />
+        <scope ilk="function" line="1431" lineend="1437" name="__init__" signature="GenExprCodeGenerator(gexp, scopes, class_name, mod)">
+          <variable ilk="argument" name="class_name" />
+          <variable ilk="argument" name="scopes" />
+          <variable citdl="GenExprCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="gexp" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <variable attributes="private" citdl="AbstractFunctionCode.__init__" line="1429" name="__super_init" />
+        <variable line="1427" name="scopes" />
+        <variable attributes="__instancevar__" line="1433" name="scope" />
+      </scope>
+      <scope classrefs="AbstractCompileMode" doc="&#10;" ilk="class" line="98" lineend="105" name="Interactive">
+        <scope ilk="function" line="102" lineend="105" name="compile" signature="compile()">
+          <variable citdl="Interactive" ilk="argument" name="self" />
+          <variable citdl="self._get_tree()" line="103" name="tree" />
+          <variable citdl="InteractiveCodeGenerator()" line="104" name="gen" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="gen.getCode()" line="105" name="code" />
+        <variable citdl="str" line="100" name="mode" />
+      </scope>
+      <scope classrefs="NestedScopeMixin CodeGenerator" doc="&#10;" ilk="class" line="1323" lineend="1344" name="InteractiveCodeGenerator">
+        <scope ilk="function" line="1340" lineend="1344" name="visitDiscard" signature="visitDiscard(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="InteractiveCodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_InteractiveCodeGenerator__super_init" />
+        <scope ilk="function" line="1337" lineend="1338" name="get_module" returns="InteractiveCodeGenerator" signature="get_module()">
+          <variable citdl="InteractiveCodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1330" lineend="1335" name="__init__" signature="InteractiveCodeGenerator(tree)">
+          <variable citdl="InteractiveCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+        </scope>
+        <variable attributes="private" citdl="CodeGenerator.__init__" line="1325" name="__super_init" />
+        <variable line="1327" name="scopes" />
+        <variable citdl="tuple" line="1328" name="futures" />
+        <variable attributes="__instancevar__" citdl="pyassem.PyFlowGraph()" line="1331" name="graph" />
+      </scope>
+      <variable citdl="int" line="32" name="LOOP" />
+      <scope doc="Find local names in scope&#10;" ilk="class" line="134" lineend="175" name="LocalNameFinder">
+        <scope ilk="function" line="150" lineend="151" name="visitDict" signature="visitDict(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="174" lineend="175" name="visitAssName" signature="visitAssName(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="167" lineend="169" name="visitFrom" signature="visitFrom(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="171" lineend="172" name="visitClass" signature="visitClass(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="153" lineend="155" name="visitGlobal" signature="visitGlobal(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="144" lineend="148" name="getLocals" returns="misc.Set()" signature="getLocals()">
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="157" lineend="158" name="visitFunction" signature="visitFunction(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="163" lineend="165" name="visitImport" signature="visitImport(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="136" lineend="140" name="__init__" signature="LocalNameFinder(names=())">
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="names" />
+        </scope>
+        <scope ilk="function" line="160" lineend="161" name="visitLambda" signature="visitLambda(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LocalNameFinder" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="misc.Set()" line="138" name="globals" />
+        <variable attributes="__instancevar__" citdl="misc.Set()" line="137" name="names" />
+      </scope>
+      <scope classrefs="AbstractCompileMode" doc="&#10;" ilk="class" line="107" lineend="132" name="Module">
+        <scope ilk="function" line="119" lineend="121" name="dump" signature="dump(f)">
+          <variable citdl="Module" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="125" lineend="132" name="getPycHeader" returns="imp.get_magic()" signature="getPycHeader()">
+          <variable citdl="Module" ilk="argument" name="self" />
+          <variable citdl="os.path.getmtime()" line="130" name="mtime" />
+        </scope>
+        <scope ilk="function" line="111" lineend="117" name="compile" signature="compile(display=0)">
+          <variable citdl="Module" ilk="argument" name="self" />
+          <variable citdl="self._get_tree()" line="112" name="tree" />
+          <variable citdl="int" ilk="argument" name="display" />
+          <variable citdl="ModuleCodeGenerator()" line="113" name="gen" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="gen.getCode()" line="117" name="code" />
+        <variable citdl="imp.get_magic()" line="123" name="MAGIC" />
+        <variable citdl="str" line="109" name="mode" />
+      </scope>
+      <scope classrefs="NestedScopeMixin CodeGenerator" doc="&#10;" ilk="class" line="1295" lineend="1307" name="ModuleCodeGenerator">
+        <scope ilk="function" name="_ModuleCodeGenerator__super_init" />
+        <scope ilk="function" line="1306" lineend="1307" name="get_module" returns="ModuleCodeGenerator" signature="get_module()">
+          <variable citdl="ModuleCodeGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1300" lineend="1304" name="__init__" signature="ModuleCodeGenerator(tree)">
+          <variable citdl="ModuleCodeGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+        </scope>
+        <variable attributes="private" citdl="CodeGenerator.__init__" line="1296" name="__super_init" />
+        <variable line="1298" name="scopes" />
+        <variable attributes="__instancevar__" citdl="future.find_futures()" line="1302" name="futures" />
+        <variable attributes="__instancevar__" citdl="pyassem.PyFlowGraph()" line="1301" name="graph" />
+      </scope>
+      <scope doc="Defines initClass() for nested scoping (Python 2.2-compatible)&#10;" ilk="class" line="1288" lineend="1293" name="NestedScopeMixin">
+        <scope ilk="function" line="1290" lineend="1293" name="initClass" signature="initClass()">
+          <variable citdl="NestedScopeMixin" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="1503" lineend="1512" name="OpFinder">
+        <scope ilk="function" line="1506" lineend="1510" name="visitAssName" signature="visitAssName(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="OpFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1512" name="visitSubscript" />
+        <scope ilk="function" line="1511" name="visitAssAttr" />
+        <scope ilk="function" line="1504" lineend="1505" name="__init__" signature="OpFinder()">
+          <variable citdl="OpFinder" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="node.flags" line="1505" name="op" />
+      </scope>
+      <variable citdl="int" name="SC_CELL" />
+      <variable citdl="int" name="SC_FREE" />
+      <variable citdl="int" name="SC_GLOBAL_EXPLICT" />
+      <variable citdl="int" name="SC_GLOBAL_IMPLICIT" />
+      <variable citdl="int" name="SC_LOCAL" />
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="int" line="34" name="TRY_FINALLY" />
+      <scope doc="Helper for marking func defs with nested tuples in arglist&#10;" ilk="class" name="TupleArg">
+        <scope ilk="function" name="getName" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <variable citdl="int" line="20" name="VERSION" />
+      <import module="ast" />
+      <variable citdl="dict" line="24" name="callfunc_opcode_info" />
+      <scope doc="Replacement for builtin compile() function" ilk="function" line="51" lineend="66" name="compile" returns="gen.code" signature="compile(source, filename, mode, flags=None, dont_inherit=None)">
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="flags" />
+        <variable ilk="argument" name="mode" />
+        <variable ilk="argument" name="dont_inherit" />
+        <variable citdl="Expression()" line="57" name="gen" />
+      </scope>
+      <scope ilk="function" line="37" lineend="49" name="compileFile" signature="compileFile(filename, display=0)">
+        <variable citdl="Module()" line="41" name="mod" />
+        <variable citdl="open()" line="38" name="f" />
+        <variable citdl="f.read()" line="39" name="buf" />
+        <variable citdl="int" ilk="argument" name="display" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Find the op (DELETE, LOAD, STORE) in an AssTuple tree" ilk="function" line="1497" lineend="1501" name="findOp" returns="v.op" signature="findOp(node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="OpFinder()" line="1499" name="v" />
+      </scope>
+      <import module="future" />
+      <scope doc="Generate an arg list marking TupleArgs" ilk="function" line="1480" lineend="1495" name="generateArgList" returns="tuple" signature="generateArgList(arglist)">
+        <variable citdl="int" line="1484" name="count" />
+        <variable citdl="list" line="1482" name="args" />
+        <variable ilk="argument" name="arglist" />
+        <variable line="1486" name="elt" />
+        <variable citdl="list" line="1483" name="extra" />
+      </scope>
+      <import module="imp" />
+      <scope ilk="function" line="177" lineend="181" name="is_constant_false" returns="int" signature="is_constant_false(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <import module="marshal" />
+      <import module="misc" />
+      <import module="os" />
+      <scope ilk="function" name="parse" signature="parse(buf, mode='exec')" />
+      <import module="pyassem" />
+      <import module="struct" />
+      <import module="symbols" />
+      <import module="syntax" />
+      <import module="sys" />
+      <scope ilk="function" name="walk" signature="walk(tree, visitor, walker=None, verbose=None)" />
+      <scope ilk="function" line="1550" lineend="1551" name="wrap_aug" signature="wrap_aug(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <variable citdl="dict" line="1543" name="wrapper" />
+    </scope>
+    

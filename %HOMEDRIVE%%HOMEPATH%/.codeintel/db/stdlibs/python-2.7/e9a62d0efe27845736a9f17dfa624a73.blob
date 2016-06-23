@@ -1,0 +1,46 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_codecs">
+      <scope ilk="function" name="ascii_decode" />
+      <scope ilk="function" name="ascii_encode" />
+      <scope ilk="function" name="charbuffer_encode" />
+      <scope ilk="function" name="charmap_build" />
+      <scope ilk="function" name="charmap_decode" />
+      <scope ilk="function" name="charmap_encode" />
+      <scope doc="Decodes obj using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="decode(obj, [encoding[,errors]]) -&gt; object" />
+      <scope doc="Encodes obj using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="encode(obj, [encoding[,errors]]) -&gt; object" />
+      <scope ilk="function" name="escape_decode" />
+      <scope ilk="function" name="escape_encode" />
+      <scope ilk="function" name="latin_1_decode" />
+      <scope ilk="function" name="latin_1_encode" />
+      <scope doc="Looks up a codec tuple in the Python codec registry and&#10;returns a CodecInfo object." ilk="function" name="lookup" signature="lookup(encoding) -&gt; CodecInfo" />
+      <scope doc="Return the error handler for the specified error handling&#10;name or raise a LookupError, if no handler exists under this&#10;name." ilk="function" name="lookup_error" signature="lookup_error(errors) -&gt; handler" />
+      <scope ilk="function" name="mbcs_decode" />
+      <scope ilk="function" name="mbcs_encode" />
+      <scope ilk="function" name="raw_unicode_escape_decode" />
+      <scope ilk="function" name="raw_unicode_escape_encode" />
+      <scope ilk="function" name="readbuffer_encode" />
+      <scope doc="Register a codec search function." ilk="function" name="register" signature="register(search_function)" />
+      <scope doc="Register the specified error handler under the name errors." ilk="function" name="register_error" signature="register_error(errors, handler)" />
+      <scope ilk="function" name="unicode_escape_decode" />
+      <scope ilk="function" name="unicode_escape_encode" />
+      <scope ilk="function" name="unicode_internal_decode" />
+      <scope ilk="function" name="unicode_internal_encode" />
+      <scope ilk="function" name="utf_16_be_decode" />
+      <scope ilk="function" name="utf_16_be_encode" />
+      <scope ilk="function" name="utf_16_decode" />
+      <scope ilk="function" name="utf_16_encode" />
+      <scope ilk="function" name="utf_16_ex_decode" />
+      <scope ilk="function" name="utf_16_le_decode" />
+      <scope ilk="function" name="utf_16_le_encode" />
+      <scope ilk="function" name="utf_32_be_decode" />
+      <scope ilk="function" name="utf_32_be_encode" />
+      <scope ilk="function" name="utf_32_decode" />
+      <scope ilk="function" name="utf_32_encode" />
+      <scope ilk="function" name="utf_32_ex_decode" />
+      <scope ilk="function" name="utf_32_le_decode" />
+      <scope ilk="function" name="utf_32_le_encode" />
+      <scope ilk="function" name="utf_7_decode" />
+      <scope ilk="function" name="utf_7_encode" />
+      <scope ilk="function" name="utf_8_decode" />
+      <scope ilk="function" name="utf_8_encode" />
+    </scope>
+    

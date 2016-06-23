@@ -1,0 +1,276 @@
+<scope doc="Manage shelves of pickled objects using bsddb database files for the&#10;storage." ilk="blob" lang="Python" name="bsddb.dbshelve">
+      <scope classrefs="MutableMapping" doc="A shelf to hold pickled objects, built upon a bsddb DB object.  It&#10;automatically pickles/unpickles data objects going to/from the DB." ilk="class" line="139" lineend="294" name="DBShelf">
+        <scope ilk="function" line="170" lineend="172" name="__getitem__" returns="cPickle.loads()" signature="__getitem__(key)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable line="171" name="data" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="#def get(self, key, default=None, txn=None, flags=0):" ilk="function" line="264" lineend="273" name="get" returns="cPickle.loads()" signature="get(*args, **kw)">
+          <variable citdl="self.db.get()" line="269" name="data" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="184" lineend="188" name="keys" returns="self.db.keys()" signature="keys(txn=None)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="276" lineend="279" name="get_both" returns="cPickle.loads()" signature="get_both(key, value, txn=None, flags=0)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="_dumps()" line="277" name="data" />
+        </scope>
+        <scope ilk="function" line="191" lineend="193" name="__iter__" signature="__iter__()">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_DBShelf__append" />
+        <scope ilk="function" line="288" lineend="290" name="put" returns="self.db.put()" signature="put(key, value, txn=None, flags=0)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="_dumps()" line="289" name="data" />
+        </scope>
+        <scope ilk="function" line="207" lineend="209" name="close" signature="close(*args, **kwargs)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="202" lineend="204" name="open" signature="open(*args, **kwargs)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="245" lineend="248" name="append" returns="DBShelf.__append()" signature="append(value, txn=None)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="180" lineend="181" name="__delitem__" signature="__delitem__(key)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="293" lineend="294" name="join" signature="join(cursorList, flags=0)">
+          <variable ilk="argument" name="cursorList" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="219" lineend="228" name="items" returns="list" signature="items(txn=None)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable citdl="list" line="224" name="newitems" />
+          <variable citdl="self.db.items()" line="221" name="items" />
+        </scope>
+        <scope ilk="function" line="251" lineend="260" name="associate" returns="self.db.associate()" signature="associate(secondaryDB, callback, flags=0)">
+          <variable ilk="argument" name="callback" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="secondaryDB" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <scope attributes="protected" ilk="function" line="252" lineend="258" name="_shelf_callback" returns="DBShelf.associate._shelf_callback.realCallback()" signature="_shelf_callback(priKey, priData, realCallback=callback)">
+            <variable ilk="argument" name="priKey" />
+            <variable ilk="argument" name="priData" />
+            <variable ilk="argument" name="realCallback" />
+            <variable citdl="cPickle.loads()" line="255" name="data" />
+          </scope>
+        </scope>
+        <scope ilk="function" line="175" lineend="177" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable citdl="_dumps()" line="176" name="data" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Many methods we can just pass through to the DB object." ilk="function" line="156" lineend="160" name="__getattr__" returns="getattr()" signature="__getattr__(name)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="282" lineend="285" name="cursor" returns="DBShelfCursor()" signature="cursor(txn=None, flags=0)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="DBShelfCursor()" line="283" name="c" />
+        </scope>
+        <scope ilk="function" line="152" lineend="153" name="__del__" signature="__del__()">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="230" lineend="236" name="values" returns="map()" signature="values(txn=None)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable citdl="self.db.values()" line="232" name="values" />
+        </scope>
+        <scope ilk="function" line="143" lineend="149" name="__init__" signature="DBShelf(dbenv=None)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="dbenv" />
+        </scope>
+        <scope ilk="function" line="166" lineend="167" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="212" lineend="216" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="False" line="145" name="_closed" />
+        <variable attributes="__instancevar__" citdl="db.DB()" line="144" name="db" />
+        <variable attributes="__instancevar__" citdl="int" line="147" name="protocol" />
+        <scope attributes="private" ilk="function" line="241" lineend="243" name="__append" returns="self.db.append()" signature="__append(value, txn=None)">
+          <variable citdl="DBShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="txn" />
+          <variable citdl="_dumps()" line="242" name="data" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="307" lineend="394" name="DBShelfCursor">
+        <scope ilk="function" line="371" lineend="373" name="set" returns="self._extract()" signature="set(key, flags=0)">
+          <variable citdl="self.dbc.set()" line="372" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="359" lineend="359" name="consume" returns="DBShelfCursor.get_1()" signature="consume(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="362" lineend="362" name="prev_nodup" returns="DBShelfCursor.get_1()" signature="prev_nodup(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="310" lineend="311" name="__init__" signature="DBShelfCursor(cursor)">
+          <variable ilk="argument" name="cursor" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="383" name="set_both" />
+        <scope ilk="function" line="375" lineend="377" name="set_range" returns="self._extract()" signature="set_range(key, flags=0)">
+          <variable citdl="self.dbc.set_range()" line="376" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="385" lineend="394" name="_extract" returns="tuple" signature="_extract(rec)">
+          <variable ilk="argument" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Some methods we can just pass through to the cursor object." ilk="function" line="317" lineend="319" name="__getattr__" returns="getattr()" signature="__getattr__(name)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="357" lineend="357" name="next" returns="DBShelfCursor.get_1()" signature="next(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="354" lineend="354" name="current" returns="DBShelfCursor.get_1()" signature="current(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="324" lineend="327" name="dup" signature="dup(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="" line="325" name="c" />
+        </scope>
+        <scope ilk="function" line="358" lineend="358" name="prev" returns="DBShelfCursor.get_1()" signature="prev(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="361" lineend="361" name="next_nodup" returns="DBShelfCursor.get_1()" signature="next_nodup(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="335" lineend="338" name="get" signature="get(*args)">
+          <variable citdl="len()" line="336" name="count" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="getattr()" line="337" name="method" />
+        </scope>
+        <scope ilk="function" line="313" lineend="314" name="__del__" signature="__del__()">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="365" lineend="368" name="get_both" returns="self._extract()" signature="get_both(key, value, flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="self.dbc.get_both()" line="367" name="rec" />
+          <variable citdl="_dumps()" line="366" name="data" />
+        </scope>
+        <scope ilk="function" line="340" lineend="342" name="get_1" returns="self._extract()" signature="get_1(flags)">
+          <variable citdl="self.dbc.get()" line="341" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="344" lineend="346" name="get_2" returns="self._extract()" signature="get_2(key, flags)">
+          <variable citdl="self.dbc.get()" line="345" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="348" lineend="351" name="get_3" returns="self._extract()" signature="get_3(key, value, flags)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="flags" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="self.dbc.get()" line="350" name="rec" />
+          <variable citdl="_dumps()" line="349" name="data" />
+        </scope>
+        <scope ilk="function" line="360" lineend="360" name="next_dup" returns="DBShelfCursor.get_1()" signature="next_dup(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="330" lineend="332" name="put" returns="self.dbc.put()" signature="put(key, value, flags=0)">
+          <variable citdl="_dumps()" line="331" name="data" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="379" lineend="381" name="set_recno" returns="self._extract()" signature="set_recno(recno, flags=0)">
+          <variable citdl="self.dbc.set_recno()" line="380" name="rec" />
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="recno" />
+        </scope>
+        <scope ilk="function" line="356" lineend="356" name="last" returns="DBShelfCursor.get_1()" signature="last(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <scope ilk="function" line="355" lineend="355" name="first" returns="DBShelfCursor.get_1()" signature="first(flags=0)">
+          <variable citdl="DBShelfCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+        </scope>
+        <variable attributes="__instancevar__" line="311" name="dbc" />
+      </scope>
+      <scope classrefs="DBError" doc="&#10;" ilk="class" line="136" lineend="136" name="DBShelveError" />
+      <variable citdl="int" line="70" name="HIGHEST_PROTOCOL" />
+      <scope classrefs="Mapping" doc="&#10;" ilk="class" line="93" name="MutableMapping">
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="popitem" />
+      </scope>
+      <variable citdl="bool" line="33" name="absolute_import" />
+      <import module="cPickle" />
+      <import module="collections" />
+      <import module="db" />
+      <scope doc="A simple factory function for compatibility with the&#10;standard shleve.py module." ilk="function" line="101" lineend="132" name="open" returns="DBShelf()" signature="open(filename, flags=1, mode=432, filetype=2, dbenv=None, dbname=None)">
+        <variable citdl="DBShelf()" line="130" name="d" />
+        <variable citdl="db.DB_HASH" ilk="argument" name="filetype" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable citdl="db.DB_CREATE" line="116" name="sflag" />
+        <variable ilk="argument" name="dbenv" />
+        <variable ilk="argument" name="dbname" />
+      </scope>
+      <import module="sys" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="83" lineend="84" name="_dumps" returns="cPickle.dumps()" signature="_dumps(object, protocol)">
+        <variable ilk="argument" name="object" />
+        <variable ilk="argument" name="protocol" />
+      </scope>
+      <scope attributes="__hidden__" ilk="class" line="92" lineend="92" name="DictMixin" />
+      <variable attributes="__hidden__" citdl="warnings.catch_warnings()" line="57" name="w" />
+    </scope>
+    

@@ -1,0 +1,40 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="resource">
+      <variable citdl="int" name="RLIMIT_AS" />
+      <variable citdl="int" name="RLIMIT_CORE" />
+      <variable citdl="int" name="RLIMIT_CPU" />
+      <variable citdl="int" name="RLIMIT_DATA" />
+      <variable citdl="int" name="RLIMIT_FSIZE" />
+      <variable citdl="int" name="RLIMIT_MEMLOCK" />
+      <variable citdl="int" name="RLIMIT_NOFILE" />
+      <variable citdl="int" name="RLIMIT_NPROC" />
+      <variable citdl="int" name="RLIMIT_OFILE" />
+      <variable citdl="int" name="RLIMIT_RSS" />
+      <variable citdl="int" name="RLIMIT_STACK" />
+      <variable citdl="int" name="RLIM_INFINITY" />
+      <variable citdl="int" name="RUSAGE_CHILDREN" />
+      <variable citdl="int" name="RUSAGE_SELF" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" name="getpagesize" />
+      <scope ilk="function" name="getrlimit" />
+      <scope ilk="function" name="getrusage" />
+      <scope ilk="function" name="setrlimit" />
+      <scope classrefs="object" doc="struct_rusage: Result from getrusage.&#10;This object may be accessed either as a tuple of (utime,stime,maxrss,ixrss,idrss,isrss,minflt,majflt, nswap,inblock,oublock,msgsnd,msgrcv,nsignals,nvcsw,nivcsw) or via the attributes ru_utime, ru_stime, ru_maxrss, and so on." ilk="class" name="struct_rusage">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+    </scope>
+    

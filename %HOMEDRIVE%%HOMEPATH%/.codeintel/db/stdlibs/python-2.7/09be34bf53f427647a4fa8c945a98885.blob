@@ -1,0 +1,701 @@
+<scope doc="Open an arbitrary URL.&#10;See the following document for more info on URLs: &quot;Names and Addresses, URIs, URLs, URNs, URCs&quot;, at http://www.w3.org/pub/WWW/Addressing/Overview.html  See also the HTTP spec (from which the error codes are derived): &quot;HTTP - Hypertext Transfer Protocol&quot;, at http://www.w3.org/pub/WWW/Protocols/  Related standards and specs: - RFC1808: the &quot;relative URL&quot; spec. (authoritative status)" ilk="blob" lang="Python" name="urllib">
+      <scope classrefs="IOError" doc="# exception raised when downloaded size does not match content-length&#10;" ilk="class" line="107" lineend="110" name="ContentTooShortError">
+        <scope ilk="function" line="108" lineend="110" name="__init__" signature="ContentTooShortError(message, content)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="ContentTooShortError" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <variable attributes="__instancevar__" line="110" name="content" />
+      </scope>
+      <scope classrefs="URLopener" doc="Derived class with handlers for errors we can handle (perhaps).&#10;" ilk="class" line="607" lineend="802" name="FancyURLopener">
+        <scope ilk="function" line="720" lineend="735" name="retry_proxy_http_basic_auth" returns="self.open()" signature="retry_proxy_http_basic_auth(url, realm, data=None)">
+          <variable citdl="str" line="722" name="newurl" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable line="721" name="selector" />
+          <variable citdl="proxyhost.find()" line="726" name="i" />
+          <variable line="721" name="host" />
+          <variable line="728" name="passwd" />
+          <variable line="723" name="proxy" />
+          <variable line="724" name="urltype" />
+          <variable line="725" name="proxyselector" />
+          <variable citdl="quote()" line="724" name="proxyhost" />
+          <variable ilk="argument" name="data" />
+          <variable line="728" name="user" />
+        </scope>
+        <scope doc="Override this in a GUI environment!" ilk="function" line="791" lineend="802" name="prompt_user_passwd" returns="tuple" signature="prompt_user_passwd(host, realm)">
+          <variable citdl="getpass.getpass()" line="797" name="passwd" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="raw_input()" line="795" name="user" />
+        </scope>
+        <scope ilk="function" line="780" lineend="789" name="get_user_passwd" returns="tuple" signature="get_user_passwd(host, realm, clear_cache=0)">
+          <variable ilk="argument" name="realm" />
+          <variable citdl="int" ilk="argument" name="clear_cache" />
+          <variable line="787" name="passwd" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable line="787" name="user" />
+          <variable citdl="str" line="781" name="key" />
+        </scope>
+        <scope doc="Default error handling -- don't raise an exception." ilk="function" line="616" lineend="618" name="http_error_default" returns="addinfourl()" signature="http_error_default(url, fp, errcode, errmsg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Error 401 -- authentication required." ilk="function" line="676" lineend="696" name="http_error_401" returns="getattr()()" signature="http_error_401(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable line="688" name="realm" />
+          <variable citdl="str" line="692" name="name" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable line="682" name="stuff" />
+          <variable citdl="re.match()" line="684" name="match" />
+          <variable line="688" name="scheme" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope ilk="function" line="737" lineend="752" name="retry_proxy_https_basic_auth" returns="self.open()" signature="retry_proxy_https_basic_auth(url, realm, data=None)">
+          <variable citdl="str" line="739" name="newurl" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable line="738" name="selector" />
+          <variable citdl="proxyhost.find()" line="743" name="i" />
+          <variable line="738" name="host" />
+          <variable line="745" name="passwd" />
+          <variable line="740" name="proxy" />
+          <variable line="741" name="urltype" />
+          <variable line="742" name="proxyselector" />
+          <variable citdl="quote()" line="741" name="proxyhost" />
+          <variable ilk="argument" name="data" />
+          <variable line="745" name="user" />
+        </scope>
+        <scope ilk="function" line="767" lineend="778" name="retry_https_basic_auth" returns="self.open()" signature="retry_https_basic_auth(url, realm, data=None)">
+          <variable citdl="str" line="774" name="newurl" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable line="768" name="selector" />
+          <variable citdl="host.find()" line="769" name="i" />
+          <variable citdl="list" line="768" name="host" />
+          <variable line="771" name="passwd" />
+          <variable line="771" name="user" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Error 407 -- proxy authentication required." ilk="function" line="698" lineend="718" name="http_error_407" returns="getattr()()" signature="http_error_407(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable line="710" name="realm" />
+          <variable citdl="str" line="714" name="name" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable line="704" name="stuff" />
+          <variable citdl="re.match()" line="706" name="match" />
+          <variable line="710" name="scheme" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Error 307 -- relocated, but turn POST into error." ilk="function" line="669" lineend="674" name="http_error_307" returns="FancyURLopener.http_error_302()" signature="http_error_307(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope ilk="function" line="636" lineend="659" name="redirect_internal" returns="self.open()" signature="redirect_internal(url, fp, errcode, errmsg, headers, data)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="basejoin()" line="638" name="newurl" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="newurl.lower()" line="650" name="newurl_lower" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="fp.read()" line="643" name="void" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Error 303 -- also relocated (essentially identical to 302)." ilk="function" line="665" lineend="667" name="http_error_303" returns="FancyURLopener.http_error_302()" signature="http_error_303(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Error 302 -- relocated (temporarily)." ilk="function" line="620" lineend="634" name="http_error_302" returns="self.redirect_internal()" signature="http_error_302(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="self.redirect_internal()" line="631" name="result" />
+          <variable citdl="self.http_error_500" line="625" name="meth" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Error 301 -- also relocated (permanently)." ilk="function" line="661" lineend="663" name="http_error_301" returns="FancyURLopener.http_error_302()" signature="http_error_301(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope ilk="function" line="754" lineend="765" name="retry_http_basic_auth" returns="self.open()" signature="retry_http_basic_auth(url, realm, data=None)">
+          <variable citdl="str" line="761" name="newurl" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable line="755" name="selector" />
+          <variable citdl="host.find()" line="756" name="i" />
+          <variable citdl="list" line="755" name="host" />
+          <variable line="758" name="passwd" />
+          <variable line="758" name="user" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="610" lineend="614" name="__init__" signature="FancyURLopener(*args, **kwargs)">
+          <variable citdl="FancyURLopener" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="613" name="tries" />
+        <variable attributes="__instancevar__" citdl="int" line="614" name="maxtries" />
+        <variable attributes="__instancevar__" citdl="dict" line="612" name="auth_cache" />
+      </scope>
+      <variable citdl="int" line="42" name="MAXFTPCACHE" />
+      <scope doc="Class to open URLs.&#10;This is a class rather than just a subroutine because we may need more than one set of global protocol-specific options. Note -- this is a base class for those who don't want the automatic handling of errors type 302 (relocated) and 401 (authorization needed)." ilk="class" line="113" lineend="604" name="URLopener">
+        <scope doc="retrieve(url) returns (filename, headers) for a local object&#10;or (tempfilename, headers) for a remote object." ilk="function" line="222" lineend="283" name="retrieve" returns="tuple" signature="retrieve(url) returns (filename, headers) for a local object&#10;or (tempfilename, headers) for a remote object.">
+          <variable citdl="self.open_local_file()" line="231" name="fp" />
+          <variable citdl="int" line="259" name="blocknum" />
+          <variable citdl="fp.info()" line="232" name="hdrs" />
+          <variable line="244" name="garbage" />
+          <variable citdl="unwrap()" ilk="argument" name="url" />
+          <variable line="228" name="type" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="reporthook" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="fp.info()" line="239" name="headers" />
+          <variable line="249" name="fd" />
+          <variable citdl="tuple" line="253" name="result" />
+          <variable citdl="int" line="258" name="read" />
+          <variable citdl="int" line="256" name="bs" />
+          <variable line="228" name="url1" />
+          <variable line="244" name="path" />
+          <variable citdl="int" line="257" name="size" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="os.fdopen()" line="241" name="tfp" />
+          <variable citdl="fp.read()" line="265" name="block" />
+          <variable line="248" name="suffix" />
+        </scope>
+        <scope ilk="function" line="155" lineend="167" name="cleanup" signature="cleanup()">
+          <variable citdl="URLopener" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Use &quot;data&quot; URL." ilk="function" line="560" lineend="604" name="open_data" returns="addinfourl()" signature="open_data(url, data=None)">
+          <variable citdl="type.rfind()" line="582" name="semi" />
+          <variable citdl="list" line="584" name="encoding" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="unquote()" ilk="argument" name="data" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable citdl="StringIO()" line="601" name="f" />
+          <variable citdl="mimetools.Message()" line="602" name="headers" />
+          <variable citdl="list" line="588" name="msg" />
+          <variable citdl="list" line="577" name="type" />
+        </scope>
+        <scope doc="Default error handler: close the connection and raise&#10;IOError." ilk="function" line="375" lineend="379" name="http_error_default" signature="http_error_default(url, fp, errcode, errmsg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="fp.read()" line="377" name="void" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope ilk="function" line="149" lineend="150" name="__del__" signature="__del__()">
+          <variable citdl="URLopener" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Use local file or FTP depending on form of URL." ilk="function" line="454" lineend="461" name="open_file" returns="self.open_ftp()" signature="open_file(url)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Use local file." ilk="function" line="463" lineend="496" name="open_local_file" returns="addinfourl()" signature="open_local_file(url)">
+          <variable citdl="os.stat()" line="473" name="stats" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="str" line="483" name="urlfile" />
+          <variable citdl="email.utils.formatdate()" line="477" name="modified" />
+          <variable line="488" name="port" />
+          <variable line="478" name="mtype" />
+          <variable citdl="mimetools.Message()" line="479" name="headers" />
+          <variable line="470" name="host" />
+          <variable line="470" name="file" />
+          <variable citdl="url2pathname()" line="471" name="localname" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable citdl="stats.st_size" line="476" name="size" />
+        </scope>
+        <scope doc="Add a header to be used by the HTTP interface only e.g." ilk="function" line="169" lineend="172" name="addheader" signature="addheader(*args)">
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Overridable interface to open unknown URL type." ilk="function" line="216" lineend="219" name="open_unknown_proxy" signature="open_unknown_proxy(proxy, fullurl, data=None)">
+          <variable line="218" name="url" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="proxy" />
+          <variable line="218" name="type" />
+          <variable ilk="argument" name="fullurl" />
+        </scope>
+        <scope doc="Use HTTP protocol." ilk="function" line="287" lineend="358" name="open_http" returns="self.http_error()" signature="open_http(url, data=None)">
+          <variable citdl="h.getfile()" line="344" name="fp" />
+          <variable line="303" name="urltype" />
+          <variable line="343" name="headers" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="httplib.HTTP()" line="331" name="h" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable line="291" name="proxy_passwd" />
+          <variable line="303" name="rest" />
+          <variable citdl="str" line="293" name="selector" />
+          <variable line="290" name="user_passwd" />
+          <variable citdl="unquote()" line="293" name="host" />
+          <variable line="343" name="errcode" />
+          <variable citdl="unquote()" line="297" name="realhost" />
+          <variable line="328" name="auth" />
+          <variable line="322" name="proxy_auth" />
+          <variable ilk="argument" name="data" />
+          <variable line="343" name="errmsg" />
+        </scope>
+        <scope doc="Handle http errors." ilk="function" line="360" lineend="373" name="http_error" returns="method()" signature="http_error(url, fp, errcode, errmsg, headers, data=None)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="str" line="365" name="name" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="errcode" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="method()" line="369" name="result" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="getattr()" line="367" name="method" />
+          <variable ilk="argument" name="errmsg" />
+        </scope>
+        <scope doc="Use HTTPS protocol." ilk="function" line="382" lineend="452" name="open_https" returns="addinfourl()" signature="open_https(url, data=None)">
+          <variable citdl="h.getfile()" line="437" name="fp" />
+          <variable line="398" name="urltype" />
+          <variable line="436" name="headers" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="httplib.HTTPS()" line="421" name="h" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable line="387" name="proxy_passwd" />
+          <variable line="398" name="rest" />
+          <variable citdl="str" line="389" name="selector" />
+          <variable line="386" name="user_passwd" />
+          <variable citdl="unquote()" line="389" name="host" />
+          <variable line="436" name="errcode" />
+          <variable citdl="unquote()" line="393" name="realhost" />
+          <variable line="418" name="auth" />
+          <variable line="413" name="proxy_auth" />
+          <variable ilk="argument" name="data" />
+          <variable line="436" name="errmsg" />
+        </scope>
+        <scope ilk="function" line="152" lineend="153" name="close" signature="close()">
+          <variable citdl="URLopener" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Use FTP protocol." ilk="function" line="498" lineend="558" name="open_ftp" returns="addinfourl()" signature="open_ftp(url)">
+          <variable citdl="list" line="524" name="dirs" />
+          <variable line="548" name="fp" />
+          <variable line="544" name="attr" />
+          <variable citdl="tuple" line="528" name="key" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable line="544" name="value" />
+          <variable line="548" name="retrlen" />
+          <variable line="549" name="mtype" />
+          <variable citdl="mimetools.Message()" line="550" name="headers" />
+          <variable citdl="unquote()" line="507" name="host" />
+          <variable citdl="str" line="511" name="passwd" />
+          <variable citdl="str" line="510" name="user" />
+          <variable line="525" name="file" />
+          <variable line="534" name="v" />
+          <variable citdl="unquote()" line="507" name="path" />
+          <variable citdl="str" line="541" name="type" />
+          <variable citdl="ftplib.FTP_PORT" line="509" name="port" />
+          <variable line="522" name="attrs" />
+        </scope>
+        <scope doc="Use URLopener().open(file) instead of open(file, 'r')." ilk="function" line="175" lineend="209" name="open" returns="self.open_unknown()" signature="open(fullurl, data=None)">
+          <variable citdl="()" line="183" name="fp" />
+          <variable citdl="str" line="185" name="urltype" />
+          <variable citdl="str" line="195" name="name" />
+          <variable citdl="tuple" line="185" name="url" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable line="190" name="proxyhost" />
+          <variable line="191" name="host" />
+          <variable line="189" name="proxy" />
+          <variable line="191" name="selector" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="quote()" ilk="argument" name="fullurl" />
+        </scope>
+        <scope doc="# Constructor" ilk="function" line="126" lineend="143" name="__init__" signature="URLopener(proxies=None, **x509)">
+          <variable attributes="kwargs" ilk="argument" name="x509" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable citdl="getproxies()" ilk="argument" name="proxies" />
+        </scope>
+        <scope doc="Overridable interface to open unknown URL type." ilk="function" line="211" lineend="214" name="open_unknown" signature="open_unknown(fullurl, data=None)">
+          <variable line="213" name="url" />
+          <variable line="213" name="type" />
+          <variable citdl="URLopener" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="fullurl" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="os.unlink" line="135" name="__unlink" />
+        <variable attributes="__instancevar__" citdl="x509.get()" line="132" name="cert_file" />
+        <variable attributes="__instancevar__" citdl="list" line="133" name="addheaders" />
+        <variable citdl="str" line="123" name="version" />
+        <variable attributes="__instancevar__" line="143" name="ftpcache" />
+        <variable attributes="__instancevar__" line="136" name="tempcache" />
+        <variable attributes="__instancevar__" citdl="x509.get()" line="131" name="key_file" />
+        <variable attributes="__instancevar__" citdl="getproxies()" line="130" name="proxies" />
+        <variable attributes="__instancevar__" citdl="str" line="196" name="type" />
+        <variable attributes="private" citdl="list" line="121" name="__tempfiles" />
+      </scope>
+      <variable citdl="list" line="32" name="__all__" />
+      <variable citdl="str" line="40" name="__version__" />
+      <scope doc="Base class for addinfo and addclosehook.&#10;" ilk="class" line="927" lineend="954" name="addbase">
+        <scope ilk="function" line="948" lineend="954" name="close" signature="close()">
+          <variable citdl="addbase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="930" lineend="942" name="__init__" signature="addbase(fp)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="addbase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="944" lineend="946" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="addbase" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="931" name="fp" />
+        <variable attributes="__instancevar__" citdl="self.fp.fileno" line="936" name="fileno" />
+        <variable attributes="__instancevar__" citdl="self.fp.read" line="932" name="read" />
+        <variable attributes="__instancevar__" citdl="self.fp.readlines" line="934" name="readlines" />
+        <variable attributes="__instancevar__" citdl="self.fp.next" line="942" name="next" />
+        <variable attributes="__instancevar__" citdl="self.fp.__iter__" line="940" name="__iter__" />
+        <variable attributes="__instancevar__" citdl="self.fp.readline" line="933" name="readline" />
+      </scope>
+      <scope classrefs="addbase" doc="Class to add a close hook to an open file.&#10;" ilk="class" line="956" lineend="969" name="addclosehook">
+        <scope ilk="function" line="964" lineend="969" name="close" signature="close()">
+          <variable citdl="addclosehook" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="959" lineend="962" name="__init__" signature="addclosehook(fp, closehook, *hookargs)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="closehook" />
+          <variable citdl="addclosehook" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="hookargs" />
+        </scope>
+        <variable attributes="__instancevar__" line="961" name="closehook" />
+        <variable attributes="__instancevar__" line="962" name="hookargs" />
+      </scope>
+      <scope classrefs="addbase" doc="class to add an info() method to an open file.&#10;" ilk="class" line="971" lineend="979" name="addinfo">
+        <scope ilk="function" line="978" lineend="979" name="info" signature="info()">
+          <variable citdl="addinfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="974" lineend="976" name="__init__" signature="addinfo(fp, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="addinfo" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="976" name="headers" />
+      </scope>
+      <scope classrefs="addbase" doc="class to add info() and geturl() methods to an open file.&#10;" ilk="class" line="981" lineend="997" name="addinfourl">
+        <scope ilk="function" line="990" lineend="991" name="info" signature="info()">
+          <variable citdl="addinfourl" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="996" lineend="997" name="geturl" signature="geturl()">
+          <variable citdl="addinfourl" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="993" lineend="994" name="getcode" signature="getcode()">
+          <variable citdl="addinfourl" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="984" lineend="988" name="__init__" signature="addinfourl(fp, headers, url, code=None)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="addinfourl" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="url" />
+        </scope>
+        <variable attributes="__instancevar__" line="987" name="url" />
+        <variable attributes="__instancevar__" line="986" name="headers" />
+        <variable attributes="__instancevar__" line="988" name="code" />
+      </scope>
+      <variable citdl="str" line="1205" name="always_safe" />
+      <scope doc="Join a base URL and a possibly relative URL to form an&#10;absolute interpretation of the latter." ilk="function" name="basejoin" signature="basejoin(base, url, allow_fragments=True)" />
+      <variable citdl="str" name="c" />
+      <variable citdl="dict" line="112" name="ftpcache" />
+      <scope doc="Return the set of errors raised by the FTP class." ilk="function" line="824" lineend="830" name="ftperrors" returns="ftplib.all_errors" signature="ftperrors()">
+        <variable attributes="protected" citdl="ftplib.all_errors" line="829" name="_ftperrors" />
+      </scope>
+      <scope doc="Class used by open_ftp() for cache of open FTP connections.&#10;" ilk="class" line="849" lineend="925" name="ftpwrapper">
+        <scope ilk="function" line="862" lineend="869" name="init" signature="init()">
+          <variable citdl="ftpwrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="871" lineend="910" name="retrfile" returns="tuple" signature="retrfile(file, type)">
+          <variable citdl="int" line="874" name="isdir" />
+          <variable citdl="ftpwrapper" ilk="argument" name="self" />
+          <variable citdl="str" line="874" name="cmd" />
+          <variable citdl="self.ftp.pwd()" line="895" name="pwd" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="self.ftp.ntransfercmd()" line="881" name="conn" />
+        </scope>
+        <scope ilk="function" line="920" lineend="925" name="close" signature="close()">
+          <variable citdl="ftpwrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="911" lineend="918" name="endtransfer" signature="endtransfer()">
+          <variable citdl="ftpwrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="852" lineend="860" name="__init__" signature="ftpwrapper(user, passwd, host, port, dirs, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable ilk="argument" name="dirs" />
+          <variable ilk="argument" name="passwd" />
+          <variable citdl="ftpwrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="user" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" line="858" name="dirs" />
+        <variable attributes="__instancevar__" citdl="ftplib.FTP()" line="865" name="ftp" />
+        <variable attributes="__instancevar__" citdl="int" line="864" name="busy" />
+        <variable attributes="__instancevar__" line="855" name="passwd" />
+        <variable attributes="__instancevar__" line="856" name="host" />
+        <variable attributes="__instancevar__" line="854" name="user" />
+        <variable attributes="__instancevar__" citdl="socket._GLOBAL_DEFAULT_TIMEOUT" line="859" name="timeout" />
+        <variable attributes="__instancevar__" line="857" name="port" />
+      </scope>
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" line="1485" name="getproxies" signature="getproxies()" />
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" line="1323" lineend="1337" name="getproxies_environment" returns="dict" signature="getproxies_environment()">
+        <variable citdl="dict" line="1332" name="proxies" />
+        <variable citdl="name.lower()" line="1334" name="name" />
+      </scope>
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" line="1439" lineend="1483" name="getproxies_registry" returns="dict" signature="getproxies_registry()">
+        <variable line="1463" name="protocol" />
+        <variable citdl="_winreg.OpenKey()" line="1452" name="internetSettings" />
+        <variable citdl="str()" line="1458" name="proxyServer" />
+        <variable citdl="str" line="1463" name="address" />
+        <variable citdl="dict" line="1445" name="proxies" />
+        <variable line="1454" name="proxyEnable" />
+      </scope>
+      <variable citdl="int" name="i" />
+      <scope doc="Return the IP address of the magic hostname 'localhost'." ilk="function" line="808" lineend="813" name="localhost" returns="socket.gethostbyname()" signature="localhost()">
+        <variable attributes="protected" citdl="socket.gethostbyname()" line="812" name="_localhost" />
+      </scope>
+      <scope ilk="function" line="1617" lineend="1642" name="main" signature="main()">
+        <variable line="1620" name="args" />
+        <variable citdl="int" line="1625" name="t" />
+        <variable line="1620" name="opts" />
+      </scope>
+      <scope doc="Return an empty mimetools.Message object." ilk="function" line="833" lineend="844" name="noheaders" returns="mimetools.Message()" signature="noheaders()">
+        <variable attributes="protected" citdl="mimetools.Message()" line="842" name="_noheaders" />
+      </scope>
+      <import module="os" />
+      <scope doc="OS-specific conversion from a file system path to a relative&#10;URL of the 'file' scheme; not recommended for general use." ilk="function" line="55" lineend="58" name="pathname2url" returns="quote()" signature="pathname2url(p)">
+        <variable ilk="argument" name="pathname" />
+      </scope>
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" line="1546" name="proxy_bypass" signature="proxy_bypass(host)" />
+      <scope doc="Test if proxies should not be used for a particular host." ilk="function" line="1339" lineend="1356" name="proxy_bypass_environment" returns="int" signature="proxy_bypass_environment(host)">
+        <variable citdl="os.environ.get()" line="1345" name="no_proxy" />
+        <variable ilk="argument" name="host" />
+        <variable line="1350" name="hostonly" />
+        <variable line="1350" name="port" />
+      </scope>
+      <scope ilk="function" line="1494" lineend="1544" name="proxy_bypass_registry" returns="int" signature="proxy_bypass_registry(host)">
+        <variable citdl="socket.gethostbyname()" line="1517" name="addr" />
+        <variable citdl="str()" line="1506" name="proxyOverride" />
+        <variable citdl="socket.getfqdn()" line="1523" name="fqdn" />
+        <variable citdl="_winreg.OpenKey()" line="1502" name="internetSettings" />
+        <variable citdl="list" ilk="argument" name="host" />
+        <variable line="1514" name="rawHost" />
+        <variable citdl="test.replace()" line="1537" name="test" />
+        <variable line="1514" name="port" />
+        <variable line="1504" name="proxyEnable" />
+      </scope>
+      <scope doc="Each part of a URL, e.g." ilk="function" line="1213" lineend="1250" name="quote" returns="str.join()" signature="quote('abc def') -&gt; 'abc%20def'">
+        <variable citdl="_safe_map.copy()" line="1243" name="safe_map" />
+        <variable citdl="safe_map.__getitem__" line="1245" name="quoter" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="str" ilk="argument" name="safe" />
+        <variable citdl="tuple" line="1239" name="cachekey" />
+      </scope>
+      <scope doc="Quote the query fragment of a URL; replacing ' ' with '+'" ilk="function" line="1252" lineend="1257" name="quote_plus" returns="s.replace()" signature="quote_plus(s, safe='')">
+        <variable citdl="quote()" ilk="argument" name="s" />
+        <variable citdl="str" ilk="argument" name="safe" />
+      </scope>
+      <scope ilk="function" line="1580" lineend="1583" name="reporthook" signature="reporthook(blocknum, blocksize, totalsize)">
+        <variable ilk="argument" name="totalsize" />
+        <variable ilk="argument" name="blocksize" />
+        <variable ilk="argument" name="blocknum" />
+      </scope>
+      <import module="socket" />
+      <scope doc="'/path', ['attr1=value1', 'attr2=value2', ...]." ilk="function" line="1158" lineend="1162" name="splitattr" returns="tuple" signature="splitattr('/path;attr1=value1;attr2=value2;...') -&gt;">
+        <variable ilk="argument" name="url" />
+        <variable citdl="url.split()" line="1161" name="words" />
+      </scope>
+      <scope doc="splithost('//host[:port]/path') --&gt; 'host[:port]', '/path'." ilk="function" line="1059" lineend="1073" name="splithost" returns="tuple" signature="splithost('//host[:port]/path') --&gt; 'host[:port]', '/path'.">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="re.compile()" line="1064" name="_hostprog" />
+        <variable citdl="match.group()" line="1069" name="path" />
+        <variable citdl="_hostprog.match()" line="1066" name="match" />
+        <variable citdl="match.group()" line="1068" name="host_port" />
+      </scope>
+      <scope doc="Split host and port, returning numeric port." ilk="function" line="1113" lineend="1132" name="splitnport" returns="tuple" signature="splitnport(host, defport=-1)">
+        <variable citdl="int()" line="1128" name="nport" />
+        <variable citdl="int" ilk="argument" name="defport" />
+        <variable attributes="protected" citdl="re.compile()" line="1121" name="_nportprog" />
+        <variable ilk="argument" name="host" />
+        <variable line="1125" name="port" />
+        <variable citdl="_nportprog.match()" line="1123" name="match" />
+      </scope>
+      <scope doc="splitpasswd('user:passwd') -&gt; 'user', 'passwd'." ilk="function" line="1088" lineend="1097" name="splitpasswd" returns="tuple" signature="splitpasswd('user:passwd') -&gt; 'user', 'passwd'.">
+        <variable citdl="_passwdprog.match()" line="1095" name="match" />
+        <variable ilk="argument" name="user" />
+        <variable attributes="protected" citdl="re.compile()" line="1093" name="_passwdprog" />
+      </scope>
+      <scope doc="splitport('host:port') --&gt; 'host', 'port'." ilk="function" line="1101" lineend="1110" name="splitport" returns="tuple" signature="splitport('host:port') --&gt; 'host', 'port'.">
+        <variable ilk="argument" name="host" />
+        <variable attributes="protected" citdl="re.compile()" line="1106" name="_portprog" />
+        <variable citdl="_portprog.match()" line="1108" name="match" />
+      </scope>
+      <scope doc="splitquery('/path?query') --&gt; '/path', 'query'." ilk="function" line="1135" lineend="1144" name="splitquery" returns="tuple" signature="splitquery('/path?query') --&gt; '/path', 'query'.">
+        <variable ilk="argument" name="url" />
+        <variable citdl="_queryprog.match()" line="1142" name="match" />
+        <variable attributes="protected" citdl="re.compile()" line="1140" name="_queryprog" />
+      </scope>
+      <scope doc="splittag('/path#tag') --&gt; '/path', 'tag'." ilk="function" line="1147" lineend="1156" name="splittag" returns="tuple" signature="splittag('/path#tag') --&gt; '/path', 'tag'.">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="re.compile()" line="1152" name="_tagprog" />
+        <variable citdl="_tagprog.match()" line="1154" name="match" />
+      </scope>
+      <scope doc="splittype('type:opaquestring') --&gt; 'type', 'opaquestring'." ilk="function" line="1045" lineend="1056" name="splittype" returns="tuple" signature="splittype('type:opaquestring') --&gt; 'type', 'opaquestring'.">
+        <variable ilk="argument" name="url" />
+        <variable citdl="match.group()" line="1054" name="scheme" />
+        <variable citdl="_typeprog.match()" line="1052" name="match" />
+        <variable attributes="protected" citdl="re.compile()" line="1050" name="_typeprog" />
+      </scope>
+      <scope doc="splituser('user[:passwd]@host[:port]') --&gt; 'user[:passwd]', 'host[:port]'." ilk="function" line="1076" lineend="1085" name="splituser" returns="tuple" signature="splituser('user[:passwd]@host[:port]') --&gt; 'user[:passwd]', 'host[:port]'.">
+        <variable ilk="argument" name="host" />
+        <variable citdl="_userprog.match()" line="1083" name="match" />
+        <variable attributes="protected" citdl="re.compile()" line="1081" name="_userprog" />
+      </scope>
+      <scope doc="splitvalue('attr=value') --&gt; 'attr', 'value'." ilk="function" line="1165" lineend="1174" name="splitvalue" returns="tuple" signature="splitvalue('attr=value') --&gt; 'attr', 'value'.">
+        <variable attributes="protected" citdl="re.compile()" line="1170" name="_valueprog" />
+        <variable ilk="argument" name="attr" />
+        <variable citdl="_valueprog.match()" line="1172" name="match" />
+      </scope>
+      <import module="ssl" />
+      <import module="string" />
+      <import module="sys" />
+      <scope doc="# Test program" ilk="function" line="1586" lineend="1615" name="test" signature="test(args=[])">
+        <variable line="1600" name="h" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="fp.read()" line="1607" name="data" />
+        <variable line="1600" name="fn" />
+        <variable citdl="string.maketrans()" line="1609" name="table" />
+      </scope>
+      <scope doc="# Test and time quote() and unquote()" ilk="function" line="1564" lineend="1577" name="test1" signature="test1()">
+        <variable citdl="quote()" line="1569" name="qs" />
+        <variable citdl="str" line="1565" name="s" />
+        <variable citdl="unquote()" line="1570" name="uqs" />
+        <variable citdl="time.time()" line="1568" name="t0" />
+        <variable citdl="time.time()" line="1571" name="t1" />
+      </scope>
+      <scope doc="Return the IP address of the current host." ilk="function" line="816" lineend="821" name="thishost" returns="socket.gethostbyname()" signature="thishost()">
+        <variable attributes="protected" citdl="socket.gethostbyname()" line="820" name="_thishost" />
+      </scope>
+      <import module="time" />
+      <scope doc="toBytes(u&quot;URL&quot;) --&gt; 'URL'." ilk="function" line="1024" lineend="1034" name="toBytes" returns="url.encode()" signature="toBytes(u&quot;URL&quot;) --&gt; 'URL'.">
+        <variable citdl="url.encode()" ilk="argument" name="url" />
+      </scope>
+      <scope doc="unquote('abc%20def') -&gt; 'abc def'." ilk="function" line="1184" lineend="1198" name="unquote" signature="unquote('abc%20def') -&gt; 'abc def'.">
+        <variable citdl="s.split()" line="1186" name="res" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="unquote('%7e/abc+def') -&gt; '~/abc def'" ilk="function" line="1200" lineend="1203" name="unquote_plus" returns="unquote()" signature="unquote('%7e/abc+def') -&gt; '~/abc def'">
+        <variable citdl="s.replace()" ilk="argument" name="s" />
+      </scope>
+      <scope doc="unwrap('&lt;URL:type://host/path&gt;') --&gt; 'type://host/path'." ilk="function" line="1036" lineend="1042" name="unwrap" returns="url.strip()" signature="unwrap('&lt;URL:type://host/path&gt;') --&gt; 'type://host/path'.">
+        <variable citdl="url.strip()" ilk="argument" name="url" />
+      </scope>
+      <scope doc="OS-specific conversion from a relative URL of the 'file'&#10;scheme to a file system path; not recommended for general&#10;use." ilk="function" line="50" lineend="53" name="url2pathname" returns="unquote()" signature="url2pathname(url)">
+        <variable ilk="argument" name="pathname" />
+      </scope>
+      <scope ilk="function" line="92" lineend="96" name="urlcleanup" signature="urlcleanup()" />
+      <scope doc="Encode a sequence of two-element tuples or dictionary into a&#10;URL query string." ilk="function" line="1259" lineend="1320" name="urlencode" returns="str.join()" signature="urlencode(query, doseq=0)">
+        <variable line="1286" name="va" />
+        <variable line="1286" name="ty" />
+        <variable citdl="quote_plus()" line="1293" name="k" />
+        <variable citdl="list" line="1289" name="l" />
+        <variable citdl="int" ilk="argument" name="doseq" />
+        <variable citdl="quote_plus()" line="1294" name="v" />
+        <variable citdl="query.items()" ilk="argument" name="query" />
+        <variable line="1286" name="tb" />
+      </scope>
+      <scope doc="Create a file-like object for the specified URL to read&#10;from." ilk="function" line="69" lineend="86" name="urlopen" returns="opener.open()" signature="urlopen(url, data=None, proxies=None)">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="FancyURLopener()" line="80" name="_urlopener" />
+        <variable ilk="argument" name="proxies" />
+        <variable ilk="argument" name="data" />
+        <variable citdl="FancyURLopener()" line="77" name="opener" />
+      </scope>
+      <scope ilk="function" line="87" lineend="91" name="urlretrieve" returns="_urlopener.retrieve()" signature="urlretrieve(url, filename=None, reporthook=None, data=None)">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="FancyURLopener()" line="90" name="_urlopener" />
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="reporthook" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="1021" lineend="1022" name="_is_unicode" returns="isinstance()" signature="_is_unicode(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <variable attributes="protected __hidden__" line="1044" name="_typeprog" />
+      <variable attributes="protected __hidden__" line="1112" name="_nportprog" />
+      <variable attributes="protected __hidden__" line="1134" name="_queryprog" />
+      <scope attributes="__hidden__" doc="Return True iff this host shouldn't be accessed using a&#10;proxy" ilk="function" line="1362" lineend="1419" name="proxy_bypass_macosx_sysconf" returns="bool" signature="proxy_bypass_macosx_sysconf(host)">
+        <import line="1369" module="re" />
+        <import line="1370" module="socket" />
+        <import line="1371" module="fnmatch" symbol="fnmatch" />
+        <variable ilk="argument" name="host" />
+        <variable line="1373" name="hostonly" />
+        <variable line="1373" name="port" />
+        <scope ilk="function" line="1375" lineend="1380" name="ip2num" returns="int" signature="ip2num(ipAddr)">
+          <variable ilk="argument" name="ipAddr" />
+          <variable citdl="list" line="1376" name="parts" />
+        </scope>
+        <variable citdl="_get_proxy_settings()" line="1382" name="proxy_settings" />
+        <variable citdl="socket.gethostbyname()" line="1389" name="hostIP" />
+        <variable citdl="re.match()" line="1395" name="m" />
+        <variable citdl="ip2num()" line="1404" name="base" />
+        <variable citdl="m.group()" line="1405" name="mask" />
+      </scope>
+      <scope attributes="__hidden__" doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" line="1421" lineend="1427" name="getproxies_macosx_sysconf" returns="_get_proxies()" signature="getproxies_macosx_sysconf()" />
+      <variable attributes="protected __hidden__" line="1164" name="_valueprog" />
+      <variable attributes="protected __hidden__" line="1146" name="_tagprog" />
+      <variable attributes="protected __hidden__" line="1075" name="_userprog" />
+      <variable attributes="protected __hidden__" citdl="str" line="1180" name="_hexdig" />
+      <variable attributes="protected __hidden__" line="1087" name="_passwdprog" />
+      <variable attributes="protected __hidden__" citdl="True" line="102" name="_have_ssl" />
+      <variable attributes="protected __hidden__" citdl="dict" line="1211" name="_safe_quoters" />
+      <variable attributes="protected __hidden__" line="1058" name="_hostprog" />
+      <variable attributes="protected __hidden__" line="832" name="_noheaders" />
+      <variable attributes="protected __hidden__" citdl="dict()" line="1181" name="_hextochr" />
+      <variable attributes="protected __hidden__" line="1100" name="_portprog" />
+      <variable attributes="protected __hidden__" line="807" name="_localhost" />
+      <variable attributes="protected __hidden__" line="68" name="_urlopener" />
+      <variable attributes="protected __hidden__" line="823" name="_ftperrors" />
+      <variable attributes="protected __hidden__" line="815" name="_thishost" />
+      <variable attributes="protected __hidden__" citdl="dict" line="1208" name="_safe_map" />
+    </scope>
+    

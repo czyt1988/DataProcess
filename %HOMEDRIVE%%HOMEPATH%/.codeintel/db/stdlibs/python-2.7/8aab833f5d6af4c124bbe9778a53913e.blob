@@ -1,0 +1,23 @@
+<scope doc="Fixer for imports of itertools.(imap|ifilter|izip|ifilterfalse)&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_itertools_imports">
+      <scope doc="A blank line" ilk="function" name="BlankLine" signature="BlankLine()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="8" lineend="57" name="FixItertoolsImports">
+        <scope ilk="function" line="14" lineend="57" name="transform" returns="BlankLine()" signature="transform(node, results)">
+          <variable citdl="BlankLine()" ilk="argument" name="node" />
+          <variable line="15" name="imports" />
+          <variable citdl="FixItertoolsImports" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="child.value" line="22" name="member" />
+          <variable citdl="node.prefix" line="54" name="p" />
+          <variable citdl="True" line="41" name="remove_comma" />
+          <variable citdl="name_node.value" line="30" name="member_name" />
+          <variable citdl="child" line="23" name="name_node" />
+          <variable citdl="list" line="17" name="children" />
+        </scope>
+        <variable citdl="True" line="9" name="BM_compatible" />
+        <variable citdl="locals()" line="10" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

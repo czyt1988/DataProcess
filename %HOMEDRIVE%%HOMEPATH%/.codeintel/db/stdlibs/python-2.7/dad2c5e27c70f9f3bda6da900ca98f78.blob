@@ -1,0 +1,116 @@
+<scope doc="This module contains the core classes of version 2.0 of SAX for Python.&#10;This file provides only default classes with absolutely minimum functionality, from which drivers and applications can be subclassed.  Many of these classes are empty and are included only as documentation of the interfaces.  $Id$" ilk="blob" lang="Python" name="xml.sax.handler">
+      <scope doc="Interface for receiving logical document content events.&#10;This is the main callback interface in SAX, and the one most important to applications. The order of events in this interface mirrors the order of the information in the document." ilk="class" line="47" name="ContentHandler">
+        <scope doc="Begin the scope of a prefix-URI Namespace mapping." ilk="function" line="96" name="startPrefixMapping" signature="startPrefixMapping(prefix, uri)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope doc="Receive notification of a skipped entity." ilk="function" line="193" name="skippedEntity" signature="skippedEntity(name)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="End the scope of a prefix-URI mapping." ilk="function" line="119" name="endPrefixMapping" signature="endPrefixMapping(prefix)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope doc="Signals the end of an element in namespace mode." ilk="function" line="152" name="endElementNS" signature="endElementNS(name, qname)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="qname" />
+        </scope>
+        <scope doc="Receive notification of a processing instruction." ilk="function" line="182" name="processingInstruction" signature="processingInstruction(target, data)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="target" />
+        </scope>
+        <scope doc="Signals the end of an element in non-namespace mode." ilk="function" line="134" name="endElement" signature="endElement(name)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Signals the start of an element in non-namespace mode." ilk="function" line="126" name="startElement" signature="startElement(name, attrs)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="Called by the parser to give the application a locator for&#10;locating the origin of document events." ilk="function" line="57" lineend="78" name="setDocumentLocator" signature="setDocumentLocator(locator)">
+          <variable ilk="argument" name="locator" />
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Receive notification of the beginning of a document." ilk="function" line="80" name="startDocument" signature="startDocument()">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Signals the start of an element in namespace mode." ilk="function" line="140" name="startElementNS" signature="startElementNS(name, qname, attrs)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="qname" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="Receive notification of character data." ilk="function" line="158" name="characters" signature="characters(content)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Receive notification of the end of a document." ilk="function" line="87" name="endDocument" signature="endDocument()">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Receive notification of ignorable whitespace in element&#10;content." ilk="function" line="168" name="ignorableWhitespace" signature="ignorableWhitespace(whitespace)">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="whitespace" />
+        </scope>
+        <scope ilk="function" line="54" lineend="55" name="__init__" signature="ContentHandler()">
+          <variable citdl="ContentHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="55" name="_locator" />
+      </scope>
+      <scope doc="Handle DTD events.&#10;This interface specifies only those DTD events required for basic parsing (unparsed entities and attributes)." ilk="class" line="208" name="DTDHandler">
+        <scope doc="Handle an unparsed entity declaration event." ilk="function" line="217" name="unparsedEntityDecl" signature="unparsedEntityDecl(name, publicId, systemId, ndata)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="DTDHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="ndata" />
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Handle a notation declaration event." ilk="function" line="214" name="notationDecl" signature="notationDecl(name, publicId, systemId)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="DTDHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="name" />
+        </scope>
+      </scope>
+      <scope doc="Basic interface for resolving entities. If you create an object&#10;implementing this interface, then register the object with your Parser, the parser will call the method in your object to resolve all external entities. Note that DefaultHandler implements this interface with the default behaviour." ilk="class" line="223" lineend="234" name="EntityResolver">
+        <scope doc="Resolve the system identifier of an entity and return either&#10;the system identifier to read from as a string, or an&#10;InputSource to read from." ilk="function" line="230" lineend="234" name="resolveEntity" signature="resolveEntity(publicId, systemId)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="EntityResolver" ilk="argument" name="self" />
+          <variable ilk="argument" name="publicId" />
+        </scope>
+      </scope>
+      <scope doc="Basic interface for SAX error handlers.&#10;If you create an object that implements this interface, then register the object with your XMLReader, the parser will call the methods in your object to report all warnings and errors. There are three levels of errors available: warnings, (possibly) recoverable errors, and unrecoverable errors. All methods take a SAXParseException as the only parameter." ilk="class" line="22" lineend="42" name="ErrorHandler">
+        <scope doc="Handle a warning." ilk="function" line="40" lineend="42" name="warning" signature="warning(exception)">
+          <variable citdl="ErrorHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <scope doc="Handle a non-recoverable error." ilk="function" line="36" lineend="38" name="fatalError" signature="fatalError(exception)">
+          <variable citdl="ErrorHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <scope doc="Handle a recoverable error." ilk="function" line="32" lineend="34" name="error" signature="error(exception)">
+          <variable citdl="ErrorHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="280" name="all_features" />
+      <variable citdl="list" line="337" name="all_properties" />
+      <variable citdl="str" line="268" name="feature_external_ges" />
+      <variable citdl="str" line="273" name="feature_external_pes" />
+      <variable citdl="str" line="249" name="feature_namespace_prefixes" />
+      <variable citdl="str" line="243" name="feature_namespaces" />
+      <variable citdl="str" line="256" name="feature_string_interning" />
+      <variable citdl="str" line="262" name="feature_validation" />
+      <variable citdl="str" line="299" name="property_declaration_handler" />
+      <variable citdl="str" line="305" name="property_dom_node" />
+      <variable citdl="str" line="318" name="property_encoding" />
+      <variable citdl="str" line="329" name="property_interning_dict" />
+      <variable citdl="str" line="294" name="property_lexical_handler" />
+      <variable citdl="str" line="312" name="property_xml_string" />
+      <variable citdl="str" line="12" name="version" />
+    </scope>
+    

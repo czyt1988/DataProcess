@@ -1,0 +1,206 @@
+<scope doc="This module provides access to operating system functionality that is&#10;standardized by the C Standard and the POSIX standard (a thinly disguised Unix interface).  Refer to the library manual and corresponding Unix manual entries for more information on calls." ilk="blob" lang="Python" name="posix">
+      <variable citdl="int" name="EX_CANTCREAT" />
+      <variable citdl="int" name="EX_CONFIG" />
+      <variable citdl="int" name="EX_DATAERR" />
+      <variable citdl="int" name="EX_IOERR" />
+      <variable citdl="int" name="EX_NOHOST" />
+      <variable citdl="int" name="EX_NOINPUT" />
+      <variable citdl="int" name="EX_NOPERM" />
+      <variable citdl="int" name="EX_NOUSER" />
+      <variable citdl="int" name="EX_OK" />
+      <variable citdl="int" name="EX_OSERR" />
+      <variable citdl="int" name="EX_OSFILE" />
+      <variable citdl="int" name="EX_PROTOCOL" />
+      <variable citdl="int" name="EX_SOFTWARE" />
+      <variable citdl="int" name="EX_TEMPFAIL" />
+      <variable citdl="int" name="EX_UNAVAILABLE" />
+      <variable citdl="int" name="EX_USAGE" />
+      <variable citdl="int" name="F_OK" />
+      <variable citdl="int" name="NGROUPS_MAX" />
+      <variable citdl="int" name="O_APPEND" />
+      <variable citdl="int" name="O_ASYNC" />
+      <variable citdl="int" name="O_CREAT" />
+      <variable citdl="int" name="O_DIRECT" />
+      <variable citdl="int" name="O_DIRECTORY" />
+      <variable citdl="int" name="O_DSYNC" />
+      <variable citdl="int" name="O_EXCL" />
+      <variable citdl="int" name="O_LARGEFILE" />
+      <variable citdl="int" name="O_NDELAY" />
+      <variable citdl="int" name="O_NOATIME" />
+      <variable citdl="int" name="O_NOCTTY" />
+      <variable citdl="int" name="O_NOFOLLOW" />
+      <variable citdl="int" name="O_NONBLOCK" />
+      <variable citdl="int" name="O_RDONLY" />
+      <variable citdl="int" name="O_RDWR" />
+      <variable citdl="int" name="O_RSYNC" />
+      <variable citdl="int" name="O_SYNC" />
+      <variable citdl="int" name="O_TRUNC" />
+      <variable citdl="int" name="O_WRONLY" />
+      <variable citdl="int" name="R_OK" />
+      <variable citdl="int" name="TMP_MAX" />
+      <variable citdl="int" name="WCONTINUED" />
+      <scope doc="Return True if the process returning 'status' was dumped to&#10;a core file." ilk="function" name="WCOREDUMP" returns="bool" signature="WCOREDUMP(status) -&gt; bool" />
+      <scope doc="Return the process return code from 'status'." ilk="function" name="WEXITSTATUS" returns="int" signature="WEXITSTATUS(status) -&gt; integer" />
+      <scope doc="Return True if the process returning 'status' was continued&#10;from a job control stop." ilk="function" name="WIFCONTINUED" returns="bool" signature="WIFCONTINUED(status) -&gt; bool" />
+      <scope doc="Return true if the process returning 'status' exited using&#10;the exit() system call." ilk="function" name="WIFEXITED" returns="bool" signature="WIFEXITED(status) -&gt; bool" />
+      <scope doc="Return True if the process returning 'status' was terminated&#10;by a signal." ilk="function" name="WIFSIGNALED" returns="bool" signature="WIFSIGNALED(status) -&gt; bool" />
+      <scope doc="Return True if the process returning 'status' was stopped." ilk="function" name="WIFSTOPPED" returns="bool" signature="WIFSTOPPED(status) -&gt; bool" />
+      <variable citdl="int" name="WNOHANG" />
+      <scope doc="Return the signal that stopped the process that provided the&#10;'status' value." ilk="function" name="WSTOPSIG" returns="int" signature="WSTOPSIG(status) -&gt; integer" />
+      <scope doc="Return the signal that terminated the process that provided&#10;the 'status' value." ilk="function" name="WTERMSIG" returns="int" signature="WTERMSIG(status) -&gt; integer" />
+      <variable citdl="int" name="WUNTRACED" />
+      <variable citdl="int" name="W_OK" />
+      <variable citdl="int" name="X_OK" />
+      <scope doc="Abort the interpreter immediately." ilk="function" name="abort" signature="abort() -&gt; does not return!" />
+      <scope doc="Use the real uid/gid to test for access to a path." ilk="function" name="access" returns="bool" signature="access(path, mode) -&gt; True if granted, False otherwise" />
+      <scope doc="Change the current working directory to the specified path." ilk="function" name="chdir" signature="chdir(path)" />
+      <scope doc="Change the access permissions of a file." ilk="function" name="chmod" signature="chmod(path, mode)" />
+      <scope doc="Change the owner and group id of path to the numeric uid and&#10;gid." ilk="function" name="chown" signature="chown(path, uid, gid)" />
+      <scope doc="Change root directory to path." ilk="function" name="chroot" signature="chroot(path)" />
+      <scope doc="Close a file descriptor (for low level IO)." ilk="function" name="close" signature="close(fd)" />
+      <scope doc="Closes all file descriptors in [fd_low, fd_high), ignoring&#10;errors." ilk="function" name="closerange" signature="closerange(fd_low, fd_high)" />
+      <scope doc="Return a string-valued system configuration variable." ilk="function" name="confstr" returns="str" signature="confstr(name) -&gt; string" />
+      <variable citdl="dict" name="confstr_names" />
+      <scope doc="Return the name of the controlling terminal for this&#10;process." ilk="function" name="ctermid" returns="str" signature="ctermid() -&gt; string" />
+      <scope doc="Return a duplicate of a file descriptor." ilk="function" name="dup" signature="dup(fd) -&gt; fd2" />
+      <scope doc="Duplicate file descriptor." ilk="function" name="dup2" signature="dup2(old_fd, new_fd)" />
+      <variable citdl="dict" name="environ" />
+      <scope classrefs="EnvironmentError" doc="OS system call failed.&#10;" ilk="class" name="error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Execute an executable path with arguments, replacing current&#10;process." ilk="function" name="execv" signature="execv(path, args)" />
+      <scope doc="Execute a path with arguments and environment, replacing&#10;current process." ilk="function" name="execve" signature="execve(path, args, env)" />
+      <scope doc="Change to the directory of the given file descriptor." ilk="function" name="fchdir" signature="fchdir(fildes)" />
+      <scope doc="Change the access permissions of the file given by file&#10;descriptor fd." ilk="function" name="fchmod" signature="fchmod(fd, mode)" />
+      <scope doc="Change the owner and group id of the file given by file&#10;descriptor fd to the numeric uid and gid." ilk="function" name="fchown" signature="fchown(fd, uid, gid)" />
+      <scope doc="force write of file with filedescriptor to disk." ilk="function" name="fdatasync" signature="fdatasync(fildes)" />
+      <scope doc="Return an open file object connected to a file descriptor." ilk="function" name="fdopen" signature="fdopen(fd [, mode='r' [, bufsize]]) -&gt; file_object" />
+      <scope doc="Fork a child process." ilk="function" name="fork" signature="fork() -&gt; pid" />
+      <scope doc="Fork a new process with a new pseudo-terminal as controlling&#10;tty." ilk="function" name="forkpty" signature="forkpty() -&gt; (pid, master_fd)" />
+      <scope doc="Return the configuration limit name for the file descriptor&#10;fd." ilk="function" name="fpathconf" returns="int" signature="fpathconf(fd, name) -&gt; integer" />
+      <scope doc="Like stat(), but for an open file descriptor." ilk="function" name="fstat" signature="fstat(fd) -&gt; stat result" />
+      <scope doc="Perform an fstatvfs system call on the given fd." ilk="function" name="fstatvfs" signature="fstatvfs(fd) -&gt; statvfs result" />
+      <scope doc="force write of file with filedescriptor to disk." ilk="function" name="fsync" signature="fsync(fildes)" />
+      <scope doc="Truncate a file to a specified length." ilk="function" name="ftruncate" signature="ftruncate(fd, length)" />
+      <scope doc="Return a string representing the current working directory." ilk="function" name="getcwd" signature="getcwd() -&gt; path" />
+      <scope doc="Return a unicode string representing the current working&#10;directory." ilk="function" name="getcwdu" signature="getcwdu() -&gt; path" />
+      <scope doc="Return the current process's effective group id." ilk="function" name="getegid" signature="getegid() -&gt; egid" />
+      <scope doc="Return the current process's effective user id." ilk="function" name="geteuid" signature="geteuid() -&gt; euid" />
+      <scope doc="Return the current process's group id." ilk="function" name="getgid" signature="getgid() -&gt; gid" />
+      <scope doc="Return list of supplemental group IDs for the process." ilk="function" name="getgroups" returns="list" signature="getgroups() -&gt; list of group IDs" />
+      <scope doc="Return the number of processes in the system run queue&#10;averaged over the last 1, 5, and 15 minutes or raises&#10;OSError if the load average was unobtainable" ilk="function" name="getloadavg" signature="getloadavg() -&gt; (float, float, float)" />
+      <scope doc="Return the actual login name." ilk="function" name="getlogin" returns="str" signature="getlogin() -&gt; string" />
+      <scope doc="Call the system call getpgid()." ilk="function" name="getpgid" signature="getpgid(pid) -&gt; pgid" />
+      <scope doc="Return the current process group id." ilk="function" name="getpgrp" signature="getpgrp() -&gt; pgrp" />
+      <scope doc="Return the current process id" ilk="function" name="getpid" signature="getpid() -&gt; pid" />
+      <scope doc="Return the parent's process id." ilk="function" name="getppid" signature="getppid() -&gt; ppid" />
+      <scope doc="Get tuple of the current process's real, effective, and&#10;saved group ids." ilk="function" name="getresgid" signature="getresgid() -&gt; (rgid, egid, sgid)" />
+      <scope doc="Get tuple of the current process's real, effective, and&#10;saved user ids." ilk="function" name="getresuid" signature="getresuid() -&gt; (ruid, euid, suid)" />
+      <scope doc="Call the system call getsid()." ilk="function" name="getsid" signature="getsid(pid) -&gt; sid" />
+      <scope doc="Return the current process's user id." ilk="function" name="getuid" signature="getuid() -&gt; uid" />
+      <scope doc="Call the system initgroups() to initialize the group access&#10;list with all of the groups of which the specified username&#10;is a member, plus the specified group id." ilk="function" name="initgroups" signature="initgroups(username, gid) -&gt; None" />
+      <scope doc="Return True if the file descriptor 'fd' is an open file&#10;descriptor connected to the slave end of a terminal." ilk="function" name="isatty" returns="bool" signature="isatty(fd) -&gt; bool" />
+      <scope doc="Kill a process with a signal." ilk="function" name="kill" signature="kill(pid, sig)" />
+      <scope doc="Kill a process group with a signal." ilk="function" name="killpg" signature="killpg(pgid, sig)" />
+      <scope doc="Change the owner and group id of path to the numeric uid and&#10;gid." ilk="function" name="lchown" signature="lchown(path, uid, gid)" />
+      <scope doc="Create a hard link to a file." ilk="function" name="link" signature="link(src, dst)" />
+      <scope doc="Return a list containing the names of the entries in the&#10;directory." ilk="function" name="listdir" signature="listdir(path) -&gt; list_of_strings" />
+      <scope doc="Set the current position of a file descriptor." ilk="function" name="lseek" signature="lseek(fd, pos, how) -&gt; newpos" />
+      <scope doc="Like stat(path), but do not follow symbolic links." ilk="function" name="lstat" signature="lstat(path) -&gt; stat result" />
+      <scope doc="Extracts a device major number from a raw device number." ilk="function" name="major" signature="major(device) -&gt; major number" />
+      <scope doc="Composes a raw device number from the major and minor device&#10;numbers." ilk="function" name="makedev" signature="makedev(major, minor) -&gt; device number" />
+      <scope doc="Extracts a device minor number from a raw device number." ilk="function" name="minor" signature="minor(device) -&gt; minor number" />
+      <scope doc="Create a directory." ilk="function" name="mkdir" signature="mkdir(path [, mode=0777])" />
+      <scope doc="Create a FIFO (a POSIX named pipe)." ilk="function" name="mkfifo" signature="mkfifo(filename [, mode=0666])" />
+      <scope doc="Create a filesystem node (file, device special file or named&#10;pipe) named filename." ilk="function" name="mknod" signature="mknod(filename [, mode=0600, device])" />
+      <scope doc="Decrease the priority of process by inc and return the new&#10;priority." ilk="function" name="nice" signature="nice(inc) -&gt; new_priority" />
+      <scope doc="Open a file (for low level IO)." ilk="function" name="open" signature="open(filename, flag [, mode=0777]) -&gt; fd" />
+      <scope doc="Open a pseudo-terminal, returning open fd's for both master&#10;and slave end." ilk="function" name="openpty" signature="openpty() -&gt; (master_fd, slave_fd)" />
+      <scope doc="Return the configuration limit name for the file or&#10;directory path." ilk="function" name="pathconf" returns="int" signature="pathconf(path, name) -&gt; integer" />
+      <variable citdl="dict" name="pathconf_names" />
+      <scope doc="Create a pipe." ilk="function" name="pipe" signature="pipe() -&gt; (read_end, write_end)" />
+      <scope doc="Open a pipe to/from a command returning a file object." ilk="function" name="popen" signature="popen(command [, mode='r' [, bufsize]]) -&gt; pipe" />
+      <scope doc="Change or add an environment variable." ilk="function" name="putenv" signature="putenv(key, value)" />
+      <scope doc="Read a file descriptor." ilk="function" name="read" returns="str" signature="read(fd, buffersize) -&gt; string" />
+      <scope doc="Return a string representing the path to which the symbolic&#10;link points." ilk="function" name="readlink" signature="readlink(path) -&gt; path" />
+      <scope doc="Remove a file (same as unlink(path))." ilk="function" name="remove" signature="remove(path)" />
+      <scope doc="Rename a file or directory." ilk="function" name="rename" signature="rename(old, new)" />
+      <scope doc="Remove a directory." ilk="function" name="rmdir" signature="rmdir(path)" />
+      <scope doc="Set the current process's effective group id." ilk="function" name="setegid" signature="setegid(gid)" />
+      <scope doc="Set the current process's effective user id." ilk="function" name="seteuid" signature="seteuid(uid)" />
+      <scope doc="Set the current process's group id." ilk="function" name="setgid" signature="setgid(gid)" />
+      <scope doc="Set the groups of the current process to list." ilk="function" name="setgroups" signature="setgroups(list)" />
+      <scope doc="Call the system call setpgid()." ilk="function" name="setpgid" signature="setpgid(pid, pgrp)" />
+      <scope doc="Make this process the process group leader." ilk="function" name="setpgrp" signature="setpgrp()" />
+      <scope doc="Set the current process's real and effective group ids." ilk="function" name="setregid" signature="setregid(rgid, egid)" />
+      <scope doc="Set the current process's real, effective, and saved group&#10;ids." ilk="function" name="setresgid" signature="setresgid(rgid, egid, sgid)" />
+      <scope doc="Set the current process's real, effective, and saved user&#10;ids." ilk="function" name="setresuid" signature="setresuid(ruid, euid, suid)" />
+      <scope doc="Set the current process's real and effective user ids." ilk="function" name="setreuid" signature="setreuid(ruid, euid)" />
+      <scope doc="Call the system call setsid()." ilk="function" name="setsid" signature="setsid()" />
+      <scope doc="Set the current process's user id." ilk="function" name="setuid" signature="setuid(uid)" />
+      <scope doc="Perform a stat system call on the given path." ilk="function" name="stat" signature="stat(path) -&gt; stat result" />
+      <scope doc="Determine whether os.[lf]stat represents time stamps as&#10;float objects." ilk="function" name="stat_float_times" signature="stat_float_times([newval]) -&gt; oldval" />
+      <scope classrefs="object" doc="stat_result: Result from stat or lstat.&#10;This object may be accessed either as a tuple of (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) or via the attributes st_mode, st_ino, st_dev, st_nlink, st_uid, and so on.  Posix/windows: If your platform supports st_blksize, st_blocks, st_rdev, or st_flags, they are available as attributes only.  See os.stat for more information." ilk="class" name="stat_result">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Perform a statvfs system call on the given path." ilk="function" name="statvfs" signature="statvfs(path) -&gt; statvfs result" />
+      <scope classrefs="object" doc="statvfs_result: Result from statvfs or fstatvfs.&#10;This object may be accessed either as a tuple of (bsize, frsize, blocks, bfree, bavail, files, ffree, favail, flag, namemax), or via the attributes f_bsize, f_frsize, f_blocks, f_bfree, and so on.  See os.statvfs for more information." ilk="class" name="statvfs_result">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Translate an error code to a message string." ilk="function" name="strerror" returns="str" signature="strerror(code) -&gt; string" />
+      <scope doc="Create a symbolic link pointing to src named dst." ilk="function" name="symlink" signature="symlink(src, dst)" />
+      <scope doc="Return an integer-valued system configuration variable." ilk="function" name="sysconf" returns="int" signature="sysconf(name) -&gt; integer" />
+      <variable citdl="dict" name="sysconf_names" />
+      <scope doc="Execute the command (a string) in a subshell." ilk="function" name="system" signature="system(command) -&gt; exit_status" />
+      <scope doc="Return the process group associated with the terminal given&#10;by a fd." ilk="function" name="tcgetpgrp" signature="tcgetpgrp(fd) -&gt; pgid" />
+      <scope doc="Set the process group associated with the terminal given by&#10;a fd." ilk="function" name="tcsetpgrp" signature="tcsetpgrp(fd, pgid)" />
+      <scope doc="Return a unique name for a temporary file." ilk="function" name="tempnam" returns="str" signature="tempnam([dir[, prefix]]) -&gt; string" />
+      <scope doc="Return a tuple of floating point numbers indicating process&#10;times." ilk="function" name="times" signature="times() -&gt; (utime, stime, cutime, cstime, elapsed_time)" />
+      <scope doc="Create a temporary file with no directory entries." ilk="function" name="tmpfile" returns="file" signature="tmpfile() -&gt; file object" />
+      <scope doc="Return a unique name for a temporary file." ilk="function" name="tmpnam" returns="str" signature="tmpnam() -&gt; string" />
+      <scope doc="Return the name of the terminal device connected to 'fd'." ilk="function" name="ttyname" returns="str" signature="ttyname(fd) -&gt; string" />
+      <scope doc="Set the current numeric umask and return the previous umask." ilk="function" name="umask" signature="umask(new_mask) -&gt; old_mask" />
+      <scope doc="Return a tuple identifying the current operating system." ilk="function" name="uname" signature="uname() -&gt; (sysname, nodename, release, version, machine)" />
+      <scope doc="Remove a file (same as remove(path))." ilk="function" name="unlink" signature="unlink(path)" />
+      <scope doc="Delete an environment variable." ilk="function" name="unsetenv" signature="unsetenv(key)" />
+      <scope doc="Set the access and modified time of the file to the given&#10;values." ilk="function" name="utime" signature="utime(path, (atime, mtime))&#10;utime(path, None)" />
+      <scope doc="Wait for completion of a child process." ilk="function" name="wait" signature="wait() -&gt; (pid, status)" />
+      <scope doc="Wait for completion of a child process." ilk="function" name="wait3" signature="wait3(options) -&gt; (pid, status, rusage)" />
+      <scope doc="Wait for completion of a given child process." ilk="function" name="wait4" signature="wait4(pid, options) -&gt; (pid, status, rusage)" />
+      <scope doc="Wait for completion of a given child process." ilk="function" name="waitpid" signature="waitpid(pid, options) -&gt; (pid, status)" />
+      <scope doc="Write a string to a file descriptor." ilk="function" name="write" signature="write(fd, string) -&gt; byteswritten" />
+      <scope doc="Change the access permissions of a file." ilk="function" name="lchmod" signature="lchmod(path, mode)" />
+      <variable citdl="int" name="O_EXLOCK" />
+      <variable citdl="int" name="O_SHLOCK" />
+    </scope>
+    

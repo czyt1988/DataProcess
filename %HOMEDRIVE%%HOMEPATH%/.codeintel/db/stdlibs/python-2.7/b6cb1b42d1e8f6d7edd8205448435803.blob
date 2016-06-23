@@ -1,0 +1,31 @@
+<scope doc="Encodings and related functions.&#10;" ilk="blob" lang="Python" name="email.encoders">
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="base64" />
+      <scope doc="Set the Content-Transfer-Encoding header to 7bit or 8bit." ilk="function" line="63" lineend="77" name="encode_7or8bit" signature="encode_7or8bit(msg)">
+        <variable ilk="argument" name="msg" />
+        <variable citdl="msg.get_payload()" line="65" name="orig" />
+      </scope>
+      <scope doc="Encode the message's payload in Base64." ilk="function" line="39" lineend="47" name="encode_base64" signature="encode_base64(msg)">
+        <variable ilk="argument" name="msg" />
+        <variable citdl="_bencode()" line="45" name="encdata" />
+        <variable citdl="msg.get_payload()" line="44" name="orig" />
+      </scope>
+      <scope doc="Do nothing." ilk="function" line="81" name="encode_noop" signature="encode_noop(msg)">
+        <variable ilk="argument" name="msg" />
+      </scope>
+      <scope doc="Encode the message's payload in quoted-printable." ilk="function" line="51" lineend="59" name="encode_quopri" signature="encode_quopri(msg)">
+        <variable ilk="argument" name="msg" />
+        <variable citdl="_qencode()" line="57" name="encdata" />
+        <variable citdl="msg.get_payload()" line="56" name="orig" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="20" lineend="23" name="_qencode" returns="enc.replace()" signature="_qencode(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="_encodestring()" line="21" name="enc" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="26" lineend="35" name="_bencode" returns="list" signature="_bencode(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="bool" line="31" name="hasnewline" />
+        <variable citdl="base64.encodestring()" line="32" name="value" />
+      </scope>
+    </scope>
+    

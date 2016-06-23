@@ -1,0 +1,82 @@
+<scope doc="Spawn a command with pipes to its stdin, stdout, and optionally stderr.&#10;The normal os.popen(cmd, mode) call spawns a shell command and provides a file interface to just the input or output of the process depending on whether mode is 'r' or 'w'.  This module provides the functions popen2(cmd) and popen3(cmd) which return two or three pipes to the spawned command." ilk="blob" lang="Python" name="popen2">
+      <variable citdl="int" line="18" name="MAXFD" />
+      <variable citdl="list" line="15" name="__all__" />
+      <import module="os" />
+      <scope doc="Execute the shell command 'cmd' in a sub-process." ilk="function" line="171" lineend="179" name="popen2" returns="tuple" signature="popen2(cmd, bufsize=-1, mode='t')">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="Popen3" line="178" name="inst" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <scope doc="Execute the shell command 'cmd' in a sub-process." ilk="function" line="181" lineend="189" name="popen3" returns="tuple" signature="popen3(cmd, bufsize=-1, mode='t')">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="Popen3" line="188" name="inst" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <scope doc="Execute the shell command 'cmd' in a sub-process." ilk="function" line="191" lineend="199" name="popen4" returns="tuple" signature="popen4(cmd, bufsize=-1, mode='t')">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="Popen4" line="198" name="inst" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <import module="sys" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="24" lineend="32" name="_cleanup" signature="_cleanup()" />
+      <variable attributes="protected __hidden__" citdl="list" line="22" name="_active" />
+      <scope attributes="__hidden__" classrefs="Popen3" doc="&#10;" ilk="class" line="116" lineend="134" name="Popen4">
+        <variable line="117" name="childerr" />
+        <scope attributes="__ctor__" ilk="function" line="119" lineend="134" name="__init__" signature="Popen4(cmd, bufsize=-1)">
+          <variable citdl="Popen4" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable line="122" name="p2cwrite" />
+          <variable line="122" name="p2cread" />
+          <variable line="123" name="c2pread" />
+          <variable line="123" name="c2pwrite" />
+        </scope>
+        <variable attributes="__instancevar__" line="121" name="cmd" />
+        <variable attributes="__instancevar__" citdl="os.fork()" line="124" name="pid" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="132" name="tochild" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="134" name="fromchild" />
+      </scope>
+      <scope attributes="__hidden__" doc="Class representing a child process." ilk="class" line="34" lineend="113" name="Popen3">
+        <variable citdl="int" line="38" name="sts" />
+        <scope attributes="__ctor__" doc="The parameter 'cmd' is the shell command to execute in a&#10;sub-process." ilk="function" line="40" lineend="72" name="__init__" signature="Popen3(cmd, capturestderr=False, bufsize=-1)">
+          <variable citdl="Popen3" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="False" ilk="argument" name="capturestderr" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable line="52" name="p2cread" />
+          <variable line="52" name="p2cwrite" />
+          <variable line="53" name="c2pread" />
+          <variable line="53" name="c2pwrite" />
+          <variable line="55" name="errout" />
+          <variable line="55" name="errin" />
+        </scope>
+        <variable attributes="__instancevar__" line="51" name="cmd" />
+        <variable attributes="__instancevar__" citdl="os.fork()" line="56" name="pid" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="65" name="tochild" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="67" name="fromchild" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="70" name="childerr" />
+        <scope ilk="function" line="74" lineend="80" name="__del__" signature="__del__()">
+          <variable citdl="Popen3" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="82" lineend="89" name="_run_child" signature="_run_child(cmd)">
+          <variable citdl="Popen3" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="cmd" />
+        </scope>
+        <scope doc="Return the exit status of the child process if it has&#10;finished, or -1 if it hasn't finished yet." ilk="function" line="91" lineend="103" name="poll" returns="int" signature="poll(_deadstate=None)">
+          <variable citdl="Popen3" ilk="argument" name="self" />
+          <variable ilk="argument" name="_deadstate" />
+          <variable line="96" name="pid" />
+          <variable line="96" name="sts" />
+        </scope>
+        <scope doc="Wait for and return the exit status of the child process." ilk="function" line="105" lineend="113" name="wait" returns="int" signature="wait()">
+          <variable citdl="Popen3" ilk="argument" name="self" />
+          <variable line="108" name="pid" />
+          <variable line="108" name="sts" />
+        </scope>
+      </scope>
+    </scope>
+    

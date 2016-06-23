@@ -1,0 +1,76 @@
+<scope doc="Constants/functions for interpreting results of os.stat() and os.lstat().&#10;Suggested usage: from stat import *" ilk="blob" lang="Python" name="stat">
+      <variable citdl="int" line="92" name="SF_APPEND" />
+      <variable citdl="int" line="90" name="SF_ARCHIVED" />
+      <variable citdl="int" line="91" name="SF_IMMUTABLE" />
+      <variable citdl="int" line="93" name="SF_NOUNLINK" />
+      <variable citdl="int" line="94" name="SF_SNAPSHOT" />
+      <variable citdl="int" line="15" name="ST_ATIME" />
+      <variable citdl="int" line="17" name="ST_CTIME" />
+      <variable citdl="int" line="10" name="ST_DEV" />
+      <variable citdl="int" line="13" name="ST_GID" />
+      <variable citdl="int" line="9" name="ST_INO" />
+      <variable citdl="int" line="8" name="ST_MODE" />
+      <variable citdl="int" line="16" name="ST_MTIME" />
+      <variable citdl="int" line="11" name="ST_NLINK" />
+      <variable citdl="int" line="14" name="ST_SIZE" />
+      <variable citdl="int" line="12" name="ST_UID" />
+      <variable citdl="int" line="65" name="S_ENFMT" />
+      <variable citdl="int" line="69" name="S_IEXEC" />
+      <variable citdl="int" line="32" name="S_IFBLK" />
+      <variable citdl="int" line="31" name="S_IFCHR" />
+      <variable citdl="int" line="30" name="S_IFDIR" />
+      <variable citdl="int" line="34" name="S_IFIFO" />
+      <variable citdl="int" line="35" name="S_IFLNK" />
+      <scope ilk="function" line="24" lineend="25" name="S_IFMT" returns="int" signature="S_IFMT(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <variable citdl="int" line="33" name="S_IFREG" />
+      <variable citdl="int" line="36" name="S_IFSOCK" />
+      <scope ilk="function" line="21" lineend="22" name="S_IMODE" returns="int" signature="S_IMODE(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <variable citdl="int" line="67" name="S_IREAD" />
+      <variable citdl="int" line="75" name="S_IRGRP" />
+      <variable citdl="int" line="79" name="S_IROTH" />
+      <variable citdl="int" line="71" name="S_IRUSR" />
+      <variable citdl="int" line="74" name="S_IRWXG" />
+      <variable citdl="int" line="78" name="S_IRWXO" />
+      <variable citdl="int" line="70" name="S_IRWXU" />
+      <scope ilk="function" line="46" lineend="47" name="S_ISBLK" returns="bool" signature="S_ISBLK(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="43" lineend="44" name="S_ISCHR" returns="bool" signature="S_ISCHR(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="40" lineend="41" name="S_ISDIR" returns="bool" signature="S_ISDIR(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="52" lineend="53" name="S_ISFIFO" returns="bool" signature="S_ISFIFO(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <variable citdl="int" line="64" name="S_ISGID" />
+      <scope ilk="function" line="55" lineend="56" name="S_ISLNK" returns="bool" signature="S_ISLNK(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="49" lineend="50" name="S_ISREG" returns="bool" signature="S_ISREG(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="58" lineend="59" name="S_ISSOCK" returns="bool" signature="S_ISSOCK(mode)">
+        <variable ilk="argument" name="mode" />
+      </scope>
+      <variable citdl="int" line="63" name="S_ISUID" />
+      <variable citdl="int" line="66" name="S_ISVTX" />
+      <variable citdl="int" line="76" name="S_IWGRP" />
+      <variable citdl="int" line="80" name="S_IWOTH" />
+      <variable citdl="int" line="68" name="S_IWRITE" />
+      <variable citdl="int" line="72" name="S_IWUSR" />
+      <variable citdl="int" line="77" name="S_IXGRP" />
+      <variable citdl="int" line="81" name="S_IXOTH" />
+      <variable citdl="int" line="73" name="S_IXUSR" />
+      <variable citdl="int" line="87" name="UF_APPEND" />
+      <variable citdl="int" line="86" name="UF_IMMUTABLE" />
+      <variable citdl="int" line="85" name="UF_NODUMP" />
+      <variable citdl="int" line="89" name="UF_NOUNLINK" />
+      <variable citdl="int" line="88" name="UF_OPAQUE" />
+    </scope>
+    

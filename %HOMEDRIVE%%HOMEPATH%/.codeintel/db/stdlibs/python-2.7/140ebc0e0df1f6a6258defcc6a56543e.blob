@@ -1,0 +1,4 @@
+<scope doc="Enough Mach-O to make your head spin.&#10;See the relevant header files in /usr/include/mach-o  And also Apple's documentation." ilk="blob" lang="Python" name="ctypes.macholib">
+      <variable citdl="str" line="12" name="__version__" />
+    </scope>
+    

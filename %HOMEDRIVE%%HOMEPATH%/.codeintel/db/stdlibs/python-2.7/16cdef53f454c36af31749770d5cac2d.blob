@@ -1,0 +1,28 @@
+<scope doc="Implementation module for SSL socket operations.  See the socket module&#10;for documentation." ilk="blob" lang="Python" name="_ssl">
+      <variable citdl="int" name="CERT_NONE" />
+      <variable citdl="int" name="CERT_OPTIONAL" />
+      <variable citdl="int" name="CERT_REQUIRED" />
+      <variable citdl="str" name="OPENSSL_VERSION" />
+      <variable citdl="tuple" name="OPENSSL_VERSION_INFO" />
+      <variable citdl="long" name="OPENSSL_VERSION_NUMBER" />
+      <variable citdl="int" name="PROTOCOL_SSLv2" />
+      <variable citdl="int" name="PROTOCOL_SSLv23" />
+      <variable citdl="int" name="PROTOCOL_SSLv3" />
+      <variable citdl="int" name="PROTOCOL_TLSv1" />
+      <scope doc="Mix string into the OpenSSL PRNG state." ilk="function" name="RAND_add" signature="RAND_add(string, entropy)" />
+      <scope doc="Queries the entropy gather daemon (EGD) on the socket named&#10;by 'path'." ilk="function" name="RAND_egd" signature="RAND_egd(path) -&gt; bytes" />
+      <scope doc="Returns 1 if the OpenSSL PRNG has been seeded with enough&#10;data and 0 if not." ilk="function" name="RAND_status" signature="RAND_status() -&gt; 0 or 1" />
+      <scope classrefs="error" doc="&#10;" ilk="class" name="SSLError" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="SSLType" />
+      <variable citdl="int" name="SSL_ERROR_EOF" />
+      <variable citdl="int" name="SSL_ERROR_INVALID_ERROR_CODE" />
+      <variable citdl="int" name="SSL_ERROR_SSL" />
+      <variable citdl="int" name="SSL_ERROR_SYSCALL" />
+      <variable citdl="int" name="SSL_ERROR_WANT_CONNECT" />
+      <variable citdl="int" name="SSL_ERROR_WANT_READ" />
+      <variable citdl="int" name="SSL_ERROR_WANT_WRITE" />
+      <variable citdl="int" name="SSL_ERROR_WANT_X509_LOOKUP" />
+      <variable citdl="int" name="SSL_ERROR_ZERO_RETURN" />
+      <scope doc="sslwrap(socket, server_side, [keyfile, certfile, certs_mode,&#10;protocol, cacertsfile, ciphers]) -&gt; sslobject" ilk="function" name="sslwrap" />
+    </scope>
+    

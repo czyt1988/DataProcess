@@ -1,0 +1,32 @@
+<scope doc="Fixer for except statements with named exceptions.&#10;The following cases will be converted:  - &quot;except E, T:&quot; where T is a name:  except E as T:  - &quot;except E, T:&quot; where T is not a name, tuple or list:  except E as t: T = t" ilk="blob" lang="Python" name="lib2to3.fixes.fix_except">
+      <scope doc="Build an assignment statement" ilk="function" name="Assign" signature="Assign(target, source)" />
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="36" lineend="93" name="FixExcept">
+        <scope ilk="function" line="47" lineend="93" name="transform" returns="pytree.Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="list" line="52" name="try_cleanup" />
+          <variable citdl="e_suite.children" line="70" name="suite_stmts" />
+          <variable citdl="FixExcept" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="list" line="92" name="children" />
+          <variable citdl="self.syms" line="48" name="syms" />
+          <variable citdl="list" line="50" name="tail" />
+          <variable citdl="Name()" line="60" name="new_N" />
+          <variable citdl="Assign()" line="78" name="assign" />
+          <variable citdl="N.clone()" line="61" name="target" />
+        </scope>
+        <variable citdl="True" line="37" name="BM_compatible" />
+        <variable citdl="str" line="39" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope ilk="function" line="30" lineend="34" name="find_excepts" signature="find_excepts(nodes)">
+        <variable ilk="argument" name="nodes" />
+      </scope>
+      <import module="fixer_base" />
+      <scope doc="Does the node represent a list literal?" ilk="function" name="is_list" signature="is_list(node)" />
+      <scope doc="Does the node represent a tuple literal?" ilk="function" name="is_tuple" signature="is_tuple(node)" />
+      <import module="pytree" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

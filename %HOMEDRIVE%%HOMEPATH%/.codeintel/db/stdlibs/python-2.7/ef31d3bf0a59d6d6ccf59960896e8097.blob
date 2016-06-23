@@ -1,0 +1,239 @@
+<scope doc="distutils.unixccompiler&#10;Contains the UnixCCompiler class, a subclass of CCompiler that handles the &quot;typical&quot; Unix-style command-line C compiler: * macros defined with -Dname[=value] * macros undefined with -Uname * include search directories specified with -Idir * libraries specified with -lllib * library search directories specified with -Ldir * compile handled by 'cc' (or similar) executable with -c option: compiles .c to .o * link static library handled by 'ar' command (possibly with 'ranlib')" ilk="blob" lang="Python" name="distutils.unixccompiler">
+      <scope doc="Abstract base class to define the interface that must be implemented&#10;by real compiler classes.  Also has some utility methods used by several compiler classes.  The basic idea behind a compiler abstraction class is that each instance can be used for all the compile/link steps in building a single project.  Thus, attributes common to all of those compile and link steps -- include directories, macros to define, libraries to link against, etc. -- are attributes of the compiler instance.  To allow for variability in how individual files are treated, most of those attributes may be varied on a per-compilation or per-link basis." ilk="class" name="CCompiler">
+        <scope ilk="function" name="spawn" />
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;directories searched for runtime libraries." ilk="function" name="runtime_library_dir_option" />
+        <scope doc="Set the list of directories to search for shared libraries&#10;at runtime to 'dirs' (a list of strings)." ilk="function" name="set_runtime_library_dirs" />
+        <scope ilk="function" name="_get_cc_args" />
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for shared libraries at runtime." ilk="function" name="add_runtime_library_dir" />
+        <scope doc="Add 'object' to the list of object files (or analogues, such&#10;as explicitly named library files or the output of &quot;resource&#10;compilers&quot;) to be included in every link driven by this&#10;compiler object." ilk="function" name="add_link_object" />
+        <scope doc="Typecheck and fix up some arguments supplied to various&#10;methods." ilk="function" name="_fix_object_args" />
+        <scope doc="Set the list of library search directories to 'dirs' (a list&#10;of strings)." ilk="function" name="set_library_dirs" />
+        <scope doc="Define the executables (and options for them) that will be&#10;run to perform the various stages of compilation." ilk="function" name="set_executables" />
+        <scope doc="Link a bunch of stuff together to create a static library&#10;file." ilk="function" name="create_static_lib" />
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;directories searched for libraries." ilk="function" name="library_dir_option" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;libraries linked into the shared library or executable." ilk="function" name="library_option" />
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for libraries specified to 'add_library()' and&#10;'set_libraries()'." ilk="function" name="add_library_dir" />
+        <scope doc="Define a preprocessor macro for all compilations driven by&#10;this compiler object." ilk="function" name="define_macro" />
+        <scope ilk="function" name="library_filename" />
+        <scope doc="Return true if we need to relink the files listed in&#10;'objects' to recreate 'output_file'." ilk="function" name="_need_link" />
+        <scope ilk="function" name="link_shared_lib" />
+        <scope ilk="function" name="link_shared_object" />
+        <scope doc="Preprocess a single C/C++ source file, named in 'source'." ilk="function" name="preprocess" />
+        <scope doc="Compile 'src' to product 'obj'." ilk="function" name="_compile" />
+        <scope doc="Search the specified list of directories for a static or&#10;shared library file 'lib' and return the full path to that&#10;file." ilk="function" name="find_library_file" />
+        <scope ilk="function" name="object_filenames" />
+        <scope doc="Undefine a preprocessor macro for all compilations driven by&#10;this compiler object." ilk="function" name="undefine_macro" />
+        <scope doc="Set the list of directories that will be searched to 'dirs'&#10;(a list of strings)." ilk="function" name="set_include_dirs" />
+        <scope doc="Typecheck and fix-up some of the arguments to the&#10;'compile()' method, and return fixed-up values." ilk="function" name="_fix_compile_args" />
+        <scope doc="Set the list of object files (or analogues) to be included&#10;in every link to 'objects'." ilk="function" name="set_link_objects" />
+        <scope doc="Ensures that every element of 'definitions' is a valid macro&#10;definition, ie." ilk="function" name="_check_macro_definitions" />
+        <scope ilk="function" name="warn" />
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for header files." ilk="function" name="add_include_dir" />
+        <scope doc="Link a bunch of stuff together to create an executable or&#10;shared library file." ilk="function" name="link" />
+        <scope ilk="function" name="announce" />
+        <scope ilk="function" name="set_executable" />
+        <scope doc="Set the list of libraries to be included in all links driven&#10;by this compiler object to 'libnames' (a list of strings)." ilk="function" name="set_libraries" />
+        <scope ilk="function" name="move_file" />
+        <scope doc="Return a boolean indicating whether funcname is supported on&#10;the current platform." ilk="function" name="has_function" />
+        <scope ilk="function" name="execute" />
+        <scope ilk="function" name="executable_filename" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="link_executable" />
+        <scope doc="Process arguments and decide which source files to compile." ilk="function" name="_setup_compile" />
+        <scope ilk="function" name="_find_macro" />
+        <scope doc="Typecheck and fix up some of the arguments supplied to the&#10;'link_*' methods." ilk="function" name="_fix_lib_args" />
+        <scope doc="Add 'libname' to the list of libraries that will be included&#10;in all links driven by this compiler object." ilk="function" name="add_library" />
+        <scope doc="Compile one or more source files." ilk="function" name="compile" />
+        <scope doc="Detect the language of a given file, or list of files." ilk="function" name="detect_language" />
+        <scope ilk="function" name="shared_object_filename" />
+        <scope ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="CCompilerError" doc="Failure to compile one or more C/C++ source files.&#10;" ilk="class" name="CompileError" />
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" name="DistutilsExecError" />
+      <scope classrefs="CCompilerError" doc="Failure to create a static library from one or more C/C++ object&#10;files." ilk="class" name="LibError" />
+      <scope classrefs="CCompilerError" doc="Failure to link one or more C/C++ object files into an executable&#10;or shared library file." ilk="class" name="LinkError" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="NoneType">
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="basestring" doc="str(object) -&gt; string&#10;Return a nice string representation of the object. If the argument is a string, the return value is the same object." ilk="class" name="StringType">
+        <scope doc="Return a copy of the string S converted to uppercase." ilk="function" name="upper" returns="str" signature="S.upper() -&gt; string" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="str" signature="S.__format__(format_spec) -&gt; string" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="S.lstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Return a copy of the string S with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="S.capitalize() -&gt; string" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of string S with all occurrences of substring&#10;old replaced by new." ilk="function" name="replace" returns="str" signature="S.replace(old, new[, count]) -&gt; string" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="str" signature="S.expandtabs([tabsize]) -&gt; string" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="S.strip([chars]) -&gt; string or unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a string of length width." ilk="function" name="ljust" returns="str" signature="S.ljust(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="str" signature="S.format(*args, **kwargs) -&gt; string" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="S.decode([encoding[,errors]]) -&gt; object" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="S.rstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="S.encode([encoding[,errors]]) -&gt; object" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="S.translate(table [,deletechars]) -&gt; string" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a string of length width." ilk="function" name="rjust" returns="str" signature="S.rjust(width[, fillchar]) -&gt; string" />
+        <scope doc="Return a copy of the string S with uppercase characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="S.swapcase() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="str" signature="S.zfill(width) -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="str" signature="S.lower() -&gt; string" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="str" signature="S.join(iterable) -&gt; string" />
+        <scope doc="Return S centered in a string of length width." ilk="function" name="center" returns="str" signature="S.center(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="str" signature="S.title() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="CCompiler" doc="&#10;" ilk="class" line="107" lineend="346" name="UnixCCompiler">
+        <scope ilk="function" line="208" lineend="260" name="link" signature="link(target_desc, objects, output_filename, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, export_symbols=None, debug=0, extra_preargs=None, extra_postargs=None, build_temp=None, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable citdl="gen_lib_options()" line="217" name="lib_opts" />
+          <variable citdl="gen_lib_options()" line="225" name="ld_args" />
+          <variable ilk="argument" name="export_symbols" />
+          <variable citdl="int" line="245" name="i" />
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable citdl="list" line="236" name="linker" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="objects" />
+          <variable citdl="os.path.join()" ilk="argument" name="output_filename" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="build_temp" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="target_desc" />
+          <variable ilk="argument" name="output_dir" />
+        </scope>
+        <scope ilk="function" line="269" lineend="270" name="_is_gcc" returns="bool" signature="_is_gcc(compiler_name)">
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="compiler_name" />
+        </scope>
+        <scope ilk="function" line="300" lineend="301" name="library_option" returns="str" signature="library_option(lib)">
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="lib" />
+        </scope>
+        <scope ilk="function" line="266" lineend="267" name="library_dir_option" returns="str" signature="library_dir_option(dir)">
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope ilk="function" line="272" lineend="298" name="runtime_library_dir_option" returns="str" signature="runtime_library_dir_option(dir)">
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+          <variable citdl="os.path.basename()" line="285" name="compiler" />
+        </scope>
+        <scope ilk="function" line="145" lineend="170" name="preprocess" signature="preprocess(source, output_file=None, macros=None, include_dirs=None, extra_preargs=None, extra_postargs=None)">
+          <variable citdl="gen_preprocess_options()" line="151" name="pp_args" />
+          <variable citdl="gen_preprocess_options()" line="150" name="pp_opts" />
+          <variable ilk="argument" name="macros" />
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_file" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable line="148" name="ignore" />
+          <variable ilk="argument" name="source" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="172" lineend="180" name="_compile" signature="_compile(obj, src, ext, cc_args, extra_postargs, pp_opts)">
+          <variable ilk="argument" name="src" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="cc_args" />
+          <variable ilk="argument" name="pp_opts" />
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="ext" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable citdl="self.compiler_so" line="173" name="compiler_so" />
+        </scope>
+        <scope ilk="function" line="303" lineend="346" name="find_library_file" returns="os.path.join()" signature="find_library_file(dirs, lib, debug=0)">
+          <variable ilk="argument" name="dirs" />
+          <variable ilk="argument" name="lib" />
+          <variable citdl="self.library_filename()" line="304" name="shared_f" />
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable citdl="re.search()" line="313" name="m" />
+          <variable citdl="os.path.join()" line="324" name="static" />
+          <variable citdl="self.library_filename()" line="306" name="static_f" />
+          <variable citdl="sysconfig.get_config_var()" line="312" name="cflags" />
+          <variable citdl="os.path.join()" line="323" name="dylib" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable citdl="os.path.join()" line="322" name="shared" />
+          <variable citdl="self.library_filename()" line="305" name="dylib_f" />
+          <variable citdl="m.group()" line="315" name="sysroot" />
+        </scope>
+        <scope ilk="function" line="182" lineend="206" name="create_static_lib" signature="create_static_lib(objects, output_libname, output_dir=None, debug=0, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable citdl="UnixCCompiler" ilk="argument" name="self" />
+          <variable citdl="self.library_filename()" line="186" name="output_filename" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="output_libname" />
+        </scope>
+        <variable citdl="dict" line="117" name="executables" />
+        <variable citdl="list" line="136" name="src_extensions" />
+        <variable citdl="str" line="141" name="static_lib_format" />
+        <variable citdl="str" line="137" name="obj_extension" />
+        <variable citdl="str" line="140" name="dylib_lib_extension" />
+        <variable citdl="str" line="138" name="static_lib_extension" />
+        <variable citdl="str" line="109" name="compiler_type" />
+        <variable citdl="str" line="139" name="shared_lib_extension" />
+        <variable citdl="str" line="143" name="exe_extension" />
+      </scope>
+      <variable citdl="str" line="16" name="__revision__" />
+      <scope doc="Generate linker options for searching library directories&#10;and linking with specific libraries." ilk="function" name="gen_lib_options" signature="gen_lib_options(compiler, library_dirs, runtime_library_dirs, libraries)" />
+      <scope doc="Generate C pre-processor options (-D, -U, -I) as used by at&#10;least two types of compilers: the typical Unix compiler and&#10;Visual C++." ilk="function" name="gen_preprocess_options" signature="gen_preprocess_options(macros, include_dirs)" />
+      <import module="log" />
+      <scope doc="Tells if the target is newer than the source." ilk="function" name="newer" signature="newer(source, target)" />
+      <import module="os" />
+      <import module="re" />
+      <import module="sys" />
+      <import module="sysconfig" />
+      <scope attributes="protected __hidden__" doc="This function will strip '-isysroot PATH' and '-arch ARCH'&#10;from the compile flags if the user has specified one them in&#10;extra_compile_flags." ilk="function" line="44" lineend="105" name="_darwin_compiler_fixup" returns="list()" signature="_darwin_compiler_fixup(compiler_so, cc_args)">
+        <variable citdl="list()" ilk="argument" name="compiler_so" />
+        <variable ilk="argument" name="cc_args" />
+        <variable citdl="int" line="53" name="stripArch" />
+        <variable line="56" name="kernel_version" />
+        <variable citdl="int()" line="57" name="major_version" />
+        <variable citdl="bool" line="65" name="stripSysroot" />
+        <variable citdl="compiler_so.index()" line="70" name="index" />
+        <variable line="92" name="sysroot" />
+        <variable citdl="cc_args.index()" line="94" name="idx" />
+      </scope>
+    </scope>
+    

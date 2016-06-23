@@ -1,0 +1,142 @@
+<scope doc="Parse (absolute and relative) URLs.&#10;urlparse module is based upon the following RFC specifications.  RFC 3986 (STD66): &quot;Uniform Resource Identifiers&quot; by T. Berners-Lee, R. Fielding and L.  Masinter, January 2005.  RFC 2732 : &quot;Format for Literal IPv6 Addresses in URL's by R.Hinden, B.Carpenter and L.Masinter, December 1999.  RFC 2396:  &quot;Uniform Resource Identifiers (URI)&quot;: Generic Syntax by T. Berners-Lee, R. Fielding, and L. Masinter, August 1998." ilk="blob" lang="Python" name="urlparse">
+      <variable citdl="int" line="59" name="MAX_CACHE_SIZE" />
+      <scope classrefs="ParseResult ResultMixin" doc="&#10;" ilk="class" line="120" lineend="125" name="ParseResult">
+        <scope ilk="function" line="124" lineend="125" name="geturl" returns="urlunparse()" signature="geturl()">
+          <variable citdl="ParseResult" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="122" name="__slots__" />
+      </scope>
+      <scope classrefs="object" doc="Shared methods for the parsed result objects.&#10;" ilk="class" line="67" lineend="108" name="ResultMixin">
+        <variable attributes="property" line="71" name="username" />
+        <scope attributes="__hidden__" ilk="function" line="81" lineend="87" name="password (property getter)" signature="password (property getter)()">
+          <variable citdl="ResultMixin" ilk="argument" name="self" />
+          <variable citdl="self.netloc" line="82" name="netloc" />
+          <variable line="84" name="userinfo" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="71" lineend="78" name="username (property getter)" signature="username (property getter)()">
+          <variable citdl="ResultMixin" ilk="argument" name="self" />
+          <variable citdl="self.netloc" line="72" name="netloc" />
+          <variable line="74" name="userinfo" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="102" lineend="108" name="port (property getter)" returns="int()" signature="port (property getter)()">
+          <variable citdl="ResultMixin" ilk="argument" name="self" />
+          <variable line="103" name="netloc" />
+          <variable line="105" name="port" />
+        </scope>
+        <variable attributes="property" citdl="netloc.lower()" line="90" name="hostname" />
+        <scope attributes="__hidden__" ilk="function" line="90" lineend="99" name="hostname (property getter)" returns="netloc.lower()" signature="hostname (property getter)()">
+          <variable citdl="ResultMixin" ilk="argument" name="self" />
+          <variable line="91" name="netloc" />
+        </scope>
+        <variable attributes="property" line="81" name="password" />
+        <variable attributes="property" citdl="int()" line="102" name="port" />
+      </scope>
+      <scope classrefs="SplitResult ResultMixin" doc="&#10;" ilk="class" line="112" lineend="117" name="SplitResult">
+        <scope ilk="function" line="116" lineend="117" name="geturl" returns="urlunsplit()" signature="geturl()">
+          <variable citdl="SplitResult" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="114" name="__slots__" />
+      </scope>
+      <variable citdl="list" line="31" name="__all__" />
+      <scope doc="Clear the parse cache." ilk="function" line="62" lineend="64" name="clear_cache" signature="clear_cache()" />
+      <scope doc="Returns a new subclass of tuple with named fields." ilk="function" name="namedtuple" signature="namedtuple(typename, field_names, verbose=False, rename=False)" />
+      <variable citdl="list" line="42" name="non_hierarchical" />
+      <scope doc="Parse a query given as a string argument." ilk="function" line="333" lineend="357" name="parse_qs" returns="dict" signature="parse_qs(qs, keep_blank_values=0, strict_parsing=0)">
+        <variable citdl="int" ilk="argument" name="keep_blank_values" />
+        <variable citdl="int" ilk="argument" name="strict_parsing" />
+        <variable ilk="argument" name="qs" />
+        <variable citdl="dict" line="351" name="dict" />
+      </scope>
+      <scope doc="Parse a query given as a string argument." ilk="function" line="359" lineend="397" name="parse_qsl" returns="list" signature="parse_qsl(qs, keep_blank_values=0, strict_parsing=0)">
+        <variable ilk="argument" name="qs" />
+        <variable citdl="unquote()" line="393" name="name" />
+        <variable citdl="list" line="378" name="pairs" />
+        <variable citdl="unquote()" line="394" name="value" />
+        <variable citdl="int" ilk="argument" name="keep_blank_values" />
+        <variable citdl="list" line="379" name="r" />
+        <variable citdl="int" ilk="argument" name="strict_parsing" />
+        <variable citdl="name_value.split()" line="383" name="nv" />
+      </scope>
+      <variable citdl="str" line="54" name="scheme_chars" />
+      <scope doc="unquote('abc%20def') -&gt; 'abc def'." ilk="function" line="317" lineend="331" name="unquote" signature="unquote('abc%20def') -&gt; 'abc def'.">
+        <variable citdl="s.split()" line="319" name="res" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Removes any existing fragment from URL." ilk="function" line="294" lineend="306" name="urldefrag" returns="tuple" signature="urldefrag(url)">
+        <variable line="302" name="a" />
+        <variable line="302" name="frag" />
+        <variable ilk="argument" name="url" />
+        <variable citdl="urlunparse()" line="303" name="defrag" />
+        <variable line="302" name="n" />
+        <variable line="302" name="q" />
+        <variable line="302" name="p" />
+        <variable line="302" name="s" />
+      </scope>
+      <scope doc="Join a base URL and a possibly relative URL to form an&#10;absolute interpretation of the latter." ilk="function" line="242" lineend="292" name="urljoin" returns="urlunparse()" signature="urljoin(base, url, allow_fragments=True)">
+        <variable line="249" name="bquery" />
+        <variable line="249" name="bparams" />
+        <variable line="249" name="bnetloc" />
+        <variable citdl="int" line="277" name="i" />
+        <variable line="251" name="scheme" />
+        <variable citdl="list" line="270" name="segments" />
+        <variable line="251" name="netloc" />
+        <variable citdl="True" ilk="argument" name="allow_fragments" />
+        <variable citdl="len()" line="278" name="n" />
+        <variable ilk="argument" name="url" />
+        <variable ilk="argument" name="base" />
+        <variable line="251" name="params" />
+        <variable line="251" name="fragment" />
+        <variable line="249" name="bscheme" />
+        <variable line="251" name="query" />
+        <variable line="249" name="bpath" />
+        <variable line="249" name="bfragment" />
+        <variable line="251" name="path" />
+      </scope>
+      <scope doc="Parse a URL into 6 components:&#10;&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;fragment&gt;&#10;Return a 6-tuple: (scheme, netloc, path, params, query,&#10;fragment)." ilk="function" line="128" lineend="140" name="urlparse" returns="ParseResult" signature="urlparse(url, scheme='', allow_fragments=True)">
+        <variable ilk="argument" name="url" />
+        <variable citdl="str" ilk="argument" name="scheme" />
+        <variable citdl="str" line="137" name="params" />
+        <variable citdl="True" ilk="argument" name="allow_fragments" />
+        <variable citdl="urlsplit()" line="134" name="tuple" />
+      </scope>
+      <scope doc="Parse a URL into 5 components:&#10;&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt; Return a&#10;5-tuple: (scheme, netloc, path, query, fragment)." ilk="function" line="159" lineend="212" name="urlsplit" returns="_parse_cache.get()" signature="urlsplit(url, scheme='', allow_fragments=True)">
+        <variable citdl="url.find()" line="173" name="i" />
+        <variable citdl="str" line="172" name="netloc" />
+        <variable citdl="bool()" ilk="argument" name="allow_fragments" />
+        <variable line="184" name="fragment" />
+        <variable citdl="list" ilk="argument" name="url" />
+        <variable citdl="tuple" line="166" name="key" />
+        <variable citdl="SplitResult" line="187" name="v" />
+        <variable line="186" name="query" />
+        <variable citdl="str" ilk="argument" name="scheme" />
+        <variable attributes="protected" citdl="int()" line="197" name="_testportnum" />
+        <variable citdl="_parse_cache.get()" line="167" name="cached" />
+      </scope>
+      <scope doc="Put a parsed URL back together again." ilk="function" line="214" lineend="222" name="urlunparse" returns="urlunsplit()" signature="urlunparse(data)">
+        <variable citdl="str" line="221" name="url" />
+        <variable ilk="argument" name="data" />
+      </scope>
+      <scope doc="Combine the elements of a tuple as returned by urlsplit()&#10;into a complete URL as a string." ilk="function" line="224" lineend="240" name="urlunsplit" returns="query" signature="urlunsplit(data)">
+        <variable citdl="str" line="232" name="url" />
+        <variable ilk="argument" name="data" />
+      </scope>
+      <variable citdl="list" line="49" name="uses_fragment" />
+      <variable citdl="list" line="38" name="uses_netloc" />
+      <variable citdl="list" line="44" name="uses_params" />
+      <variable citdl="list" line="47" name="uses_query" />
+      <variable citdl="list" line="35" name="uses_relative" />
+      <variable attributes="protected __hidden__" citdl="str" line="313" name="_hexdig" />
+      <variable attributes="protected __hidden__" citdl="dict" line="60" name="_parse_cache" />
+      <scope attributes="protected __hidden__" ilk="function" line="151" lineend="157" name="_splitnetloc" returns="tuple" signature="_splitnetloc(url, start=0)">
+        <variable ilk="argument" name="url" />
+        <variable citdl="int" ilk="argument" name="start" />
+        <variable citdl="min()" line="152" name="delim" />
+        <variable citdl="url.find()" line="154" name="wdelim" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict()" line="314" name="_hextochr" />
+      <scope attributes="protected __hidden__" ilk="function" line="142" lineend="149" name="_splitparams" returns="tuple" signature="_splitparams(url)">
+        <variable ilk="argument" name="url" />
+        <variable citdl="url.find()" line="144" name="i" />
+      </scope>
+    </scope>
+    

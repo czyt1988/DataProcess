@@ -1,0 +1,51 @@
+<scope doc="High-perfomance logging profiler, mostly written in C.&#10;" ilk="blob" lang="Python" name="hotshot">
+      <scope doc="&#10;" ilk="class" line="10" lineend="78" name="Profile">
+        <scope doc="Return the file descriptor of the profiler's log file." ilk="function" line="30" lineend="32" name="fileno" returns="self._prof.fileno()" signature="fileno()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Profile an exec-compatible string in the script environment." ilk="function" line="49" lineend="58" name="run" returns="self.runctx()" signature="run(cmd)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="dict" line="57" name="dict" />
+        </scope>
+        <scope doc="Profile a single call of a callable." ilk="function" line="70" lineend="78" name="runcall" returns="self._prof.runcall()" signature="runcall(func, *args, **kw)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope doc="Stop the profiler." ilk="function" line="38" lineend="40" name="stop" signature="stop()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Start the profiler." ilk="function" line="34" lineend="36" name="start" signature="start()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close the logfile and terminate the profiler." ilk="function" line="26" lineend="28" name="close" signature="close()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add an arbitrary labelled value to the profile log." ilk="function" line="42" lineend="44" name="addinfo" signature="addinfo(key, value)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Evaluate an exec-compatible string in a specific&#10;environment." ilk="function" line="60" lineend="68" name="runctx" returns="Profile" signature="runctx(cmd, globals, locals)">
+          <variable ilk="argument" name="globals" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="locals" />
+          <variable citdl="compile()" line="66" name="code" />
+        </scope>
+        <scope ilk="function" line="11" lineend="24" name="__init__" signature="Profile(logfn, lineevents=0, linetimings=1)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="lineevents" />
+          <variable citdl="int" ilk="argument" name="linetimings" />
+          <variable ilk="argument" name="logfn" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="_hotshot.profiler()" line="14" name="_prof" />
+        <variable attributes="__instancevar__" citdl="int" line="13" name="linetimings" />
+        <variable attributes="__instancevar__" citdl="int" line="12" name="lineevents" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ProfilerError" />
+      <import module="_hotshot" />
+    </scope>
+    

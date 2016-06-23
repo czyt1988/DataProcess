@@ -1,0 +1,171 @@
+<scope doc="dyld emulation&#10;" ilk="blob" lang="Python" name="ctypes.macholib.dyld">
+      <variable citdl="list" line="20" name="DEFAULT_FRAMEWORK_FALLBACK" />
+      <variable citdl="list" line="27" name="DEFAULT_LIBRARY_FALLBACK" />
+      <variable citdl="list" line="13" name="__all__" />
+      <scope classrefs="object" doc="chain(*iterables) --&gt; chain object&#10;Return a chain object whose .next() method returns elements from the first iterable until it is exhausted, then elements from the next iterable, until all of the iterables are exhausted." ilk="class" name="chain">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+      </scope>
+      <scope classrefs="object" doc="combinations(iterable, r) --&gt; combinations object&#10;Return successive r-length combinations of elements in the iterable.  combinations(range(4), 3) --&gt; (0,1,2), (0,1,3), (0,2,3), (1,2,3)" ilk="class" name="combinations">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="combinations_with_replacement(iterable, r) --&gt; combinations_with_replacement object&#10;Return successive r-length combinations of elements in the iterable allowing individual elements to have successive repeats. combinations_with_replacement('ABC', 2) --&gt; AA AB AC BB BC CC" ilk="class" name="combinations_with_replacement">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="compress(data, selectors) --&gt; iterator over selected data&#10;Return data elements corresponding to true selector elements. Forms a shorter iterator from selected data elements using the selectors to choose the data elements." ilk="class" name="compress">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="count(start=0, step=1) --&gt; count object&#10;Return a count object whose .next() method returns consecutive values. Equivalent to:  def count(firstval=0, step=1): x = firstval while 1: yield x x += step" ilk="class" name="count">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="object" doc="cycle(iterable) --&gt; cycle object&#10;Return elements from the iterable until it is exhausted. Then repeat the sequence indefinitely." ilk="class" name="cycle">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="dropwhile(predicate, iterable) --&gt; dropwhile object&#10;Drop items from the iterable while predicate(item) is true. Afterwards, return every element until the iterable is exhausted." ilk="class" name="dropwhile">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope ilk="function" line="103" lineend="123" name="dyld_default_search" signature="dyld_default_search(name, env=None)">
+        <variable citdl="dyld_fallback_framework_path()" line="109" name="fallback_framework_path" />
+        <variable citdl="framework_info()" line="106" name="framework" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="env" />
+        <variable citdl="dyld_fallback_library_path()" line="113" name="fallback_library_path" />
+      </scope>
+      <scope ilk="function" line="40" lineend="46" name="dyld_env" returns="list" signature="dyld_env(env, var)">
+        <variable ilk="argument" name="var" />
+        <variable citdl="env.get()" line="43" name="rval" />
+        <variable citdl="os.environ" ilk="argument" name="env" />
+      </scope>
+      <scope ilk="function" line="96" lineend="101" name="dyld_executable_path_search" signature="dyld_executable_path_search(name, executable_path=None)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="executable_path" />
+      </scope>
+      <scope ilk="function" line="59" lineend="60" name="dyld_fallback_framework_path" returns="dyld_env()" signature="dyld_fallback_framework_path(env=None)">
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope ilk="function" line="62" lineend="63" name="dyld_fallback_library_path" returns="dyld_env()" signature="dyld_fallback_library_path(env=None)">
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope doc="Find a library or framework using dyld semantics" ilk="function" line="125" lineend="138" name="dyld_find" returns="path" signature="dyld_find(name, executable_path=None, env=None)">
+        <variable citdl="ensure_utf8()" ilk="argument" name="name" />
+        <variable ilk="argument" name="env" />
+        <variable citdl="ensure_utf8()" ilk="argument" name="executable_path" />
+      </scope>
+      <scope ilk="function" line="53" lineend="54" name="dyld_framework_path" returns="dyld_env()" signature="dyld_framework_path(env=None)">
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope ilk="function" line="48" lineend="51" name="dyld_image_suffix" returns="env.get()" signature="dyld_image_suffix(env=None)">
+        <variable citdl="os.environ" ilk="argument" name="env" />
+      </scope>
+      <scope doc="For a potential path iterator, add DYLD_IMAGE_SUFFIX&#10;semantics" ilk="function" line="65" lineend="77" name="dyld_image_suffix_search" returns="dyld_image_suffix_search._inject()" signature="dyld_image_suffix_search(iterator, env=None)">
+        <scope attributes="protected" ilk="function" line="70" lineend="76" name="_inject" signature="_inject(iterator=iterator, suffix=suffix)">
+          <variable ilk="argument" name="iterator" />
+          <variable citdl="dyld_image_suffix()" ilk="argument" name="suffix" />
+        </scope>
+        <variable ilk="argument" name="env" />
+        <variable ilk="argument" name="iterator" />
+        <variable citdl="dyld_image_suffix()" line="67" name="suffix" />
+      </scope>
+      <scope ilk="function" line="56" lineend="57" name="dyld_library_path" returns="dyld_env()" signature="dyld_library_path(env=None)">
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope ilk="function" line="79" lineend="94" name="dyld_override_search" signature="dyld_override_search(name, env=None)">
+        <variable citdl="framework_info()" line="85" name="framework" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope doc="A dylib name can take one of the following four forms:&#10;Location/Name.SomeVersion_Suffix.dylib&#10;Location/Name.SomeVersion.dylib Location/Name_Suffix.dylib" ilk="function" name="dylib_info" signature="dylib_info(filename)" />
+      <scope doc="Not all of PyObjC and Python understand unicode paths very&#10;well yet" ilk="function" line="34" lineend="38" name="ensure_utf8" returns="s.encode()" signature="ensure_utf8(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Find a framework using dyld semantics in a very loose&#10;manner." ilk="function" line="140" lineend="161" name="framework_find" returns="dyld_find()" signature="framework_find(fn, executable_path=None, env=None)">
+        <variable citdl="fn.rfind()" line="153" name="fmwk_index" />
+        <variable ilk="argument" name="executable_path" />
+        <variable citdl="os.path.join()" ilk="argument" name="fn" />
+        <variable ilk="argument" name="env" />
+      </scope>
+      <scope doc="A framework name can take one of the following four forms:&#10;Location/Name.framework/Versions/SomeVersion/Name_Suffix&#10;Location/Name.framework/Versions/SomeVersion/Name&#10;Location/Name.framework/Name_Suffix" ilk="function" name="framework_info" signature="framework_info(filename)" />
+      <scope classrefs="object" doc="groupby(iterable[, keyfunc]) -&gt; create an iterator which returns&#10;(key, sub-iterator) grouped by each value of key(value)." ilk="class" name="groupby">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="ifilter(function or None, sequence) --&gt; ifilter object&#10;Return those items of sequence for which function(item) is true. If function is None, return the items that are true." ilk="class" name="ifilter">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="ifilterfalse(function or None, sequence) --&gt; ifilterfalse object&#10;Return those items of sequence for which function(item) is false. If function is None, return the items that are false." ilk="class" name="ifilterfalse">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="imap(func, *iterables) --&gt; imap object&#10;Make an iterator that computes the function using arguments from each of the iterables.  Like map() except that it returns an iterator instead of a list and that it stops when the shortest iterable is exhausted instead of filling in None for shorter iterables." ilk="class" name="imap">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="islice(iterable, [start,] stop [, step]) --&gt; islice object&#10;Return an iterator whose next() method returns selected values from an iterable.  If start is specified, will skip all preceding elements; otherwise, start defaults to zero.  Step defaults to one.  If specified as another value, step determines how many values are skipped between successive calls.  Works like a slice() on a list but returns an iterator." ilk="class" name="islice">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="izip(iter1 [,iter2 [...]]) --&gt; izip object&#10;Return a izip object whose .next() method returns a tuple where the i-th element comes from the i-th iterable argument.  The .next() method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.  Works like the zip() function but consumes less memory by returning an iterator instead of a list." ilk="class" name="izip">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="izip_longest(iter1 [,iter2 [...]], [fillvalue=None]) --&gt; izip_longest object&#10;Return an izip_longest object whose .next() method returns a tuple where the i-th element comes from the i-th iterable argument.  The .next() method continues until the longest iterable in the argument sequence is exhausted and then it raises StopIteration.  When the shorter iterables are exhausted, the fillvalue is substituted in their place.  The fillvalue defaults to None or can be specified by a keyword argument." ilk="class" name="izip_longest">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <import module="os" />
+      <scope classrefs="object" doc="permutations(iterable[, r]) --&gt; permutations object&#10;Return successive r-length permutations of elements in the iterable.  permutations(range(3), 2) --&gt; (0,1), (0,2), (1,0), (1,2), (2,0), (2,1)" ilk="class" name="permutations">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="product(*iterables) --&gt; product object&#10;Cartesian product of input iterables.  Equivalent to nested for-loops.  For example, product(A, B) returns the same as:  ((x,y) for x in A for y in B). The leftmost iterators are in the outermost for-loop, so the output tuples cycle in a manner similar to an odometer (with the rightmost element changing on every iteration).  To compute the product of an iterable with itself, specify the number of repetitions with the optional repeat keyword argument. For example, product(A, repeat=4) means the same as product(A, A, A, A)." ilk="class" name="product">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="repeat(object [,times]) -&gt; create an iterator which returns the object&#10;for the specified number of times.  If not specified, returns the object endlessly." ilk="class" name="repeat">
+        <scope doc="Private method returning an estimate of len(list(it))." ilk="function" name="__length_hint__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="object" doc="starmap(function, sequence) --&gt; starmap object&#10;Return an iterator whose values are returned from the function evaluated with a argument tuple taken from the given sequence." ilk="class" name="starmap">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="takewhile(predicate, iterable) --&gt; takewhile object&#10;Return successive entries from an iterable as long as the predicate evaluates to true for each entry." ilk="class" name="takewhile">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope doc="tee(iterable, n=2) --&gt; tuple of n independent iterators." ilk="function" name="tee" signature="tee(iterable, n=2) --&gt; tuple of n independent iterators." />
+      <scope ilk="function" line="163" lineend="166" name="test_dyld_find" signature="test_dyld_find()">
+        <variable citdl="dict" line="164" name="env" />
+      </scope>
+    </scope>
+    

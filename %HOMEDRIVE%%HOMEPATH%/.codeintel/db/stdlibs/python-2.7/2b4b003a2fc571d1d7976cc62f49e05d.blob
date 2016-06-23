@@ -1,0 +1,18 @@
+<scope doc="Class representing image/* type MIME documents.&#10;" ilk="blob" lang="Python" name="email.mime.image">
+      <scope classrefs="MIMENonMultipart" doc="Class for generating image/* type MIME documents.&#10;" ilk="class" line="16" lineend="46" name="MIMEImage">
+        <scope doc="Create an image/* type MIME document." ilk="function" line="19" lineend="46" name="__init__" signature="MIMEImage(_imagedata, _subtype=None, _encoder=encoders.encode_base64, **_params)">
+          <variable citdl="MIMEImage" ilk="argument" name="self" />
+          <variable ilk="argument" name="_imagedata" />
+          <variable citdl="encoders.encode_base64" ilk="argument" name="_encoder" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable citdl="imghdr.what()" ilk="argument" name="_subtype" />
+        </scope>
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" name="MIMENonMultipart">
+        <scope ilk="function" name="attach" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="encoders" />
+      <import module="imghdr" />
+    </scope>
+    

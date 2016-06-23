@@ -1,0 +1,71 @@
+<scope doc="Token constants (from &quot;token.h&quot;).&#10;" ilk="blob" lang="Python" name="lib2to3.pgen2.token">
+      <variable citdl="int" line="28" name="AMPER" />
+      <variable citdl="int" line="51" name="AMPEREQUAL" />
+      <variable citdl="int" line="59" name="AT" />
+      <variable citdl="int" line="34" name="BACKQUOTE" />
+      <variable citdl="int" line="42" name="CIRCUMFLEX" />
+      <variable citdl="int" line="53" name="CIRCUMFLEXEQUAL" />
+      <variable citdl="int" line="20" name="COLON" />
+      <variable citdl="int" line="21" name="COMMA" />
+      <variable citdl="int" line="61" name="COMMENT" />
+      <variable citdl="int" line="15" name="DEDENT" />
+      <variable citdl="int" line="32" name="DOT" />
+      <variable citdl="int" line="57" name="DOUBLESLASH" />
+      <variable citdl="int" line="58" name="DOUBLESLASHEQUAL" />
+      <variable citdl="int" line="45" name="DOUBLESTAR" />
+      <variable citdl="int" line="56" name="DOUBLESTAREQUAL" />
+      <variable citdl="int" line="9" name="ENDMARKER" />
+      <variable citdl="int" line="37" name="EQEQUAL" />
+      <variable citdl="int" line="31" name="EQUAL" />
+      <variable citdl="int" line="64" name="ERRORTOKEN" />
+      <variable citdl="int" line="30" name="GREATER" />
+      <variable citdl="int" line="40" name="GREATEREQUAL" />
+      <variable citdl="int" line="14" name="INDENT" />
+      <scope ilk="function" line="81" lineend="82" name="ISEOF" returns="bool" signature="ISEOF(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope ilk="function" line="78" lineend="79" name="ISNONTERMINAL" returns="bool" signature="ISNONTERMINAL(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope ilk="function" line="75" lineend="76" name="ISTERMINAL" returns="bool" signature="ISTERMINAL(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <variable citdl="int" line="35" name="LBRACE" />
+      <variable citdl="int" line="43" name="LEFTSHIFT" />
+      <variable citdl="int" line="54" name="LEFTSHIFTEQUAL" />
+      <variable citdl="int" line="29" name="LESS" />
+      <variable citdl="int" line="39" name="LESSEQUAL" />
+      <variable citdl="int" line="16" name="LPAR" />
+      <variable citdl="int" line="18" name="LSQB" />
+      <variable citdl="int" line="47" name="MINEQUAL" />
+      <variable citdl="int" line="24" name="MINUS" />
+      <variable citdl="int" line="10" name="NAME" />
+      <variable citdl="int" line="13" name="NEWLINE" />
+      <variable citdl="int" line="62" name="NL" />
+      <variable citdl="int" line="38" name="NOTEQUAL" />
+      <variable citdl="int" line="66" name="NT_OFFSET" />
+      <variable citdl="int" line="11" name="NUMBER" />
+      <variable citdl="int" line="65" name="N_TOKENS" />
+      <variable citdl="int" line="60" name="OP" />
+      <variable citdl="int" line="33" name="PERCENT" />
+      <variable citdl="int" line="50" name="PERCENTEQUAL" />
+      <variable citdl="int" line="23" name="PLUS" />
+      <variable citdl="int" line="46" name="PLUSEQUAL" />
+      <variable citdl="int" line="63" name="RARROW" />
+      <variable citdl="int" line="36" name="RBRACE" />
+      <variable citdl="int" line="44" name="RIGHTSHIFT" />
+      <variable citdl="int" line="55" name="RIGHTSHIFTEQUAL" />
+      <variable citdl="int" line="17" name="RPAR" />
+      <variable citdl="int" line="19" name="RSQB" />
+      <variable citdl="int" line="22" name="SEMI" />
+      <variable citdl="int" line="26" name="SLASH" />
+      <variable citdl="int" line="49" name="SLASHEQUAL" />
+      <variable citdl="int" line="25" name="STAR" />
+      <variable citdl="int" line="48" name="STAREQUAL" />
+      <variable citdl="int" line="12" name="STRING" />
+      <variable citdl="int" line="41" name="TILDE" />
+      <variable citdl="int" line="27" name="VBAR" />
+      <variable citdl="int" line="52" name="VBAREQUAL" />
+      <variable citdl="dict" line="69" name="tok_name" />
+    </scope>
+    

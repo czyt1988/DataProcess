@@ -1,0 +1,188 @@
+<scope doc="Utility functions, node construction macros, etc.&#10;" ilk="blob" lang="Python" name="lib2to3.fixer_util">
+      <scope doc="A parenthesised argument list, used by Call()" ilk="function" line="54" lineend="59" name="ArgList" returns="Node()" signature="ArgList(args, lparen=Leaf(7, u'('), rparen=Leaf(8, u')'))">
+        <variable citdl="Node()" line="56" name="node" />
+        <variable ilk="argument" name="args" />
+        <variable citdl="RParen()" ilk="argument" name="rparen" />
+        <variable citdl="LParen()" ilk="argument" name="lparen" />
+      </scope>
+      <scope doc="Build an assignment statement" ilk="function" line="27" lineend="36" name="Assign" returns="Node()" signature="Assign(target, source)">
+        <variable citdl="list" ilk="argument" name="source" />
+        <variable citdl="list" ilk="argument" name="target" />
+      </scope>
+      <scope doc="A node tuple for obj.attr" ilk="function" line="42" lineend="44" name="Attr" returns="list" signature="Attr(obj, attr)">
+        <variable ilk="argument" name="obj" />
+        <variable ilk="argument" name="attr" />
+      </scope>
+      <scope doc="A blank line" ilk="function" line="72" lineend="74" name="BlankLine" returns="Leaf()" signature="BlankLine()" />
+      <scope doc="A function call" ilk="function" line="61" lineend="66" name="Call" returns="Node()" signature="Call(func_name, args=None, prefix=None)">
+        <variable citdl="Node()" line="63" name="node" />
+        <variable ilk="argument" name="func_name" />
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="args" />
+      </scope>
+      <scope doc="A comma leaf" ilk="function" line="46" lineend="48" name="Comma" returns="Leaf()" signature="Comma()" />
+      <scope doc="A period (.) leaf" ilk="function" line="50" lineend="52" name="Dot" returns="Leaf()" signature="Dot()" />
+      <scope doc="Return an import statement in the form: from package import&#10;name_leafs" ilk="function" line="113" lineend="130" name="FromImport" returns="Node()" signature="FromImport(package_name, name_leafs)">
+        <variable citdl="Node()" line="129" name="imp" />
+        <variable ilk="argument" name="name_leafs" />
+        <variable ilk="argument" name="package_name" />
+        <variable citdl="list" line="125" name="children" />
+      </scope>
+      <scope ilk="function" line="17" lineend="19" name="KeywordArg" returns="Node()" signature="KeywordArg(keyword, value)">
+        <variable ilk="argument" name="value" />
+        <variable ilk="argument" name="keyword" />
+      </scope>
+      <scope ilk="function" line="21" lineend="22" name="LParen" returns="Leaf()" signature="LParen()" />
+      <scope classrefs="Base" doc="Concrete implementation for leaf nodes.&#10;" ilk="class" name="Leaf">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="The whitespace and comments preceding this token in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope ilk="function" name="leaves" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope doc="A list comprehension of the form [xp for fp in it if test]." ilk="function" line="89" lineend="111" name="ListComp" returns="Node()" signature="ListComp(xp, fp, it, test=None)">
+        <variable ilk="argument" name="fp" />
+        <variable citdl="Leaf()" line="99" name="in_leaf" />
+        <variable ilk="argument" name="it" />
+        <variable citdl="Leaf()" line="97" name="for_leaf" />
+        <variable citdl="Node()" line="107" name="inner" />
+        <variable citdl="list" line="101" name="inner_args" />
+        <variable ilk="argument" name="test" />
+        <variable ilk="argument" name="xp" />
+        <variable citdl="Leaf()" line="104" name="if_leaf" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" line="38" lineend="40" name="Name" returns="Leaf()" signature="Name(name, prefix=None)">
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="A newline literal" ilk="function" line="68" lineend="70" name="Newline" returns="Leaf()" signature="Newline()" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope ilk="function" line="76" lineend="77" name="Number" returns="Leaf()" signature="Number(n, prefix=None)">
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="n" />
+      </scope>
+      <scope ilk="function" line="24" lineend="25" name="RParen" returns="Leaf()" signature="RParen()" />
+      <scope doc="A string leaf" ilk="function" line="85" lineend="87" name="String" returns="Leaf()" signature="String(string, prefix=None)">
+        <variable ilk="argument" name="prefix" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="A numeric or string subscript" ilk="function" line="79" lineend="83" name="Subscript" returns="Node()" signature="Subscript(index_node)">
+        <variable ilk="argument" name="index_node" />
+      </scope>
+      <scope doc="Follow an attribute chain." ilk="function" line="170" lineend="187" name="attr_chain" signature="attr_chain(obj, attr)">
+        <variable ilk="argument" name="obj" />
+        <variable ilk="argument" name="attr" />
+        <variable citdl="getattr()" line="184" name="next" />
+      </scope>
+      <variable citdl="set" line="167" name="consuming_calls" />
+      <scope doc="Returns true if name is imported from package at the top&#10;level of the tree which node belongs to." ilk="function" line="282" lineend="288" name="does_tree_import" returns="bool()" signature="does_tree_import(package, name, node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="find_binding()" line="287" name="binding" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="package" />
+      </scope>
+      <scope doc="Returns the node which binds variable name, otherwise None." ilk="function" line="340" lineend="380" name="find_binding" returns="child" signature="find_binding(name, node, package=None)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="()" line="350" name="n" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="()" line="346" name="ret" />
+        <variable ilk="argument" name="package" />
+      </scope>
+      <scope doc="Find the indentation of *node*." ilk="function" line="250" lineend="258" name="find_indentation" returns="indent.value" signature="find_indentation(node)">
+        <variable citdl="node.parent" ilk="argument" name="node" />
+        <variable line="254" name="indent" />
+      </scope>
+      <scope doc="Find the top level namespace." ilk="function" line="273" lineend="280" name="find_root" returns="node.parent" signature="find_root(node)">
+        <variable citdl="node.parent" ilk="argument" name="node" />
+      </scope>
+      <scope doc="Returns true if node is in an environment where all that is&#10;required of it is being itterable (ie, it doesn't matter if&#10;it returns a list or an itterator)." ilk="function" line="208" lineend="225" name="in_special_context" returns="bool" signature="in_special_context(node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="patcomp.compile_pattern()" line="218" name="p2" />
+        <variable citdl="patcomp.compile_pattern()" line="217" name="p0" />
+        <variable citdl="patcomp.compile_pattern()" line="216" name="p1" />
+        <variable citdl="dict" line="222" name="results" />
+        <variable citdl="list" line="220" name="patterns" />
+        <variable citdl="True" line="219" name="pats_built" />
+      </scope>
+      <scope doc="Returns true if the node is an import statement." ilk="function" line="290" lineend="292" name="is_import" returns="bool" signature="is_import(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <scope doc="Does the node represent a list literal?" ilk="function" line="149" lineend="156" name="is_list" returns="isinstance()" signature="is_list(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <scope doc="Check that something isn't an attribute or function name&#10;etc." ilk="function" line="227" lineend="248" name="is_probably_builtin" returns="bool" signature="is_probably_builtin(node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="node.prev_sibling" line="231" name="prev" />
+        <variable citdl="node.parent" line="235" name="parent" />
+      </scope>
+      <scope doc="Does the node represent a tuple literal?" ilk="function" line="137" lineend="147" name="is_tuple" returns="bool" signature="is_tuple(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <scope classrefs="object" doc="islice(iterable, [start,] stop [, step]) --&gt; islice object&#10;Return an iterator whose next() method returns selected values from an iterable.  If start is specified, will skip all preceding elements; otherwise, start defaults to zero.  Step defaults to one.  If specified as another value, step determines how many values are skipped between successive calls.  Works like a slice() on a list but returns an iterator." ilk="class" name="islice">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope ilk="function" line="264" lineend="271" name="make_suite" returns="Node()" signature="make_suite(node)">
+        <variable citdl="node.clone()" ilk="argument" name="node" />
+        <variable citdl="Node()" line="269" name="suite" />
+        <variable citdl="node.parent" line="268" name="parent" />
+      </scope>
+      <variable citdl="str" line="189" name="p0" />
+      <variable citdl="str" line="192" name="p1" />
+      <variable citdl="str" line="200" name="p2" />
+      <scope ilk="function" line="163" lineend="164" name="parenthesize" returns="Node()" signature="parenthesize(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <import module="patcomp" />
+      <variable citdl="bool" line="207" name="pats_built" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+      <scope doc="Works like `does_tree_import` but adds an import statement&#10;if it was not imported." ilk="function" line="294" lineend="336" name="touch_import" signature="touch_import(package, name, node)">
+        <variable ilk="argument" name="node" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="package" />
+        <scope ilk="function" line="297" lineend="299" name="is_import_stmt" returns="node.children" signature="is_import_stmt(node)">
+          <variable ilk="argument" name="node" />
+        </scope>
+        <variable citdl="idx" line="308" name="insert_pos" />
+        <variable citdl="find_root()" line="301" name="root" />
+        <variable citdl="list" line="335" name="children" />
+        <variable citdl="FromImport()" line="328" name="import_" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="339" name="_def_syms" />
+      <scope attributes="protected __hidden__" ilk="function" line="383" lineend="391" name="_find" returns="nodes.pop()" signature="_find(name, node)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="nodes.pop()" ilk="argument" name="node" />
+        <variable citdl="list" line="384" name="nodes" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Will reuturn node if node will import name, or node will&#10;import * from package." ilk="function" line="393" lineend="432" name="_is_import_binding" signature="_is_import_binding(node, name, package=None)">
+        <variable ilk="argument" name="node" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="package" />
+        <variable line="399" name="imp" />
+        <variable line="408" name="last" />
+        <variable line="418" name="n" />
+        <variable line="425" name="child" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="382" name="_block_syms" />
+    </scope>
+    

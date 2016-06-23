@@ -1,0 +1,53 @@
+<scope doc="distutils.spawn&#10;Provides the 'spawn()' function, a front-end to various platform- specific functions for launching another program in a sub-process. Also provides the 'find_executable()' to search the path for a given executable name." ilk="blob" lang="Python" name="distutils.spawn">
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" name="DistutilsExecError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <variable citdl="str" line="9" name="__revision__" />
+      <scope doc="Tries to find 'executable' in the directories listed in&#10;'path'." ilk="function" line="151" lineend="173" name="find_executable" returns="str" signature="find_executable(executable, path=None)">
+        <variable citdl="path.split()" line="159" name="paths" />
+        <variable citdl="str" ilk="argument" name="executable" />
+        <variable citdl="os.path.join()" line="167" name="f" />
+        <variable line="160" name="ext" />
+        <variable line="160" name="base" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <scope doc="Run another program, specified as a command list 'cmd', in a&#10;new process." ilk="function" line="17" lineend="41" name="spawn" signature="spawn(cmd, search_path=1, verbose=0, dry_run=0)">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="int" ilk="argument" name="search_path" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+      </scope>
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="100" lineend="149" name="_spawn_posix" signature="_spawn_posix(cmd, search_path=1, verbose=0, dry_run=0)">
+        <import line="124" module="errno" />
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="int" ilk="argument" name="search_path" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="int" line="104" name="exec_fn" />
+        <variable citdl="os.fork()" line="105" name="pid" />
+        <variable line="122" name="status" />
+        <variable citdl="os.WEXITSTATUS()" line="135" name="exit_status" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="59" lineend="77" name="_spawn_nt" signature="_spawn_nt(cmd, search_path=1, verbose=0, dry_run=0)">
+        <variable citdl="_nt_quote_args()" ilk="argument" name="cmd" />
+        <variable citdl="int" ilk="argument" name="search_path" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="find_executable()" line="60" name="executable" />
+        <variable citdl="os.spawnv()" line="69" name="rc" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Quote command-line arguments for DOS/Windows conventions." ilk="function" line="43" lineend="57" name="_nt_quote_args" signature="_nt_quote_args(args)">
+        <variable ilk="argument" name="args" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="79" lineend="97" name="_spawn_os2" signature="_spawn_os2(cmd, search_path=1, verbose=0, dry_run=0)">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="int" ilk="argument" name="search_path" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="find_executable()" line="80" name="executable" />
+        <variable citdl="os.spawnv()" line="88" name="rc" />
+      </scope>
+    </scope>
+    

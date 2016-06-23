@@ -1,0 +1,442 @@
+<scope doc="MH interface -- purely object-oriented (well, almost)&#10;Executive summary:  import mhlib  mh = mhlib.MH()         # use default mailbox directory and profile mh = mhlib.MH(mailbox)  # override mailbox location (default from profile) mh = mhlib.MH(mailbox, profile) # override mailbox and profile  mh.error(format, ...)   # print error message -- can be overridden s = mh.getprofile(key)  # profile entry (None if not set)" ilk="blob" lang="Python" name="mhlib">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="91" lineend="92" name="Error" />
+      <variable citdl="int" line="74" name="FOLDER_PROTECT" />
+      <scope doc="Class representing a particular folder.&#10;" ilk="class" line="242" lineend="661" name="Folder">
+        <scope doc="Return the full pathname of the folder's sequences file." ilk="function" line="264" lineend="266" name="getsequencesfilename" returns="os.path.join()" signature="getsequencesfilename()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return list of direct subfolders." ilk="function" line="272" lineend="274" name="listsubfolders" returns="self.mh.listsubfolders()" signature="listsubfolders()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the full pathname of a message in the folder." ilk="function" line="268" lineend="270" name="getmessagefilename" returns="os.path.join()" signature="getmessagefilename(n)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Copy one message over a specific destination message, which&#10;may or may not already exist." ilk="function" line="578" lineend="602" name="copymessage" signature="copymessage(n, tofolder, ton)">
+          <variable citdl="tofolder.getmessagefilename()" line="586" name="topath" />
+          <variable citdl="int" line="592" name="ok" />
+          <variable citdl="open()" line="583" name="f" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="tofolder" />
+          <variable ilk="argument" name="n" />
+          <variable citdl="tofolder.getmessagefilename()" line="587" name="backuptopath" />
+          <variable ilk="argument" name="ton" />
+          <variable citdl="getmessagefilename()" line="581" name="path" />
+        </scope>
+        <scope doc="Open a message -- returns a Message object." ilk="function" line="461" lineend="463" name="openmessage" returns="Message()" signature="openmessage(n)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Internal: parse a message number (or cur, first, etc.)." ilk="function" line="430" lineend="459" name="_parseindex" returns="int()" signature="_parseindex(seq, all)">
+          <variable citdl="bisect()" line="445" name="i" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="all" />
+          <variable ilk="argument" name="seq" />
+          <variable citdl="getcurrent()" line="444" name="n" />
+        </scope>
+        <scope doc="Helper for refilemessages() to copy sequences." ilk="function" line="525" lineend="544" name="_copysequences" signature="_copysequences(fromfolder, refileditems)">
+          <variable ilk="argument" name="refileditems" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="int" line="529" name="changed" />
+          <variable citdl="fromfolder.getsequences()" line="527" name="fromsequences" />
+          <variable ilk="argument" name="fromfolder" />
+          <variable citdl="int" line="533" name="new" />
+          <variable citdl="getsequences()" line="528" name="tosequences" />
+          <variable citdl="list" line="532" name="toseq" />
+        </scope>
+        <scope doc="Return the list of messages currently present in the folder." ilk="function" line="280" lineend="295" name="listmessages" returns="map()" signature="listmessages()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="map()" line="283" name="messages" />
+          <variable citdl="messages.append" line="285" name="append" />
+          <variable citdl="numericprog.match" line="284" name="match" />
+        </scope>
+        <scope doc="Remove one or more messages -- may raise os.error." ilk="function" line="465" lineend="488" name="removemessages" signature="removemessages(list)">
+          <variable citdl="list" line="467" name="errors" />
+          <variable citdl="getmessagefilename()" line="471" name="commapath" />
+          <variable citdl="list" line="468" name="deleted" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="getmessagefilename()" line="470" name="path" />
+        </scope>
+        <scope doc="Refile one or more messages -- may raise os.error." ilk="function" line="490" lineend="523" name="refilemessages" signature="refilemessages(list, tofolder, keepsequences=0)">
+          <variable citdl="tofolder.getmessagefilename()" line="498" name="topath" />
+          <variable citdl="int" ilk="argument" name="keepsequences" />
+          <variable citdl="list" line="493" name="errors" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="tofolder" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="tofolder.getlast()" line="496" name="ton" />
+          <variable citdl="getmessagefilename()" line="497" name="path" />
+          <variable citdl="dict" line="494" name="refiled" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="245" lineend="250" name="__init__" signature="Folder(mh, name)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="mh" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Set the current message." ilk="function" line="342" lineend="344" name="setcurrent" signature="setcurrent(n)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Return the set of sequences for the folder." ilk="function" line="297" lineend="315" name="getsequences" returns="dict" signature="getsequences()">
+          <variable citdl="open()" line="302" name="f" />
+          <variable citdl="line.split()" line="308" name="fields" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable line="313" name="value" />
+          <variable line="312" name="key" />
+          <variable citdl="dict" line="299" name="sequences" />
+          <variable citdl="f.readline()" line="306" name="line" />
+          <variable citdl="getsequencesfilename()" line="300" name="fullname" />
+        </scope>
+        <scope doc="String representation." ilk="function" line="252" lineend="254" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a message, with text from the open file txt." ilk="function" line="604" lineend="628" name="createmessage" signature="createmessage(n, txt)">
+          <variable citdl="int" line="613" name="BUFSIZE" />
+          <variable citdl="int" line="612" name="ok" />
+          <variable citdl="open()" line="615" name="f" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="getmessagefilename()" line="607" name="backuppath" />
+          <variable ilk="argument" name="n" />
+          <variable citdl="getmessagefilename()" line="606" name="path" />
+          <variable ilk="argument" name="txt" />
+          <variable citdl="txt.read()" line="617" name="buf" />
+        </scope>
+        <scope doc="Parse an MH sequence specification into a message list." ilk="function" line="346" lineend="428" name="parsesequence" returns="list" signature="parsesequence(seq)">
+          <variable citdl="len()" line="371" name="count" />
+          <variable citdl="list" line="365" name="head" />
+          <variable citdl="self._parseindex()" line="404" name="end" />
+          <variable line="383" name="msgs" />
+          <variable ilk="argument" name="seq" />
+          <variable citdl="bisect()" line="363" name="i" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="bisect()" line="406" name="j" />
+          <variable citdl="listmessages()" line="355" name="all" />
+          <variable citdl="self._parseindex()" line="413" name="n" />
+          <variable citdl="str" line="381" name="msg" />
+          <variable citdl="list" line="365" name="tail" />
+          <variable citdl="list" line="407" name="r" />
+          <variable citdl="self._parseindex()" line="403" name="begin" />
+          <variable citdl="getsequences()" line="378" name="seqs" />
+          <variable citdl="self._parseindex()" line="376" name="anchor" />
+          <variable citdl="str" line="365" name="dir" />
+        </scope>
+        <scope doc="Return the last message number." ilk="function" line="649" lineend="653" name="getlast" returns="int" signature="getlast()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the last message number." ilk="function" line="655" lineend="661" name="setlast" signature="setlast(last)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="last" />
+        </scope>
+        <scope doc="Return the current message. Raise Error when there is none." ilk="function" line="334" lineend="340" name="getcurrent" returns="max()" signature="getcurrent()">
+          <variable citdl="getsequences()" line="336" name="seqs" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write the set of sequences back to the folder." ilk="function" line="317" lineend="332" name="putsequences" signature="putsequences(sequences)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="IntSet()" line="322" name="s" />
+          <variable citdl="open()" line="320" name="f" />
+          <variable citdl="getsequencesfilename()" line="319" name="fullname" />
+          <variable ilk="argument" name="sequences" />
+        </scope>
+        <scope doc="Return the full pathname of the folder." ilk="function" line="260" lineend="262" name="getfullname" returns="os.path.join()" signature="getfullname()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Error message handler." ilk="function" line="256" lineend="258" name="error" signature="error(*args)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Return list of all subfolders." ilk="function" line="276" lineend="278" name="listallsubfolders" returns="self.mh.listallsubfolders()" signature="listallsubfolders()">
+          <variable citdl="Folder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove one or more messages from all sequences (including&#10;last) -- but not from 'cur'!!!" ilk="function" line="630" lineend="647" name="removefromallsequences" signature="removefromallsequences(list)">
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable citdl="int" line="636" name="changed" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="getsequences()" line="635" name="sequences" />
+        </scope>
+        <scope doc="Move one message over a specific destination message, which&#10;may or may not already exist." ilk="function" line="546" lineend="576" name="movemessage" signature="movemessage(n, tofolder, ton)">
+          <variable citdl="tofolder.getmessagefilename()" line="554" name="topath" />
+          <variable citdl="int" line="564" name="ok" />
+          <variable citdl="open()" line="551" name="f" />
+          <variable citdl="Folder" ilk="argument" name="self" />
+          <variable ilk="argument" name="tofolder" />
+          <variable ilk="argument" name="n" />
+          <variable citdl="tofolder.getmessagefilename()" line="555" name="backuptopath" />
+          <variable ilk="argument" name="ton" />
+          <variable citdl="getmessagefilename()" line="549" name="path" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="292" name="last" />
+        <variable attributes="__instancevar__" line="248" name="name" />
+        <variable attributes="__instancevar__" line="247" name="mh" />
+      </scope>
+      <scope doc="Class implementing sets of integers.&#10;This is an efficient representation for sets consisting of several continuous ranges, e.g. 1-100,200-400,402-1000 is represented internally as a list of three pairs: [(1,100), (200,400), (402,1000)].  The internal representation is always kept normalized.  The constructor has up to three arguments: - the string used to initialize the set (default ''), - the separator between ranges (default ',') - the separator between begin and end of a range (default '-') The separators must be strings (not regexprs) and should be different." ilk="class" line="771" lineend="903" name="IntSet">
+        <scope ilk="function" line="800" lineend="801" name="reset" signature="reset()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="812" lineend="821" name="normalize" signature="normalize()">
+          <variable citdl="int" line="814" name="i" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="854" lineend="857" name="contains" returns="bool" signature="contains(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="884" lineend="887" name="addpair" signature="addpair(xlo, xhi)">
+          <variable ilk="argument" name="xlo" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="xhi" />
+        </scope>
+        <scope ilk="function" line="832" lineend="837" name="tolist" returns="list" signature="tolist()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable citdl="range()" line="835" name="m" />
+          <variable citdl="list" line="833" name="l" />
+        </scope>
+        <scope ilk="function" line="851" lineend="852" name="max" signature="max()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="843" lineend="846" name="clone" signature="clone()">
+          <variable citdl="" line="844" name="new" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="848" lineend="849" name="min" signature="min()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="859" lineend="882" name="append" signature="append(x)">
+          <variable citdl="len()" line="876" name="i" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="803" lineend="804" name="__cmp__" returns="cmp()" signature="__cmp__(other)">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="839" lineend="841" name="fromlist" signature="fromlist(list)">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+        </scope>
+        <scope ilk="function" line="823" lineend="830" name="tostring" returns="repr()" signature="tostring()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable citdl="str" line="824" name="s" />
+          <variable citdl="repr()" line="826" name="t" />
+        </scope>
+        <scope ilk="function" line="809" lineend="810" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="889" lineend="903" name="fromstring" signature="fromstring(data)">
+          <variable citdl="list" line="890" name="new" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="subp.strip()" line="894" name="s" />
+          <variable citdl="list" line="892" name="list" />
+        </scope>
+        <scope ilk="function" line="806" lineend="807" name="__hash__" returns="hash()" signature="__hash__()">
+          <variable citdl="IntSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="794" lineend="798" name="__init__" signature="IntSet(data=None, sep=',', rng='-')">
+          <variable citdl="str" ilk="argument" name="rng" />
+          <variable citdl="IntSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="str" ilk="argument" name="sep" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="795" name="pairs" />
+        <variable attributes="__instancevar__" citdl="str" line="797" name="rng" />
+        <variable attributes="__instancevar__" citdl="str" line="796" name="sep" />
+      </scope>
+      <scope doc="Class representing a particular collection of folders.&#10;Optional constructor arguments are the pathname for the directory containing the collection, and the MH profile to use. If either is omitted or empty a default is used; the default directory is taken from the MH profile if it is specified there." ilk="class" line="95" lineend="235" name="MH">
+        <scope doc="Return the names of the subfolders in a given folder&#10;(prefixed with the given folder name)." ilk="function" line="155" lineend="177" name="listsubfolders" returns="list" signature="listsubfolders(name)">
+          <variable citdl="os.listdir()" line="165" name="subnames" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="os.path.join()" line="167" name="fullsubname" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="list" line="164" name="subfolders" />
+          <variable citdl="int" line="161" name="nlinks" />
+          <variable citdl="os.path.join()" line="158" name="fullname" />
+          <variable citdl="os.path.join()" line="169" name="name_subname" />
+        </scope>
+        <scope doc="Return a profile entry, None if not found." ilk="function" line="122" lineend="124" name="getprofile" returns="pickline()" signature="getprofile(key)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return the names of all folders and subfolders, recursively." ilk="function" line="179" lineend="181" name="listallfolders" returns="self.listallsubfolders()" signature="listallfolders()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the path (the name of the collection's directory)." ilk="function" line="126" lineend="128" name="getpath" returns="self.getprofile()" signature="getpath()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the name of the current folder." ilk="function" line="130" lineend="135" name="getcontext" returns="str" signature="getcontext()">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="str" line="132" name="context" />
+        </scope>
+        <scope doc="Return the names of the top-level folders." ilk="function" line="144" lineend="153" name="listfolders" returns="list" signature="listfolders()">
+          <variable citdl="list" line="146" name="folders" />
+          <variable citdl="getpath()" line="147" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="149" name="fullname" />
+        </scope>
+        <scope doc="String representation." ilk="function" line="114" lineend="116" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Routine to print an error." ilk="function" line="118" lineend="120" name="error" signature="error(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Delete a folder." ilk="function" line="224" lineend="235" name="deletefolder" signature="deletefolder(name)">
+          <variable citdl="os.path.join()" line="229" name="fullsubname" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="227" name="fullname" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the names of subfolders in a given folder,&#10;recursively." ilk="function" line="183" lineend="209" name="listallsubfolders" returns="list" signature="listallsubfolders(name)">
+          <variable citdl="os.listdir()" line="192" name="subnames" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="os.path.join()" line="195" name="fullsubname" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="list" line="191" name="subfolders" />
+          <variable citdl="int" line="188" name="nlinks" />
+          <variable citdl="os.path.join()" line="185" name="fullname" />
+          <variable citdl="os.path.join()" line="197" name="name_subname" />
+          <variable citdl="()" line="200" name="subsubfolders" />
+        </scope>
+        <scope doc="Set the name of the current folder." ilk="function" line="137" lineend="142" name="setcontext" signature="setcontext(context)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="139" name="fn" />
+          <variable ilk="argument" name="context" />
+          <variable citdl="open()" line="140" name="f" />
+        </scope>
+        <scope doc="Create a new folder (or raise os.error if it cannot be&#10;created)." ilk="function" line="215" lineend="222" name="makefolder" signature="makefolder(name)">
+          <variable citdl="pickline()" line="217" name="protect" />
+          <variable citdl="int()" line="219" name="mode" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="102" lineend="112" name="__init__" signature="MH(path=None, profile=None)">
+          <variable citdl="str" ilk="argument" name="profile" />
+          <variable citdl="os.path.expanduser()" ilk="argument" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a new Folder object for the named folder." ilk="function" line="211" lineend="213" name="openfolder" returns="Folder()" signature="openfolder(name)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.path.expanduser()" line="105" name="profile" />
+        <variable attributes="__instancevar__" citdl="os.path.expanduser()" line="112" name="path" />
+      </scope>
+      <variable citdl="str" line="71" name="MH_PROFILE" />
+      <variable citdl="str" line="73" name="MH_SEQUENCES" />
+      <scope classrefs="Message" doc="&#10;" ilk="class" line="663" lineend="737" name="Message">
+        <scope doc="Only for multipart messages: return the message's body as a&#10;list of SubMessage objects." ilk="function" line="712" lineend="730" name="getbodyparts" returns="list" signature="getbodyparts()">
+          <variable citdl="self.getparam()" line="718" name="bdry" />
+          <variable citdl="multifile.MultiFile()" line="722" name="mf" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="str" line="726" name="n" />
+          <variable citdl="list" line="724" name="parts" />
+          <variable citdl="SubMessage()" line="727" name="part" />
+        </scope>
+        <scope doc="Return the message's header text as a string." ilk="function" line="678" lineend="693" name="getheadertext" returns="str.join()" signature="getheadertext(pred=None)">
+          <variable citdl="line.find()" line="689" name="i" />
+          <variable ilk="argument" name="pred" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="int" line="686" name="hit" />
+          <variable citdl="list" line="685" name="headers" />
+        </scope>
+        <scope doc="String representation." ilk="function" line="674" lineend="676" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="665" lineend="672" name="__init__" signature="Message(f, n, fp=None)">
+          <variable citdl="open()" ilk="argument" name="fp" />
+          <variable citdl="f.getmessagefilename()" line="670" name="path" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Return the message's body text as string." ilk="function" line="695" lineend="710" name="getbodytext" returns="self.fp.read()" signature="getbodytext(decode=1)">
+          <variable citdl="int" ilk="argument" name="decode" />
+          <variable citdl="StringIO()" line="708" name="output" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="self.getencoding()" line="701" name="encoding" />
+        </scope>
+        <scope doc="Return body, either a string or a list of messages." ilk="function" line="732" lineend="737" name="getbody" returns="Message.getbodytext()" signature="getbody()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="667" name="folder" />
+        <variable attributes="__instancevar__" line="668" name="number" />
+      </scope>
+      <variable citdl="str" line="72" name="PATH" />
+      <scope classrefs="Message" doc="&#10;" ilk="class" line="740" lineend="768" name="SubMessage">
+        <scope ilk="function" line="763" lineend="765" name="getbodyparts" returns="Message.getbodytext()" signature="getbodyparts()">
+          <variable citdl="SubMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="String representation." ilk="function" line="752" lineend="755" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="self.fp" line="754" name="fp" />
+          <variable citdl="SubMessage" ilk="argument" name="self" />
+          <variable citdl="self.number" line="754" name="n" />
+          <variable citdl="self.folder" line="754" name="f" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="742" lineend="749" name="__init__" signature="SubMessage(f, n, fp)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="SubMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="757" lineend="761" name="getbodytext" returns="Message.getbodytext()" signature="getbodytext(decode=1)">
+          <variable citdl="int" ilk="argument" name="decode" />
+          <variable citdl="SubMessage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="767" lineend="768" name="getbody" returns="Message.getbodytext()" signature="getbody()">
+          <variable citdl="SubMessage" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Message.getbodyparts()" line="746" name="body" />
+        <variable attributes="__instancevar__" citdl="Message.getbodytext()" line="749" name="bodyencoded" />
+      </scope>
+      <variable citdl="list" line="87" name="__all__" />
+      <variable citdl="dict" name="__warningregistry__" />
+      <scope doc="Alias for bisect_right()." ilk="function" name="bisect" />
+      <scope ilk="function" line="239" lineend="240" name="isnumeric" returns="bool" signature="isnumeric(str)">
+        <variable ilk="argument" name="str" />
+      </scope>
+      <import module="mimetools" />
+      <import module="multifile" />
+      <variable citdl="SRE_Pattern" line="238" name="numericprog" />
+      <import module="os" />
+      <scope ilk="function" line="908" lineend="926" name="pickline" returns="text.strip()" signature="pickline(file, key, casefold=1)">
+        <variable citdl="re.escape()" line="913" name="pat" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="open()" line="910" name="f" />
+        <variable citdl="list" line="919" name="text" />
+        <variable citdl="int" ilk="argument" name="casefold" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="re.compile()" line="914" name="prog" />
+        <variable citdl="f.readline()" line="916" name="line" />
+      </scope>
+      <import module="re" />
+      <import module="shutil" />
+      <import module="sys" />
+      <scope ilk="function" line="962" lineend="1001" name="test" signature="test()">
+        <scope ilk="function" line="966" lineend="966" name="do" signature="do(s)">
+          <variable ilk="argument" name="s" />
+        </scope>
+        <variable citdl="mh.openfolder()" line="975" name="f" />
+        <variable citdl="list" line="969" name="testfolders" />
+        <variable citdl="map()" line="999" name="list" />
+        <variable citdl="MH" line="965" name="mh" />
+        <variable line="998" name="stuff" />
+        <variable citdl="mh.getcontext()" line="986" name="context" />
+        <variable citdl="f.getsequences()" line="979" name="seqs" />
+      </scope>
+      <scope ilk="function" line="928" lineend="957" name="updateline" signature="updateline(file, key, value, casefold=1)">
+        <variable citdl="str" line="935" name="pat" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="open()" line="930" name="f" />
+        <variable citdl="str" line="952" name="tempfile" />
+        <variable citdl="str" line="938" name="newline" />
+        <variable citdl="f.readlines()" line="931" name="lines" />
+        <variable ilk="argument" name="value" />
+        <variable citdl="int" ilk="argument" name="casefold" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="re.compile()" line="936" name="prog" />
+        <variable line="942" name="line" />
+      </scope>
+    </scope>
+    

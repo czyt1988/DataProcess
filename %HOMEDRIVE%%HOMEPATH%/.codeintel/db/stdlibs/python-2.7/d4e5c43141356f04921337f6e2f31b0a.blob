@@ -1,0 +1,163 @@
+<scope doc="A class supporting chat-style (command/response) protocols.&#10;This class adds support for 'chat' style protocols - where one side sends a 'command', and the other sends a response (examples would be the common internet protocols - smtp, nntp, ftp, etc..).  The handle_read() method looks at the input stream for the current 'terminator' (usually '\r\n' for single-line responses, '\r\n.\r\n' for multi-line output), calling self.found_terminator() on its receipt.  for example:" ilk="blob" lang="Python" name="asynchat">
+      <scope classrefs="dispatcher" doc="This is an abstract class.  You must derive from this class, and add&#10;the two methods collect_incoming_data() and found_terminator()" ilk="class" line="55" lineend="252" name="async_chat">
+        <scope doc="predicate for inclusion in the writable for select()" ilk="function" line="200" lineend="202" name="writable" returns="bool" signature="writable()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="208" name="initiate_send" signature="initiate_send()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable citdl="int" line="219" name="obs" />
+          <variable citdl="first.more()" line="224" name="data" />
+          <variable citdl="self.send()" line="235" name="num_sent" />
+          <variable line="210" name="first" />
+        </scope>
+        <scope ilk="function" line="173" lineend="174" name="handle_write" signature="handle_write()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the input delimiter." ilk="function" line="95" lineend="97" name="set_terminator" signature="set_terminator(term)">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="term" />
+        </scope>
+        <scope ilk="function" line="248" lineend="252" name="discard_buffers" signature="discard_buffers()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="85" name="_collect_incoming_data" signature="_collect_incoming_data(data)">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="predicate for inclusion in the readable for select()" ilk="function" line="192" lineend="198" name="readable" returns="int" signature="readable()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="81" lineend="82" name="collect_incoming_data" signature="collect_incoming_data(data)">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="99" lineend="100" name="get_terminator" signature="get_terminator()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="87" lineend="90" name="_get_data" returns="str.join()" signature="_get_data()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable citdl="str.join()" line="88" name="d" />
+        </scope>
+        <scope ilk="function" line="188" lineend="190" name="push_with_producer" signature="push_with_producer(producer)">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="producer" />
+        </scope>
+        <scope ilk="function" line="92" lineend="93" name="found_terminator" signature="found_terminator()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="107" lineend="171" name="handle_read" signature="handle_read()">
+          <variable citdl="find_prefix_at_end()" line="150" name="index" />
+          <variable citdl="len()" line="123" name="lb" />
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable citdl="get_terminator()" line="131" name="n" />
+          <variable citdl="len()" line="149" name="terminator_len" />
+          <variable citdl="get_terminator()" line="124" name="terminator" />
+          <variable citdl="self.recv()" line="110" name="data" />
+        </scope>
+        <scope ilk="function" line="176" lineend="177" name="handle_close" signature="handle_close()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="179" lineend="186" name="push" signature="push(data)">
+          <variable citdl="int" line="180" name="sabs" />
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="64" lineend="79" name="__init__" signature="async_chat(sock=None, map=None)">
+          <variable ilk="argument" name="map" />
+          <variable citdl="async_chat" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+        </scope>
+        <scope doc="automatically close this channel once the outgoing queue is&#10;empty" ilk="function" line="204" lineend="206" name="close_when_done" signature="close_when_done()">
+          <variable citdl="async_chat" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="deque()" line="78" name="producer_fifo" />
+        <variable attributes="__instancevar__" citdl="list" line="74" name="incoming" />
+        <variable attributes="__instancevar__" citdl="str" line="66" name="ac_in_buffer" />
+        <variable citdl="int" line="62" name="ac_out_buffer_size" />
+        <variable citdl="int" line="61" name="ac_in_buffer_size" />
+        <variable attributes="__instancevar__" citdl="int" line="97" name="terminator" />
+      </scope>
+      <import module="asyncore" />
+      <scope classrefs="object" doc="A context manager that copies and restores the warnings filter upon&#10;exiting the context.  The 'record' argument specifies whether warnings should be captured by a custom implementation of warnings.showwarning() and be appended to a list returned by the context manager. Otherwise None is returned by the context manager. The objects appended to the list are arguments whose attributes mirror the arguments to showwarning().  The 'module' argument is to specify an alternative module to the module named 'warnings' and imported under that name. This argument is only useful" ilk="class" name="catch_warnings">
+        <scope ilk="function" name="__exit__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__enter__" />
+        <scope doc="Specify whether to record warnings and if an alternative&#10;module should be used other than sys.modules['warnings']." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="270" lineend="293" name="fifo">
+        <scope ilk="function" line="289" lineend="293" name="pop" returns="tuple" signature="pop()">
+          <variable citdl="fifo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="280" lineend="281" name="is_empty" returns="bool" signature="is_empty()">
+          <variable citdl="fifo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="271" lineend="275" name="__init__" signature="fifo(list=None)">
+          <variable citdl="fifo" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+        </scope>
+        <scope ilk="function" line="286" lineend="287" name="push" signature="push(data)">
+          <variable citdl="fifo" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="277" lineend="278" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="fifo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="283" lineend="284" name="first" signature="first()">
+          <variable citdl="fifo" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="deque()" line="273" name="list" />
+      </scope>
+      <scope doc="Insert an entry into the list of warnings filters (at the&#10;front)." ilk="function" name="filterwarnings" signature="filterwarnings(action, message='', category=&lt;type 'exceptions.Warning'&gt;, module='', lineno=0, append=0)" />
+      <scope ilk="function" line="310" lineend="314" name="find_prefix_at_end" returns="len()" signature="find_prefix_at_end(haystack, needle)">
+        <variable ilk="argument" name="haystack" />
+        <variable ilk="argument" name="needle" />
+        <variable citdl="len()" line="311" name="l" />
+      </scope>
+      <variable citdl="bool" name="py3kwarning" />
+      <scope doc="&#10;" ilk="class" line="254" lineend="268" name="simple_producer">
+        <scope ilk="function" line="256" lineend="258" name="__init__" signature="simple_producer(data, buffer_size=512)">
+          <variable citdl="int" ilk="argument" name="buffer_size" />
+          <variable citdl="simple_producer" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="260" lineend="268" name="more" returns="list" signature="more()">
+          <variable citdl="simple_producer" ilk="argument" name="self" />
+          <variable citdl="list" line="262" name="result" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="258" name="buffer_size" />
+        <variable attributes="__instancevar__" citdl="list" line="257" name="data" />
+      </scope>
+      <import module="socket" />
+    </scope>
+    

@@ -1,0 +1,409 @@
+<scope doc="# This module exports classes for the various canvas item types&#10;" ilk="blob" lang="Python" name="Canvas">
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="89" lineend="91" name="Arc">
+        <scope ilk="function" line="90" lineend="91" name="__init__" signature="Arc(canvas, *args, **kw)">
+          <variable citdl="Arc" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="93" lineend="95" name="Bitmap">
+        <scope ilk="function" line="94" lineend="95" name="__init__" signature="Bitmap(canvas, *args, **kw)">
+          <variable citdl="Bitmap" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget XView YView" doc="Canvas widget to display graphical elements like lines or text.&#10;" ilk="class" name="Canvas">
+        <scope doc="Return tags associated with the first item specified in&#10;ARGS." ilk="function" name="gettags" />
+        <scope doc="Add tag NEWTAG to all items." ilk="function" name="addtag_all" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="tkraise" />
+        <scope doc="Configure resources of an item TAGORID." ilk="function" name="itemconfigure" />
+        <scope doc="Create polygon with coordinates x1,y1,...,xn,yn." ilk="function" name="create_polygon" />
+        <scope doc="Move an item TAGORID given in ARGS." ilk="function" name="move" />
+        <scope doc="Adjust the view of the canvas to GAIN times the difference&#10;between X and Y and the coordinates given in scan_mark." ilk="function" name="scan_dragto" />
+        <scope doc="Create text with coordinates x1,y1." ilk="function" name="create_text" />
+        <scope doc="Add tag NEWTAG to all items which overlap the rectangle&#10;defined by X1,Y1,X2,Y2." ilk="function" name="addtag_overlapping" />
+        <scope doc="Return the canvas y coordinate of pixel position SCREENY&#10;rounded to nearest multiple of GRIDSPACING units." ilk="function" name="canvasy" />
+        <scope doc="Return the canvas x coordinate of pixel position SCREENX&#10;rounded to nearest multiple of GRIDSPACING units." ilk="function" name="canvasx" />
+        <scope doc="Create window with coordinates x1,y1,x2,y2." ilk="function" name="create_window" />
+        <scope doc="Delete tag or id given as last arguments in ARGS from items&#10;identified by first argument in ARGS." ilk="function" name="dtag" />
+        <scope doc="Remember the current X, Y coordinates." ilk="function" name="scan_mark" />
+        <scope doc="Set the fixed end of a selection in item TAGORID to INDEX." ilk="function" name="select_from" />
+        <scope doc="Internal function." ilk="function" name="addtag" />
+        <scope doc="Construct a canvas widget with the parent MASTER." ilk="function" name="__init__" />
+        <scope doc="Configure resources of an item TAGORID." ilk="function" name="itemconfig" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="tag_raise" />
+        <scope doc="Unbind for all items with TAGORID for event SEQUENCE  the&#10;function identified with FUNCID." ilk="function" name="tag_unbind" />
+        <scope doc="Scale item TAGORID with XORIGIN, YORIGIN, XSCALE, YSCALE." ilk="function" name="scale" />
+        <scope doc="Set cursor at position POS in the item identified by&#10;TAGORID." ilk="function" name="icursor" />
+        <scope doc="Create oval with coordinates x1,y1,x2,y2." ilk="function" name="create_oval" />
+        <scope doc="Return all items below TAGORID." ilk="function" name="find_below" />
+        <scope doc="Bind to all items with TAGORID at event SEQUENCE a call to&#10;function FUNC." ilk="function" name="tag_bind" />
+        <scope doc="Create image item with coordinates x1,y1." ilk="function" name="create_image" />
+        <scope doc="Internal function." ilk="function" name="find" />
+        <scope doc="Return all items which overlap the rectangle defined by&#10;X1,Y1,X2,Y2." ilk="function" name="find_overlapping" />
+        <scope doc="Adjust the end of the selection near the cursor of an item&#10;TAGORID to index." ilk="function" name="select_adjust" />
+        <scope doc="Return all items with TAGORID." ilk="function" name="find_withtag" />
+        <scope doc="Return the type of the item TAGORID." ilk="function" name="type" />
+        <scope doc="Internal function." ilk="function" name="_create" />
+        <scope doc="Add tag NEWTAG to all items below TAGORID." ilk="function" name="addtag_below" />
+        <scope doc="Add tag NEWTAG to item which is closest to pixel at X, Y." ilk="function" name="addtag_closest" />
+        <scope doc="Return position of cursor as integer in item specified in&#10;ARGS." ilk="function" name="index" />
+        <scope doc="Add tag NEWTAG to all items in the rectangle defined by&#10;X1,Y1,X2,Y2." ilk="function" name="addtag_enclosed" />
+        <scope doc="Print the contents of the canvas to a postscript file." ilk="function" name="postscript" />
+        <scope doc="Add tag NEWTAG to all items with TAGORID." ilk="function" name="addtag_withtag" />
+        <scope doc="Create arc shaped region with coordinates x1,y1,x2,y2." ilk="function" name="create_arc" />
+        <scope doc="Return items above TAGORID." ilk="function" name="find_above" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="lift" />
+        <scope doc="Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle&#10;which encloses all items with tags specified as arguments." ilk="function" name="bbox" />
+        <scope doc="Set focus to the first item specified in ARGS." ilk="function" name="focus" />
+        <scope doc="Create bitmap with coordinates x1,y1." ilk="function" name="create_bitmap" />
+        <scope doc="Return all items in rectangle defined by X1,Y1,X2,Y2." ilk="function" name="find_enclosed" />
+        <scope doc="Delete characters of text items identified by tag or id in&#10;ARGS (possibly several times) from FIRST to LAST character&#10;(including)." ilk="function" name="dchars" />
+        <scope doc="Insert TEXT in item TAGORID at position POS." ilk="function" name="insert" />
+        <scope doc="Lower an item TAGORID given in ARGS (optional below another&#10;item)." ilk="function" name="lower" />
+        <scope doc="Add tag NEWTAG to all items above TAGORID." ilk="function" name="addtag_above" />
+        <scope doc="Create rectangle with coordinates x1,y1,x2,y2." ilk="function" name="create_rectangle" />
+        <scope doc="Return item which is closest to pixel at X, Y." ilk="function" name="find_closest" />
+        <scope doc="Return all items." ilk="function" name="find_all" />
+        <scope doc="Lower an item TAGORID given in ARGS (optional below another&#10;item)." ilk="function" name="tag_lower" />
+        <scope doc="Return the resource value for an OPTION for item TAGORID." ilk="function" name="itemcget" />
+        <scope doc="Create line with coordinates x1,y1,...,xn,yn." ilk="function" name="create_line" />
+        <scope doc="Return a list of coordinates for the item given in ARGS." ilk="function" name="coords" />
+        <scope doc="Set the variable end of a selection in item TAGORID to&#10;INDEX." ilk="function" name="select_to" />
+        <scope doc="Return the item which has the selection." ilk="function" name="select_item" />
+        <scope doc="Clear the selection if it is in this widget." ilk="function" name="select_clear" />
+        <scope doc="Delete items identified by all tag or ids contained in ARGS." ilk="function" name="delete" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="13" lineend="87" name="CanvasItem">
+        <scope ilk="function" line="69" lineend="70" name="gettags" returns="self.canvas.gettags()" signature="gettags()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="20" lineend="21" name="__str__" returns="str()" signature="__str__()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="80" name="move" signature="move(xamount, yamount)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="xamount" />
+          <variable ilk="argument" name="yamount" />
+        </scope>
+        <scope ilk="function" line="67" lineend="68" name="focus" signature="focus()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="44" lineend="45" name="has_key" returns="bool" signature="has_key(key)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="81" lineend="82" name="tkraise" signature="tkraise(abovethis=None)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="abovethis" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="type" returns="self.canvas.type()" signature="type()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="dtag" signature="dtag(ttd)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="ttd" />
+        </scope>
+        <scope ilk="function" line="48" lineend="49" name="addtag" signature="addtag(tag, option='withtag')">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable citdl="str" ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="14" lineend="19" name="__init__" signature="CanvasItem(canvas, itemType, *args, **kw)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+          <variable ilk="argument" name="itemType" />
+        </scope>
+        <scope ilk="function" line="73" lineend="74" name="index" returns="self.canvas.index()" signature="index(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="85" name="scale" signature="scale(xorigin, yorigin, xscale, yscale)">
+          <variable ilk="argument" name="yorigin" />
+          <variable ilk="argument" name="xorigin" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="xscale" />
+          <variable ilk="argument" name="yscale" />
+        </scope>
+        <scope ilk="function" line="71" lineend="72" name="icursor" signature="icursor(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="46" lineend="47" name="__contains__" returns="bool" signature="__contains__(key)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="32" name="cget" />
+        <scope ilk="function" line="83" name="raise_" />
+        <scope ilk="function" line="57" lineend="58" name="config" returns="self.canvas.itemconfig()" signature="config(cnf={}, **kw)">
+          <variable citdl="dict" ilk="argument" name="cnf" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="27" lineend="31" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="self.canvas.tk.split()" line="28" name="v" />
+        </scope>
+        <scope ilk="function" line="35" lineend="43" name="keys" returns="map()" signature="keys()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="77" lineend="78" name="lower" signature="lower(belowthis=None)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="belowthis" />
+        </scope>
+        <scope ilk="function" line="33" lineend="34" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="50" lineend="52" name="bbox" returns="tuple" signature="bbox()">
+          <variable line="51" name="y1" />
+          <variable line="51" name="x2" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable line="51" name="x1" />
+          <variable line="51" name="y2" />
+        </scope>
+        <scope ilk="function" line="63" lineend="64" name="dchars" signature="dchars(first, last=None)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="last" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope ilk="function" line="75" lineend="76" name="insert" signature="insert(beforethis, string)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="beforethis" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope ilk="function" line="55" lineend="56" name="unbind" signature="unbind(sequence, funcid=None)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="funcid" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope ilk="function" line="53" lineend="54" name="bind" returns="self.canvas.tag_bind()" signature="bind(sequence=None, command=None, add=None)">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+          <variable ilk="argument" name="add" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope ilk="function" line="59" lineend="62" name="coords" returns="self.canvas.coords()" signature="coords(pts=())">
+          <variable citdl="tuple" line="60" name="flat" />
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="pts" />
+        </scope>
+        <scope ilk="function" line="22" lineend="23" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="24" lineend="26" name="delete" signature="delete()">
+          <variable citdl="CanvasItem" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="15" name="canvas" />
+        <variable attributes="__instancevar__" citdl="canvas._create()" line="16" name="id" />
+        <variable attributes="protected __instancevar__" citdl="map()" line="37" name="_keys" />
+      </scope>
+      <scope classrefs="CanvasItem" doc="# XXX &quot;Text&quot; is taken by the Text widget...&#10;" ilk="class" line="118" lineend="120" name="CanvasText">
+        <scope ilk="function" line="119" lineend="120" name="__init__" signature="CanvasText(canvas, *args, **kw)">
+          <variable citdl="CanvasText" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="126" lineend="194" name="Group">
+        <scope ilk="function" line="168" lineend="169" name="gettags" returns="self.canvas.tk.splitlist()" signature="gettags()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="140" lineend="141" name="addtag_all" signature="addtag_all()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="136" lineend="137" name="_do" returns="self.canvas._do()" signature="_do(cmd, *args)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="135" name="__str__" />
+        <scope ilk="function" line="180" lineend="181" name="move" signature="move(xAmount, yAmount)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="xAmount" />
+          <variable ilk="argument" name="yAmount" />
+        </scope>
+        <scope ilk="function" line="166" lineend="167" name="focus" signature="focus()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="148" lineend="149" name="addtag_overlapping" signature="addtag_overlapping(x1, y1, x2, y2)">
+          <variable ilk="argument" name="y1" />
+          <variable ilk="argument" name="x2" />
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="x1" />
+          <variable ilk="argument" name="y2" />
+        </scope>
+        <scope ilk="function" line="182" lineend="183" name="tkraise" signature="tkraise(aboveThis=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="aboveThis" />
+        </scope>
+        <scope ilk="function" line="193" lineend="194" name="type" returns="Group._do()" signature="type()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="164" lineend="165" name="dtag" signature="dtag(tagToDelete=None)">
+          <variable ilk="argument" name="tagToDelete" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="189" lineend="190" name="select_from" signature="select_from(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="127" lineend="132" name="__init__" signature="Group(canvas, tag=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable citdl="id()" ilk="argument" name="tag" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+        <scope ilk="function" line="172" lineend="173" name="index" returns="self.canvas.tk.getint()" signature="index(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="scale" signature="scale(xOrigin, yOrigin, xScale, yScale)">
+          <variable ilk="argument" name="yOrigin" />
+          <variable ilk="argument" name="xOrigin" />
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="xScale" />
+          <variable ilk="argument" name="yScale" />
+        </scope>
+        <scope ilk="function" line="170" lineend="171" name="icursor" returns="Group._do()" signature="icursor(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="187" lineend="188" name="select_adjust" signature="select_adjust(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="176" lineend="177" name="config" returns="self.canvas.itemconfigure()" signature="config(cnf={}, **kw)">
+          <variable citdl="dict" ilk="argument" name="cnf" />
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="142" lineend="143" name="addtag_below" signature="addtag_below(tagOrId)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="tagOrId" />
+        </scope>
+        <scope ilk="function" line="144" lineend="145" name="addtag_closest" signature="addtag_closest(x, y, halo=None, start=None)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="halo" />
+          <variable ilk="argument" name="start" />
+        </scope>
+        <scope ilk="function" line="146" lineend="147" name="addtag_enclosed" signature="addtag_enclosed(x1, y1, x2, y2)">
+          <variable ilk="argument" name="y1" />
+          <variable ilk="argument" name="x2" />
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="x1" />
+          <variable ilk="argument" name="y2" />
+        </scope>
+        <scope ilk="function" line="150" lineend="151" name="addtag_withtag" signature="addtag_withtag(tagOrId)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="tagOrId" />
+        </scope>
+        <scope ilk="function" line="178" lineend="179" name="lower" signature="lower(belowThis=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="belowThis" />
+        </scope>
+        <scope ilk="function" line="184" name="lift" />
+        <scope ilk="function" line="152" lineend="153" name="bbox" returns="self.canvas._getints()" signature="bbox()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="160" lineend="161" name="dchars" signature="dchars(first, last=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="last" />
+          <variable ilk="argument" name="first" />
+        </scope>
+        <scope ilk="function" line="174" lineend="175" name="insert" signature="insert(beforeThis, string)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="beforeThis" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope ilk="function" line="156" lineend="157" name="unbind" signature="unbind(sequence, funcid=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="funcid" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope ilk="function" line="138" lineend="139" name="addtag_above" signature="addtag_above(tagOrId)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="tagOrId" />
+        </scope>
+        <scope ilk="function" line="154" lineend="155" name="bind" returns="self.canvas.tag_bind()" signature="bind(sequence=None, command=None, add=None)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+          <variable ilk="argument" name="add" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope ilk="function" line="158" lineend="159" name="coords" returns="Group._do()" signature="coords(*pts)">
+          <variable citdl="Group" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="pts" />
+        </scope>
+        <scope ilk="function" line="191" lineend="192" name="select_to" signature="select_to(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="162" lineend="163" name="delete" signature="delete()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="131" name="canvas" />
+        <variable attributes="__instancevar__" citdl="id()" line="130" name="tag" />
+        <scope ilk="function" line="133" lineend="134" name="str" returns="str" signature="str()">
+          <variable citdl="Group" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="97" lineend="99" name="ImageItem">
+        <scope ilk="function" line="98" lineend="99" name="__init__" signature="ImageItem(canvas, *args, **kw)">
+          <variable citdl="ImageItem" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="101" lineend="103" name="Line">
+        <scope ilk="function" line="102" lineend="103" name="__init__" signature="Line(canvas, *args, **kw)">
+          <variable citdl="Line" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="105" lineend="107" name="Oval">
+        <scope ilk="function" line="106" lineend="107" name="__init__" signature="Oval(canvas, *args, **kw)">
+          <variable citdl="Oval" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="109" lineend="111" name="Polygon">
+        <scope ilk="function" line="110" lineend="111" name="__init__" signature="Polygon(canvas, *args, **kw)">
+          <variable citdl="Polygon" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="113" lineend="115" name="Rectangle">
+        <scope ilk="function" line="114" lineend="115" name="__init__" signature="Rectangle(canvas, *args, **kw)">
+          <variable citdl="Rectangle" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+      <scope classrefs="CanvasItem" doc="&#10;" ilk="class" line="122" lineend="124" name="Window">
+        <scope ilk="function" line="123" lineend="124" name="__init__" signature="Window(canvas, *args, **kw)">
+          <variable citdl="Window" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="canvas" />
+        </scope>
+      </scope>
+    </scope>
+    

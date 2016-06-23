@@ -1,0 +1,134 @@
+<scope doc="Manage HTTP Response Headers&#10;Much of this module is red-handedly pilfered from email.message in the stdlib, so portions are Copyright (C) 2001,2002 Python Software Foundation, and were written by Barry Warsaw." ilk="blob" lang="Python" name="wsgiref.headers">
+      <scope doc="Manage a collection of HTTP response headers&#10;" ilk="class" line="30" lineend="169" name="Headers">
+        <scope doc="Delete all occurrences of a header, if present." ilk="function" line="48" lineend="54" name="__delitem__" signature="__delitem__(name)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return first matching header value for 'name', or 'value'" ilk="function" line="133" lineend="143" name="setdefault" returns="get()" signature="setdefault(name, value)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="get()" line="138" name="result" />
+        </scope>
+        <scope doc="Get the first header value for 'name'" ilk="function" line="56" lineend="65" name="__getitem__" returns="self.get()" signature="__getitem__(name)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return true if the message contains the header." ilk="function" line="71" name="__contains__" />
+        <scope doc="Return a list of all the header field names." ilk="function" line="95" lineend="103" name="keys" returns="list" signature="keys()">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get all the header fields and values." ilk="function" line="115" lineend="123" name="items" returns="list" signature="items()">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope doc="suitable for direct HTTP transmission." ilk="function" line="128" lineend="131" name="__str__" returns="str.join()" signature="str() returns the formatted headers, complete with end line,">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of all the values for the named field." ilk="function" line="74" lineend="83" name="get_all" returns="list" signature="get_all(name)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Extended header setting." ilk="function" line="145" lineend="169" name="add_header" signature="add_header(_name, _value, **_params)">
+          <variable ilk="argument" name="_value" />
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable citdl="list" line="161" name="parts" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable ilk="argument" name="_name" />
+        </scope>
+        <scope doc="Set the value of a header." ilk="function" line="43" lineend="46" name="__setitem__" signature="__setitem__(name, val)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="val" />
+        </scope>
+        <scope doc="Return true if the message contains the header." ilk="function" line="67" lineend="69" name="has_key" returns="bool" signature="has_key(name)">
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return a list of all header values." ilk="function" line="105" lineend="113" name="values" returns="list" signature="values()">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="34" lineend="37" name="__init__" signature="Headers(headers)">
+          <variable ilk="argument" name="headers" />
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get the first header value for 'name', or return 'default'" ilk="function" line="86" lineend="92" name="get" returns="v" signature="get(name, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Headers" ilk="argument" name="self" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the total number of headers, including duplicates." ilk="function" line="39" lineend="41" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="125" lineend="126" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Headers" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="37" name="_headers" />
+      </scope>
+      <scope classrefs="object" doc="list() -&gt; new empty list&#10;list(iterable) -&gt; new list initialized from iterable's items" ilk="class" name="ListType">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Raises IndexError if list is empty or index is out of range." ilk="function" name="pop" signature="L.pop([index]) -&gt; item -- remove and return item at index (default last)." />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="L.remove(value)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="size of L in memory, in bytes" ilk="function" name="__sizeof__" signature="L.__sizeof__()" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="L.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="L.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="Raises ValueError if the value is not present." ilk="function" name="index" returns="int" signature="L.index(value, [start, [stop]]) -&gt; integer -- return first index of value." />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="append object to end" ilk="function" name="append" signature="L.append(object)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="stable sort *IN PLACE*;" ilk="function" name="sort" signature="L.sort(cmp=None, key=None, reverse=False)&#10;cmp(x, y) -&gt; -1, 0, 1" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="insert object before index" ilk="function" name="insert" signature="L.insert(index, object)" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="L.reverse()" />
+        <scope doc="extend list by appending elements from the iterable" ilk="function" name="extend" signature="L.extend(iterable)" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="return a reverse iterator over the list" ilk="function" name="__reversed__" signature="L.__reversed__()" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="object" doc="tuple() -&gt; empty tuple&#10;tuple(iterable) -&gt; tuple initialized from iterable's items  If the argument is a tuple, the return value is the same object." ilk="class" name="TupleType">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="size of T in memory, in bytes" ilk="function" name="__sizeof__" signature="T.__sizeof__()" />
+        <scope doc="Raises ValueError if the value is not present." ilk="function" name="index" returns="int" signature="T.index(value, [start, [stop]]) -&gt; integer -- return first index of value." />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="T.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="T.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="13" name="tspecials" />
+      <scope attributes="protected __hidden__" doc="Convenience function to format and return a key=value pair." ilk="function" line="15" lineend="27" name="_formatparam" returns="tuple" signature="_formatparam(param, value=None, quote=1)">
+        <variable ilk="argument" name="param" />
+        <variable ilk="argument" name="value" />
+        <variable citdl="int" ilk="argument" name="quote" />
+      </scope>
+    </scope>
+    

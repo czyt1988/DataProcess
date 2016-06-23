@@ -1,0 +1,61 @@
+<scope doc="Statistics analyzer for HotShot.&#10;" ilk="blob" lang="Python" name="hotshot.stats">
+      <variable citdl="int" name="ENTER" />
+      <variable citdl="int" name="EXIT" />
+      <scope doc="&#10;" ilk="class" line="79" lineend="83" name="FakeCode">
+        <scope ilk="function" line="80" lineend="83" name="__init__" signature="FakeCode(filename, firstlineno, funcname)">
+          <variable citdl="FakeCode" ilk="argument" name="self" />
+          <variable ilk="argument" name="funcname" />
+          <variable ilk="argument" name="firstlineno" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" line="83" name="co_name" />
+        <variable attributes="__instancevar__" line="82" name="co_firstlineno" />
+        <variable attributes="__instancevar__" line="81" name="co_filename" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="86" lineend="89" name="FakeFrame">
+        <scope ilk="function" line="87" lineend="89" name="__init__" signature="FakeFrame(code, back)">
+          <variable citdl="FakeFrame" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="back" />
+        </scope>
+        <variable attributes="__instancevar__" line="89" name="f_code" />
+        <variable attributes="__instancevar__" line="88" name="f_back" />
+      </scope>
+      <scope classrefs="Profile" doc="&#10;" ilk="class" line="74" lineend="76" name="Profile">
+        <scope ilk="function" line="75" lineend="76" name="simulate_cmd_complete" signature="simulate_cmd_complete()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="15" lineend="71" name="StatsLoader">
+        <scope ilk="function" line="22" lineend="52" name="load" returns="pstats.Stats()" signature="load()">
+          <variable citdl="Profile()" line="25" name="p" />
+          <variable citdl="StatsLoader" ilk="argument" name="self" />
+          <variable citdl="int" line="28" name="taccum" />
+          <variable citdl="hotshot.log.LogReader()" line="27" name="log" />
+          <variable citdl="self.new_frame()" line="40" name="frame" />
+        </scope>
+        <scope ilk="function" line="54" lineend="71" name="new_frame" returns="FakeFrame()" signature="new_frame(*args)">
+          <variable citdl="StatsLoader" ilk="argument" name="self" />
+          <variable citdl="FakeCode()" line="59" name="code" />
+          <variable line="66" name="back" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="FakeFrame()" line="69" name="frame" />
+        </scope>
+        <scope ilk="function" line="16" lineend="20" name="__init__" signature="StatsLoader(logfn)">
+          <variable citdl="StatsLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="logfn" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="dict" line="18" name="_code" />
+        <variable attributes="protected __instancevar__" citdl="list" line="19" name="_stack" />
+        <variable attributes="protected __instancevar__" line="17" name="_logfn" />
+        <variable attributes="__instancevar__" citdl="self._stack.pop" line="20" name="pop_frame" />
+      </scope>
+      <import module="hotshot" />
+      <scope ilk="function" line="11" lineend="12" name="load" signature="load(filename)">
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="profile" />
+      <import module="pstats" />
+      <scope attributes="protected __hidden__" ilk="function" line="92" lineend="93" name="_brokentimer" signature="_brokentimer()" />
+    </scope>
+    

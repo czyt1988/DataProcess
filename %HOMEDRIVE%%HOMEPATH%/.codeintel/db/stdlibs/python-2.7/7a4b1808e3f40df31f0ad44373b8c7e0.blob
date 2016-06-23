@@ -1,0 +1,218 @@
+<scope doc="Tokenization help for Python programs.&#10;generate_tokens(readline) is a generator that breaks a stream of text into Python tokens.  It accepts a readline-like method which is called repeatedly to get the next line of input (or &quot;&quot; for EOF).  It generates 5-tuples with these members:  the token type (see token.py) the token (a string) the starting (row, column) indices of the token (a 2-tuple of ints) the ending (row, column) indices of the token (a 2-tuple of ints) the original line (string)" ilk="blob" lang="Python" name="lib2to3.pgen2.tokenize">
+      <variable citdl="int" name="AMPER" />
+      <variable citdl="int" name="AMPEREQUAL" />
+      <variable citdl="int" name="AT" />
+      <variable citdl="int" name="BACKQUOTE" />
+      <variable citdl="str" name="BOM_UTF8" />
+      <variable citdl="str" line="57" name="Binnumber" />
+      <variable citdl="str" line="90" name="Bracket" />
+      <variable citdl="int" name="CIRCUMFLEX" />
+      <variable citdl="int" name="CIRCUMFLEXEQUAL" />
+      <variable citdl="int" name="COLON" />
+      <variable citdl="int" name="COMMA" />
+      <variable citdl="int" name="COMMENT" />
+      <variable citdl="str" line="53" name="Comment" />
+      <variable citdl="str" line="98" name="ContStr" />
+      <variable citdl="int" name="DEDENT" />
+      <variable citdl="int" name="DOT" />
+      <variable citdl="int" name="DOUBLESLASH" />
+      <variable citdl="int" name="DOUBLESLASHEQUAL" />
+      <variable citdl="int" name="DOUBLESTAR" />
+      <variable citdl="int" name="DOUBLESTAREQUAL" />
+      <variable citdl="str" line="60" name="Decnumber" />
+      <variable citdl="str" line="72" name="Double" />
+      <variable citdl="str" line="76" name="Double3" />
+      <variable citdl="int" name="ENDMARKER" />
+      <variable citdl="int" name="EQEQUAL" />
+      <variable citdl="int" name="EQUAL" />
+      <variable citdl="int" name="ERRORTOKEN" />
+      <variable citdl="str" line="64" name="Expfloat" />
+      <variable citdl="str" line="62" name="Exponent" />
+      <variable citdl="str" line="65" name="Floatnumber" />
+      <variable citdl="str" line="92" name="Funny" />
+      <variable citdl="int" name="GREATER" />
+      <variable citdl="int" name="GREATEREQUAL" />
+      <variable citdl="str" line="58" name="Hexnumber" />
+      <variable citdl="int" name="INDENT" />
+      <scope ilk="function" name="ISEOF" signature="ISEOF(x)" />
+      <scope ilk="function" name="ISNONTERMINAL" signature="ISNONTERMINAL(x)" />
+      <scope ilk="function" name="ISTERMINAL" signature="ISTERMINAL(x)" />
+      <variable citdl="str" line="54" name="Ignore" />
+      <variable citdl="str" line="66" name="Imagnumber" />
+      <variable citdl="str" line="61" name="Intnumber" />
+      <variable citdl="int" name="LBRACE" />
+      <variable citdl="int" name="LEFTSHIFT" />
+      <variable citdl="int" name="LEFTSHIFTEQUAL" />
+      <variable citdl="int" name="LESS" />
+      <variable citdl="int" name="LESSEQUAL" />
+      <variable citdl="int" name="LPAR" />
+      <variable citdl="int" name="LSQB" />
+      <variable citdl="int" name="MINEQUAL" />
+      <variable citdl="int" name="MINUS" />
+      <variable citdl="int" name="NAME" />
+      <variable citdl="int" name="NEWLINE" />
+      <variable citdl="int" name="NL" />
+      <variable citdl="int" name="NOTEQUAL" />
+      <variable citdl="int" name="NT_OFFSET" />
+      <variable citdl="int" name="NUMBER" />
+      <variable citdl="int" name="N_TOKENS" />
+      <variable citdl="str" line="55" name="Name" />
+      <variable citdl="str" line="67" name="Number" />
+      <variable citdl="int" name="OP" />
+      <variable citdl="str" line="59" name="Octnumber" />
+      <variable citdl="str" line="85" name="Operator" />
+      <variable citdl="int" name="PERCENT" />
+      <variable citdl="int" name="PERCENTEQUAL" />
+      <variable citdl="int" name="PLUS" />
+      <variable citdl="int" name="PLUSEQUAL" />
+      <variable citdl="str" line="94" name="PlainToken" />
+      <variable citdl="str" line="63" name="Pointfloat" />
+      <variable citdl="str" line="102" name="PseudoExtras" />
+      <variable citdl="str" line="103" name="PseudoToken" />
+      <variable citdl="int" name="RARROW" />
+      <variable citdl="int" name="RBRACE" />
+      <variable citdl="int" name="RIGHTSHIFT" />
+      <variable citdl="int" name="RIGHTSHIFTEQUAL" />
+      <variable citdl="int" name="RPAR" />
+      <variable citdl="int" name="RSQB" />
+      <variable citdl="int" name="SEMI" />
+      <variable citdl="int" name="SLASH" />
+      <variable citdl="int" name="SLASHEQUAL" />
+      <variable citdl="int" name="STAR" />
+      <variable citdl="int" name="STAREQUAL" />
+      <variable citdl="int" name="STRING" />
+      <variable citdl="str" line="70" name="Single" />
+      <variable citdl="str" line="74" name="Single3" />
+      <variable citdl="str" line="91" name="Special" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="152" lineend="152" name="StopTokenizing" />
+      <variable citdl="str" line="79" name="String" />
+      <variable citdl="int" name="TILDE" />
+      <variable citdl="str" line="95" name="Token" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="150" lineend="150" name="TokenError" />
+      <variable citdl="str" line="77" name="Triple" />
+      <scope doc="&#10;" ilk="class" line="183" lineend="237" name="Untokenizer">
+        <scope ilk="function" line="211" lineend="237" name="compat" signature="compat(token, iterable)">
+          <variable citdl="False" line="212" name="startline" />
+          <variable citdl="Untokenizer" ilk="argument" name="self" />
+          <variable ilk="argument" name="token" />
+          <variable citdl="list" line="213" name="indents" />
+          <variable citdl="self.tokens.append" line="214" name="toks_append" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope ilk="function" line="190" lineend="195" name="add_whitespace" signature="add_whitespace(start)">
+          <variable ilk="argument" name="start" />
+          <variable citdl="Untokenizer" ilk="argument" name="self" />
+          <variable citdl="col" line="193" name="col_offset" />
+        </scope>
+        <scope ilk="function" line="197" lineend="209" name="untokenize" returns="str.join()" signature="untokenize(iterable)">
+          <variable citdl="Untokenizer" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope ilk="function" line="185" lineend="188" name="__init__" signature="Untokenizer()">
+          <variable citdl="Untokenizer" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="186" name="tokens" />
+        <variable attributes="__instancevar__" citdl="int" line="188" name="prev_col" />
+        <variable attributes="__instancevar__" citdl="int" line="187" name="prev_row" />
+      </scope>
+      <variable citdl="int" name="VBAR" />
+      <variable citdl="int" name="VBAREQUAL" />
+      <variable citdl="str" line="52" name="Whitespace" />
+      <variable citdl="list" line="37" name="__all__" />
+      <variable citdl="str" line="28" name="__author__" />
+      <variable citdl="str" line="29" name="__credits__" />
+      <scope ilk="function" line="49" lineend="49" name="any" returns="group()" signature="any(*choices)">
+        <variable attributes="varargs" ilk="argument" name="choices" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="239" name="cookie_re" />
+      <scope doc="The detect_encoding() function is used to detect the&#10;encoding that should be used to decode a Python source file." ilk="function" line="252" lineend="322" name="detect_encoding" returns="tuple" signature="detect_encoding(readline)">
+        <variable citdl="find_cookie()" line="271" name="encoding" />
+        <variable citdl="str" line="272" name="default" />
+        <variable citdl="False" line="270" name="bom_found" />
+        <scope ilk="function" line="273" lineend="277" name="read_or_stop" returns="bytes()" signature="read_or_stop()" />
+        <variable citdl="read_or_stop()" line="314" name="second" />
+        <scope ilk="function" line="279" lineend="300" name="find_cookie" returns="_get_normal_name()" signature="find_cookie(line)">
+          <variable ilk="argument" name="line" />
+          <variable citdl="line.decode()" line="281" name="line_string" />
+          <variable citdl="cookie_re.findall()" line="285" name="matches" />
+          <variable citdl="_get_normal_name()" line="288" name="encoding" />
+          <variable citdl="lookup()" line="290" name="codec" />
+        </scope>
+        <variable ilk="argument" name="readline" />
+        <variable citdl="read_or_stop()" line="302" name="first" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="105" name="double3prog" />
+      <variable citdl="dict" line="107" name="endprogs" />
+      <scope doc="The generate_tokens() generator requires one argment,&#10;readline, which must be a callable object which provides the&#10;same interface as the readline() method of built-in file&#10;objects." ilk="function" line="345" lineend="495" name="generate_tokens" signature="generate_tokens(readline)">
+        <variable citdl="int" line="361" name="lnum" />
+        <variable citdl="endmatch.end()" line="373" name="pos" />
+        <variable citdl="string.ascii_letters" line="362" name="namechars" />
+        <variable citdl="readline()" line="369" name="line" />
+        <variable citdl="tuple" line="462" name="strstart" />
+        <variable citdl="tuple" line="440" name="epos" />
+        <variable line="439" name="end" />
+        <variable line="441" name="initial" />
+        <variable citdl="int" line="363" name="needcont" />
+        <variable citdl="list" line="441" name="token" />
+        <variable line="439" name="start" />
+        <variable citdl="NEWLINE" line="447" name="newline" />
+        <variable citdl="len()" line="373" name="max" />
+        <variable citdl="endprog.match()" line="378" name="endmatch" />
+        <variable citdl="tuple" line="440" name="spos" />
+        <variable citdl="list" line="365" name="indents" />
+        <variable citdl="readline()" line="364" name="contline" />
+        <variable ilk="argument" name="readline" />
+        <variable citdl="int" line="434" name="continued" />
+        <variable line="409" name="comment_token" />
+        <variable citdl="pseudoprog.match()" line="437" name="pseudomatch" />
+        <variable citdl="int" line="398" name="column" />
+        <variable citdl="endmatch.end()" line="410" name="nl_pos" />
+        <variable line="455" name="endprog" />
+        <variable citdl="str" line="363" name="contstr" />
+        <variable citdl="str" line="362" name="numchars" />
+        <variable citdl="int" line="485" name="parenlev" />
+      </scope>
+      <scope ilk="function" line="48" lineend="48" name="group" returns="str" signature="group(*choices)">
+        <variable attributes="varargs" ilk="argument" name="choices" />
+      </scope>
+      <scope doc="Looks up a codec tuple in the Python codec registry and&#10;returns a CodecInfo object." ilk="function" name="lookup" signature="lookup(encoding) -&gt; CodecInfo" />
+      <scope ilk="function" line="50" lineend="50" name="maybe" returns="group()" signature="maybe(*choices)">
+        <variable attributes="varargs" ilk="argument" name="choices" />
+      </scope>
+      <scope ilk="function" line="154" lineend="158" name="printtoken" signature="printtoken(type, token, start, end, line)">
+        <variable ilk="argument" name="start" />
+        <variable ilk="argument" name="token" />
+        <variable ilk="argument" name="end" />
+        <variable ilk="argument" name="line" />
+        <variable ilk="argument" name="type" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="105" name="pseudoprog" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="105" name="single3prog" />
+      <variable citdl="dict" line="137" name="single_quoted" />
+      <import module="string" />
+      <variable citdl="str" name="t" />
+      <variable citdl="int" line="148" name="tabsize" />
+      <variable citdl="dict" name="tok_name" />
+      <scope doc="The tokenize() function accepts two parameters: one&#10;representing the input stream, and one providing an output&#10;mechanism for tokenize()." ilk="function" line="160" lineend="176" name="tokenize" signature="tokenize(readline, tokeneater=&lt;function printtoken at 0x04285130&gt;)">
+        <variable citdl="printtoken" ilk="argument" name="tokeneater" />
+        <variable ilk="argument" name="readline" />
+      </scope>
+      <scope doc="# backwards compatible interface" ilk="function" line="179" lineend="181" name="tokenize_loop" signature="tokenize_loop(readline, tokeneater)">
+        <variable ilk="argument" name="tokeneater" />
+        <variable ilk="argument" name="readline" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="105" name="tokenprog" />
+      <variable citdl="dict" line="127" name="triple_quoted" />
+      <scope doc="Transform tokens back into Python source code." ilk="function" line="324" lineend="343" name="untokenize" returns="ut.untokenize()" signature="untokenize(iterable)">
+        <variable citdl="Untokenizer" line="342" name="ut" />
+        <variable ilk="argument" name="iterable" />
+      </scope>
+      <variable citdl="str" name="x" />
+      <variable attributes="__hidden__" citdl="str" line="46" name="bytes" />
+      <scope attributes="protected __hidden__" doc="Imitates get_normal_name in tokenizer.c." ilk="function" line="241" lineend="250" name="_get_normal_name" returns="str" signature="_get_normal_name(orig_enc)">
+        <variable ilk="argument" name="orig_enc" />
+        <variable line="244" name="enc" />
+      </scope>
+    </scope>
+    

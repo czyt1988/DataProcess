@@ -1,0 +1,30 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_multibytecodec">
+      <scope classrefs="object" doc="&#10;" ilk="class" name="MultibyteIncrementalDecoder">
+        <scope ilk="function" name="reset" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="decode" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="MultibyteIncrementalEncoder">
+        <scope ilk="function" name="reset" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="encode" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="MultibyteStreamReader">
+        <scope ilk="function" name="reset" />
+        <scope ilk="function" name="read" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="readlines" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="MultibyteStreamWriter">
+        <scope ilk="function" name="reset" />
+        <scope ilk="function" name="writelines" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+    </scope>
+    

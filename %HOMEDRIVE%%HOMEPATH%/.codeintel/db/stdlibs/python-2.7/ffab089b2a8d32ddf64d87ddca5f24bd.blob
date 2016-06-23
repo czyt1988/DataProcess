@@ -1,0 +1,12 @@
+<scope doc="# Emulation of has_key() function for platforms that don't use ncurses&#10;#" ilk="blob" lang="Python" name="curses.has_key">
+      <import module="_curses" />
+      <scope ilk="function" line="162" lineend="176" name="has_key" returns="bool" signature="has_key(ch)">
+        <variable citdl="ord()" ilk="argument" name="ch" />
+        <variable citdl="_capability_names.get()" line="167" name="capability_name" />
+      </scope>
+      <variable attributes="__hidden__" citdl="has_key()" line="186" name="python" />
+      <variable attributes="protected __hidden__" citdl="dict" line="10" name="_capability_names" />
+      <variable attributes="__hidden__" citdl="list" line="182" name="L" />
+      <variable attributes="__hidden__" citdl="bool" line="185" name="system" />
+    </scope>
+    

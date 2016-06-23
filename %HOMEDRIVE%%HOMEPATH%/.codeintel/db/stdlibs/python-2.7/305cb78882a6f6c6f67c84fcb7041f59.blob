@@ -1,0 +1,364 @@
+<scope doc="Support module for CGI (Common Gateway Interface) scripts.&#10;This module defines a number of utilities for use by CGI scripts written in Python." ilk="blob" lang="Python" name="cgi">
+      <scope doc="Store a sequence of fields, reading multipart/form-data.&#10;This class provides naming, typing, files stored on disk, and more.  At the top level, it is accessible like a dictionary, whose keys are the field names.  (Note: None can occur as a field name.) The items are either a Python list (if there's multiple values) or another FieldStorage or MiniFieldStorage object.  If it's a single object, it has the following attributes:  name: the field name, if specified; otherwise None  filename: the filename, if specified; otherwise None; this is the" ilk="class" line="353" lineend="768" name="FieldStorage">
+        <scope doc="Return list of received values." ilk="function" line="569" lineend="578" name="getlist" returns="map()" signature="getlist(key)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable line="572" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Dictionary style get() method, including 'value' lookup." ilk="function" line="547" lineend="556" name="getvalue" returns="map()" signature="getvalue(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable line="550" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Dictionary style has_key() method." ilk="function" line="586" lineend="590" name="has_key" returns="any()" signature="has_key(key)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Constructor. Read multipart/* until last part." ilk="function" line="396" lineend="510" name="__init__" signature="FieldStorage(fp=None, headers=None, outerboundary='', environ=os.environ, keep_blank_values=0, strict_parsing=0)">
+          <variable citdl="StringIO()" ilk="argument" name="fp" />
+          <variable citdl="str" line="433" name="qs" />
+          <variable citdl="dict" line="458" name="pdict" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="str" line="483" name="ctype" />
+          <variable citdl="int" ilk="argument" name="keep_blank_values" />
+          <variable citdl="dict" ilk="argument" name="headers" />
+          <variable citdl="os.environ" ilk="argument" name="environ" />
+          <variable citdl="int" ilk="argument" name="strict_parsing" />
+          <variable citdl="int" line="493" name="clen" />
+          <variable citdl="str" ilk="argument" name="outerboundary" />
+          <variable citdl="str" line="425" name="method" />
+          <variable citdl="str" line="458" name="cdisp" />
+        </scope>
+        <scope doc="Dictionary style __contains__ method." ilk="function" line="592" lineend="596" name="__contains__" returns="any()" signature="__contains__(key)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Internal: read a part that is itself multipart." ilk="function" line="618" lineend="639" name="read_multi" signature="read_multi(environ, keep_blank_values, strict_parsing)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="keep_blank_values" />
+          <variable citdl="rfc822.Message()" line="635" name="headers" />
+          <variable citdl="klass()" line="631" name="part" />
+          <variable ilk="argument" name="environ" />
+          <variable citdl="self.__class__" line="630" name="klass" />
+          <variable ilk="argument" name="strict_parsing" />
+          <variable line="628" name="FieldStorageClass" />
+          <variable citdl="str" line="620" name="ib" />
+        </scope>
+        <scope ilk="function" line="520" lineend="531" name="__getattr__" returns="self.file.read()" signature="__getattr__(name)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.file.read()" line="525" name="value" />
+        </scope>
+        <scope doc="Internal: read lines until outerboundary." ilk="function" line="690" lineend="720" name="read_lines_to_outerboundary" signature="read_lines_to_outerboundary()">
+          <variable citdl="str" line="693" name="last" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="str" line="694" name="delim" />
+          <variable citdl="True" line="695" name="last_line_lfend" />
+          <variable citdl="str" line="692" name="next" />
+          <variable citdl="list" line="697" name="line" />
+          <variable citdl="line.strip()" line="702" name="strippedline" />
+          <variable citdl="str" line="708" name="odelim" />
+        </scope>
+        <scope doc="Internal: read lines until EOF or outerboundary." ilk="function" line="665" lineend="671" name="read_lines" signature="read_lines()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: read data in query string format." ilk="function" line="605" lineend="614" name="read_urlencoded" signature="read_urlencoded()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="self.fp.read()" line="607" name="qs" />
+        </scope>
+        <scope doc="Internal: read an atomic part." ilk="function" line="641" lineend="648" name="read_single" signature="read_single()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Dictionary style len(x) support." ilk="function" line="598" lineend="600" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Dictionary style indexing." ilk="function" line="533" lineend="545" name="__getitem__" returns="list" signature="__getitem__(key)">
+          <variable citdl="list" line="537" name="found" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Dictionary style keys() method." ilk="function" line="580" lineend="584" name="keys" returns="FieldStorage.list()" signature="keys()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: skip lines until outer boundary if defined." ilk="function" line="722" lineend="741" name="skip_lines" signature="skip_lines()">
+          <variable citdl="str" line="727" name="last" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="line.endswith()" line="728" name="last_line_lfend" />
+          <variable citdl="line.strip()" line="735" name="strippedline" />
+          <variable citdl="self.fp.readline()" line="730" name="line" />
+          <variable citdl="str" line="726" name="next" />
+        </scope>
+        <scope ilk="function" line="517" lineend="518" name="__iter__" returns="iter()" signature="__iter__()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: read lines until EOF." ilk="function" line="681" lineend="688" name="read_lines_to_eof" signature="read_lines_to_eof()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="684" name="line" />
+        </scope>
+        <scope ilk="function" line="602" lineend="603" name="__nonzero__" returns="bool()" signature="__nonzero__()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Overridable: return a readable &amp; writable file." ilk="function" line="743" lineend="768" name="make_file" returns="tempfile.TemporaryFile()" signature="make_file(binary=None)">
+          <variable ilk="argument" name="binary" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_FieldStorage__write" />
+        <scope doc="Return a printable representation." ilk="function" line="512" lineend="515" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: read binary data." ilk="function" line="652" lineend="663" name="read_binary" signature="read_binary()">
+          <variable citdl="self.fp.read()" line="658" name="data" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable citdl="int()" line="655" name="todo" />
+        </scope>
+        <scope doc="Return the first value received." ilk="function" line="558" lineend="567" name="getfirst" returns="value.value" signature="getfirst(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable line="561" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="sys.stdin" line="453" name="fp" />
+        <variable attributes="__instancevar__" citdl="dict" line="462" name="disposition_options" />
+        <variable attributes="__instancevar__" citdl="str" line="490" name="innerboundary" />
+        <variable attributes="__instancevar__" citdl="dict" line="489" name="type_options" />
+        <variable attributes="__instancevar__" citdl="str" line="461" name="disposition" />
+        <variable attributes="private __instancevar__" line="678" name="__file" />
+        <scope attributes="private" ilk="function" line="673" lineend="679" name="__write" signature="__write(line)">
+          <variable citdl="FieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="503" name="list" />
+        <variable attributes="__instancevar__" line="466" name="filename" />
+        <variable attributes="__instancevar__" citdl="int" line="426" name="keep_blank_values" />
+        <variable attributes="__instancevar__" citdl="dict" line="454" name="headers" />
+        <variable attributes="__instancevar__" citdl="int" line="501" name="length" />
+        <variable attributes="__instancevar__" citdl="int" line="504" name="done" />
+        <variable attributes="__instancevar__" citdl="StringIO()" line="654" name="file" />
+        <variable attributes="__instancevar__" line="430" name="qs_on_post" />
+        <variable attributes="__instancevar__" citdl="int" line="427" name="strict_parsing" />
+        <variable line="616" name="FieldStorageClass" />
+        <variable attributes="__instancevar__" citdl="str" line="455" name="outerboundary" />
+        <variable citdl="int" line="650" name="bufsize" />
+        <variable attributes="__instancevar__" citdl="str" line="488" name="type" />
+        <variable attributes="__instancevar__" line="463" name="name" />
+      </scope>
+      <scope classrefs="FormContentDict" doc="This class is present for backwards compatibility only.&#10;" ilk="class" line="857" lineend="877" name="FormContent">
+        <scope ilk="function" line="873" lineend="875" name="stripped" signature="stripped(key)">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="868" lineend="870" name="value" signature="value(key)">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="862" lineend="867" name="indexed_value" signature="indexed_value(key, location)">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+          <variable ilk="argument" name="location" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="871" lineend="872" name="length" returns="len()" signature="length(key)">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="859" lineend="861" name="values" signature="values(key)">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="876" lineend="877" name="pars" returns="self.dict" signature="pars()">
+          <variable citdl="FormContent" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="UserDict" doc="Form content as dictionary with a list of values per field.&#10;form = FormContentDict()  form[key] -&gt; [value, value, ...] key in form -&gt; Boolean form.keys() -&gt; [key, key, ...] form.values() -&gt; [[val, val, ...], [val, val, ...], ...] form.items() -&gt;  [(key, [val, val, ...]), (key, [val, val, ...]), ...] form.dict == {key: [val, val, ...], ...}" ilk="class" line="775" lineend="792" name="FormContentDict">
+        <scope ilk="function" line="788" lineend="792" name="__init__" signature="FormContentDict(environ=os.environ, keep_blank_values=0, strict_parsing=0)">
+          <variable citdl="int" ilk="argument" name="keep_blank_values" />
+          <variable citdl="int" ilk="argument" name="strict_parsing" />
+          <variable citdl="FormContentDict" ilk="argument" name="self" />
+          <variable citdl="os.environ" ilk="argument" name="environ" />
+        </scope>
+        <variable attributes="__instancevar__" line="792" name="query_string" />
+        <variable attributes="__instancevar__" citdl="parse()" line="789" name="dict" />
+      </scope>
+      <scope classrefs="SvFormContentDict" doc="This class is present for backwards compatibility only.&#10;" ilk="class" line="829" lineend="854" name="InterpFormContentDict">
+        <scope ilk="function" line="847" lineend="854" name="items" returns="list" signature="items()">
+          <variable citdl="InterpFormContentDict" ilk="argument" name="self" />
+          <variable citdl="list" line="848" name="result" />
+        </scope>
+        <scope ilk="function" line="839" lineend="846" name="values" returns="list" signature="values()">
+          <variable citdl="InterpFormContentDict" ilk="argument" name="self" />
+          <variable citdl="list" line="840" name="result" />
+        </scope>
+        <scope ilk="function" line="831" lineend="838" name="__getitem__" returns="int()" signature="__getitem__(key)">
+          <variable citdl="InterpFormContentDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="SvFormContentDict.__getitem__()" line="832" name="v" />
+        </scope>
+      </scope>
+      <scope doc="Like FieldStorage, for use when no file uploads are possible.&#10;" ilk="class" line="328" lineend="350" name="MiniFieldStorage">
+        <scope doc="Return printable representation." ilk="function" line="348" lineend="350" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="MiniFieldStorage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructor from field name and value." ilk="function" line="342" lineend="345" name="__init__" signature="MiniFieldStorage(name, value)">
+          <variable citdl="MiniFieldStorage" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <variable citdl="dict" line="339" name="disposition_options" />
+        <variable line="336" name="file" />
+        <variable line="334" name="list" />
+        <variable attributes="__instancevar__" line="345" name="value" />
+        <variable line="333" name="filename" />
+        <variable citdl="dict" line="340" name="headers" />
+        <variable line="338" name="disposition" />
+        <variable citdl="dict" line="337" name="type_options" />
+        <variable line="335" name="type" />
+        <variable attributes="__instancevar__" line="344" name="name" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <scope classrefs="FormContentDict" doc="Form content as dictionary expecting a single value per field.&#10;If you only expect a single value for each field, then form[key] will return that single value.  It will raise an IndexError if that expectation is not true.  If you expect a field to have possible multiple values, than you can use form.getlist(key) to get all of the values.  values() and items() are a compromise: they return single strings where there is a single value, and lists of strings otherwise." ilk="class" line="795" lineend="826" name="SvFormContentDict">
+        <scope ilk="function" line="807" lineend="810" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="SvFormContentDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="820" lineend="826" name="items" returns="list" signature="items()">
+          <variable citdl="SvFormContentDict" ilk="argument" name="self" />
+          <variable citdl="list" line="821" name="result" />
+        </scope>
+        <scope ilk="function" line="811" lineend="812" name="getlist" signature="getlist(key)">
+          <variable citdl="SvFormContentDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="813" lineend="819" name="values" returns="list" signature="values()">
+          <variable citdl="SvFormContentDict" ilk="argument" name="self" />
+          <variable citdl="list" line="814" name="result" />
+        </scope>
+      </scope>
+      <import module="UserDict" />
+      <variable citdl="list" line="59" name="__all__" />
+      <variable citdl="str" line="31" name="__version__" />
+      <scope classrefs="object" doc="attrgetter(attr, ...) --&gt; attrgetter object&#10;Return a callable object that fetches the given attribute(s) from its operand. After, f=attrgetter('name'), the call f(r) returns r.name. After, g=attrgetter('name', 'date'), the call g(r) returns (r.name, r.date). After, h=attrgetter('name.first', 'name.last'), the call h(r) returns (r.name.first, r.name.last)." ilk="class" name="attrgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope classrefs="object" doc="A context manager that copies and restores the warnings filter upon&#10;exiting the context.  The 'record' argument specifies whether warnings should be captured by a custom implementation of warnings.showwarning() and be appended to a list returned by the context manager. Otherwise None is returned by the context manager. The objects appended to the list are arguments whose attributes mirror the arguments to showwarning().  The 'module' argument is to specify an alternative module to the module named 'warnings' and imported under that name. This argument is only useful" ilk="class" name="catch_warnings">
+        <scope ilk="function" name="__exit__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__enter__" />
+        <scope doc="Specify whether to record warnings and if an alternative&#10;module should be used other than sys.modules['warnings']." ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Write a log message to the log file. See initlog() for docs." ilk="function" line="107" lineend="109" name="dolog" signature="dolog(fmt, *args)">
+        <variable ilk="argument" name="fmt" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Replace special characters &quot;&amp;&quot;, &quot;&lt;&quot; and &quot;&gt;&quot; to HTML-safe&#10;sequences." ilk="function" line="1031" lineend="1040" name="escape" returns="s.replace()" signature="escape(s, quote=None)">
+        <variable ilk="argument" name="quote" />
+        <variable citdl="s.replace()" ilk="argument" name="s" />
+      </scope>
+      <scope doc="Insert an entry into the list of warnings filters (at the&#10;front)." ilk="function" name="filterwarnings" signature="filterwarnings(action, message='', category=&lt;type 'exceptions.Warning'&gt;, module='', lineno=0, append=0)" />
+      <scope doc="Write a log message, if there is a log file." ilk="function" line="72" lineend="105" name="initlog" signature="initlog(*allargs)">
+        <variable citdl="open()" line="98" name="logfp" />
+        <variable attributes="varargs" ilk="argument" name="allargs" />
+        <variable citdl="dolog" line="102" name="log" />
+      </scope>
+      <scope doc="Write a log message, if there is a log file." ilk="function" line="115" name="log" signature="log(*allargs)" />
+      <variable citdl="str" line="69" name="logfile" />
+      <variable citdl="NoneType" line="70" name="logfp" />
+      <variable citdl="int" line="123" name="maxlen" />
+      <import module="mimetools" />
+      <scope doc="Dummy function, assigned to log when logging is disabled." ilk="function" line="111" lineend="113" name="nolog" signature="nolog(*allargs)">
+        <variable attributes="varargs" ilk="argument" name="allargs" />
+      </scope>
+      <import module="os" />
+      <scope doc="Parse a query in the environment or from a file (default&#10;stdin)" ilk="function" line="125" lineend="175" name="parse" returns="parse_multipart()" signature="parse(fp=None, environ=os.environ, keep_blank_values=0, strict_parsing=0)">
+        <variable citdl="sys.stdin" ilk="argument" name="fp" />
+        <variable citdl="str" line="157" name="qs" />
+        <variable line="150" name="pdict" />
+        <variable line="150" name="ctype" />
+        <variable citdl="int" ilk="argument" name="keep_blank_values" />
+        <variable citdl="os.environ" ilk="argument" name="environ" />
+        <variable citdl="int" ilk="argument" name="strict_parsing" />
+        <variable citdl="int()" line="154" name="clength" />
+      </scope>
+      <scope doc="Parse a Content-type like header." ilk="function" line="304" lineend="322" name="parse_header" returns="tuple" signature="parse_header(line)">
+        <variable citdl="dict" line="312" name="pdict" />
+        <variable citdl="p.find()" line="314" name="i" />
+        <variable citdl="list" line="317" name="value" />
+        <variable citdl="_parseparam()" line="310" name="parts" />
+        <variable citdl="parts.next()" line="311" name="key" />
+        <variable ilk="argument" name="line" />
+        <variable line="316" name="name" />
+      </scope>
+      <scope doc="Parse multipart input." ilk="function" line="194" lineend="289" name="parse_multipart" returns="dict" signature="parse_multipart(fp, pdict)">
+        <variable ilk="argument" name="fp" />
+        <variable ilk="argument" name="pdict" />
+        <variable citdl="list" line="250" name="lines" />
+        <variable citdl="dict" line="228" name="partdict" />
+        <variable citdl="int" line="232" name="bytes" />
+        <variable line="281" name="name" />
+        <variable citdl="str" line="226" name="nextpart" />
+        <variable citdl="mimetools.Message()" line="236" name="headers" />
+        <variable line="277" name="params" />
+        <variable citdl="str" line="229" name="terminator" />
+        <variable line="277" name="key" />
+        <variable citdl="list" line="252" name="line" />
+        <variable citdl="headers.getheader()" line="237" name="clength" />
+        <variable citdl="fp.read()" line="233" name="data" />
+        <variable citdl="str" line="219" name="boundary" />
+        <variable citdl="str" line="227" name="lastpart" />
+      </scope>
+      <scope doc="Parse a query given as a string argument." ilk="function" line="181" lineend="185" name="parse_qs" returns="urlparse.parse_qs()" signature="parse_qs(qs, keep_blank_values=0, strict_parsing=0)">
+        <variable citdl="int" ilk="argument" name="keep_blank_values" />
+        <variable citdl="int" ilk="argument" name="strict_parsing" />
+        <variable ilk="argument" name="qs" />
+      </scope>
+      <scope doc="Parse a query given as a string argument." ilk="function" line="188" lineend="192" name="parse_qsl" returns="urlparse.parse_qsl()" signature="parse_qsl(qs, keep_blank_values=0, strict_parsing=0)">
+        <variable citdl="int" ilk="argument" name="keep_blank_values" />
+        <variable citdl="int" ilk="argument" name="strict_parsing" />
+        <variable ilk="argument" name="qs" />
+      </scope>
+      <scope ilk="function" line="977" lineend="982" name="print_arguments" signature="print_arguments()" />
+      <scope doc="Dump the current directory as HTML." ilk="function" line="965" lineend="975" name="print_directory" signature="print_directory()">
+        <variable citdl="os.getcwd()" line="970" name="pwd" />
+      </scope>
+      <scope doc="Dump the shell environment as HTML." ilk="function" line="936" lineend="946" name="print_environ" signature="print_environ(environ=os.environ)">
+        <variable citdl="environ.keys()" line="938" name="keys" />
+        <variable citdl="os.environ" ilk="argument" name="environ" />
+      </scope>
+      <scope doc="Dump a list of environment variables used by CGI as HTML." ilk="function" line="984" lineend="1025" name="print_environ_usage" signature="print_environ_usage()" />
+      <scope ilk="function" line="922" lineend="934" name="print_exception" signature="print_exception(type=None, value=None, tb=None, limit=None)">
+        <variable ilk="argument" name="tb" />
+        <variable citdl="traceback.format_tb()" line="928" name="list" />
+        <variable ilk="argument" name="limit" />
+        <variable ilk="argument" name="value" />
+        <variable ilk="argument" name="type" />
+      </scope>
+      <scope doc="Dump the contents of a form as HTML." ilk="function" line="948" lineend="963" name="print_form" signature="print_form(form)">
+        <variable citdl="form.keys()" line="950" name="keys" />
+        <variable line="959" name="value" />
+        <variable ilk="argument" name="form" />
+      </scope>
+      <import module="rfc822" />
+      <import module="sys" />
+      <scope doc="Robust test CGI script, usable as main program." ilk="function" line="883" lineend="920" name="test" signature="test(environ=os.environ)">
+        <variable citdl="int" line="912" name="maxlen" />
+        <variable citdl="os.environ" ilk="argument" name="environ" />
+        <scope ilk="function" line="902" lineend="903" name="g" signature="g(f=f)">
+          <variable citdl="test.f" ilk="argument" name="f" />
+        </scope>
+        <variable citdl="FieldStorage" line="894" name="form" />
+        <scope ilk="function" line="900" lineend="901" name="f" signature="f()" />
+      </scope>
+      <import module="urllib" />
+      <import module="urlparse" />
+      <scope ilk="function" line="1042" lineend="1044" name="valid_boundary" returns="re.match()" signature="valid_boundary(s, _vb_pattern='^[ -~]{0,200}[!-~]$')">
+        <variable ilk="argument" name="s" />
+        <variable citdl="str" ilk="argument" name="_vb_pattern" />
+      </scope>
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+      <scope attributes="protected __hidden__" ilk="function" line="292" lineend="302" name="_parseparam" signature="_parseparam(s)">
+        <variable citdl="list" ilk="argument" name="s" />
+        <variable citdl="s.find()" line="295" name="end" />
+        <variable citdl="list" line="300" name="f" />
+      </scope>
+    </scope>
+    

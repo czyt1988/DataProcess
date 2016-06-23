@@ -1,0 +1,476 @@
+<scope doc="Thread module emulating a subset of Java's threading model.&#10;" ilk="blob" lang="Python" name="threading">
+      <scope ilk="function" line="349" lineend="350" name="BoundedSemaphore" returns="_BoundedSemaphore()" signature="BoundedSemaphore(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope ilk="function" line="181" lineend="182" name="Condition" returns="_Condition()" signature="Condition(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope ilk="function" line="364" lineend="365" name="Event" returns="_Event()" signature="Event(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="(allocate() is an obsolete synonym)" ilk="function" line="99" name="Lock" signature="allocate_lock() -&gt; lock object" />
+      <scope ilk="function" line="101" lineend="102" name="RLock" returns="_RLock()" signature="RLock(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope ilk="function" line="301" lineend="302" name="Semaphore" returns="_Semaphore()" signature="Semaphore(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope classrefs="_Verbose" doc="&#10;" ilk="class" line="424" lineend="726" name="Thread">
+        <scope ilk="function" line="697" lineend="699" name="isAlive" returns="bool" signature="isAlive()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="725" lineend="726" name="setName" signature="setName(name)">
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" name="_Thread__bootstrap" />
+        <scope ilk="function" line="719" lineend="720" name="setDaemon" signature="setDaemon(daemonic)">
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable ilk="argument" name="daemonic" />
+        </scope>
+        <scope ilk="function" line="716" lineend="717" name="isDaemon" returns="self._set_daemon()" signature="isDaemon()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="468" lineend="470" name="_set_daemon" signature="_set_daemon()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="436" lineend="454" name="__init__" signature="Thread(group=None, target=None, name=None, args=(), kwargs=None, verbose=None)">
+          <variable ilk="argument" name="group" />
+          <variable ilk="argument" name="verbose" />
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable citdl="dict" ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="target" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="649" lineend="680" name="join" signature="join(timeout=None)">
+          <variable citdl="_time()" line="670" name="delay" />
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable citdl="_time()" line="668" name="deadline" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <scope ilk="function" line="485" lineend="500" name="start" signature="start()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="456" lineend="461" name="_reset_internal_locks" signature="_reset_internal_locks()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="722" lineend="723" name="getName" returns="str()" signature="getName()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="531" lineend="532" name="_set_ident" signature="_set_ident()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove current thread from the dict of currently running&#10;threads." ilk="function" name="_Thread__delete" />
+        <scope ilk="function" line="502" lineend="509" name="run" signature="run()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="472" lineend="483" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="str" line="474" name="status" />
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="701" name="is_alive" />
+        <scope ilk="function" name="_Thread__bootstrap_inner" />
+        <scope ilk="function" name="_Thread__stop" />
+        <scope attributes="private" ilk="function" line="534" lineend="606" name="__bootstrap_inner" signature="__bootstrap_inner()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable line="570" name="exc_value" />
+          <variable citdl="exc_tb.tb_next" line="570" name="exc_tb" />
+          <variable line="570" name="exc_type" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="Event()" line="448" name="__started" />
+        <variable attributes="private" citdl="_sys.exc_info" line="431" name="__exc_info" />
+        <variable attributes="property protected" citdl="Condition()" line="464" name="_block" />
+        <variable attributes="private __instancevar__" citdl="str()" line="443" name="__name" />
+        <variable attributes="private" citdl="False" line="426" name="__initialized" />
+        <scope attributes="__hidden__" ilk="function" line="693" lineend="695" name="ident (property getter)" returns="_get_ident()" signature="ident (property getter)()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="704" lineend="706" name="daemon (property getter)" returns="self._set_daemon()" signature="daemon (property getter)()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="dict" line="445" name="__kwargs" />
+        <scope attributes="private" ilk="function" line="608" lineend="612" name="__stop" signature="__stop()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="_sys.stderr" line="454" name="__stderr" />
+        <variable attributes="private __instancevar__" line="442" name="__target" />
+        <scope attributes="protected __hidden__" ilk="function" line="464" lineend="466" name="_block (property getter)" returns="Condition()" signature="_block (property getter)()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="False" line="449" name="__stopped" />
+        <scope attributes="__hidden__" ilk="function" line="709" lineend="714" name="daemon (property setter)" signature="daemon (property setter)(daemonic)">
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable ilk="argument" name="daemonic" />
+        </scope>
+        <variable attributes="property" citdl="_get_ident()" line="693" name="ident" />
+        <variable attributes="private" citdl="_sys.exc_clear" line="434" name="__exc_clear" />
+        <variable attributes="property" citdl="self._set_daemon()" line="704" name="daemon" />
+        <variable attributes="private __instancevar__" citdl="tuple" line="444" name="__args" />
+        <variable attributes="property" citdl="str()" line="683" name="name" />
+        <variable attributes="private __instancevar__" citdl="Condition()" line="450" name="__block" />
+        <variable attributes="private __instancevar__" citdl="_get_ident()" line="447" name="__ident" />
+        <scope attributes="__hidden__" ilk="function" line="683" lineend="685" name="name (property getter)" returns="str()" signature="name (property getter)()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="private" doc="Remove current thread from the dict of currently running&#10;threads." ilk="function" line="614" lineend="647" name="__delete" signature="__delete()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="688" lineend="690" name="name (property setter)" signature="name (property setter)(name)">
+          <variable citdl="Thread" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope attributes="private" ilk="function" line="511" lineend="529" name="__bootstrap" signature="__bootstrap()">
+          <variable citdl="Thread" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="self._set_daemon()" line="446" name="__daemonic" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="37" name="ThreadError" />
+      <scope ilk="function" line="730" lineend="731" name="Timer" returns="_Timer()" signature="Timer(*args, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <variable citdl="list" line="29" name="__all__" />
+      <import module="_sys" />
+      <scope ilk="function" line="835" lineend="837" name="activeCount" returns="len()" signature="activeCount()" />
+      <scope ilk="function" line="839" name="active_count" signature="active_count()" />
+      <scope ilk="function" line="826" lineend="831" name="currentThread" returns="_DummyThread" signature="currentThread()" />
+      <scope ilk="function" line="833" name="current_thread" signature="current_thread()" />
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope ilk="function" line="845" lineend="847" name="enumerate" returns="_active.values()" signature="enumerate()" />
+      <scope classrefs="object" doc="Thread-local data&#10;" ilk="class" name="local">
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope ilk="function" line="89" lineend="91" name="setprofile" signature="setprofile(func)">
+        <variable attributes="protected" line="91" name="_profile_hook" />
+        <variable ilk="argument" name="func" />
+      </scope>
+      <scope ilk="function" line="93" lineend="95" name="settrace" signature="settrace(func)">
+        <variable ilk="argument" name="func" />
+        <variable attributes="protected" line="95" name="_trace_hook" />
+      </scope>
+      <scope doc="Return the thread stack size used when creating new threads." ilk="function" name="stack_size" signature="stack_size([size]) -&gt; size" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" classrefs="_Semaphore" doc="Semaphore that checks that # releases is &lt;= # acquires" ilk="class" line="352" lineend="361" name="_BoundedSemaphore">
+        <scope attributes="__ctor__" ilk="function" line="354" lineend="356" name="__init__" signature="_BoundedSemaphore(value=1, verbose=None)">
+          <variable citdl="_BoundedSemaphore" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="value" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="356" name="_initial_value" />
+        <scope ilk="function" line="358" lineend="361" name="release" returns="_Semaphore.release()" signature="release()">
+          <variable citdl="_BoundedSemaphore" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="Thread" doc="Call a function after a specified number of seconds:" ilk="class" line="733" lineend="757" name="_Timer">
+        <scope attributes="__ctor__" ilk="function" line="741" lineend="747" name="__init__" signature="_Timer(interval, function, args=[], kwargs={})">
+          <variable citdl="_Timer" ilk="argument" name="self" />
+          <variable ilk="argument" name="interval" />
+          <variable ilk="argument" name="function" />
+          <variable citdl="list" ilk="argument" name="args" />
+          <variable citdl="dict" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="__instancevar__" line="743" name="interval" />
+        <variable attributes="__instancevar__" line="744" name="function" />
+        <variable attributes="__instancevar__" citdl="list" line="745" name="args" />
+        <variable attributes="__instancevar__" citdl="dict" line="746" name="kwargs" />
+        <variable attributes="__instancevar__" citdl="Event()" line="747" name="finished" />
+        <scope doc="Stop the timer if it hasn't finished yet" ilk="function" line="749" lineend="751" name="cancel" signature="cancel()">
+          <variable citdl="_Timer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="753" lineend="757" name="run" signature="run()">
+          <variable citdl="_Timer" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="906" lineend="986" name="_test" signature="_test()">
+        <scope classrefs="_Verbose" ilk="class" line="908" lineend="938" name="BoundedQueue">
+          <scope attributes="__ctor__" ilk="function" line="910" lineend="916" name="__init__" signature="BoundedQueue(limit)">
+            <variable citdl="BoundedQueue" ilk="argument" name="self" />
+            <variable ilk="argument" name="limit" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="RLock()" line="912" name="mon" />
+          <variable attributes="__instancevar__" citdl="Condition()" line="913" name="rc" />
+          <variable attributes="__instancevar__" citdl="Condition()" line="914" name="wc" />
+          <variable attributes="__instancevar__" line="915" name="limit" />
+          <variable attributes="__instancevar__" citdl="deque()" line="916" name="queue" />
+          <scope ilk="function" line="918" lineend="927" name="put" signature="put(item)">
+            <variable citdl="BoundedQueue" ilk="argument" name="self" />
+            <variable ilk="argument" name="item" />
+          </scope>
+          <scope ilk="function" line="929" lineend="938" name="get" returns="self.queue.popleft()" signature="get()">
+            <variable citdl="BoundedQueue" ilk="argument" name="self" />
+            <variable citdl="self.queue.popleft()" line="934" name="item" />
+          </scope>
+        </scope>
+        <scope classrefs="Thread" ilk="class" line="940" lineend="953" name="ProducerThread">
+          <scope attributes="__ctor__" ilk="function" line="942" lineend="945" name="__init__" signature="ProducerThread(queue, quota)">
+            <variable citdl="ProducerThread" ilk="argument" name="self" />
+            <variable ilk="argument" name="queue" />
+            <variable ilk="argument" name="quota" />
+          </scope>
+          <variable attributes="__instancevar__" line="944" name="queue" />
+          <variable attributes="__instancevar__" line="945" name="quota" />
+          <scope ilk="function" line="947" lineend="953" name="run" signature="run()">
+            <import line="948" module="random" symbol="random" />
+            <variable citdl="ProducerThread" ilk="argument" name="self" />
+            <variable citdl="int" line="949" name="counter" />
+          </scope>
+        </scope>
+        <scope classrefs="Thread" ilk="class" line="956" lineend="967" name="ConsumerThread">
+          <scope attributes="__ctor__" ilk="function" line="958" lineend="961" name="__init__" signature="ConsumerThread(queue, count)">
+            <variable citdl="ConsumerThread" ilk="argument" name="self" />
+            <variable ilk="argument" name="queue" />
+            <variable ilk="argument" name="count" />
+          </scope>
+          <variable attributes="__instancevar__" line="960" name="queue" />
+          <variable attributes="__instancevar__" citdl="int" line="961" name="count" />
+          <scope ilk="function" line="963" lineend="967" name="run" signature="run()">
+            <variable citdl="ConsumerThread" ilk="argument" name="self" />
+            <variable citdl="self.queue.get()" line="965" name="item" />
+          </scope>
+        </scope>
+        <variable citdl="int" line="969" name="NP" />
+        <variable citdl="int" line="970" name="QL" />
+        <variable citdl="int" line="971" name="NI" />
+        <variable citdl="BoundedQueue" line="973" name="Q" />
+        <variable citdl="list" line="974" name="P" />
+        <variable citdl="ProducerThread" line="976" name="t" />
+        <variable citdl="ConsumerThread" line="979" name="C" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="787" lineend="791" name="_pickSomeNonDaemonThread" returns="t" signature="_pickSomeNonDaemonThread()" />
+      <variable attributes="protected __hidden__" line="87" name="_trace_hook" />
+      <scope attributes="protected __hidden__" classrefs="Thread" ilk="class" line="802" lineend="821" name="_DummyThread">
+        <scope attributes="__ctor__" ilk="function" line="804" lineend="815" name="__init__" signature="_DummyThread()">
+          <variable citdl="_DummyThread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="817" lineend="818" name="_set_daemon" returns="bool" signature="_set_daemon()">
+          <variable citdl="_DummyThread" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="820" lineend="821" name="join" signature="join(timeout=None)">
+          <variable citdl="_DummyThread" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="thread.start_new_thread" line="34" name="_start_new_thread" />
+      <scope attributes="protected __hidden__" classrefs="_Verbose" ilk="class" line="367" lineend="407" name="_Event">
+        <scope attributes="__ctor__" ilk="function" line="371" lineend="374" name="__init__" signature="_Event(verbose=None)">
+          <variable citdl="_Event" ilk="argument" name="self" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="Condition()" line="373" name="__cond" />
+        <variable attributes="private __instancevar__" citdl="False" line="374" name="__flag" />
+        <scope attributes="protected" ilk="function" line="376" lineend="378" name="_reset_internal_locks" signature="_reset_internal_locks()">
+          <variable citdl="_Event" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="380" lineend="381" name="isSet" returns="bool" signature="isSet()">
+          <variable citdl="_Event" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="_Event.isSet" line="383" name="is_set" />
+        <scope ilk="function" line="385" lineend="391" name="set" signature="set()">
+          <variable citdl="_Event" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="393" lineend="398" name="clear" signature="clear()">
+          <variable citdl="_Event" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="400" lineend="407" name="wait" returns="bool" signature="wait(timeout=None)">
+          <variable citdl="_Event" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="_Verbose" ilk="class" line="104" lineend="178" name="_RLock">
+        <scope attributes="__ctor__" ilk="function" line="106" lineend="110" name="__init__" signature="_RLock(verbose=None)">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="_allocate_lock()" line="108" name="__block" />
+        <variable attributes="private __instancevar__" citdl="owner" line="109" name="__owner" />
+        <variable attributes="private __instancevar__" citdl="int" line="110" name="__count" />
+        <scope ilk="function" line="112" lineend="119" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable line="113" name="owner" />
+        </scope>
+        <scope ilk="function" line="121" lineend="137" name="acquire" returns="self.__block.acquire()" signature="acquire(blocking=1)">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="blocking" />
+          <variable citdl="_get_ident()" line="122" name="me" />
+          <variable citdl="self.__block.acquire()" line="128" name="rc" />
+        </scope>
+        <variable citdl="_RLock.acquire" line="139" name="__enter__" />
+        <scope ilk="function" line="141" lineend="152" name="release" signature="release()">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="154" lineend="155" name="__exit__" signature="__exit__(t, v, tb)">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable ilk="argument" name="t" />
+          <variable ilk="argument" name="v" />
+          <variable ilk="argument" name="tb" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="159" lineend="165" name="_acquire_restore" signature="_acquire_restore(count_owner)">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable ilk="argument" name="count_owner" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="167" lineend="175" name="_release_save" returns="tuple" signature="_release_save()">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+          <variable citdl="int" line="170" name="count" />
+          <variable citdl="owner" line="172" name="owner" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="177" lineend="178" name="_is_owned" returns="bool" signature="_is_owned()">
+          <variable citdl="_RLock" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="_allocate_lock()" line="417" name="_active_limbo_lock" />
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="78" lineend="82" name="_Verbose">
+        <scope attributes="__ctor__" ilk="function" line="79" lineend="80" name="__init__" signature="_Verbose(verbose=None)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="81" lineend="82" name="_note" signature="_note(*args)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="841" lineend="843" name="_enumerate" returns="_active.values()" signature="_enumerate()" />
+      <scope attributes="protected __hidden__" classrefs="_Verbose" ilk="class" line="184" lineend="298" name="_Condition">
+        <scope attributes="__ctor__" ilk="function" line="186" lineend="209" name="__init__" signature="_Condition(lock=None, verbose=None)">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+          <variable citdl="RLock()" ilk="argument" name="lock" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="RLock()" line="190" name="__lock" />
+        <variable attributes="__instancevar__" citdl="lock.acquire" line="192" name="acquire" />
+        <variable attributes="__instancevar__" citdl="lock.release" line="193" name="release" />
+        <variable attributes="private __instancevar__" citdl="list" line="209" name="__waiters" />
+        <scope ilk="function" line="211" lineend="212" name="__enter__" returns="self.__lock.__enter__()" signature="__enter__()">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="214" lineend="215" name="__exit__" returns="self.__lock.__exit__()" signature="__exit__(*args)">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="217" lineend="218" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="220" lineend="221" name="_release_save" signature="_release_save()">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="223" lineend="224" name="_acquire_restore" signature="_acquire_restore(x)">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="226" lineend="233" name="_is_owned" returns="bool" signature="_is_owned()">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="235" lineend="275" name="wait" signature="wait(timeout=None)">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="_allocate_lock()" line="238" name="waiter" />
+          <variable citdl="_release_save()" line="241" name="saved_state" />
+          <variable citdl="_time()" line="253" name="endtime" />
+          <variable citdl="float" line="254" name="delay" />
+          <variable citdl="waiter.acquire()" line="256" name="gotit" />
+          <variable citdl="_time()" line="259" name="remaining" />
+        </scope>
+        <scope ilk="function" line="277" lineend="293" name="notify" signature="notify(n=1)">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+          <variable attributes="private" citdl="list" line="280" name="__waiters" />
+          <variable citdl="list" line="281" name="waiters" />
+        </scope>
+        <scope ilk="function" line="295" lineend="296" name="notifyAll" signature="notifyAll()">
+          <variable citdl="_Condition" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="_Condition.notifyAll" line="298" name="notify_all" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="thread.get_ident" line="36" name="_get_ident" />
+      <scope attributes="protected __hidden__" ilk="function" line="866" lineend="901" name="_after_fork" signature="_after_fork()">
+        <variable attributes="protected" citdl="_allocate_lock()" line="874" name="_active_limbo_lock" />
+        <variable citdl="dict" line="877" name="new_active" />
+        <variable citdl="current_thread()" line="878" name="current" />
+        <variable citdl="_get_ident()" line="884" name="ident" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="_Verbose" ilk="class" line="304" lineend="346" name="_Semaphore">
+        <scope attributes="__ctor__" ilk="function" line="308" lineend="313" name="__init__" signature="_Semaphore(value=1, verbose=None)">
+          <variable citdl="_Semaphore" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="value" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="Condition()" line="312" name="__cond" />
+        <variable attributes="private __instancevar__" citdl="int" line="313" name="__value" />
+        <scope ilk="function" line="315" lineend="332" name="acquire" returns="bool" signature="acquire(blocking=1)">
+          <variable citdl="_Semaphore" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="blocking" />
+          <variable citdl="False" line="316" name="rc" />
+        </scope>
+        <variable citdl="_Semaphore.acquire" line="334" name="__enter__" />
+        <scope ilk="function" line="336" lineend="343" name="release" signature="release()">
+          <variable citdl="_Semaphore" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="345" lineend="346" name="__exit__" signature="__exit__(t, v, tb)">
+          <variable citdl="_Semaphore" ilk="argument" name="self" />
+          <variable ilk="argument" name="t" />
+          <variable ilk="argument" name="v" />
+          <variable ilk="argument" name="tb" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="411" lineend="414" name="_newname" returns="str" signature="_newname(template='Thread-%d')">
+        <variable citdl="str" ilk="argument" name="template" />
+        <variable attributes="protected" citdl="int" line="413" name="_counter" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="410" name="_counter" />
+      <variable attributes="protected __hidden__" line="86" name="_profile_hook" />
+      <variable attributes="protected __hidden__" citdl="dict" line="419" name="_limbo" />
+      <variable attributes="protected __hidden__" citdl="dict" line="418" name="_active" />
+      <scope attributes="protected __hidden__" classrefs="Thread" ilk="class" line="762" lineend="785" name="_MainThread">
+        <scope attributes="__ctor__" ilk="function" line="764" lineend="769" name="__init__" signature="_MainThread()">
+          <variable citdl="_MainThread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="771" lineend="772" name="_set_daemon" returns="bool" signature="_set_daemon()">
+          <variable citdl="_MainThread" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="774" lineend="785" name="_exitfunc" signature="_exitfunc()">
+          <variable citdl="_MainThread" ilk="argument" name="self" />
+          <variable citdl="_pickSomeNonDaemonThread()" line="776" name="t" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" line="855" name="_shutdown" />
+      <variable attributes="protected __hidden__" citdl="thread.allocate_lock" line="35" name="_allocate_lock" />
+      <variable attributes="protected __hidden__" citdl="False" line="52" name="_VERBOSE" />
+    </scope>
+    

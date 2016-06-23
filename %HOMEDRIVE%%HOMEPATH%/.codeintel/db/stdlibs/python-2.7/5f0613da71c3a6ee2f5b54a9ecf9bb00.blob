@@ -1,0 +1,17 @@
+<scope doc="Class representing application/* type MIME documents.&#10;" ilk="blob" lang="Python" name="email.mime.application">
+      <scope classrefs="MIMENonMultipart" doc="Class for generating application/* MIME documents.&#10;" ilk="class" line="13" lineend="36" name="MIMEApplication">
+        <scope doc="Create an application/* type MIME document." ilk="function" line="16" lineend="36" name="__init__" signature="MIMEApplication(_data, _subtype='octet-stream', _encoder=encoders.encode_base64, **_params)">
+          <variable ilk="argument" name="_data" />
+          <variable citdl="str" ilk="argument" name="_subtype" />
+          <variable citdl="MIMEApplication" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable citdl="encoders.encode_base64" ilk="argument" name="_encoder" />
+        </scope>
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" name="MIMENonMultipart">
+        <scope ilk="function" name="attach" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="encoders" />
+    </scope>
+    

@@ -1,0 +1,17 @@
+<scope doc="Fixer that transforms `xyzzy` into repr(xyzzy).&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_repr">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="23" name="FixRepr">
+        <scope ilk="function" line="18" lineend="23" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="parenthesize()" line="19" name="expr" />
+          <variable citdl="FixRepr" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="str" line="14" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope ilk="function" name="parenthesize" signature="parenthesize(node)" />
+    </scope>
+    

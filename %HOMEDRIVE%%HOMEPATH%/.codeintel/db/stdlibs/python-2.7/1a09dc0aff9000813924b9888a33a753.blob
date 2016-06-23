@@ -1,0 +1,12 @@
+<scope doc="Module implements the Mersenne Twister random number generator.&#10;" ilk="blob" lang="Python" name="_random">
+      <scope classrefs="object" doc="Random() -&gt; create a random number generator with its own internal state.&#10;" ilk="class" name="Random">
+        <scope doc="getstate() -&gt; tuple containing the current state." ilk="function" name="getstate" returns="tuple" signature="getstate() -&gt; tuple containing the current state." />
+        <scope doc="random() -&gt; x in the interval [0, 1)." ilk="function" name="random" signature="random() -&gt; x in the interval [0, 1)." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="seed([n]) -&gt; None.  Defaults to current time." ilk="function" name="seed" signature="seed([n]) -&gt; None.  Defaults to current time." />
+        <scope doc="jumpahead(int) -&gt; None.  Create new state from existing state and integer." ilk="function" name="jumpahead" signature="jumpahead(int) -&gt; None.  Create new state from existing state and integer." />
+        <scope doc="getrandbits(k) -&gt; x.  Generates a long int with k random bits." ilk="function" name="getrandbits" signature="getrandbits(k) -&gt; x.  Generates a long int with k random bits." />
+        <scope doc="setstate(state) -&gt; None.  Restores generator state." ilk="function" name="setstate" signature="setstate(state) -&gt; None.  Restores generator state." />
+      </scope>
+    </scope>
+    

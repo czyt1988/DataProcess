@@ -1,0 +1,54 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="compiler.visitor">
+      <scope doc="Performs a depth-first walk of the AST&#10;The ASTVisitor will walk the AST, performing either a preorder or postorder traversal depending on which method is called.  methods: preorder(tree, visitor) postorder(tree, visitor) tree: an instance of ast.Node visitor: an instance with visitXXX methods  The ASTVisitor is responsible for walking over the tree in the" ilk="class" line="6" lineend="63" name="ASTVisitor">
+        <scope doc="Do preorder walk of tree using visitor" ilk="function" line="59" lineend="63" name="preorder" signature="preorder(tree, visitor, *args)">
+          <variable ilk="argument" name="visitor" />
+          <variable citdl="ASTVisitor" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="tree" />
+        </scope>
+        <scope ilk="function" line="38" lineend="40" name="default" signature="default(node, *args)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ASTVisitor" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="42" lineend="57" name="dispatch" returns="ASTVisitor.dispatch.meth()" signature="dispatch(node, *args)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ASTVisitor" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="klass.__name__" line="47" name="className" />
+          <variable citdl="node.__class__" line="44" name="klass" />
+          <variable citdl="getattr()" line="45" name="meth" />
+        </scope>
+        <scope ilk="function" line="34" lineend="36" name="__init__" signature="ASTVisitor()">
+          <variable citdl="ASTVisitor" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="35" name="node" />
+        <variable attributes="__instancevar__" line="61" name="visitor" />
+        <variable citdl="int" line="32" name="VERBOSE" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="36" name="_cache" />
+      </scope>
+      <scope classrefs="ASTVisitor" doc="Prints examples of the nodes that aren't visited&#10;This visitor-driver is only useful for development, when it's helpful to develop a visitor incrementally, and get feedback on what you still have to do." ilk="class" line="65" lineend="96" name="ExampleASTVisitor">
+        <scope ilk="function" line="74" lineend="96" name="dispatch" returns="self.default()" signature="dispatch(node, *args)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ExampleASTVisitor" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="node.__class__.__name__" line="77" name="className" />
+          <variable citdl="node.__class__" line="86" name="klass" />
+          <variable citdl="getattr()" line="76" name="meth" />
+        </scope>
+        <variable attributes="__instancevar__" line="75" name="node" />
+        <variable citdl="dict" line="72" name="examples" />
+      </scope>
+      <import module="ast" />
+      <scope ilk="function" line="109" lineend="113" name="dumpNode" signature="dumpNode(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <scope ilk="function" line="101" lineend="107" name="walk" returns="walker.visitor" signature="walk(tree, visitor, walker=None, verbose=None)">
+        <variable citdl="_walker()" ilk="argument" name="walker" />
+        <variable ilk="argument" name="visitor" />
+        <variable ilk="argument" name="tree" />
+        <variable ilk="argument" name="verbose" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="ASTVisitor" line="100" name="_walker" />
+    </scope>
+    

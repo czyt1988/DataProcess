@@ -1,0 +1,19 @@
+<scope doc="Generic dylib path manipulation&#10;" ilk="blob" lang="Python" name="ctypes.macholib.dylib">
+      <variable citdl="SRE_Pattern" line="12" name="DYLIB_RE" />
+      <variable citdl="list" line="10" name="__all__" />
+      <scope doc="A dylib name can take one of the following four forms:&#10;Location/Name.SomeVersion_Suffix.dylib&#10;Location/Name.SomeVersion.dylib Location/Name_Suffix.dylib" ilk="function" line="22" lineend="45" name="dylib_info" returns="is_dylib.groupdict()" signature="dylib_info(filename)">
+        <variable citdl="DYLIB_RE.match()" line="42" name="is_dylib" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="re" />
+      <scope ilk="function" line="48" lineend="63" name="test_dylib_info" signature="test_dylib_info()">
+        <scope ilk="function" line="49" lineend="55" name="d" returns="dict()" signature="d(location=None, name=None, shortname=None, version=None, suffix=None)">
+          <variable ilk="argument" name="location" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="shortname" />
+          <variable ilk="argument" name="version" />
+          <variable ilk="argument" name="suffix" />
+        </scope>
+      </scope>
+    </scope>
+    

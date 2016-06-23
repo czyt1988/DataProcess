@@ -1,0 +1,86 @@
+<scope doc="distutils.command.build_clib&#10;Implements the Distutils 'build_clib' command, to build a C/C++ library that is included in the module distribution and needed by an extension module." ilk="blob" lang="Python" name="distutils.command.build_clib">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="For errors that can be definitely blamed on the setup script,&#10;such as invalid keyword arguments to 'setup()'." ilk="class" name="DistutilsSetupError" />
+      <variable citdl="str" line="7" name="__revision__" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="30" lineend="209" name="build_clib">
+        <scope ilk="function" line="167" lineend="179" name="get_source_files" returns="list" signature="get_source_files()">
+          <variable citdl="build_info.get()" line="171" name="sources" />
+          <variable citdl="build_clib" ilk="argument" name="self" />
+          <variable citdl="list" line="169" name="filenames" />
+        </scope>
+        <scope ilk="function" line="95" lineend="116" name="run" signature="run()">
+          <variable citdl="build_clib" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="54" lineend="67" name="initialize_options" signature="initialize_options()">
+          <variable citdl="build_clib" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="181" lineend="209" name="build_libraries" signature="build_libraries(libraries)">
+          <variable citdl="build_info.get()" line="196" name="macros" />
+          <variable citdl="build_clib" ilk="argument" name="self" />
+          <variable ilk="argument" name="libraries" />
+          <variable citdl="build_info.get()" line="183" name="sources" />
+          <variable citdl="self.compiler.compile()" line="198" name="objects" />
+          <variable citdl="build_info.get()" line="197" name="include_dirs" />
+        </scope>
+        <scope doc="Ensure that the list of libraries is valid." ilk="function" line="119" lineend="153" name="check_library_list" signature="check_library_list(libraries)">
+          <variable ilk="argument" name="libraries" />
+          <variable citdl="build_clib" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="155" lineend="164" name="get_library_names" returns="list" signature="get_library_names()">
+          <variable citdl="list" line="161" name="lib_names" />
+          <variable citdl="build_clib" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="70" lineend="90" name="finalize_options" signature="finalize_options()">
+          <variable citdl="build_clib" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="list" line="34" name="user_options" />
+        <variable attributes="__instancevar__" line="64" name="undef" />
+        <variable attributes="__instancevar__" citdl="int" line="66" name="force" />
+        <variable citdl="str" line="32" name="description" />
+        <variable attributes="__instancevar__" citdl="new_compiler()" line="67" name="compiler" />
+        <variable attributes="__instancevar__" line="56" name="build_temp" />
+        <variable attributes="__instancevar__" citdl="self.distribution.libraries" line="59" name="libraries" />
+        <variable citdl="list" line="49" name="help_options" />
+        <variable citdl="list" line="47" name="boolean_options" />
+        <variable attributes="__instancevar__" line="65" name="debug" />
+        <variable attributes="__instancevar__" line="55" name="build_clib" />
+        <variable attributes="__instancevar__" line="63" name="define" />
+        <variable attributes="__instancevar__" citdl="self.include_dirs.split()" line="62" name="include_dirs" />
+      </scope>
+      <scope doc="Do any platform-specific customization of a CCompiler&#10;instance." ilk="function" name="customize_compiler" signature="customize_compiler(compiler)" />
+      <import module="log" />
+      <import module="os" />
+      <scope ilk="function" line="25" lineend="27" name="show_compilers" signature="show_compilers()" />
+    </scope>
+    

@@ -1,0 +1,33 @@
+<scope doc="Bisection algorithms.&#10;" ilk="blob" lang="Python" name="bisect">
+      <scope doc="Alias for bisect_right()." ilk="function" line="45" name="bisect" />
+      <scope doc="Return the index where to insert item x in list a, assuming&#10;a is sorted." ilk="function" line="67" lineend="86" name="bisect_left" returns="int" signature="bisect_left(a, x[, lo[, hi]]) -&gt; index">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="int" ilk="argument" name="hi" />
+        <variable citdl="int" line="83" name="mid" />
+        <variable citdl="int" ilk="argument" name="lo" />
+      </scope>
+      <scope doc="Return the index where to insert item x in list a, assuming&#10;a is sorted." ilk="function" line="24" lineend="43" name="bisect_right" returns="int" signature="bisect_right(a, x[, lo[, hi]]) -&gt; index">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="int" ilk="argument" name="hi" />
+        <variable citdl="int" line="40" name="mid" />
+        <variable citdl="int" ilk="argument" name="lo" />
+      </scope>
+      <scope doc="Alias for insort_right()." ilk="function" line="22" name="insort" />
+      <scope doc="Insert item x in list a, and keep it sorted assuming a is&#10;sorted." ilk="function" line="47" lineend="64" name="insort_left" signature="insort_left(a, x[, lo[, hi]])">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="int" ilk="argument" name="hi" />
+        <variable citdl="int" line="61" name="mid" />
+        <variable citdl="int" ilk="argument" name="lo" />
+      </scope>
+      <scope doc="Insert item x in list a, and keep it sorted assuming a is&#10;sorted." ilk="function" line="3" lineend="20" name="insort_right" signature="insort_right(a, x[, lo[, hi]])">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="len()" ilk="argument" name="hi" />
+        <variable citdl="int" line="17" name="mid" />
+        <variable citdl="int" ilk="argument" name="lo" />
+      </scope>
+    </scope>
+    

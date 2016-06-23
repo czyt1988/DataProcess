@@ -1,0 +1,360 @@
+<scope doc="HTML 2.0 parser.&#10;See the HTML 2.0 specification: http://www.w3.org/hypertext/WWW/MarkUp/html-spec/html-spec_toc.html" ilk="blob" lang="Python" name="htmllib">
+      <variable citdl="NoneType" name="AS_IS" />
+      <scope classrefs="SGMLParseError" doc="Error raised when an HTML document can't be parsed.&#10;" ilk="class" line="19" name="HTMLParseError" />
+      <scope classrefs="SGMLParser" doc="This is the basic HTML parser class.&#10;It supports all entity names required by the XHTML 1.0 Recommendation. It also defines handlers for all HTML 2.0 and many HTML 3.0 and 3.2 elements." ilk="class" line="23" lineend="448" name="HTMLParser">
+        <scope ilk="function" line="315" lineend="316" name="end_dir" signature="end_dir()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="240" lineend="242" name="start_xmp" signature="start_xmp(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="349" lineend="349" name="end_code" signature="end_code()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="309" lineend="310" name="end_menu" signature="end_menu()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="247" lineend="249" name="start_listing" signature="start_listing(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="360" lineend="360" name="start_strong" signature="start_strong(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="301" lineend="304" name="end_ol" signature="end_ol()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="150" lineend="151" name="start_title" signature="start_title(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="348" lineend="348" name="start_code" signature="start_code(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="380" lineend="381" name="end_tt" signature="end_tt()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="354" lineend="354" name="start_kbd" signature="start_kbd(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="266" lineend="268" name="end_blockquote" signature="end_blockquote()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="156" lineend="159" name="do_base" signature="do_base(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="143" lineend="143" name="end_head" signature="end_head()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="402" lineend="403" name="do_br" signature="do_br(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="193" lineend="195" name="start_h3" signature="start_h3(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="185" lineend="187" name="start_h2" signature="start_h2(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="177" lineend="179" name="start_h1" signature="start_h1(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="217" lineend="219" name="start_h6" signature="start_h6(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="209" lineend="211" name="start_h5" signature="start_h5(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="201" lineend="203" name="start_h4" signature="start_h4(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="361" lineend="361" name="end_strong" signature="end_strong()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="262" lineend="264" name="start_blockquote" signature="start_blockquote(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="363" lineend="363" name="start_var" signature="start_var(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="153" lineend="154" name="end_title" signature="end_title()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="63" lineend="70" name="handle_data" signature="handle_data(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="140" lineend="140" name="end_html" signature="end_html()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="230" lineend="233" name="start_pre" signature="start_pre(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="251" lineend="252" name="end_listing" signature="end_listing()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="352" lineend="352" name="end_em" signature="end_em()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="345" lineend="345" name="start_cite" signature="start_cite(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="170" lineend="171" name="do_nextid" signature="do_nextid(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="This method is called at the end of an anchor region." ilk="function" line="115" lineend="124" name="anchor_end" signature="anchor_end()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="407" lineend="408" name="do_hr" signature="do_hr(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="277" lineend="280" name="end_ul" signature="end_ul()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="306" lineend="307" name="start_menu" signature="start_menu(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="322" lineend="324" name="end_dl" signature="end_dl()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="334" lineend="339" name="ddpop" signature="ddpop(bl=0)">
+          <variable citdl="int" ilk="argument" name="bl" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="142" lineend="142" name="start_head" signature="start_head(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="145" lineend="145" name="start_body" signature="start_body(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="358" lineend="358" name="end_samp" signature="end_samp()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="346" lineend="346" name="end_cite" signature="end_cite()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="244" lineend="245" name="end_xmp" signature="end_xmp()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="167" lineend="168" name="do_meta" signature="do_meta(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="272" lineend="275" name="start_ul" signature="start_ul(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="364" lineend="364" name="end_var" signature="end_var()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="351" lineend="351" name="start_em" signature="start_em(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="161" lineend="162" name="do_isindex" signature="do_isindex(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="412" lineend="434" name="do_img" signature="do_img(attrs)">
+          <variable citdl="str" line="416" name="src" />
+          <variable citdl="str" line="413" name="align" />
+          <variable citdl="str" line="415" name="ismap" />
+          <variable citdl="int" line="417" name="width" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="str" line="414" name="alt" />
+          <variable citdl="int" line="418" name="height" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="235" lineend="238" name="end_pre" signature="end_pre()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="312" lineend="313" name="start_dir" signature="start_dir(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="355" lineend="355" name="end_kbd" signature="end_kbd()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="146" lineend="146" name="end_body" signature="end_body()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="370" lineend="371" name="end_i" signature="end_i()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Ends buffering character data and returns all data saved&#10;since the preceding call to the save_bgn() method." ilk="function" line="84" lineend="97" name="save_end" returns="str" signature="save_end()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="str" line="93" name="data" />
+        </scope>
+        <scope ilk="function" line="375" lineend="376" name="end_b" signature="end_b()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="397" lineend="398" name="end_a" signature="end_a()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This method is called to handle images." ilk="function" line="128" lineend="135" name="handle_image" signature="handle_image(src, alt, *args)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="alt" />
+        </scope>
+        <scope ilk="function" line="139" lineend="139" name="start_html" signature="start_html(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="47" lineend="56" name="reset" signature="reset()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="368" lineend="369" name="start_i" signature="start_i(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="373" lineend="374" name="start_b" signature="start_b(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="383" lineend="395" name="start_a" signature="start_a(attrs)">
+          <variable citdl="value.strip()" line="385" name="name" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="value.strip()" line="388" name="value" />
+          <variable citdl="value.strip()" line="384" name="href" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="value.lower()" line="386" name="type" />
+        </scope>
+        <scope ilk="function" line="227" lineend="228" name="do_p" signature="do_p(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="44" lineend="45" name="error" signature="error(message)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope ilk="function" line="164" lineend="165" name="do_link" signature="do_link(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="357" lineend="357" name="start_samp" signature="start_samp(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="438" lineend="440" name="do_plaintext" signature="do_plaintext(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="444" lineend="445" name="unknown_starttag" signature="unknown_starttag(tag, attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="Creates an instance of the HTMLParser class." ilk="function" line="34" lineend="42" name="__init__" signature="HTMLParser(formatter, verbose=0)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="formatter" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <scope ilk="function" line="282" lineend="289" name="do_li" signature="do_li(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="int" line="288" name="counter" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="str" line="288" name="label" />
+        </scope>
+        <scope ilk="function" line="205" lineend="207" name="end_h4" signature="end_h4()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="213" lineend="215" name="end_h5" signature="end_h5()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="221" lineend="223" name="end_h6" signature="end_h6()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="181" lineend="183" name="end_h1" signature="end_h1()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="189" lineend="191" name="end_h2" signature="end_h2()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="197" lineend="199" name="end_h3" signature="end_h3()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="326" lineend="327" name="do_dt" signature="do_dt(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="378" lineend="379" name="start_tt" signature="start_tt(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="329" lineend="332" name="do_dd" signature="do_dd(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="291" lineend="299" name="start_ol" signature="start_ol(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="str" line="297" name="v" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="str" line="294" name="label" />
+        </scope>
+        <scope ilk="function" line="254" lineend="256" name="start_address" signature="start_address(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="318" lineend="320" name="start_dl" signature="start_dl(attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="Begins saving character data in a buffer instead of sending&#10;it to the formatter object." ilk="function" line="74" lineend="82" name="save_bgn" signature="save_bgn()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="258" lineend="260" name="end_address" signature="end_address()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="447" lineend="448" name="unknown_endtag" signature="unknown_endtag(tag)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+        </scope>
+        <scope doc="This method is called at the start of an anchor region." ilk="function" line="101" lineend="113" name="anchor_bgn" signature="anchor_bgn(href, name, type)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="href" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="55" name="nofill" />
+        <variable attributes="__instancevar__" citdl="list" line="54" name="anchorlist" />
+        <variable attributes="__instancevar__" citdl="save_end()" line="51" name="title" />
+        <variable attributes="__instancevar__" citdl="int" line="50" name="isindex" />
+        <variable attributes="__instancevar__" citdl="list" line="56" name="list_stack" />
+        <variable attributes="__instancevar__" citdl="v" line="52" name="base" />
+        <variable attributes="__instancevar__" citdl="str" line="49" name="savedata" />
+        <variable attributes="__instancevar__" line="42" name="formatter" />
+        <variable attributes="__instancevar__" line="53" name="anchor" />
+      </scope>
+      <variable citdl="list" line="16" name="__all__" />
+      <import module="sgmllib" />
+      <scope ilk="function" line="451" lineend="487" name="test" signature="test(args=None)">
+        <variable citdl="bool" line="457" name="silent" />
+        <variable citdl="open()" line="467" name="f" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="HTMLParser" line="485" name="p" />
+        <variable citdl="str" line="462" name="file" />
+        <variable citdl="f.read()" line="475" name="data" />
+      </scope>
+    </scope>
+    

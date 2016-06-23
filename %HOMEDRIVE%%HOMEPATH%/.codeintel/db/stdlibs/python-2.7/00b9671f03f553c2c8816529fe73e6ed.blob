@@ -1,0 +1,38 @@
+<scope doc="Fixer for sys.exc_{type, value, traceback}&#10;sys.exc_type -&gt; sys.exc_info()[0] sys.exc_value -&gt; sys.exc_info()[1] sys.exc_traceback -&gt; sys.exc_info()[2]" ilk="blob" lang="Python" name="lib2to3.fixes.fix_sys_exc">
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="14" lineend="30" name="FixSysExc">
+        <scope ilk="function" line="22" lineend="30" name="transform" returns="Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Number()" line="24" name="index" />
+          <variable line="23" name="sys_attr" />
+          <variable citdl="Attr()" line="27" name="attr" />
+          <variable citdl="FixSysExc" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="Call()" line="26" name="call" />
+        </scope>
+        <variable citdl="str.join()" line="18" name="PATTERN" />
+        <variable citdl="list" line="16" name="exc_info" />
+        <variable citdl="True" line="17" name="BM_compatible" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope ilk="function" name="Number" signature="Number(n, prefix=None)" />
+      <scope doc="A numeric or string subscript" ilk="function" name="Subscript" signature="Subscript(index_node)" />
+      <import module="fixer_base" />
+      <variable citdl="Symbols" name="syms" />
+    </scope>
+    

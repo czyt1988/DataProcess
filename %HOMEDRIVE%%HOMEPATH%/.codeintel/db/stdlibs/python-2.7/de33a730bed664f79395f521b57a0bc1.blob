@@ -1,0 +1,36 @@
+<scope doc="Implementation of the UUencode and UUdecode functions.&#10;encode(in_file, out_file [,name, mode]) decode(in_file [, out_file, mode])" ilk="blob" lang="Python" name="uu">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="39" lineend="40" name="Error" />
+      <variable citdl="list" line="37" name="__all__" />
+      <import module="binascii" />
+      <scope doc="Decode uuencoded file" ilk="function" line="90" lineend="156" name="decode" signature="decode(in_file, out_file=None, mode=None, quiet=0)">
+        <variable citdl="open()" line="130" name="fp" />
+        <variable citdl="in_file.readline()" line="106" name="hdr" />
+        <variable citdl="open()" ilk="argument" name="out_file" />
+        <variable citdl="binascii.a2b_uu()" line="143" name="data" />
+        <variable citdl="int" ilk="argument" name="quiet" />
+        <variable citdl="in_file.readline()" line="140" name="s" />
+        <variable citdl="sys.stdin" ilk="argument" name="in_file" />
+        <variable citdl="int" line="146" name="nbytes" />
+        <variable citdl="list" line="95" name="opened_files" />
+        <variable citdl="hdr.split()" line="111" name="hdrfields" />
+        <variable citdl="int()" ilk="argument" name="mode" />
+      </scope>
+      <scope doc="Uuencode file" ilk="function" line="42" lineend="87" name="encode" signature="encode(in_file, out_file, name=None, mode=None)">
+        <variable citdl="os.path.basename()" ilk="argument" name="name" />
+        <variable citdl="sys.stdout" ilk="argument" name="out_file" />
+        <variable citdl="open()" ilk="argument" name="in_file" />
+        <variable citdl="list" line="47" name="opened_files" />
+        <variable citdl="in_file.read()" line="80" name="data" />
+        <variable citdl="int" ilk="argument" name="mode" />
+      </scope>
+      <import module="os" />
+      <import module="sys" />
+      <scope doc="uuencode/uudecode main program" ilk="function" line="158" lineend="193" name="test" signature="test()">
+        <variable citdl="open()" line="171" name="input" />
+        <variable citdl="optparse.OptionParser()" line="162" name="parser" />
+        <variable line="166" name="options" />
+        <variable line="166" name="args" />
+        <variable citdl="open()" line="172" name="output" />
+      </scope>
+    </scope>
+    

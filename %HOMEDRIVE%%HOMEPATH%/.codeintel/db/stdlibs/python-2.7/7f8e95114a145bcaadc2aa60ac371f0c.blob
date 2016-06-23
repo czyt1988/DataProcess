@@ -1,0 +1,15 @@
+<scope doc="Fix &quot;for x in f.xreadlines()&quot; -&gt; &quot;for x in f&quot;.&#10;This fixer will also convert g(f.xreadlines) into g(f.__iter__)." ilk="blob" lang="Python" name="lib2to3.fixes.fix_xreadlines">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="25" name="FixXreadlines">
+        <scope ilk="function" line="19" lineend="25" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixXreadlines" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="results.get()" line="20" name="no_call" />
+        </scope>
+        <variable citdl="True" line="12" name="BM_compatible" />
+        <variable citdl="str" line="13" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

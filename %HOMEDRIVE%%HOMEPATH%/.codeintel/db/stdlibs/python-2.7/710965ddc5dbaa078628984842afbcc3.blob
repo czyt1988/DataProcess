@@ -1,0 +1,71 @@
+<scope doc="Conversion functions between RGB and other color systems.&#10;This modules provides two functions for each color system ABC:  rgb_to_abc(r, g, b) --&gt; a, b, c abc_to_rgb(a, b, c) --&gt; r, g, b  All inputs and outputs are triples of floats in the range [0.0...1.0] (with the exception of I and Q, which covers a slightly larger range). Inputs outside the valid range may cause exceptions or invalid outputs.  Supported color systems:" ilk="blob" lang="Python" name="colorsys">
+      <variable citdl="float" line="30" name="ONE_SIXTH" />
+      <variable citdl="float" line="29" name="ONE_THIRD" />
+      <variable citdl="float" line="31" name="TWO_THIRD" />
+      <variable citdl="list" line="24" name="__all__" />
+      <scope ilk="function" line="90" lineend="98" name="hls_to_rgb" returns="tuple" signature="hls_to_rgb(h, l, s)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="float" line="97" name="m1" />
+        <variable ilk="argument" name="l" />
+        <variable citdl="float" line="94" name="m2" />
+      </scope>
+      <scope ilk="function" line="135" lineend="156" name="hsv_to_rgb" returns="tuple" signature="hsv_to_rgb(h, s, v)">
+        <variable citdl="int()" line="139" name="f" />
+        <variable citdl="int()" line="138" name="i" />
+        <variable ilk="argument" name="h" />
+        <variable citdl="int()" line="141" name="q" />
+        <variable citdl="float" line="140" name="p" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="int()" line="142" name="t" />
+        <variable ilk="argument" name="v" />
+      </scope>
+      <scope ilk="function" line="67" lineend="88" name="rgb_to_hls" returns="tuple" signature="rgb_to_hls(r, g, b)">
+        <variable ilk="argument" name="b" />
+        <variable ilk="argument" name="g" />
+        <variable citdl="max()" line="80" name="bc" />
+        <variable citdl="max()" line="82" name="h" />
+        <variable citdl="min()" line="69" name="minc" />
+        <variable citdl="max()" line="71" name="l" />
+        <variable citdl="max()" line="75" name="s" />
+        <variable ilk="argument" name="r" />
+        <variable citdl="max()" line="79" name="gc" />
+        <variable citdl="max()" line="78" name="rc" />
+        <variable citdl="max()" line="68" name="maxc" />
+      </scope>
+      <scope ilk="function" line="116" lineend="133" name="rgb_to_hsv" returns="tuple" signature="rgb_to_hsv(r, g, b)">
+        <variable ilk="argument" name="b" />
+        <variable ilk="argument" name="g" />
+        <variable citdl="max()" line="125" name="bc" />
+        <variable citdl="min()" line="127" name="h" />
+        <variable citdl="min()" line="118" name="minc" />
+        <variable citdl="max()" line="123" name="rc" />
+        <variable citdl="max()" line="122" name="s" />
+        <variable ilk="argument" name="r" />
+        <variable citdl="max()" line="124" name="gc" />
+        <variable citdl="max()" line="119" name="v" />
+        <variable citdl="max()" line="117" name="maxc" />
+      </scope>
+      <scope ilk="function" line="37" lineend="41" name="rgb_to_yiq" returns="tuple" signature="rgb_to_yiq(r, g, b)">
+        <variable ilk="argument" name="b" />
+        <variable ilk="argument" name="g" />
+        <variable citdl="float" line="39" name="i" />
+        <variable citdl="float" line="40" name="q" />
+        <variable ilk="argument" name="r" />
+        <variable citdl="float" line="38" name="y" />
+      </scope>
+      <scope ilk="function" line="43" lineend="59" name="yiq_to_rgb" returns="tuple" signature="yiq_to_rgb(y, i, q)">
+        <variable citdl="float" line="46" name="b" />
+        <variable citdl="float" line="45" name="g" />
+        <variable ilk="argument" name="i" />
+        <variable ilk="argument" name="q" />
+        <variable citdl="float" line="44" name="r" />
+        <variable ilk="argument" name="y" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="100" lineend="108" name="_v" returns="float" signature="_v(m1, m2, hue)">
+        <variable ilk="argument" name="m1" />
+        <variable ilk="argument" name="m2" />
+        <variable citdl="float" ilk="argument" name="hue" />
+      </scope>
+    </scope>
+    

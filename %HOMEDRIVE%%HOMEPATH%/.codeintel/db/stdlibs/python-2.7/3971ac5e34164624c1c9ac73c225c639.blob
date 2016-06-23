@@ -1,0 +1,21 @@
+<scope doc="Fixer for callable().&#10;This converts callable(obj) into isinstance(obj, collections.Callable), adding a collections import if needed." ilk="blob" lang="Python" name="lib2to3.fixes.fix_callable">
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="13" lineend="37" name="FixCallable">
+        <scope ilk="function" line="30" lineend="37" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixCallable" ilk="argument" name="self" />
+          <variable citdl="list" line="35" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable line="31" name="func" />
+        </scope>
+        <variable citdl="str" line="20" name="PATTERN" />
+        <variable citdl="str" line="16" name="order" />
+        <variable citdl="True" line="14" name="BM_compatible" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope doc="A string leaf" ilk="function" name="String" signature="String(string, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Works like `does_tree_import` but adds an import statement&#10;if it was not imported." ilk="function" name="touch_import" signature="touch_import(package, name, node)" />
+    </scope>
+    

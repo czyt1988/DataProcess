@@ -1,0 +1,525 @@
+<scope doc="Facility to use the Expat parser to load a minidom instance&#10;from a string or file.  This avoids all the overhead of SAX and pulldom to gain performance." ilk="blob" lang="Python" name="xml.dom.expatbuilder">
+      <variable citdl="int" line="39" name="CDATA_SECTION_NODE" />
+      <variable citdl="int" line="40" name="DOCUMENT_NODE" />
+      <variable citdl="NoneType" name="EMPTY_NAMESPACE" />
+      <variable citdl="NoneType" name="EMPTY_PREFIX" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="62" lineend="111" name="ElementInfo">
+        <scope ilk="function" line="73" lineend="74" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="103" lineend="107" name="isId" returns="bool" signature="isId(aname)">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="aname" />
+        </scope>
+        <scope ilk="function" line="97" lineend="101" name="isEmpty" returns="bool" signature="isEmpty()">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="89" lineend="95" name="isElementContent" returns="bool" signature="isElementContent()">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable line="91" name="type" />
+        </scope>
+        <scope ilk="function" line="109" lineend="111" name="isIdNS" returns="ElementInfo.isId()" signature="isIdNS(euri, ename, auri, aname)">
+          <variable ilk="argument" name="ename" />
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="auri" />
+          <variable ilk="argument" name="aname" />
+          <variable ilk="argument" name="euri" />
+        </scope>
+        <scope ilk="function" line="70" lineend="71" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="76" lineend="84" name="getAttributeType" returns="minidom._no_type" signature="getAttributeType(aname)">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="aname" />
+          <variable line="79" name="t" />
+        </scope>
+        <scope ilk="function" line="65" lineend="68" name="__init__" signature="ElementInfo(tagName, model=None)">
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="model" />
+          <variable ilk="argument" name="tagName" />
+        </scope>
+        <scope ilk="function" line="86" lineend="87" name="getAttributeTypeNS" returns="minidom._no_type" signature="getAttributeTypeNS(namespaceURI, localName)">
+          <variable ilk="argument" name="namespaceURI" />
+          <variable citdl="ElementInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="localName" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="68" name="_model" />
+        <variable citdl="tuple" line="63" name="__slots__" />
+        <variable attributes="protected __instancevar__" citdl="list" line="67" name="_attr_info" />
+        <variable attributes="__instancevar__" line="66" name="tagName" />
+      </scope>
+      <scope classrefs="tuple" doc="&#10;" ilk="class" name="EmptyNodeList">
+        <scope ilk="function" name="__radd__" />
+        <scope ilk="function" name="item" />
+        <scope ilk="function" name="__add__" />
+        <scope ilk="function" name="_set_length" />
+        <scope ilk="function" name="_get_length" />
+      </scope>
+      <scope doc="Document builder that uses Expat to build a ParsedXML.DOM document&#10;instance." ilk="class" line="133" lineend="456" name="ExpatBuilder">
+        <scope ilk="function" line="448" lineend="456" name="xml_decl_handler" signature="xml_decl_handler(version, encoding, standalone)">
+          <variable ilk="argument" name="standalone" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="version" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope ilk="function" line="296" lineend="307" name="character_data_handler" signature="character_data_handler(data)">
+          <variable citdl="minidom.Text()" line="299" name="node" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="self.curNode.childNodes" line="297" name="childNodes" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="dict" line="300" name="d" />
+        </scope>
+        <scope ilk="function" line="261" lineend="266" name="end_doctype_decl_handler" signature="end_doctype_decl_handler()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="327" lineend="331" name="notation_decl_handler" signature="notation_decl_handler(notationName, base, systemId, publicId)">
+          <variable citdl="self.document._create_notation()" line="328" name="node" />
+          <variable ilk="argument" name="publicId" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="base" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="notationName" />
+        </scope>
+        <scope doc="Load the internal subset if there might be one." ilk="function" line="232" lineend="238" name="_setup_subset" signature="_setup_subset(buffer)">
+          <variable ilk="argument" name="buffer" />
+          <variable citdl="InternalSubsetExtractor()" line="235" name="extractor" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="extractor.getSubset()" line="237" name="subset" />
+        </scope>
+        <scope ilk="function" line="343" lineend="345" name="end_cdata_section_handler" signature="end_cdata_section_handler()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="404" lineend="413" name="_finish_end_element" signature="_finish_end_element(curNode)">
+          <variable citdl="self._elem_info.get()" line="405" name="info" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="curNode" />
+        </scope>
+        <scope doc="# If this ever changes, Namespaces.end_element_handler()&#10;needs to # be changed to match." ilk="function" line="399" lineend="402" name="end_element_handler" signature="end_element_handler(name)">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="theDOMImplementation.createDocument()" line="400" name="curNode" />
+        </scope>
+        <scope ilk="function" line="137" lineend="149" name="__init__" signature="ExpatBuilder(options=None)">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="xmlbuilder.Options()" ilk="argument" name="options" />
+        </scope>
+        <scope ilk="function" line="350" lineend="354" name="first_element_handler" signature="first_element_handler(name, attributes)">
+          <variable ilk="argument" name="attributes" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="339" lineend="341" name="start_cdata_section_handler" signature="start_cdata_section_handler()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse a document from a string, returning the document node." ilk="function" line="219" lineend="230" name="parseString" returns="theDOMImplementation.createDocument()" signature="parseString(string)">
+          <variable citdl="theDOMImplementation.createDocument()" line="227" name="doc" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="getParser()" line="221" name="parser" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope doc="Create a new parser object." ilk="function" line="151" lineend="153" name="createParser" returns="expat.ParserCreate()" signature="createParser()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="347" lineend="348" name="external_entity_ref_handler" returns="int" signature="external_entity_ref_handler(context, base, systemId, publicId)">
+          <variable ilk="argument" name="publicId" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="base" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="context" />
+        </scope>
+        <scope ilk="function" line="274" lineend="294" name="character_data_handler_cdata" signature="character_data_handler_cdata(data)">
+          <variable citdl="minidom.Text()" line="281" name="node" />
+          <variable citdl="dict" line="286" name="d" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="node.data" line="285" name="value" />
+          <variable citdl="self.curNode.childNodes" line="275" name="childNodes" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="376" lineend="394" name="_finish_start_element" signature="_finish_start_element(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="self._filter.startContainer()" line="382" name="filt" />
+        </scope>
+        <scope ilk="function" line="415" lineend="430" name="_handle_white_text_nodes" signature="_handle_white_text_nodes(node, info)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="info" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="list" line="423" name="L" />
+        </scope>
+        <scope ilk="function" line="309" lineend="325" name="entity_decl_handler" signature="entity_decl_handler(entityName, is_parameter_entity, value, base, systemId, publicId, notationName)">
+          <variable citdl="self.document._create_entity()" line="316" name="node" />
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="is_parameter_entity" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="self.document.createTextNode()" line="321" name="child" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="base" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="notationName" />
+          <variable ilk="argument" name="entityName" />
+        </scope>
+        <scope doc="Return the parser object, creating a new one if needed." ilk="function" line="155" lineend="164" name="getParser" returns="createParser()" signature="getParser()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse a document from a file object, returning the document&#10;node." ilk="function" line="197" lineend="217" name="parseFile" returns="theDOMImplementation.createDocument()" signature="parseFile(file)">
+          <variable citdl="file.read()" line="204" name="buffer" />
+          <variable citdl="theDOMImplementation.createDocument()" line="214" name="doc" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="getParser()" line="200" name="parser" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="True" line="201" name="first_buffer" />
+        </scope>
+        <scope ilk="function" line="333" lineend="337" name="comment_handler" signature="comment_handler(data)">
+          <variable citdl="self.document.createComment()" line="334" name="node" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="432" lineend="438" name="element_decl_handler" signature="element_decl_handler(name, model)">
+          <variable citdl="self._elem_info.get()" line="433" name="info" />
+          <variable ilk="argument" name="model" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Free all data structures used during DOM construction." ilk="function" line="166" lineend="172" name="reset" signature="reset()">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="268" lineend="272" name="pi_handler" signature="pi_handler(target, data)">
+          <variable citdl="self.document.createProcessingInstruction()" line="269" name="node" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="target" />
+        </scope>
+        <scope ilk="function" line="440" lineend="446" name="attlist_decl_handler" signature="attlist_decl_handler(elem, name, type, default, required)">
+          <variable citdl="self._elem_info.get()" line="441" name="info" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="default" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="required" />
+          <variable ilk="argument" name="elem" />
+          <variable ilk="argument" name="type" />
+        </scope>
+        <scope doc="Install the callbacks needed to build the DOM into the&#10;parser." ilk="function" line="174" lineend="195" name="install" signature="install(parser)">
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="parser" />
+        </scope>
+        <scope ilk="function" line="240" lineend="259" name="start_doctype_decl_handler" signature="start_doctype_decl_handler(doctypeName, systemId, publicId, has_internal_subset)">
+          <variable ilk="argument" name="publicId" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable citdl="self.document.implementation.createDocumentType()" line="242" name="doctype" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="doctypeName" />
+          <variable ilk="argument" name="has_internal_subset" />
+        </scope>
+        <scope ilk="function" line="356" lineend="374" name="start_element_handler" signature="start_element_handler(name, attributes)">
+          <variable citdl="self.document.createElement()" line="357" name="node" />
+          <variable citdl="minidom.Attr()" line="363" name="a" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="ExpatBuilder" ilk="argument" name="self" />
+          <variable line="365" name="value" />
+          <variable ilk="argument" name="attributes" />
+          <variable citdl="dict" line="366" name="d" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="createParser()" line="148" name="_parser" />
+        <variable attributes="protected __instancevar__" citdl="xmlbuilder.Options()" line="140" name="_options" />
+        <variable attributes="protected __instancevar__" citdl="True" line="172" name="_cdata" />
+        <variable attributes="protected __instancevar__" citdl="self.document._elem_info" line="171" name="_elem_info" />
+        <variable attributes="protected __instancevar__" citdl="True" line="282" name="_cdata_continue" />
+        <variable attributes="protected __instancevar__" citdl="FilterVisibilityController()" line="142" name="_filter" />
+        <variable attributes="protected __instancevar__" citdl="self._parser.intern.setdefault" line="159" name="_intern_setdefault" />
+        <variable attributes="__instancevar__" citdl="theDOMImplementation.createDocument()" line="168" name="document" />
+        <variable attributes="__instancevar__" citdl="theDOMImplementation.createDocument()" line="170" name="curNode" />
+      </scope>
+      <scope classrefs="Namespaces ExpatBuilder" doc="Document builder that supports namespaces.&#10;" ilk="class" line="818" lineend="823" name="ExpatBuilderNS">
+        <scope ilk="function" line="821" lineend="823" name="reset" signature="reset()">
+          <variable citdl="ExpatBuilderNS" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable citdl="int" line="42" name="FILTER_ACCEPT" />
+      <variable citdl="int" line="45" name="FILTER_INTERRUPT" />
+      <variable citdl="int" line="43" name="FILTER_REJECT" />
+      <variable citdl="int" line="44" name="FILTER_SKIP" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="521" lineend="531" name="FilterCrutch">
+        <scope ilk="function" line="524" lineend="531" name="__init__" signature="FilterCrutch(builder)">
+          <variable citdl="FilterCrutch" ilk="argument" name="self" />
+          <variable citdl="builder._parser" line="527" name="parser" />
+          <variable ilk="argument" name="builder" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="526" name="_builder" />
+        <variable attributes="protected __instancevar__" citdl="int" line="525" name="_level" />
+        <variable citdl="tuple" line="522" name="__slots__" />
+        <variable attributes="protected __instancevar__" citdl="parser.EndElementHandler" line="529" name="_old_end" />
+        <variable attributes="protected __instancevar__" citdl="parser.StartElementHandler" line="528" name="_old_start" />
+      </scope>
+      <scope classrefs="object" doc="Wrapper around a DOMBuilderFilter which implements the checks&#10;to make the whatToShow filter attribute work." ilk="class" line="463" lineend="517" name="FilterVisibilityController">
+        <scope ilk="function" line="485" lineend="503" name="acceptNode" returns="xmlbuilder.DOMBuilderFilter.FILTER_REJECT" signature="acceptNode(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FilterVisibilityController" ilk="argument" name="self" />
+          <variable line="486" name="mask" />
+          <variable citdl="node.parentNode" line="493" name="parent" />
+          <variable citdl="self.filter.acceptNode()" line="488" name="val" />
+        </scope>
+        <scope ilk="function" line="472" lineend="483" name="startContainer" returns="self.filter.startContainer()" signature="startContainer(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FilterVisibilityController" ilk="argument" name="self" />
+          <variable line="473" name="mask" />
+          <variable citdl="self.filter.startContainer()" line="475" name="val" />
+        </scope>
+        <scope ilk="function" line="469" lineend="470" name="__init__" signature="FilterVisibilityController(filter)">
+          <variable ilk="argument" name="filter" />
+          <variable citdl="FilterVisibilityController" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="470" name="filter" />
+        <variable citdl="tuple" line="467" name="__slots__" />
+        <variable attributes="protected" citdl="dict" line="505" name="_nodetype_mask" />
+      </scope>
+      <scope classrefs="ExpatBuilder" doc="Builder which constructs document fragments given XML source&#10;text and a context node.  The context node is expected to provide information about the namespace declarations which are in scope at the start of the fragment." ilk="class" line="601" lineend="715" name="FragmentBuilder">
+        <scope ilk="function" line="619" lineend="621" name="reset" signature="reset()">
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse a document fragment from a string, returning the&#10;fragment node." ilk="function" line="628" lineend="654" name="parseString" signature="parseString(string)">
+          <variable citdl="doctype.internalSubset" line="636" name="subset" />
+          <variable citdl="str" line="634" name="ident" />
+          <variable ilk="argument" name="string" />
+          <variable line="651" name="fragment" />
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+          <variable citdl="self.getParser()" line="632" name="parser" />
+          <variable citdl="self.originalDocument.doctype" line="633" name="doctype" />
+          <variable citdl="self._getNSattrs()" line="644" name="nsattrs" />
+          <variable citdl="str" line="645" name="document" />
+        </scope>
+        <scope doc="Parse a document fragment from a file object, returning the&#10;fragment node." ilk="function" line="623" lineend="626" name="parseFile" returns="self.parseString()" signature="parseFile(file)">
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="695" lineend="715" name="external_entity_ref_handler" returns="ExpatBuilder.external_entity_ref_handler()" signature="external_entity_ref_handler(context, base, systemId, publicId)">
+          <variable ilk="argument" name="publicId" />
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+          <variable citdl="self._parser.ExternalEntityParserCreate()" line="701" name="parser" />
+          <variable ilk="argument" name="base" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="context" />
+          <variable citdl="self.curNode" line="700" name="old_cur_node" />
+          <variable citdl="self.document" line="699" name="old_document" />
+        </scope>
+        <scope doc="Re-create the internal subset from the DocumentType node." ilk="function" line="656" lineend="690" name="_getDeclarations" returns="tuple" signature="_getDeclarations()">
+          <variable citdl="str" line="663" name="s" />
+          <variable citdl="self.context.ownerDocument.doctype" line="662" name="doctype" />
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+          <variable citdl="doctype.notations.item()" line="666" name="notation" />
+          <variable citdl="doctype.entities.item()" line="676" name="entity" />
+        </scope>
+        <scope ilk="function" line="692" lineend="693" name="_getNSattrs" returns="str" signature="_getNSattrs()">
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="610" lineend="617" name="__init__" signature="FragmentBuilder(context, options=None)">
+          <variable citdl="FragmentBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="options" />
+          <variable ilk="argument" name="context" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="631" name="_source" />
+        <variable attributes="__instancevar__" citdl="self.document.createDocumentFragment()" line="621" name="fragment" />
+        <variable attributes="__instancevar__" citdl="context.ownerDocument" line="612" name="originalDocument" />
+        <variable attributes="__instancevar__" line="613" name="context" />
+        <variable attributes="__instancevar__" citdl="context.ownerDocument" line="703" name="document" />
+        <variable attributes="__instancevar__" citdl="self.curNode" line="705" name="curNode" />
+      </scope>
+      <scope classrefs="Namespaces FragmentBuilder" doc="Fragment builder that supports namespaces.&#10;" ilk="class" line="826" lineend="860" name="FragmentBuilderNS">
+        <scope ilk="function" line="829" lineend="831" name="reset" signature="reset()">
+          <variable citdl="FragmentBuilderNS" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return string of namespace attributes from this element and&#10;ancestors." ilk="function" line="833" lineend="860" name="_getNSattrs" returns="tuple" signature="_getNSattrs()">
+          <variable citdl="FragmentBuilderNS" ilk="argument" name="self" />
+          <variable citdl="str" line="841" name="attrs" />
+          <variable citdl="list" line="843" name="L" />
+          <variable citdl="self.context" line="842" name="context" />
+          <variable citdl="str" line="852" name="declname" />
+        </scope>
+      </scope>
+      <scope classrefs="ExpatBuilder" doc="XML processor which can rip out the internal document type subset.&#10;" ilk="class" line="867" lineend="908" name="InternalSubsetExtractor">
+        <scope ilk="function" line="882" lineend="886" name="parseString" signature="parseString(string)">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope ilk="function" line="902" lineend="905" name="end_doctype_decl_handler" signature="end_doctype_decl_handler()">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable line="903" name="s" />
+        </scope>
+        <scope doc="Return the internal subset as a string." ilk="function" line="872" lineend="874" name="getSubset" signature="getSubset()">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="876" lineend="880" name="parseFile" signature="parseFile(file)">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="907" lineend="908" name="start_element_handler" signature="start_element_handler(name, attrs)">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="888" lineend="890" name="install" signature="install(parser)">
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable ilk="argument" name="parser" />
+        </scope>
+        <scope ilk="function" line="892" lineend="900" name="start_doctype_decl_handler" signature="start_doctype_decl_handler(name, publicId, systemId, has_internal_subset)">
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="InternalSubsetExtractor" ilk="argument" name="self" />
+          <variable citdl="self.getParser()" line="895" name="parser" />
+          <variable ilk="argument" name="systemId" />
+          <variable ilk="argument" name="has_internal_subset" />
+        </scope>
+        <variable citdl="list" line="870" name="subset" />
+      </scope>
+      <scope doc="Mix-in class for builders; adds support for namespaces.&#10;" ilk="class" line="718" lineend="815" name="Namespaces">
+        <scope doc="Create a new namespace-handling parser." ilk="function" line="726" lineend="730" name="createParser" returns="expat.ParserCreate()" signature="createParser()">
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+          <variable citdl="expat.ParserCreate()" line="728" name="parser" />
+        </scope>
+        <scope doc="Push this namespace declaration on our storage." ilk="function" line="739" lineend="741" name="start_namespace_decl_handler" signature="start_namespace_decl_handler(prefix, uri)">
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="743" lineend="793" name="start_element_handler" signature="start_element_handler(name, attributes)">
+          <variable citdl="minidom.Element()" line="751" name="node" />
+          <variable citdl="minidom.Attr()" line="759" name="a" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+          <variable line="745" name="qname" />
+          <variable line="777" name="value" />
+          <variable citdl="EMPTY_NAMESPACE" line="745" name="uri" />
+          <variable citdl="EMPTY_PREFIX" line="745" name="prefix" />
+          <variable attributes="protected" citdl="node._attrsNS" line="774" name="_attrsNS" />
+          <variable line="745" name="localname" />
+          <variable ilk="argument" name="attributes" />
+          <variable attributes="protected" citdl="node._attrs" line="773" name="_attrs" />
+          <variable line="776" name="aname" />
+          <variable citdl="dict" line="764" name="d" />
+        </scope>
+        <scope doc="Insert the namespace-handlers onto the parser." ilk="function" line="732" lineend="737" name="install" signature="install(parser)">
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+          <variable ilk="argument" name="parser" />
+        </scope>
+        <scope ilk="function" line="721" lineend="724" name="_initNamespaces" signature="_initNamespaces()">
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# This only adds some asserts to the original #&#10;end_element_handler(), so we only define this when -O is not&#10;# used." ilk="function" line="801" lineend="815" name="end_element_handler" signature="end_element_handler(name)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="Namespaces" ilk="argument" name="self" />
+          <variable line="804" name="uri" />
+          <variable line="804" name="qname" />
+          <variable line="804" name="prefix" />
+          <variable line="804" name="localname" />
+          <variable citdl="minidom.Element()" line="802" name="curNode" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="minidom.Element()" line="754" name="curNode" />
+        <variable attributes="protected __instancevar__" citdl="list" line="724" name="_ns_ordered_prefixes" />
+      </scope>
+      <scope doc="Class giving the NodeType constants.&#10;" ilk="class" name="Node" />
+      <scope doc="This is the DOM2 NodeFilter interface. It contains only constants.&#10;" ilk="class" name="NodeFilter">
+        <scope ilk="function" name="acceptNode" />
+      </scope>
+      <scope classrefs="list" doc="&#10;" ilk="class" name="NodeList">
+        <scope ilk="function" name="_set_length" />
+        <scope ilk="function" name="__setstate__" />
+        <scope ilk="function" name="item" />
+        <scope ilk="function" name="__getstate__" />
+        <scope ilk="function" name="_get_length" />
+      </scope>
+      <scope classrefs="Exception" doc="Exception raised to short-circuit parsing in InternalSubsetExtractor.&#10;" ilk="class" line="863" lineend="865" name="ParseEscape" />
+      <scope classrefs="FilterCrutch" doc="&#10;" ilk="class" line="533" lineend="559" name="Rejecter">
+        <scope ilk="function" line="548" lineend="549" name="start_element_handler" signature="start_element_handler(*args)">
+          <variable citdl="Rejecter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="551" lineend="559" name="end_element_handler" signature="end_element_handler(*args)">
+          <variable citdl="Rejecter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="self._builder._parser" line="554" name="parser" />
+        </scope>
+        <scope ilk="function" line="536" lineend="546" name="__init__" signature="Rejecter(builder)">
+          <variable citdl="Rejecter" ilk="argument" name="self" />
+          <variable citdl="builder._parser" line="538" name="parser" />
+          <variable ilk="argument" name="builder" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="549" name="_level" />
+        <variable citdl="tuple" line="534" name="__slots__" />
+      </scope>
+      <scope classrefs="FilterCrutch" doc="&#10;" ilk="class" line="561" lineend="579" name="Skipper">
+        <scope ilk="function" line="570" lineend="579" name="end_element_handler" signature="end_element_handler(*args)">
+          <variable citdl="Skipper" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="564" lineend="568" name="start_element_handler" signature="start_element_handler(*args)">
+          <variable citdl="self._builder.curNode" line="565" name="node" />
+          <variable citdl="Skipper" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="576" name="_builder" />
+        <variable attributes="protected __instancevar__" citdl="int" line="568" name="_level" />
+        <variable citdl="tuple" line="562" name="__slots__" />
+      </scope>
+      <variable citdl="tuple" name="StringTypes" />
+      <variable citdl="int" line="38" name="TEXT_NODE" />
+      <variable citdl="str" name="XMLNS_NAMESPACE" />
+      <scope ilk="function" name="defproperty" signature="defproperty(klass, name, doc)" />
+      <import module="expat" />
+      <scope doc="Create a builder based on an Options object." ilk="function" line="978" lineend="983" name="makeBuilder" returns="ExpatBuilderNS" signature="makeBuilder(options)">
+        <variable ilk="argument" name="options" />
+      </scope>
+      <import module="minidom" />
+      <scope doc="Parse a document, returning the resulting Document node." ilk="function" line="911" lineend="929" name="parse" returns="builder.parseFile()" signature="parse(file, namespaces=True)">
+        <variable citdl="open()" line="922" name="fp" />
+        <variable citdl="ExpatBuilder" line="917" name="builder" />
+        <variable citdl="True" ilk="argument" name="namespaces" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="builder.parseFile()" line="924" name="result" />
+      </scope>
+      <scope doc="Parse a fragment of a document, given the context from which&#10;it was originally extracted." ilk="function" line="943" lineend="963" name="parseFragment" returns="builder.parseFile()" signature="parseFragment(file, context, namespaces=True)">
+        <variable citdl="open()" line="956" name="fp" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="context" />
+        <variable citdl="FragmentBuilderNS" line="951" name="builder" />
+        <variable citdl="builder.parseFile()" line="958" name="result" />
+        <variable citdl="True" ilk="argument" name="namespaces" />
+      </scope>
+      <scope doc="Parse a fragment of a document from a string, given the&#10;context from which it was originally extracted." ilk="function" line="966" lineend="975" name="parseFragmentString" returns="builder.parseString()" signature="parseFragmentString(string, context, namespaces=True)">
+        <variable citdl="FragmentBuilderNS" line="972" name="builder" />
+        <variable citdl="True" ilk="argument" name="namespaces" />
+        <variable ilk="argument" name="string" />
+        <variable ilk="argument" name="context" />
+      </scope>
+      <scope doc="Parse a document from a string, returning the resulting&#10;Document node." ilk="function" line="932" lineend="940" name="parseString" returns="builder.parseString()" signature="parseString(string, namespaces=True)">
+        <variable citdl="ExpatBuilder" line="937" name="builder" />
+        <variable ilk="argument" name="string" />
+        <variable citdl="True" ilk="argument" name="namespaces" />
+      </scope>
+      <variable citdl="xml.dom.minidom.DOMImplementation" line="47" name="theDOMImplementation" />
+      <scope classrefs="DOMImplementationLS" doc="&#10;" ilk="class" name="DOMImplementation">
+        <scope doc="# internal" ilk="function" name="_create_document" />
+        <scope ilk="function" name="createDocument" />
+        <scope ilk="function" name="createDocumentType" />
+        <scope ilk="function" name="hasFeature" />
+        <scope ilk="function" name="getInterface" />
+      </scope>
+      <import module="xmlbuilder" />
+      <variable attributes="protected __hidden__" citdl="dict" line="50" name="_typeinfo_map" />
+      <scope attributes="protected __hidden__" ilk="function" line="116" lineend="130" name="_parse_ns_name" returns="tuple" signature="_parse_ns_name(builder, name)">
+        <variable ilk="argument" name="builder" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="name.split()" line="118" name="parts" />
+        <variable citdl="builder._intern_setdefault" line="119" name="intern" />
+        <variable citdl="EMPTY_PREFIX" line="122" name="prefix" />
+        <variable citdl="intern()" line="123" name="qname" />
+        <variable citdl="intern()" line="125" name="localname" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="585" name="_FRAGMENT_BUILDER_INTERNAL_SYSTEM_ID" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="461" name="_ALLOWED_FILTER_RETURNS" />
+      <scope attributes="protected __hidden__" ilk="function" line="113" lineend="114" name="_intern" returns="builder._intern_setdefault()" signature="_intern(builder, s)">
+        <variable ilk="argument" name="builder" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="588" name="_FRAGMENT_BUILDER_TEMPLATE" />
+    </scope>
+    

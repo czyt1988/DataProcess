@@ -1,0 +1,35 @@
+<scope doc="This module provides the components needed to build your own&#10;__import__ function.  Undocumented functions are obsolete." ilk="blob" lang="Python" name="imp">
+      <variable citdl="int" name="C_BUILTIN" />
+      <variable citdl="int" name="C_EXTENSION" />
+      <variable citdl="int" name="IMP_HOOK" />
+      <scope classrefs="object" doc="Null importer object&#10;" ilk="class" name="NullImporter">
+        <scope ilk="function" name="__init__" />
+        <scope doc="Always return None" ilk="function" name="find_module" />
+      </scope>
+      <variable citdl="int" name="PKG_DIRECTORY" />
+      <variable citdl="int" name="PY_CODERESOURCE" />
+      <variable citdl="int" name="PY_COMPILED" />
+      <variable citdl="int" name="PY_FROZEN" />
+      <variable citdl="int" name="PY_RESOURCE" />
+      <variable citdl="int" name="PY_SOURCE" />
+      <variable citdl="int" name="SEARCH_ERROR" />
+      <scope doc="Acquires the interpreter's import lock for the current&#10;thread." ilk="function" name="acquire_lock" signature="acquire_lock() -&gt; None" />
+      <scope doc="Search for a module." ilk="function" name="find_module" signature="find_module(name, [path]) -&gt; (file, filename, (suffix, mode, type))" />
+      <scope ilk="function" name="get_frozen_object" />
+      <scope doc="Return the magic number for .pyc or .pyo files." ilk="function" name="get_magic" returns="str" signature="get_magic() -&gt; string" />
+      <scope doc="Return a list of (suffix, mode, type) tuples describing the&#10;files that find_module() looks for." ilk="function" name="get_suffixes" signature="get_suffixes() -&gt; [(suffix, mode, type), ...]" />
+      <scope ilk="function" name="init_builtin" />
+      <scope ilk="function" name="init_frozen" />
+      <scope ilk="function" name="is_builtin" />
+      <scope ilk="function" name="is_frozen" />
+      <scope ilk="function" name="load_compiled" />
+      <scope ilk="function" name="load_dynamic" />
+      <scope doc="Load a module, given information returned by find_module()." ilk="function" name="load_module" returns="module" signature="load_module(name, file, filename, (suffix, mode, type)) -&gt; module" />
+      <scope ilk="function" name="load_package" />
+      <scope ilk="function" name="load_source" />
+      <scope doc="Return True if the import lock is currently held, else&#10;False." ilk="function" name="lock_held" signature="lock_held() -&gt; boolean" />
+      <scope doc="Create a new module. Do not enter it in sys.modules." ilk="function" name="new_module" returns="module" signature="new_module(name) -&gt; module" />
+      <scope doc="Release the interpreter's import lock." ilk="function" name="release_lock" signature="release_lock() -&gt; None" />
+      <scope doc="Reload the module." ilk="function" name="reload" returns="module" signature="reload(module) -&gt; module" />
+    </scope>
+    

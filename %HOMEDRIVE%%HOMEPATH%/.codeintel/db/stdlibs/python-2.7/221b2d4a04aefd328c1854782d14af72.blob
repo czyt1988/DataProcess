@@ -1,0 +1,17 @@
+<scope doc="Fix bound method attributes (method.im_? -&gt; method.__?__).&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_methodattrs">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="15" lineend="24" name="FixMethodattrs">
+        <scope ilk="function" line="21" lineend="24" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="unicode()" line="23" name="new" />
+          <variable citdl="FixMethodattrs" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="22" name="attr" />
+        </scope>
+        <variable citdl="True" line="16" name="BM_compatible" />
+        <variable citdl="str" line="17" name="PATTERN" />
+      </scope>
+      <variable citdl="dict" line="9" name="MAP" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

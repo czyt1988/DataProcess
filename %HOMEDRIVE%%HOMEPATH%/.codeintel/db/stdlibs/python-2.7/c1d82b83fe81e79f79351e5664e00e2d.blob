@@ -1,0 +1,78 @@
+<scope doc="Support for POSIX locales.&#10;" ilk="blob" lang="Python" name="_locale">
+      <variable citdl="int" name="CHAR_MAX" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Error" />
+      <variable citdl="int" name="LC_ALL" />
+      <variable citdl="int" name="LC_COLLATE" />
+      <variable citdl="int" name="LC_CTYPE" />
+      <variable citdl="int" name="LC_MONETARY" />
+      <variable citdl="int" name="LC_NUMERIC" />
+      <variable citdl="int" name="LC_TIME" />
+      <scope doc="() -&gt; dict." ilk="function" name="localeconv" />
+      <scope doc="(integer,string=None) -&gt; string." ilk="function" name="setlocale" />
+      <scope doc="string,string -&gt; int." ilk="function" name="strcoll" />
+      <scope doc="string -&gt; string." ilk="function" name="strxfrm" />
+      <variable citdl="int" name="ABMON_3" />
+      <variable citdl="int" name="ABMON_2" />
+      <variable citdl="int" name="ABMON_1" />
+      <variable citdl="int" name="ABMON_7" />
+      <variable citdl="int" name="ABMON_6" />
+      <variable citdl="int" name="ABMON_5" />
+      <variable citdl="int" name="ABMON_4" />
+      <variable citdl="int" name="ALT_DIGITS" />
+      <variable citdl="int" name="ABMON_9" />
+      <variable citdl="int" name="ABMON_8" />
+      <variable citdl="int" name="T_FMT" />
+      <variable citdl="int" name="ERA" />
+      <variable citdl="int" name="CODESET" />
+      <variable citdl="int" name="THOUSEP" />
+      <variable citdl="int" name="AM_STR" />
+      <scope doc="Bind the C library's domain to dir." ilk="function" name="bindtextdomain" returns="str" signature="bindtextdomain(domain, dir) -&gt; string" />
+      <variable citdl="int" name="ERA_T_FMT" />
+      <variable citdl="int" name="D_T_FMT" />
+      <variable citdl="int" name="T_FMT_AMPM" />
+      <variable citdl="int" name="PM_STR" />
+      <scope doc="Return translation of msg." ilk="function" name="gettext" returns="str" signature="gettext(msg) -&gt; string" />
+      <scope doc="Return translation of msg in domain and category." ilk="function" name="dcgettext" returns="str" signature="dcgettext(domain, msg, category) -&gt; string" />
+      <variable citdl="int" name="MON_3" />
+      <variable citdl="int" name="ERA_D_T_FMT" />
+      <variable citdl="int" name="MON_2" />
+      <variable citdl="int" name="D_FMT" />
+      <variable citdl="int" name="MON_1" />
+      <variable citdl="int" name="MON_6" />
+      <variable citdl="int" name="MON_7" />
+      <variable citdl="int" name="MON_4" />
+      <variable citdl="int" name="MON_5" />
+      <variable citdl="int" name="MON_8" />
+      <variable citdl="int" name="MON_9" />
+      <variable citdl="int" name="ERA_D_FMT" />
+      <variable citdl="int" name="ABDAY_1" />
+      <variable citdl="int" name="CRNCYSTR" />
+      <variable citdl="int" name="MON_10" />
+      <variable citdl="int" name="LC_MESSAGES" />
+      <variable citdl="int" name="DAY_2" />
+      <variable citdl="int" name="DAY_3" />
+      <scope doc="Return the value for the locale information associated with&#10;key." ilk="function" name="nl_langinfo" returns="str" signature="nl_langinfo(key) -&gt; string" />
+      <variable citdl="int" name="DAY_1" />
+      <variable citdl="int" name="DAY_6" />
+      <variable citdl="int" name="DAY_7" />
+      <variable citdl="int" name="DAY_4" />
+      <variable citdl="int" name="DAY_5" />
+      <variable citdl="int" name="ABDAY_7" />
+      <variable citdl="int" name="ABDAY_6" />
+      <variable citdl="int" name="ABDAY_5" />
+      <variable citdl="int" name="ABDAY_4" />
+      <variable citdl="int" name="ABDAY_3" />
+      <variable citdl="int" name="MON_11" />
+      <variable citdl="int" name="MON_12" />
+      <variable citdl="int" name="YESEXPR" />
+      <variable citdl="int" name="RADIXCHAR" />
+      <variable citdl="int" name="NOEXPR" />
+      <scope doc="Set the C library's textdmain to domain, returning the new&#10;domain." ilk="function" name="textdomain" returns="str" signature="textdomain(domain) -&gt; string" />
+      <variable citdl="int" name="ABDAY_2" />
+      <variable citdl="int" name="ABMON_12" />
+      <variable citdl="int" name="ABMON_11" />
+      <variable citdl="int" name="ABMON_10" />
+      <scope doc="Bind the C library's domain to codeset." ilk="function" name="bind_textdomain_codeset" returns="str" signature="bind_textdomain_codeset(domain, codeset) -&gt; string" />
+      <scope doc="Return translation of msg in domain." ilk="function" name="dgettext" returns="str" signature="dgettext(domain, msg) -&gt; string" />
+    </scope>
+    

@@ -1,0 +1,41 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_multiprocessing">
+      <scope classrefs="object" doc="Connection type whose constructor signature is&#10;Connection(handle, readable=True, writable=True).  The constructor does *not* duplicate the handle." ilk="class" name="Connection">
+        <scope doc="file descriptor or handle of the connection" ilk="function" name="fileno" />
+        <scope doc="receive byte data as a string" ilk="function" name="recv_bytes" />
+        <scope doc="send a (picklable) object" ilk="function" name="send" />
+        <scope doc="receive byte data into a writeable buffer-like object&#10;returns the number of bytes read" ilk="function" name="recv_bytes_into" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="send the byte data from a readable buffer-like object" ilk="function" name="send_bytes" />
+        <scope doc="close the connection" ilk="function" name="close" />
+        <scope doc="whether there is any input available to be read" ilk="function" name="poll" />
+        <scope doc="receive a (picklable) object" ilk="function" name="recv" />
+      </scope>
+      <scope classrefs="object" doc="Connection type whose constructor signature is&#10;Connection(handle, readable=True, writable=True).  The constructor does *not* duplicate the handle." ilk="class" name="PipeConnection">
+        <scope doc="file descriptor or handle of the connection" ilk="function" name="fileno" />
+        <scope doc="receive byte data as a string" ilk="function" name="recv_bytes" />
+        <scope doc="send a (picklable) object" ilk="function" name="send" />
+        <scope doc="receive byte data into a writeable buffer-like object&#10;returns the number of bytes read" ilk="function" name="recv_bytes_into" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="send the byte data from a readable buffer-like object" ilk="function" name="send_bytes" />
+        <scope doc="close the connection" ilk="function" name="close" />
+        <scope doc="whether there is any input available to be read" ilk="function" name="poll" />
+        <scope doc="receive a (picklable) object" ilk="function" name="recv" />
+      </scope>
+      <scope classrefs="object" doc="Semaphore/Mutex type&#10;" ilk="class" name="SemLock">
+        <scope doc="get the value of the semaphore" ilk="function" name="_get_value" />
+        <scope doc="num of `acquire()`s minus num of `release()`s for this&#10;process" ilk="function" name="_count" />
+        <scope doc="acquire the semaphore/lock" ilk="function" name="acquire" />
+        <scope doc="exit the semaphore/lock" ilk="function" name="__exit__" />
+        <scope doc="enter the semaphore/lock" ilk="function" name="__enter__" />
+        <scope doc="returns whether semaphore has value zero" ilk="function" name="_is_zero" />
+        <scope doc="release the semaphore/lock" ilk="function" name="release" />
+        <scope doc="rezero the net acquisition count after fork()" ilk="function" name="_after_fork" />
+        <scope doc="whether the lock is owned by this thread" ilk="function" name="_is_mine" />
+      </scope>
+      <scope doc="Return address of obj assuming obj supports buffer inteface" ilk="function" name="address_of_buffer" returns="int" signature="address_of_buffer(obj) -&gt; int" />
+      <variable citdl="dict" name="flags" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="win32" />
+      <scope doc="Receive a file descriptor over a unix domain socket whose&#10;file decriptor is sockfd" ilk="function" name="recvfd" signature="recvfd(sockfd) -&gt; fd" />
+      <scope doc="Send file descriptor given by fd over the unix domain socket&#10;whose file decriptor is sockfd" ilk="function" name="sendfd" signature="sendfd(sockfd, fd) -&gt; None" />
+    </scope>
+    

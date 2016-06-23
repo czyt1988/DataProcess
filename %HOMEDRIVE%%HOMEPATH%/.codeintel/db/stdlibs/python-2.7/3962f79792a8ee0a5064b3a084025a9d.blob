@@ -1,0 +1,320 @@
+<scope doc="Random variable generators.&#10;integers -------- uniform within range  sequences --------- pick random element pick random sample generate random permutation " ilk="blob" lang="Python" name="random">
+      <variable citdl="int" line="62" name="BPF" />
+      <variable citdl="float" line="60" name="LOG4" />
+      <variable citdl="float" line="58" name="NV_MAGICCONST" />
+      <variable citdl="float" line="63" name="RECIP_BPF" />
+      <scope classrefs="Random" doc="Random number generator base class used by bound module functions.&#10;Used to instantiate instances of Random to get generators that don't share state.  Especially useful for multi-threaded programs, creating a different instance of Random for each thread, and using the jumpahead() method to ensure that the generated sequences seen by each thread don't overlap.  Class Random can also be subclassed if you want to use a different basic generator of your own devising: in that case, override the following methods: random(), seed(), getstate(), setstate() and jumpahead(). Optionally, implement a getrandbits() method so that randrange() can cover" ilk="class" line="72" lineend="649" name="Random">
+        <scope doc="x, random=random.random -&gt; shuffle list x in place; return&#10;None." ilk="function" line="276" lineend="288" name="shuffle" signature="shuffle(x, random=None, int=int)">
+          <variable citdl="int" ilk="argument" name="int" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" ilk="argument" name="random" />
+          <variable citdl="int()" line="287" name="j" />
+        </scope>
+        <scope doc="Choose a random item from range(start, stop[, step])." ilk="function" line="173" lineend="235" name="randrange" returns="Random.randrange.int()" signature="randrange(start, stop=None, step=1, int=int, default=None, maxwidth=1L&lt;&lt;BPF)">
+          <variable citdl="int" ilk="argument" name="int" />
+          <variable citdl="int()" line="184" name="istart" />
+          <variable citdl="int" ilk="argument" name="maxwidth" />
+          <variable citdl="int()" line="198" name="width" />
+          <variable ilk="argument" name="default" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="stop" />
+          <variable citdl="int" line="224" name="n" />
+          <variable ilk="argument" name="start" />
+          <variable citdl="int" ilk="argument" name="step" />
+          <variable citdl="int()" line="195" name="istop" />
+          <variable citdl="int()" line="220" name="istep" />
+        </scope>
+        <scope ilk="function" line="165" lineend="166" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope doc="Beta distribution." ilk="function" line="613" lineend="627" name="betavariate" returns="gammavariate()" signature="betavariate(alpha, beta)">
+          <variable citdl="gammavariate()" line="623" name="y" />
+          <variable ilk="argument" name="alpha" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="beta" />
+        </scope>
+        <scope ilk="function" line="168" lineend="169" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="Random" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Pareto distribution. alpha is the shape parameter." ilk="function" line="631" lineend="636" name="paretovariate" returns="pow()" signature="paretovariate(alpha)">
+          <variable ilk="argument" name="alpha" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random()" line="635" name="u" />
+        </scope>
+        <scope doc="Normal distribution." ilk="function" line="380" lineend="401" name="normalvariate" returns="Random.normalvariate.random()" signature="normalvariate(mu, sigma)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="393" name="random" />
+          <variable citdl="random()" line="395" name="u1" />
+          <variable citdl="Random.normalvariate.random()" line="396" name="u2" />
+          <variable ilk="argument" name="mu" />
+          <variable citdl="_exp()" line="398" name="zz" />
+          <variable citdl="_sqrt()" line="397" name="z" />
+          <variable ilk="argument" name="sigma" />
+        </scope>
+        <scope doc="Triangular distribution." ilk="function" line="361" lineend="376" name="triangular" returns="self.random()" signature="triangular(low=0.0, high=1.0, mode=None)">
+          <variable citdl="float" line="371" name="c" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="float" ilk="argument" name="high" />
+          <variable citdl="self.random()" line="370" name="u" />
+          <variable citdl="float" ilk="argument" name="low" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Chooses k unique random elements from a population sequence." ilk="function" line="290" lineend="349" name="sample" returns="Random.sample()" signature="sample(population, k)">
+          <variable citdl="set()" line="337" name="selected" />
+          <variable attributes="protected" citdl="int" line="322" name="_int" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="321" name="random" />
+          <variable citdl="selected.add" line="338" name="selected_add" />
+          <variable citdl="_int()" line="332" name="j" />
+          <variable citdl="list" line="323" name="result" />
+          <variable citdl="len()" line="318" name="n" />
+          <variable citdl="int" line="324" name="setsize" />
+          <variable ilk="argument" name="k" />
+          <variable citdl="list()" line="330" name="pool" />
+          <variable ilk="argument" name="population" />
+        </scope>
+        <scope doc="Initialize internal state from hashable object." ilk="function" line="100" lineend="117" name="seed" signature="seed(a=None)">
+          <variable citdl="long()" ilk="argument" name="a" />
+          <variable citdl="Random" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Weibull distribution." ilk="function" line="640" lineend="649" name="weibullvariate" returns="pow()" signature="weibullvariate(alpha, beta)">
+          <variable ilk="argument" name="alpha" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random()" line="648" name="u" />
+          <variable ilk="argument" name="beta" />
+        </scope>
+        <scope doc="Gaussian distribution." ilk="function" line="560" lineend="597" name="gauss" returns="_cos()" signature="gauss(mu, sigma)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="588" name="random" />
+          <variable ilk="argument" name="mu" />
+          <variable citdl="_pi" line="592" name="x2pi" />
+          <variable citdl="_cos()" line="589" name="z" />
+          <variable ilk="argument" name="sigma" />
+          <variable citdl="_sqrt()" line="593" name="g2rad" />
+        </scope>
+        <scope doc="Change the internal state to one that is likely far away&#10;from the current state." ilk="function" line="145" lineend="155" name="jumpahead" signature="jumpahead(n)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="repr()" line="153" name="s" />
+          <variable citdl="int()" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Choose a random element from a non-empty sequence." ilk="function" line="272" lineend="274" name="choice" signature="choice(seq)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="seq" />
+        </scope>
+        <scope doc="Initialize an instance." ilk="function" line="91" lineend="98" name="__init__" signature="Random(x=None)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Random" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a random int in the range [0,n)" ilk="function" line="243" lineend="268" name="_randbelow" returns="Random._randbelow.int()" signature="_randbelow(n, _log=_log, int=int, _maxwidth=1L&lt;&lt;BPF, _Method=_MethodType, _BuiltinMethod=_BuiltinMethodType)">
+          <variable citdl="int" ilk="argument" name="int" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="_BuiltinMethodType" ilk="argument" name="_BuiltinMethod" />
+          <variable ilk="argument" name="n" />
+          <variable citdl="int" ilk="argument" name="_maxwidth" />
+          <variable citdl="getrandbits()" line="261" name="r" />
+          <variable citdl="_log" ilk="argument" name="_log" />
+          <variable citdl="int()" line="260" name="k" />
+          <variable citdl="self.getrandbits" line="252" name="getrandbits" />
+          <variable citdl="_MethodType" ilk="argument" name="_Method" />
+        </scope>
+        <scope doc="Return random integer in range [a, b], including both end&#10;points." ilk="function" line="237" lineend="241" name="randint" returns="Random.randrange()" signature="randint(a, b)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Circular data distribution." ilk="function" line="438" lineend="484" name="vonmisesvariate" returns="Random.vonmisesvariate.random()" signature="vonmisesvariate(mu, kappa)">
+          <variable citdl="_sqrt()" line="462" name="a" />
+          <variable citdl="_sqrt()" line="471" name="c" />
+          <variable citdl="_sqrt()" line="463" name="b" />
+          <variable ilk="argument" name="kappa" />
+          <variable citdl="_sqrt()" line="470" name="f" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="458" name="random" />
+          <variable citdl="random()" line="467" name="u1" />
+          <variable citdl="random()" line="478" name="u3" />
+          <variable citdl="random()" line="473" name="u2" />
+          <variable ilk="argument" name="mu" />
+          <variable citdl="_sqrt()" line="464" name="r" />
+          <variable citdl="_acos()" line="480" name="theta" />
+          <variable citdl="_cos()" line="469" name="z" />
+        </scope>
+        <scope doc="Gamma distribution." ilk="function" line="488" lineend="556" name="gammavariate" returns="_exp()" signature="gammavariate(alpha, beta)">
+          <variable citdl="_log()" line="525" name="x" />
+          <variable citdl="_sqrt()" line="515" name="ainv" />
+          <variable citdl="_e" line="544" name="b" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="508" name="random" />
+          <variable citdl="random()" line="520" name="u1" />
+          <variable citdl="_log()" line="516" name="bbb" />
+          <variable citdl="Random.gammavariate.random()" line="523" name="u2" />
+          <variable citdl="random()" line="545" name="p" />
+          <variable ilk="argument" name="beta" />
+          <variable citdl="_sqrt()" line="527" name="r" />
+          <variable citdl="random()" line="533" name="u" />
+          <variable citdl="_log()" line="524" name="v" />
+          <variable ilk="argument" name="alpha" />
+          <variable citdl="random()" line="526" name="z" />
+          <variable citdl="_sqrt()" line="517" name="ccc" />
+        </scope>
+        <scope doc="Return internal state; can be passed to setstate() later." ilk="function" line="119" lineend="121" name="getstate" returns="tuple" signature="getstate()">
+          <variable citdl="Random" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get a random number in the range [a, b) or [a, b] depending&#10;on rounding." ilk="function" line="355" lineend="357" name="uniform" returns="self.random()" signature="uniform(a, b)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Exponential distribution." ilk="function" line="417" lineend="434" name="expovariate" returns="_log()" signature="expovariate(lambd)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable citdl="self.random" line="430" name="random" />
+          <variable citdl="random()" line="431" name="u" />
+          <variable ilk="argument" name="lambd" />
+        </scope>
+        <scope doc="Log normal distribution." ilk="function" line="405" lineend="413" name="lognormvariate" returns="_exp()" signature="lognormvariate(mu, sigma)">
+          <variable ilk="argument" name="mu" />
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable ilk="argument" name="sigma" />
+        </scope>
+        <scope ilk="function" line="162" lineend="163" name="__getstate__" returns="Random.getstate()" signature="__getstate__()">
+          <variable citdl="Random" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Restore internal state from object returned by getstate()." ilk="function" line="123" lineend="143" name="setstate" signature="setstate(state)">
+          <variable citdl="Random" ilk="argument" name="self" />
+          <variable line="125" name="version" />
+          <variable citdl="tuple()" line="136" name="internalstate" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <variable citdl="int" line="89" name="VERSION" />
+        <variable attributes="__instancevar__" citdl="_sin()" line="98" name="gauss_next" />
+      </scope>
+      <variable citdl="float" line="61" name="SG_MAGICCONST" />
+      <scope classrefs="Random" doc="Alternate random number generator using sources provided&#10;by the operating system (such as /dev/urandom on Unix or CryptGenRandom on Windows).  Not available on all systems (see os.urandom() for details)." ilk="class" line="803" lineend="833" name="SystemRandom">
+        <scope doc="Method should not be called for a system random number&#10;generator." ilk="function" line="833" name="getstate" />
+        <scope doc="Method should not be called for a system random number&#10;generator." ilk="function" line="830" lineend="832" name="_notimplemented" signature="_notimplemented(*args, **kwds)">
+          <variable citdl="SystemRandom" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope doc="Stub method. Not used for a system random number generator." ilk="function" line="825" lineend="827" name="_stub" signature="_stub(*args, **kwds)">
+          <variable citdl="SystemRandom" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope doc="Get the next random number in the range [0.0, 1.0)." ilk="function" line="811" lineend="813" name="random" returns="int" signature="random()">
+          <variable citdl="SystemRandom" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Stub method. Not used for a system random number generator." ilk="function" line="828" name="seed" />
+        <scope doc="Stub method. Not used for a system random number generator." ilk="function" name="jumpahead" />
+        <scope doc="getrandbits(k) -&gt; x.  Generates a long int with k random bits." ilk="function" line="815" lineend="823" name="getrandbits" returns="int" signature="getrandbits(k) -&gt; x.  Generates a long int with k random bits.">
+          <variable citdl="long()" line="822" name="x" />
+          <variable citdl="SystemRandom" ilk="argument" name="self" />
+          <variable citdl="int" line="821" name="bytes" />
+          <variable ilk="argument" name="k" />
+        </scope>
+        <scope doc="Method should not be called for a system random number&#10;generator." ilk="function" name="setstate" />
+      </scope>
+      <variable citdl="float" line="59" name="TWOPI" />
+      <scope classrefs="Random" doc="&#10;" ilk="class" line="653" lineend="799" name="WichmannHill">
+        <scope doc="Return internal state; can be passed to setstate() later." ilk="function" line="719" lineend="721" name="getstate" returns="tuple" signature="getstate()">
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Seed from hashable object's hash code." ilk="function" line="778" lineend="799" name="whseed" signature="whseed(a=None)">
+          <variable citdl="hash()" ilk="argument" name="a" />
+          <variable citdl="int" line="793" name="x" />
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable citdl="int" line="795" name="z" />
+          <variable citdl="int" line="794" name="y" />
+        </scope>
+        <scope doc="Get the next random number in the range [0.0, 1.0)." ilk="function" line="688" lineend="717" name="random" returns="float" signature="random()">
+          <variable citdl="int" line="710" name="y" />
+          <variable citdl="int" line="709" name="x" />
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable citdl="int" line="711" name="z" />
+        </scope>
+        <scope doc="Set the Wichmann-Hill seed from (x, y, z)." ilk="function" name="_WichmannHill__whseed" />
+        <scope doc="Act as if n calls to random() were made, but quickly." ilk="function" line="733" lineend="753" name="jumpahead" signature="jumpahead(n)">
+          <variable citdl="int()" line="751" name="y" />
+          <variable citdl="int()" line="750" name="x" />
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable citdl="int()" line="752" name="z" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Initialize internal state from hashable object." ilk="function" line="657" lineend="686" name="seed" signature="seed(a=None)">
+          <variable citdl="long()" ilk="argument" name="a" />
+          <variable line="681" name="x" />
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable line="683" name="z" />
+          <variable line="682" name="y" />
+        </scope>
+        <scope doc="Restore internal state from object returned by getstate()." ilk="function" line="723" lineend="731" name="setstate" signature="setstate(state)">
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable line="725" name="version" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope attributes="private" doc="Set the Wichmann-Hill seed from (x, y, z)." ilk="function" line="755" lineend="776" name="__whseed" signature="__whseed(x=0, y=0, z=0)">
+          <import line="767" module="time" />
+          <variable citdl="WichmannHill" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="x" />
+          <variable citdl="int" ilk="argument" name="y" />
+          <variable citdl="int" ilk="argument" name="z" />
+          <variable citdl="int()" line="768" name="t" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="tuple" line="684" name="_seed" />
+        <variable citdl="int" line="655" name="VERSION" />
+        <variable attributes="__instancevar__" line="686" name="gauss_next" />
+      </scope>
+      <variable citdl="list" line="51" name="__all__" />
+      <import module="_hashlib" />
+      <import module="_random" />
+      <scope doc="Beta distribution." ilk="function" line="899" name="betavariate" />
+      <scope doc="Choose a random element from a non-empty sequence." ilk="function" line="889" name="choice" />
+      <variable citdl="__future__._Feature" name="division" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Exponential distribution." ilk="function" line="895" name="expovariate" />
+      <scope doc="Gamma distribution." ilk="function" line="897" name="gammavariate" />
+      <scope doc="Gaussian distribution." ilk="function" line="898" name="gauss" />
+      <scope doc="getrandbits(k) -&gt; x.  Generates a long int with k random bits." ilk="function" line="905" name="getrandbits" signature="getrandbits(k) -&gt; x.  Generates a long int with k random bits." />
+      <scope doc="Return internal state; can be passed to setstate() later." ilk="function" line="902" name="getstate" />
+      <scope doc="Change the internal state to one that is likely far away&#10;from the current state." ilk="function" line="904" name="jumpahead" />
+      <scope doc="Log normal distribution." ilk="function" line="894" name="lognormvariate" />
+      <scope doc="Normal distribution." ilk="function" line="893" name="normalvariate" />
+      <scope doc="Pareto distribution. alpha is the shape parameter." ilk="function" line="900" name="paretovariate" />
+      <scope doc="Return random integer in range [a, b], including both end&#10;points." ilk="function" line="888" name="randint" />
+      <scope doc="random() -&gt; x in the interval [0, 1)." ilk="function" line="885" name="random" signature="random() -&gt; x in the interval [0, 1)." />
+      <scope doc="Choose a random item from range(start, stop[, step])." ilk="function" line="890" name="randrange" />
+      <scope doc="Chooses k unique random elements from a population sequence." ilk="function" line="891" name="sample" />
+      <scope doc="Initialize internal state from hashable object." ilk="function" line="884" name="seed" />
+      <scope doc="Restore internal state from object returned by getstate()." ilk="function" line="903" name="setstate" />
+      <scope doc="x, random=random.random -&gt; shuffle list x in place; return&#10;None." ilk="function" line="892" name="shuffle" />
+      <scope doc="Triangular distribution." ilk="function" line="887" name="triangular" />
+      <scope doc="Get a random number in the range [a, b) or [a, b] depending&#10;on rounding." ilk="function" line="886" name="uniform" />
+      <scope doc="Circular data distribution." ilk="function" line="896" name="vonmisesvariate" />
+      <scope doc="Weibull distribution." ilk="function" line="901" name="weibullvariate" />
+      <scope attributes="protected __hidden__" ilk="function" line="859" lineend="875" name="_test" signature="_test(N=2000)">
+        <variable citdl="int" ilk="argument" name="N" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="Random" line="883" name="_inst" />
+      <scope attributes="protected __hidden__" ilk="function" line="837" lineend="856" name="_test_generator" signature="_test_generator(n, func, args)">
+        <import line="838" module="time" />
+        <variable ilk="argument" name="n" />
+        <variable ilk="argument" name="func" />
+        <variable ilk="argument" name="args" />
+        <variable citdl="float" line="840" name="total" />
+        <variable citdl="func()" line="841" name="sqsum" />
+        <variable citdl="float" line="842" name="smallest" />
+        <variable citdl="max()" line="843" name="largest" />
+        <variable citdl="time.time()" line="844" name="t0" />
+        <variable citdl="func()" line="846" name="x" />
+        <variable citdl="time.time()" line="851" name="t1" />
+        <variable citdl="float" line="853" name="avg" />
+        <variable citdl="_sqrt()" line="854" name="stddev" />
+      </scope>
+    </scope>
+    

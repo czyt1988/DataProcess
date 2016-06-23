@@ -1,0 +1,14 @@
+<scope doc="icopen patch&#10;OVERVIEW  icopen patches MacOS Python to use the Internet Config file mappings to select the type and creator for a file.  Version 1 released to the public domain 3 November 1999 by Oliver Steele (steele@cs.brandeis.edu).  DETAILS " ilk="blob" lang="Python" name="icopen">
+      <import module="__builtin__" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope attributes="protected __hidden__" ilk="function" line="47" lineend="59" name="_open_with_typer" returns="_builtin_open()" signature="_open_with_typer(*args)">
+        <import line="54" module="ic" symbol="error" />
+        <import line="54" module="ic" symbol="settypecreator" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable citdl="_builtin_open()" line="48" name="file" />
+        <variable line="49" name="filename" />
+        <variable citdl="str" line="50" name="mode" />
+      </scope>
+      <variable attributes="protected __hidden__" line="45" name="_builtin_open" />
+    </scope>
+    

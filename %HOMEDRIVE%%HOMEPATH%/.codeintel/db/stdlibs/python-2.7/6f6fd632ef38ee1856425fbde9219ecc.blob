@@ -1,0 +1,20 @@
+<scope doc="Read and cache directory listings.&#10;The listdir() routine returns a sorted list of the files in a directory, using a cache to avoid reading the directory more often than necessary. The annotate() routine appends slashes to directories." ilk="blob" lang="Python" name="dircache">
+      <variable citdl="list" line="12" name="__all__" />
+      <scope doc="Add '/' suffixes to directories." ilk="function" line="37" lineend="41" name="annotate" signature="annotate(head, list)">
+        <variable ilk="argument" name="head" />
+        <variable ilk="argument" name="list" />
+      </scope>
+      <variable citdl="dict" line="14" name="cache" />
+      <scope doc="List directory contents, using cache." ilk="function" line="21" lineend="33" name="listdir" returns="os.listdir()" signature="listdir(path)">
+        <variable ilk="argument" name="path" />
+        <variable line="28" name="mtime" />
+        <variable citdl="os.listdir()" line="27" name="list" />
+        <variable citdl="int" line="27" name="cached_mtime" />
+      </scope>
+      <scope doc="List directory contents, using cache." ilk="function" line="35" name="opendir" signature="opendir(path)" />
+      <import module="os" />
+      <scope doc="Reset the cache completely." ilk="function" line="16" lineend="19" name="reset" signature="reset()">
+        <variable citdl="dict" line="19" name="cache" />
+      </scope>
+    </scope>
+    

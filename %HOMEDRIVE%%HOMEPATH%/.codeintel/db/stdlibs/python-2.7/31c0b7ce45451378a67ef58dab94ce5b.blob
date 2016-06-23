@@ -1,0 +1,244 @@
+<scope doc="A parser for SGML, using the derived class as a static DTD.&#10;" ilk="blob" lang="Python" name="sgmllib">
+      <scope classrefs="RuntimeError" doc="Exception raised for all parse errors.&#10;" ilk="class" line="44" lineend="46" name="SGMLParseError" />
+      <scope classrefs="ParserBase" doc="&#10;" ilk="class" line="60" lineend="458" name="SGMLParser">
+        <scope doc="Feed some data to the parser." ilk="function" line="95" lineend="104" name="feed" signature="feed(data)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Internal -- finish parsing of &lt;tag/data/ (same as&#10;&lt;tag&gt;data&lt;/tag&gt;)" ilk="function" line="324" lineend="327" name="finish_shorttag" signature="finish_shorttag(tag, data)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Example -- report an unbalanced &lt;/...&gt; tag." ilk="function" line="388" lineend="391" name="report_unbalanced" signature="report_unbalanced(tag)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+        </scope>
+        <scope ilk="function" line="403" lineend="404" name="convert_codepoint" returns="chr()" signature="convert_codepoint(codepoint)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="codepoint" />
+        </scope>
+        <scope doc="# Internal -- finish processing of start tag # Return -1 for&#10;unknown tag, 0 for open-only tag, 1 for balanced tag" ilk="function" line="331" lineend="346" name="finish_starttag" returns="int" signature="finish_starttag(tag, attrs)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="getattr()" line="333" name="method" />
+        </scope>
+        <scope doc="Convert character reference, may be overridden." ilk="function" line="393" lineend="401" name="convert_charref" returns="self.convert_codepoint()" signature="convert_charref(name)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int()" line="396" name="n" />
+        </scope>
+        <scope doc="Handle the remaining data." ilk="function" line="106" lineend="108" name="close" signature="close()">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Overridable -- handle start tag" ilk="function" line="380" lineend="381" name="handle_starttag" signature="handle_starttag(tag, method, attrs)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="method" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="Convert entity references." ilk="function" line="418" name="convert_entityref" signature="convert_entityref(name)">
+          <variable citdl="dict" line="424" name="table" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="# Internal -- handle data as far as reasonable." ilk="function" line="116" lineend="215" name="goahead" signature="goahead(end)">
+          <variable ilk="argument" name="end" />
+          <variable citdl="match.group()" line="185" name="name" />
+          <variable citdl="self.parse_starttag()" line="118" name="i" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable citdl="match.end()" line="126" name="j" />
+          <variable citdl="len()" line="119" name="n" />
+          <variable citdl="str" line="117" name="rawdata" />
+          <variable citdl="self.parse_pi()" line="138" name="k" />
+          <variable citdl="charref.match()" line="125" name="match" />
+        </scope>
+        <scope doc="# To be overridden -- handlers for unknown objects" ilk="function" line="455" lineend="455" name="unknown_starttag" signature="unknown_starttag(tag, attrs)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="457" lineend="457" name="unknown_charref" signature="unknown_charref(ref)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="ref" />
+        </scope>
+        <scope doc="Enter literal mode (CDATA) till EOF." ilk="function" line="81" lineend="86" name="setnomoretags" signature="setnomoretags()">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="234" lineend="235" name="get_starttag_text" signature="get_starttag_text()">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize and reset this instance." ilk="function" line="66" lineend="69" name="__init__" signature="SGMLParser(verbose=0)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <scope doc="# Example -- handle declaration, could be overridden" ilk="function" line="447" lineend="448" name="handle_decl" signature="handle_decl(decl)">
+          <variable ilk="argument" name="decl" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Internal -- finish processing of end tag" ilk="function" line="349" lineend="377" name="finish_endtag" signature="finish_endtag(tag)">
+          <variable citdl="len()" line="351" name="found" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable citdl="getattr()" line="358" name="method" />
+        </scope>
+        <scope doc="Enter literal mode (CDATA)." ilk="function" line="88" lineend="93" name="setliteral" signature="setliteral(*args)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="# Internal -- handle starttag, return length or -1 if not&#10;terminated" ilk="function" line="238" lineend="297" name="parse_starttag" returns="match.end()" signature="parse_starttag(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="self.entity_or_charref.sub()" line="281" name="attrvalue" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable citdl="match.start()" line="264" name="j" />
+          <variable line="281" name="rest" />
+          <variable line="281" name="attrname" />
+          <variable citdl="str" line="250" name="tag" />
+          <variable citdl="list" line="241" name="rawdata" />
+          <variable line="240" name="start_pos" />
+          <variable line="250" name="data" />
+          <variable citdl="match.end()" line="253" name="k" />
+          <variable citdl="attrfind.match()" line="247" name="match" />
+          <variable citdl="list" line="266" name="attrs" />
+        </scope>
+        <scope doc="# Overridable -- handle end tag" ilk="function" line="384" lineend="385" name="handle_endtag" signature="handle_endtag(tag, method)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="method" />
+        </scope>
+        <scope doc="Handle character reference, no need to override." ilk="function" line="406" lineend="412" name="handle_charref" signature="handle_charref(name)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="convert_charref()" line="408" name="replacement" />
+        </scope>
+        <scope doc="Handle entity references, no need to override." ilk="function" line="430" lineend="436" name="handle_entityref" signature="handle_entityref(name)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="convert_entityref()" line="432" name="replacement" />
+        </scope>
+        <scope doc="# Example -- handle comment, could be overridden" ilk="function" line="443" lineend="444" name="handle_comment" signature="handle_comment(data)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Internal -- parse processing instr, return length or -1 if&#10;not terminated" ilk="function" line="222" lineend="232" name="parse_pi" returns="match.end()" signature="parse_pi(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable citdl="match.start()" line="229" name="j" />
+          <variable citdl="list" line="223" name="rawdata" />
+          <variable citdl="piclose.search()" line="226" name="match" />
+        </scope>
+        <scope ilk="function" line="458" lineend="458" name="unknown_entityref" signature="unknown_entityref(ref)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="ref" />
+        </scope>
+        <scope doc="Reset this instance. Loses all unprocessed data." ilk="function" line="71" lineend="79" name="reset" signature="reset()">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Internal -- convert entity or character reference" ilk="function" line="300" lineend="308" name="_convert_ref" returns="str" signature="_convert_ref(match)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="match" />
+        </scope>
+        <scope doc="# Example -- handle processing instruction, could be&#10;overridden" ilk="function" line="451" lineend="452" name="handle_pi" signature="handle_pi(data)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Internal -- parse endtag" ilk="function" line="311" lineend="321" name="parse_endtag" returns="match.start()" signature="parse_endtag(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable citdl="match.start()" line="316" name="j" />
+          <variable line="317" name="tag" />
+          <variable citdl="list" line="312" name="rawdata" />
+          <variable citdl="endbracket.search()" line="313" name="match" />
+        </scope>
+        <scope ilk="function" line="456" lineend="456" name="unknown_endtag" signature="unknown_endtag(tag)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+        </scope>
+        <scope ilk="function" line="110" lineend="111" name="error" signature="error(message)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="# Example -- handle data, should be overridden" ilk="function" line="439" lineend="440" name="handle_data" signature="handle_data(data)">
+          <variable citdl="SGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="list" line="73" name="__starttag_text" />
+        <variable citdl="re.compile()" line="62" name="entity_or_charref" />
+        <variable attributes="__instancevar__" citdl="int" line="68" name="verbose" />
+        <variable attributes="__instancevar__" citdl="int" line="77" name="nomoretags" />
+        <variable attributes="__instancevar__" citdl="int" line="78" name="literal" />
+        <variable citdl="dict" line="415" name="entitydefs" />
+        <variable attributes="__instancevar__" citdl="str" line="74" name="rawdata" />
+        <variable attributes="__instancevar__" citdl="str" line="76" name="lasttag" />
+        <variable attributes="protected" citdl="str" line="219" name="_decl_otherchars" />
+        <variable attributes="__instancevar__" citdl="list" line="75" name="stack" />
+      </scope>
+      <scope classrefs="SGMLParser" doc="&#10;" ilk="class" line="461" lineend="513" name="TestSGMLParser">
+        <scope ilk="function" line="485" lineend="493" name="unknown_starttag" signature="unknown_starttag(tag, attrs)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="503" lineend="505" name="unknown_charref" signature="unknown_charref(ref)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="ref" />
+        </scope>
+        <scope ilk="function" line="507" lineend="509" name="unknown_decl" signature="unknown_decl(data)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="495" lineend="497" name="unknown_endtag" signature="unknown_endtag(tag)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+        </scope>
+        <scope ilk="function" line="499" lineend="501" name="unknown_entityref" signature="unknown_entityref(ref)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="ref" />
+        </scope>
+        <scope ilk="function" line="472" lineend="476" name="flush" signature="flush()">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable citdl="str" line="473" name="data" />
+        </scope>
+        <scope ilk="function" line="511" lineend="513" name="close" signature="close()">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="478" lineend="483" name="handle_comment" signature="handle_comment(data)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable citdl="list" line="480" name="r" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="467" lineend="470" name="handle_data" signature="handle_data(data)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="463" lineend="465" name="__init__" signature="TestSGMLParser(verbose=0)">
+          <variable citdl="TestSGMLParser" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="464" name="testdata" />
+      </scope>
+      <variable citdl="list" line="20" name="__all__" />
+      <variable citdl="SRE_Pattern" line="39" name="attrfind" />
+      <variable citdl="SRE_Pattern" line="31" name="charref" />
+      <variable citdl="SRE_Pattern" line="37" name="endbracket" />
+      <variable citdl="SRE_Pattern" line="30" name="entityref" />
+      <variable citdl="SRE_Pattern" line="25" name="incomplete" />
+      <variable citdl="SRE_Pattern" line="24" name="interesting" />
+      <import module="markupbase" />
+      <variable citdl="SRE_Pattern" line="36" name="piclose" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="35" name="shorttag" />
+      <variable citdl="SRE_Pattern" line="34" name="shorttagopen" />
+      <variable citdl="SRE_Pattern" line="33" name="starttagopen" />
+      <variable citdl="SRE_Pattern" line="38" name="tagfind" />
+      <scope ilk="function" line="516" lineend="549" name="test" signature="test(args=None)">
+        <variable citdl="open()" line="534" name="f" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="TestSGMLParser" line="524" name="klass" />
+        <variable citdl="str" line="529" name="file" />
+        <variable citdl="klass()" line="546" name="x" />
+        <variable citdl="f.read()" line="542" name="data" />
+      </scope>
+    </scope>
+    

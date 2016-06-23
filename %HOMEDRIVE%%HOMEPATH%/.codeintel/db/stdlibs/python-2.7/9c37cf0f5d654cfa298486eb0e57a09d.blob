@@ -1,0 +1,1010 @@
+<scope doc="Built-in functions, exceptions, and other objects.&#10;Noteworthy: None is the `nil' object; Ellipsis represents `...' in slices." ilk="blob" lang="Python" name="*">
+      <scope classrefs="StandardError" doc="Base class for arithmetic errors.&#10;" ilk="class" name="ArithmeticError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Assertion failed.&#10;" ilk="class" name="AssertionError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Attribute not found.&#10;" ilk="class" name="AttributeError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="Common base class for all exceptions&#10;" ilk="class" name="BaseException">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope ilk="function" name="__setstate__" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__unicode__" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Buffer error.&#10;" ilk="class" name="BufferError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about bytes and buffer related problems, mostly&#10;related to conversion from str or comparing to str." ilk="class" name="BytesWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about deprecated features.&#10;" ilk="class" name="DeprecationWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Read beyond end of file.&#10;" ilk="class" name="EOFError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="ellipsis" name="Ellipsis" />
+      <scope classrefs="StandardError" doc="Base class for I/O related errors.&#10;" ilk="class" name="EnvironmentError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__reduce__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BaseException" doc="Common base class for all non-exit exceptions.&#10;" ilk="class" name="Exception">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="bool" name="False" />
+      <scope classrefs="ArithmeticError" doc="Floating point operation failed.&#10;" ilk="class" name="FloatingPointError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about constructs that will change semantically&#10;in the future." ilk="class" name="FutureWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BaseException" doc="Request that a generator exit.&#10;" ilk="class" name="GeneratorExit">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="EnvironmentError" doc="I/O operation failed.&#10;" ilk="class" name="IOError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Import can't find module, or can't find name in module.&#10;" ilk="class" name="ImportError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about probable mistakes in module imports&#10;" ilk="class" name="ImportWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="SyntaxError" doc="Improper indentation.&#10;" ilk="class" name="IndentationError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="LookupError" doc="Sequence index out of range.&#10;" ilk="class" name="IndexError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="LookupError" doc="Mapping key not found.&#10;" ilk="class" name="KeyError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BaseException" doc="Program interrupted by user.&#10;" ilk="class" name="KeyboardInterrupt">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Base class for lookup errors.&#10;" ilk="class" name="LookupError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Out of memory.&#10;" ilk="class" name="MemoryError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Name not found globally.&#10;" ilk="class" name="NameError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="NoneType" name="None" />
+      <variable citdl="NotImplementedType" name="NotImplemented" />
+      <scope classrefs="RuntimeError" doc="Method or function hasn't been implemented yet.&#10;" ilk="class" name="NotImplementedError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="EnvironmentError" doc="OS system call failed.&#10;" ilk="class" name="OSError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="ArithmeticError" doc="Result too large to be represented.&#10;" ilk="class" name="OverflowError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about features which will be deprecated&#10;in the future." ilk="class" name="PendingDeprecationWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Weak ref proxy used after referent went away.&#10;" ilk="class" name="ReferenceError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Unspecified run-time error.&#10;" ilk="class" name="RuntimeError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about dubious runtime behavior.&#10;" ilk="class" name="RuntimeWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Base class for all standard Python exceptions that do not represent&#10;interpreter exiting." ilk="class" name="StandardError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Signal the end from iterator.next().&#10;" ilk="class" name="StopIteration">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Invalid syntax.&#10;" ilk="class" name="SyntaxError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about dubious syntax.&#10;" ilk="class" name="SyntaxWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Internal error in the Python interpreter.&#10;Please report this to the Python maintainer, along with the traceback, the Python version, and the hardware/OS platform and version." ilk="class" name="SystemError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BaseException" doc="Request to exit from the interpreter.&#10;" ilk="class" name="SystemExit">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="IndentationError" doc="Improper mixture of spaces and tabs.&#10;" ilk="class" name="TabError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="bool" name="True" />
+      <scope classrefs="StandardError" doc="Inappropriate argument type.&#10;" ilk="class" name="TypeError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="NameError" doc="Local name referenced but not bound to a value.&#10;" ilk="class" name="UnboundLocalError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="UnicodeError" doc="Unicode decoding error.&#10;" ilk="class" name="UnicodeDecodeError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="UnicodeError" doc="Unicode encoding error.&#10;" ilk="class" name="UnicodeEncodeError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="ValueError" doc="Unicode related error.&#10;" ilk="class" name="UnicodeError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="UnicodeError" doc="Unicode translation error.&#10;" ilk="class" name="UnicodeTranslateError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings about Unicode related problems, mostly&#10;related to conversion problems." ilk="class" name="UnicodeWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Warning" doc="Base class for warnings generated by user code.&#10;" ilk="class" name="UserWarning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="Inappropriate argument value (of correct type).&#10;" ilk="class" name="ValueError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Base class for warning categories.&#10;" ilk="class" name="Warning">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="OSError" doc="MS-Windows OS system call failed.&#10;" ilk="class" name="WindowsError">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="ArithmeticError" doc="Second argument to a division or modulo operation was zero.&#10;" ilk="class" name="ZeroDivisionError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Import a module." ilk="function" name="__import__" returns="module" signature="__import__(name, globals={}, locals={}, fromlist=[], level=-1) -&gt; module" />
+      <scope doc="Return the absolute value of the argument." ilk="function" name="abs" returns="int" signature="abs(number) -&gt; number" />
+      <scope doc="Return True if bool(x) is True for all values x in the&#10;iterable." ilk="function" name="all" returns="bool" signature="all(iterable) -&gt; bool" />
+      <scope doc="Return True if bool(x) is True for any x in the iterable." ilk="function" name="any" returns="bool" signature="any(iterable) -&gt; bool" />
+      <scope doc="Call a callable object with positional arguments taken from&#10;the tuple args, and keyword arguments taken from the&#10;optional dictionary kwargs." ilk="function" name="apply" signature="apply(object[, args[, kwargs]]) -&gt; value" />
+      <scope classrefs="object" doc="Type basestring cannot be instantiated; it is the base for str and unicode.&#10;" ilk="class" name="basestring" />
+      <scope doc="Return the binary representation of an integer or long&#10;integer." ilk="function" name="bin" returns="str" signature="bin(number) -&gt; string" />
+      <scope classrefs="int" doc="bool(x) -&gt; bool&#10;Returns True when the argument x is true, False otherwise. The builtins True and False are the only two instances of the class bool. The class bool is a subclass of the class int, and cannot be subclassed." ilk="class" name="bool">
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+      </scope>
+      <scope classrefs="object" doc="buffer(object [, offset[, size]])&#10;Create a new buffer object which references the given object. The buffer will reference a slice of the target object from the start of the object (or at the specified offset). The slice will extend to the end of the target object (or with the specified size)." ilk="class" name="buffer">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+      </scope>
+      <scope classrefs="object" doc="bytearray(iterable_of_ints) -&gt; bytearray.&#10;bytearray(string, encoding[, errors]) -&gt; bytearray. bytearray(bytes_or_bytearray) -&gt; mutable copy of bytes_or_bytearray. bytearray(memory_view) -&gt; bytearray.  Construct an mutable bytearray object from: - an iterable yielding integers in range(256) - a text string encoded using the specified encoding - a bytes or a bytearray object - any object implementing the buffer API. " ilk="class" name="bytearray">
+        <scope doc="Return a copy of B with all ASCII characters converted to&#10;uppercase." ilk="function" name="upper" signature="B.upper() -&gt; copy of B" />
+        <scope doc="Reverse the order of the values in B in place." ilk="function" name="reverse" signature="B.reverse() -&gt; None" />
+        <scope doc="Return a list of the sections in B, using sep as the&#10;delimiter, starting at the end of B and working to the&#10;front." ilk="function" name="rsplit" returns="list" signature="B.rsplit(sep[, maxsplit]) -&gt; list of bytearray" />
+        <scope doc="Return True if B starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="B.startswith(prefix [,start [,end]]) -&gt; bool" />
+        <scope doc="Strip leading bytes contained in the argument." ilk="function" name="lstrip" signature="B.lstrip([bytes]) -&gt; bytearray" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove the first occurance of a value in B." ilk="function" name="remove" signature="B.remove(int) -&gt; None" />
+        <scope doc="Remove and return a single item from B." ilk="function" name="pop" returns="int" signature="B.pop([index]) -&gt; int" />
+        <scope doc="Return a copy of B with all occurrences of subsection old&#10;replaced by new." ilk="function" name="replace" signature="B.replace(old, new[, count]) -&gt; bytes" />
+        <scope doc="Return True if all characters in B are digits and there is&#10;at least one character in B, False otherwise." ilk="function" name="isdigit" returns="bool" signature="B.isdigit() -&gt; bool" />
+        <scope doc="Return True if B ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="B.endswith(suffix [,start [,end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in B, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="B.splitlines([keepends]) -&gt; list of lines" />
+        <scope doc="Return a copy of B where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" signature="B.expandtabs([tabsize]) -&gt; copy of B" />
+        <scope doc="Strip leading and trailing bytes contained in the argument." ilk="function" name="strip" signature="B.strip([bytes]) -&gt; bytearray" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return B left justified in a string of length width." ilk="function" name="ljust" signature="B.ljust(width[, fillchar]) -&gt; copy of B" />
+        <scope doc="Returns the size of B in memory, in bytes" ilk="function" name="__sizeof__" returns="int" signature="B.__sizeof__() -&gt; int" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Like B.find() but raise ValueError when the subsection is&#10;not found." ilk="function" name="index" returns="int" signature="B.index(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if all characters in B are alphanumeric and&#10;there is at least one character in B, False otherwise." ilk="function" name="isalnum" returns="bool" signature="B.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like B.rfind() but raise ValueError when the subsection is&#10;not found." ilk="function" name="rindex" returns="int" signature="B.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a copy of B with only its first character capitalized&#10;(ASCII) and the rest lower-cased." ilk="function" name="capitalize" signature="B.capitalize() -&gt; copy of B" />
+        <scope doc="Return the lowest index in B where subsection sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="find" returns="int" signature="B.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes B using the codec registered for encoding." ilk="function" name="decode" returns="unicode" signature="B.decode([encoding[, errors]]) -&gt; unicode object." />
+        <scope doc="Return True if all characters in B are alphabetic and there&#10;is at least one character in B, False otherwise." ilk="function" name="isalpha" returns="bool" signature="B.isalpha() -&gt; bool" />
+        <scope doc="Returns the number of bytes actually allocated." ilk="function" name="__alloc__" returns="int" signature="B.__alloc__() -&gt; int" />
+        <scope doc="Strip trailing bytes contained in the argument." ilk="function" name="rstrip" signature="B.rstrip([bytes]) -&gt; bytearray" />
+        <scope doc="Return a copy of B, where all characters occurring in the&#10;optional argument deletechars are removed, and the remaining&#10;characters have been mapped through the given translation&#10;table, which must be a bytes object of length 256." ilk="function" name="translate" signature="B.translate(table[, deletechars]) -&gt; bytearray" />
+        <scope doc="Return True if all characters in B are whitespace and there&#10;is at least one character in B, False otherwise." ilk="function" name="isspace" returns="bool" signature="B.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="Return the highest index in B where subsection sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" name="rfind" returns="int" signature="B.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Insert a single item into the bytearray before the given&#10;index." ilk="function" name="insert" signature="B.insert(index, int) -&gt; None" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Return a copy of B with all ASCII characters converted to&#10;lowercase." ilk="function" name="lower" signature="B.lower() -&gt; copy of B" />
+        <scope doc="Append a single item to the end of B." ilk="function" name="append" signature="B.append(int) -&gt; None" />
+        <scope doc="Return a copy of B with uppercase ASCII characters converted&#10;to lowercase ASCII and vice versa." ilk="function" name="swapcase" signature="B.swapcase() -&gt; copy of B" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="Pad a numeric string B with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" signature="B.zfill(width) -&gt; copy of B" />
+        <scope doc="Searches for the separator sep in B, starting at the end of&#10;B, and returns the part before it, the separator itself, and&#10;the part after it." ilk="function" name="rpartition" signature="B.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return B right justified in a string of length width." ilk="function" name="rjust" signature="B.rjust(width[, fillchar]) -&gt; copy of B" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return B centered in a string of length width." ilk="function" name="center" signature="B.center(width[, fillchar]) -&gt; copy of B" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;subsection sub in bytes B[start:end]." ilk="function" name="count" returns="int" signature="B.count(sub [,start [,end]]) -&gt; int" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Append all the elements from the iterator or sequence to the&#10;end of B." ilk="function" name="extend" signature="B.extend(iterable int) -&gt; None" />
+        <scope doc="Concatenates any number of bytearray objects, with B in&#10;between each pair." ilk="function" name="join" signature="B.join(iterable_of_bytes) -&gt; bytes" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Return a list of the sections in B, using sep as the&#10;delimiter." ilk="function" name="split" returns="list" signature="B.split([sep[, maxsplit]]) -&gt; list of bytearray" />
+        <scope doc="Searches for the separator sep in B, and returns the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="B.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="Return True if B is a titlecased string and there is at&#10;least one character in B, i.e." ilk="function" name="istitle" returns="bool" signature="B.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return True if all cased characters in B are lowercase and&#10;there is at least one cased character in B, False otherwise." ilk="function" name="islower" returns="bool" signature="B.islower() -&gt; bool" />
+        <scope doc="Return a titlecased version of B, i.e." ilk="function" name="title" signature="B.title() -&gt; copy of B" />
+        <scope doc="Return True if all cased characters in B are uppercase and&#10;there is at least one cased character in B, False otherwise." ilk="function" name="isupper" returns="bool" signature="B.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="basestring" doc="str(object) -&gt; string&#10;Return a nice string representation of the object. If the argument is a string, the return value is the same object." ilk="class" name="bytes">
+        <scope doc="Return a copy of the string S converted to uppercase." ilk="function" name="upper" returns="str" signature="S.upper() -&gt; string" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="str" signature="S.__format__(format_spec) -&gt; string" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="S.lstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Return a copy of the string S with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="S.capitalize() -&gt; string" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of string S with all occurrences of substring&#10;old replaced by new." ilk="function" name="replace" returns="str" signature="S.replace(old, new[, count]) -&gt; string" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="str" signature="S.expandtabs([tabsize]) -&gt; string" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="S.strip([chars]) -&gt; string or unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a string of length width." ilk="function" name="ljust" returns="str" signature="S.ljust(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="str" signature="S.format(*args, **kwargs) -&gt; string" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="S.decode([encoding[,errors]]) -&gt; object" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="S.rstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="S.encode([encoding[,errors]]) -&gt; object" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="S.translate(table [,deletechars]) -&gt; string" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a string of length width." ilk="function" name="rjust" returns="str" signature="S.rjust(width[, fillchar]) -&gt; string" />
+        <scope doc="Return a copy of the string S with uppercase characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="S.swapcase() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="str" signature="S.zfill(width) -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="str" signature="S.lower() -&gt; string" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="str" signature="S.join(iterable) -&gt; string" />
+        <scope doc="Return S centered in a string of length width." ilk="function" name="center" returns="str" signature="S.center(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="str" signature="S.title() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Return whether the object is callable (i.e., some kind of&#10;function)." ilk="function" name="callable" returns="bool" signature="callable(object) -&gt; bool" />
+      <scope doc="Return a string of one character with ordinal i; 0 &lt;= i &lt;&#10;256." ilk="function" name="chr" returns="str" signature="chr(i) -&gt; character" />
+      <scope classrefs="object" doc="classmethod(function) -&gt; method&#10;Convert a function to be a class method.  A class method receives the class as implicit first argument, just like an instance method receives the instance. To declare a class method, use this idiom:  class C: def f(cls, arg1, arg2, ...): ... f = classmethod(f) " ilk="class" name="classmethod">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+      </scope>
+      <scope doc="Return negative if x&lt;y, zero if x==y, positive if x&gt;y." ilk="function" name="cmp" returns="int" signature="cmp(x, y) -&gt; integer" />
+      <scope doc="Return a tuple consisting of the two numeric arguments&#10;converted to a common type, using the same rules as used by&#10;arithmetic operations." ilk="function" name="coerce" signature="coerce(x, y) -&gt; (x1, y1)" />
+      <scope doc="Compile the source string (a Python module, statement or&#10;expression) into a code object that can be executed by the&#10;exec statement or eval()." ilk="function" name="compile" returns="code" signature="compile(source, filename, mode[, flags[, dont_inherit]]) -&gt; code object" />
+      <scope classrefs="object" doc="complex(real[, imag]) -&gt; complex number&#10;Create a complex number from a real part and an optional imaginary part. This is equivalent to (real + imag*1j) where imag defaults to 0." ilk="class" name="complex">
+        <scope doc="x.__int__() &lt;==&gt; int(x)" ilk="function" name="__int__" signature="x.__int__() &lt;==&gt; int(x)" />
+        <scope doc="x.__rtruediv__(y) &lt;==&gt; y/x" ilk="function" name="__rtruediv__" signature="x.__rtruediv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="Returns the complex conjugate of its argument." ilk="function" name="conjugate" returns="complex" signature="complex.conjugate() -&gt; complex" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="x.__truediv__(y) &lt;==&gt; x/y" ilk="function" name="__truediv__" signature="x.__truediv__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__rdiv__(y) &lt;==&gt; y/x" ilk="function" name="__rdiv__" signature="x.__rdiv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__rmul__(y) &lt;==&gt; y*x" ilk="function" name="__rmul__" signature="x.__rmul__(y) &lt;==&gt; y*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="x.__float__() &lt;==&gt; float(x)" ilk="function" name="__float__" signature="x.__float__() &lt;==&gt; float(x)" />
+        <scope doc="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__rpow__" signature="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" />
+        <scope doc="Converts to a string according to format_spec." ilk="function" name="__format__" returns="str" signature="complex.__format__() -&gt; str" />
+        <scope doc="x.__abs__() &lt;==&gt; abs(x)" ilk="function" name="__abs__" signature="x.__abs__() &lt;==&gt; abs(x)" />
+        <scope doc="x.__pos__() &lt;==&gt; +x" ilk="function" name="__pos__" signature="x.__pos__() &lt;==&gt; +x" />
+        <scope doc="x.__rfloordiv__(y) &lt;==&gt; y//x" ilk="function" name="__rfloordiv__" signature="x.__rfloordiv__(y) &lt;==&gt; y//x" />
+        <scope doc="x.__mul__(y) &lt;==&gt; x*y" ilk="function" name="__mul__" signature="x.__mul__(y) &lt;==&gt; x*y" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" ilk="function" name="__rdivmod__" signature="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" />
+        <scope doc="x.__coerce__(y) &lt;==&gt; coerce(x, y)" ilk="function" name="__coerce__" signature="x.__coerce__(y) &lt;==&gt; coerce(x, y)" />
+        <scope doc="x.__divmod__(y) &lt;==&gt; divmod(x, y)" ilk="function" name="__divmod__" signature="x.__divmod__(y) &lt;==&gt; divmod(x, y)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="x.__neg__() &lt;==&gt; -x" ilk="function" name="__neg__" signature="x.__neg__() &lt;==&gt; -x" />
+        <scope doc="x.__div__(y) &lt;==&gt; x/y" ilk="function" name="__div__" signature="x.__div__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__floordiv__(y) &lt;==&gt; x//y" ilk="function" name="__floordiv__" signature="x.__floordiv__(y) &lt;==&gt; x//y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__long__() &lt;==&gt; long(x)" ilk="function" name="__long__" signature="x.__long__() &lt;==&gt; long(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__pow__" signature="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" />
+      </scope>
+      <variable citdl="_Printer" name="credits" />
+      <scope doc="Delete a named attribute on an object; delattr(x, 'y') is&#10;equivalent to ``del x.y''." ilk="function" name="delattr" signature="delattr(object, name)" />
+      <scope classrefs="object" doc="dict() -&gt; new empty dictionary&#10;dict(mapping) -&gt; new dictionary initialized from a mapping object's (key, value) pairs dict(iterable) -&gt; new dictionary initialized as if via: d = {} for k, v in iterable: d[k] = v dict(**kwargs) -&gt; new dictionary initialized with the name=value pairs in the keyword argument list.  For example:  dict(one=1, two=2)" ilk="class" name="dict">
+        <scope doc="2-tuple; but raise KeyError if D is empty." ilk="function" name="popitem" signature="D.popitem() -&gt; (k, v), remove and return some (key, value) pair as a" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="If key is not found, d is returned if given, otherwise&#10;KeyError is raised" ilk="function" name="pop" signature="D.pop(k[,d]) -&gt; v, remove specified key and return the corresponding value." />
+        <scope doc="D.has_key(k) -&gt; True if D has a key k, else False" ilk="function" name="has_key" returns="bool" signature="D.has_key(k) -&gt; True if D has a key k, else False" />
+        <scope doc="D.viewkeys() -&gt; a set-like object providing a view on D's keys" ilk="function" name="viewkeys" signature="D.viewkeys() -&gt; a set-like object providing a view on D's keys" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="D.__sizeof__() -&gt; size of D in memory, in bytes" ilk="function" name="__sizeof__" signature="D.__sizeof__() -&gt; size of D in memory, in bytes" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="D.viewitems() -&gt; a set-like object providing a view on D's items" ilk="function" name="viewitems" signature="D.viewitems() -&gt; a set-like object providing a view on D's items" />
+        <scope doc="D.__contains__(k) -&gt; True if D has a key k, else False" ilk="function" name="__contains__" returns="bool" signature="D.__contains__(k) -&gt; True if D has a key k, else False" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="D.itervalues() -&gt; an iterator over the values of D" ilk="function" name="itervalues" signature="D.itervalues() -&gt; an iterator over the values of D" />
+        <scope doc="D.iteritems() -&gt; an iterator over the (key, value) items of D" ilk="function" name="iteritems" signature="D.iteritems() -&gt; an iterator over the (key, value) items of D" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="D.get(k[,d]) -&gt; D[k] if k in D, else d.  d defaults to None." ilk="function" name="get" signature="D.get(k[,d]) -&gt; D[k] if k in D, else d.  d defaults to None." />
+        <scope doc="D.keys() -&gt; list of D's keys" ilk="function" name="keys" returns="list" signature="D.keys() -&gt; list of D's keys" />
+        <scope doc="If E has a .keys() method, does:     for k in E: D[k] = E[k]&#10;If E lacks .keys() method, does:     for (k, v) in E: D[k] =&#10;v In either case, this is followed by: for k in F: D[k] =&#10;F[k]" ilk="function" name="update" signature="D.update(E, **F) -&gt; None.  Update D from dict/iterable E and F." />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="D.copy() -&gt; a shallow copy of D" ilk="function" name="copy" signature="D.copy() -&gt; a shallow copy of D" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.iterkeys() -&gt; an iterator over the keys of D" ilk="function" name="iterkeys" signature="D.iterkeys() -&gt; an iterator over the keys of D" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="D.setdefault(k[,d]) -&gt; D.get(k,d), also set D[k]=d if k not in D" ilk="function" name="setdefault" signature="D.setdefault(k[,d]) -&gt; D.get(k,d), also set D[k]=d if k not in D" />
+        <scope doc="D.viewvalues() -&gt; an object providing a view on D's values" ilk="function" name="viewvalues" signature="D.viewvalues() -&gt; an object providing a view on D's values" />
+        <scope doc="D.items() -&gt; list of D's (key, value) pairs, as 2-tuples" ilk="function" name="items" returns="list" signature="D.items() -&gt; list of D's (key, value) pairs, as 2-tuples" />
+        <scope doc="D.clear() -&gt; None.  Remove all items from D." ilk="function" name="clear" signature="D.clear() -&gt; None.  Remove all items from D." />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="D.values() -&gt; list of D's values" ilk="function" name="values" returns="list" signature="D.values() -&gt; list of D's values" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="If called without an argument, return the names in the&#10;current scope." ilk="function" name="dir" returns="list" signature="dir([object]) -&gt; list of strings" />
+      <scope doc="Return the tuple ((x-x%y)/y, x%y)." ilk="function" name="divmod" signature="divmod(x, y) -&gt; (div, mod)" />
+      <scope classrefs="object" doc="enumerate(iterable[, start]) -&gt; iterator for index, value of iterable&#10;Return an enumerate object.  iterable must be another object that supports iteration.  The enumerate object yields pairs containing a count (from start, which defaults to zero) and a value yielded by the iterable argument. enumerate is useful for obtaining an indexed list: (0, seq[0]), (1, seq[1]), (2, seq[2]), ..." ilk="class" name="enumerate">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope doc="Evaluate the source in the context of globals and locals." ilk="function" name="eval" signature="eval(source[, globals[, locals]]) -&gt; value" />
+      <scope doc="Read and execute a Python script from a file." ilk="function" name="execfile" signature="execfile(filename[, globals[, locals]])" />
+      <scope classrefs="object" doc="file(name[, mode[, buffering]]) -&gt; file object&#10;Open a file.  The mode can be 'r', 'w' or 'a' for reading (default), writing or appending.  The file will be created if it doesn't exist when opened for writing or appending; it will be truncated when opened for writing.  Add a 'b' to the mode for binary files. Add a '+' to the mode to allow simultaneous reading and writing. If the buffering argument is given, 0 means unbuffered, 1 means line buffered, and larger numbers specify the buffer size.  The preferred way to open a file is with the builtin open() function. Add a 'U' to mode to open the file for input with universal newline support.  Any line ending in the input file will be seen as a '\n'" ilk="class" name="file">
+        <scope doc="For backward compatibility." ilk="function" name="xreadlines" signature="xreadlines() -&gt; returns self." />
+        <scope doc="Call readline() repeatedly and return a list of the lines so&#10;read." ilk="function" name="readlines" returns="list" signature="readlines([size]) -&gt; list of strings, each a line from the file." />
+        <scope doc="flush() -&gt; None.  Flush the internal I/O buffer." ilk="function" name="flush" signature="flush() -&gt; None.  Flush the internal I/O buffer." />
+        <scope doc="Sets data attribute .closed to True." ilk="function" name="close" signature="close() -&gt; None or (perhaps) an integer.  Close the file." />
+        <scope doc="Argument offset is a byte count." ilk="function" name="seek" signature="seek(offset[, whence]) -&gt; None.  Move to new file position." />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="readinto() -&gt; Undocumented.  Don't use this; it may go away." ilk="function" name="readinto" signature="readinto() -&gt; Undocumented.  Don't use this; it may go away." />
+        <scope doc="__enter__() -&gt; self." ilk="function" name="__enter__" signature="__enter__() -&gt; self." />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="Note that due to buffering, flush() or close() may be needed&#10;before the file on disk reflects the data written." ilk="function" name="write" signature="write(str) -&gt; None.  Write string str to file." />
+        <scope doc="tell() -&gt; current file position, an integer (may be a long integer)." ilk="function" name="tell" signature="tell() -&gt; current file position, an integer (may be a long integer)." />
+        <scope doc="__exit__(*excinfo) -&gt; None.  Closes the file." ilk="function" name="__exit__" signature="__exit__(*excinfo) -&gt; None.  Closes the file." />
+        <scope doc="isatty() -&gt; true or false.  True if the file is connected to a tty device." ilk="function" name="isatty" returns="bool" signature="isatty() -&gt; true or false.  True if the file is connected to a tty device." />
+        <scope doc="Size defaults to the current file position, as returned by&#10;tell()." ilk="function" name="truncate" signature="truncate([size]) -&gt; None.  Truncate the file to at most size bytes." />
+        <scope doc="If the size argument is negative or omitted, read until EOF&#10;is reached." ilk="function" name="read" signature="read([size]) -&gt; read at most size bytes, returned as a string." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="Retain newline." ilk="function" name="readline" signature="readline([size]) -&gt; next line from the file, as a string." />
+        <scope doc="This is needed for lower-level file interfaces, such&#10;os.read()." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; integer &quot;file descriptor&quot;." />
+        <scope doc="Note that newlines are not added." ilk="function" name="writelines" signature="writelines(sequence_of_strings) -&gt; None.  Write the strings to the file." />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope doc="Return those items of sequence for which function(item) is&#10;true." ilk="function" name="filter" signature="filter(function or None, sequence) -&gt; list, tuple, or string" />
+      <scope classrefs="object" doc="float(x) -&gt; floating point number&#10;Convert a string or number to a floating point number, if possible." ilk="class" name="float">
+        <scope doc="x.__int__() &lt;==&gt; int(x)" ilk="function" name="__int__" signature="x.__int__() &lt;==&gt; int(x)" />
+        <scope doc="x.__rtruediv__(y) &lt;==&gt; y/x" ilk="function" name="__rtruediv__" signature="x.__rtruediv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="Returns self, the complex conjugate of any float." ilk="function" name="conjugate" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Returns the Integral closest to x between 0 and x." ilk="function" name="__trunc__" />
+        <scope doc="x.__truediv__(y) &lt;==&gt; x/y" ilk="function" name="__truediv__" signature="x.__truediv__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__rdiv__(y) &lt;==&gt; y/x" ilk="function" name="__rdiv__" signature="x.__rdiv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__rmul__(y) &lt;==&gt; y*x" ilk="function" name="__rmul__" signature="x.__rmul__(y) &lt;==&gt; y*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Returns a pair of integers, whose ratio is exactly equal to&#10;the original float and with a positive denominator." ilk="function" name="as_integer_ratio" signature="float.as_integer_ratio() -&gt; (int, int)" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="x.__float__() &lt;==&gt; float(x)" ilk="function" name="__float__" signature="x.__float__() &lt;==&gt; float(x)" />
+        <scope doc="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__rpow__" signature="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Formats the float according to format_spec." ilk="function" name="__format__" returns="str" signature="float.__format__(format_spec) -&gt; string" />
+        <scope doc="Return a hexadecimal representation of a floating-point&#10;number." ilk="function" name="hex" returns="str" signature="float.hex() -&gt; string" />
+        <scope doc="x.__abs__() &lt;==&gt; abs(x)" ilk="function" name="__abs__" signature="x.__abs__() &lt;==&gt; abs(x)" />
+        <scope doc="x.__pos__() &lt;==&gt; +x" ilk="function" name="__pos__" signature="x.__pos__() &lt;==&gt; +x" />
+        <scope doc="x.__rfloordiv__(y) &lt;==&gt; y//x" ilk="function" name="__rfloordiv__" signature="x.__rfloordiv__(y) &lt;==&gt; y//x" />
+        <scope doc="x.__mul__(y) &lt;==&gt; x*y" ilk="function" name="__mul__" signature="x.__mul__(y) &lt;==&gt; x*y" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" ilk="function" name="__rdivmod__" signature="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" />
+        <scope doc="x.__coerce__(y) &lt;==&gt; coerce(x, y)" ilk="function" name="__coerce__" signature="x.__coerce__(y) &lt;==&gt; coerce(x, y)" />
+        <scope doc="x.__divmod__(y) &lt;==&gt; divmod(x, y)" ilk="function" name="__divmod__" signature="x.__divmod__(y) &lt;==&gt; divmod(x, y)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="x.__neg__() &lt;==&gt; -x" ilk="function" name="__neg__" signature="x.__neg__() &lt;==&gt; -x" />
+        <scope doc="Returns True if the float is an integer." ilk="function" name="is_integer" />
+        <scope doc="x.__div__(y) &lt;==&gt; x/y" ilk="function" name="__div__" signature="x.__div__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__floordiv__(y) &lt;==&gt; x//y" ilk="function" name="__floordiv__" signature="x.__floordiv__(y) &lt;==&gt; x//y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__long__() &lt;==&gt; long(x)" ilk="function" name="__long__" signature="x.__long__() &lt;==&gt; long(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__pow__" signature="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" />
+      </scope>
+      <scope doc="Returns value.__format__(format_spec) format_spec defaults&#10;to &quot;&quot;" ilk="function" name="format" returns="str" signature="format(value[, format_spec]) -&gt; string" />
+      <scope classrefs="object" doc="frozenset() -&gt; empty frozenset object&#10;frozenset(iterable) -&gt; frozenset object  Build an immutable unordered collection of unique elements." ilk="class" name="frozenset">
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="Report whether another set contains this set." ilk="function" name="issubset" />
+        <scope doc="Return the symmetric difference of two sets as a new set." ilk="function" name="symmetric_difference" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Report whether this set contains another set." ilk="function" name="issuperset" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope doc="Return the intersection of two or more sets as a new set." ilk="function" name="intersection" />
+        <scope doc="Return the difference of two or more sets as a new set." ilk="function" name="difference" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x." ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x." />
+        <scope doc="Return the union of sets as a new set." ilk="function" name="union" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return a shallow copy of a set." ilk="function" name="copy" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="Return True if two sets have a null intersection." ilk="function" name="isdisjoint" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Get a named attribute from an object; getattr(x, 'y') is&#10;equivalent to x.y." ilk="function" name="getattr" signature="getattr(object, name[, default]) -&gt; value" />
+      <scope doc="Return the dictionary containing the current scope's global&#10;variables." ilk="function" name="globals" returns="dict" signature="globals() -&gt; dictionary" />
+      <scope doc="Return whether the object has an attribute with the given&#10;name." ilk="function" name="hasattr" returns="bool" signature="hasattr(object, name) -&gt; bool" />
+      <scope doc="Return a hash value for the object." ilk="function" name="hash" returns="int" signature="hash(object) -&gt; integer" />
+      <variable citdl="_Helper" name="help" />
+      <scope doc="Return the hexadecimal representation of an integer or long&#10;integer." ilk="function" name="hex" returns="str" signature="hex(number) -&gt; string" />
+      <scope doc="Return the identity of an object." ilk="function" name="id" returns="int" signature="id(object) -&gt; integer" />
+      <scope doc="Equivalent to eval(raw_input(prompt))." ilk="function" name="input" signature="input([prompt]) -&gt; value" />
+      <scope classrefs="object" doc="int(x[, base]) -&gt; integer&#10;Convert a string or number to an integer, if possible.  A floating point argument will be truncated towards zero (this does not include a string representation of a floating point number!)  When converting a string, use the optional base.  It is an error to supply a base when converting a non-string.  If base is zero, the proper base is guessed based on the string content.  If the argument is outside the integer range a long object will be returned instead." ilk="class" name="int">
+        <scope doc="x.__int__() &lt;==&gt; int(x)" ilk="function" name="__int__" signature="x.__int__() &lt;==&gt; int(x)" />
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="x.__rtruediv__(y) &lt;==&gt; y/x" ilk="function" name="__rtruediv__" signature="x.__rtruediv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__lshift__(y) &lt;==&gt; x&lt;&lt;y" ilk="function" name="__lshift__" signature="x.__lshift__(y) &lt;==&gt; x&lt;&lt;y" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="Returns self, the complex conjugate of any int." ilk="function" name="conjugate" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__truediv__(y) &lt;==&gt; x/y" ilk="function" name="__truediv__" signature="x.__truediv__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__rrshift__(y) &lt;==&gt; y&gt;&gt;x" ilk="function" name="__rrshift__" signature="x.__rrshift__(y) &lt;==&gt; y&gt;&gt;x" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__rdiv__(y) &lt;==&gt; y/x" ilk="function" name="__rdiv__" signature="x.__rdiv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__rmul__(y) &lt;==&gt; y*x" ilk="function" name="__rmul__" signature="x.__rmul__(y) &lt;==&gt; y*x" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="x.__abs__() &lt;==&gt; abs(x)" ilk="function" name="__abs__" signature="x.__abs__() &lt;==&gt; abs(x)" />
+        <scope doc="x.__float__() &lt;==&gt; float(x)" ilk="function" name="__float__" signature="x.__float__() &lt;==&gt; float(x)" />
+        <scope doc="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__rpow__" signature="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" />
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__rlshift__(y) &lt;==&gt; y&lt;&lt;x" ilk="function" name="__rlshift__" signature="x.__rlshift__(y) &lt;==&gt; y&lt;&lt;x" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__pos__() &lt;==&gt; +x" ilk="function" name="__pos__" signature="x.__pos__() &lt;==&gt; +x" />
+        <scope doc="x.__rfloordiv__(y) &lt;==&gt; y//x" ilk="function" name="__rfloordiv__" signature="x.__rfloordiv__(y) &lt;==&gt; y//x" />
+        <scope doc="Number of bits necessary to represent self in binary." ilk="function" name="bit_length" returns="int" signature="int.bit_length() -&gt; int" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__rshift__(y) &lt;==&gt; x&gt;&gt;y" ilk="function" name="__rshift__" signature="x.__rshift__(y) &lt;==&gt; x&gt;&gt;y" />
+        <scope doc="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" ilk="function" name="__rdivmod__" signature="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" />
+        <scope doc="x.__invert__() &lt;==&gt; ~x" ilk="function" name="__invert__" signature="x.__invert__() &lt;==&gt; ~x" />
+        <scope doc="x.__coerce__(y) &lt;==&gt; coerce(x, y)" ilk="function" name="__coerce__" signature="x.__coerce__(y) &lt;==&gt; coerce(x, y)" />
+        <scope ilk="function" name="__format__" />
+        <scope doc="x.__divmod__(y) &lt;==&gt; divmod(x, y)" ilk="function" name="__divmod__" signature="x.__divmod__(y) &lt;==&gt; divmod(x, y)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x[y:z] &lt;==&gt; x[y.__index__():z.__index__()]" ilk="function" name="__index__" />
+        <scope doc="x.__hex__() &lt;==&gt; hex(x)" ilk="function" name="__hex__" signature="x.__hex__() &lt;==&gt; hex(x)" />
+        <scope doc="x.__oct__() &lt;==&gt; oct(x)" ilk="function" name="__oct__" signature="x.__oct__() &lt;==&gt; oct(x)" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Truncating an Integral returns itself." ilk="function" name="__trunc__" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__div__(y) &lt;==&gt; x/y" ilk="function" name="__div__" signature="x.__div__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__mul__(y) &lt;==&gt; x*y" ilk="function" name="__mul__" signature="x.__mul__(y) &lt;==&gt; x*y" />
+        <scope doc="x.__neg__() &lt;==&gt; -x" ilk="function" name="__neg__" signature="x.__neg__() &lt;==&gt; -x" />
+        <scope doc="x.__floordiv__(y) &lt;==&gt; x//y" ilk="function" name="__floordiv__" signature="x.__floordiv__(y) &lt;==&gt; x//y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__long__() &lt;==&gt; long(x)" ilk="function" name="__long__" signature="x.__long__() &lt;==&gt; long(x)" />
+        <scope doc="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__pow__" signature="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" />
+      </scope>
+      <scope doc="``Intern'' the given string." ilk="function" name="intern" returns="str" signature="intern(string) -&gt; string" />
+      <scope doc="Return whether an object is an instance of a class or of a&#10;subclass thereof." ilk="function" name="isinstance" returns="bool" signature="isinstance(object, class-or-type-or-tuple) -&gt; bool" />
+      <scope doc="Return whether class C is a subclass (i.e., a derived class)&#10;of class B." ilk="function" name="issubclass" returns="bool" signature="issubclass(C, B) -&gt; bool" />
+      <scope doc="Get an iterator from an object." ilk="function" name="iter" signature="iter(collection) -&gt; iterator&#10;iter(callable, sentinel) -&gt; iterator" />
+      <scope doc="Return the number of items of a sequence or mapping." ilk="function" name="len" returns="int" signature="len(object) -&gt; integer" />
+      <scope classrefs="object" doc="list() -&gt; new empty list&#10;list(iterable) -&gt; new list initialized from iterable's items" ilk="class" name="list">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Raises IndexError if list is empty or index is out of range." ilk="function" name="pop" signature="L.pop([index]) -&gt; item -- remove and return item at index (default last)." />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="L.remove(value)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="size of L in memory, in bytes" ilk="function" name="__sizeof__" signature="L.__sizeof__()" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="L.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="L.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="Raises ValueError if the value is not present." ilk="function" name="index" returns="int" signature="L.index(value, [start, [stop]]) -&gt; integer -- return first index of value." />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="append object to end" ilk="function" name="append" signature="L.append(object)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="stable sort *IN PLACE*;" ilk="function" name="sort" signature="L.sort(cmp=None, key=None, reverse=False)&#10;cmp(x, y) -&gt; -1, 0, 1" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="insert object before index" ilk="function" name="insert" signature="L.insert(index, object)" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="L.reverse()" />
+        <scope doc="extend list by appending elements from the iterable" ilk="function" name="extend" signature="L.extend(iterable)" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="return a reverse iterator over the list" ilk="function" name="__reversed__" signature="L.__reversed__()" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Update and return a dictionary containing the current&#10;scope's local variables." ilk="function" name="locals" returns="dict" signature="locals() -&gt; dictionary" />
+      <scope classrefs="object" doc="long(x[, base]) -&gt; integer&#10;Convert a string or number to a long integer, if possible.  A floating point argument will be truncated towards zero (this does not include a string representation of a floating point number!)  When converting a string, use the optional base.  It is an error to supply a base when converting a non-string." ilk="class" name="long">
+        <scope doc="x.__int__() &lt;==&gt; int(x)" ilk="function" name="__int__" signature="x.__int__() &lt;==&gt; int(x)" />
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="x.__rtruediv__(y) &lt;==&gt; y/x" ilk="function" name="__rtruediv__" signature="x.__rtruediv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__lshift__(y) &lt;==&gt; x&lt;&lt;y" ilk="function" name="__lshift__" signature="x.__lshift__(y) &lt;==&gt; x&lt;&lt;y" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="Returns self, the complex conjugate of any long." ilk="function" name="conjugate" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__truediv__(y) &lt;==&gt; x/y" ilk="function" name="__truediv__" signature="x.__truediv__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__rrshift__(y) &lt;==&gt; y&gt;&gt;x" ilk="function" name="__rrshift__" signature="x.__rrshift__(y) &lt;==&gt; y&gt;&gt;x" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__rdiv__(y) &lt;==&gt; y/x" ilk="function" name="__rdiv__" signature="x.__rdiv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__rmul__(y) &lt;==&gt; y*x" ilk="function" name="__rmul__" signature="x.__rmul__(y) &lt;==&gt; y*x" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="x.__abs__() &lt;==&gt; abs(x)" ilk="function" name="__abs__" signature="x.__abs__() &lt;==&gt; abs(x)" />
+        <scope doc="Returns size in memory, in bytes" ilk="function" name="__sizeof__" />
+        <scope doc="x.__float__() &lt;==&gt; float(x)" ilk="function" name="__float__" signature="x.__float__() &lt;==&gt; float(x)" />
+        <scope doc="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__rpow__" signature="y.__rpow__(x[, z]) &lt;==&gt; pow(x, y[, z])" />
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__rlshift__(y) &lt;==&gt; y&lt;&lt;x" ilk="function" name="__rlshift__" signature="x.__rlshift__(y) &lt;==&gt; y&lt;&lt;x" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__pos__() &lt;==&gt; +x" ilk="function" name="__pos__" signature="x.__pos__() &lt;==&gt; +x" />
+        <scope doc="x.__rfloordiv__(y) &lt;==&gt; y//x" ilk="function" name="__rfloordiv__" signature="x.__rfloordiv__(y) &lt;==&gt; y//x" />
+        <scope doc="Number of bits necessary to represent self in binary." ilk="function" name="bit_length" returns="int" signature="long.bit_length() -&gt; int or long" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__rshift__(y) &lt;==&gt; x&gt;&gt;y" ilk="function" name="__rshift__" signature="x.__rshift__(y) &lt;==&gt; x&gt;&gt;y" />
+        <scope doc="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" ilk="function" name="__rdivmod__" signature="x.__rdivmod__(y) &lt;==&gt; divmod(y, x)" />
+        <scope doc="x.__invert__() &lt;==&gt; ~x" ilk="function" name="__invert__" signature="x.__invert__() &lt;==&gt; ~x" />
+        <scope doc="x.__coerce__(y) &lt;==&gt; coerce(x, y)" ilk="function" name="__coerce__" signature="x.__coerce__(y) &lt;==&gt; coerce(x, y)" />
+        <scope ilk="function" name="__format__" />
+        <scope doc="x.__divmod__(y) &lt;==&gt; divmod(x, y)" ilk="function" name="__divmod__" signature="x.__divmod__(y) &lt;==&gt; divmod(x, y)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x[y:z] &lt;==&gt; x[y.__index__():z.__index__()]" ilk="function" name="__index__" />
+        <scope doc="x.__hex__() &lt;==&gt; hex(x)" ilk="function" name="__hex__" signature="x.__hex__() &lt;==&gt; hex(x)" />
+        <scope doc="x.__oct__() &lt;==&gt; oct(x)" ilk="function" name="__oct__" signature="x.__oct__() &lt;==&gt; oct(x)" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Truncating an Integral returns itself." ilk="function" name="__trunc__" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__div__(y) &lt;==&gt; x/y" ilk="function" name="__div__" signature="x.__div__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__mul__(y) &lt;==&gt; x*y" ilk="function" name="__mul__" signature="x.__mul__(y) &lt;==&gt; x*y" />
+        <scope doc="x.__neg__() &lt;==&gt; -x" ilk="function" name="__neg__" signature="x.__neg__() &lt;==&gt; -x" />
+        <scope doc="x.__floordiv__(y) &lt;==&gt; x//y" ilk="function" name="__floordiv__" signature="x.__floordiv__(y) &lt;==&gt; x//y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__long__() &lt;==&gt; long(x)" ilk="function" name="__long__" signature="x.__long__() &lt;==&gt; long(x)" />
+        <scope doc="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" ilk="function" name="__pow__" signature="x.__pow__(y[, z]) &lt;==&gt; pow(x, y[, z])" />
+      </scope>
+      <scope doc="Return a list of the results of applying the function to the&#10;items of the argument sequence(s)." ilk="function" name="map" returns="list" signature="map(function, sequence[, sequence, ...]) -&gt; list" />
+      <scope doc="With a single iterable argument, return its largest item." ilk="function" name="max" signature="max(iterable[, key=func]) -&gt; value&#10;max(a, b, c, ...[, key=func]) -&gt; value" />
+      <scope classrefs="object" doc="memoryview(object)&#10;Create a new memoryview object which references the given object." ilk="class" name="memoryview">
+        <scope ilk="function" name="tolist" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="tobytes" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="With a single iterable argument, return its smallest item." ilk="function" name="min" signature="min(iterable[, key=func]) -&gt; value&#10;min(a, b, c, ...[, key=func]) -&gt; value" />
+      <scope doc="Return the next item from the iterator." ilk="function" name="next" signature="next(iterator[, default])" />
+      <scope doc="The most base type&#10;" ilk="class" name="object">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce_ex__" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce__" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="default object formatter" ilk="function" name="__format__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="size of object in memory, in bytes" ilk="function" name="__sizeof__" returns="int" signature="__sizeof__() -&gt; int" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return the octal representation of an integer or long&#10;integer." ilk="function" name="oct" returns="str" signature="oct(number) -&gt; string" />
+      <scope doc="Open a file using the file() type, returns a file object." ilk="function" name="open" returns="file" signature="open(name[, mode[, buffering]]) -&gt; file object" />
+      <scope doc="Return the integer ordinal of a one-character string." ilk="function" name="ord" returns="int" signature="ord(c) -&gt; integer" />
+      <scope doc="With two arguments, equivalent to x**y." ilk="function" name="pow" returns="int" signature="pow(x, y[, z]) -&gt; number" />
+      <scope doc="Prints the values to a stream, or to sys.stdout by default." ilk="function" name="print" signature="print(value, ..., sep=' ', end='\n', file=sys.stdout)" />
+      <scope classrefs="object" doc="property(fget=None, fset=None, fdel=None, doc=None) -&gt; property attribute&#10;fget is a function to be used for getting an attribute value, and likewise fset is a function for setting, and fdel a function for del'ing, an attribute.  Typical use is to define a managed attribute x: class C(object): def getx(self): return self._x def setx(self, value): self._x = value def delx(self): del self._x x = property(getx, setx, delx, &quot;I'm the 'x' property.&quot;)  Decorators make defining new properties or modifying existing ones easy:" ilk="class" name="property">
+        <scope doc="Descriptor to change the setter on a property." ilk="function" name="setter" />
+        <scope doc="descr.__set__(obj, value)" ilk="function" name="__set__" signature="descr.__set__(obj, value)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Descriptor to change the getter on a property." ilk="function" name="getter" />
+        <scope doc="Descriptor to change the deleter on a property." ilk="function" name="deleter" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="descr.__delete__(obj)" ilk="function" name="__delete__" signature="descr.__delete__(obj)" />
+      </scope>
+      <variable citdl="Quitter" name="quit" />
+      <scope doc="Return a list containing an arithmetic progression of&#10;integers." ilk="function" name="range" returns="list" signature="range([start,] stop[, step]) -&gt; list of integers" />
+      <scope doc="Read a string from standard input." ilk="function" name="raw_input" returns="str" signature="raw_input([prompt]) -&gt; string" />
+      <scope doc="Apply a function of two arguments cumulatively to the items&#10;of a sequence, from left to right, so as to reduce the&#10;sequence to a single value." ilk="function" name="reduce" signature="reduce(function, sequence[, initial]) -&gt; value" />
+      <scope doc="Reload the module." ilk="function" name="reload" returns="module" signature="reload(module) -&gt; module" />
+      <scope doc="Return the canonical string representation of the object." ilk="function" name="repr" returns="str" signature="repr(object) -&gt; string" />
+      <scope classrefs="object" doc="reversed(sequence) -&gt; reverse iterator over values of the sequence&#10;Return a reverse iterator" ilk="class" name="reversed">
+        <scope doc="Private method returning an estimate of len(list(it))." ilk="function" name="__length_hint__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+      </scope>
+      <scope doc="Round a number to a given precision in decimal digits&#10;(default 0 digits)." ilk="function" name="round" signature="round(number[, ndigits]) -&gt; floating point number" />
+      <scope classrefs="object" doc="set() -&gt; new empty set object&#10;set(iterable) -&gt; new set object  Build an unordered collection of unique elements." ilk="class" name="set">
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="Remove all elements of another set from this set." ilk="function" name="difference_update" />
+        <scope doc="x.__isub__(y) &lt;==&gt; x-y" ilk="function" name="__isub__" signature="x.__isub__(y) &lt;==&gt; x-y" />
+        <scope doc="Return the symmetric difference of two sets as a new set." ilk="function" name="symmetric_difference" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return an arbitrary set element." ilk="function" name="pop" />
+        <scope doc="Report whether this set contains another set." ilk="function" name="issuperset" />
+        <scope doc="Report whether another set contains this set." ilk="function" name="issubset" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="Remove an element from a set; it must be a member." ilk="function" name="remove" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope doc="Return the intersection of two or more sets as a new set." ilk="function" name="intersection" />
+        <scope doc="Return the difference of two or more sets as a new set." ilk="function" name="difference" />
+        <scope doc="x.__iand__(y) &lt;==&gt; x&amp;y" ilk="function" name="__iand__" signature="x.__iand__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x." ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x." />
+        <scope doc="Return the union of sets as a new set." ilk="function" name="union" />
+        <scope doc="Remove an element from a set if it is a member." ilk="function" name="discard" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="Add an element to a set." ilk="function" name="add" />
+        <scope doc="x.__ixor__(y) &lt;==&gt; x^y" ilk="function" name="__ixor__" signature="x.__ixor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="Update a set with the symmetric difference of itself and&#10;another." ilk="function" name="symmetric_difference_update" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Update a set with the union of itself and others." ilk="function" name="update" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return a shallow copy of a set." ilk="function" name="copy" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="Return True if two sets have a null intersection." ilk="function" name="isdisjoint" />
+        <scope doc="Remove all elements from this set." ilk="function" name="clear" />
+        <scope doc="Update a set with the intersection of itself and another." ilk="function" name="intersection_update" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__ior__(y) &lt;==&gt; x|y" ilk="function" name="__ior__" signature="x.__ior__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Set a named attribute on an object; setattr(x, 'y', v) is&#10;equivalent to ``x.y = v''." ilk="function" name="setattr" signature="setattr(object, name, value)" />
+      <scope classrefs="object" doc="slice([start,] stop[, step])&#10;Create a slice object.  This is used for extended slicing (e.g. a[0:10:2])." ilk="class" name="slice">
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="Assuming a sequence of length len, calculate the start and&#10;stop indices, and the stride length of the extended slice&#10;described by S." ilk="function" name="indices" signature="S.indices(len) -&gt; (start, stop, stride)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+      </scope>
+      <scope doc="sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list" ilk="function" name="sorted" signature="sorted(iterable, cmp=None, key=None, reverse=False) --&gt; new sorted list" />
+      <scope classrefs="object" doc="staticmethod(function) -&gt; method&#10;Convert a function to be a static method.  A static method does not receive an implicit first argument. To declare a static method, use this idiom:  class C: def f(arg1, arg2, ...): ... f = staticmethod(f)  It can be called either on the class (e.g. C.f()) or on an instance" ilk="class" name="staticmethod">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+      </scope>
+      <scope classrefs="basestring" doc="str(object) -&gt; string&#10;Return a nice string representation of the object. If the argument is a string, the return value is the same object." ilk="class" name="str">
+        <scope doc="Return a copy of the string S converted to uppercase." ilk="function" name="upper" returns="str" signature="S.upper() -&gt; string" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="str" signature="S.__format__(format_spec) -&gt; string" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="S.lstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Return a copy of the string S with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="S.capitalize() -&gt; string" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of string S with all occurrences of substring&#10;old replaced by new." ilk="function" name="replace" returns="str" signature="S.replace(old, new[, count]) -&gt; string" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="str" signature="S.expandtabs([tabsize]) -&gt; string" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="S.strip([chars]) -&gt; string or unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a string of length width." ilk="function" name="ljust" returns="str" signature="S.ljust(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="str" signature="S.format(*args, **kwargs) -&gt; string" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="S.decode([encoding[,errors]]) -&gt; object" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="S.rstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="S.encode([encoding[,errors]]) -&gt; object" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="S.translate(table [,deletechars]) -&gt; string" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a string of length width." ilk="function" name="rjust" returns="str" signature="S.rjust(width[, fillchar]) -&gt; string" />
+        <scope doc="Return a copy of the string S with uppercase characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="S.swapcase() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="str" signature="S.zfill(width) -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="str" signature="S.lower() -&gt; string" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="str" signature="S.join(iterable) -&gt; string" />
+        <scope doc="Return S centered in a string of length width." ilk="function" name="center" returns="str" signature="S.center(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="str" signature="S.title() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Returns the sum of a sequence of numbers (NOT strings) plus&#10;the value of parameter 'start' (which defaults to 0)." ilk="function" name="sum" signature="sum(sequence[, start]) -&gt; value" />
+      <scope classrefs="object" doc="super(type) -&gt; unbound super object&#10;super(type, obj) -&gt; bound super object; requires isinstance(obj, type) super(type, type2) -&gt; bound super object; requires issubclass(type2, type) Typical use to call a cooperative superclass method: class C(B): def meth(self, arg): super(C, self).meth(arg)" ilk="class" name="super">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+      </scope>
+      <scope classrefs="object" doc="tuple() -&gt; empty tuple&#10;tuple(iterable) -&gt; tuple initialized from iterable's items  If the argument is a tuple, the return value is the same object." ilk="class" name="tuple">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="size of T in memory, in bytes" ilk="function" name="__sizeof__" signature="T.__sizeof__()" />
+        <scope doc="Raises ValueError if the value is not present." ilk="function" name="index" returns="int" signature="T.index(value, [start, [stop]]) -&gt; integer -- return first index of value." />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="T.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="T.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="object" doc="type(object) -&gt; the object's type&#10;type(name, bases, dict) -&gt; a new type" ilk="class" name="type">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="__subclasses__() -&gt; list of immediate subclasses" ilk="function" name="__subclasses__" returns="list" signature="__subclasses__() -&gt; list of immediate subclasses" />
+        <scope doc="return a type's method resolution order" ilk="function" name="mro" returns="list" signature="mro() -&gt; list" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="check if an object is an instance" ilk="function" name="__instancecheck__" returns="bool" signature="__instancecheck__() -&gt; bool" />
+        <scope doc="check if a class is a subclass" ilk="function" name="__subclasscheck__" returns="bool" signature="__subclasscheck__() -&gt; bool" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Return a Unicode string of one character with ordinal i; 0&#10;&lt;= i &lt;= 0x10ffff." ilk="function" name="unichr" returns="unicode" signature="unichr(i) -&gt; Unicode character" />
+      <scope classrefs="basestring" doc="unicode(string [, encoding[, errors]]) -&gt; object&#10;Create a new Unicode object from the given encoded string. encoding defaults to the current default string encoding. errors can be 'strict', 'replace' or 'ignore' and defaults to 'strict'." ilk="class" name="unicode">
+        <scope doc="Return a copy of S converted to uppercase." ilk="function" name="upper" returns="unicode" signature="S.upper() -&gt; unicode" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="unicode" signature="S.lstrip([chars]) -&gt; unicode" />
+        <scope doc="Return a capitalized version of S, i.e." ilk="function" name="capitalize" returns="unicode" signature="S.capitalize() -&gt; unicode" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of S with all occurrences of substring old&#10;replaced by new." ilk="function" name="replace" returns="unicode" signature="S.replace(old, new[, count]) -&gt; unicode" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="unicode" signature="S.strip([chars]) -&gt; unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a Unicode string of length width." ilk="function" name="ljust" returns="int" signature="S.ljust(width[, fillchar]) -&gt; int" />
+        <scope doc="Return True if there are only decimal characters in S, False&#10;otherwise." ilk="function" name="isdecimal" returns="bool" signature="S.isdecimal() -&gt; bool" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in S, using sep as the delimiter&#10;string, starting at the end of the string and working to the&#10;front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="unicode" signature="S.format(*args, **kwargs) -&gt; unicode" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="str" signature="S.decode([encoding[,errors]]) -&gt; string or unicode" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in S, using sep as the delimiter&#10;string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="unicode" signature="S.rstrip([chars]) -&gt; unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="str" signature="S.encode([encoding[,errors]]) -&gt; string or unicode" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters have&#10;been mapped through the given translation table, which must&#10;be a mapping of Unicode ordinals to Unicode ordinals,&#10;Unicode strings or None." ilk="function" name="translate" returns="unicode" signature="S.translate(table) -&gt; unicode" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a Unicode string of length&#10;width." ilk="function" name="rjust" returns="unicode" signature="S.rjust(width[, fillchar]) -&gt; unicode" />
+        <scope doc="Return a copy of S with uppercase characters converted to&#10;lowercase and vice versa." ilk="function" name="swapcase" returns="unicode" signature="S.swapcase() -&gt; unicode" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="unicode" signature="S.__format__(format_spec) -&gt; unicode" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="unicode" signature="S.zfill(width) -&gt; unicode" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in Unicode string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="unicode" signature="S.lower() -&gt; unicode" />
+        <scope doc="Return True if there are only numeric characters in S, False&#10;otherwise." ilk="function" name="isnumeric" returns="bool" signature="S.isnumeric() -&gt; bool" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="unicode" signature="S.join(iterable) -&gt; unicode" />
+        <scope doc="Return S centered in a Unicode string of length width." ilk="function" name="center" returns="unicode" signature="S.center(width[, fillchar]) -&gt; unicode" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="unicode" signature="S.title() -&gt; unicode" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="unicode" signature="S.expandtabs([tabsize]) -&gt; unicode" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Without arguments, equivalent to locals()." ilk="function" name="vars" returns="dict" signature="vars([object]) -&gt; dictionary" />
+      <scope classrefs="object" doc="xrange([start,] stop[, step]) -&gt; xrange object&#10;Like range(), but instead of returning a list, returns an object that generates the numbers in the range on demand.  For looping, this is slightly faster than range() and more memory efficient." ilk="class" name="xrange">
+        <scope doc="Returns a reverse iterator." ilk="function" name="__reversed__" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+      </scope>
+      <scope doc="Return a list of tuples, where each tuple contains the i-th&#10;element from each of the argument sequences." ilk="function" name="zip" signature="zip(seq1 [, seq2 [...]]) -&gt; [(seq1[0], seq2[0] ...), (...)]" />
+    </scope>
+    

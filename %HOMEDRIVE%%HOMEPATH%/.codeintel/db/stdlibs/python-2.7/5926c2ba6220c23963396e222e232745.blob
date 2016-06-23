@@ -1,0 +1,17 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="email.mime">
+      <variable citdl="LazyImporter" name="Audio" />
+      <variable citdl="LazyImporter" name="Base" />
+      <variable citdl="LazyImporter" name="Image" />
+      <variable citdl="LazyImporter" name="Message" />
+      <variable citdl="LazyImporter" name="Multipart" />
+      <variable citdl="LazyImporter" name="NonMultipart" />
+      <variable citdl="LazyImporter" name="Text" />
+      <import module="audio" />
+      <import module="base" />
+      <import module="image" />
+      <import module="message" />
+      <import module="multipart" />
+      <import module="nonmultipart" />
+      <import module="text" />
+    </scope>
+    

@@ -1,0 +1,26 @@
+<scope doc="Various types of useful iterators and generators.&#10;" ilk="blob" lang="Python" name="email.iterators">
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="7" name="__all__" />
+      <scope doc="Iterate over the parts, returning string payloads line-by-&#10;line." ilk="function" line="35" lineend="44" name="body_line_iterator" signature="body_line_iterator(msg, decode=False)">
+        <variable ilk="argument" name="msg" />
+        <variable citdl="False" ilk="argument" name="decode" />
+        <variable citdl="subpart.get_payload()" line="41" name="payload" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Iterate over the subparts with a given MIME type." ilk="function" line="47" lineend="57" name="typed_subpart_iterator" signature="typed_subpart_iterator(msg, maintype='text', subtype=None)">
+        <variable ilk="argument" name="msg" />
+        <variable ilk="argument" name="subtype" />
+        <variable citdl="str" ilk="argument" name="maintype" />
+      </scope>
+      <scope doc="Walk over the message tree, yielding each subpart." ilk="function" line="20" lineend="30" name="walk" signature="walk(self)">
+        <variable ilk="argument" name="self" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="A handy debugging aid" ilk="function" line="61" lineend="73" name="_structure" signature="_structure(msg, fp=None, level=0, include_default=False)">
+        <variable ilk="argument" name="msg" />
+        <variable citdl="sys.stdout" ilk="argument" name="fp" />
+        <variable citdl="int" ilk="argument" name="level" />
+        <variable citdl="False" ilk="argument" name="include_default" />
+        <variable citdl="str" line="65" name="tab" />
+      </scope>
+    </scope>
+    

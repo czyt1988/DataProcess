@@ -1,0 +1,97 @@
+<scope doc="BaseHTTPServer that implements the Python WSGI protocol (PEP 333, rev 1.21)&#10;This is both an example of how WSGI can be implemented, and a basis for running simple web applications on a local machine, such as might be done when testing or debugging an application.  It has not been reviewed for security issues, however, and we strongly recommend that you use a &quot;real&quot; web server for production use.  For example usage, see the 'if __name__==&quot;__main__&quot;' block at the end of the module.  See also the BaseHTTPServer module docs for other API information." ilk="blob" lang="Python" name="wsgiref.simple_server">
+      <scope classrefs="StreamRequestHandler" doc="HTTP request handler base class.&#10;The following explanation of HTTP serves to guide you through the code as well as to expose any misunderstandings I may have about HTTP (so you don't need to read the code to figure out I'm wrong :-).  HTTP (HyperText Transfer Protocol) is an extensible protocol on top of a reliable stream transport (e.g. TCP/IP).  The protocol recognizes three parts to a request:  1. One line identifying the request type and path" ilk="class" name="BaseHTTPRequestHandler">
+        <scope doc="Parse a request (internal)." ilk="function" name="parse_request" />
+        <scope doc="Return the server software version string." ilk="function" name="version_string" />
+        <scope doc="Return the current time formatted for logging." ilk="function" name="log_date_time_string" />
+        <scope doc="Send a MIME header." ilk="function" name="send_header" />
+        <scope doc="Send and log an error reply." ilk="function" name="send_error" />
+        <scope doc="Log an error." ilk="function" name="log_error" />
+        <scope doc="Send the response header and log the response code." ilk="function" name="send_response" />
+        <scope doc="Handle multiple requests if necessary." ilk="function" name="handle" />
+        <scope doc="Return the current date and time formatted for a message&#10;header." ilk="function" name="date_time_string" />
+        <scope doc="Return the client address formatted for logging." ilk="function" name="address_string" />
+        <scope doc="Log an accepted request." ilk="function" name="log_request" />
+        <scope doc="Log an arbitrary message." ilk="function" name="log_message" />
+        <scope doc="Send the blank line ending the MIME headers." ilk="function" name="end_headers" />
+        <scope doc="Handle a single HTTP request." ilk="function" name="handle_one_request" />
+      </scope>
+      <scope classrefs="TCPServer" doc="&#10;" ilk="class" name="HTTPServer">
+        <scope doc="Override server_bind to store the server name." ilk="function" name="server_bind" />
+      </scope>
+      <scope classrefs="SimpleHandler" doc="&#10;" ilk="class" line="26" lineend="36" name="ServerHandler">
+        <scope ilk="function" line="30" lineend="36" name="close" signature="close()">
+          <variable citdl="ServerHandler" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="str" line="28" name="server_software" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="Handler that's just initialized with streams, environment, etc.&#10;This handler subclass is intended for synchronous HTTP/1.0 origin servers, and handles sending the entire response output, given the correct inputs.  Usage::  handler = SimpleHandler( inp,out,err,env, multithread=False, multiprocess=True ) handler.run(app)" ilk="class" name="SimpleHandler">
+        <scope ilk="function" name="get_stderr" />
+        <scope ilk="function" name="_flush" />
+        <scope ilk="function" name="get_stdin" />
+        <scope ilk="function" name="_write" />
+        <scope ilk="function" name="add_cgi_vars" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BaseHTTPRequestHandler" doc="&#10;" ilk="class" line="69" lineend="124" name="WSGIRequestHandler">
+        <scope ilk="function" line="110" lineend="111" name="get_stderr" returns="sys.stderr" signature="get_stderr()">
+          <variable citdl="WSGIRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handle a single HTTP request" ilk="function" line="113" lineend="124" name="handle" signature="handle()">
+          <variable citdl="WSGIRequestHandler" ilk="argument" name="self" />
+          <variable citdl="ServerHandler" line="120" name="handler" />
+        </scope>
+        <scope ilk="function" line="73" lineend="108" name="get_environ" returns="self.server.base_environ.copy()" signature="get_environ()">
+          <variable citdl="WSGIRequestHandler" ilk="argument" name="self" />
+          <variable citdl="self.address_string()" line="85" name="host" />
+          <variable citdl="self.headers.getheader()" line="95" name="length" />
+          <variable citdl="self.server.base_environ.copy()" line="74" name="env" />
+          <variable citdl="v.strip()" line="100" name="v" />
+          <variable citdl="str" line="78" name="query" />
+          <variable citdl="self.path" line="78" name="path" />
+          <variable line="100" name="k" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.rfile.readline()" line="116" name="raw_requestline" />
+        <variable citdl="str" line="71" name="server_version" />
+      </scope>
+      <scope classrefs="HTTPServer" doc="BaseHTTPServer that implements the Python WSGI protocol&#10;" ilk="class" line="40" lineend="65" name="WSGIServer">
+        <scope ilk="function" line="51" lineend="59" name="setup_environ" signature="setup_environ()">
+          <variable citdl="WSGIServer" ilk="argument" name="self" />
+          <variable citdl="dict" line="53" name="env" />
+        </scope>
+        <scope doc="Override server_bind to store the server name." ilk="function" line="46" lineend="49" name="server_bind" signature="server_bind()">
+          <variable citdl="WSGIServer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="64" lineend="65" name="set_app" signature="set_app(application)">
+          <variable ilk="argument" name="application" />
+          <variable citdl="WSGIServer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="61" lineend="62" name="get_app" signature="get_app()">
+          <variable citdl="WSGIServer" ilk="argument" name="self" />
+        </scope>
+        <variable line="44" name="application" />
+      </scope>
+      <variable citdl="list" line="18" name="__all__" />
+      <variable citdl="str" line="17" name="__version__" />
+      <scope ilk="function" line="128" lineend="137" name="demo_app" returns="list" signature="demo_app(environ, start_response)">
+        <variable ilk="argument" name="start_response" />
+        <variable citdl="environ.items()" line="133" name="h" />
+        <variable ilk="argument" name="environ" />
+        <variable citdl="StringIO()" line="130" name="stdout" />
+      </scope>
+      <scope doc="Create a new WSGI server listening on `host` and `port` for&#10;`app`" ilk="function" line="140" lineend="146" name="make_server" returns="server_class()" signature="make_server(host, port, app, server_class=&lt;class wsgiref.simple_server.WSGIServer at 0x05AEE3B0&gt;, handler_class=&lt;class wsgiref.simple_server.WSGIRequestHandler at 0x05AEE378&gt;)">
+        <variable citdl="WSGIServer" ilk="argument" name="server_class" />
+        <variable ilk="argument" name="app" />
+        <variable citdl="server_class()" line="144" name="server" />
+        <variable ilk="argument" name="host" />
+        <variable citdl="WSGIRequestHandler" ilk="argument" name="handler_class" />
+        <variable ilk="argument" name="port" />
+      </scope>
+      <variable citdl="str" line="21" name="server_version" />
+      <variable citdl="str" line="23" name="software_version" />
+      <import module="sys" />
+      <variable citdl="str" line="22" name="sys_version" />
+      <import module="urllib" />
+      <variable attributes="__hidden__" citdl="make_server()" line="150" name="httpd" />
+      <variable attributes="__hidden__" citdl="httpd.socket.getsockname()" line="151" name="sa" />
+    </scope>
+    

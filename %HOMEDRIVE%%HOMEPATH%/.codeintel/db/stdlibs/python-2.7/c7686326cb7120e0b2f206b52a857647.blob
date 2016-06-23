@@ -1,0 +1,375 @@
+<scope doc="Abstract Base Classes (ABCs) for collections, according to PEP 3119.&#10;DON'T USE THIS MODULE DIRECTLY!  The classes here should be imported via collections; they are defined here only to alleviate certain bootstrapping issues.  Unit tests are in test_collections." ilk="blob" lang="Python" name="_abcoll">
+      <scope classrefs="type" doc="Metaclass for defining Abstract Base Classes (ABCs).&#10;Use this metaclass to create an ABC.  An ABC can be subclassed directly, and then acts as a mix-in class.  You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super())." ilk="class" name="ABCMeta">
+        <scope ilk="function" name="__new__" signature="__new__(mcls, name, bases, namespace)" />
+        <scope doc="Override for isinstance(instance, cls)." ilk="function" name="__instancecheck__" />
+        <scope doc="Register a virtual subclass of an ABC." ilk="function" name="register" />
+        <scope doc="Override for issubclass(subclass, cls)." ilk="function" name="__subclasscheck__" />
+        <scope doc="Debug helper to print the ABC registry." ilk="function" name="_dump_registry" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="120" lineend="132" name="Callable">
+        <scope ilk="function" line="128" lineend="132" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Callable" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="124" lineend="125" name="__call__" returns="bool" signature="__call__(*args, **kwds)">
+          <variable citdl="Callable" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <variable citdl="ABCMeta" line="121" name="__metaclass__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="105" lineend="117" name="Container">
+        <scope ilk="function" line="109" lineend="110" name="__contains__" returns="bool" signature="__contains__(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Container" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="113" lineend="117" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Container" ilk="argument" name="cls" />
+        </scope>
+        <variable citdl="ABCMeta" line="106" name="__metaclass__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="32" lineend="52" name="Hashable">
+        <scope ilk="function" line="40" lineend="52" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Hashable" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="36" lineend="37" name="__hash__" returns="int" signature="__hash__()">
+          <variable citdl="Hashable" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="ABCMeta" line="33" name="__metaclass__" />
+      </scope>
+      <scope classrefs="MappingView Set" doc="&#10;" ilk="class" line="411" lineend="428" name="ItemsView">
+        <scope ilk="function" line="417" lineend="424" name="__contains__" returns="bool" signature="__contains__(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="ItemsView" ilk="argument" name="self" />
+          <variable line="420" name="v" />
+        </scope>
+        <scope ilk="function" line="426" lineend="428" name="__iter__" signature="__iter__()">
+          <variable citdl="ItemsView" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="414" lineend="415" name="_from_iterable" returns="set()" signature="_from_iterable(it)">
+          <variable citdl="ItemsView" ilk="argument" name="self" />
+          <variable ilk="argument" name="it" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="55" lineend="68" name="Iterable">
+        <scope ilk="function" line="59" lineend="61" name="__iter__" signature="__iter__()">
+          <variable citdl="Iterable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="64" lineend="68" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Iterable" ilk="argument" name="cls" />
+        </scope>
+        <variable citdl="ABCMeta" line="56" name="__metaclass__" />
+      </scope>
+      <scope classrefs="Iterable" doc="&#10;" ilk="class" line="73" lineend="87" name="Iterator">
+        <scope ilk="function" line="76" lineend="77" name="next" signature="next()">
+          <variable citdl="Iterator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="80" name="__iter__" returns="Iterator" signature="__iter__()">
+          <variable citdl="Iterator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="83" lineend="87" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Iterator" ilk="argument" name="cls" />
+        </scope>
+      </scope>
+      <scope classrefs="MappingView Set" doc="&#10;" ilk="class" line="397" lineend="408" name="KeysView">
+        <scope ilk="function" line="403" lineend="404" name="__contains__" returns="bool" signature="__contains__(key)">
+          <variable citdl="KeysView" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="406" lineend="408" name="__iter__" signature="__iter__()">
+          <variable citdl="KeysView" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="400" lineend="401" name="_from_iterable" returns="set()" signature="_from_iterable(it)">
+          <variable citdl="KeysView" ilk="argument" name="self" />
+          <variable ilk="argument" name="it" />
+        </scope>
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="&#10;" ilk="class" line="334" lineend="383" name="Mapping">
+        <scope ilk="function" line="382" lineend="383" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="337" lineend="338" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="346" lineend="352" name="__contains__" returns="bool" signature="__contains__(key)">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="365" lineend="366" name="keys" returns="list()" signature="keys()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="368" lineend="369" name="items" returns="list" signature="items()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="340" lineend="344" name="get" signature="get(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Mapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="371" lineend="372" name="values" returns="list" signature="values()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="357" lineend="359" name="itervalues" signature="itervalues()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="361" lineend="363" name="iteritems" signature="iteritems()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="377" lineend="380" name="__eq__" returns="NotImplemented" signature="__eq__(other)">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="354" lineend="355" name="iterkeys" returns="iter()" signature="iterkeys()">
+          <variable citdl="Mapping" ilk="argument" name="self" />
+        </scope>
+        <variable line="375" name="__hash__" />
+      </scope>
+      <scope classrefs="Sized" doc="&#10;" ilk="class" line="385" lineend="394" name="MappingView">
+        <scope ilk="function" line="390" lineend="391" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="MappingView" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="387" lineend="388" name="__init__" signature="MappingView(mapping)">
+          <variable citdl="MappingView" ilk="argument" name="self" />
+          <variable ilk="argument" name="mapping" />
+        </scope>
+        <scope ilk="function" line="393" lineend="394" name="__repr__" returns="str.format()" signature="__repr__()">
+          <variable citdl="MappingView" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="388" name="_mapping" />
+      </scope>
+      <scope classrefs="Mapping" doc="&#10;" ilk="class" line="444" lineend="509" name="MutableMapping">
+        <scope ilk="function" line="451" lineend="452" name="__delitem__" signature="__delitem__(key)">
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="504" lineend="509" name="setdefault" signature="setdefault(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="476" lineend="481" name="clear" signature="clear()">
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="483" lineend="502" name="update" signature="update(**kwds)">
+          <variable line="489" name="self" />
+          <variable line="490" name="other" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable attributes="varargs" citdl="MutableMapping" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="456" lineend="465" name="pop" returns="object()" signature="pop(key, default=__marker)">
+          <variable citdl="object()" ilk="argument" name="default" />
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+          <variable line="458" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="447" lineend="448" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="467" lineend="474" name="popitem" returns="tuple" signature="popitem()">
+          <variable citdl="MutableMapping" ilk="argument" name="self" />
+          <variable line="472" name="value" />
+          <variable citdl="next()" line="469" name="key" />
+        </scope>
+        <variable attributes="private" citdl="object()" line="454" name="__marker" />
+      </scope>
+      <scope classrefs="Sequence" doc="&#10;" ilk="class" line="563" lineend="599" name="MutableSequence">
+        <scope ilk="function" line="570" lineend="571" name="__delitem__" signature="__delitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="580" lineend="583" name="reverse" signature="reverse()">
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable citdl="len()" line="581" name="n" />
+        </scope>
+        <scope ilk="function" line="585" lineend="587" name="extend" signature="extend(values)">
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="values" />
+        </scope>
+        <scope ilk="function" line="574" lineend="575" name="insert" signature="insert(index, value)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="594" lineend="595" name="remove" signature="remove(value)">
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="589" lineend="592" name="pop" signature="pop(index=-1)">
+          <variable citdl="int" ilk="argument" name="index" />
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable line="590" name="v" />
+        </scope>
+        <scope ilk="function" line="566" lineend="567" name="__setitem__" signature="__setitem__(index, value)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="597" lineend="599" name="__iadd__" returns="MutableSequence" signature="__iadd__(values)">
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="values" />
+        </scope>
+        <scope ilk="function" line="577" lineend="578" name="append" signature="append(value)">
+          <variable citdl="MutableSequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+      </scope>
+      <scope classrefs="Set" doc="&#10;" ilk="class" line="261" lineend="326" name="MutableSet">
+        <scope ilk="function" line="320" lineend="326" name="__isub__" returns="MutableSet" signature="__isub__(it)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="it" />
+        </scope>
+        <scope ilk="function" line="302" lineend="305" name="__iand__" returns="MutableSet" signature="__iand__(it)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="it" />
+        </scope>
+        <scope doc="This is slow (creates N new iterators!) but effective." ilk="function" line="289" lineend="295" name="clear" signature="clear()">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove an element. If not a member, raise a KeyError." ilk="function" line="273" lineend="277" name="remove" signature="remove(value)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="297" lineend="300" name="__ior__" returns="MutableSet" signature="__ior__(it)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="it" />
+        </scope>
+        <scope doc="Add an element." ilk="function" line="264" lineend="266" name="add" signature="add(value)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Return the popped value. Raise KeyError if empty." ilk="function" line="279" lineend="287" name="pop" returns="next()" signature="pop()">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable citdl="iter()" line="281" name="it" />
+          <variable citdl="next()" line="283" name="value" />
+        </scope>
+        <scope doc="Remove an element. Do not raise an exception if absent." ilk="function" line="269" lineend="271" name="discard" signature="discard(value)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="307" lineend="318" name="__ixor__" returns="MutableSet" signature="__ixor__(it)">
+          <variable citdl="MutableSet" ilk="argument" name="self" />
+          <variable citdl="self._from_iterable()" ilk="argument" name="it" />
+        </scope>
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="All the operations on a read-only sequence.&#10;Concrete subclasses must override __new__ or __init__, __getitem__, and __len__." ilk="class" line="517" lineend="555" name="Sequence">
+        <scope ilk="function" line="554" lineend="555" name="count" returns="sum()" signature="count(value)">
+          <variable citdl="Sequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="548" lineend="552" name="index" returns="i" signature="index(value)">
+          <variable citdl="Sequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="544" lineend="546" name="__reversed__" signature="__reversed__()">
+          <variable citdl="Sequence" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="525" lineend="526" name="__getitem__" signature="__getitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Sequence" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="538" lineend="542" name="__contains__" returns="bool" signature="__contains__(value)">
+          <variable citdl="Sequence" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="528" name="__iter__" signature="__iter__()">
+          <variable citdl="int" line="529" name="i" />
+          <variable citdl="Sequence" ilk="argument" name="self" />
+          <variable line="532" name="v" />
+        </scope>
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="A set is a finite, iterable container.&#10;This class provides concrete generic implementations of all methods except for __contains__, __iter__ and __len__.  To override the comparisons (presumably for speed, as the semantics are fixed), all you have to do is redefine __le__ and then the other operations will automatically follow suit." ilk="class" line="138" lineend="256" name="Set">
+        <scope ilk="function" line="179" lineend="180" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="202" lineend="206" name="__or__" returns="NotImplemented" signature="__or__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable line="205" name="chain" />
+        </scope>
+        <scope ilk="function" line="164" lineend="167" name="__gt__" returns="NotImplemented" signature="__gt__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="191" lineend="194" name="__and__" returns="NotImplemented" signature="__and__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="159" lineend="162" name="__lt__" returns="NotImplemented" signature="__lt__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="174" lineend="177" name="__eq__" returns="NotImplemented" signature="__eq__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Construct an instance of the class from any iterable input." ilk="function" line="183" lineend="189" name="_from_iterable" returns="Set._from_iterable.cls()" signature="_from_iterable(it)">
+          <variable ilk="argument" name="it" />
+          <variable citdl="Set" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="196" lineend="200" name="isdisjoint" returns="bool" signature="isdisjoint(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="216" lineend="221" name="__xor__" returns="NotImplemented" signature="__xor__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="_from_iterable()" ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="149" lineend="157" name="__le__" returns="NotImplemented" signature="__le__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Compute the hash value of a set." ilk="function" line="226" lineend="256" name="_hash" returns="len()" signature="_hash()">
+          <variable citdl="hash()" line="247" name="hx" />
+          <variable citdl="sys.maxint" line="241" name="MAX" />
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="sys.maxint" line="242" name="MASK" />
+          <variable citdl="len()" line="243" name="n" />
+          <variable citdl="len()" line="244" name="h" />
+        </scope>
+        <scope ilk="function" line="208" lineend="214" name="__sub__" returns="NotImplemented" signature="__sub__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="_from_iterable()" ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="169" lineend="172" name="__ge__" returns="NotImplemented" signature="__ge__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <variable line="224" name="__hash__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="90" lineend="102" name="Sized">
+        <scope ilk="function" line="98" lineend="102" name="__subclasshook__" returns="NotImplemented" signature="__subclasshook__(C)">
+          <variable ilk="argument" name="C" />
+          <variable citdl="Sized" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="94" lineend="95" name="__len__" returns="int" signature="__len__()">
+          <variable citdl="Sized" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="ABCMeta" line="91" name="__metaclass__" />
+      </scope>
+      <scope classrefs="MappingView" doc="&#10;" ilk="class" line="431" lineend="441" name="ValuesView">
+        <scope ilk="function" line="433" lineend="437" name="__contains__" returns="bool" signature="__contains__(value)">
+          <variable citdl="ValuesView" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="439" lineend="441" name="__iter__" signature="__iter__()">
+          <variable citdl="ValuesView" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="14" name="__all__" />
+      <scope doc="A decorator indicating abstract methods." ilk="function" name="abstractmethod" signature="abstractmethod(funcobj)" />
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="24" lineend="29" name="_hasattr" returns="any()" signature="_hasattr(C, attr)">
+        <variable ilk="argument" name="C" />
+        <variable ilk="argument" name="attr" />
+      </scope>
+    </scope>
+    

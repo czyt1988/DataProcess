@@ -1,0 +1,381 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="collections">
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Callable">
+        <scope ilk="function" name="__subclasshook__" />
+        <scope ilk="function" name="__call__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Container">
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__subclasshook__" />
+      </scope>
+      <scope classrefs="dict" doc="Dict subclass for counting hashable items.  Sometimes called a bag&#10;or multiset.  Elements are stored as dictionary keys and their counts are stored as dictionary values.  &gt;&gt;&gt; c = Counter('abcdeabcdabcaba')  # count elements from a string  &gt;&gt;&gt; c.most_common(3)                # three most common elements [('a', 5), ('b', 4), ('c', 3)] &gt;&gt;&gt; sorted(c)                       # list all unique elements ['a', 'b', 'c', 'd', 'e'] &gt;&gt;&gt; ''.join(sorted(c.elements()))   # list elements with repetitions" ilk="class" line="355" lineend="631" name="Counter">
+        <scope doc="Iterator over elements repeating each as many times as its&#10;count." ilk="function" line="438" lineend="458" name="elements" returns="_chain.from_iterable()" signature="elements()">
+          <variable citdl="Counter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="535" lineend="536" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="Counter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Like dict.update() but add counts instead of replacing them." ilk="function" line="469" lineend="502" name="update" signature="update(iterable=None, **kwds)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable citdl="self.get" line="492" name="self_get" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="List the n most common elements and their counts from the&#10;most common to the least." ilk="function" line="425" lineend="436" name="most_common" returns="sorted()" signature="most_common(n=None)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Union is the maximum of value in either of the input&#10;counters." ilk="function" line="596" lineend="614" name="__or__" returns="NotImplemented" signature="__or__(other)">
+          <variable line="607" name="other_count" />
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="" line="605" name="result" />
+          <variable line="608" name="newcount" />
+        </scope>
+        <scope doc="Add counts from two counters." ilk="function" line="558" lineend="575" name="__add__" returns="NotImplemented" signature="__add__(other)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="" line="567" name="result" />
+          <variable citdl="count" line="569" name="newcount" />
+        </scope>
+        <scope doc="Intersection is the minimum of corresponding counts." ilk="function" line="616" lineend="631" name="__and__" returns="NotImplemented" signature="__and__(other)">
+          <variable line="627" name="other_count" />
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="" line="625" name="result" />
+          <variable line="628" name="newcount" />
+        </scope>
+        <scope doc="Return a shallow copy." ilk="function" line="531" lineend="533" name="copy" returns="self.__class__()" signature="copy()">
+          <variable citdl="Counter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Like dict.update() but subtracts counts instead of replacing&#10;them." ilk="function" line="504" lineend="529" name="subtract" signature="subtract(iterable=None, **kwds)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable citdl="self.get" line="521" name="self_get" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Create a new, empty Counter object." ilk="function" line="406" lineend="418" name="__init__" signature="Counter(iterable=None, **kwds)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Like dict.__delitem__() but does not raise KeyError for&#10;missing values." ilk="function" line="538" lineend="541" name="__delitem__" signature="__delitem__(elem)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="elem" />
+        </scope>
+        <scope ilk="function" line="463" lineend="467" name="fromkeys" signature="fromkeys(iterable, v=None)">
+          <variable ilk="argument" name="v" />
+          <variable ilk="argument" name="iterable" />
+          <variable citdl="Counter" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="543" lineend="547" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="str.join()" line="546" name="items" />
+          <variable citdl="Counter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Subtract count, but keep only results with positive counts." ilk="function" line="577" lineend="594" name="__sub__" returns="NotImplemented" signature="__sub__(other)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="" line="586" name="result" />
+          <variable citdl="count" line="588" name="newcount" />
+        </scope>
+        <scope doc="The count of elements not in the Counter is zero." ilk="function" line="420" lineend="423" name="__missing__" returns="int" signature="__missing__(key)">
+          <variable citdl="Counter" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Hashable">
+        <scope ilk="function" name="__subclasshook__" />
+        <scope ilk="function" name="__hash__" />
+      </scope>
+      <scope classrefs="MappingView Set" doc="&#10;" ilk="class" name="ItemsView">
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="_from_iterable" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Iterable">
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__subclasshook__" />
+      </scope>
+      <scope classrefs="Iterable" doc="&#10;" ilk="class" name="Iterator">
+        <scope ilk="function" name="next" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__subclasshook__" />
+      </scope>
+      <scope classrefs="MappingView Set" doc="&#10;" ilk="class" name="KeysView">
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="_from_iterable" />
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="&#10;" ilk="class" name="Mapping">
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="keys" />
+        <scope ilk="function" name="items" />
+        <scope ilk="function" name="get" />
+        <scope ilk="function" name="values" />
+        <scope ilk="function" name="itervalues" />
+        <scope ilk="function" name="iteritems" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="iterkeys" />
+      </scope>
+      <scope classrefs="Sized" doc="&#10;" ilk="class" name="MappingView">
+        <scope ilk="function" name="__len__" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="Mapping" doc="&#10;" ilk="class" name="MutableMapping">
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="popitem" />
+      </scope>
+      <scope classrefs="Sequence" doc="&#10;" ilk="class" name="MutableSequence">
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="reverse" />
+        <scope ilk="function" name="extend" />
+        <scope ilk="function" name="insert" />
+        <scope ilk="function" name="remove" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="__iadd__" />
+        <scope ilk="function" name="append" />
+      </scope>
+      <scope classrefs="Set" doc="&#10;" ilk="class" name="MutableSet">
+        <scope ilk="function" name="__isub__" />
+        <scope ilk="function" name="__iand__" />
+        <scope doc="This is slow (creates N new iterators!) but effective." ilk="function" name="clear" />
+        <scope doc="Remove an element. If not a member, raise a KeyError." ilk="function" name="remove" />
+        <scope ilk="function" name="__ior__" />
+        <scope doc="Add an element." ilk="function" name="add" />
+        <scope doc="Return the popped value. Raise KeyError if empty." ilk="function" name="pop" />
+        <scope doc="Remove an element. Do not raise an exception if absent." ilk="function" name="discard" />
+        <scope ilk="function" name="__ixor__" />
+      </scope>
+      <scope classrefs="dict" doc="Dictionary that remembers insertion order&#10;" ilk="class" line="25" lineend="230" name="OrderedDict">
+        <scope doc="od.__ne__(y) &lt;==&gt; od!=y" ilk="function" line="214" lineend="216" name="__ne__" returns="bool" signature="od.__ne__(y) &lt;==&gt; od!=y">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="od.keys() -&gt; list of keys in od" ilk="function" line="103" lineend="105" name="keys" returns="list()" signature="od.keys() -&gt; list of keys in od">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.iteritems -&gt; an iterator over the (key, value) pairs in&#10;od" ilk="function" line="124" lineend="127" name="iteritems" signature="iteritems()">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return state information for pickling" ilk="function" line="180" lineend="188" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="list" line="182" name="items" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable line="183" name="inst_dict" />
+        </scope>
+        <scope ilk="function" line="129" name="update" />
+        <scope doc="value." ilk="function" line="135" lineend="147" name="pop" returns="object()" signature="od.pop(k[,d]) -&gt; v, remove specified key and return the corresponding">
+          <variable citdl="object()" ilk="argument" name="default" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable line="142" name="result" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="od.__iter__() &lt;==&gt; iter(od)" ilk="function" line="72" lineend="80" name="__iter__" signature="od.__iter__() &lt;==&gt; iter(od)">
+          <variable line="77" name="curr" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="list" line="76" name="root" />
+          <variable citdl="int" line="75" name="KEY" />
+          <variable citdl="int" line="75" name="NEXT" />
+        </scope>
+        <scope doc="od.viewkeys() -&gt; a set-like object providing a view on od's keys" ilk="function" line="220" lineend="222" name="viewkeys" returns="KeysView()" signature="od.viewkeys() -&gt; a set-like object providing a view on od's keys">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Pairs are returned in LIFO order if last is true or FIFO&#10;order if false." ilk="function" line="156" lineend="165" name="popitem" returns="tuple" signature="od.popitem() -&gt; (k, v), return and remove a (key, value) pair.">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="last" />
+          <variable citdl="pop()" line="164" name="value" />
+          <variable citdl="next()" line="163" name="key" />
+        </scope>
+        <scope doc="od.copy() -&gt; a shallow copy of od" ilk="function" line="190" lineend="192" name="copy" returns="self.__class__()" signature="od.copy() -&gt; a shallow copy of od">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="while comparison to a regular mapping is order-insensitive." ilk="function" line="205" lineend="212" name="__eq__" returns="bool" signature="od.__eq__(y) &lt;==&gt; od==y.  Comparison to another OD is order-sensitive">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Initialize an ordered dictionary." ilk="function" line="37" lineend="51" name="__init__" signature="OrderedDict(*args, **kwds)">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope doc="od.viewitems() -&gt; a set-like object providing a view on od's items" ilk="function" line="228" lineend="230" name="viewitems" returns="ItemsView()" signature="od.viewitems() -&gt; a set-like object providing a view on od's items">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.__delitem__(y) &lt;==&gt; del od[y]" ilk="function" line="63" lineend="70" name="__delitem__" signature="od.__delitem__(y) &lt;==&gt; del od[y]">
+          <variable line="68" name="link_prev" />
+          <variable line="68" name="link_next" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="NEXT" />
+          <variable citdl="dict.__delitem__" ilk="argument" name="dict_delitem" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="int" ilk="argument" name="PREV" />
+        </scope>
+        <scope doc="If not specified, the value defaults to None." ilk="function" line="195" lineend="203" name="fromkeys" returns="cls()" signature="OD.fromkeys(S[, v]) -&gt; New ordered dictionary with keys from S.">
+          <variable citdl="cls()" line="200" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="iterable" />
+          <variable citdl="OrderedDict" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="od.setdefault(k[,d]) -&gt; od.get(k,d), also set od[k]=d if k not in od" ilk="function" line="149" lineend="154" name="setdefault" signature="od.setdefault(k[,d]) -&gt; od.get(k,d), also set od[k]=d if k not in od">
+          <variable ilk="argument" name="default" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="od.viewvalues() -&gt; an object providing a view on od's values" ilk="function" line="224" lineend="226" name="viewvalues" returns="ValuesView()" signature="od.viewvalues() -&gt; an object providing a view on od's values">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.items() -&gt; list of (key, value) pairs in od" ilk="function" line="111" lineend="113" name="items" returns="list" signature="od.items() -&gt; list of (key, value) pairs in od">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.clear() -&gt; None.  Remove all items from od." ilk="function" line="92" lineend="99" name="clear" signature="od.clear() -&gt; None.  Remove all items from od.">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="list" line="96" name="root" />
+        </scope>
+        <scope doc="od.__setitem__(i, y) &lt;==&gt; od[i]=y" ilk="function" line="53" lineend="61" name="__setitem__" signature="od.__setitem__(i, y) &lt;==&gt; od[i]=y">
+          <variable line="59" name="last" />
+          <variable citdl="dict.__setitem__" ilk="argument" name="dict_setitem" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="int" ilk="argument" name="NEXT" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="int" ilk="argument" name="PREV" />
+          <variable citdl="list" line="58" name="root" />
+        </scope>
+        <scope doc="od.__reversed__() &lt;==&gt; reversed(od)" ilk="function" line="82" lineend="90" name="__reversed__" signature="od.__reversed__() &lt;==&gt; reversed(od)">
+          <variable line="87" name="curr" />
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="int" line="85" name="PREV" />
+          <variable citdl="list" line="86" name="root" />
+          <variable citdl="int" line="85" name="KEY" />
+        </scope>
+        <scope doc="od.values() -&gt; list of values in od" ilk="function" line="107" lineend="109" name="values" returns="list" signature="od.values() -&gt; list of values in od">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.iterkeys() -&gt; an iterator over the keys in od" ilk="function" line="115" lineend="117" name="iterkeys" returns="iter()" signature="od.iterkeys() -&gt; an iterator over the keys in od">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope doc="od.itervalues -&gt; an iterator over the values in od" ilk="function" line="119" lineend="122" name="itervalues" signature="itervalues()">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_OrderedDict__update" />
+        <scope doc="od.__repr__() &lt;==&gt; repr(od)" ilk="function" line="167" lineend="178" name="__repr__" returns="tuple" signature="od.__repr__() &lt;==&gt; repr(od)">
+          <variable citdl="OrderedDict" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_repr_running" />
+          <variable citdl="tuple" line="169" name="call_key" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="list" line="48" name="__root" />
+        <variable attributes="private" citdl="object()" line="133" name="__marker" />
+        <variable attributes="private __instancevar__" citdl="dict" line="50" name="__map" />
+        <variable attributes="private" citdl="MutableMapping.update" line="131" name="__update" />
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="All the operations on a read-only sequence.&#10;Concrete subclasses must override __new__ or __init__, __getitem__, and __len__." ilk="class" name="Sequence">
+        <scope ilk="function" name="count" />
+        <scope ilk="function" name="index" />
+        <scope ilk="function" name="__reversed__" />
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__iter__" />
+      </scope>
+      <scope classrefs="Sized Iterable Container" doc="A set is a finite, iterable container.&#10;This class provides concrete generic implementations of all methods except for __contains__, __iter__ and __len__.  To override the comparisons (presumably for speed, as the semantics are fixed), all you have to do is redefine __le__ and then the other operations will automatically follow suit." ilk="class" name="Set">
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="__or__" />
+        <scope ilk="function" name="__gt__" />
+        <scope ilk="function" name="__and__" />
+        <scope ilk="function" name="__lt__" />
+        <scope ilk="function" name="__eq__" />
+        <scope doc="Construct an instance of the class from any iterable input." ilk="function" name="_from_iterable" />
+        <scope ilk="function" name="isdisjoint" />
+        <scope ilk="function" name="__xor__" />
+        <scope ilk="function" name="__le__" />
+        <scope doc="Compute the hash value of a set." ilk="function" name="_hash" />
+        <scope ilk="function" name="__sub__" />
+        <scope ilk="function" name="__ge__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Sized">
+        <scope ilk="function" name="__subclasshook__" />
+        <scope ilk="function" name="__len__" />
+      </scope>
+      <scope classrefs="MappingView" doc="&#10;" ilk="class" name="ValuesView">
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="__iter__" />
+      </scope>
+      <variable citdl="list" line="1" name="__all__" />
+      <import module="_abcoll" />
+      <import module="_heapq" />
+      <import module="_sys" />
+      <scope classrefs="dict" doc="defaultdict(default_factory) --&gt; dict with default factory&#10;The default factory is called without arguments to produce a new value when a key is not present, in __getitem__ only. A defaultdict compares equal to a dict with the same items." ilk="class" name="defaultdict">
+        <scope doc="D.copy() -&gt; a shallow copy of D." ilk="function" name="copy" signature="D.copy() -&gt; a shallow copy of D." />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="if self.default_factory is None: raise KeyError((key,))&#10;self[key] = value = self.default_factory() return value" ilk="function" name="__missing__" signature="__missing__(key) # Called by __getitem__ for missing key; pseudo-code:" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="D.copy() -&gt; a shallow copy of D." ilk="function" name="__copy__" signature="D.copy() -&gt; a shallow copy of D." />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Returns a new subclass of tuple with named fields." ilk="function" line="237" lineend="348" name="namedtuple" signature="namedtuple(typename, field_names, verbose=False, rename=False)">
+        <variable citdl="False" ilk="argument" name="rename" />
+        <variable citdl="set()" line="283" name="seen_names" />
+        <variable citdl="False" ilk="argument" name="verbose" />
+        <variable citdl="len()" line="292" name="numfields" />
+        <variable citdl="dict()" line="331" name="namespace" />
+        <variable citdl="str.join()" line="294" name="reprtxt" />
+        <variable ilk="argument" name="typename" />
+        <variable citdl="list" line="293" name="argtxt" />
+        <variable line="337" name="result" />
+        <variable citdl="str" line="295" name="template" />
+        <variable citdl="set()" line="268" name="seen" />
+        <variable citdl="tuple()" ilk="argument" name="field_names" />
+        <variable citdl="list()" line="267" name="names" />
+      </scope>
+      <variable attributes="__hidden__" citdl="Point()" line="638" name="p" />
+      <variable attributes="__hidden__" citdl="namedtuple()" line="662" name="Point3D" />
+      <variable attributes="__hidden__" citdl="namedtuple()" line="666" name="TestResults" />
+      <scope attributes="__hidden__" classrefs="namedtuple()" doc="Point class with optimized _make() and _replace() without&#10;error-checking" ilk="class" line="653" lineend="658" name="Point">
+        <variable citdl="tuple" line="655" name="__slots__" />
+        <variable attributes="protected" citdl="classmethod()" line="656" name="_make" />
+        <scope attributes="protected" ilk="function" line="657" lineend="658" name="_replace" returns="Point._make()" signature="_replace(_map=map, **kwds)">
+          <variable citdl="Point" ilk="argument" name="self" />
+          <variable citdl="map" ilk="argument" name="_map" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+      </scope>
+    </scope>
+    

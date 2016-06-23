@@ -1,0 +1,77 @@
+<scope doc="This module performs file control and I/O control on file &#10;descriptors.  It is an interface to the fcntl() and ioctl() Unix routines.  File descriptors can be obtained with the fileno() method of a file or socket object." ilk="blob" lang="Python" name="fcntl">
+      <variable citdl="int" name="DN_ACCESS" />
+      <variable citdl="int" name="DN_ATTRIB" />
+      <variable citdl="int" name="DN_CREATE" />
+      <variable citdl="int" name="DN_DELETE" />
+      <variable citdl="int" name="DN_MODIFY" />
+      <variable citdl="int" name="DN_MULTISHOT" />
+      <variable citdl="int" name="DN_RENAME" />
+      <variable citdl="int" name="FASYNC" />
+      <variable citdl="int" name="FD_CLOEXEC" />
+      <variable citdl="int" name="F_DUPFD" />
+      <variable citdl="int" name="F_EXLCK" />
+      <variable citdl="int" name="F_GETFD" />
+      <variable citdl="int" name="F_GETFL" />
+      <variable citdl="int" name="F_GETLEASE" />
+      <variable citdl="int" name="F_GETLK" />
+      <variable citdl="int" name="F_GETLK64" />
+      <variable citdl="int" name="F_GETOWN" />
+      <variable citdl="int" name="F_GETSIG" />
+      <variable citdl="int" name="F_NOTIFY" />
+      <variable citdl="int" name="F_RDLCK" />
+      <variable citdl="int" name="F_SETFD" />
+      <variable citdl="int" name="F_SETFL" />
+      <variable citdl="int" name="F_SETLEASE" />
+      <variable citdl="int" name="F_SETLK" />
+      <variable citdl="int" name="F_SETLK64" />
+      <variable citdl="int" name="F_SETLKW" />
+      <variable citdl="int" name="F_SETLKW64" />
+      <variable citdl="int" name="F_SETOWN" />
+      <variable citdl="int" name="F_SETSIG" />
+      <variable citdl="int" name="F_SHLCK" />
+      <variable citdl="int" name="F_UNLCK" />
+      <variable citdl="int" name="F_WRLCK" />
+      <variable citdl="int" name="I_ATMARK" />
+      <variable citdl="int" name="I_CANPUT" />
+      <variable citdl="int" name="I_CKBAND" />
+      <variable citdl="int" name="I_FDINSERT" />
+      <variable citdl="int" name="I_FIND" />
+      <variable citdl="int" name="I_FLUSH" />
+      <variable citdl="int" name="I_FLUSHBAND" />
+      <variable citdl="int" name="I_GETBAND" />
+      <variable citdl="int" name="I_GETCLTIME" />
+      <variable citdl="int" name="I_GETSIG" />
+      <variable citdl="int" name="I_GRDOPT" />
+      <variable citdl="int" name="I_GWROPT" />
+      <variable citdl="int" name="I_LINK" />
+      <variable citdl="int" name="I_LIST" />
+      <variable citdl="int" name="I_LOOK" />
+      <variable citdl="int" name="I_NREAD" />
+      <variable citdl="int" name="I_PEEK" />
+      <variable citdl="int" name="I_PLINK" />
+      <variable citdl="int" name="I_POP" />
+      <variable citdl="int" name="I_PUNLINK" />
+      <variable citdl="int" name="I_PUSH" />
+      <variable citdl="int" name="I_RECVFD" />
+      <variable citdl="int" name="I_SENDFD" />
+      <variable citdl="int" name="I_SETCLTIME" />
+      <variable citdl="int" name="I_SETSIG" />
+      <variable citdl="int" name="I_SRDOPT" />
+      <variable citdl="int" name="I_STR" />
+      <variable citdl="int" name="I_SWROPT" />
+      <variable citdl="int" name="I_UNLINK" />
+      <variable citdl="int" name="LOCK_EX" />
+      <variable citdl="int" name="LOCK_MAND" />
+      <variable citdl="int" name="LOCK_NB" />
+      <variable citdl="int" name="LOCK_READ" />
+      <variable citdl="int" name="LOCK_RW" />
+      <variable citdl="int" name="LOCK_SH" />
+      <variable citdl="int" name="LOCK_UN" />
+      <variable citdl="int" name="LOCK_WRITE" />
+      <scope doc="Perform the requested operation on file descriptor fd." ilk="function" name="fcntl" signature="fcntl(fd, opt, [arg])" />
+      <scope doc="Perform the lock operation op on file descriptor fd." ilk="function" name="flock" signature="flock(fd, operation)" />
+      <scope doc="Perform the requested operation on file descriptor fd." ilk="function" name="ioctl" signature="ioctl(fd, opt[, arg[, mutate_flag]])" />
+      <scope doc="This is essentially a wrapper around the fcntl() locking&#10;calls." ilk="function" name="lockf" signature="lockf (fd, operation, length=0, start=0, whence=0)" />
+      <variable citdl="int" name="F_FULLFSYNC" />
+    </scope>
+    

@@ -1,0 +1,13 @@
+<scope doc="json speedups&#10;" ilk="blob" lang="Python" name="_json">
+      <scope doc="Return an ASCII-only JSON representation of a Python string" ilk="function" name="encode_basestring_ascii" returns="str" signature="encode_basestring_ascii(basestring) -&gt; str" />
+      <scope classrefs="object" doc="_iterencode(obj, _current_indent_level) -&gt; iterable&#10;" ilk="class" name="make_encoder">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="JSON scanner object&#10;" ilk="class" name="make_scanner">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Scan the string s for a JSON string." ilk="function" name="scanstring" signature="scanstring(basestring, end, encoding, strict=True) -&gt; (str, end)" />
+    </scope>
+    

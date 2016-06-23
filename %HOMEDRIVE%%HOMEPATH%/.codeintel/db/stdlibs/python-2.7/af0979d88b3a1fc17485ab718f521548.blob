@@ -1,0 +1,6 @@
+<scope doc="# $Id: __init__.py 3375 2008-02-13 08:05:08Z fredrik $&#10;# elementtree package" ilk="blob" lang="Python" name="xml.etree">
+      <import module="ElementPath" />
+      <import module="ElementTree" />
+      <import module="cElementTree" />
+    </scope>
+    

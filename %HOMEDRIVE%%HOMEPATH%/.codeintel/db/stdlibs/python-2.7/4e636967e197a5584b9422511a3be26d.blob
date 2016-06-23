@@ -1,0 +1,29 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="audioop">
+      <scope ilk="function" name="add" />
+      <scope ilk="function" name="adpcm2lin" />
+      <scope ilk="function" name="alaw2lin" />
+      <scope ilk="function" name="avg" />
+      <scope ilk="function" name="avgpp" />
+      <scope ilk="function" name="bias" />
+      <scope ilk="function" name="cross" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" name="findfactor" />
+      <scope ilk="function" name="findfit" />
+      <scope ilk="function" name="findmax" />
+      <scope ilk="function" name="getsample" />
+      <scope ilk="function" name="lin2adpcm" />
+      <scope ilk="function" name="lin2alaw" />
+      <scope ilk="function" name="lin2lin" />
+      <scope ilk="function" name="lin2ulaw" />
+      <scope ilk="function" name="max" />
+      <scope ilk="function" name="maxpp" />
+      <scope ilk="function" name="minmax" />
+      <scope ilk="function" name="mul" />
+      <scope ilk="function" name="ratecv" />
+      <scope ilk="function" name="reverse" />
+      <scope ilk="function" name="rms" />
+      <scope ilk="function" name="tomono" />
+      <scope ilk="function" name="tostereo" />
+      <scope ilk="function" name="ulaw2lin" />
+    </scope>
+    

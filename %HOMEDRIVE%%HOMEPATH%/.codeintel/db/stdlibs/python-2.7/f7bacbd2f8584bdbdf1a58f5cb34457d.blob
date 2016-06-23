@@ -1,0 +1,289 @@
+<scope doc="Refactoring framework.&#10;Used as a main program, this can refactor any number of files and/or recursively descend down directories.  Imported as a module, this provides infrastructure to write your own refactoring tool." ilk="blob" lang="Python" name="lib2to3.refactor">
+      <scope classrefs="Exception" doc="A fixer could not be loaded.&#10;" ilk="class" line="170" name="FixerError" />
+      <scope classrefs="RefactoringTool" doc="&#10;" ilk="class" line="689" lineend="741" name="MultiprocessRefactoringTool">
+        <scope ilk="function" line="696" lineend="723" name="refactor" signature="refactor(items, write=False, doctests_only=False, num_processes=1)">
+          <variable citdl="list" line="709" name="processes" />
+          <variable citdl="int" ilk="argument" name="num_processes" />
+          <variable ilk="argument" name="items" />
+          <variable citdl="MultiprocessRefactoringTool" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="doctests_only" />
+          <variable citdl="False" ilk="argument" name="write" />
+        </scope>
+        <scope ilk="function" line="725" lineend="734" name="_child" signature="_child()">
+          <variable citdl="MultiprocessRefactoringTool" ilk="argument" name="self" />
+          <variable citdl="self.queue.get()" line="726" name="task" />
+        </scope>
+        <scope ilk="function" line="736" lineend="741" name="refactor_file" signature="refactor_file(*args, **kwargs)">
+          <variable citdl="MultiprocessRefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="691" lineend="694" name="__init__" signature="MultiprocessRefactoringTool(*args, **kwargs)">
+          <variable citdl="MultiprocessRefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="multiprocessing.JoinableQueue()" line="693" name="queue" />
+        <variable attributes="__instancevar__" citdl="multiprocessing.Lock()" line="694" name="output_lock" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="685" lineend="686" name="MultiprocessingUnsupported" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="174" lineend="682" name="RefactoringTool">
+        <scope doc="Refactors a docstring, looking for doctests." ilk="function" line="546" lineend="587" name="refactor_docstring" returns="unicode.join()" signature="refactor_docstring(input, filename)">
+          <variable citdl="list" line="561" name="indent" />
+          <variable citdl="line.find()" line="571" name="i" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="int" line="560" name="block_lineno" />
+          <variable citdl="list" line="558" name="result" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="list" line="559" name="block" />
+          <variable citdl="int" line="562" name="lineno" />
+        </scope>
+        <scope doc="Called when a file has been refactored, and there are&#10;changes." ilk="function" line="502" lineend="520" name="processed_file" signature="processed_file(new_text, filename, old_text=None, write=False, encoding=None)">
+          <variable ilk="argument" name="new_text" />
+          <variable ilk="argument" name="old_text" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="bool" line="512" name="equal" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="False" ilk="argument" name="write" />
+        </scope>
+        <scope doc="Refactors a parse tree (modifying the tree in place)." ilk="function" line="400" lineend="477" name="refactor_tree" returns="tree.was_changed" signature="refactor_tree(tree, name)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable citdl="fixer.match()" line="452" name="results" />
+          <variable citdl="self.BM.run()" line="424" name="match_set" />
+          <variable citdl="fixer.transform()" line="455" name="new" />
+          <variable citdl="self.BM.run()" line="468" name="new_matches" />
+        </scope>
+        <scope doc="Called with the old version, new version, and filename of a&#10;refactored file." ilk="function" line="284" lineend="287" name="print_output" signature="print_output(old_text, new_text, filename, equal)">
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="new_text" />
+          <variable ilk="argument" name="equal" />
+          <variable ilk="argument" name="old_text" />
+        </scope>
+        <scope doc="Refactor a given input string." ilk="function" line="357" lineend="382" name="refactor_string" returns="self.driver.parse_string()" signature="refactor_string(data, name)">
+          <variable citdl="self.driver.parse_string()" line="372" name="tree" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="_detect_future_features()" line="368" name="features" />
+        </scope>
+        <scope doc="Generates lines as expected by tokenize from a list of&#10;lines." ilk="function" line="665" lineend="682" name="gen_lines" signature="gen_lines(block, indent)">
+          <variable ilk="argument" name="indent" />
+          <variable citdl="str" line="671" name="prefix2" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="str" line="672" name="prefix" />
+          <variable citdl="str" line="670" name="prefix1" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope doc="Inspects the options to load the requested patterns and&#10;handlers." ilk="function" line="229" lineend="267" name="get_fixers" returns="tuple" signature="get_fixers()">
+          <variable citdl="list" line="241" name="fix_name" />
+          <variable citdl="getattr()" line="247" name="fix_class" />
+          <variable citdl="str.join()" line="245" name="class_name" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="fix_class()" line="250" name="fixer" />
+          <variable citdl="list" line="237" name="pre_order_fixers" />
+          <variable citdl="fix_name.split()" line="244" name="parts" />
+          <variable citdl="operator.attrgetter()" line="264" name="key_func" />
+          <variable citdl="list" line="238" name="post_order_fixers" />
+          <variable citdl="__import__()" line="240" name="mod" />
+        </scope>
+        <scope doc="Parses a block into a tree." ilk="function" line="641" lineend="649" name="parse_block" returns="self.driver.parse_tokens()" signature="parse_block(block, lineno, indent)">
+          <variable citdl="self.driver.parse_tokens()" line="647" name="tree" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="indent" />
+          <variable ilk="argument" name="lineno" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope doc="Traverse an AST, applying a set of fixers to each node." ilk="function" line="479" lineend="500" name="traverse_by" signature="traverse_by(fixers, traversal)">
+          <variable citdl="fixer.transform()" line="500" name="node" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="fixer.match()" line="495" name="results" />
+          <variable ilk="argument" name="fixers" />
+          <variable ilk="argument" name="traversal" />
+          <variable citdl="fixer.transform()" line="497" name="new" />
+        </scope>
+        <scope ilk="function" line="384" lineend="398" name="refactor_stdin" signature="refactor_stdin(doctests_only=False)">
+          <variable citdl="sys.stdin.read()" line="385" name="input" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="doctests_only" />
+          <variable citdl="refactor_string()" line="394" name="tree" />
+          <variable citdl="self.refactor_docstring()" line="388" name="output" />
+        </scope>
+        <scope doc="Writes a string to a file." ilk="function" line="522" lineend="541" name="write_file" signature="write_file(new_text, filename, old_text, encoding=None)">
+          <variable citdl="_open_with_encoding()" line="530" name="f" />
+          <variable ilk="argument" name="new_text" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="old_text" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Hook to log a message." ilk="function" line="273" lineend="277" name="log_message" signature="log_message(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="618" lineend="639" name="summarize" signature="summarize()">
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="str" line="620" name="were" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="181" lineend="225" name="__init__" signature="RefactoringTool(fixer_names, options=None, explicit=None)">
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="explicit" />
+          <variable ilk="argument" name="options" />
+          <variable ilk="argument" name="fixer_names" />
+        </scope>
+        <scope doc="Do our best to decode a Python source file correctly." ilk="function" line="318" lineend="332" name="_read_python_source" returns="tuple" signature="_read_python_source(filename)">
+          <variable line="328" name="encoding" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="open()" line="323" name="f" />
+        </scope>
+        <scope doc="Wraps a tokenize stream to systematically modify start/end." ilk="function" line="651" lineend="662" name="wrap_toks" signature="wrap_toks(block, lineno, indent)">
+          <variable citdl="tokenize.generate_tokens()" line="653" name="tokens" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="indent" />
+          <variable ilk="argument" name="lineno" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope doc="Refactors one doctest." ilk="function" line="589" lineend="616" name="refactor_doctest" returns="list" signature="refactor_doctest(block, lineno, indent, filename)">
+          <variable ilk="argument" name="indent" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="self.parse_block()" line="598" name="tree" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="lineno" />
+          <variable citdl="list" line="609" name="clipped" />
+          <variable citdl="list" line="607" name="new" />
+          <variable citdl="list" ilk="argument" name="block" />
+        </scope>
+        <scope doc="Refactor a list of files and directories." ilk="function" line="289" lineend="296" name="refactor" signature="refactor(items, write=False, doctests_only=False)">
+          <variable citdl="False" ilk="argument" name="write" />
+          <variable ilk="argument" name="items" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="doctests_only" />
+        </scope>
+        <scope doc="Called when an error occurs." ilk="function" line="269" lineend="271" name="log_error" signature="log_error(msg, *args, **kwds)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope doc="Refactors a file." ilk="function" line="334" lineend="355" name="refactor_file" signature="refactor_file(filename, write=False, doctests_only=False)">
+          <variable line="336" name="encoding" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="doctests_only" />
+          <variable citdl="self.refactor_string()" line="349" name="tree" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="False" ilk="argument" name="write" />
+          <variable citdl="self.refactor_docstring()" line="343" name="output" />
+          <variable line="336" name="input" />
+        </scope>
+        <scope ilk="function" line="279" lineend="282" name="log_debug" signature="log_debug(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Descends down a directory and refactor every Python file&#10;found." ilk="function" line="298" lineend="316" name="refactor_dir" signature="refactor_dir(dir_name, write=False, doctests_only=False)">
+          <variable ilk="argument" name="dir_name" />
+          <variable citdl="RefactoringTool" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="doctests_only" />
+          <variable citdl="False" ilk="argument" name="write" />
+          <variable citdl="os.path.join()" line="313" name="fullname" />
+          <variable citdl="os.extsep" line="305" name="py_ext" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="bm.BottomMatcher()" line="210" name="BM" />
+        <variable citdl="str" line="544" name="PS2" />
+        <variable citdl="str" line="543" name="PS1" />
+        <variable attributes="__instancevar__" citdl="list" line="212" name="bmi_post_order" />
+        <variable attributes="__instancevar__" citdl="list" line="198" name="errors" />
+        <variable attributes="__instancevar__" citdl="_get_headnode_dict()" line="225" name="bmi_post_order_heads" />
+        <variable citdl="str" line="178" name="CLASS_PREFIX" />
+        <variable attributes="__instancevar__" citdl="list" line="211" name="bmi_pre_order" />
+        <variable attributes="__instancevar__" citdl="logging.getLogger()" line="199" name="logger" />
+        <variable attributes="__instancevar__" citdl="list" line="208" name="files" />
+        <variable attributes="__instancevar__" line="205" name="post_order" />
+        <variable attributes="__instancevar__" citdl="list" line="200" name="fixer_log" />
+        <variable attributes="protected" citdl="dict" line="176" name="_default_options" />
+        <variable attributes="__instancevar__" line="205" name="pre_order" />
+        <variable attributes="__instancevar__" citdl="driver.Driver()" line="202" name="driver" />
+        <variable attributes="__instancevar__" line="189" name="fixers" />
+        <variable citdl="str" line="179" name="FILE_PREFIX" />
+        <variable attributes="__instancevar__" citdl="_get_headnode_dict()" line="224" name="bmi_pre_order_heads" />
+        <variable attributes="__instancevar__" citdl="pygram.python_grammar_no_print_statement" line="195" name="grammar" />
+        <variable attributes="__instancevar__" citdl="list" line="190" name="explicit" />
+        <variable attributes="__instancevar__" citdl="self._default_options.copy()" line="191" name="options" />
+        <variable attributes="__instancevar__" citdl="False" line="201" name="wrote" />
+      </scope>
+      <import module="StringIO" />
+      <variable citdl="str" line="13" name="__author__" />
+      <import module="bm" />
+      <import module="bu" />
+      <scope classrefs="object" doc="chain(*iterables) --&gt; chain object&#10;Return a chain object whose .next() method returns elements from the first iterable until it is exhausted, then elements from the next iterable, until all of the iterables are exhausted." ilk="class" name="chain">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+      </scope>
+      <import module="codecs" />
+      <import module="collections" />
+      <import module="driver" />
+      <scope doc="Find the top level namespace." ilk="function" name="find_root" signature="find_root(node)" />
+      <scope doc="Return a sorted list of all available fix names in the given&#10;package." ilk="function" line="33" lineend="43" name="get_all_fix_names" returns="list" signature="get_all_fix_names(fixer_pkg, remove_prefix=True)">
+        <variable ilk="argument" name="fixer_pkg" />
+        <variable citdl="list" line="41" name="name" />
+        <variable citdl="__import__()" line="35" name="pkg" />
+        <variable citdl="list" line="37" name="fix_names" />
+        <variable citdl="True" ilk="argument" name="remove_prefix" />
+        <variable citdl="os.path.dirname()" line="36" name="fixer_dir" />
+      </scope>
+      <scope doc="Return the fully qualified names for fixers in the package&#10;pkg_name." ilk="function" line="103" lineend="108" name="get_fixers_from_package" returns="list" signature="get_fixers_from_package(pkg_name)">
+        <variable ilk="argument" name="pkg_name" />
+      </scope>
+      <import module="logging" />
+      <import module="operator" />
+      <import module="os" />
+      <import module="pygram" />
+      <import module="pytree" />
+      <import module="sys" />
+      <import module="token" />
+      <import module="tokenize" />
+      <variable citdl="__future__._Feature" name="with_statement" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="Exception" ilk="class" line="46" lineend="47" name="_EveryNode" />
+      <scope attributes="protected __hidden__" doc="Accepts a pytree Pattern Node and returns a set of the&#10;pattern types which will match first." ilk="function" line="50" lineend="75" name="_get_head_types" returns="set()" signature="_get_head_types(pat)">
+        <variable ilk="argument" name="pat" />
+        <variable citdl="set()" line="69" name="r" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="130" lineend="167" name="_detect_future_features" returns="frozenset()" signature="_detect_future_features(source)">
+        <variable ilk="argument" name="source" />
+        <variable citdl="True" line="131" name="have_docstring" />
+        <variable citdl="tokenize.generate_tokens()" line="132" name="gen" />
+        <scope ilk="function" line="133" lineend="135" name="advance" returns="tuple" signature="advance()">
+          <variable citdl="gen.next()" line="134" name="tok" />
+        </scope>
+        <variable citdl="frozenset()" line="136" name="ignore" />
+        <variable citdl="set()" line="137" name="features" />
+        <variable line="140" name="value" />
+        <variable line="140" name="tp" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="function" line="119" name="_to_system_newlines" />
+      <variable attributes="protected __hidden__" citdl="codecs.open" line="115" name="_open_with_encoding" />
+      <scope attributes="protected __hidden__" doc="Accepts a list of fixers and returns a dictionary of head&#10;node type --&gt; fixer list." ilk="function" line="78" lineend="100" name="_get_headnode_dict" returns="dict()" signature="_get_headnode_dict(fixer_list)">
+        <variable ilk="argument" name="fixer_list" />
+        <variable citdl="collections.defaultdict()" line="81" name="head_nodes" />
+        <variable citdl="list" line="82" name="every" />
+        <variable citdl="_get_head_types()" line="86" name="heads" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="110" lineend="111" name="_identity" signature="_identity(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="function" line="117" name="_from_system_newlines" />
+    </scope>
+    

@@ -1,0 +1,211 @@
+<scope doc="# Module implementing queues&#10;# # multiprocessing/queues.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #" ilk="blob" lang="Python" name="multiprocessing.queues">
+      <scope classrefs="Semaphore" doc="&#10;" ilk="class" name="BoundedSemaphore">
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Condition">
+        <scope ilk="function" name="__exit__" />
+        <scope ilk="function" name="__setstate__" />
+        <scope ilk="function" name="__enter__" />
+        <scope ilk="function" name="wait" />
+        <scope ilk="function" name="notify" />
+        <scope ilk="function" name="_make_methods" />
+        <scope ilk="function" name="notify_all" />
+        <scope ilk="function" name="__getstate__" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="Exception" doc="Exception raised by Queue.get(block=0)/get_nowait().&#10;" ilk="class" name="Empty" />
+      <scope classrefs="object" doc="Class which supports object finalization using weakrefs&#10;" ilk="class" name="Finalize">
+        <scope doc="Run the callback unless it has already been called or&#10;cancelled" ilk="function" name="__call__" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether this finalizer is still waiting to invoke&#10;callback" ilk="function" name="still_active" />
+        <scope doc="Cancel finalization of the object" ilk="function" name="cancel" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Exception raised by Queue.put(block=0)/put_nowait().&#10;" ilk="class" name="Full" />
+      <scope classrefs="Queue" doc="&#10;" ilk="class" line="297" lineend="344" name="JoinableQueue">
+        <scope ilk="function" line="304" lineend="305" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="338" lineend="344" name="join" signature="join()">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="307" lineend="309" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="311" lineend="326" name="put" signature="put(obj, block=True, timeout=None)">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="True" ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="328" lineend="336" name="task_done" signature="task_done()">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="299" lineend="302" name="__init__" signature="JoinableQueue(maxsize=0)">
+          <variable citdl="JoinableQueue" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxsize" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="Semaphore()" line="301" name="_unfinished_tasks" />
+        <variable attributes="protected __instancevar__" citdl="Condition()" line="302" name="_cond" />
+      </scope>
+      <scope classrefs="SemLock" doc="&#10;" ilk="class" name="Lock">
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Returns two connection object connected by a pipe" ilk="function" name="Pipe" signature="Pipe(duplex=True)" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="56" lineend="285" name="Queue">
+        <scope ilk="function" line="137" lineend="139" name="qsize" returns="_multiprocessing.SemLock.SEM_VALUE_MAX" signature="qsize()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="81" lineend="84" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="159" lineend="163" name="join_thread" signature="join_thread()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="165" lineend="171" name="cancel_join_thread" signature="cancel_join_thread()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="144" lineend="145" name="full" returns="self._sem._semlock._is_zero()" signature="full()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="212" lineend="219" name="_finalize_join" signature="_finalize_join(twr)">
+          <variable citdl="Queue" ilk="argument" name="twr" />
+          <variable citdl="twr()" line="214" name="thread" />
+        </scope>
+        <scope ilk="function" line="86" lineend="97" name="_after_fork" signature="_after_fork()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="99" lineend="111" name="put" signature="put(obj, block=True, timeout=None)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="True" ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="153" lineend="157" name="close" signature="close()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="58" lineend="74" name="__init__" signature="Queue(maxsize=0)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxsize" />
+        </scope>
+        <scope ilk="function" line="232" lineend="285" name="_feed" signature="_feed(buffer, notempty, send, writelock, close)">
+          <variable ilk="argument" name="writelock" />
+          <variable citdl="bpopleft()" line="257" name="obj" />
+          <variable ilk="argument" name="notempty" />
+          <variable citdl="notempty.acquire" line="236" name="nacquire" />
+          <variable citdl="Queue" ilk="argument" name="buffer" />
+          <variable citdl="writelock.acquire" line="242" name="wacquire" />
+          <variable ilk="argument" name="send" />
+          <variable citdl="notempty.wait" line="238" name="nwait" />
+          <variable citdl="notempty.release" line="237" name="nrelease" />
+          <variable citdl="writelock.release" line="243" name="wrelease" />
+          <variable citdl="_sentinel" line="240" name="sentinel" />
+          <variable ilk="argument" name="close" />
+          <variable citdl="buffer.popleft" line="239" name="bpopleft" />
+        </scope>
+        <scope ilk="function" line="147" lineend="148" name="get_nowait" returns="Queue.get()" signature="get_nowait()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="222" lineend="229" name="_finalize_close" signature="_finalize_close(buffer, notempty)">
+          <variable citdl="Queue" ilk="argument" name="buffer" />
+          <variable ilk="argument" name="notempty" />
+        </scope>
+        <scope ilk="function" line="173" lineend="208" name="_start_thread" signature="_start_thread()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="bool" line="196" name="created_by_this_process" />
+        </scope>
+        <scope ilk="function" line="150" lineend="151" name="put_nowait" returns="Queue.put()" signature="put_nowait(obj)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <scope ilk="function" line="113" lineend="135" name="get" returns="_recv()" signature="get(block=True, timeout=None)">
+          <variable citdl="_recv()" line="117" name="res" />
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="time.time()" line="125" name="deadline" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="True" ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="76" lineend="79" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="141" lineend="142" name="empty" returns="bool" signature="empty()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="62" name="_writer" />
+        <variable attributes="protected __instancevar__" citdl="self._reader.recv" line="96" name="_recv" />
+        <variable attributes="protected __instancevar__" citdl="threading.Thread()" line="90" name="_thread" />
+        <variable attributes="protected __instancevar__" citdl="collections.deque()" line="89" name="_buffer" />
+        <variable attributes="protected __instancevar__" citdl="True" line="93" name="_closed" />
+        <variable attributes="protected __instancevar__" citdl="BoundedSemaphore()" line="69" name="_sem" />
+        <variable attributes="protected __instancevar__" citdl="Finalize()" line="91" name="_jointhread" />
+        <variable attributes="protected __instancevar__" line="62" name="_reader" />
+        <variable attributes="protected __instancevar__" citdl="os.getpid()" line="64" name="_opid" />
+        <variable attributes="protected __instancevar__" citdl="self._writer.send" line="95" name="_send" />
+        <variable attributes="protected __instancevar__" citdl="self._reader.poll" line="97" name="_poll" />
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="66" name="_wlock" />
+        <variable attributes="protected __instancevar__" citdl="int" line="61" name="_maxsize" />
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="63" name="_rlock" />
+        <variable attributes="protected __instancevar__" citdl="threading.Condition()" line="88" name="_notempty" />
+        <variable attributes="protected __instancevar__" citdl="True" line="92" name="_joincancelled" />
+        <variable attributes="protected __instancevar__" citdl="Finalize()" line="94" name="_close" />
+      </scope>
+      <scope classrefs="SemLock" doc="&#10;" ilk="class" name="Semaphore">
+        <scope ilk="function" name="get_value" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="350" lineend="395" name="SimpleQueue">
+        <scope ilk="function" line="364" lineend="366" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="SimpleQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="361" lineend="362" name="empty" returns="bool" signature="empty()">
+          <variable citdl="SimpleQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="368" lineend="370" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="SimpleQueue" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="372" lineend="395" name="_make_methods" signature="_make_methods()">
+          <variable citdl="self._rlock.acquire" line="374" name="racquire" />
+          <scope ilk="function" line="375" lineend="380" name="get" returns="SimpleQueue._make_methods.recv()" signature="get()" />
+          <variable citdl="self._wlock.acquire" line="388" name="wacquire" />
+          <variable citdl="SimpleQueue" ilk="argument" name="self" />
+          <variable citdl="self._writer.send" line="387" name="send" />
+          <variable citdl="self._wlock.release" line="388" name="wrelease" />
+          <scope ilk="function" line="389" lineend="394" name="put" returns="SimpleQueue._make_methods.send()" signature="put(obj)">
+            <variable ilk="argument" name="obj" />
+          </scope>
+          <variable citdl="self._reader.recv" line="373" name="recv" />
+          <variable citdl="self._rlock.release" line="374" name="rrelease" />
+        </scope>
+        <scope ilk="function" line="352" lineend="359" name="__init__" signature="SimpleQueue()">
+          <variable citdl="SimpleQueue" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="353" name="_writer" />
+        <variable attributes="__instancevar__" citdl="SimpleQueue._make_methods.get" line="381" name="get" />
+        <variable attributes="protected __instancevar__" line="353" name="_reader" />
+        <variable attributes="__instancevar__" citdl="self._writer.send" line="385" name="put" />
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="356" name="_wlock" />
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="354" name="_rlock" />
+      </scope>
+      <variable citdl="list" line="35" name="__all__" />
+      <import module="_multiprocessing" />
+      <scope ilk="function" name="assert_spawning" signature="assert_spawning(self)" />
+      <import module="atexit" />
+      <import module="collections" />
+      <scope ilk="function" name="debug" signature="debug(msg, *args)" />
+      <scope ilk="function" name="info" signature="info(msg, *args)" />
+      <import module="os" />
+      <scope ilk="function" name="register_after_fork" signature="register_after_fork(obj, func)" />
+      <import module="sys" />
+      <import module="threading" />
+      <import module="time" />
+      <import module="weakref" />
+      <variable attributes="protected __hidden__" citdl="object()" line="287" name="_sentinel" />
+    </scope>
+    

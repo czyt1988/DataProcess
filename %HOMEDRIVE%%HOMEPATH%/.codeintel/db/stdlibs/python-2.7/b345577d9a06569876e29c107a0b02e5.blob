@@ -1,0 +1,155 @@
+<scope doc="Append module search paths for third-party packages to sys.path.&#10;**************************************************************** * This module is automatically imported during initialization. * ****************************************************************  In earlier versions of Python (up to 1.5a3), scripts or modules that needed to use site-specific modules would place ``import site'' somewhere near the top of their code.  Because of the automatic import, this is no longer necessary (but code that does it still works). " ilk="blob" lang="Python" name="site">
+      <variable citdl="bool" line="70" name="ENABLE_USER_SITE" />
+      <variable citdl="list" line="67" name="PREFIXES" />
+      <variable citdl="str" line="76" name="USER_BASE" />
+      <variable citdl="str" line="75" name="USER_SITE" />
+      <import module="__builtin__" />
+      <scope doc="Set all module' __file__ attribute to an absolute path" ilk="function" line="88" lineend="96" name="abs__file__" signature="abs__file__()" />
+      <scope doc="Append ./build/lib.&lt;platform&gt; in case we're running in the&#10;build dir (especially for Guido :-)" ilk="function" line="119" lineend="127" name="addbuilddir" signature="addbuilddir()">
+        <variable citdl="os.path.join()" line="123" name="s" />
+      </scope>
+      <scope doc="Process a .pth file within the site-packages directory: For&#10;each line in the file, either combine it with sitedir to a&#10;path and add that to known_paths, or execute it if it starts&#10;with 'import '." ilk="function" line="143" lineend="181" name="addpackage" signature="addpackage(sitedir, name, known_paths)">
+        <variable citdl="int" line="150" name="reset" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="open()" line="155" name="f" />
+        <variable ilk="argument" name="sitedir" />
+        <variable ilk="argument" name="known_paths" />
+        <variable line="167" name="dircase" />
+        <variable citdl="os.path.join()" line="153" name="fullname" />
+        <variable citdl="line.rstrip()" line="166" name="line" />
+        <variable line="167" name="dir" />
+      </scope>
+      <scope doc="Add 'sitedir' argument to sys.path if missing and handle&#10;.pth files in 'sitedir'" ilk="function" line="184" lineend="205" name="addsitedir" returns="_init_pathinfo()" signature="addsitedir(sitedir, known_paths=None)">
+        <variable citdl="int" line="189" name="reset" />
+        <variable citdl="_init_pathinfo()" ilk="argument" name="known_paths" />
+        <variable ilk="argument" name="sitedir" />
+        <variable citdl="os.extsep" line="199" name="dotpth" />
+        <variable citdl="os.listdir()" line="196" name="names" />
+        <variable line="192" name="sitedircase" />
+      </scope>
+      <scope doc="Add site-packages (and possibly site-python) to sys.path" ilk="function" line="321" lineend="327" name="addsitepackages" signature="addsitepackages(known_paths)">
+        <variable ilk="argument" name="known_paths" />
+      </scope>
+      <scope doc="Add a per user site-package to sys.path" ilk="function" line="270" lineend="282" name="addusersitepackages" signature="addusersitepackages(known_paths)">
+        <variable citdl="getusersitepackages()" line="278" name="user_site" />
+        <variable ilk="argument" name="known_paths" />
+      </scope>
+      <scope doc="On Windows, some default encodings are not provided by&#10;Python, while they are always available as &quot;mbcs&quot; in each&#10;locale." ilk="function" line="472" lineend="485" name="aliasmbcs" signature="aliasmbcs()">
+        <variable line="478" name="enc" />
+      </scope>
+      <scope doc="Check if user site directory is safe for inclusion" ilk="function" line="208" lineend="230" name="check_enableusersite" returns="bool" signature="check_enableusersite()" />
+      <scope doc="Run custom site specific code, if available." ilk="function" line="507" lineend="517" name="execsitecustomize" signature="execsitecustomize()" />
+      <scope doc="Run custom user specific code, if available." ilk="function" line="521" lineend="531" name="execusercustomize" signature="execusercustomize()" />
+      <scope doc="Returns a list containing all global site-packages&#10;directories (and possibly site-python)." ilk="function" line="284" lineend="319" name="getsitepackages" returns="list" signature="getsitepackages()">
+        <variable citdl="set()" line="293" name="seen" />
+        <variable citdl="list" line="292" name="sitepackages" />
+        <variable citdl="get_config_var()" line="314" name="framework" />
+      </scope>
+      <scope doc="Returns the `user base` directory path." ilk="function" line="232" lineend="244" name="getuserbase" returns="get_config_var()" signature="getuserbase()">
+        <variable citdl="get_config_var()" line="243" name="USER_BASE" />
+      </scope>
+      <scope doc="Returns the user-specific site-packages directory path." ilk="function" line="246" lineend="268" name="getusersitepackages" returns="get_path()" signature="getusersitepackages()">
+        <variable citdl="getuserbase()" line="253" name="user_base" />
+        <variable citdl="get_path()" line="264" name="USER_SITE" />
+      </scope>
+      <scope ilk="function" line="535" lineend="561" name="main" signature="main()">
+        <variable citdl="check_enableusersite()" line="544" name="ENABLE_USER_SITE" />
+        <variable citdl="removeduppaths()" line="539" name="known_paths" />
+      </scope>
+      <scope ilk="function" line="79" lineend="85" name="makepath" returns="tuple" signature="makepath(*paths)">
+        <variable attributes="varargs" ilk="argument" name="paths" />
+        <variable citdl="os.path.join()" line="80" name="dir" />
+      </scope>
+      <import module="os" />
+      <scope doc="Remove duplicate entries from sys.path along with making&#10;them absolute" ilk="function" line="99" lineend="115" name="removeduppaths" returns="set()" signature="removeduppaths()">
+        <variable line="110" name="dircase" />
+        <variable citdl="list" line="104" name="L" />
+        <variable line="110" name="dir" />
+        <variable citdl="set()" line="105" name="known_paths" />
+      </scope>
+      <scope doc="The OS/2 EMX port has optional extension modules that do&#10;double duty as DLLs (and must use the .DLL file extension)&#10;for other extensions." ilk="function" line="329" lineend="343" name="setBEGINLIBPATH" signature="setBEGINLIBPATH()">
+        <variable citdl="os.path.join()" line="337" name="dllpath" />
+        <variable line="338" name="libpath" />
+      </scope>
+      <scope doc="Set 'copyright' and 'credits' in __builtin__" ilk="function" line="438" lineend="453" name="setcopyright" signature="setcopyright()">
+        <variable citdl="os.path.dirname()" line="449" name="here" />
+      </scope>
+      <scope doc="Set the string encoding used by the Unicode implementation." ilk="function" line="487" lineend="504" name="setencoding" signature="setencoding()">
+        <variable citdl="locale.getdefaultlocale()" line="495" name="loc" />
+        <variable citdl="str" line="491" name="encoding" />
+      </scope>
+      <scope ilk="function" line="469" lineend="470" name="sethelper" signature="sethelper()" />
+      <scope doc="Define new builtins 'quit' and 'exit'." ilk="function" line="346" lineend="374" name="setquit" signature="setquit()">
+        <scope classrefs="object" ilk="class" line="360" lineend="372" name="Quitter">
+          <scope attributes="__ctor__" ilk="function" line="361" lineend="362" name="__init__" signature="Quitter(name)">
+            <variable citdl="Quitter" ilk="argument" name="self" />
+            <variable ilk="argument" name="name" />
+          </scope>
+          <variable attributes="__instancevar__" line="362" name="name" />
+          <scope ilk="function" line="363" lineend="364" name="__repr__" returns="tuple" signature="__repr__()">
+            <variable citdl="Quitter" ilk="argument" name="self" />
+          </scope>
+          <scope ilk="function" line="365" lineend="372" name="__call__" signature="__call__(code=None)">
+            <variable citdl="Quitter" ilk="argument" name="self" />
+            <variable ilk="argument" name="code" />
+          </scope>
+        </scope>
+        <variable citdl="str" line="354" name="eof" />
+      </scope>
+      <import module="sys" />
+      <import module="traceback" />
+      <scope attributes="protected __hidden__" classrefs="object" doc="Define the builtin 'help'." ilk="class" line="456" lineend="467" name="_Helper">
+        <scope ilk="function" line="462" lineend="463" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="_Helper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="465" lineend="467" name="__call__" returns="pydoc.help()" signature="__call__(*args, **kwds)">
+          <import line="466" module="pydoc" />
+          <variable citdl="_Helper" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="565" lineend="612" name="_script" signature="_script()">
+        <import line="610" module="textwrap" />
+        <variable citdl="str" line="566" name="help" />
+        <variable citdl="list" line="580" name="args" />
+        <variable citdl="list" line="593" name="buffer" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Return a set containing all existing directory entries from&#10;sys.path" ilk="function" line="130" lineend="140" name="_init_pathinfo" returns="set()" signature="_init_pathinfo()">
+        <variable citdl="set()" line="132" name="d" />
+        <variable line="136" name="dir" />
+        <variable line="136" name="dircase" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" doc="interactive prompt objects for printing the license text, a&#10;list of contributors and the copyright notice." ilk="class" line="377" lineend="436" name="_Printer">
+        <variable citdl="int" line="381" name="MAXLINES" />
+        <scope attributes="__ctor__" ilk="function" line="383" lineend="388" name="__init__" signature="_Printer(name, data, files=(), dirs=())">
+          <variable citdl="_Printer" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="tuple" ilk="argument" name="files" />
+          <variable citdl="tuple" ilk="argument" name="dirs" />
+        </scope>
+        <variable attributes="private __instancevar__" line="384" name="__name" />
+        <variable attributes="private __instancevar__" line="385" name="__data" />
+        <variable attributes="private __instancevar__" citdl="tuple" line="386" name="__files" />
+        <variable attributes="private __instancevar__" citdl="tuple" line="387" name="__dirs" />
+        <variable attributes="private __instancevar__" citdl="data.split()" line="388" name="__lines" />
+        <scope attributes="private" ilk="function" line="390" lineend="409" name="__setup" signature="__setup()">
+          <variable citdl="_Printer" ilk="argument" name="self" />
+          <variable citdl="fp.read()" line="393" name="data" />
+          <variable citdl="os.path.join()" line="396" name="filename" />
+          <variable citdl="file()" line="398" name="fp" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="len()" line="409" name="__linecnt" />
+        <scope ilk="function" line="411" lineend="416" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="_Printer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="418" lineend="436" name="__call__" signature="__call__()">
+          <variable citdl="_Printer" ilk="argument" name="self" />
+          <variable citdl="str" line="420" name="prompt" />
+          <variable citdl="int" line="421" name="lineno" />
+          <variable citdl="raw_input()" line="430" name="key" />
+        </scope>
+      </scope>
+    </scope>
+    

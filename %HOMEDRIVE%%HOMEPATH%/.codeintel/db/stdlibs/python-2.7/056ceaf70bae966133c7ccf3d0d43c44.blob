@@ -1,0 +1,106 @@
+<scope doc="distutils.filelist&#10;Provides the FileList class, used for poking about the filesystem and building lists of files." ilk="blob" lang="Python" name="distutils.filelist">
+      <scope classrefs="DistutilsError" doc="Internal inconsistencies or impossibilities (obviously, this&#10;should never be seen if the code is working!)." ilk="class" name="DistutilsInternalError" />
+      <scope classrefs="DistutilsError" doc="Syntax error in a file list template.&#10;" ilk="class" name="DistutilsTemplateError" />
+      <scope doc="A list of files built by on exploring the filesystem and filtered by&#10;applying various patterns to what we find there.  Instance attributes: dir directory from which files will be taken -- only used if 'allfiles' not supplied to constructor files list of filenames currently being built/filtered/manipulated allfiles complete list of files under consideration (ie. without any" ilk="class" line="15" lineend="249" name="FileList">
+        <scope ilk="function" line="58" lineend="64" name="sort" signature="sort()">
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable citdl="map()" line="60" name="sortable_files" />
+        </scope>
+        <scope doc="Select strings (presumably filenames) from 'self.files' that&#10;match 'pattern', a Unix-style wildcard (glob) pattern." ilk="function" line="187" lineend="228" name="include_pattern" returns="int" signature="include_pattern(pattern, anchor=1, prefix=None, is_regex=0)">
+          <variable citdl="int" line="213" name="files_found" />
+          <variable citdl="translate_pattern()" line="214" name="pattern_re" />
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="is_regex" />
+          <variable ilk="argument" name="prefix" />
+          <variable citdl="int" ilk="argument" name="anchor" />
+        </scope>
+        <scope ilk="function" line="69" lineend="73" name="remove_duplicates" signature="remove_duplicates()">
+          <variable citdl="FileList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="36" lineend="37" name="set_allfiles" signature="set_allfiles(allfiles)">
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable ilk="argument" name="allfiles" />
+        </scope>
+        <scope ilk="function" line="55" lineend="56" name="extend" signature="extend(items)">
+          <variable ilk="argument" name="items" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="112" lineend="183" name="process_template_line" signature="process_template_line(line)">
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable line="118" name="patterns" />
+          <variable line="118" name="action" />
+          <variable ilk="argument" name="line" />
+          <variable line="118" name="dir_pattern" />
+          <variable line="118" name="dir" />
+        </scope>
+        <scope doc="Remove strings (presumably filenames) from 'files' that&#10;match 'pattern'." ilk="function" line="231" lineend="249" name="exclude_pattern" returns="int" signature="exclude_pattern(pattern, anchor=1, prefix=None, is_regex=0)">
+          <variable citdl="int" line="239" name="files_found" />
+          <variable citdl="translate_pattern()" line="240" name="pattern_re" />
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="is_regex" />
+          <variable ilk="argument" name="prefix" />
+          <variable citdl="int" ilk="argument" name="anchor" />
+        </scope>
+        <scope ilk="function" line="78" lineend="110" name="_parse_template_line" returns="tuple" signature="_parse_template_line(line)">
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable citdl="map()" line="82" name="patterns" />
+          <variable citdl="line.split()" line="79" name="words" />
+          <variable line="80" name="action" />
+          <variable ilk="argument" name="line" />
+          <variable citdl="convert_path()" line="105" name="dir_pattern" />
+          <variable citdl="convert_path()" line="97" name="dir" />
+        </scope>
+        <scope ilk="function" line="52" lineend="53" name="append" signature="append(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="30" lineend="34" name="__init__" signature="FileList(warn=None, debug_print=None)">
+          <variable ilk="argument" name="warn" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable ilk="argument" name="debug_print" />
+        </scope>
+        <scope ilk="function" line="39" lineend="40" name="findall" signature="findall(dir=os.curdir)">
+          <variable citdl="FileList" ilk="argument" name="self" />
+          <variable citdl="os.curdir" ilk="argument" name="dir" />
+        </scope>
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" line="42" lineend="48" name="debug_print" signature="debug_print(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="FileList" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="34" name="files" />
+        <variable attributes="__instancevar__" citdl="findall()" line="33" name="allfiles" />
+      </scope>
+      <variable citdl="str" line="7" name="__revision__" />
+      <scope doc="Return 'pathname' as a name that will work on the native&#10;filesystem, i.e." ilk="function" name="convert_path" signature="convert_path(pathname)" />
+      <scope doc="Find all files under 'dir' and return the list of full&#10;filenames (relative to 'dir')." ilk="function" line="255" lineend="284" name="findall" returns="list" signature="findall(dir='.')">
+        <variable citdl="os.stat()" line="277" name="stat" />
+        <variable citdl="list" line="261" name="list" />
+        <variable citdl="stack.pop" line="263" name="pop" />
+        <variable citdl="os.listdir()" line="268" name="names" />
+        <variable citdl="stack.append" line="264" name="push" />
+        <variable citdl="os.path.join()" line="272" name="fullname" />
+        <variable citdl="list" line="262" name="stack" />
+        <variable citdl="pop()" ilk="argument" name="dir" />
+        <variable line="278" name="mode" />
+      </scope>
+      <import module="fnmatch" />
+      <scope doc="Translate a shell-like glob pattern to a regular expression." ilk="function" line="287" lineend="305" name="glob_to_re" returns="re.sub()" signature="glob_to_re(pattern)">
+        <variable citdl="fnmatch.translate()" line="294" name="pattern_re" />
+        <variable ilk="argument" name="pattern" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Translate a shell-like wildcard pattern to a compiled&#10;regular expression." ilk="function" line="308" lineend="336" name="translate_pattern" returns="re.compile()" signature="translate_pattern(pattern, anchor=1, prefix=None, is_regex=0)">
+        <variable citdl="str" line="323" name="pattern_re" />
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="glob_to_re()" line="329" name="empty_pattern" />
+        <variable citdl="list" line="330" name="prefix_re" />
+        <variable citdl="int" ilk="argument" name="is_regex" />
+        <variable ilk="argument" name="prefix" />
+        <variable citdl="int" ilk="argument" name="anchor" />
+      </scope>
+    </scope>
+    

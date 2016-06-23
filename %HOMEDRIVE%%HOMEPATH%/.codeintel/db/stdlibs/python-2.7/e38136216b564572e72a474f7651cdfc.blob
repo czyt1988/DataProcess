@@ -1,0 +1,365 @@
+<scope doc="Python parse tree definitions.&#10;This is a very concrete parse tree; we need to keep every token and even the comments and whitespace between tokens.  There's also a pattern matching implementation here." ilk="blob" lang="Python" name="lib2to3.pytree">
+      <scope classrefs="object" doc="Abstract base class for Node and Leaf.&#10;This provides some default functionality and boilerplate using the template pattern.  A node may be a subnode of at most one parent." ilk="class" line="32" lineend="237" name="Base">
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" line="88" lineend="94" name="clone" signature="clone()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a post-order iterator for the tree." ilk="function" line="96" lineend="102" name="post_order" signature="post_order()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="164" lineend="167" name="changed" signature="changed()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compare two nodes for inequality." ilk="function" line="67" lineend="75" name="__ne__" returns="NotImplemented" signature="__ne__(other)">
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="236" lineend="237" name="__str__" signature="__str__()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the line number which generated the invocant node." ilk="function" line="155" lineend="162" name="get_lineno" returns="node.lineno" signature="get_lineno()">
+          <variable citdl="Base" line="157" name="node" />
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Replace this node with a new one in the parent." ilk="function" line="132" lineend="153" name="replace" signature="replace(new)">
+          <variable citdl="list" line="138" name="l_children" />
+          <variable citdl="list" ilk="argument" name="new" />
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable citdl="True" line="139" name="found" />
+        </scope>
+        <scope doc="Compare two nodes for equality." ilk="function" line="77" lineend="86" name="_eq" signature="_eq(other)">
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Compare two nodes for equality." ilk="function" line="55" lineend="63" name="__eq__" returns="NotImplemented" signature="__eq__(other)">
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return the prefix for the node (see Leaf class)." ilk="function" line="122" lineend="130" name="get_prefix" signature="get_prefix()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the prefix for the node (see Leaf class)." ilk="function" line="112" lineend="120" name="set_prefix" signature="set_prefix(prefix)">
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope doc="Constructor that prevents Base from being instantiated." ilk="function" line="50" lineend="53" name="__new__" returns="object.__new__()" signature="__new__(cls, *args, **kwds)">
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable citdl="Base" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="215" lineend="218" name="leaves" signature="leaves()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" line="104" lineend="110" name="pre_order" signature="pre_order()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove the node from the tree." ilk="function" line="169" lineend="180" name="remove" returns="i" signature="remove()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the string immediately following the invocant node." ilk="function" line="225" lineend="233" name="get_suffix" returns="unicode" signature="get_suffix()">
+          <variable citdl="Base" ilk="argument" name="self" />
+          <variable line="230" name="next_sib" />
+        </scope>
+        <scope ilk="function" line="220" lineend="223" name="depth" returns="self.parent.depth()" signature="depth()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" doc="The node immediately preceding the invocant in their&#10;parent's children list." ilk="function" line="200" lineend="213" name="prev_sibling (property getter)" signature="prev_sibling (property getter)()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="183" name="next_sibling" />
+        <variable line="45" name="parent" />
+        <scope attributes="__hidden__" doc="The node immediately following the invocant in their&#10;parent's children list." ilk="function" line="183" lineend="197" name="next_sibling (property getter)" signature="next_sibling (property getter)()">
+          <variable citdl="Base" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="True" line="47" name="was_changed" />
+        <variable attributes="property" line="200" name="prev_sibling" />
+        <variable attributes="__instancevar__" line="120" name="prefix" />
+        <variable citdl="False" line="48" name="was_checked" />
+        <variable line="65" name="__hash__" />
+        <variable line="44" name="type" />
+        <variable citdl="tuple" line="46" name="children" />
+      </scope>
+      <scope classrefs="object" doc="A pattern is a tree matching pattern.&#10;It looks for a specific node type (token or symbol), and optionally for a specific content.  This is an abstract base class.  There are three concrete subclasses:  - LeafPattern matches a single leaf node; - NodePattern matches a single node (usually non-leaf); - WildcardPattern matches a sequence of nodes of variable length." ilk="class" line="448" lineend="531" name="BasePattern">
+        <scope doc="Constructor that prevents BasePattern from being&#10;instantiated." ilk="function" line="469" lineend="472" name="__new__" returns="object.__new__()" signature="__new__(cls, *args, **kwds)">
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable citdl="BasePattern" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Does this pattern exactly match a sequence of nodes?" ilk="function" line="513" lineend="521" name="match_seq" returns="bool" signature="match_seq(nodes, results=None)">
+          <variable citdl="BasePattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodes" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope ilk="function" line="474" lineend="478" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="BasePattern" ilk="argument" name="self" />
+          <variable citdl="list" line="475" name="args" />
+        </scope>
+        <scope doc="A subclass can define this as a hook for optimizations." ilk="function" line="480" lineend="486" name="optimize" returns="BasePattern" signature="optimize()">
+          <variable citdl="BasePattern" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Does this pattern exactly match a node?" ilk="function" line="488" lineend="511" name="match" returns="bool" signature="match(node, results=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BasePattern" ilk="argument" name="self" />
+          <variable citdl="dict" line="502" name="r" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Generator yielding all matches for this pattern." ilk="function" line="523" lineend="531" name="generate_matches" signature="generate_matches(nodes)">
+          <variable citdl="BasePattern" ilk="argument" name="self" />
+          <variable citdl="dict" line="529" name="r" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <variable line="466" name="content" />
+        <variable line="465" name="type" />
+        <variable line="467" name="name" />
+      </scope>
+      <variable citdl="int" line="19" name="HUGE" />
+      <scope classrefs="Base" doc="Concrete implementation for leaf nodes.&#10;" ilk="class" line="351" lineend="427" name="Leaf">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" line="409" lineend="411" name="post_order" signature="post_order()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" line="413" lineend="415" name="pre_order" signature="pre_order()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" line="400" lineend="404" name="clone" returns="Leaf" signature="clone()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compare two nodes for equality." ilk="function" line="396" lineend="398" name="_eq" returns="bool" signature="_eq(other)">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return a pretty string representation." ilk="function" line="385" lineend="391" name="__unicode__" returns="self.prefix" signature="__unicode__()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="423" lineend="425" name="_prefix_setter" signature="_prefix_setter(prefix)">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope doc="The whitespace and comments preceding this token in the&#10;input." ilk="function" line="417" lineend="421" name="_prefix_getter" returns="str" signature="_prefix_getter()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="406" lineend="407" name="leaves" signature="leaves()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="360" lineend="377" name="__init__" signature="Leaf(type, value, context=None, prefix=None, fixers_applied=[])">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="list" ilk="argument" name="fixers_applied" />
+        </scope>
+        <scope doc="Return a canonical string representation." ilk="function" line="379" lineend="383" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Leaf" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="358" name="column" />
+        <variable citdl="Leaf.__unicode__" line="394" name="__str__" />
+        <variable attributes="protected" citdl="str" line="356" name="_prefix" />
+        <variable attributes="__instancevar__" line="374" name="value" />
+        <variable citdl="property()" line="427" name="prefix" />
+        <variable citdl="int" line="357" name="lineno" />
+        <variable attributes="__instancevar__" line="373" name="type" />
+        <variable attributes="__instancevar__" citdl="list" line="377" name="fixers_applied" />
+      </scope>
+      <scope classrefs="BasePattern" doc="&#10;" ilk="class" line="534" lineend="575" name="LeafPattern">
+        <scope doc="Match the pattern's content to the node's children." ilk="function" line="562" lineend="575" name="_submatch" returns="bool" signature="_submatch(node, results=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LeafPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Initializer. Takes optional type, content, and name." ilk="function" line="536" lineend="554" name="__init__" signature="LeafPattern(type=None, content=None, name=None)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="LeafPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Override match() to insist on a leaf node." ilk="function" line="556" lineend="560" name="match" returns="bool" signature="match(node, results=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LeafPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable attributes="__instancevar__" line="553" name="content" />
+        <variable attributes="__instancevar__" line="552" name="type" />
+        <variable attributes="__instancevar__" line="554" name="name" />
+      </scope>
+      <scope classrefs="BasePattern" doc="&#10;" ilk="class" line="827" lineend="859" name="NegatedPattern">
+        <scope ilk="function" line="846" lineend="848" name="match_seq" returns="bool" signature="match_seq(nodes)">
+          <variable citdl="NegatedPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <scope ilk="function" line="842" lineend="844" name="match" returns="bool" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="NegatedPattern" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="829" lineend="840" name="__init__" signature="NegatedPattern(content=None)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="NegatedPattern" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="850" lineend="859" name="generate_matches" signature="generate_matches(nodes)">
+          <variable citdl="NegatedPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <variable attributes="__instancevar__" line="840" name="content" />
+      </scope>
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" line="239" lineend="348" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" line="294" lineend="299" name="post_order" signature="post_order()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" line="341" lineend="348" name="append_child" signature="append_child(child)">
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" line="308" lineend="314" name="_prefix_getter" returns="str" signature="_prefix_getter()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" line="301" lineend="306" name="pre_order" signature="pre_order()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" line="289" lineend="292" name="clone" returns="Node" signature="clone()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a pretty string representation." ilk="function" line="274" lineend="280" name="__unicode__" returns="unicode.join()" signature="__unicode__()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="316" lineend="318" name="_prefix_setter" signature="_prefix_setter(prefix)">
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" line="322" lineend="330" name="set_child" signature="set_child(i, child)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" line="332" lineend="339" name="insert_child" signature="insert_child(i, child)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Compare two nodes for equality." ilk="function" line="285" lineend="287" name="_eq" returns="bool" signature="_eq(other)">
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="243" lineend="266" name="__init__" signature="Node(type, children, context=None, prefix=None, fixers_applied=None)">
+          <variable citdl="Node" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="children" />
+          <variable ilk="argument" name="fixers_applied" />
+        </scope>
+        <scope doc="Return a canonical string representation." ilk="function" line="268" lineend="272" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Node" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="property()" line="320" name="prefix" />
+        <variable attributes="__instancevar__" citdl="list" line="264" name="fixers_applied" />
+        <variable attributes="__instancevar__" line="256" name="type" />
+        <variable attributes="__instancevar__" citdl="list()" line="257" name="children" />
+        <variable citdl="Node.__unicode__" line="283" name="__str__" />
+      </scope>
+      <scope classrefs="BasePattern" doc="&#10;" ilk="class" line="578" lineend="636" name="NodePattern">
+        <scope doc="Match the pattern's content to the node's children." ilk="function" line="611" lineend="636" name="_submatch" returns="bool" signature="_submatch(node, results=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="NodePattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Initializer. Takes optional type, content, and name." ilk="function" line="582" lineend="609" name="__init__" signature="NodePattern(type=None, content=None, name=None)">
+          <variable citdl="list()" ilk="argument" name="content" />
+          <variable citdl="NodePattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable citdl="False" line="580" name="wildcards" />
+        <variable attributes="__instancevar__" citdl="list()" line="608" name="content" />
+        <variable attributes="__instancevar__" line="607" name="type" />
+        <variable attributes="__instancevar__" line="609" name="name" />
+      </scope>
+      <scope doc="class StringIO([buffer])&#10;When a StringIO object is created, it can be initialized to an existing string by passing the string to the constructor. If no string is given, the StringIO will start empty.  The StringIO object can accept either Unicode or 8-bit strings, but mixing the two may take some care. If both are used, 8-bit strings that cannot be interpreted as 7-bit ASCII (that use the 8th bit) will cause a UnicodeError to be raised when getvalue() is called." ilk="class" name="StringIO">
+        <scope doc="Returns False because StringIO objects are not connected to&#10;a tty-like device." ilk="function" name="isatty" />
+        <scope doc="Truncate the file's size." ilk="function" name="truncate" />
+        <scope doc="Read at most size bytes from the file (less if the read hits&#10;EOF before obtaining size bytes)." ilk="function" name="read" />
+        <scope doc="Write a sequence of strings to the file." ilk="function" name="writelines" />
+        <scope doc="Read until EOF using readline() and return a list containing&#10;the lines thus read." ilk="function" name="readlines" />
+        <scope doc="A file object is its own iterator, for example iter(f)&#10;returns f (unless f is closed)." ilk="function" name="next" />
+        <scope doc="Write a string to the file." ilk="function" name="write" />
+        <scope ilk="function" name="__iter__" />
+        <scope doc="Return the file's current position." ilk="function" name="tell" />
+        <scope doc="Flush the internal buffer" ilk="function" name="flush" />
+        <scope doc="Free the memory buffer." ilk="function" name="close" />
+        <scope doc="Read one entire line from the file." ilk="function" name="readline" />
+        <scope doc="Retrieve the entire contents of the &quot;file&quot; at any time&#10;before the StringIO object's close() method is called." ilk="function" name="getvalue" />
+        <scope doc="Set the file's current position." ilk="function" name="seek" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="BasePattern" doc="A wildcard pattern can match zero or more nodes.&#10;This has all the flexibility needed to implement patterns like:  .*      .+      .?      .{m,n} (a b c | d e | f) (...)*  (...)+  (...)?  (...){m,n}  except it always uses non-greedy matching." ilk="class" line="639" lineend="824" name="WildcardPattern">
+        <scope doc="Helper to iteratively yield the matches." ilk="function" line="767" lineend="794" name="_iterative_matches" signature="_iterative_matches(nodes)">
+          <variable citdl="list" line="782" name="new_results" />
+          <variable citdl="len()" line="769" name="nodelen" />
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable citdl="list" line="773" name="results" />
+          <variable citdl="dict" line="789" name="r" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <scope doc="Helper to recursively yield the matches." ilk="function" line="812" lineend="824" name="_recursive_matches" signature="_recursive_matches(nodes, count)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable citdl="dict" line="821" name="r" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <scope doc="Does this pattern exactly match a sequence of nodes?" ilk="function" line="711" lineend="720" name="match_seq" returns="bool" signature="match_seq(nodes, results=None)">
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodes" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Does this pattern exactly match a node?" ilk="function" line="707" lineend="709" name="match" returns="self.match_seq()" signature="match(node, results=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Generator yielding matches for a sequence of nodes." ilk="function" line="722" lineend="765" name="generate_matches" signature="generate_matches(nodes)">
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable citdl="dict" line="737" name="r" />
+          <variable ilk="argument" name="nodes" />
+          <variable citdl="sys.stderr" line="749" name="save_stderr" />
+        </scope>
+        <scope doc="Optimize certain stacked wildcard patterns." ilk="function" line="688" lineend="705" name="optimize" returns="subpattern.optimize()" signature="optimize()">
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable line="690" name="subpattern" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="653" lineend="686" name="__init__" signature="WildcardPattern(content=None, min=0, max=HUGE, name=None)">
+          <variable citdl="tuple()" ilk="argument" name="content" />
+          <variable citdl="int" ilk="argument" name="max" />
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="min" />
+        </scope>
+        <scope doc="Special optimized matcher for bare_name." ilk="function" line="796" lineend="810" name="_bare_name_matches" returns="tuple" signature="_bare_name_matches(nodes)">
+          <variable citdl="int" line="798" name="count" />
+          <variable citdl="len()" line="801" name="max" />
+          <variable citdl="WildcardPattern" ilk="argument" name="self" />
+          <variable citdl="dict" line="799" name="r" />
+          <variable citdl="False" line="800" name="done" />
+          <variable ilk="argument" name="nodes" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tuple()" line="683" name="content" />
+        <variable attributes="__instancevar__" citdl="int" line="685" name="max" />
+        <variable attributes="__instancevar__" line="686" name="name" />
+        <variable attributes="__instancevar__" citdl="int" line="684" name="min" />
+      </scope>
+      <variable citdl="str" line="13" name="__author__" />
+      <scope doc="Convert raw node information to a Node or Leaf instance." ilk="function" line="429" lineend="445" name="convert" returns="Leaf" signature="convert(gr, raw_node)">
+        <variable ilk="argument" name="raw_node" />
+        <variable ilk="argument" name="gr" />
+      </scope>
+      <scope doc="Generator yielding matches for a sequence of patterns and&#10;nodes." ilk="function" line="862" lineend="887" name="generate_matches" signature="generate_matches(patterns, nodes)">
+        <variable ilk="argument" name="patterns" />
+        <variable ilk="argument" name="nodes" />
+        <variable citdl="dict" line="884" name="r" />
+        <variable citdl="list" line="878" name="rest" />
+        <variable line="878" name="p" />
+      </scope>
+      <import module="sys" />
+      <scope ilk="function" line="22" lineend="30" name="type_repr" returns="_type_reprs.setdefault()" signature="type_repr(type_num)">
+        <variable ilk="argument" name="type_num" />
+      </scope>
+      <import module="warnings" />
+      <variable attributes="protected __hidden__" citdl="dict" line="21" name="_type_reprs" />
+    </scope>
+    

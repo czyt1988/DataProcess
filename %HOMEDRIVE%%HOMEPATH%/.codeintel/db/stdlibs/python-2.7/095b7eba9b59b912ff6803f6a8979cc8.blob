@@ -1,0 +1,20 @@
+<scope doc="Fixer for itertools.(imap|ifilter|izip) --&gt; (map|filter|zip) and&#10;itertools.ifilterfalse --&gt; itertools.filterfalse (bugs 2360-2363)  imports from itertools are fixed in fix_itertools_import.py  If itertools is imported as something else (ie: import itertools as it; it.izip(spam, eggs)) method calls will not get fixed." ilk="blob" lang="Python" name="lib2to3.fixes.fix_itertools">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="14" lineend="43" name="FixItertools">
+        <scope ilk="function" line="28" lineend="43" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixItertools" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="33" name="it" />
+          <variable citdl="it.prefix" line="29" name="prefix" />
+          <variable line="30" name="func" />
+          <variable line="33" name="dot" />
+        </scope>
+        <variable citdl="locals()" line="17" name="PATTERN" />
+        <variable citdl="str" line="16" name="it_funcs" />
+        <variable citdl="int" line="26" name="run_order" />
+        <variable citdl="True" line="15" name="BM_compatible" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

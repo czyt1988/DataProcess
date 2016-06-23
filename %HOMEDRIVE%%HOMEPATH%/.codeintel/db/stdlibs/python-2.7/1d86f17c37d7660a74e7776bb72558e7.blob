@@ -1,0 +1,28 @@
+<scope doc="Importing this module enables command line editing using libedit readline.&#10;" ilk="blob" lang="Python" name="readline">
+      <scope doc="add a line to the history buffer" ilk="function" name="add_history" signature="add_history(string) -&gt; None" />
+      <scope doc="Clear the current readline history." ilk="function" name="clear_history" signature="clear_history() -&gt; None" />
+      <scope doc="get the beginning index of the readline tab-completion scope" ilk="function" name="get_begidx" returns="int" signature="get_begidx() -&gt; int" />
+      <scope doc="Returns current completer function." ilk="function" name="get_completer" returns="function" signature="get_completer() -&gt; function" />
+      <scope doc="get the readline word delimiters for tab-completion" ilk="function" name="get_completer_delims" returns="str" signature="get_completer_delims() -&gt; string" />
+      <scope doc="Get the type of completion being attempted." ilk="function" name="get_completion_type" returns="int" signature="get_completion_type() -&gt; int" />
+      <scope doc="return the current (not the maximum) length of history." ilk="function" name="get_current_history_length" returns="int" signature="get_current_history_length() -&gt; integer" />
+      <scope doc="get the ending index of the readline tab-completion scope" ilk="function" name="get_endidx" returns="int" signature="get_endidx() -&gt; int" />
+      <scope doc="return the current contents of history item at index." ilk="function" name="get_history_item" returns="str" signature="get_history_item() -&gt; string" />
+      <scope doc="return the maximum number of items that will be written to&#10;the history file." ilk="function" name="get_history_length" returns="int" signature="get_history_length() -&gt; int" />
+      <scope doc="return the current contents of the line buffer." ilk="function" name="get_line_buffer" returns="str" signature="get_line_buffer() -&gt; string" />
+      <scope doc="Insert text into the command line." ilk="function" name="insert_text" signature="insert_text(string) -&gt; None" />
+      <scope doc="Parse and execute single line of a readline init file." ilk="function" name="parse_and_bind" signature="parse_and_bind(string) -&gt; None" />
+      <scope doc="Load a readline history file." ilk="function" name="read_history_file" signature="read_history_file([filename]) -&gt; None" />
+      <scope doc="Parse a readline initialization file." ilk="function" name="read_init_file" signature="read_init_file([filename]) -&gt; None" />
+      <scope doc="Change what's displayed on the screen to reflect the current&#10;contents of the line buffer." ilk="function" name="redisplay" signature="redisplay() -&gt; None" />
+      <scope doc="remove history item given by its position" ilk="function" name="remove_history_item" signature="remove_history_item(pos) -&gt; None" />
+      <scope doc="replaces history item given by its position with contents of&#10;line" ilk="function" name="replace_history_item" signature="replace_history_item(pos, line) -&gt; None" />
+      <scope doc="Set or remove the completer function." ilk="function" name="set_completer" signature="set_completer([function]) -&gt; None" />
+      <scope doc="set the readline word delimiters for tab-completion" ilk="function" name="set_completer_delims" signature="set_completer_delims(string) -&gt; None" />
+      <scope doc="Set or remove the completion display function." ilk="function" name="set_completion_display_matches_hook" signature="set_completion_display_matches_hook([function]) -&gt; None" />
+      <scope doc="set the maximal number of items which will be written to the&#10;history file." ilk="function" name="set_history_length" signature="set_history_length(length) -&gt; None" />
+      <scope doc="Set or remove the pre_input_hook function." ilk="function" name="set_pre_input_hook" signature="set_pre_input_hook([function]) -&gt; None" />
+      <scope doc="Set or remove the startup_hook function." ilk="function" name="set_startup_hook" signature="set_startup_hook([function]) -&gt; None" />
+      <scope doc="Save a readline history file." ilk="function" name="write_history_file" signature="write_history_file([filename]) -&gt; None" />
+    </scope>
+    

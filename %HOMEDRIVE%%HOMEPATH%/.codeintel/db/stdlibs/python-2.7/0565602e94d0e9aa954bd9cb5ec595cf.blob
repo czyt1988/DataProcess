@@ -1,0 +1,146 @@
+<scope doc="Common operations on Posix pathnames.&#10;Instead of importing this module directly, import os and refer to this module as os.path.  The &quot;os.path&quot; name is an alias for this module on Posix systems; on other systems (e.g. Mac, Windows), os.path provides the same operations in a manner specific to that platform, and is an alias to another module (e.g. macpath, ntpath).  Some of this can actually be useful on non-Posix systems too, e.g. for manipulation of the pathname component of URLs." ilk="blob" lang="Python" name="posixpath">
+      <variable citdl="list" line="20" name="__all__" />
+      <scope doc="Return an absolute path." ilk="function" line="341" lineend="349" name="abspath" returns="normpath()" signature="abspath(path)">
+        <variable citdl="join()" ilk="argument" name="path" />
+        <variable citdl="os.getcwd()" line="345" name="cwd" />
+      </scope>
+      <variable citdl="NoneType" line="35" name="altsep" />
+      <scope doc="Returns the final component of a pathname" ilk="function" line="110" lineend="113" name="basename" returns="list" signature="basename(p)">
+        <variable citdl="p.rfind()" line="112" name="i" />
+        <variable ilk="argument" name="p" />
+      </scope>
+      <scope doc="Given a list of pathnames, returns the longest common&#10;leading component" ilk="function" name="commonprefix" signature="commonprefix(m)" />
+      <variable citdl="str" line="29" name="curdir" />
+      <variable citdl="str" line="34" name="defpath" />
+      <variable citdl="str" line="36" name="devnull" />
+      <scope doc="Returns the directory component of a pathname" ilk="function" line="118" lineend="124" name="dirname" returns="list" signature="dirname(p)">
+        <variable citdl="p.rfind()" line="120" name="i" />
+        <variable ilk="argument" name="p" />
+        <variable citdl="head.rstrip()" line="121" name="head" />
+      </scope>
+      <scope doc="Test whether a path exists." ilk="function" name="exists" signature="exists(path)" />
+      <scope doc="Expand ~ and ~user constructions." ilk="function" line="249" lineend="271" name="expanduser" returns="pwent.pw_dir" signature="expanduser(path)">
+        <variable citdl="path.find()" line="254" name="i" />
+        <variable ilk="argument" name="path" />
+        <variable citdl="pwd.getpwnam()" line="266" name="pwent" />
+        <variable citdl="pwent.pw_dir" line="260" name="userhome" />
+      </scope>
+      <scope doc="Expand shell variables of form $var and ${var}." ilk="function" line="280" lineend="305" name="expandvars" returns="list" signature="expandvars(path)">
+        <variable attributes="protected" citdl="re.compile()" line="288" name="_varprog" />
+        <variable citdl="m.group()" line="295" name="name" />
+        <variable citdl="int" line="289" name="i" />
+        <variable line="294" name="j" />
+        <variable citdl="_varprog.search()" line="291" name="m" />
+        <variable citdl="list" line="299" name="tail" />
+        <variable citdl="list" ilk="argument" name="path" />
+      </scope>
+      <variable citdl="str" line="31" name="extsep" />
+      <import module="genericpath" />
+      <scope doc="Return the last access time of a file, reported by&#10;os.stat()." ilk="function" name="getatime" signature="getatime(filename)" />
+      <scope doc="Return the metadata change time of a file, reported by&#10;os.stat()." ilk="function" name="getctime" signature="getctime(filename)" />
+      <scope doc="Return the last modification time of a file, reported by&#10;os.stat()." ilk="function" name="getmtime" signature="getmtime(filename)" />
+      <scope doc="Return the size of a file, reported by os.stat()." ilk="function" name="getsize" signature="getsize(filename)" />
+      <scope doc="Test whether a path is absolute" ilk="function" line="51" lineend="53" name="isabs" returns="s.startswith()" signature="isabs(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Return true if the pathname refers to an existing directory." ilk="function" name="isdir" signature="isdir(s)" />
+      <scope doc="Test whether a path is a regular file" ilk="function" name="isfile" signature="isfile(path)" />
+      <scope doc="Test whether a path is a symbolic link" ilk="function" line="130" lineend="136" name="islink" returns="bool" signature="islink(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="os.lstat()" line="133" name="st" />
+      </scope>
+      <scope doc="Test whether a path is a mount point" ilk="function" line="180" lineend="198" name="ismount" returns="bool" signature="ismount(path)">
+        <variable citdl="s1.st_ino" line="194" name="ino1" />
+        <variable citdl="s2.st_ino" line="195" name="ino2" />
+        <variable citdl="os.lstat()" line="187" name="s2" />
+        <variable citdl="os.lstat()" line="186" name="s1" />
+        <variable citdl="s2.st_dev" line="191" name="dev2" />
+        <variable citdl="s1.st_dev" line="190" name="dev1" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Join two or more pathname components, inserting '/' as&#10;needed." ilk="function" line="60" lineend="72" name="join" returns="b" signature="join(a, *p)">
+        <variable ilk="argument" name="a" />
+        <variable attributes="varargs" ilk="argument" name="p" />
+        <variable citdl="b" line="64" name="path" />
+      </scope>
+      <scope doc="Test whether a path exists." ilk="function" line="140" lineend="146" name="lexists" returns="bool" signature="lexists(path)">
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Normalize case of pathname." ilk="function" line="43" lineend="45" name="normcase" signature="normcase(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Normalize path, eliminating double slashes, etc." ilk="function" line="312" lineend="338" name="normpath" returns="dot" signature="normpath(path)">
+        <variable citdl="slash.join()" ilk="argument" name="path" />
+        <variable citdl="list" line="325" name="new_comps" />
+        <variable citdl="path.startswith()" line="318" name="initial_slashes" />
+        <variable citdl="list" line="324" name="comps" />
+      </scope>
+      <import module="os" />
+      <variable citdl="str" line="30" name="pardir" />
+      <variable citdl="str" line="33" name="pathsep" />
+      <scope doc="Return the canonical path of the specified filename,&#10;eliminating any symbolic links encountered in the path." ilk="function" line="355" lineend="375" name="realpath" returns="abspath()" signature="realpath(filename)">
+        <variable citdl="_resolve_link()" line="367" name="resolved" />
+        <variable citdl="join()" line="372" name="newpath" />
+        <variable citdl="join()" line="364" name="component" />
+        <variable citdl="list" line="359" name="bits" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return a relative version of a path" ilk="function" line="400" lineend="415" name="relpath" returns="join()" signature="relpath(path, start='.')">
+        <variable citdl="len()" line="412" name="rel_list" />
+        <variable citdl="len()" line="410" name="i" />
+        <variable citdl="str" ilk="argument" name="start" />
+        <variable citdl="list" line="407" name="path_list" />
+        <variable ilk="argument" name="path" />
+        <variable citdl="list" line="406" name="start_list" />
+      </scope>
+      <scope doc="Test whether two pathnames reference the same actual file" ilk="function" line="151" lineend="155" name="samefile" returns="samestat()" signature="samefile(f1, f2)">
+        <variable ilk="argument" name="f1" />
+        <variable ilk="argument" name="f2" />
+        <variable citdl="os.stat()" line="153" name="s1" />
+        <variable citdl="os.stat()" line="154" name="s2" />
+      </scope>
+      <scope doc="Test whether two open file objects reference the same file" ilk="function" line="161" lineend="165" name="sameopenfile" returns="samestat()" signature="sameopenfile(fp1, fp2)">
+        <variable citdl="os.fstat()" line="164" name="s2" />
+        <variable citdl="os.fstat()" line="163" name="s1" />
+        <variable ilk="argument" name="fp1" />
+        <variable ilk="argument" name="fp2" />
+      </scope>
+      <scope doc="Test whether two stat buffers reference the same file" ilk="function" line="171" lineend="174" name="samestat" returns="bool" signature="samestat(s1, s2)">
+        <variable ilk="argument" name="s2" />
+        <variable ilk="argument" name="s1" />
+      </scope>
+      <variable citdl="str" line="32" name="sep" />
+      <scope doc="Split a pathname." ilk="function" line="80" lineend="87" name="split" returns="tuple" signature="split(p)">
+        <variable citdl="p.rfind()" line="83" name="i" />
+        <variable ilk="argument" name="p" />
+        <variable citdl="head.rstrip()" line="84" name="head" />
+        <variable citdl="list" line="84" name="tail" />
+      </scope>
+      <scope doc="Split a pathname into drive and path." ilk="function" line="102" lineend="105" name="splitdrive" returns="tuple" signature="splitdrive(p)">
+        <variable ilk="argument" name="p" />
+      </scope>
+      <scope doc="Split the extension from a pathname." ilk="function" line="95" lineend="96" name="splitext" returns="genericpath._splitext()" signature="splitext(p)">
+        <variable ilk="argument" name="p" />
+        <variable citdl="genericpath._splitext.__doc__" line="97" name="__doc__" />
+      </scope>
+      <import module="stat" />
+      <variable citdl="bool" line="398" name="supports_unicode_filenames" />
+      <import module="sys" />
+      <scope doc="Directory tree walk with callback function." ilk="function" line="209" lineend="237" name="walk" signature="walk(top, func, arg)">
+        <variable citdl="join()" line="231" name="name" />
+        <variable ilk="argument" name="top" />
+        <variable citdl="os.lstat()" line="233" name="st" />
+        <variable citdl="os.listdir()" line="226" name="names" />
+        <variable ilk="argument" name="func" />
+        <variable ilk="argument" name="arg" />
+      </scope>
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" doc="Internal helper function." ilk="function" line="378" lineend="396" name="_resolve_link" returns="normpath()" signature="_resolve_link(path)">
+        <variable citdl="normpath()" ilk="argument" name="path" />
+        <variable citdl="set()" line="383" name="paths_seen" />
+        <variable citdl="os.readlink()" line="390" name="resolved" />
+        <variable citdl="dirname()" line="392" name="dir" />
+      </scope>
+      <variable attributes="protected __hidden__" line="278" name="_varprog" />
+    </scope>
+    

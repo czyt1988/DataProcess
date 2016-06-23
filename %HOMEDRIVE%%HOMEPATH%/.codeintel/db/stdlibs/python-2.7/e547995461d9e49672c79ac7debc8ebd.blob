@@ -1,0 +1,33 @@
+<scope doc="Filename matching with shell patterns.&#10;fnmatch(FILENAME, PATTERN) matches according to the local convention. fnmatchcase(FILENAME, PATTERN) always takes case in account.  The functions operate by translating the pattern into a regular expression.  They cache the compiled regular expressions for speed.  The function translate(PATTERN) returns a regular expression corresponding to PATTERN.  (It does not compile it.)" ilk="blob" lang="Python" name="fnmatch">
+      <variable citdl="list" line="15" name="__all__" />
+      <scope doc="Return the subset of the list NAMES that match PAT" ilk="function" line="45" lineend="65" name="filter" returns="list" signature="filter(names, pat)">
+        <variable citdl="translate()" line="51" name="res" />
+        <variable citdl="os.path.normcase()" ilk="argument" name="pat" />
+        <variable ilk="argument" name="names" />
+        <variable line="55" name="match" />
+        <variable citdl="list" line="48" name="result" />
+      </scope>
+      <scope doc="Test whether FILENAME matches PATTERN." ilk="function" line="24" lineend="43" name="fnmatch" returns="fnmatchcase()" signature="fnmatch(name, pat)">
+        <variable citdl="os.path.normcase()" ilk="argument" name="pat" />
+        <variable citdl="os.path.normcase()" ilk="argument" name="name" />
+      </scope>
+      <scope doc="Test whether FILENAME matches PATTERN, including case." ilk="function" line="67" lineend="79" name="fnmatchcase" returns="bool" signature="fnmatchcase(name, pat)">
+        <variable citdl="translate()" line="75" name="res" />
+        <variable ilk="argument" name="pat" />
+        <variable ilk="argument" name="name" />
+      </scope>
+      <import module="re" />
+      <scope doc="Translate a shell PATTERN to a regular expression." ilk="function" line="81" lineend="116" name="translate" returns="tuple" signature="translate(pat)">
+        <variable line="90" name="c" />
+        <variable ilk="argument" name="pat" />
+        <variable citdl="int" line="87" name="i" />
+        <variable citdl="str" line="88" name="res" />
+        <variable citdl="int" line="97" name="j" />
+        <variable citdl="len()" line="87" name="n" />
+        <variable citdl="str" line="107" name="stuff" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="17" name="_cache" />
+      <scope attributes="protected __hidden__" doc="Clear the pattern cache" ilk="function" line="20" lineend="22" name="_purge" signature="_purge()" />
+      <variable attributes="protected __hidden__" citdl="int" line="18" name="_MAXCACHE" />
+    </scope>
+    

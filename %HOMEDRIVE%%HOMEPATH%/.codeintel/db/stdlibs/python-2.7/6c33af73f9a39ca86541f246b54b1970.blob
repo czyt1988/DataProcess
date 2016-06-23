@@ -1,0 +1,65 @@
+<scope doc="Module/script to &quot;compile&quot; all .py files to .pyc (or .pyo) file.&#10;When called as a script with arguments, this compiles the directories given as arguments recursively; the -l option prevents it from recursing into directories.  Without arguments, if compiles all modules on sys.path, without recursing into subdirectories.  (Even though it should do so for packages -- for now, you'll have to deal with packages separately.)  See module py_compile for details of the actual byte-compilation." ilk="blob" lang="Python" name="compileall">
+      <variable citdl="list" line="19" name="__all__" />
+      <scope doc="Byte-compile all modules in the given directory tree." ilk="function" line="21" lineend="59" name="compile_dir" returns="int" signature="compile_dir(dir, maxlevels=10, ddir=None, force=0, rx=None, quiet=0)">
+        <variable citdl="int" ilk="argument" name="force" />
+        <variable ilk="argument" name="ddir" />
+        <variable citdl="int" ilk="argument" name="maxlevels" />
+        <variable ilk="argument" name="rx" />
+        <variable citdl="int" ilk="argument" name="quiet" />
+        <variable citdl="list" line="37" name="names" />
+        <variable citdl="int" line="42" name="success" />
+        <variable citdl="os.path.join()" line="44" name="fullname" />
+        <variable citdl="os.path.join()" line="46" name="dfile" />
+        <variable ilk="argument" name="dir" />
+      </scope>
+      <scope doc="Byte-compile one file." ilk="function" line="61" lineend="111" name="compile_file" returns="int" signature="compile_file(fullname, ddir=None, force=0, rx=None, quiet=0)">
+        <variable citdl="__debug__" line="89" name="cfile" />
+        <variable citdl="list" line="83" name="head" />
+        <variable citdl="py_compile.compile()" line="99" name="ok" />
+        <variable citdl="int" ilk="argument" name="force" />
+        <variable ilk="argument" name="ddir" />
+        <variable citdl="int" line="72" name="success" />
+        <variable citdl="rx.search()" line="79" name="mo" />
+        <variable ilk="argument" name="rx" />
+        <variable citdl="int" ilk="argument" name="quiet" />
+        <variable citdl="list" line="83" name="tail" />
+        <variable citdl="struct.pack()" line="88" name="expect" />
+        <variable citdl="int()" line="87" name="mtime" />
+        <variable citdl="chandle.read()" line="91" name="actual" />
+        <variable ilk="argument" name="fullname" />
+        <variable citdl="os.path.join()" line="75" name="dfile" />
+        <variable citdl="os.path.basename()" line="73" name="name" />
+      </scope>
+      <scope doc="Byte-compile all module on sys.path." ilk="function" line="113" lineend="130" name="compile_path" returns="compile_dir()" signature="compile_path(skip_curdir=1, maxlevels=0, force=0, quiet=0)">
+        <variable citdl="int" ilk="argument" name="skip_curdir" />
+        <variable citdl="int" line="123" name="success" />
+        <variable citdl="int" ilk="argument" name="force" />
+        <variable citdl="int" ilk="argument" name="quiet" />
+        <variable citdl="int" ilk="argument" name="maxlevels" />
+      </scope>
+      <scope doc="read names in flist and append to args" ilk="function" line="132" lineend="149" name="expand_args" returns="list" signature="expand_args(args, flist)">
+        <variable citdl="fd.readline()" line="142" name="line" />
+        <variable ilk="argument" name="args" />
+        <variable citdl="sys.stdin" line="138" name="fd" />
+        <variable citdl="list" line="134" name="expanded" />
+        <variable ilk="argument" name="flist" />
+      </scope>
+      <import module="imp" />
+      <scope doc="Script main program." ilk="function" line="151" lineend="210" name="main" returns="compile_path()" signature="main()">
+        <variable citdl="int" line="171" name="force" />
+        <variable citdl="a" line="170" name="ddir" />
+        <variable citdl="int" line="169" name="maxlevels" />
+        <variable citdl="expand_args()" line="155" name="args" />
+        <variable citdl="re.compile()" line="173" name="rx" />
+        <variable citdl="int" line="172" name="quiet" />
+        <variable citdl="a" line="174" name="flist" />
+        <variable citdl="int" line="188" name="success" />
+        <variable line="155" name="opts" />
+      </scope>
+      <import module="os" />
+      <import module="py_compile" />
+      <import module="struct" />
+      <import module="sys" />
+      <variable attributes="__hidden__" citdl="int()" line="213" name="exit_status" />
+    </scope>
+    

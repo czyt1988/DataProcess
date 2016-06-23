@@ -1,0 +1,18 @@
+<scope doc="Fixer that changes unicode to str, unichr to chr, and u&quot;...&quot; into &quot;...&quot;.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_unicode">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="25" name="FixUnicode">
+        <scope ilk="function" line="16" lineend="25" name="transform" returns="node.clone()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="node.clone()" line="18" name="new" />
+          <variable citdl="FixUnicode" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="str" line="14" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <import module="re" />
+      <import module="token" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="10" name="_literal_re" />
+      <variable attributes="protected __hidden__" citdl="dict" line="9" name="_mapping" />
+    </scope>
+    

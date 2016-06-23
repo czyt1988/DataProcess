@@ -1,0 +1,31 @@
+<scope doc="Fix incompatible renames&#10;Fixes: * sys.maxint -&gt; sys.maxsize" ilk="blob" lang="Python" name="lib2to3.fixes.fix_renames">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="42" lineend="70" name="FixRenames">
+        <scope ilk="function" line="62" lineend="70" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="results.get()" line="64" name="attr_name" />
+          <variable citdl="FixRenames" ilk="argument" name="self" />
+          <variable citdl="unicode()" line="69" name="new_attr" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="results.get()" line="63" name="mod_name" />
+        </scope>
+        <scope doc="# Don't match the node if it's within another match" ilk="function" line="49" lineend="56" name="match" returns="match()" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixRenames" ilk="argument" name="self" />
+          <variable citdl="match()" line="51" name="results" />
+          <variable line="50" name="match" />
+        </scope>
+        <variable citdl="str.join()" line="44" name="PATTERN" />
+        <variable citdl="str" line="46" name="order" />
+        <variable citdl="True" line="43" name="BM_compatible" />
+      </scope>
+      <variable citdl="dict" line="15" name="LOOKUP" />
+      <variable citdl="dict" line="13" name="MAPPING" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope ilk="function" line="17" lineend="18" name="alternates" returns="str" signature="alternates(members)">
+        <variable ilk="argument" name="members" />
+      </scope>
+      <scope doc="Follow an attribute chain." ilk="function" name="attr_chain" signature="attr_chain(obj, attr)" />
+      <scope ilk="function" line="21" lineend="38" name="build_pattern" signature="build_pattern()" />
+      <import module="fixer_base" />
+    </scope>
+    

@@ -1,0 +1,147 @@
+<scope doc="A multi-producer, multi-consumer queue.&#10;" ilk="blob" lang="Python" name="Queue">
+      <scope classrefs="Exception" doc="Exception raised by Queue.get(block=0)/get_nowait().&#10;" ilk="class" line="13" lineend="15" name="Empty" />
+      <scope classrefs="Exception" doc="Exception raised by Queue.put(block=0)/put_nowait().&#10;" ilk="class" line="17" lineend="19" name="Full" />
+      <scope classrefs="Queue" doc="Variant of Queue that retrieves most recently added entries first.&#10;" ilk="class" line="231" lineend="244" name="LifoQueue">
+        <scope ilk="function" line="240" lineend="241" name="_put" signature="_put(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="LifoQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="234" lineend="235" name="_init" signature="_init(maxsize)">
+          <variable citdl="LifoQueue" ilk="argument" name="self" />
+          <variable ilk="argument" name="maxsize" />
+        </scope>
+        <scope ilk="function" line="243" lineend="244" name="_get" returns="self.queue.pop()" signature="_get()">
+          <variable citdl="LifoQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="237" lineend="238" name="_qsize" returns="LifoQueue._qsize.len()" signature="_qsize(len=len)">
+          <variable citdl="LifoQueue" ilk="argument" name="self" />
+          <variable citdl="len" ilk="argument" name="len" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="235" name="queue" />
+      </scope>
+      <scope classrefs="Queue" doc="Variant of Queue that retrieves open entries in priority order (lowest first).&#10;Entries are typically tuples of the form:  (priority number, data)." ilk="class" line="212" lineend="228" name="PriorityQueue">
+        <scope ilk="function" line="224" lineend="225" name="_put" signature="_put(item, heappush=heapq.heappush)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="PriorityQueue" ilk="argument" name="self" />
+          <variable citdl="heapq.heappush" ilk="argument" name="heappush" />
+        </scope>
+        <scope ilk="function" line="218" lineend="219" name="_init" signature="_init(maxsize)">
+          <variable citdl="PriorityQueue" ilk="argument" name="self" />
+          <variable ilk="argument" name="maxsize" />
+        </scope>
+        <scope ilk="function" line="227" lineend="228" name="_get" returns="PriorityQueue._get.heappop()" signature="_get(heappop=heapq.heappop)">
+          <variable citdl="heapq.heappop" ilk="argument" name="heappop" />
+          <variable citdl="PriorityQueue" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="221" lineend="222" name="_qsize" returns="PriorityQueue._qsize.len()" signature="_qsize(len=len)">
+          <variable citdl="PriorityQueue" ilk="argument" name="self" />
+          <variable citdl="len" ilk="argument" name="len" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="219" name="queue" />
+      </scope>
+      <scope doc="Create a queue object with a given maximum size.&#10;If maxsize is &lt;= 0, the queue size is infinite." ilk="class" line="21" lineend="209" name="Queue">
+        <scope doc="Return the approximate size of the queue (not reliable!)." ilk="function" line="86" lineend="91" name="qsize" returns="self._qsize()" signature="qsize()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="self._qsize()" line="89" name="n" />
+        </scope>
+        <scope doc="Blocks until all items in the Queue have been gotten and&#10;processed." ilk="function" line="70" lineend="84" name="join" signature="join()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove and return an item from the queue without blocking." ilk="function" line="184" lineend="190" name="get_nowait" returns="Queue.get()" signature="get_nowait()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Put a new item in the queue" ilk="function" line="204" lineend="205" name="_put" signature="_put(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove and return an item from the queue." ilk="function" line="150" lineend="182" name="get" returns="self._get()" signature="get(block=True, timeout=None)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="self._get()" line="178" name="item" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="_time()" line="172" name="endtime" />
+          <variable citdl="_time()" line="174" name="remaining" />
+          <variable citdl="True" ilk="argument" name="block" />
+        </scope>
+        <scope doc="Indicate that a formerly enqueued task is complete." ilk="function" line="45" lineend="68" name="task_done" signature="task_done()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="int" line="61" name="unfinished" />
+        </scope>
+        <scope doc="# Initialize the queue representation" ilk="function" line="197" lineend="198" name="_init" signature="_init(maxsize)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable ilk="argument" name="maxsize" />
+        </scope>
+        <scope doc="# Get an item from the queue" ilk="function" line="208" lineend="209" name="_get" returns="self.queue.popleft()" signature="_get()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the queue is full, False otherwise (not&#10;reliable!)." ilk="function" line="100" lineend="105" name="full" returns="bool" signature="full()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="bool" line="103" name="n" />
+        </scope>
+        <scope doc="Return True if the queue is empty, False otherwise (not&#10;reliable!)." ilk="function" line="93" lineend="98" name="empty" returns="bool" signature="empty()">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="bool" line="96" name="n" />
+        </scope>
+        <scope doc="Put an item into the queue without blocking." ilk="function" line="142" lineend="148" name="put_nowait" returns="Queue.put()" signature="put_nowait(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Queue" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Put an item into the queue." ilk="function" line="107" lineend="140" name="put" signature="put(item, block=True, timeout=None)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable ilk="argument" name="item" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="_time()" line="130" name="endtime" />
+          <variable citdl="_time()" line="132" name="remaining" />
+          <variable citdl="True" ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="200" lineend="201" name="_qsize" returns="Queue._qsize.len()" signature="_qsize(len=len)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="len" ilk="argument" name="len" />
+        </scope>
+        <scope ilk="function" line="26" lineend="43" name="__init__" signature="Queue(maxsize=0)">
+          <variable citdl="Queue" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxsize" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="43" name="unfinished_tasks" />
+        <variable attributes="__instancevar__" citdl="deque()" line="198" name="queue" />
+        <variable attributes="__instancevar__" citdl="int" line="27" name="maxsize" />
+        <variable attributes="__instancevar__" citdl="_threading.Condition()" line="42" name="all_tasks_done" />
+        <variable attributes="__instancevar__" citdl="_threading.Lock()" line="33" name="mutex" />
+        <variable attributes="__instancevar__" citdl="_threading.Condition()" line="39" name="not_full" />
+        <variable attributes="__instancevar__" citdl="_threading.Condition()" line="36" name="not_empty" />
+      </scope>
+      <variable citdl="list" line="11" name="__all__" />
+      <import module="_threading" />
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <import module="heapq" />
+    </scope>
+    

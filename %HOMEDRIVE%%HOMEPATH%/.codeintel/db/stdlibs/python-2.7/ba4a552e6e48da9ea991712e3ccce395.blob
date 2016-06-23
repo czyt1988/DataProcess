@@ -1,0 +1,2 @@
+<scope doc="wsgiref -- a WSGI (PEP 333) Reference Library&#10;Current Contents:  * util -- Miscellaneous useful functions and wrappers  * headers -- Manage response headers  * handlers -- base classes for server/gateway implementations  * simple_server -- a simple BaseHTTPServer that supports WSGI " ilk="blob" lang="Python" name="wsgiref" />
+    

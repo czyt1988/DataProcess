@@ -1,0 +1,51 @@
+<scope doc="Fixer that changes xrange(...) into range(...).&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_xrange">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="73" name="FixXrange">
+        <scope ilk="function" line="63" lineend="73" name="in_special_context" returns="bool" signature="in_special_context(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable citdl="dict" line="66" name="results" />
+        </scope>
+        <scope ilk="function" line="27" lineend="34" name="transform" returns="self.transform_xrange()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="28" name="name" />
+        </scope>
+        <scope ilk="function" line="42" lineend="52" name="transform_range" returns="Call()" signature="transform_range(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable citdl="Call()" line="45" name="range_call" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="Call()" line="47" name="list_call" />
+        </scope>
+        <scope ilk="function" line="20" lineend="22" name="start_tree" signature="start_tree(tree, filename)">
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="24" lineend="25" name="finish_tree" signature="finish_tree(tree, filename)">
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="36" lineend="40" name="transform_xrange" signature="transform_xrange(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixXrange" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="37" name="name" />
+        </scope>
+        <variable citdl="str" line="57" name="P2" />
+        <variable citdl="patcomp.compile_pattern()" line="61" name="p2" />
+        <variable citdl="str" line="54" name="P1" />
+        <variable citdl="str" line="14" name="PATTERN" />
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="patcomp.compile_pattern()" line="55" name="p1" />
+        <variable attributes="__instancevar__" citdl="set()" line="22" name="transformed_xranges" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <variable citdl="set" name="consuming_calls" />
+      <import module="fixer_base" />
+      <import module="patcomp" />
+    </scope>
+    

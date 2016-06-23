@@ -1,0 +1,170 @@
+<scope doc="Drag-and-drop support for Tkinter.&#10;This is very preliminary.  I currently only support dnd *within* one application, between different windows (or within the same window).  I an trying to make this as generic as possible -- not dependent on the use of a particular widget or icon type, etc.  I also hope that this will work with Pmw.  To enable an object to be dragged, you must create an event binding for it that starts the drag-and-drop process. Typically, you should bind &lt;ButtonPress&gt; to a callback function that you write. The function" ilk="blob" lang="Python" name="Tkdnd">
+      <scope doc="&#10;" ilk="class" line="118" lineend="201" name="DndHandler">
+        <scope ilk="function" line="184" lineend="201" name="finish" signature="finish(event, commit=0)">
+          <variable citdl="event.widget" line="187" name="widget" />
+          <variable citdl="attr()" line="185" name="target" />
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable line="186" name="source" />
+          <variable citdl="int" ilk="argument" name="commit" />
+          <variable citdl="event.widget._root()" line="188" name="root" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="142" lineend="149" name="__del__" signature="__del__()">
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable citdl="event.widget._root()" line="143" name="root" />
+        </scope>
+        <scope ilk="function" line="178" lineend="179" name="on_release" signature="on_release(event)">
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="151" lineend="176" name="on_motion" signature="on_motion(event)">
+          <variable citdl="event.y_root" line="152" name="y" />
+          <variable citdl="target_widget.dnd_accept" line="158" name="attr" />
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable line="166" name="old_target" />
+          <variable line="154" name="source" />
+          <variable citdl="target_widget.master" line="153" name="target_widget" />
+          <variable citdl="attr()" line="155" name="new_target" />
+          <variable citdl="event.x_root" line="152" name="x" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="181" lineend="182" name="cancel" signature="cancel(event=None)">
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="122" lineend="140" name="__init__" signature="DndHandler(source, event)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="DndHandler" ilk="argument" name="self" />
+          <variable citdl="event.widget._root()" line="125" name="root" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="136" name="release_pattern" />
+        <variable attributes="__instancevar__" citdl="attr()" line="133" name="target" />
+        <variable attributes="__instancevar__" citdl="event.num" line="134" name="initial_button" />
+        <variable attributes="__instancevar__" line="132" name="source" />
+        <variable attributes="__instancevar__" citdl="str" line="137" name="save_cursor" />
+        <variable citdl="event.widget._root()" line="120" name="root" />
+        <variable attributes="__instancevar__" citdl="event.widget" line="135" name="initial_widget" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="208" lineend="266" name="Icon">
+        <scope ilk="function" line="248" lineend="250" name="move" signature="move(event)">
+          <variable line="249" name="y" />
+          <variable line="249" name="x" />
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="252" lineend="253" name="putback" signature="putback()">
+          <variable citdl="Icon" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="265" lineend="266" name="dnd_end" signature="dnd_end(target, event)">
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable ilk="argument" name="target" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="214" lineend="228" name="attach" signature="attach(canvas, x=10, y=10)">
+          <variable ilk="argument" name="canvas" />
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable citdl="Tkinter.Label()" line="222" name="label" />
+          <variable citdl="int" ilk="argument" name="y" />
+          <variable citdl="int" ilk="argument" name="x" />
+          <variable citdl="canvas.create_window()" line="224" name="id" />
+        </scope>
+        <scope ilk="function" line="240" lineend="246" name="press" signature="press(event)">
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="230" lineend="238" name="detach" signature="detach()">
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable citdl="Tkinter.Label()" line="235" name="label" />
+          <variable citdl="canvas.create_window()" line="234" name="id" />
+          <variable line="231" name="canvas" />
+        </scope>
+        <scope ilk="function" line="255" lineend="263" name="where" returns="tuple" signature="where(canvas, event)">
+          <variable ilk="argument" name="canvas" />
+          <variable citdl="canvas.winfo_rooty()" line="258" name="y_org" />
+          <variable citdl="canvas.winfo_rootx()" line="257" name="x_org" />
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable citdl="event.y_root" line="261" name="y" />
+          <variable citdl="canvas.winfo_rootx()" line="260" name="x" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="210" lineend="212" name="__init__" signature="Icon(name)">
+          <variable citdl="Icon" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" line="212" name="canvas" />
+        <variable attributes="__instancevar__" line="211" name="name" />
+        <variable attributes="__instancevar__" line="246" name="x_orig" />
+        <variable attributes="__instancevar__" citdl="event.x" line="243" name="x_off" />
+        <variable attributes="__instancevar__" citdl="Tkinter.Label()" line="226" name="label" />
+        <variable attributes="__instancevar__" line="246" name="y_orig" />
+        <variable attributes="__instancevar__" citdl="canvas.create_window()" line="227" name="id" />
+        <variable attributes="__instancevar__" citdl="event.y" line="244" name="y_off" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="268" lineend="300" name="Tester">
+        <scope ilk="function" line="292" lineend="295" name="dnd_leave" signature="dnd_leave(source, event)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="287" lineend="290" name="dnd_motion" signature="dnd_motion(source, event)">
+          <variable line="289" name="x1" />
+          <variable line="289" name="y1" />
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable line="289" name="x2" />
+          <variable ilk="argument" name="source" />
+          <variable line="288" name="y" />
+          <variable line="288" name="x" />
+          <variable line="289" name="y2" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="276" lineend="277" name="dnd_accept" returns="Tester" signature="dnd_accept(source, event)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="297" lineend="300" name="dnd_commit" signature="dnd_commit(source, event)">
+          <variable line="299" name="y" />
+          <variable ilk="argument" name="source" />
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+          <variable line="299" name="x" />
+        </scope>
+        <scope ilk="function" line="279" lineend="285" name="dnd_enter" signature="dnd_enter(source, event)">
+          <variable line="282" name="y2" />
+          <variable line="282" name="y1" />
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable line="282" name="x2" />
+          <variable ilk="argument" name="source" />
+          <variable line="283" name="dx" />
+          <variable line="283" name="dy" />
+          <variable line="281" name="y" />
+          <variable line="281" name="x" />
+          <variable line="282" name="x1" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="270" lineend="274" name="__init__" signature="Tester(root)">
+          <variable citdl="Tester" ilk="argument" name="self" />
+          <variable ilk="argument" name="root" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Tkinter.Canvas()" line="272" name="canvas" />
+        <variable attributes="__instancevar__" citdl="self.canvas.create_rectangle()" line="284" name="dndid" />
+        <variable attributes="__instancevar__" citdl="Tkinter.Toplevel()" line="271" name="top" />
+      </scope>
+      <import module="Tkinter" />
+      <scope ilk="function" line="108" lineend="113" name="dnd_start" returns="DndHandler()" signature="dnd_start(source, event)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="event" />
+        <variable citdl="DndHandler()" line="109" name="h" />
+      </scope>
+      <scope ilk="function" line="302" lineend="318" name="test" signature="test()">
+        <variable citdl="Icon" line="312" name="i1" />
+        <variable citdl="Icon" line="314" name="i3" />
+        <variable citdl="Icon" line="313" name="i2" />
+        <variable citdl="Tester" line="308" name="t2" />
+        <variable citdl="Tester" line="310" name="t3" />
+        <variable citdl="Tester" line="306" name="t1" />
+        <variable citdl="Tkinter.Tk()" line="303" name="root" />
+      </scope>
+    </scope>
+    

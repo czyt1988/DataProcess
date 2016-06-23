@@ -1,0 +1,55 @@
+<scope doc="Convert &quot;arbitrary&quot; sound files to AIFF (Apple and SGI's audio format).&#10;Input may be compressed. Uncompressed file type may be AIFF, WAV, VOC, 8SVX, NeXT/Sun, and others. An exception is raised if the file is not of a recognized type. Returned filename is either the input filename or a temporary filename; in the latter case the caller must ensure that it is removed. Other temporary files used are removed by the function." ilk="blob" lang="Python" name="toaiff">
+      <variable citdl="list" line="19" name="__all__" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="61" lineend="62" name="error" />
+      <import module="os" />
+      <import module="pipes" />
+      <import module="sndhdr" />
+      <variable citdl="pipes.Template" line="23" name="t" />
+      <scope doc="Class representing a pipeline template.&#10;" ilk="class" name="Template">
+        <scope doc="t.reset() restores a pipeline template to its initial state." ilk="function" name="reset" signature="t.reset() restores a pipeline template to its initial state." />
+        <scope doc="initial state as the current one." ilk="function" name="clone" signature="t.clone() returns a new pipeline template with identical" />
+        <scope doc="t.append(cmd, kind) adds a new step at the end." ilk="function" name="append" signature="t.append(cmd, kind) adds a new step at the end." />
+        <scope doc="t.prepend(cmd, kind) adds a new step at the front." ilk="function" name="prepend" signature="t.prepend(cmd, kind) adds a new step at the front." />
+        <scope ilk="function" name="makepipeline" />
+        <scope doc="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively." ilk="function" name="open_r" signature="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively." />
+        <scope ilk="function" name="open_w" />
+        <scope doc="t.__repr__() implements repr(t)." ilk="function" name="__repr__" signature="t.__repr__() implements repr(t)." />
+        <scope doc="t.debug(flag) turns debugging on or off." ilk="function" name="debug" signature="t.debug(flag) turns debugging on or off." />
+        <scope ilk="function" name="copy" />
+        <scope doc="reading or writing; the file is the other end of the&#10;pipeline." ilk="function" name="open" signature="t.open(file, rw) returns a pipe or file object open for" />
+        <scope doc="Template() returns a fresh pipeline template." ilk="function" name="__init__" signature="Template() returns a fresh pipeline template." />
+      </scope>
+      <variable citdl="dict" line="21" name="table" />
+      <import module="tempfile" />
+      <scope ilk="function" line="64" lineend="77" name="toaiff" returns="_toaiff()" signature="toaiff(filename)">
+        <variable citdl="list" line="65" name="temps" />
+        <variable citdl="_toaiff()" line="66" name="ret" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <variable citdl="pipes.Template" line="57" name="uncompress" />
+      <scope doc="Class representing a pipeline template.&#10;" ilk="class" name="Template">
+        <scope doc="t.reset() restores a pipeline template to its initial state." ilk="function" name="reset" signature="t.reset() restores a pipeline template to its initial state." />
+        <scope doc="initial state as the current one." ilk="function" name="clone" signature="t.clone() returns a new pipeline template with identical" />
+        <scope doc="t.append(cmd, kind) adds a new step at the end." ilk="function" name="append" signature="t.append(cmd, kind) adds a new step at the end." />
+        <scope doc="t.prepend(cmd, kind) adds a new step at the front." ilk="function" name="prepend" signature="t.prepend(cmd, kind) adds a new step at the front." />
+        <scope ilk="function" name="makepipeline" />
+        <scope doc="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively." ilk="function" name="open_r" signature="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively." />
+        <scope ilk="function" name="open_w" />
+        <scope doc="t.__repr__() implements repr(t)." ilk="function" name="__repr__" signature="t.__repr__() implements repr(t)." />
+        <scope doc="t.debug(flag) turns debugging on or off." ilk="function" name="debug" signature="t.debug(flag) turns debugging on or off." />
+        <scope ilk="function" name="copy" />
+        <scope doc="reading or writing; the file is the other end of the&#10;pipeline." ilk="function" name="open" signature="t.open(file, rw) returns a pipe or file object open for" />
+        <scope doc="Template() returns a fresh pipeline template." ilk="function" name="__init__" signature="Template() returns a fresh pipeline template." />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="79" lineend="110" name="_toaiff" signature="_toaiff(filename, temps)">
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="temps" />
+        <variable line="81" name="fd" />
+        <variable line="81" name="fname" />
+        <variable citdl="uncompress.copy()" line="84" name="sts" />
+        <variable citdl="sndhdr.whathdr()" line="90" name="ftype" />
+        <variable citdl="repr()" line="96" name="msg" />
+        <variable line="104" name="temp" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,149 @@
+<scope doc="tools for BuildApplet and BuildApplication&#10;" ilk="blob" lang="Python" name="buildtools">
+      <variable citdl="str" line="25" name="BuildError" />
+      <import module="Carbon" />
+      <variable citdl="str" line="42" name="DEFAULT_APPLET_CREATOR" />
+      <variable citdl="NoneType" line="21" name="EasyDialogs" />
+      <variable citdl="str" line="28" name="MAGIC" />
+      <import module="MacOS" />
+      <variable citdl="str" line="39" name="OWNERNAME" />
+      <variable citdl="int" line="45" name="READ" />
+      <variable citdl="str" line="35" name="RESNAME" />
+      <variable citdl="unicode" line="49" name="RESOURCE_FORK_NAME" />
+      <variable citdl="str" line="34" name="RESTYPE" />
+      <import module="Res" />
+      <variable citdl="str" line="31" name="TEMPLATE" />
+      <variable citdl="int" line="46" name="WRITE" />
+      <scope ilk="function" line="396" lineend="424" name="copyapptree" signature="copyapptree(srctree, dsttree, exceptlist=[], progress=None)">
+        <variable citdl="os.readlink()" line="418" name="endpoint" />
+        <variable line="403" name="this" />
+        <variable citdl="os.path.join()" line="406" name="thispath" />
+        <variable ilk="argument" name="dsttree" />
+        <variable citdl="os.listdir()" line="408" name="thiscontent" />
+        <variable citdl="os.path.join()" line="414" name="dstpath" />
+        <variable citdl="list" line="397" name="names" />
+        <variable ilk="argument" name="progress" />
+        <variable citdl="os.path.join()" line="413" name="srcpath" />
+        <variable ilk="argument" name="srctree" />
+        <variable citdl="list" line="401" name="todo" />
+        <variable citdl="list" ilk="argument" name="exceptlist" />
+      </scope>
+      <scope doc="# Copy resources between two resource file descriptors." ilk="function" line="349" lineend="394" name="copyres" returns="tuple" signature="copyres(input, output, skiptypes, skipowner, progress=None)">
+        <variable citdl="list" line="351" name="alltypes" />
+        <variable citdl="Res.Count1Types()" line="361" name="progress_cur_inc" />
+        <variable citdl="Res.Count1Resources()" line="360" name="nresources" />
+        <variable ilk="argument" name="skiptypes" />
+        <variable ilk="argument" name="output" />
+        <variable citdl="Res.Count1Types()" line="354" name="progress_type_inc" />
+        <variable citdl="Res.Get1IndResource()" line="363" name="res" />
+        <variable citdl="res.size" line="372" name="size" />
+        <variable line="364" name="name" />
+        <variable citdl="Res.Get1Resource()" line="381" name="res2" />
+        <variable citdl="string.lower()" line="365" name="lcname" />
+        <variable citdl="int" line="373" name="attrs" />
+        <variable ilk="argument" name="progress" />
+        <variable ilk="argument" name="input" />
+        <variable ilk="argument" name="skipowner" />
+        <variable citdl="Res.Get1IndType()" line="356" name="type" />
+        <variable line="364" name="id" />
+        <variable citdl="Res.Get1IndType()" line="350" name="ctor" />
+        <variable citdl="Res.Count1Types()" line="353" name="ntypes" />
+      </scope>
+      <scope doc="Locate the applet template along sys.path" ilk="function" line="51" lineend="67" name="findtemplate" returns="file.as_pathname()" signature="findtemplate(template=None)">
+        <variable line="60" name="d2" />
+        <variable citdl="file.as_pathname()" line="58" name="file" />
+        <variable citdl="str" ilk="argument" name="template" />
+        <variable line="60" name="d1" />
+      </scope>
+      <import module="imp" />
+      <import module="macostools" />
+      <import module="macresource" />
+      <import module="marshal" />
+      <import module="os" />
+      <scope ilk="function" line="69" lineend="122" name="process" signature="process(template, filename, destname, copy_codefragment=0, rsrcname=None, others=[], raw=0, progress='default', destroot='')">
+        <variable citdl="open()" line="87" name="fp" />
+        <variable citdl="compile()" line="91" name="code" />
+        <variable citdl="str" ilk="argument" name="destroot" />
+        <variable line="75" name="process" />
+        <variable citdl="fp.read()" line="88" name="text" />
+        <variable citdl="list" line="101" name="basename" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="int" ilk="argument" name="raw" />
+        <variable citdl="list" ilk="argument" name="rsrcname" />
+        <variable ilk="argument" name="template" />
+        <variable citdl="list" ilk="argument" name="others" />
+        <variable citdl="int" ilk="argument" name="copy_codefragment" />
+        <variable citdl="EasyDialogs.ProgressBar()" ilk="argument" name="progress" />
+        <variable citdl="list" ilk="argument" name="destname" />
+      </scope>
+      <scope ilk="function" line="147" lineend="280" name="process_common" returns="process_common_macho()" signature="process_common(template, progress, code, rsrcname, destname, is_update, copy_codefragment, raw=0, others=[], filename=None, destroot='')">
+        <variable ilk="argument" name="code" />
+        <variable citdl="str" ilk="argument" name="destroot" />
+        <variable line="155" name="template_fsr" />
+        <variable line="182" name="destdir" />
+        <variable citdl="int" ilk="argument" name="raw" />
+        <variable citdl="int" line="257" name="attrs" />
+        <variable line="215" name="tmplowner" />
+        <variable citdl="int" line="252" name="id" />
+        <variable citdl="Carbon.File.FSSpec()" line="269" name="dest_fss" />
+        <variable line="155" name="d2" />
+        <variable ilk="argument" name="destname" />
+        <variable line="155" name="d1" />
+        <variable citdl="list" line="203" name="skiptypes" />
+        <variable citdl="Res.Get1NamedResource()" line="236" name="res" />
+        <variable citdl="str" line="187" name="ownertype" />
+        <variable citdl="dest_fss.FSpGetFInfo()" line="270" name="dest_finfo" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="template_fsr.as_pathname()" ilk="argument" name="template" />
+        <variable ilk="argument" name="progress" />
+        <variable citdl="list" line="196" name="skip_oldfile" />
+        <variable citdl="open()" line="164" name="tmpl" />
+        <variable ilk="argument" name="is_update" />
+        <variable citdl="open()" line="165" name="dest" />
+        <variable line="182" name="destfile" />
+        <variable citdl="list" ilk="argument" name="others" />
+        <variable ilk="argument" name="copy_codefragment" />
+        <variable citdl="tmpl.read()" line="166" name="data" />
+        <variable line="215" name="dummy" />
+        <variable citdl="list" line="187" name="typesfound" />
+        <variable citdl="Res.FSOpenResourceFile()" line="189" name="input" />
+        <variable citdl="Res.Resource()" line="228" name="newres" />
+        <variable ilk="argument" name="rsrcname" />
+        <variable citdl="Res.FSOpenResourceFile()" line="180" name="output" />
+      </scope>
+      <scope ilk="function" line="282" lineend="341" name="process_common_macho" signature="process_common_macho(template, progress, code, rsrcname, destname, is_update, raw=0, others=[], filename=None, destroot='')">
+        <variable citdl="list" line="299" name="tmp" />
+        <variable citdl="os.path.join()" line="297" name="icnsname" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="str" ilk="argument" name="destroot" />
+        <variable ilk="argument" name="is_update" />
+        <variable ilk="argument" name="rsrcname" />
+        <variable citdl="bundlebuilder.AppBuilder()" line="316" name="builder" />
+        <variable line="291" name="destdir" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="list" line="296" name="plistname" />
+        <variable citdl="int" ilk="argument" name="raw" />
+        <variable citdl="macresource.resource_pathname()" line="322" name="realrsrcname" />
+        <variable ilk="argument" name="template" />
+        <variable citdl="list" ilk="argument" name="others" />
+        <variable ilk="argument" name="progress" />
+        <variable citdl="list" line="291" name="shortname" />
+        <variable citdl="str" ilk="argument" name="destname" />
+        <variable citdl="os.path.join()" line="308" name="dft_icnsname" />
+      </scope>
+      <import module="shutil" />
+      <import module="string" />
+      <import module="sys" />
+      <scope ilk="function" line="125" lineend="144" name="update" signature="update(template, filename, output)">
+        <variable citdl="str" ilk="argument" name="output" />
+        <variable citdl="EasyDialogs.ProgressBar()" line="131" name="progress" />
+        <variable ilk="argument" name="template" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="warnings" />
+      <scope ilk="function" line="426" lineend="435" name="writepycfile" signature="writepycfile(codeobject, cfile)">
+        <variable ilk="argument" name="cfile" />
+        <variable citdl="open()" line="428" name="fc" />
+        <variable ilk="argument" name="codeobject" />
+      </scope>
+    </scope>
+    

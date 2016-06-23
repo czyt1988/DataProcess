@@ -1,0 +1,24 @@
+<scope doc="Fixer for apply().&#10;This converts apply(func, v, k) into (func)(*v, **k)." ilk="blob" lang="Python" name="lib2to3.fixes.fix_apply">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="14" lineend="59" name="FixApply">
+        <scope ilk="function" line="31" lineend="59" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="results.get()" line="36" name="kwds" />
+          <variable citdl="FixApply" ilk="argument" name="self" />
+          <variable citdl="args.clone()" line="35" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="self.syms" line="32" name="syms" />
+          <variable citdl="node.prefix" line="37" name="prefix" />
+          <variable citdl="func.clone()" line="34" name="func" />
+          <variable citdl="list" line="50" name="l_newargs" />
+        </scope>
+        <variable citdl="True" line="15" name="BM_compatible" />
+        <variable citdl="str" line="17" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <scope ilk="function" name="parenthesize" signature="parenthesize(node)" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

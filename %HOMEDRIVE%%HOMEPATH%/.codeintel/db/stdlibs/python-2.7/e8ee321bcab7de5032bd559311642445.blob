@@ -1,0 +1,103 @@
+<scope doc="distutils.command.upload&#10;Implements the Distutils 'upload' subcommand (upload package to PyPI)." ilk="blob" lang="Python" name="distutils.command.upload">
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <scope classrefs="URLError addinfourl" doc="Raised when HTTP error occurs, but also acts like non-error return&#10;" ilk="class" name="HTTPError">
+        <scope ilk="function" name="_HTTPError__super_init" />
+        <scope ilk="function" name="__str__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Command" doc="Base command that knows how to handle the .pypirc file&#10;" ilk="class" name="PyPIRCCommand">
+        <scope doc="Initialize options." ilk="function" name="initialize_options" />
+        <scope doc="Creates a default .pypirc file." ilk="function" name="_store_pypirc" />
+        <scope doc="Finalizes options." ilk="function" name="finalize_options" />
+        <scope doc="Reads the .pypirc file." ilk="function" name="_read_pypirc" />
+        <scope doc="Returns rc file path." ilk="function" name="_get_rc_file" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Request">
+        <scope ilk="function" name="set_proxy" />
+        <scope ilk="function" name="get_host" />
+        <scope ilk="function" name="is_unverifiable" />
+        <scope ilk="function" name="get_data" />
+        <scope ilk="function" name="add_data" />
+        <scope ilk="function" name="header_items" />
+        <scope ilk="function" name="__getattr__" />
+        <scope ilk="function" name="has_proxy" />
+        <scope ilk="function" name="add_header" />
+        <scope ilk="function" name="get_type" />
+        <scope ilk="function" name="get_selector" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="get_header" />
+        <scope ilk="function" name="add_unredirected_header" />
+        <scope ilk="function" name="get_full_url" />
+        <scope ilk="function" name="get_origin_req_host" />
+        <scope ilk="function" name="has_header" />
+        <scope ilk="function" name="get_method" />
+        <scope ilk="function" name="has_data" />
+      </scope>
+      <import module="StringIO" />
+      <import module="log" />
+      <scope doc="Returns a md5 hash object; optionally initialized with a&#10;string" ilk="function" name="md5" />
+      <import module="os" />
+      <import module="platform" />
+      <import module="socket" />
+      <scope doc="Run another program, specified as a command list 'cmd', in a&#10;new process." ilk="function" name="spawn" signature="spawn(cmd, search_path=1, verbose=0, dry_run=0)" />
+      <scope doc="Encode a string using the standard Base64 alphabet." ilk="function" name="standard_b64encode" signature="standard_b64encode(s)" />
+      <scope classrefs="PyPIRCCommand" doc="&#10;" ilk="class" line="18" lineend="194" name="upload">
+        <scope ilk="function" line="56" lineend="60" name="run" signature="run()">
+          <variable citdl="upload" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="30" lineend="36" name="initialize_options" signature="initialize_options()">
+          <variable citdl="upload" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="38" lineend="54" name="finalize_options" signature="finalize_options()">
+          <variable citdl="upload" ilk="argument" name="self" />
+          <variable citdl="self._read_pypirc()" line="44" name="config" />
+        </scope>
+        <scope ilk="function" line="62" lineend="194" name="upload_file" signature="upload_file(command, pyversion, filename)">
+          <variable citdl="str" line="120" name="comment" />
+          <variable citdl="e.code" line="177" name="status" />
+          <variable line="122" name="dist" />
+          <variable citdl="self.distribution.metadata" line="87" name="meta" />
+          <variable citdl="list" line="145" name="value" />
+          <variable line="64" name="query" />
+          <variable line="122" name="id" />
+          <variable citdl="str" line="140" name="end_boundary" />
+          <variable citdl="list" line="74" name="gpg_args" />
+          <variable citdl="upload" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="f.read()" line="84" name="content" />
+          <variable line="122" name="version" />
+          <variable line="64" name="params" />
+          <variable citdl="str" line="139" name="sep_boundary" />
+          <variable citdl="str.join()" line="180" name="msg" />
+          <variable line="64" name="fragments" />
+          <variable line="64" name="schema" />
+          <variable citdl="StringIO.StringIO()" line="141" name="body" />
+          <variable line="64" name="netloc" />
+          <variable citdl="standard_b64encode()" line="134" name="auth" />
+          <variable citdl="e.msg" line="178" name="reason" />
+          <variable citdl="dict" line="88" name="data" />
+          <variable citdl="str" line="138" name="boundary" />
+          <variable citdl="str" line="148" name="fn" />
+          <variable citdl="open()" line="82" name="f" />
+          <variable line="64" name="url" />
+          <variable citdl="Request()" line="172" name="request" />
+          <variable ilk="argument" name="pyversion" />
+          <variable citdl="dict" line="167" name="headers" />
+          <variable ilk="argument" name="command" />
+          <variable citdl="urlopen()" line="176" name="result" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="32" name="username" />
+        <variable citdl="list" line="22" name="user_options" />
+        <variable attributes="__instancevar__" line="49" name="realm" />
+        <variable citdl="str" line="20" name="description" />
+        <variable attributes="__instancevar__" line="48" name="repository" />
+        <variable attributes="__instancevar__" citdl="int" line="34" name="show_response" />
+        <variable attributes="__instancevar__" citdl="False" line="35" name="sign" />
+        <variable citdl="PyPIRCCommand.boolean_options" line="28" name="boolean_options" />
+        <variable attributes="__instancevar__" citdl="self.distribution.password" line="33" name="password" />
+        <variable attributes="__instancevar__" line="36" name="identity" />
+      </scope>
+      <scope ilk="function" name="urlopen" signature="urlopen(url, data=None, timeout=&lt;object object at 0x02BA2050&gt;)" />
+      <import module="urlparse" />
+    </scope>
+    

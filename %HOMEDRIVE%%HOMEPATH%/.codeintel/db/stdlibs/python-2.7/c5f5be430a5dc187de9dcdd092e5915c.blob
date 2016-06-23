@@ -1,0 +1,19 @@
+<scope doc="Package for parsing and compiling Python source code&#10;There are several functions defined at the top level that are imported from modules contained in the package.  parse(buf, mode=&quot;exec&quot;) -&gt; AST Converts a string containing Python source code to an abstract syntax tree (AST).  The AST is defined in compiler.ast.  parseFile(path) -&gt; AST The same as parse(open(path)) " ilk="blob" lang="Python" name="compiler">
+      <import module="ast" />
+      <scope doc="Replacement for builtin compile() function" ilk="function" name="compile" signature="compile(source, filename, mode, flags=None, dont_inherit=None)" />
+      <scope ilk="function" name="compileFile" signature="compileFile(filename, display=0)" />
+      <import module="consts" />
+      <import module="future" />
+      <import module="misc" />
+      <scope ilk="function" name="parse" signature="parse(buf, mode='exec')" />
+      <scope ilk="function" name="parseFile" signature="parseFile(path)" />
+      <import module="pyassem" />
+      <import module="pycodegen" />
+      <import module="symbols" />
+      <import module="syntax" />
+      <import module="transformer" />
+      <import module="visitor" />
+      <scope ilk="function" name="walk" signature="walk(tree, visitor, walker=None, verbose=None)" />
+      <import module="warnings" />
+    </scope>
+    

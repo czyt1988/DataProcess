@@ -1,0 +1,520 @@
+<scope doc="This module provides socket operations and some related functions.&#10;On Unix, it supports IP (Internet Protocol) and Unix domain sockets. On other systems, it only supports IP. Functions specific for a socket are available as methods of the socket object.  Functions:  socket() -- create a new socket object socketpair() -- create a pair of new socket objects [*] fromfd() -- create a socket object from an open file descriptor [*] gethostname() -- return the current hostname" ilk="blob" lang="Python" name="socket">
+      <variable citdl="int" name="AF_APPLETALK" />
+      <variable citdl="int" name="AF_DECnet" />
+      <variable citdl="int" name="AF_INET" />
+      <variable citdl="int" name="AF_INET6" />
+      <variable citdl="int" name="AF_IPX" />
+      <variable citdl="int" name="AF_IRDA" />
+      <variable citdl="int" name="AF_SNA" />
+      <variable citdl="int" name="AF_UNSPEC" />
+      <variable citdl="int" name="AI_ADDRCONFIG" />
+      <variable citdl="int" name="AI_ALL" />
+      <variable citdl="int" name="AI_CANONNAME" />
+      <variable citdl="int" name="AI_NUMERICHOST" />
+      <variable citdl="int" name="AI_NUMERICSERV" />
+      <variable citdl="int" name="AI_PASSIVE" />
+      <variable citdl="int" name="AI_V4MAPPED" />
+      <variable citdl="PyCapsule" name="CAPI" />
+      <variable citdl="int" name="EAI_AGAIN" />
+      <variable citdl="int" name="EAI_BADFLAGS" />
+      <variable citdl="int" name="EAI_FAIL" />
+      <variable citdl="int" name="EAI_FAMILY" />
+      <variable citdl="int" name="EAI_MEMORY" />
+      <variable citdl="int" name="EAI_NODATA" />
+      <variable citdl="int" name="EAI_NONAME" />
+      <variable citdl="int" name="EAI_SERVICE" />
+      <variable citdl="int" name="EAI_SOCKTYPE" />
+      <variable citdl="int" line="93" name="EBADF" />
+      <variable citdl="int" line="94" name="EINTR" />
+      <variable citdl="int" name="INADDR_ALLHOSTS_GROUP" />
+      <variable citdl="int" name="INADDR_ANY" />
+      <variable citdl="int" name="INADDR_BROADCAST" />
+      <variable citdl="int" name="INADDR_LOOPBACK" />
+      <variable citdl="int" name="INADDR_MAX_LOCAL_GROUP" />
+      <variable citdl="int" name="INADDR_NONE" />
+      <variable citdl="int" name="INADDR_UNSPEC_GROUP" />
+      <variable citdl="int" name="IPPORT_RESERVED" />
+      <variable citdl="int" name="IPPORT_USERRESERVED" />
+      <variable citdl="int" name="IPPROTO_ICMP" />
+      <variable citdl="int" name="IPPROTO_IP" />
+      <variable citdl="int" name="IPPROTO_RAW" />
+      <variable citdl="int" name="IPPROTO_TCP" />
+      <variable citdl="int" name="IPPROTO_UDP" />
+      <variable citdl="int" name="IPV6_CHECKSUM" />
+      <variable citdl="int" name="IPV6_DONTFRAG" />
+      <variable citdl="int" name="IPV6_HOPLIMIT" />
+      <variable citdl="int" name="IPV6_HOPOPTS" />
+      <variable citdl="int" name="IPV6_JOIN_GROUP" />
+      <variable citdl="int" name="IPV6_LEAVE_GROUP" />
+      <variable citdl="int" name="IPV6_MULTICAST_HOPS" />
+      <variable citdl="int" name="IPV6_MULTICAST_IF" />
+      <variable citdl="int" name="IPV6_MULTICAST_LOOP" />
+      <variable citdl="int" name="IPV6_PKTINFO" />
+      <variable citdl="int" name="IPV6_RECVRTHDR" />
+      <variable citdl="int" name="IPV6_RTHDR" />
+      <variable citdl="int" name="IPV6_UNICAST_HOPS" />
+      <variable citdl="int" name="IPV6_V6ONLY" />
+      <variable citdl="int" name="IP_ADD_MEMBERSHIP" />
+      <variable citdl="int" name="IP_DROP_MEMBERSHIP" />
+      <variable citdl="int" name="IP_HDRINCL" />
+      <variable citdl="int" name="IP_MULTICAST_IF" />
+      <variable citdl="int" name="IP_MULTICAST_LOOP" />
+      <variable citdl="int" name="IP_MULTICAST_TTL" />
+      <variable citdl="int" name="IP_OPTIONS" />
+      <variable citdl="int" name="IP_RECVDSTADDR" />
+      <variable citdl="int" name="IP_TOS" />
+      <variable citdl="int" name="IP_TTL" />
+      <variable citdl="int" name="MSG_CTRUNC" />
+      <variable citdl="int" name="MSG_DONTROUTE" />
+      <variable citdl="int" name="MSG_OOB" />
+      <variable citdl="int" name="MSG_PEEK" />
+      <variable citdl="int" name="MSG_TRUNC" />
+      <scope classrefs="object" doc="instancemethod(function, instance, class)&#10;Create an instance method object." ilk="class" name="MethodType">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+      </scope>
+      <variable citdl="int" name="NI_DGRAM" />
+      <variable citdl="int" name="NI_MAXHOST" />
+      <variable citdl="int" name="NI_MAXSERV" />
+      <variable citdl="int" name="NI_NAMEREQD" />
+      <variable citdl="int" name="NI_NOFQDN" />
+      <variable citdl="int" name="NI_NUMERICHOST" />
+      <variable citdl="int" name="NI_NUMERICSERV" />
+      <scope doc="Mix string into the OpenSSL PRNG state." ilk="function" name="RAND_add" signature="RAND_add(string, entropy)" />
+      <scope doc="Queries the entropy gather daemon (EGD) on the socket named&#10;by 'path'." ilk="function" name="RAND_egd" signature="RAND_egd(path) -&gt; bytes" />
+      <scope doc="Returns 1 if the OpenSSL PRNG has been seeded with enough&#10;data and 0 if not." ilk="function" name="RAND_status" signature="RAND_status() -&gt; 0 or 1" />
+      <variable citdl="int" name="RCVALL_MAX" />
+      <variable citdl="int" name="RCVALL_OFF" />
+      <variable citdl="int" name="RCVALL_ON" />
+      <variable citdl="int" name="RCVALL_SOCKETLEVELONLY" />
+      <variable citdl="int" name="SHUT_RD" />
+      <variable citdl="int" name="SHUT_RDWR" />
+      <variable citdl="int" name="SHUT_WR" />
+      <variable citdl="long" name="SIO_KEEPALIVE_VALS" />
+      <variable citdl="long" name="SIO_RCVALL" />
+      <variable citdl="int" name="SOCK_DGRAM" />
+      <variable citdl="int" name="SOCK_RAW" />
+      <variable citdl="int" name="SOCK_RDM" />
+      <variable citdl="int" name="SOCK_SEQPACKET" />
+      <variable citdl="int" name="SOCK_STREAM" />
+      <variable citdl="int" name="SOL_IP" />
+      <variable citdl="int" name="SOL_SOCKET" />
+      <variable citdl="int" name="SOL_TCP" />
+      <variable citdl="int" name="SOL_UDP" />
+      <variable citdl="int" name="SOMAXCONN" />
+      <variable citdl="int" name="SO_ACCEPTCONN" />
+      <variable citdl="int" name="SO_BROADCAST" />
+      <variable citdl="int" name="SO_DEBUG" />
+      <variable citdl="int" name="SO_DONTROUTE" />
+      <variable citdl="int" name="SO_ERROR" />
+      <variable citdl="int" name="SO_EXCLUSIVEADDRUSE" />
+      <variable citdl="int" name="SO_KEEPALIVE" />
+      <variable citdl="int" name="SO_LINGER" />
+      <variable citdl="int" name="SO_OOBINLINE" />
+      <variable citdl="int" name="SO_RCVBUF" />
+      <variable citdl="int" name="SO_RCVLOWAT" />
+      <variable citdl="int" name="SO_RCVTIMEO" />
+      <variable citdl="int" name="SO_REUSEADDR" />
+      <variable citdl="int" name="SO_SNDBUF" />
+      <variable citdl="int" name="SO_SNDLOWAT" />
+      <variable citdl="int" name="SO_SNDTIMEO" />
+      <variable citdl="int" name="SO_TYPE" />
+      <variable citdl="int" name="SO_USELOOPBACK" />
+      <variable citdl="int" name="SSL_ERROR_EOF" />
+      <variable citdl="int" name="SSL_ERROR_INVALID_ERROR_CODE" />
+      <variable citdl="int" name="SSL_ERROR_SSL" />
+      <variable citdl="int" name="SSL_ERROR_SYSCALL" />
+      <variable citdl="int" name="SSL_ERROR_WANT_CONNECT" />
+      <variable citdl="int" name="SSL_ERROR_WANT_READ" />
+      <variable citdl="int" name="SSL_ERROR_WANT_WRITE" />
+      <variable citdl="int" name="SSL_ERROR_WANT_X509_LOOKUP" />
+      <variable citdl="int" name="SSL_ERROR_ZERO_RETURN" />
+      <scope classrefs="object" doc="socket([family[, type[, proto]]]) -&gt; socket object&#10;Open a socket of the given type.  The family argument specifies the address family; it defaults to AF_INET.  The type argument specifies whether this is a stream (SOCK_STREAM, this is the default) or datagram (SOCK_DGRAM) socket.  The protocol argument defaults to 0, specifying the default protocol.  Keyword arguments are accepted.  A socket object represents one endpoint of a network connection.  Methods of socket objects (keyword arguments not allowed): " ilk="class" name="SocketType">
+        <scope doc="Shut down the reading side of the socket (flag == SHUT_RD),&#10;the writing side of the socket (flag == SHUT_WR), or both&#10;ends (flag == SHUT_RDWR)." ilk="function" name="shutdown" signature="shutdown(flag)" />
+        <scope doc="Returns the timeout in floating seconds associated with&#10;socket operations." ilk="function" name="gettimeout" signature="gettimeout() -&gt; timeout" />
+        <scope doc="Wait for an incoming connection." ilk="function" name="accept" signature="accept() -&gt; (socket object, address info)" />
+        <scope doc="Connect the socket to a remote address." ilk="function" name="connect" signature="connect(address)" />
+        <scope doc="Return the address of the local endpoint." ilk="function" name="getsockname" signature="getsockname() -&gt; address info" />
+        <scope doc="Close the socket. It cannot be used after this call." ilk="function" name="close" signature="close()" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Get a socket option." ilk="function" name="getsockopt" signature="getsockopt(level, option[, buffersize]) -&gt; value" />
+        <scope doc="This is like connect(address), but returns an error code&#10;(the errno value) instead of raising an exception when an&#10;error occurs." ilk="function" name="connect_ex" signature="connect_ex(address) -&gt; errno" />
+        <scope doc="Return a regular file object corresponding to the socket." ilk="function" name="makefile" returns="file" signature="makefile([mode[, bufsize]]) -&gt; file object" />
+        <scope doc="Enable a server to accept connections." ilk="function" name="listen" signature="listen(backlog)" />
+        <scope doc="Set a socket option." ilk="function" name="setsockopt" signature="setsockopt(level, option, value)" />
+        <scope doc="Return a new socket object connected to the same system&#10;resource." ilk="function" name="dup" signature="dup() -&gt; socket object" />
+        <scope doc="Control the socket with WSAIoctl syscall." ilk="function" name="ioctl" returns="long" signature="ioctl(cmd, option) -&gt; long" />
+        <scope doc="Return the address of the remote endpoint." ilk="function" name="getpeername" signature="getpeername() -&gt; address info" />
+        <scope doc="Set the socket to blocking (flag is true) or non-blocking&#10;(false)." ilk="function" name="setblocking" signature="setblocking(flag)" />
+        <scope doc="Return the integer file descriptor of the socket." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; integer" />
+        <scope doc="Bind the socket to a local address." ilk="function" name="bind" signature="bind(address)" />
+        <scope doc="Send a data string to the socket." ilk="function" name="sendall" signature="sendall(data[, flags])" />
+        <scope doc="Set a timeout on socket operations." ilk="function" name="settimeout" signature="settimeout(timeout)" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="int" name="TCP_MAXSEG" />
+      <variable citdl="int" name="TCP_NODELAY" />
+      <variable citdl="list" line="96" name="__all__" />
+      <import module="_socket" />
+      <import module="_ssl" />
+      <scope doc="Connect to *address* and return the socket object." ilk="function" line="537" lineend="573" name="create_connection" returns="socket()" signature="create_connection(address, timeout=&lt;object object at 0x02BA2050&gt;, source_address=None)">
+        <variable citdl="socket()" line="555" name="sock" />
+        <variable ilk="argument" name="source_address" />
+        <variable citdl="_" line="552" name="err" />
+        <variable citdl="object()" ilk="argument" name="timeout" />
+        <variable ilk="argument" name="address" />
+      </scope>
+      <import module="errno" />
+      <scope classrefs="IOError" doc="&#10;" ilk="class" name="error" />
+      <variable citdl="dict" line="104" name="errorTab" />
+      <scope classrefs="error" doc="&#10;" ilk="class" name="gaierror" />
+      <scope doc="-&gt; list of (family, socktype, proto, canonname, sockaddr)" ilk="function" name="getaddrinfo" signature="getaddrinfo(host, port [, family, socktype, proto, flags])" />
+      <scope doc="Returns the default timeout in floating seconds for new&#10;socket objects." ilk="function" name="getdefaulttimeout" signature="getdefaulttimeout() -&gt; timeout" />
+      <scope doc="Get fully qualified domain name from name." ilk="function" line="124" lineend="147" name="getfqdn" returns="str" signature="getfqdn(name='')">
+        <variable line="137" name="ipaddrs" />
+        <variable line="137" name="hostname" />
+        <variable citdl="gethostname()" ilk="argument" name="name" />
+        <variable line="137" name="aliases" />
+      </scope>
+      <scope doc="Return the true host name, a list of aliases, and a list of&#10;IP addresses, for a host." ilk="function" name="gethostbyaddr" signature="gethostbyaddr(host) -&gt; (name, aliaslist, addresslist)" />
+      <scope doc="Return the IP address (a string of the form&#10;'255.255.255.255') for a host." ilk="function" name="gethostbyname" signature="gethostbyname(host) -&gt; address" />
+      <scope doc="Return the true host name, a list of aliases, and a list of&#10;IP addresses, for a host." ilk="function" name="gethostbyname_ex" signature="gethostbyname_ex(host) -&gt; (name, aliaslist, addresslist)" />
+      <scope doc="Return the current host name." ilk="function" name="gethostname" returns="str" signature="gethostname() -&gt; string" />
+      <scope doc="Get host and port for a sockaddr." ilk="function" name="getnameinfo" signature="getnameinfo(sockaddr, flags) --&gt; (host, port)" />
+      <scope doc="Return the protocol number for the named protocol." ilk="function" name="getprotobyname" returns="int" signature="getprotobyname(name) -&gt; integer" />
+      <scope doc="Return a port number from a service name and protocol name." ilk="function" name="getservbyname" returns="int" signature="getservbyname(servicename[, protocolname]) -&gt; integer" />
+      <scope doc="Return the service name from a port number and protocol&#10;name." ilk="function" name="getservbyport" returns="str" signature="getservbyport(port[, protocolname]) -&gt; string" />
+      <variable citdl="bool" name="has_ipv6" />
+      <scope classrefs="error" doc="&#10;" ilk="class" name="herror" />
+      <scope doc="Convert a 32-bit integer from host to network byte order." ilk="function" name="htonl" returns="int" signature="htonl(integer) -&gt; integer" />
+      <scope doc="Convert a 16-bit integer from host to network byte order." ilk="function" name="htons" returns="int" signature="htons(integer) -&gt; integer" />
+      <scope doc="Convert an IP address in string format (123.45.67.89) to the&#10;32-bit packed binary format used in low-level network&#10;functions." ilk="function" name="inet_aton" signature="inet_aton(string) -&gt; packed 32-bit IP representation" />
+      <scope doc="Convert an IP address from 32-bit packed binary format to&#10;string format" ilk="function" name="inet_ntoa" signature="inet_ntoa(packed_ip) -&gt; ip_address_string" />
+      <scope doc="Control the socket with WSAIoctl syscall." ilk="function" line="230" name="m" returns="long" signature="ioctl(cmd, option) -&gt; long" />
+      <scope ilk="function" line="223" lineend="224" name="meth" returns="getattr()()" signature="meth(name, self, *args)">
+        <variable ilk="argument" name="self" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="Convert a 32-bit integer from network to host byte order." ilk="function" name="ntohl" returns="int" signature="ntohl(integer) -&gt; integer" />
+      <scope doc="Convert a 16-bit integer from network to host byte order." ilk="function" name="ntohs" returns="int" signature="ntohs(integer) -&gt; integer" />
+      <import module="os" />
+      <variable citdl="partial" line="227" name="p" />
+      <scope classrefs="object" doc="partial(func, *args, **keywords) - new function with partial application&#10;of the given arguments and keywords." ilk="class" name="partial">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope ilk="function" name="__setstate__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+      </scope>
+      <scope doc="Set the default timeout in floating seconds for new socket&#10;objects." ilk="function" name="setdefaulttimeout" signature="setdefaulttimeout(timeout)" />
+      <scope classrefs="object" doc="socket([family[, type[, proto]]]) -&gt; socket object&#10;Open a socket of the given type.  The family argument specifies the address family; it defaults to AF_INET.  The type argument specifies whether this is a stream (SOCK_STREAM, this is the default) or datagram (SOCK_DGRAM) socket.  The protocol argument defaults to 0, specifying the default protocol.  Keyword arguments are accepted.  A socket object represents one endpoint of a network connection.  Methods of socket objects (keyword arguments not allowed): " ilk="class" line="233" name="socket">
+        <scope doc="Shut down the reading side of the socket (flag == SHUT_RD),&#10;the writing side of the socket (flag == SHUT_WR), or both&#10;ends (flag == SHUT_RDWR)." ilk="function" name="shutdown" signature="shutdown(flag)" />
+        <scope doc="Returns the timeout in floating seconds associated with&#10;socket operations." ilk="function" name="gettimeout" signature="gettimeout() -&gt; timeout" />
+        <scope doc="Wait for an incoming connection." ilk="function" name="accept" signature="accept() -&gt; (socket object, address info)" />
+        <scope doc="Connect the socket to a remote address." ilk="function" name="connect" signature="connect(address)" />
+        <scope doc="Return the address of the local endpoint." ilk="function" name="getsockname" signature="getsockname() -&gt; address info" />
+        <scope doc="Close the socket. It cannot be used after this call." ilk="function" name="close" signature="close()" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Get a socket option." ilk="function" name="getsockopt" signature="getsockopt(level, option[, buffersize]) -&gt; value" />
+        <scope doc="This is like connect(address), but returns an error code&#10;(the errno value) instead of raising an exception when an&#10;error occurs." ilk="function" name="connect_ex" signature="connect_ex(address) -&gt; errno" />
+        <scope doc="Return a regular file object corresponding to the socket." ilk="function" name="makefile" returns="file" signature="makefile([mode[, bufsize]]) -&gt; file object" />
+        <scope doc="Enable a server to accept connections." ilk="function" name="listen" signature="listen(backlog)" />
+        <scope doc="Set a socket option." ilk="function" name="setsockopt" signature="setsockopt(level, option, value)" />
+        <scope doc="Return a new socket object connected to the same system&#10;resource." ilk="function" name="dup" signature="dup() -&gt; socket object" />
+        <scope doc="Control the socket with WSAIoctl syscall." ilk="function" name="ioctl" returns="long" signature="ioctl(cmd, option) -&gt; long" />
+        <scope doc="Return the address of the remote endpoint." ilk="function" name="getpeername" signature="getpeername() -&gt; address info" />
+        <scope doc="Set the socket to blocking (flag is true) or non-blocking&#10;(false)." ilk="function" name="setblocking" signature="setblocking(flag)" />
+        <scope doc="Return the integer file descriptor of the socket." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; integer" />
+        <scope doc="Bind the socket to a local address." ilk="function" name="bind" signature="bind(address)" />
+        <scope doc="Send a data string to the socket." ilk="function" name="sendall" signature="sendall(data[, flags])" />
+        <scope doc="Set a timeout on socket operations." ilk="function" name="settimeout" signature="settimeout(timeout)" />
+      </scope>
+      <scope ilk="function" line="58" lineend="64" name="ssl" returns="_realssl.sslwrap_simple()" signature="ssl(sock, keyfile=None, certfile=None)">
+        <variable ilk="argument" name="keyfile" />
+        <variable ilk="argument" name="certfile" />
+        <variable ilk="argument" name="sock" />
+      </scope>
+      <scope classrefs="error" doc="&#10;" ilk="class" name="sslerror" />
+      <import module="sys" />
+      <scope classrefs="error" doc="&#10;" ilk="class" name="timeout" />
+      <import module="warnings" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="150" name="_socketmethods" />
+      <variable attributes="__hidden__" line="92" name="errno" />
+      <scope attributes="protected __hidden__" classrefs="object" doc="Faux file object attached to a socket object." ilk="class" line="235" lineend="533" name="_fileobject">
+        <variable citdl="int" line="238" name="default_bufsize" />
+        <variable citdl="str" line="239" name="name" />
+        <variable citdl="list" line="241" name="__slots__" />
+        <scope attributes="__ctor__" ilk="function" line="246" lineend="270" name="__init__" signature="_fileobject(sock, mode='rb', bufsize=-1, close=False)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable citdl="False" ilk="argument" name="close" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="247" name="_sock" />
+        <variable attributes="__instancevar__" citdl="str" line="248" name="mode" />
+        <variable attributes="__instancevar__" citdl="int" line="251" name="bufsize" />
+        <variable attributes="__instancevar__" citdl="False" line="252" name="softspace" />
+        <variable attributes="protected __instancevar__" citdl="int" line="257" name="_rbufsize" />
+        <variable attributes="protected __instancevar__" citdl="int" line="262" name="_wbufsize" />
+        <variable attributes="protected __instancevar__" citdl="StringIO()" line="267" name="_rbuf" />
+        <variable attributes="protected __instancevar__" citdl="list" line="268" name="_wbuf" />
+        <variable attributes="protected __instancevar__" citdl="int" line="269" name="_wbuf_len" />
+        <variable attributes="protected __instancevar__" citdl="False" line="270" name="_close" />
+        <scope attributes="protected" ilk="function" line="272" lineend="273" name="_getclosed" returns="bool" signature="_getclosed()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="property()" line="274" name="closed" />
+        <scope ilk="function" line="276" lineend="283" name="close" signature="close()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="285" lineend="290" name="__del__" signature="__del__()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="292" lineend="310" name="flush" signature="flush()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="str.join()" line="294" name="data" />
+          <variable citdl="max()" line="297" name="buffer_size" />
+          <variable citdl="len()" line="298" name="data_size" />
+          <variable citdl="int" line="299" name="write_offset" />
+          <variable citdl="memoryview()" line="300" name="view" />
+          <variable citdl="list" line="307" name="remainder" />
+        </scope>
+        <scope ilk="function" line="312" lineend="313" name="fileno" returns="self._sock.fileno()" signature="fileno()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="315" lineend="324" name="write" signature="write(data)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="str()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="326" lineend="334" name="writelines" signature="writelines(list)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="filter()" line="329" name="lines" />
+        </scope>
+        <scope ilk="function" line="336" lineend="404" name="read" returns="buf.getvalue()" signature="read(size=-1)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="size" />
+          <variable citdl="max()" line="340" name="rbufsize" />
+          <variable citdl="StringIO()" line="344" name="buf" />
+          <variable citdl="self._sock.recv()" line="351" name="data" />
+          <variable citdl="buf.tell()" line="362" name="buf_len" />
+          <variable citdl="buf.read()" line="366" name="rv" />
+          <variable citdl="buf.tell()" line="373" name="left" />
+          <variable citdl="len()" line="387" name="n" />
+        </scope>
+        <scope ilk="function" line="406" lineend="509" name="readline" returns="str.join()" signature="readline(size=-1)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="size" />
+          <variable citdl="StringIO()" line="407" name="buf" />
+          <variable citdl="buf.readline()" line="412" name="bline" />
+          <variable citdl="list" line="423" name="buffers" />
+          <variable citdl="self._sock.recv()" line="425" name="data" />
+          <variable citdl="self._sock.recv" line="426" name="recv" />
+          <variable citdl="data.find()" line="454" name="nl" />
+          <variable citdl="buf.tell()" line="466" name="buf_len" />
+          <variable citdl="buf.read()" line="469" name="rv" />
+          <variable citdl="buf.tell()" line="483" name="left" />
+          <variable citdl="len()" line="497" name="n" />
+        </scope>
+        <scope ilk="function" line="511" lineend="522" name="readlines" returns="list" signature="readlines(sizehint=0)">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="sizehint" />
+          <variable citdl="int" line="512" name="total" />
+          <variable citdl="list" line="513" name="list" />
+          <variable citdl="readline()" line="515" name="line" />
+        </scope>
+        <scope ilk="function" line="526" lineend="527" name="__iter__" returns="_fileobject" signature="__iter__()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="529" lineend="533" name="next" returns="readline()" signature="next()">
+          <variable citdl="_fileobject" ilk="argument" name="self" />
+          <variable citdl="readline()" line="530" name="line" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="179" lineend="221" name="_socketobject">
+        <variable citdl="_realsocket.__doc__" line="181" name="__doc__" />
+        <variable citdl="list()" line="183" name="__slots__" />
+        <scope attributes="__ctor__" ilk="function" line="185" lineend="190" name="__init__" signature="_socketobject(family=AF_INET, type=SOCK_STREAM, proto=0, _sock=None)">
+          <variable citdl="_socketobject" ilk="argument" name="self" />
+          <variable citdl="AF_INET" ilk="argument" name="family" />
+          <variable citdl="SOCK_STREAM" ilk="argument" name="type" />
+          <variable citdl="int" ilk="argument" name="proto" />
+          <variable citdl="_realsocket()" ilk="argument" name="_sock" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="_realsocket()" line="188" name="_sock" />
+        <scope ilk="function" line="192" lineend="198" name="close" signature="close(_closedsocket=_closedsocket, _delegate_methods=_delegate_methods, setattr=setattr)">
+          <variable citdl="_socketobject" ilk="argument" name="self" />
+          <variable citdl="_closedsocket" ilk="argument" name="_closedsocket" />
+          <variable citdl="tuple" ilk="argument" name="_delegate_methods" />
+          <variable citdl="setattr" ilk="argument" name="setattr" />
+          <variable citdl="self._sock._dummy" line="196" name="dummy" />
+          <variable citdl="_realsocket.close.__doc__" line="199" name="__doc__" />
+        </scope>
+        <scope ilk="function" line="201" lineend="203" name="accept" returns="tuple" signature="accept()">
+          <variable citdl="_socketobject" ilk="argument" name="self" />
+          <variable line="202" name="sock" />
+          <variable line="202" name="addr" />
+          <variable citdl="_realsocket.accept.__doc__" line="204" name="__doc__" />
+        </scope>
+        <scope doc="Return a new socket object connected to the same system&#10;resource." ilk="function" line="206" lineend="210" name="dup" returns="_socketobject" signature="dup() -&gt; socket object">
+          <variable citdl="_socketobject" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a regular file object corresponding to the socket." ilk="function" line="212" lineend="217" name="makefile" returns="_fileobject()" signature="makefile([mode[, bufsize]]) -&gt; file object">
+          <variable citdl="_socketobject" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+        </scope>
+        <variable citdl="property()" line="219" name="family" />
+        <variable citdl="property()" line="220" name="type" />
+        <variable citdl="property()" line="221" name="proto" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="167" lineend="173" name="_closedsocket">
+        <variable citdl="list" line="168" name="__slots__" />
+        <scope attributes="protected" ilk="function" line="169" lineend="170" name="_dummy" signature="_dummy()">
+          <variable attributes="varargs" citdl="_closedsocket" ilk="argument" name="args" />
+        </scope>
+        <variable citdl="_closedsocket._dummy" line="172" name="send" />
+        <variable citdl="_closedsocket._dummy" line="173" name="__getattr__" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="object()" line="535" name="_GLOBAL_DEFAULT_TIMEOUT" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="164" name="_delegate_methods" />
+      <variable attributes="protected __hidden__" citdl="socket" line="100" name="_realsocket" />
+      <variable citdl="int" name="PACKET_OTHERHOST" />
+      <variable citdl="int" name="NETLINK_IP6_FW" />
+      <variable citdl="int" name="NETLINK_ROUTE" />
+      <variable citdl="int" name="TCP_DEFER_ACCEPT" />
+      <variable citdl="int" name="TCP_QUICKACK" />
+      <variable citdl="int" name="TIPC_CFG_SRV" />
+      <variable citdl="int" name="IPPROTO_IPIP" />
+      <variable citdl="int" name="IPV6_DSTOPTS" />
+      <variable citdl="int" name="TCP_SYNCNT" />
+      <variable citdl="int" name="IPPROTO_FRAGMENT" />
+      <scope doc="Convert a packed IP address of the given family to string&#10;format." ilk="function" name="inet_ntop" returns="str" signature="inet_ntop(af, packed_ip) -&gt; string formatted IP address" />
+      <variable citdl="int" name="IPPROTO_RSVP" />
+      <variable citdl="int" name="TIPC_DEST_DROPPABLE" />
+      <variable citdl="int" name="SOL_TIPC" />
+      <variable citdl="int" name="TCP_KEEPINTVL" />
+      <variable citdl="int" name="IPPROTO_AH" />
+      <variable citdl="int" name="IP_MAX_MEMBERSHIPS" />
+      <variable citdl="int" name="IPV6_RTHDR_TYPE_0" />
+      <variable citdl="int" name="AF_PACKET" />
+      <variable citdl="int" name="AF_SECURITY" />
+      <variable citdl="int" name="TIPC_MEDIUM_IMPORTANCE" />
+      <variable citdl="int" name="TIPC_TOP_SRV" />
+      <variable citdl="int" name="IP_RECVOPTS" />
+      <variable citdl="int" name="NETLINK_XFRM" />
+      <variable citdl="int" name="TIPC_ADDR_NAMESEQ" />
+      <variable citdl="int" name="NETLINK_FIREWALL" />
+      <variable citdl="int" name="TIPC_HIGH_IMPORTANCE" />
+      <variable citdl="int" name="TIPC_WITHDRAWN" />
+      <variable citdl="int" name="PF_PACKET" />
+      <variable citdl="int" name="IPV6_RECVPKTINFO" />
+      <variable citdl="int" name="AF_ATMPVC" />
+      <variable citdl="int" name="IPPROTO_PUP" />
+      <variable citdl="int" name="EAI_ADDRFAMILY" />
+      <variable citdl="int" name="TIPC_SUB_PORTS" />
+      <variable citdl="int" name="PACKET_LOOPBACK" />
+      <variable citdl="int" name="IPPROTO_ROUTING" />
+      <variable citdl="int" name="IPPROTO_TP" />
+      <variable citdl="int" name="IPPROTO_ICMPV6" />
+      <variable citdl="int" name="TIPC_ADDR_ID" />
+      <scope doc="Create a pair of socket objects from the sockets returned by&#10;the platform socketpair() function." ilk="function" name="socketpair" signature="socketpair([family[, type[, proto]]]) -&gt; (socket object, socket object)" />
+      <variable citdl="int" name="AF_KEY" />
+      <variable citdl="int" name="IPV6_RTHDRDSTOPTS" />
+      <variable citdl="int" name="IPPROTO_IGMP" />
+      <variable citdl="int" name="IP_RECVRETOPTS" />
+      <variable citdl="int" name="NETLINK_USERSOCK" />
+      <variable citdl="int" name="TCP_CORK" />
+      <variable citdl="int" name="PACKET_HOST" />
+      <variable citdl="int" name="IP_DEFAULT_MULTICAST_TTL" />
+      <variable citdl="int" name="TIPC_NODE_SCOPE" />
+      <variable citdl="int" name="IPPROTO_ESP" />
+      <variable citdl="int" name="IPPROTO_IPV6" />
+      <variable citdl="int" name="IPV6_RECVDSTOPTS" />
+      <variable citdl="int" name="AF_ATMSVC" />
+      <variable citdl="int" name="TCP_LINGER2" />
+      <variable citdl="int" name="TCP_INFO" />
+      <variable citdl="int" name="MSG_WAITALL" />
+      <variable citdl="int" name="TIPC_CONN_TIMEOUT" />
+      <scope doc="Create a socket object from a duplicate of the given file&#10;descriptor." ilk="function" name="fromfd" signature="fromfd(fd, family, type[, proto]) -&gt; socket object" />
+      <variable citdl="int" name="TIPC_LOW_IMPORTANCE" />
+      <variable citdl="int" name="IPPROTO_DSTOPTS" />
+      <variable citdl="int" name="AF_TIPC" />
+      <variable citdl="int" name="PACKET_FASTROUTE" />
+      <variable citdl="int" name="IPPROTO_GRE" />
+      <variable citdl="int" name="PACKET_BROADCAST" />
+      <variable citdl="int" name="TIPC_SUB_CANCEL" />
+      <variable citdl="int" name="IPPROTO_HOPOPTS" />
+      <variable citdl="int" name="AF_ECONET" />
+      <variable citdl="int" name="AF_ROUTE" />
+      <variable citdl="int" name="AF_NETBEUI" />
+      <variable citdl="int" name="IPPROTO_IDP" />
+      <variable citdl="int" name="AF_UNIX" />
+      <variable citdl="int" name="AF_WANPIPE" />
+      <variable citdl="int" name="TIPC_CLUSTER_SCOPE" />
+      <variable citdl="int" name="TIPC_SUB_SERVICE" />
+      <variable citdl="int" name="IPPROTO_EGP" />
+      <variable citdl="int" name="TIPC_IMPORTANCE" />
+      <variable citdl="int" name="IPV6_RECVHOPOPTS" />
+      <variable citdl="int" name="NETLINK_NFLOG" />
+      <variable citdl="int" name="IPV6_NEXTHOP" />
+      <variable citdl="int" name="EAI_SYSTEM" />
+      <variable citdl="int" name="TIPC_CRITICAL_IMPORTANCE" />
+      <variable citdl="int" name="IP_RETOPTS" />
+      <variable citdl="int" name="TIPC_ADDR_NAME" />
+      <variable citdl="int" name="TCP_KEEPCNT" />
+      <variable citdl="int" name="TIPC_SUBSCR_TIMEOUT" />
+      <variable citdl="int" name="AF_X25" />
+      <variable citdl="int" name="AF_ROSE" />
+      <variable citdl="int" name="IP_DEFAULT_MULTICAST_LOOP" />
+      <variable citdl="int" name="AF_AX25" />
+      <scope doc="Convert an IP address from string format to a packed string&#10;suitable for use with low-level network functions." ilk="function" name="inet_pton" signature="inet_pton(af, ip) -&gt; packed IP address string" />
+      <variable citdl="int" name="AF_NETROM" />
+      <variable citdl="int" name="MSG_DONTWAIT" />
+      <variable citdl="int" name="IPV6_RECVHOPLIMIT" />
+      <variable citdl="int" name="AF_NETLINK" />
+      <variable citdl="int" name="AF_LLC" />
+      <variable citdl="int" name="EAI_OVERFLOW" />
+      <variable citdl="int" name="AF_PPPOX" />
+      <variable citdl="int" name="AF_BRIDGE" />
+      <variable citdl="int" name="TIPC_PUBLISHED" />
+      <variable citdl="int" name="TIPC_SRC_DROPPABLE" />
+      <variable citdl="int" name="PACKET_MULTICAST" />
+      <variable citdl="int" name="IPV6_TCLASS" />
+      <variable citdl="int" name="AF_ASH" />
+      <variable citdl="int" name="TCP_KEEPIDLE" />
+      <variable citdl="int" name="TIPC_ZONE_SCOPE" />
+      <variable citdl="int" name="IPV6_RECVTCLASS" />
+      <variable citdl="int" name="TIPC_WAIT_FOREVER" />
+      <variable citdl="int" name="IPPROTO_PIM" />
+      <variable citdl="int" name="IPPROTO_NONE" />
+      <variable citdl="int" name="TCP_WINDOW_CLAMP" />
+      <variable citdl="int" name="MSG_EOR" />
+      <variable citdl="int" name="PACKET_OUTGOING" />
+      <variable citdl="int" name="NETLINK_DNRTMSG" />
+      <variable citdl="int" name="IPPROTO_IPCOMP" />
+      <variable citdl="int" name="IPPROTO_IPV4" />
+      <variable citdl="int" name="IPPROTO_ND" />
+      <variable citdl="int" name="EAI_BADHINTS" />
+      <variable citdl="int" name="EAI_PROTOCOL" />
+      <variable citdl="int" name="IPPROTO_GGP" />
+      <variable citdl="int" name="SO_REUSEPORT" />
+      <variable citdl="int" name="IPPROTO_HELLO" />
+      <variable citdl="int" name="IPPROTO_XTP" />
+      <variable citdl="int" name="AI_V4MAPPED_CFG" />
+      <variable citdl="int" name="IPPROTO_MAX" />
+      <variable citdl="int" name="AI_DEFAULT" />
+      <variable citdl="int" name="IPPROTO_EON" />
+      <variable citdl="int" name="AI_MASK" />
+      <variable citdl="int" name="EAI_MAX" />
+    </scope>
+    

@@ -1,0 +1,68 @@
+<scope doc="A simple log mechanism styled after PEP 282.&#10;" ilk="blob" lang="Python" name="distutils.log">
+      <variable citdl="int" line="6" name="DEBUG" />
+      <variable citdl="int" line="9" name="ERROR" />
+      <variable citdl="int" line="10" name="FATAL" />
+      <variable citdl="int" line="7" name="INFO" />
+      <scope doc="&#10;" ilk="class" line="14" lineend="49" name="Log">
+        <scope ilk="function" line="39" lineend="40" name="info" signature="info(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="33" lineend="34" name="log" signature="log(level, msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="45" lineend="46" name="error" signature="error(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="42" lineend="43" name="warn" signature="warn(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="19" lineend="31" name="_log" signature="_log(level, msg, args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="sys.stderr" line="27" name="stream" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="36" lineend="37" name="debug" signature="debug(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="48" lineend="49" name="fatal" signature="fatal(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Log" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="16" lineend="17" name="__init__" signature="Log(threshold=WARN)">
+          <variable citdl="int" ilk="argument" name="threshold" />
+          <variable citdl="Log" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="17" name="threshold" />
+      </scope>
+      <variable citdl="int" line="8" name="WARN" />
+      <scope ilk="function" line="53" name="debug" />
+      <scope ilk="function" line="56" name="error" />
+      <scope ilk="function" line="57" name="fatal" />
+      <scope ilk="function" line="54" name="info" />
+      <scope ilk="function" line="52" name="log" />
+      <scope ilk="function" line="59" lineend="63" name="set_threshold" returns="_global_log.threshold" signature="set_threshold(level)">
+        <variable citdl="_global_log.threshold" line="61" name="old" />
+        <variable ilk="argument" name="level" />
+      </scope>
+      <scope ilk="function" line="65" lineend="71" name="set_verbosity" signature="set_verbosity(v)">
+        <variable ilk="argument" name="v" />
+      </scope>
+      <import module="sys" />
+      <scope ilk="function" line="55" name="warn" />
+      <variable attributes="protected __hidden__" citdl="Log" line="51" name="_global_log" />
+    </scope>
+    

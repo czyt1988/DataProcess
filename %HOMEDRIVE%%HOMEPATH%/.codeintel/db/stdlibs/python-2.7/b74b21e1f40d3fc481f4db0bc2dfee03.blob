@@ -1,0 +1,96 @@
+<scope doc="# Tkinter font wrapper&#10;# # written by Fredrik Lundh, February 1998 # # FIXME: should add 'displayof' option where relevant (actual, families, #        measure, and metrics) #" ilk="blob" lang="Python" name="tkFont">
+      <variable citdl="str" line="16" name="BOLD" />
+      <scope doc="Represents a named font.&#10;Constructor options are:  font -- font specifier (name, system font, or (family, size, style)-tuple) name -- name to use for this font configuration (defaults to a unique name) exists -- does a named font by this name already exist? Creates a new named font if False, points to the existing font if True. Raises _Tkinter.TclError if the assertion is false.  the following are ignored if font is specified: " ilk="class" line="24" lineend="164" name="Font">
+        <scope doc="Get font attribute" ilk="function" line="129" lineend="131" name="cget" returns="Font._call()" signature="cget(option)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Return actual font attributes" ilk="function" line="120" lineend="126" name="actual" returns="Font._call()" signature="actual(option=None)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Modify font attributes" ilk="function" line="143" name="configure" />
+        <scope ilk="function" line="101" lineend="102" name="__getitem__" returns="self.cget()" signature="__getitem__(key)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="107" lineend="114" name="__del__" signature="__del__()">
+          <variable citdl="Font" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Modify font attributes" ilk="function" line="133" lineend="140" name="config" returns="Font._mkdict()" signature="config(**options)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="options" />
+        </scope>
+        <scope ilk="function" line="95" lineend="96" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="Font" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="47" lineend="52" name="_set" returns="tuple()" signature="_set(kw)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="kw" />
+          <variable citdl="list" line="48" name="options" />
+        </scope>
+        <scope ilk="function" line="60" lineend="64" name="_mkdict" returns="dict" signature="_mkdict(args)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="dict" line="61" name="options" />
+        </scope>
+        <scope ilk="function" line="54" lineend="58" name="_get" returns="tuple()" signature="_get(args)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="list" line="55" name="options" />
+        </scope>
+        <scope ilk="function" line="104" lineend="105" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return font metrics." ilk="function" line="149" lineend="164" name="metrics" returns="int()" signature="metrics(*options)">
+          <variable citdl="_split()" line="160" name="res" />
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable attributes="varargs" citdl="dict" ilk="argument" name="options" />
+        </scope>
+        <scope doc="Return text width" ilk="function" line="145" lineend="147" name="measure" returns="int()" signature="measure(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="Font" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a distinct copy of the current font" ilk="function" line="116" lineend="118" name="copy" returns="Font" signature="copy()">
+          <variable citdl="Font" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="98" lineend="99" name="__eq__" returns="bool" signature="__eq__(other)">
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="66" lineend="93" name="__init__" signature="Font(root=None, font=None, name=None, exists=False, **options)">
+          <variable citdl="str()" ilk="argument" name="name" />
+          <variable citdl="False" ilk="argument" name="exists" />
+          <variable citdl="Font" ilk="argument" name="self" />
+          <variable citdl="root.tk.splitlist()" ilk="argument" name="font" />
+          <variable citdl="Tkinter._default_root" ilk="argument" name="root" />
+          <variable attributes="kwargs" ilk="argument" name="options" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="79" name="delete_font" />
+        <variable attributes="protected __instancevar__" citdl="Tkinter._default_root" line="91" name="_root" />
+        <variable attributes="__instancevar__" citdl="str()" line="76" name="name" />
+        <variable attributes="protected __instancevar__" citdl="root.tk.call" line="93" name="_call" />
+        <variable attributes="protected __instancevar__" citdl="root.tk.splitlist" line="92" name="_split" />
+      </scope>
+      <variable citdl="str" line="17" name="ITALIC" />
+      <variable citdl="str" line="14" name="NORMAL" />
+      <variable citdl="str" line="15" name="ROMAN" />
+      <import module="Tkinter" />
+      <variable citdl="str" line="9" name="__version__" />
+      <scope doc="Get font families (as a tuple)" ilk="function" line="166" lineend="170" name="families" returns="root.tk.splitlist()" signature="families(root=None)">
+        <variable citdl="Tkinter._default_root" ilk="argument" name="root" />
+      </scope>
+      <scope doc="Get names of defined fonts (as a tuple)" ilk="function" line="172" lineend="176" name="names" returns="root.tk.splitlist()" signature="names(root=None)">
+        <variable citdl="Tkinter._default_root" ilk="argument" name="root" />
+      </scope>
+      <scope doc="Given the name of a tk named font, returns a Font&#10;representation." ilk="function" line="19" lineend="22" name="nametofont" returns="Font()" signature="nametofont(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <variable attributes="__hidden__" line="211" name="fb" />
+      <variable attributes="__hidden__" citdl="Tkinter.Tk()" line="183" name="root" />
+      <variable attributes="__hidden__" citdl="Tkinter.Label()" line="205" name="w" />
+      <variable attributes="__hidden__" citdl="Font" line="186" name="f" />
+    </scope>
+    

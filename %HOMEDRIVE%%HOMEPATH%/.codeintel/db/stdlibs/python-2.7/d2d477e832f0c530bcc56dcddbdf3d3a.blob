@@ -1,0 +1,69 @@
+<scope doc="Fixer for function definitions with tuple parameters.&#10;def func(((a, b), c), d): ...  -&gt;  def func(x, d): ((a, b), c) = x ...  It will also support lambdas:" ilk="blob" lang="Python" name="lib2to3.fixes.fix_tuple_params">
+      <scope doc="Build an assignment statement" ilk="function" name="Assign" signature="Assign(target, source)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="31" lineend="134" name="FixTupleParams">
+        <scope ilk="function" line="110" lineend="134" name="transform_lambda" signature="transform_lambda(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="112" name="body" />
+          <variable citdl="self.new_name()" line="124" name="tup_name" />
+          <variable line="111" name="args" />
+          <variable citdl="FixTupleParams" ilk="argument" name="self" />
+          <variable citdl="list" line="130" name="subscripts" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="find_params()" line="122" name="params" />
+          <variable citdl="simplify_args()" line="113" name="inner" />
+          <variable citdl="pytree.Node()" line="131" name="new" />
+          <variable citdl="Name()" line="126" name="new_param" />
+          <variable citdl="map_to_index()" line="123" name="to_index" />
+        </scope>
+        <scope ilk="function" line="46" lineend="108" name="transform" returns="self.transform_lambda()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="list" line="50" name="new_lines" />
+          <variable citdl="unicode" line="57" name="indent" />
+          <variable citdl="FixTupleParams" ilk="argument" name="self" />
+          <variable line="52" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="Newline()" line="58" name="end" />
+          <variable citdl="int" line="56" name="start" />
+          <scope ilk="function" line="67" lineend="76" name="handle_tuple" signature="handle_tuple(tuple_arg, add_prefix=False)">
+            <variable ilk="argument" name="tuple_arg" />
+            <variable citdl="False" ilk="argument" name="add_prefix" />
+            <variable citdl="Name()" line="68" name="n" />
+            <variable citdl="tuple_arg.clone()" line="69" name="arg" />
+            <variable citdl="Assign()" line="71" name="stmt" />
+          </scope>
+          <variable line="51" name="suite" />
+          <variable citdl="int" line="96" name="after" />
+        </scope>
+        <variable citdl="True" line="34" name="BM_compatible" />
+        <variable citdl="int" line="32" name="run_order" />
+        <variable citdl="str" line="36" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope doc="A newline literal" ilk="function" name="Newline" signature="Newline()" />
+      <scope ilk="function" name="Number" signature="Number(n, prefix=None)" />
+      <scope doc="A numeric or string subscript" ilk="function" name="Subscript" signature="Subscript(index_node)" />
+      <scope ilk="function" line="150" lineend="155" name="find_params" returns="node.value" signature="find_params(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <import module="fixer_base" />
+      <scope ilk="function" line="27" lineend="29" name="is_docstring" returns="isinstance()" signature="is_docstring(stmt)">
+        <variable ilk="argument" name="stmt" />
+      </scope>
+      <scope ilk="function" line="157" lineend="166" name="map_to_index" returns="dict" signature="map_to_index(param_list, prefix=[], d=None)">
+        <variable ilk="argument" name="param_list" />
+        <variable citdl="list" ilk="argument" name="prefix" />
+        <variable citdl="dict" ilk="argument" name="d" />
+        <variable citdl="list" line="161" name="trailer" />
+      </scope>
+      <import module="pytree" />
+      <scope ilk="function" line="139" lineend="148" name="simplify_args" signature="simplify_args(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+      <scope ilk="function" line="168" lineend="175" name="tuple_name" returns="unicode.join()" signature="tuple_name(param_list)">
+        <variable ilk="argument" name="param_list" />
+        <variable citdl="list" line="169" name="l" />
+      </scope>
+    </scope>
+    

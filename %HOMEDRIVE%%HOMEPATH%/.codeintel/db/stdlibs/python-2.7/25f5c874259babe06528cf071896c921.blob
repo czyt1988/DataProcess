@@ -1,0 +1,269 @@
+<scope doc="Temporary files.&#10;This module provides generic, low- and high-level interfaces for creating temporary files and directories.  The interfaces listed as &quot;safe&quot; just below can be used without fear of race conditions. Those listed as &quot;unsafe&quot; cannot, and are provided for backward compatibility only.  This module also provides some data items to the user:  TMP_MAX  - maximum number of names that will be tried before giving up." ilk="blob" lang="Python" name="tempfile">
+      <scope doc="Create and return a temporary file." ilk="function" line="419" lineend="449" name="NamedTemporaryFile" returns="_TemporaryFileWrapper" signature="NamedTemporaryFile(mode='w+b', bufsize=-1, suffix='', prefix='tmp', dir=None, delete=True)">
+        <variable citdl="str" ilk="argument" name="suffix" />
+        <variable line="447" name="name" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="int" line="438" name="flags" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable citdl="_os.fdopen()" line="448" name="file" />
+        <variable line="447" name="fd" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="gettempdir()" ilk="argument" name="dir" />
+        <variable citdl="True" ilk="argument" name="delete" />
+      </scope>
+      <scope doc="Temporary file wrapper, specialized to switch from&#10;StringIO to a real file when it exceeds a certain size or when a fileno is needed." ilk="class" line="486" lineend="606" name="SpooledTemporaryFile">
+        <scope ilk="function" line="605" lineend="606" name="xreadlines" returns="self._file.xreadlines()" signature="xreadlines(*args)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="577" lineend="578" name="readlines" returns="self._file.readlines()" signature="readlines(*args)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="550" lineend="551" name="flush" signature="flush()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="535" lineend="536" name="close" signature="close()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="553" lineend="554" name="isatty" returns="self._file.isatty()" signature="isatty()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="506" lineend="515" name="rollover" signature="rollover()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable citdl="_StringIO()" line="508" name="file" />
+          <variable citdl="TemporaryFile()" line="509" name="newfile" />
+        </scope>
+        <scope ilk="function" line="580" lineend="581" name="seek" signature="seek(*args)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="493" lineend="498" name="__init__" signature="SpooledTemporaryFile(max_size=0, mode='w+b', bufsize=-1, suffix='', prefix=template, dir=None)">
+          <variable citdl="str" ilk="argument" name="suffix" />
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+          <variable citdl="str" ilk="argument" name="prefix" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable citdl="int" ilk="argument" name="max_size" />
+        </scope>
+        <scope ilk="function" line="500" lineend="504" name="_check" signature="_check(file)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable citdl="int" line="502" name="max_size" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope doc="# Context management protocol" ilk="function" line="523" lineend="526" name="__enter__" returns="SpooledTemporaryFile" signature="__enter__()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="568" lineend="569" name="next" returns="self._file.next" signature="next()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="593" lineend="597" name="write" returns="file.write()" signature="write(s)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+          <variable citdl="_StringIO()" line="594" name="file" />
+          <variable citdl="file.write()" line="595" name="rv" />
+        </scope>
+        <scope ilk="function" line="528" lineend="529" name="__exit__" signature="__exit__(exc, value, tb)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="tb" />
+          <variable ilk="argument" name="exc" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="590" lineend="591" name="truncate" signature="truncate()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="571" lineend="572" name="read" returns="self._file.read()" signature="read(*args)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="# file protocol" ilk="function" line="532" lineend="533" name="__iter__" returns="self._file.__iter__()" signature="__iter__()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="574" lineend="575" name="readline" returns="self._file.readline()" signature="readline(*args)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="546" lineend="548" name="fileno" returns="self._file.fileno()" signature="fileno()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="599" lineend="603" name="writelines" returns="file.writelines()" signature="writelines(iterable)">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+          <variable citdl="_StringIO()" line="600" name="file" />
+          <variable ilk="argument" name="iterable" />
+          <variable citdl="file.writelines()" line="601" name="rv" />
+        </scope>
+        <scope ilk="function" line="587" lineend="588" name="tell" returns="self._file.tell()" signature="tell()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="557" lineend="558" name="mode (property getter)" returns="self._file.mode" signature="mode (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="self._file.softspace" line="584" name="softspace" />
+        <scope attributes="__hidden__" ilk="function" line="543" lineend="544" name="encoding (property getter)" returns="self._file.encoding" signature="encoding (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="self._file.name" line="561" name="name" />
+        <variable attributes="property" citdl="self._file.encoding" line="543" name="encoding" />
+        <variable attributes="protected __instancevar__" citdl="int" line="496" name="_max_size" />
+        <variable attributes="protected __instancevar__" citdl="_StringIO()" line="495" name="_file" />
+        <scope attributes="__hidden__" ilk="function" line="584" lineend="585" name="softspace (property getter)" returns="self._file.softspace" signature="softspace (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="561" lineend="562" name="name (property getter)" returns="self._file.name" signature="name (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="tuple" line="498" name="_TemporaryFileArgs" />
+        <variable attributes="property" citdl="self._file.mode" line="557" name="mode" />
+        <variable attributes="property" citdl="self._file.closed" line="539" name="closed" />
+        <scope attributes="__hidden__" ilk="function" line="539" lineend="540" name="closed (property getter)" returns="self._file.closed" signature="closed (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="565" lineend="566" name="newlines (property getter)" returns="self._file.newlines" signature="newlines (property getter)()">
+          <variable citdl="SpooledTemporaryFile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="False" line="491" name="_rolled" />
+        <variable attributes="property" citdl="self._file.newlines" line="565" name="newlines" />
+      </scope>
+      <variable citdl="int" line="75" name="TMP_MAX" />
+      <scope doc="Create and return a temporary file." ilk="function" line="457" lineend="484" name="TemporaryFile" returns="_os.fdopen()" signature="TemporaryFile(mode='w+b', bufsize=-1, suffix='', prefix='tmp', dir=None, delete=True)">
+        <variable citdl="str" ilk="argument" name="suffix" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="int" line="474" name="flags" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable line="478" name="fd" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="gettempdir()" ilk="argument" name="dir" />
+        <variable line="478" name="name" />
+      </scope>
+      <variable citdl="list" line="20" name="__all__" />
+      <import module="_errno" />
+      <import module="_os" />
+      <import module="_thread" />
+      <scope doc="Accessor for tempfile.tempdir." ilk="function" line="247" lineend="257" name="gettempdir" returns="_get_default_tempdir()" signature="gettempdir()">
+        <variable citdl="_get_default_tempdir()" line="254" name="tempdir" />
+      </scope>
+      <scope doc="Accessor for tempdir.template." ilk="function" line="241" lineend="243" name="gettempprefix" returns="str" signature="gettempprefix()" />
+      <scope doc="User-callable function to create and return a unique&#10;temporary directory." ilk="function" line="296" lineend="325" name="mkdtemp" returns="_os.path.join()" signature="mkdtemp(suffix='', prefix='tmp', dir=None)">
+        <variable citdl="names.next()" line="315" name="name" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="_get_candidate_names()" line="312" name="names" />
+        <variable citdl="_os.path.join()" line="316" name="file" />
+        <variable citdl="gettempdir()" ilk="argument" name="dir" />
+        <variable citdl="str" ilk="argument" name="suffix" />
+      </scope>
+      <scope doc="User-callable function to create and return a unique&#10;temporary file." ilk="function" line="259" lineend="293" name="mkstemp" returns="_mkstemp_inner()" signature="mkstemp(suffix='', prefix='tmp', dir=None, text=False)">
+        <variable citdl="False" ilk="argument" name="text" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="int" line="289" name="flags" />
+        <variable citdl="str" ilk="argument" name="suffix" />
+        <variable citdl="gettempdir()" ilk="argument" name="dir" />
+      </scope>
+      <scope doc="User-callable function to return a unique temporary file&#10;name." ilk="function" line="327" lineend="354" name="mktemp" returns="_os.path.join()" signature="mktemp(suffix='', prefix='tmp', dir=None)">
+        <variable citdl="names.next()" line="349" name="name" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="_get_candidate_names()" line="347" name="names" />
+        <variable citdl="_os.path.join()" line="350" name="file" />
+        <variable citdl="gettempdir()" ilk="argument" name="dir" />
+        <variable citdl="str" ilk="argument" name="suffix" />
+      </scope>
+      <variable citdl="NoneType" line="245" name="tempdir" />
+      <variable citdl="str" line="79" name="template" />
+      <scope attributes="protected __hidden__" ilk="function" line="99" lineend="105" name="_exists" returns="bool" signature="_exists(fn)">
+        <variable ilk="argument" name="fn" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="92" lineend="97" name="_stat" signature="_stat(fn)">
+        <variable ilk="argument" name="fn" />
+        <variable citdl="open()" line="94" name="f" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Temporary file wrapper" ilk="class" line="357" lineend="416" name="_TemporaryFileWrapper">
+        <scope attributes="__ctor__" ilk="function" line="365" lineend="369" name="__init__" signature="_TemporaryFileWrapper(file, name, delete=True)">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="True" ilk="argument" name="delete" />
+        </scope>
+        <variable attributes="__instancevar__" line="366" name="file" />
+        <variable attributes="__instancevar__" line="367" name="name" />
+        <variable attributes="__instancevar__" citdl="False" line="368" name="close_called" />
+        <variable attributes="__instancevar__" citdl="True" line="369" name="delete" />
+        <scope ilk="function" line="371" lineend="379" name="__getattr__" returns="getattr()" signature="__getattr__(name)">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable line="375" name="file" />
+          <variable citdl="getattr()" line="376" name="a" />
+        </scope>
+        <scope ilk="function" line="383" lineend="385" name="__enter__" returns="_TemporaryFileWrapper" signature="__enter__()">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="_os.unlink" line="396" name="unlink" />
+        <scope ilk="function" line="398" lineend="403" name="close" signature="close()">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="405" lineend="406" name="__del__" signature="__del__()">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="415" lineend="416" name="__exit__" signature="__exit__(exc, value, tb)">
+          <variable citdl="_TemporaryFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="tb" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="47" lineend="55" name="_set_cloexec" signature="_set_cloexec(fd)">
+        <variable ilk="argument" name="fd" />
+        <variable citdl="_fcntl.fcntl()" line="49" name="flags" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Generate a list of candidate temporary directories which&#10;_get_default_tempdir will try." ilk="function" line="140" lineend="166" name="_candidate_tempdir_list" returns="list" signature="_candidate_tempdir_list()">
+        <variable citdl="list" line="144" name="dirlist" />
+        <variable citdl="_os.getenv()" line="148" name="dirname" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Calculate the default directory to use for temporary files." ilk="function" line="168" lineend="201" name="_get_default_tempdir" returns="_os.path.normcase()" signature="_get_default_tempdir()">
+        <variable citdl="_RandomNameSequence" line="177" name="namer" />
+        <variable citdl="_candidate_tempdir_list()" line="178" name="dirlist" />
+        <variable citdl="int" line="179" name="flags" />
+        <variable citdl="_os.path.normcase()" line="183" name="dir" />
+        <variable citdl="namer.next()" line="186" name="name" />
+        <variable citdl="_os.path.join()" line="187" name="filename" />
+        <variable citdl="_os.open()" line="189" name="fd" />
+        <variable citdl="_os.fdopen()" line="190" name="fp" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Code common to mkstemp, TemporaryFile, and&#10;NamedTemporaryFile." ilk="function" line="219" lineend="236" name="_mkstemp_inner" returns="tuple" signature="_mkstemp_inner(dir, pre, suf, flags)">
+        <variable ilk="argument" name="dir" />
+        <variable ilk="argument" name="pre" />
+        <variable ilk="argument" name="suf" />
+        <variable ilk="argument" name="flags" />
+        <variable citdl="_get_candidate_names()" line="222" name="names" />
+        <variable citdl="names.next()" line="225" name="name" />
+        <variable citdl="_os.path.join()" line="226" name="file" />
+        <variable citdl="_os.open()" line="228" name="fd" />
+      </scope>
+      <variable attributes="protected __hidden__" line="203" name="_name_sequence" />
+      <scope attributes="protected __hidden__" doc="Common setup sequence for all user-callable interfaces." ilk="function" line="205" lineend="216" name="_get_candidate_names" returns="_RandomNameSequence" signature="_get_candidate_names()">
+        <variable attributes="protected" citdl="_RandomNameSequence" line="213" name="_name_sequence" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="70" name="_bin_openflags" />
+      <variable attributes="protected __hidden__" citdl="int" line="64" name="_text_openflags" />
+      <variable attributes="protected __hidden__" citdl="_thread.allocate_lock" line="62" name="_allocate_lock" />
+      <scope attributes="protected __hidden__" doc="An instance of _RandomNameSequence generates an endless&#10;sequence of unpredictable strings which can safely be&#10;incorporated into file names." ilk="class" line="107" lineend="138" name="_RandomNameSequence">
+        <variable citdl="str" line="115" name="characters" />
+        <scope attributes="__ctor__" ilk="function" line="119" lineend="122" name="__init__" signature="_RandomNameSequence()">
+          <variable citdl="_RandomNameSequence" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="_allocate_lock()" line="120" name="mutex" />
+        <variable attributes="__instancevar__" citdl="_Random()" line="121" name="rng" />
+        <variable attributes="__instancevar__" citdl="_os.path.normcase" line="122" name="normcase" />
+        <scope ilk="function" line="124" lineend="125" name="__iter__" returns="_RandomNameSequence" signature="__iter__()">
+          <variable citdl="_RandomNameSequence" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="127" lineend="138" name="next" returns="_RandomNameSequence.normcase()" signature="next()">
+          <variable citdl="_RandomNameSequence" ilk="argument" name="self" />
+          <variable citdl="_allocate_lock()" line="128" name="m" />
+          <variable citdl="str" line="129" name="c" />
+          <variable citdl="self.rng.choice" line="130" name="choose" />
+          <variable citdl="list" line="134" name="letters" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="_allocate_lock()" line="83" name="_once_lock" />
+    </scope>
+    

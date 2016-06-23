@@ -1,0 +1,754 @@
+<scope doc="An extensible library for opening URLs using a variety of protocols&#10;The simplest way to use this module is to call the urlopen function, which accepts a string containing a URL or a Request object (described below).  It opens the URL and returns the results as file-like object; the returned object has some extra methods described below.  The OpenerDirector manages a collection of Handler objects that do all the actual work.  Each Handler implements a particular protocol or option.  The OpenerDirector is a composite object that invokes the Handlers needed to open the requested URL.  For example, the HTTPHandler performs HTTP GET and POST requests and deals with" ilk="blob" lang="Python" name="urllib2">
+      <scope doc="&#10;" ilk="class" line="817" lineend="874" name="AbstractBasicAuthHandler">
+        <scope ilk="function" line="841" lineend="862" name="http_error_auth_reqed" returns="self.retry_http_basic_auth()" signature="http_error_auth_reqed(authreq, host, req, headers)">
+          <variable line="857" name="realm" />
+          <variable line="857" name="quote" />
+          <variable citdl="AbstractBasicAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="headers.get()" ilk="argument" name="authreq" />
+          <variable line="857" name="scheme" />
+          <variable citdl="self.retry_http_basic_auth()" line="859" name="response" />
+          <variable citdl="AbstractBasicAuthHandler.rx.search()" line="855" name="mo" />
+        </scope>
+        <scope ilk="function" line="864" lineend="874" name="retry_http_basic_auth" returns="self.parent.open()" signature="retry_http_basic_auth(host, req, realm)">
+          <variable ilk="argument" name="realm" />
+          <variable line="865" name="pw" />
+          <variable citdl="AbstractBasicAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="str" line="868" name="auth" />
+          <variable citdl="str" line="867" name="raw" />
+          <variable ilk="argument" name="host" />
+          <variable line="865" name="user" />
+        </scope>
+        <scope ilk="function" line="838" lineend="839" name="reset_retry_count" signature="reset_retry_count()">
+          <variable citdl="AbstractBasicAuthHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="831" lineend="836" name="__init__" signature="AbstractBasicAuthHandler(password_mgr=None)">
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="password_mgr" />
+          <variable citdl="AbstractBasicAuthHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="HTTPPasswordMgr" line="834" name="passwd" />
+        <variable attributes="__instancevar__" citdl="self.passwd.add_password" line="835" name="add_password" />
+        <variable citdl="re.compile()" line="824" name="rx" />
+        <variable attributes="__instancevar__" citdl="int" line="836" name="retried" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="919" lineend="1056" name="AbstractDigestAuthHandler">
+        <scope ilk="function" line="1054" lineend="1056" name="get_entity_digest" signature="get_entity_digest(data, chal)">
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="chal" />
+        </scope>
+        <scope ilk="function" line="939" lineend="940" name="reset_retry_count" signature="reset_retry_count()">
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1042" lineend="1052" name="get_algorithm_impls" returns="tuple" signature="get_algorithm_impls(algorithm)">
+          <variable line="1047" name="H" />
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable citdl="algorithm.upper()" ilk="argument" name="algorithm" />
+          <variable line="1051" name="KD" />
+        </scope>
+        <scope ilk="function" line="971" lineend="979" name="get_cnonce" returns="list" signature="get_cnonce(nonce)">
+          <variable ilk="argument" name="nonce" />
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable line="977" name="dig" />
+        </scope>
+        <scope ilk="function" line="942" lineend="957" name="http_error_auth_reqed" returns="self.retry_http_digest_auth()" signature="http_error_auth_reqed(auth_header, host, req, headers)">
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="headers.get()" line="943" name="authreq" />
+          <variable line="955" name="scheme" />
+          <variable ilk="argument" name="auth_header" />
+        </scope>
+        <scope ilk="function" line="959" lineend="969" name="retry_http_digest_auth" returns="self.parent.open()" signature="retry_http_digest_auth(req, auth)">
+          <variable citdl="self.parent.open()" line="968" name="resp" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="parse_keqv_list()" line="961" name="chal" />
+          <variable line="960" name="token" />
+          <variable citdl="self.get_authorization()" ilk="argument" name="auth" />
+          <variable line="960" name="challenge" />
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable citdl="str" line="964" name="auth_val" />
+        </scope>
+        <scope ilk="function" line="930" lineend="937" name="__init__" signature="AbstractDigestAuthHandler(passwd=None)">
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="passwd" />
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="981" lineend="1040" name="get_authorization" returns="tuple" signature="get_authorization(req, chal)">
+          <variable line="984" name="nonce" />
+          <variable line="983" name="realm" />
+          <variable line="997" name="pw" />
+          <variable citdl="chal.get()" line="986" name="algorithm" />
+          <variable citdl="chal.get()" line="985" name="qop" />
+          <variable line="993" name="H" />
+          <variable citdl="AbstractDigestAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="get_cnonce()" line="1019" name="cnonce" />
+          <variable ilk="argument" name="chal" />
+          <variable citdl="str" line="1018" name="ncvalue" />
+          <variable citdl="str" line="1007" name="A1" />
+          <variable citdl="str" line="1030" name="base" />
+          <variable line="997" name="user" />
+          <variable citdl="str" line="1020" name="noncebit" />
+          <variable citdl="KD()" line="1021" name="respdig" />
+          <variable citdl="str" line="1008" name="A2" />
+          <variable citdl="chal.get()" line="989" name="opaque" />
+          <variable line="993" name="KD" />
+          <variable citdl="self.get_entity_digest()" line="1003" name="entdig" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="HTTPPasswordMgr" line="933" name="passwd" />
+        <variable attributes="__instancevar__" line="937" name="last_nonce" />
+        <variable attributes="__instancevar__" citdl="self.passwd.add_password" line="934" name="add_password" />
+        <variable attributes="__instancevar__" citdl="int" line="935" name="retried" />
+        <variable attributes="__instancevar__" citdl="int" line="936" name="nonce_count" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="1089" lineend="1193" name="AbstractHTTPHandler">
+        <scope ilk="function" line="1094" lineend="1095" name="set_http_debuglevel" signature="set_http_debuglevel(level)">
+          <variable citdl="AbstractHTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Return an addinfourl object for the request, using&#10;http_class." ilk="function" line="1126" lineend="1193" name="do_open" returns="addinfourl()" signature="do_open(http_class, req)">
+          <variable citdl="str" line="1159" name="proxy_auth_hdr" />
+          <variable citdl="socket._fileobject()" line="1188" name="fp" />
+          <variable citdl="http_class()" line="1140" name="h" />
+          <variable citdl="AbstractHTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="dict()" line="1143" name="headers" />
+          <variable citdl="req.get_host()" line="1136" name="host" />
+          <variable citdl="h.getresponse()" line="1170" name="r" />
+          <variable ilk="argument" name="http_class" />
+          <variable citdl="dict" line="1158" name="tunnel_headers" />
+          <variable citdl="addinfourl()" line="1190" name="resp" />
+        </scope>
+        <scope ilk="function" line="1097" lineend="1124" name="do_request_" signature="do_request_(request)">
+          <variable line="1114" name="scheme" />
+          <variable citdl="name.capitalize()" line="1120" name="name" />
+          <variable citdl="AbstractHTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="request.get_host()" line="1098" name="host" />
+          <variable line="1114" name="sel" />
+          <variable citdl="request.get_data()" line="1103" name="data" />
+          <variable citdl="request.get_host()" line="1112" name="sel_host" />
+          <variable line="1115" name="sel_path" />
+        </scope>
+        <scope ilk="function" line="1091" lineend="1092" name="__init__" signature="AbstractHTTPHandler(debuglevel=0)">
+          <variable citdl="AbstractHTTPHandler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="debuglevel" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="1092" name="_debuglevel" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="483" lineend="499" name="BaseHandler">
+        <scope ilk="function" line="486" lineend="487" name="add_parent" signature="add_parent(parent)">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="489" lineend="491" name="close" signature="close()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="493" lineend="499" name="__lt__" returns="bool" signature="__lt__(other)">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <variable citdl="int" line="484" name="handler_order" />
+        <variable attributes="__instancevar__" line="487" name="parent" />
+      </scope>
+      <scope classrefs="FTPHandler" doc="&#10;" ilk="class" line="1404" lineend="1448" name="CacheFTPHandler">
+        <scope ilk="function" line="1417" lineend="1418" name="setMaxConns" signature="setMaxConns(m)">
+          <variable citdl="CacheFTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+        </scope>
+        <scope ilk="function" line="1420" lineend="1428" name="connect_ftp" signature="connect_ftp(user, passwd, host, port, dirs, timeout)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="tuple" line="1421" name="key" />
+          <variable ilk="argument" name="passwd" />
+          <variable citdl="CacheFTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="user" />
+          <variable ilk="argument" name="timeout" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1414" lineend="1415" name="setTimeout" signature="setTimeout(t)">
+          <variable citdl="CacheFTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="t" />
+        </scope>
+        <scope ilk="function" line="1430" lineend="1448" name="check_cache" signature="check_cache()">
+          <variable citdl="CacheFTPHandler" ilk="argument" name="self" />
+          <variable citdl="time.time()" line="1432" name="t" />
+        </scope>
+        <scope doc="# XXX would be nice to have pluggable cache strategies # XXX&#10;this stuff is definitely not thread safe" ilk="function" line="1407" lineend="1412" name="__init__" signature="CacheFTPHandler()">
+          <variable citdl="CacheFTPHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="min()" line="1410" name="soonest" />
+        <variable attributes="__instancevar__" citdl="int" line="1411" name="delay" />
+        <variable attributes="__instancevar__" citdl="dict" line="1408" name="cache" />
+        <variable attributes="__instancevar__" citdl="dict" line="1409" name="timeout" />
+        <variable attributes="__instancevar__" citdl="int" line="1412" name="max_conns" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="1345" lineend="1402" name="FTPHandler">
+        <scope ilk="function" line="1399" lineend="1402" name="connect_ftp" returns="ftpwrapper()" signature="connect_ftp(user, passwd, host, port, dirs, timeout)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="ftpwrapper()" line="1400" name="fw" />
+          <variable ilk="argument" name="passwd" />
+          <variable citdl="FTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="user" />
+          <variable ilk="argument" name="timeout" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1346" lineend="1397" name="ftp_open" returns="addinfourl()" signature="ftp_open(req)">
+          <variable citdl="list" line="1373" name="dirs" />
+          <variable line="1386" name="fp" />
+          <variable line="1382" name="attr" />
+          <variable line="1386" name="retrlen" />
+          <variable citdl="self.connect_ftp()" line="1379" name="fw" />
+          <variable citdl="str" line="1361" name="passwd" />
+          <variable citdl="FTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable line="1382" name="value" />
+          <variable citdl="ftplib.FTP_PORT" line="1352" name="port" />
+          <variable line="1388" name="mtype" />
+          <variable citdl="mimetools.Message()" line="1387" name="headers" />
+          <variable citdl="req.get_host()" line="1349" name="host" />
+          <variable citdl="str" line="1359" name="user" />
+          <variable line="1375" name="file" />
+          <variable line="1372" name="path" />
+          <variable citdl="value.upper()" line="1380" name="type" />
+          <variable citdl="StringIO()" line="1393" name="sf" />
+          <variable line="1372" name="attrs" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="1293" lineend="1343" name="FileHandler">
+        <scope doc="# Use local file or FTP depending on form of URL" ilk="function" line="1295" lineend="1302" name="file_open" returns="self.open_local_file()" signature="file_open(req)">
+          <variable citdl="req.get_selector()" line="1296" name="url" />
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+        </scope>
+        <scope ilk="function" line="1306" lineend="1314" name="get_names" returns="tuple" signature="get_names()">
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# not entirely sure what the rules are here" ilk="function" line="1317" lineend="1343" name="open_local_file" returns="addinfourl()" signature="open_local_file(req)">
+          <variable citdl="os.stat()" line="1324" name="stats" />
+          <variable citdl="req.get_selector()" line="1336" name="origurl" />
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="email.utils.formatdate()" line="1326" name="modified" />
+          <variable citdl="req.get_selector()" line="1321" name="filename" />
+          <variable line="1327" name="mtype" />
+          <variable citdl="mimetools.Message()" line="1328" name="headers" />
+          <variable citdl="req.get_host()" line="1320" name="host" />
+          <variable line="1332" name="port" />
+          <variable citdl="url2pathname()" line="1322" name="localfile" />
+          <variable citdl="stats.st_size" line="1325" name="size" />
+        </scope>
+        <variable citdl="tuple" line="1305" name="names" />
+      </scope>
+      <scope classrefs="AbstractBasicAuthHandler BaseHandler" doc="&#10;" ilk="class" line="877" lineend="886" name="HTTPBasicAuthHandler">
+        <scope ilk="function" line="881" lineend="886" name="http_error_401" returns="self.http_error_auth_reqed()" signature="http_error_401(req, fp, code, msg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="req.get_full_url()" line="882" name="url" />
+          <variable citdl="HTTPBasicAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="self.http_error_auth_reqed()" line="883" name="response" />
+        </scope>
+        <variable citdl="str" line="879" name="auth_header" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="1211" lineend="1227" name="HTTPCookieProcessor">
+        <scope ilk="function" line="1218" lineend="1220" name="http_request" signature="http_request(request)">
+          <variable citdl="HTTPCookieProcessor" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope ilk="function" line="1226" name="https_request" />
+        <scope ilk="function" line="1227" name="https_response" />
+        <scope ilk="function" line="1212" lineend="1216" name="__init__" signature="HTTPCookieProcessor(cookiejar=None)">
+          <variable citdl="HTTPCookieProcessor" ilk="argument" name="self" />
+          <variable citdl="cookielib.CookieJar()" ilk="argument" name="cookiejar" />
+        </scope>
+        <scope ilk="function" line="1222" lineend="1224" name="http_response" signature="http_response(request, response)">
+          <variable citdl="HTTPCookieProcessor" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="response" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="cookielib.CookieJar()" line="1216" name="cookiejar" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="519" lineend="521" name="HTTPDefaultErrorHandler">
+        <scope ilk="function" line="520" lineend="521" name="http_error_default" signature="http_error_default(req, fp, code, msg, hdrs)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="hdrs" />
+          <variable citdl="HTTPDefaultErrorHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseHandler AbstractDigestAuthHandler" doc="An authentication protocol defined by RFC 2069&#10;Digest authentication improves on basic authentication because it does not transmit passwords in the clear." ilk="class" line="1059" lineend="1074" name="HTTPDigestAuthHandler">
+        <scope ilk="function" line="1069" lineend="1074" name="http_error_401" returns="self.http_error_auth_reqed()" signature="http_error_401(req, fp, code, msg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="HTTPDigestAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="headers" />
+          <variable line="1070" name="host" />
+          <variable citdl="self.http_error_auth_reqed()" line="1071" name="retry" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+        <variable citdl="int" line="1067" name="handler_order" />
+        <variable citdl="str" line="1066" name="auth_header" />
+      </scope>
+      <scope classrefs="URLError addinfourl" doc="Raised when HTTP error occurs, but also acts like non-error return&#10;" ilk="class" line="149" lineend="167" name="HTTPError">
+        <scope ilk="function" name="_HTTPError__super_init" />
+        <scope ilk="function" line="166" lineend="167" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="HTTPError" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="153" lineend="164" name="__init__" signature="HTTPError(url, code, msg, hdrs, fp)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="hdrs" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="HTTPError" ilk="argument" name="self" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+        <variable attributes="__instancevar__" line="157" name="fp" />
+        <variable attributes="__instancevar__" line="154" name="code" />
+        <variable attributes="__instancevar__" line="156" name="hdrs" />
+        <variable attributes="__instancevar__" line="158" name="filename" />
+        <variable attributes="__instancevar__" line="155" name="msg" />
+        <variable attributes="private" citdl="addinfourl.__init__" line="151" name="__super_init" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="Process HTTP error responses.&#10;" ilk="class" line="502" lineend="517" name="HTTPErrorProcessor">
+        <scope ilk="function" line="517" name="https_response" />
+        <scope ilk="function" line="506" lineend="515" name="http_response" returns="self.parent.error()" signature="http_response(request, response)">
+          <variable citdl="response.code" line="507" name="code" />
+          <variable citdl="response.info()" line="507" name="hdrs" />
+          <variable citdl="HTTPErrorProcessor" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="response.msg" line="507" name="msg" />
+          <variable citdl="self.parent.error()" ilk="argument" name="response" />
+        </scope>
+        <variable citdl="int" line="504" name="handler_order" />
+      </scope>
+      <scope classrefs="AbstractHTTPHandler" doc="&#10;" ilk="class" line="1196" lineend="1201" name="HTTPHandler">
+        <scope ilk="function" line="1201" name="http_request" />
+        <scope ilk="function" line="1198" lineend="1199" name="http_open" returns="self.do_open()" signature="http_open(req)">
+          <variable citdl="HTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="743" lineend="804" name="HTTPPasswordMgr">
+        <scope doc="Check if test is below base in a URI tree" ilk="function" line="792" lineend="804" name="is_suburi" returns="bool" signature="is_suburi(base, test)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="self" />
+          <variable ilk="argument" name="base" />
+          <variable citdl="posixpath.commonprefix()" line="801" name="common" />
+        </scope>
+        <scope ilk="function" line="748" lineend="757" name="add_password" signature="add_password(realm, uri, user, passwd)">
+          <variable citdl="tuple()" line="755" name="reduced_uri" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="passwd" />
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="uri" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope ilk="function" line="759" lineend="767" name="find_user_password" returns="tuple" signature="find_user_password(realm, authuri)">
+          <variable citdl="self.passwd.get()" line="760" name="domains" />
+          <variable citdl="self.reduce_uri()" line="762" name="reduced_authuri" />
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="self" />
+          <variable ilk="argument" name="realm" />
+          <variable ilk="argument" name="authuri" />
+        </scope>
+        <scope doc="Accept authority or URI and extract only the authority and&#10;path." ilk="function" line="769" lineend="790" name="reduce_uri" returns="tuple" signature="reduce_uri(uri, default_port=True)">
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="self" />
+          <variable ilk="argument" name="uri" />
+          <variable citdl="str" line="776" name="authority" />
+          <variable line="783" name="host" />
+          <variable citdl="urlparse.urlsplit()" line="772" name="parts" />
+          <variable citdl="True" ilk="argument" name="default_port" />
+          <variable citdl="{}.get()" line="785" name="dport" />
+          <variable citdl="str" line="777" name="path" />
+          <variable line="775" name="scheme" />
+          <variable line="783" name="port" />
+        </scope>
+        <scope ilk="function" line="745" lineend="746" name="__init__" signature="HTTPPasswordMgr()">
+          <variable citdl="HTTPPasswordMgr" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="746" name="passwd" />
+      </scope>
+      <scope classrefs="HTTPPasswordMgr" doc="&#10;" ilk="class" line="807" lineend="814" name="HTTPPasswordMgrWithDefaultRealm">
+        <scope ilk="function" line="809" lineend="814" name="find_user_password" returns="tuple" signature="find_user_password(realm, authuri)">
+          <variable citdl="HTTPPasswordMgrWithDefaultRealm" ilk="argument" name="self" />
+          <variable line="810" name="password" />
+          <variable ilk="argument" name="realm" />
+          <variable line="810" name="user" />
+          <variable ilk="argument" name="authuri" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="523" lineend="623" name="HTTPRedirectHandler">
+        <scope doc="Return a Request or None in response to a redirect." ilk="function" line="531" lineend="559" name="redirect_request" returns="Request" signature="redirect_request(req, fp, code, msg, headers, newurl)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="HTTPRedirectHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="req.get_method()" line="541" name="m" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="newurl.replace()" ilk="argument" name="newurl" />
+          <variable citdl="dict()" line="551" name="newheaders" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+        <scope doc="# Implementation note: To avoid the server sending us into&#10;an # infinite loop, the request object needs to track what&#10;URLs we # have already seen." ilk="function" name="http_error_307" />
+        <scope doc="# Implementation note: To avoid the server sending us into&#10;an # infinite loop, the request object needs to track what&#10;URLs we # have already seen." ilk="function" line="565" lineend="619" name="http_error_302" returns="self.parent.open()" signature="http_error_302(req, fp, code, msg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="urlparse.urljoin()" line="569" name="newurl" />
+          <variable citdl="HTTPRedirectHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="list()" line="576" name="urlparts" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="dict" line="605" name="visited" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="redirect_request()" line="598" name="new" />
+          <variable citdl="newurl.lower()" line="586" name="newurl_lower" />
+        </scope>
+        <scope doc="# Implementation note: To avoid the server sending us into&#10;an # infinite loop, the request object needs to track what&#10;URLs we # have already seen." ilk="function" line="621" name="http_error_301" />
+        <scope doc="# Implementation note: To avoid the server sending us into&#10;an # infinite loop, the request object needs to track what&#10;URLs we # have already seen." ilk="function" name="http_error_303" />
+        <variable citdl="str" line="623" name="inf_msg" />
+        <variable citdl="int" line="529" name="max_redirections" />
+        <variable citdl="int" line="526" name="max_repeats" />
+      </scope>
+      <scope classrefs="AbstractHTTPHandler" doc="&#10;" ilk="class" line="1204" lineend="1209" name="HTTPSHandler">
+        <scope ilk="function" line="1209" name="https_request" />
+        <scope ilk="function" line="1206" lineend="1207" name="https_open" returns="self.do_open()" signature="https_open(req)">
+          <variable citdl="HTTPSHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="301" lineend="438" name="OpenerDirector">
+        <scope ilk="function" line="364" lineend="374" name="_call_chain" returns="func()" signature="_call_chain(chain, kind, meth_name, *args)">
+          <variable ilk="argument" name="kind" />
+          <variable ilk="argument" name="chain" />
+          <variable citdl="chain.get()" line="368" name="handlers" />
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="meth_name" />
+          <variable citdl="func()" line="372" name="result" />
+          <variable citdl="getattr()" line="370" name="func" />
+        </scope>
+        <scope ilk="function" line="404" lineend="417" name="_open" returns="OpenerDirector._call_chain()" signature="_open(req, data=None)">
+          <variable citdl="req.get_type()" line="410" name="protocol" />
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="_call_chain()" line="405" name="result" />
+        </scope>
+        <scope ilk="function" line="313" lineend="358" name="add_handler" signature="add_handler(handler)">
+          <variable citdl="list" line="330" name="kind" />
+          <variable citdl="False" line="318" name="added" />
+          <variable citdl="list" line="325" name="protocol" />
+          <variable citdl="lookup.setdefault()" line="349" name="handlers" />
+          <variable citdl="meth.find()" line="324" name="i" />
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable citdl="condition.find()" line="329" name="j" />
+          <variable ilk="argument" name="handler" />
+          <variable citdl="dict" line="335" name="lookup" />
+          <variable citdl="list" line="326" name="condition" />
+        </scope>
+        <scope ilk="function" line="419" lineend="438" name="error" returns="OpenerDirector._call_chain()" signature="error(proto, *args)">
+          <variable line="426" name="orig_args" />
+          <variable ilk="argument" name="proto" />
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable attributes="varargs" citdl="tuple" ilk="argument" name="args" />
+          <variable citdl="str" line="424" name="meth_name" />
+          <variable citdl="int" line="425" name="http_err" />
+          <variable citdl="_call_chain()" line="432" name="result" />
+          <variable citdl="dict" line="422" name="dict" />
+        </scope>
+        <scope ilk="function" line="360" lineend="362" name="close" signature="close()">
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="376" lineend="402" name="open" returns="self._open()" signature="open(fullurl, data=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable citdl="req.get_type()" line="386" name="protocol" />
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable citdl="meth()" line="379" name="req" />
+          <variable citdl="req.get_type()" line="389" name="meth_name" />
+          <variable citdl="meth()" line="394" name="response" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable citdl="getattr()" line="391" name="meth" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="fullurl" />
+        </scope>
+        <scope ilk="function" line="302" lineend="311" name="__init__" signature="OpenerDirector()">
+          <variable citdl="OpenerDirector" ilk="argument" name="self" />
+          <variable citdl="list" line="303" name="client_version" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="310" name="process_response" />
+        <variable attributes="__instancevar__" citdl="dict" line="311" name="process_request" />
+        <variable attributes="__instancevar__" citdl="list" line="306" name="handlers" />
+        <variable attributes="__instancevar__" citdl="list" line="304" name="addheaders" />
+        <variable attributes="__instancevar__" citdl="dict" line="308" name="handle_open" />
+        <variable attributes="__instancevar__" citdl="dict" line="309" name="handle_error" />
+      </scope>
+      <scope classrefs="AbstractBasicAuthHandler BaseHandler" doc="&#10;" ilk="class" line="889" lineend="902" name="ProxyBasicAuthHandler">
+        <scope ilk="function" line="893" lineend="902" name="http_error_407" returns="self.http_error_auth_reqed()" signature="http_error_407(req, fp, code, msg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="ProxyBasicAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="req.get_host()" line="898" name="authority" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="self.http_error_auth_reqed()" line="899" name="response" />
+        </scope>
+        <variable citdl="str" line="891" name="auth_header" />
+      </scope>
+      <scope classrefs="BaseHandler AbstractDigestAuthHandler" doc="&#10;" ilk="class" line="1077" lineend="1087" name="ProxyDigestAuthHandler">
+        <scope ilk="function" line="1082" lineend="1087" name="http_error_407" returns="self.http_error_auth_reqed()" signature="http_error_407(req, fp, code, msg, headers)">
+          <variable ilk="argument" name="fp" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="ProxyDigestAuthHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="req.get_host()" line="1083" name="host" />
+          <variable citdl="self.http_error_auth_reqed()" line="1084" name="retry" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+        <variable citdl="int" line="1080" name="handler_order" />
+        <variable citdl="str" line="1079" name="auth_header" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="700" lineend="741" name="ProxyHandler">
+        <scope ilk="function" line="714" lineend="741" name="proxy_open" returns="self.parent.open()" signature="proxy_open(req, proxy, type)">
+          <variable citdl="req.get_type()" line="715" name="orig_type" />
+          <variable citdl="ProxyHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable line="716" name="user" />
+          <variable citdl="str" line="725" name="user_pass" />
+          <variable citdl="unquote()" line="716" name="hostport" />
+          <variable line="716" name="password" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="req.get_type()" line="716" name="proxy_type" />
+          <variable line="726" name="creds" />
+          <variable ilk="argument" name="proxy" />
+        </scope>
+        <scope ilk="function" line="704" lineend="712" name="__init__" signature="ProxyHandler(proxies=None)">
+          <variable citdl="ProxyHandler" ilk="argument" name="self" />
+          <variable citdl="getproxies()" ilk="argument" name="proxies" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="getproxies()" line="708" name="proxies" />
+        <variable citdl="int" line="702" name="handler_order" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="187" lineend="299" name="Request">
+        <scope ilk="function" line="261" lineend="268" name="set_proxy" signature="set_proxy(host, type)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="host" />
+        </scope>
+        <scope ilk="function" line="251" lineend="256" name="get_host" returns="unquote()" signature="get_host()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="276" lineend="277" name="is_unverifiable" returns="bool" signature="is_unverifiable()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="235" lineend="236" name="get_data" signature="get_data()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="229" lineend="230" name="add_data" signature="add_data(data)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="296" lineend="299" name="header_items" returns="hdrs.items()" signature="header_items()">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable citdl="self.unredirected_hdrs.copy()" line="297" name="hdrs" />
+        </scope>
+        <scope ilk="function" line="209" lineend="219" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+          <variable citdl="list" line="215" name="name" />
+        </scope>
+        <scope ilk="function" line="270" lineend="271" name="has_proxy" returns="bool" signature="has_proxy()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="279" lineend="281" name="add_header" signature="add_header(key, val)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="val" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="244" lineend="249" name="get_type" signature="get_type()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="258" lineend="259" name="get_selector" signature="get_selector()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="189" lineend="207" name="__init__" signature="Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable citdl="request_host()" ilk="argument" name="origin_req_host" />
+          <variable citdl="dict" ilk="argument" name="headers" />
+          <variable citdl="False" ilk="argument" name="unverifiable" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="291" lineend="294" name="get_header" returns="self.headers.get()" signature="get_header(header_name, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="header_name" />
+        </scope>
+        <scope ilk="function" line="283" lineend="285" name="add_unredirected_header" signature="add_unredirected_header(key, val)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="val" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="238" lineend="242" name="get_full_url" returns="tuple" signature="get_full_url()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="273" lineend="274" name="get_origin_req_host" returns="request_host()" signature="get_origin_req_host()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="287" lineend="289" name="has_header" returns="bool" signature="has_header(header_name)">
+          <variable citdl="Request" ilk="argument" name="self" />
+          <variable ilk="argument" name="header_name" />
+        </scope>
+        <scope ilk="function" line="221" lineend="225" name="get_method" returns="str" signature="get_method()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="232" lineend="233" name="has_data" returns="bool" signature="has_data()">
+          <variable citdl="Request" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private __instancevar__" line="246" name="__r_type" />
+        <variable attributes="private __instancevar__" citdl="unwrap()" line="192" name="__original" />
+        <variable attributes="__instancevar__" line="199" name="data" />
+        <variable attributes="protected __instancevar__" citdl="unquote()" line="198" name="_tunnel_host" />
+        <variable attributes="__instancevar__" citdl="request_host()" line="206" name="origin_req_host" />
+        <variable attributes="__instancevar__" citdl="dict" line="200" name="headers" />
+        <variable attributes="__instancevar__" citdl="unquote()" line="196" name="host" />
+        <variable attributes="__instancevar__" citdl="dict" line="203" name="unredirected_hdrs" />
+        <variable attributes="private __instancevar__" line="193" name="__fragment" />
+        <variable attributes="private __instancevar__" citdl="unwrap()" line="253" name="__r_host" />
+        <variable attributes="__instancevar__" citdl="False" line="207" name="unverifiable" />
+        <variable attributes="__instancevar__" line="194" name="type" />
+        <variable attributes="__instancevar__" line="197" name="port" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <scope classrefs="IOError" doc="&#10;" ilk="class" line="136" lineend="147" name="URLError">
+        <scope ilk="function" line="146" lineend="147" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="URLError" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# URLError is a sub-type of IOError, but it doesn't share&#10;any of # the implementation." ilk="function" line="142" lineend="144" name="__init__" signature="URLError(reason)">
+          <variable citdl="URLError" ilk="argument" name="self" />
+          <variable ilk="argument" name="reason" />
+        </scope>
+        <variable attributes="__instancevar__" line="144" name="reason" />
+        <variable attributes="__instancevar__" citdl="tuple" line="143" name="args" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="&#10;" ilk="class" line="1229" lineend="1232" name="UnknownHandler">
+        <scope ilk="function" line="1230" lineend="1232" name="unknown_open" signature="unknown_open(req)">
+          <variable citdl="UnknownHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="req" />
+          <variable citdl="req.get_type()" line="1231" name="type" />
+        </scope>
+      </scope>
+      <variable citdl="str" line="119" name="__version__" />
+      <scope classrefs="addbase" doc="class to add info() and geturl() methods to an open file.&#10;" ilk="class" name="addinfourl">
+        <scope ilk="function" name="info" />
+        <scope ilk="function" name="geturl" />
+        <scope ilk="function" name="getcode" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <import module="base64" />
+      <import module="bisect" />
+      <scope doc="Create an opener object from a list of handlers." ilk="function" line="444" lineend="481" name="build_opener" returns="OpenerDirector" signature="build_opener(*handlers)">
+        <scope ilk="function" line="454" lineend="455" name="isclass" returns="isinstance()" signature="isclass(obj)">
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <variable citdl="set()" line="463" name="skip" />
+        <variable attributes="varargs" ilk="argument" name="handlers" />
+        <variable citdl="OpenerDirector" line="457" name="opener" />
+        <variable citdl="list" line="458" name="default_classes" />
+        <variable citdl="h()" line="479" name="h" />
+      </scope>
+      <scope doc="Class used by open_ftp() for cache of open FTP connections.&#10;" ilk="class" name="ftpwrapper">
+        <scope ilk="function" name="init" />
+        <scope ilk="function" name="retrfile" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="endtransfer" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" name="getproxies" signature="getproxies()" />
+      <import module="hashlib" />
+      <import module="httplib" />
+      <scope ilk="function" line="128" lineend="130" name="install_opener" signature="install_opener(opener)">
+        <variable attributes="protected" line="130" name="_opener" />
+        <variable ilk="argument" name="opener" />
+      </scope>
+      <scope doc="Return the IP address of the magic hostname 'localhost'." ilk="function" name="localhost" signature="localhost()" />
+      <import module="mimetools" />
+      <import module="os" />
+      <scope doc="Parse lists as described by RFC 2068 Section 2." ilk="function" line="1244" lineend="1285" name="parse_http_list" returns="list" signature="parse_http_list(s)">
+        <variable citdl="list" line="1253" name="res" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="str" line="1254" name="part" />
+        <variable citdl="False" line="1267" name="quote" />
+        <variable citdl="False" line="1256" name="escape" />
+      </scope>
+      <scope doc="Parse list of key=value strings where keys are not&#10;duplicated." ilk="function" line="1234" lineend="1242" name="parse_keqv_list" returns="dict" signature="parse_keqv_list(l)">
+        <variable line="1238" name="k" />
+        <variable citdl="list" line="1238" name="v" />
+        <variable citdl="dict" line="1236" name="parsed" />
+        <variable ilk="argument" name="l" />
+      </scope>
+      <import module="posixpath" />
+      <scope doc="Return a dictionary of scheme -&gt; proxy server URL mappings." ilk="function" name="proxy_bypass" signature="proxy_bypass(host)" />
+      <scope doc="Each part of a URL, e.g." ilk="function" name="quote" signature="quote('abc def') -&gt; 'abc%20def'" />
+      <import module="random" />
+      <scope doc="Return n random bytes." ilk="function" line="905" lineend="917" name="randombytes" returns="str.join()" signature="randombytes(n)">
+        <variable citdl="f.read()" line="912" name="s" />
+        <variable citdl="open()" line="911" name="f" />
+        <variable citdl="list" line="916" name="L" />
+        <variable ilk="argument" name="n" />
+      </scope>
+      <import module="re" />
+      <scope doc="Return request-host, as defined by RFC 2965." ilk="function" line="171" lineend="185" name="request_host" returns="host.lower()" signature="request_host(request)">
+        <variable citdl="request.get_full_url()" line="178" name="url" />
+        <variable citdl="request.get_header()" line="179" name="host" />
+        <variable ilk="argument" name="request" />
+      </scope>
+      <import module="socket" />
+      <scope doc="'/path', ['attr1=value1', 'attr2=value2', ...]." ilk="function" name="splitattr" signature="splitattr('/path;attr1=value1;attr2=value2;...') -&gt;" />
+      <scope doc="splithost('//host[:port]/path') --&gt; 'host[:port]', '/path'." ilk="function" name="splithost" signature="splithost('//host[:port]/path') --&gt; 'host[:port]', '/path'." />
+      <scope doc="splitpasswd('user:passwd') -&gt; 'user', 'passwd'." ilk="function" name="splitpasswd" signature="splitpasswd('user:passwd') -&gt; 'user', 'passwd'." />
+      <scope doc="splitport('host:port') --&gt; 'host', 'port'." ilk="function" name="splitport" signature="splitport('host:port') --&gt; 'host', 'port'." />
+      <scope doc="splittag('/path#tag') --&gt; '/path', 'tag'." ilk="function" name="splittag" signature="splittag('/path#tag') --&gt; '/path', 'tag'." />
+      <scope doc="splittype('type:opaquestring') --&gt; 'type', 'opaquestring'." ilk="function" name="splittype" signature="splittype('type:opaquestring') --&gt; 'type', 'opaquestring'." />
+      <scope doc="splituser('user[:passwd]@host[:port]') --&gt; 'user[:passwd]', 'host[:port]'." ilk="function" name="splituser" signature="splituser('user[:passwd]@host[:port]') --&gt; 'user[:passwd]', 'host[:port]'." />
+      <scope doc="splitvalue('attr=value') --&gt; 'attr', 'value'." ilk="function" name="splitvalue" signature="splitvalue('attr=value') --&gt; 'attr', 'value'." />
+      <import module="sys" />
+      <import module="time" />
+      <scope doc="unquote('abc%20def') -&gt; 'abc def'." ilk="function" name="unquote" signature="unquote('abc%20def') -&gt; 'abc def'." />
+      <scope doc="unwrap('&lt;URL:type://host/path&gt;') --&gt; 'type://host/path'." ilk="function" name="unwrap" signature="unwrap('&lt;URL:type://host/path&gt;') --&gt; 'type://host/path'." />
+      <scope doc="OS-specific conversion from a relative URL of the 'file'&#10;scheme to a file system path; not recommended for general&#10;use." ilk="function" name="url2pathname" signature="url2pathname(url)" />
+      <scope ilk="function" line="122" lineend="126" name="urlopen" returns="_opener.open()" signature="urlopen(url, data=None, timeout=&lt;object object at 0x02BA2050&gt;)">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="build_opener()" line="125" name="_opener" />
+        <variable ilk="argument" name="data" />
+        <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+      </scope>
+      <import module="urlparse" />
+      <variable attributes="protected __hidden__" line="121" name="_opener" />
+      <scope attributes="protected __hidden__" ilk="function" line="1287" lineend="1291" name="_safe_gethostbyname" returns="socket.gethostbyname()" signature="_safe_gethostbyname(host)">
+        <variable ilk="argument" name="host" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="170" name="_cut_port_re" />
+      <scope attributes="protected __hidden__" doc="If a URL is supplied, it must have an authority (host:port)&#10;component." ilk="function" line="628" lineend="698" name="_parse_proxy" returns="tuple" signature="Return (scheme, user, password, host/port) given a URL or an authority.">
+        <variable ilk="argument" name="proxy" />
+        <variable line="678" name="scheme" />
+        <variable line="678" name="r_scheme" />
+        <variable citdl="list" line="682" name="authority" />
+        <variable citdl="r_scheme.find()" line="689" name="end" />
+        <variable line="693" name="hostport" />
+        <variable line="693" name="userinfo" />
+        <variable line="695" name="user" />
+        <variable line="695" name="password" />
+      </scope>
+    </scope>
+    

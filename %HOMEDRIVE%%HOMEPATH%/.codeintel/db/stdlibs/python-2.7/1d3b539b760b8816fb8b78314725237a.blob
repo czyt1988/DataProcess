@@ -1,0 +1,20 @@
+<scope doc="Export the Python grammar and symbols.&#10;" ilk="blob" lang="Python" name="lib2to3.pygram">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="20" lineend="29" name="Symbols">
+        <scope doc="Initializer." ilk="function" line="22" lineend="29" name="__init__" signature="Symbols(grammar)">
+          <variable citdl="Symbols" ilk="argument" name="self" />
+          <variable ilk="argument" name="grammar" />
+        </scope>
+      </scope>
+      <import module="driver" />
+      <import module="os" />
+      <variable citdl="Grammar" line="39" name="pattern_grammar" />
+      <variable citdl="Symbols" line="40" name="pattern_symbols" />
+      <variable citdl="Grammar" line="32" name="python_grammar" />
+      <variable citdl="Grammar" line="36" name="python_grammar_no_print_statement" />
+      <variable citdl="Symbols" line="34" name="python_symbols" />
+      <import module="pytree" />
+      <import module="token" />
+      <variable attributes="protected __hidden__" citdl="os.path.join()" line="15" name="_GRAMMAR_FILE" />
+      <variable attributes="protected __hidden__" citdl="os.path.join()" line="16" name="_PATTERN_GRAMMAR_FILE" />
+    </scope>
+    

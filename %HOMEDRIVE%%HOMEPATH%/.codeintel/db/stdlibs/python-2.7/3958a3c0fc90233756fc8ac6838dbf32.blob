@@ -1,0 +1,277 @@
+<scope doc="bundlebuilder.py -- Tools to assemble MacOS X (application) bundles.&#10;This module contains two classes to build so called &quot;bundles&quot; for MacOS X. BundleBuilder is a general tool, AppBuilder is a subclass specialized in building application bundles.  [Bundle|App]Builder objects are instantiated with a bunch of keyword arguments, and have a build() method that will do all the work. See the class doc strings for a description of the constructor arguments.  The module contains a main program that can be used in two ways: " ilk="blob" lang="Python" name="bundlebuilder">
+      <variable citdl="str" line="328" name="ARGV_EMULATOR" />
+      <scope classrefs="BundleBuilder" doc="&#10;" ilk="class" line="354" lineend="724" name="AppBuilder">
+        <scope ilk="function" line="539" lineend="558" name="addPythonFramework" signature="addPythonFramework()">
+          <variable citdl="pathjoin()" line="556" name="src" />
+          <variable citdl="pathjoin()" line="548" name="frameworkpath" />
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="553" name="destbase" />
+          <variable citdl="list" line="551" name="version" />
+          <variable citdl="pathjoin()" line="557" name="dst" />
+        </scope>
+        <scope ilk="function" line="523" lineend="537" name="postProcess" signature="postProcess()">
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="532" name="dst" />
+        </scope>
+        <scope ilk="function" line="463" lineend="521" name="preProcess" signature="preProcess()">
+          <variable citdl="str" line="464" name="resdir" />
+          <variable citdl="os.path.basename()" line="500" name="executable" />
+          <variable citdl="int" line="513" name="semi_standalone" />
+          <variable citdl="int" line="512" name="standalone" />
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="sys.flags.optimize" line="514" name="optimize" />
+          <variable citdl="os.path.basename()" line="467" name="execname" />
+          <variable citdl="pathjoin()" line="502" name="bootstrappath" />
+          <variable citdl="pathjoin()" line="486" name="mainprogrampath" />
+          <variable citdl="os.path.realpath()" line="507" name="hashbang" />
+          <variable citdl="os.path.basename()" line="483" name="realmainprogram" />
+          <variable citdl="pathjoin()" line="485" name="resdirpath" />
+          <variable citdl="os.path.basename()" line="519" name="iconbase" />
+          <variable citdl="os.path.basename()" line="476" name="mainprogram" />
+          <variable citdl="pathjoin()" line="470" name="execpath" />
+          <variable citdl="pathjoin()" line="501" name="execdir" />
+        </scope>
+        <scope ilk="function" line="630" lineend="693" name="findDependencies" signature="findDependencies()">
+          <variable citdl="modulefinder.ModuleFinder()" line="633" name="mf" />
+          <variable citdl="mf.any_missing()" line="688" name="missing" />
+          <variable citdl="list" line="688" name="maybe" />
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="mf.modules.items()" line="655" name="modules" />
+          <variable citdl="mf.add_module()" line="638" name="site" />
+          <variable citdl="os.path.basename()" line="665" name="filename" />
+          <variable citdl="dict" line="676" name="source" />
+          <variable citdl="compile()" line="677" name="code" />
+          <variable citdl="mod.__file__" line="658" name="path" />
+          <variable citdl="list" line="666" name="pathitems" />
+          <variable citdl="bool" line="681" name="ispkg" />
+          <variable citdl="pathjoin()" line="667" name="dstpath" />
+          <variable citdl="list" line="645" name="includeModules" />
+        </scope>
+        <scope ilk="function" line="695" lineend="717" name="reportMissing" signature="reportMissing()">
+          <variable citdl="list" line="699" name="maybe" />
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="list" line="696" name="missing" />
+        </scope>
+        <scope ilk="function" line="600" lineend="628" name="stripBinaries" signature="stripBinaries()">
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <scope ilk="function" line="607" lineend="627" name="walk" signature="walk(top)">
+            <variable ilk="argument" name="top" />
+            <variable citdl="pathjoin()" line="609" name="path" />
+            <variable line="615" name="mod" />
+            <variable citdl="list" line="618" name="relpath" />
+            <variable line="620" name="outf" />
+            <variable line="620" name="inf" />
+            <variable line="622" name="output" />
+          </scope>
+        </scope>
+        <scope ilk="function" line="560" lineend="563" name="_getSiteCode" returns="compile()" signature="_getSiteCode()">
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="719" lineend="724" name="report" signature="report()">
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="420" lineend="461" name="setup" signature="setup()">
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="565" lineend="598" name="addPythonModules" signature="addPythonModules()">
+          <variable citdl="pathjoin()" line="572" name="abspath" />
+          <variable citdl="zipfile.ZipFile()" line="573" name="zf" />
+          <variable citdl="pathjoin()" line="576" name="path" />
+          <variable line="576" name="pyc" />
+          <variable citdl="pathjoin()" line="580" name="sitepath" />
+          <variable citdl="AppBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="571" name="relpath" />
+        </scope>
+        <variable citdl="int" line="384" name="symlink_exec" />
+        <variable citdl="list" line="417" name="missingModules" />
+        <variable citdl="int" line="411" name="strip" />
+        <variable citdl="list" line="418" name="maybeMissingModules" />
+        <variable attributes="__instancevar__" citdl="pathjoin()" line="473" name="execpath" />
+        <variable citdl="list" line="408" name="includePackages" />
+        <variable citdl="sys.executable" line="373" name="executable" />
+        <variable citdl="bool" line="356" name="use_zipimport" />
+        <variable citdl="str" line="362" name="platform" />
+        <variable line="381" name="iconfile" />
+        <variable line="377" name="nibname" />
+        <variable citdl="str" line="359" name="type" />
+        <variable attributes="__instancevar__" citdl="pathjoin()" line="429" name="execdir" />
+        <variable citdl="int" line="390" name="semi_standalone" />
+        <variable line="393" name="python" />
+        <variable citdl="list" line="414" name="pymodules" />
+        <variable attributes="__instancevar__" line="434" name="name" />
+        <variable citdl="int" line="387" name="standalone" />
+        <variable line="367" name="mainprogram" />
+        <variable citdl="list" line="402" name="excludeModules" />
+        <variable citdl="int" line="397" name="argv_emulation" />
+        <variable citdl="list" line="405" name="includeModules" />
+      </scope>
+      <variable citdl="str" line="294" name="BOOTSTRAP_SCRIPT" />
+      <scope classrefs="Defaults" doc="BundleBuilder is a barebones class for assembling bundles. It&#10;knows nothing about executables or icons, it only copies files and creates the PkgInfo and Info.plist files." ilk="class" line="71" lineend="229" name="BundleBuilder">
+        <scope ilk="function" line="194" lineend="218" name="_copyFiles" signature="_copyFiles()">
+          <variable citdl="list" line="195" name="files" />
+          <variable citdl="str" line="204" name="msg" />
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="214" name="dst" />
+        </scope>
+        <scope doc="Hook for subclasses." ilk="function" line="174" lineend="176" name="postProcess" signature="postProcess()">
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Hook for subclasses." ilk="function" line="171" lineend="173" name="preProcess" signature="preProcess()">
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="220" lineend="225" name="message" signature="message(msg, level=0)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+          <variable citdl="str" line="222" name="indent" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Build the bundle." ilk="function" line="143" lineend="169" name="build" signature="build()">
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="153" name="bp" />
+          <variable citdl="str" line="145" name="builddir" />
+        </scope>
+        <scope ilk="function" line="178" lineend="192" name="_addMetaFiles" signature="_addMetaFiles()">
+          <variable citdl="pathjoin()" line="185" name="pkginfo" />
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+          <variable citdl="pathjoin()" line="191" name="infoplist" />
+          <variable citdl="pathjoin()" line="179" name="contents" />
+          <variable citdl="open()" line="186" name="f" />
+        </scope>
+        <scope ilk="function" line="227" lineend="229" name="report" signature="report()">
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="120" lineend="141" name="setup" signature="setup()">
+          <variable citdl="str" line="125" name="bundleextension" />
+          <variable citdl="BundleBuilder" ilk="argument" name="self" />
+          <variable citdl="str" line="122" name="ext" />
+          <variable citdl="Plist()" line="129" name="plist" />
+        </scope>
+        <variable citdl="list" line="101" name="files" />
+        <variable citdl="str" line="118" name="destroot" />
+        <variable citdl="str" line="108" name="builddir" />
+        <variable citdl="plist.CFBundleSignature" line="91" name="creator" />
+        <variable citdl="int" line="115" name="verbosity" />
+        <variable citdl="int" line="112" name="symlink" />
+        <variable citdl="list" line="105" name="libs" />
+        <variable line="94" name="bundle_id" />
+        <variable attributes="__instancevar__" citdl="pathjoin()" line="127" name="bundlepath" />
+        <variable citdl="str" line="89" name="type" />
+        <variable citdl="Plist()" line="85" name="plist" />
+        <variable citdl="list" line="97" name="resources" />
+        <variable line="82" name="name" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="43" lineend="43" name="BundleBuilderError" />
+      <scope doc="Class attributes that don't start with an underscore and are&#10;not functions or classmethods are (deep)copied to self.__dict__. This allows for mutable default values." ilk="class" line="46" lineend="68" name="Defaults">
+        <scope ilk="function" line="53" lineend="56" name="__init__" signature="Defaults(**kwargs)">
+          <variable citdl="Defaults" ilk="argument" name="self" />
+          <variable citdl="self._getDefaults()" line="54" name="defaults" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="68" lineend="67" name="_getDefaults" returns="dict" signature="_getDefaults()">
+          <variable citdl="dict" line="59" name="defaults" />
+          <variable citdl="Defaults" ilk="argument" name="cls" />
+        </scope>
+      </scope>
+      <variable citdl="str" line="261" name="EXT_LOADER" />
+      <variable citdl="str" line="350" name="LIB" />
+      <variable citdl="str" line="237" name="MAGIC" />
+      <variable citdl="list" line="276" name="MAYMISS_MODULES" />
+      <variable citdl="str" line="233" name="PYC_EXT" />
+      <variable citdl="list" line="340" name="PYTHONFRAMEWORKGOODIES" />
+      <scope classrefs="_InternalDict" doc="This class has been deprecated. Use readPlist() and writePlist()&#10;functions instead, together with regular dict objects." ilk="class" name="Plist">
+        <scope doc="Deprecated. Use the writePlist() function instead." ilk="function" name="write" />
+        <scope doc="Deprecated. Use the readPlist() function instead." ilk="function" name="fromFile" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" line="351" name="SITE_PACKAGES" />
+      <variable citdl="str" line="242" name="SITE_PY" />
+      <variable citdl="str" line="249" name="SITE_PY_ZIP" />
+      <variable citdl="str" line="281" name="STRIP_EXEC" />
+      <variable citdl="list" line="730" name="SUFFIXES" />
+      <variable citdl="bool" line="238" name="USE_ZIPIMPORT" />
+      <variable citdl="str" line="248" name="ZIP_ARCHIVE" />
+      <variable citdl="list" line="28" name="__all__" />
+      <variable citdl="dict" name="__warningregistry__" />
+      <scope ilk="function" line="943" lineend="945" name="buildapp" signature="buildapp(**kwargs)">
+        <variable citdl="AppBuilder" line="944" name="builder" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <variable citdl="str" line="797" name="cmdline_doc" />
+      <scope doc="Copy a file or a directory." ilk="function" line="758" lineend="765" name="copy" signature="copy(src, dst, mkdirs=0)">
+        <variable ilk="argument" name="src" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="int" ilk="argument" name="mkdirs" />
+      </scope>
+      <scope doc="Copy a file or a directory to an existing directory." ilk="function" line="767" lineend="770" name="copytodir" signature="copytodir(src, dstdir)">
+        <variable ilk="argument" name="dstdir" />
+        <variable ilk="argument" name="src" />
+        <variable citdl="pathjoin()" line="769" name="dst" />
+      </scope>
+      <scope doc="Deep copy operation on arbitrary Python objects." ilk="function" name="deepcopy" signature="deepcopy(x, memo=None, _nil=[])" />
+      <import module="errno" />
+      <scope ilk="function" line="733" lineend="749" name="findPackageContents" returns="dict" signature="findPackageContents(name, searchpath=None)">
+        <variable line="738" name="fp" />
+        <variable citdl="os.listdir()" line="743" name="files" />
+        <variable line="734" name="head" />
+        <variable ilk="argument" name="searchpath" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="dict" line="741" name="modules" />
+        <variable line="745" name="ext" />
+        <variable line="738" name="path" />
+        <variable citdl="str" line="746" name="fullname" />
+        <variable line="745" name="sub" />
+      </scope>
+      <scope classrefs="object" doc="function(code, globals[, name[, argdefs[, closure]]])&#10;Create a function object from a code object and a dictionary. The optional name string overrides the name from the code object. The optional argdefs tuple specifies the default argument values. The optional closure tuple supplies the bindings for free variables." ilk="class" name="function">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope ilk="function" line="251" lineend="255" name="getPycData" returns="tuple" signature="getPycData(fullname, code, ispkg)">
+        <variable citdl="str" line="254" name="path" />
+        <variable ilk="argument" name="fullname" />
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="ispkg" />
+      </scope>
+      <import module="getopt" />
+      <variable citdl="SRE_Pattern" line="731" name="identifierRE" />
+      <import module="imp" />
+      <scope ilk="function" line="346" lineend="347" name="isFramework" returns="bool" signature="isFramework()" />
+      <scope ilk="function" line="849" lineend="940" name="main" signature="main(builder=None)">
+        <variable citdl="AppBuilder" ilk="argument" name="builder" />
+        <variable line="863" name="args" />
+        <variable citdl="tuple" line="854" name="longopts" />
+        <variable citdl="arg.split()" line="875" name="srcdst" />
+        <variable line="929" name="command" />
+        <variable citdl="str" line="853" name="shortopts" />
+        <variable line="863" name="options" />
+      </scope>
+      <scope doc="Make all directories leading up to 'dir' including the leaf&#10;directory." ilk="function" line="772" lineend="779" name="makedirs" signature="makedirs(dir)">
+        <variable ilk="argument" name="dir" />
+      </scope>
+      <import module="marshal" />
+      <import module="os" />
+      <scope doc="Safe wrapper for os.path.join: asserts that all but the&#10;first argument are relative paths." ilk="function" line="789" lineend="794" name="pathjoin" returns="os.path.join()" signature="pathjoin(*args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <import module="re" />
+      <import module="shutil" />
+      <scope doc="Copy a file or a directory." ilk="function" line="781" lineend="787" name="symlink" signature="symlink(src, dst, mkdirs=0)">
+        <variable ilk="argument" name="src" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="int" ilk="argument" name="mkdirs" />
+      </scope>
+      <import module="sys" />
+      <scope ilk="function" line="843" lineend="847" name="usage" signature="usage(msg=None)">
+        <variable ilk="argument" name="msg" />
+      </scope>
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope ilk="function" line="751" lineend="756" name="writePyc" signature="writePyc(code, path)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="open()" line="752" name="f" />
+      </scope>
+    </scope>
+    

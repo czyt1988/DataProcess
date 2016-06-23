@@ -1,0 +1,48 @@
+<scope doc="HMAC (Keyed-Hashing for Message Authentication) Python module.&#10;Implements the HMAC algorithm as described by RFC 2104." ilk="blob" lang="Python" name="hmac">
+      <scope doc="RFC 2104 HMAC class.  Also complies with RFC 4231.&#10;This supports the API for Cryptographic Hash Functions (PEP 247)." ilk="class" line="20" lineend="120" name="HMAC">
+        <scope doc="Update this hashing object with the string msg." ilk="function" line="80" lineend="83" name="update" signature="update(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="HMAC" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Like digest(), but returns a string of hexadecimal digits&#10;instead." ilk="function" line="116" lineend="120" name="hexdigest" returns="h.hexdigest()" signature="hexdigest()">
+          <variable citdl="_current()" line="119" name="h" />
+          <variable citdl="HMAC" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a hash object for the current state." ilk="function" line="97" lineend="104" name="_current" returns="self.outer.copy()" signature="_current()">
+          <variable citdl="self.outer.copy()" line="102" name="h" />
+          <variable citdl="HMAC" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the hash value of this hashing object." ilk="function" line="106" lineend="114" name="digest" returns="h.digest()" signature="digest()">
+          <variable citdl="_current()" line="113" name="h" />
+          <variable citdl="HMAC" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a separate copy of this hashing object." ilk="function" line="85" lineend="95" name="copy" returns="self.__class__()" signature="copy()">
+          <variable citdl="HMAC" ilk="argument" name="self" />
+          <variable citdl="self.__class__()" line="90" name="other" />
+        </scope>
+        <scope doc="Create a new HMAC object." ilk="function" line="27" lineend="75" name="__init__" signature="HMAC(key, msg=None, digestmod=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="int" line="54" name="blocksize" />
+          <variable citdl="HMAC" ilk="argument" name="self" />
+          <variable citdl="hashlib.md5" ilk="argument" name="digestmod" />
+          <variable citdl="chr()" ilk="argument" name="key" />
+        </scope>
+        <variable citdl="int" line="25" name="blocksize" />
+        <variable attributes="__instancevar__" citdl="hashlib.md5" line="45" name="digest_cons" />
+        <variable attributes="__instancevar__" citdl="digest_cons()" line="49" name="outer" />
+        <variable attributes="__instancevar__" citdl="digest_cons()" line="50" name="inner" />
+        <variable attributes="__instancevar__" citdl="self.inner.digest_size" line="51" name="digest_size" />
+      </scope>
+      <import module="_warnings" />
+      <variable citdl="NoneType" line="13" name="digest_size" />
+      <scope doc="Create a new hashing object and return it." ilk="function" line="122" lineend="133" name="new" returns="HMAC" signature="new(key, msg=None, digestmod=None)">
+        <variable ilk="argument" name="msg" />
+        <variable ilk="argument" name="digestmod" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <variable citdl="str" line="9" name="trans_36" />
+      <variable citdl="str" line="8" name="trans_5C" />
+      <variable citdl="int" name="x" />
+      <variable attributes="protected __hidden__" citdl="list" line="18" name="_secret_backdoor_key" />
+    </scope>
+    

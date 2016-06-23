@@ -1,0 +1,43 @@
+<scope doc="Fixer for it.next() -&gt; next(it), per PEP 3114.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_next">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="17" lineend="75" name="FixNext">
+        <scope ilk="function" line="36" lineend="44" name="start_tree" signature="start_tree(tree, filename)">
+          <variable citdl="FixNext" ilk="argument" name="self" />
+          <variable citdl="find_binding()" line="39" name="n" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="46" lineend="75" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="68" name="head" />
+          <variable citdl="results.get()" line="51" name="name" />
+          <variable citdl="FixNext" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="Name()" line="61" name="n" />
+          <variable citdl="list" line="49" name="base" />
+          <variable citdl="results.get()" line="50" name="attr" />
+        </scope>
+        <variable citdl="True" line="18" name="BM_compatible" />
+        <variable attributes="__instancevar__" citdl="True" line="42" name="shadowed_next" />
+        <variable citdl="str" line="34" name="order" />
+        <variable citdl="str" line="19" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <variable citdl="str" line="14" name="bind_warning" />
+      <scope ilk="function" line="93" lineend="98" name="find_assign" returns="find_assign()" signature="find_assign(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <scope doc="Returns the node which binds variable name, otherwise None." ilk="function" name="find_binding" signature="find_binding(name, node, package=None)" />
+      <import module="fixer_base" />
+      <scope ilk="function" line="81" lineend="91" name="is_assign_target" returns="bool" signature="is_assign_target(node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="find_assign()" line="82" name="assign" />
+      </scope>
+      <scope ilk="function" line="100" lineend="103" name="is_subtree" returns="bool" signature="is_subtree(root, node)">
+        <variable ilk="argument" name="node" />
+        <variable ilk="argument" name="root" />
+      </scope>
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

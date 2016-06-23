@@ -1,0 +1,406 @@
+<scope doc="A flow graph representation for Python bytecode&#10;" ilk="blob" lang="Python" name="compiler.pyassem">
+      <scope doc="&#10;" ilk="class" line="165" lineend="244" name="Block">
+        <scope ilk="function" line="183" lineend="186" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable citdl="map()" line="184" name="insts" />
+        </scope>
+        <scope doc="Returns True if there is an unconditional transfer to an&#10;other block at the end of this block." ilk="function" line="208" lineend="216" name="has_unconditional_transfer" returns="bool" signature="has_unconditional_transfer()">
+          <variable citdl="Block" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="195" lineend="196" name="addOutEdge" signature="addOutEdge(block)">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope doc="Get the whole list of followers, including the next block." ilk="function" line="221" lineend="229" name="get_followers" returns="set()" signature="get_followers()">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable citdl="set()" line="223" name="followers" />
+        </scope>
+        <scope ilk="function" line="177" lineend="181" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Block" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return all graphs contained within this block." ilk="function" line="231" lineend="244" name="getContainedGraphs" returns="list" signature="getContainedGraphs()">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable citdl="list" line="237" name="contained" />
+          <variable line="241" name="op" />
+        </scope>
+        <scope ilk="function" line="192" lineend="193" name="getInstructions" returns="list" signature="getInstructions()">
+          <variable citdl="Block" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="198" lineend="202" name="addNext" signature="addNext(block)">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="218" lineend="219" name="get_children" returns="list()" signature="get_children()">
+          <variable citdl="Block" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="188" lineend="190" name="emit" signature="emit(inst)">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable ilk="argument" name="inst" />
+          <variable line="189" name="op" />
+        </scope>
+        <scope ilk="function" line="168" lineend="175" name="__init__" signature="Block(label='')">
+          <variable citdl="Block" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="label" />
+        </scope>
+        <variable attributes="protected" citdl="int" line="166" name="_count" />
+        <variable attributes="__instancevar__" citdl="list" line="169" name="insts" />
+        <variable attributes="__instancevar__" citdl="int" line="172" name="bid" />
+        <variable attributes="__instancevar__" citdl="str" line="171" name="label" />
+        <variable attributes="__instancevar__" citdl="list" line="173" name="next" />
+        <variable attributes="__instancevar__" citdl="set()" line="170" name="outEdges" />
+        <variable attributes="protected" citdl="tuple" line="204" name="_uncond_transfer" />
+        <variable attributes="__instancevar__" citdl="list" line="174" name="prev" />
+      </scope>
+      <variable citdl="str" line="251" name="CONV" />
+      <variable citdl="int" name="CO_NEWLOCALS" />
+      <variable citdl="int" name="CO_OPTIMIZED" />
+      <variable citdl="int" name="CO_VARARGS" />
+      <variable citdl="int" name="CO_VARKEYWORDS" />
+      <variable citdl="str" line="252" name="DONE" />
+      <variable citdl="str" line="250" name="FLAT" />
+      <scope doc="&#10;" ilk="class" line="11" lineend="95" name="FlowGraph">
+        <scope ilk="function" line="63" lineend="64" name="_enable_debug" signature="_enable_debug()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the blocks in reverse postorder" ilk="function" line="76" lineend="82" name="getBlocksInOrder" returns="order_blocks()" signature="getBlocksInOrder()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable citdl="order_blocks()" line="81" name="order" />
+        </scope>
+        <scope ilk="function" line="29" lineend="51" name="nextBlock" signature="nextBlock(block=None)">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable citdl="self.newBlock()" ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="19" lineend="27" name="startBlock" signature="startBlock(block)">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="block" />
+        </scope>
+        <scope ilk="function" line="53" lineend="56" name="newBlock" returns="Block()" signature="newBlock()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable citdl="Block()" line="54" name="b" />
+        </scope>
+        <scope doc="Return nodes appropriate for use with dominator" ilk="function" line="87" lineend="89" name="getRoot" returns="self.entry" signature="getRoot()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="91" lineend="95" name="getContainedGraphs" returns="list" signature="getContainedGraphs()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable citdl="list" line="92" name="l" />
+        </scope>
+        <scope ilk="function" line="66" lineend="67" name="_disable_debug" signature="_disable_debug()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="58" lineend="59" name="startExitBlock" signature="startExitBlock()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="69" lineend="74" name="emit" signature="emit(*inst)">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="inst" />
+        </scope>
+        <scope ilk="function" line="12" lineend="17" name="__init__" signature="FlowGraph()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="85" name="getBlocks" returns="self.blocks.elements()" signature="getBlocks()">
+          <variable citdl="FlowGraph" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Block()" line="13" name="current" />
+        <variable attributes="__instancevar__" citdl="Block()" line="14" name="exit" />
+        <variable attributes="__instancevar__" citdl="misc.Set()" line="15" name="blocks" />
+        <variable attributes="protected" citdl="int" line="61" name="_debug" />
+      </scope>
+      <scope doc="lnotab&#10;This class builds the lnotab, which is documented in compile.c. Here's a brief recap:  For each SET_LINENO instruction after the first one, two bytes are added to lnotab.  (In some cases, multiple two-byte entries are added.)  The first byte is the distance in bytes between the instruction for the last SET_LINENO and the current SET_LINENO. The second byte is offset in line numbers.  If either offset is greater than 255, multiple two-byte entries are added -- see compile.c for the delicate details." ilk="class" line="587" lineend="651" name="LineAddrTable">
+        <scope ilk="function" line="615" lineend="645" name="nextLine" signature="nextLine(lineno)">
+          <variable citdl="self.lnotab.append" line="634" name="push" />
+          <variable citdl="LineAddrTable" ilk="argument" name="self" />
+          <variable citdl="int" line="622" name="line" />
+          <variable citdl="int" line="621" name="addr" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <scope ilk="function" line="647" lineend="648" name="getCode" returns="str.join()" signature="getCode()">
+          <variable citdl="LineAddrTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="610" lineend="613" name="addCode" signature="addCode(*args)">
+          <variable citdl="LineAddrTable" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="650" lineend="651" name="getTable" returns="str.join()" signature="getTable()">
+          <variable citdl="LineAddrTable" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="602" lineend="608" name="__init__" signature="LineAddrTable()">
+          <variable citdl="LineAddrTable" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="607" name="lastoff" />
+        <variable attributes="__instancevar__" citdl="list" line="603" name="code" />
+        <variable attributes="__instancevar__" citdl="int" line="604" name="codeOffset" />
+        <variable attributes="__instancevar__" citdl="int" line="605" name="firstline" />
+        <variable attributes="__instancevar__" citdl="int" line="606" name="lastline" />
+        <variable attributes="__instancevar__" citdl="list" line="608" name="lnotab" />
+      </scope>
+      <scope classrefs="FlowGraph" doc="&#10;" ilk="class" line="254" lineend="557" name="PyFlowGraph">
+        <scope ilk="function" line="486" name="_convert_STORE_DEREF" />
+        <scope doc="Sort cellvars in the order of varnames and prune from&#10;freevars." ilk="function" line="419" lineend="430" name="sort_cellvars" signature="sort_cellvars()">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="dict" line="422" name="cells" />
+        </scope>
+        <scope ilk="function" line="530" lineend="544" name="newCodeObject" returns="types.CodeType()" signature="newCodeObject()">
+          <variable citdl="getArgCount()" line="536" name="argcount" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="int" line="533" name="nlocals" />
+        </scope>
+        <scope ilk="function" line="317" lineend="333" name="dump" signature="dump(io=None)">
+          <variable citdl="int" line="321" name="pc" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="sys.stdout" line="319" name="save" />
+          <variable line="323" name="opname" />
+          <variable ilk="argument" name="io" />
+        </scope>
+        <scope ilk="function" line="455" lineend="457" name="_convert_LOAD_FAST" returns="PyFlowGraph._lookupName()" signature="_convert_LOAD_FAST(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="474" name="_convert_STORE_ATTR" />
+        <scope doc="Convert arguments from symbolic to concrete form" ilk="function" line="405" lineend="417" name="convertArgs" signature="convertArgs()">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable line="411" name="t" />
+          <variable citdl="self._converters.get()" line="414" name="conv" />
+        </scope>
+        <scope ilk="function" line="257" lineend="285" name="__init__" signature="PyFlowGraph(name, filename, args=(), optimized=0, klass=None)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="int" ilk="argument" name="optimized" />
+          <variable ilk="argument" name="klass" />
+          <variable line="282" name="var" />
+        </scope>
+        <scope ilk="function" line="473" name="_convert_IMPORT_FROM" />
+        <scope ilk="function" line="479" name="_convert_DELETE_GLOBAL" />
+        <scope doc="Arrange the blocks in order and resolve jumps" ilk="function" line="365" lineend="396" name="flattenGraph" signature="flattenGraph()">
+          <variable citdl="dict" line="370" name="begin" />
+          <variable citdl="dict" line="371" name="end" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="int" line="369" name="pc" />
+          <variable line="391" name="oparg" />
+          <variable line="384" name="inst" />
+          <variable citdl="int" line="392" name="offset" />
+          <variable line="389" name="opname" />
+        </scope>
+        <scope ilk="function" line="290" lineend="293" name="setFlag" signature="setFlag(flag)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope ilk="function" line="287" lineend="288" name="setDocstring" signature="setDocstring(doc)">
+          <variable ilk="argument" name="doc" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="485" name="_convert_LOAD_DEREF" />
+        <scope ilk="function" line="481" lineend="484" name="_convert_DEREF" returns="PyFlowGraph._lookupName()" signature="_convert_DEREF(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="472" name="_convert_IMPORT_NAME" />
+        <scope doc="Return index of name in list, appending if necessary" ilk="function" line="432" lineend="447" name="_lookupName" returns="len()" signature="_lookupName(name, list)">
+          <variable citdl="len()" line="445" name="end" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="type()" line="441" name="t" />
+        </scope>
+        <scope ilk="function" line="476" name="_convert_DELETE_ATTR" />
+        <scope ilk="function" line="302" lineend="303" name="setCellVars" signature="setCellVars(names)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+        </scope>
+        <scope ilk="function" line="295" lineend="297" name="checkFlag" returns="int" signature="checkFlag(flag)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope ilk="function" line="450" lineend="453" name="_convert_LOAD_CONST" returns="PyFlowGraph._lookupName()" signature="_convert_LOAD_CONST(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="arg.getCode()" ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="459" name="_convert_DELETE_FAST" />
+        <scope ilk="function" line="477" name="_convert_LOAD_GLOBAL" />
+        <scope doc="Get a Python code object" ilk="function" line="305" lineend="315" name="getCode" returns="self.newCodeObject()" signature="getCode()">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a tuple for the const slot of the code object" ilk="function" line="546" lineend="557" name="getConsts" returns="tuple()" signature="getConsts()">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable citdl="list" line="552" name="l" />
+          <variable citdl="elt.getCode()" line="555" name="elt" />
+        </scope>
+        <scope ilk="function" line="466" lineend="469" name="_convert_NAME" returns="PyFlowGraph._lookupName()" signature="_convert_NAME(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="475" name="_convert_LOAD_ATTR" />
+        <scope ilk="function" line="299" lineend="300" name="setFreeVars" signature="setFreeVars(names)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+        </scope>
+        <scope doc="Compute the max stack depth." ilk="function" line="335" lineend="363" name="computeStackDepth" signature="computeStackDepth()">
+          <variable citdl="dict" line="347" name="seen" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable line="343" name="exit" />
+          <variable citdl="dict" line="342" name="depth" />
+          <scope ilk="function" line="349" lineend="361" name="max_depth" returns="max()" signature="max_depth(b, d)">
+            <variable ilk="argument" name="b" />
+            <variable ilk="argument" name="d" />
+            <variable citdl="b.get_children()" line="354" name="children" />
+          </scope>
+        </scope>
+        <scope ilk="function" line="493" lineend="494" name="_convert_COMPARE_OP" returns="self._cmp.index()" signature="_convert_COMPARE_OP(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="504" lineend="523" name="makeByteCode" signature="makeByteCode()">
+          <variable line="516" name="lo" />
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable line="516" name="hi" />
+          <variable line="508" name="opname" />
+          <variable line="512" name="oparg" />
+        </scope>
+        <scope ilk="function" line="488" lineend="490" name="_convert_LOAD_CLOSURE" returns="PyFlowGraph._lookupName()" signature="_convert_LOAD_CLOSURE(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="255" name="super_init" />
+        <scope ilk="function" line="470" name="_convert_STORE_NAME" />
+        <scope ilk="function" line="458" name="_convert_STORE_FAST" />
+        <scope ilk="function" line="471" name="_convert_DELETE_NAME" />
+        <scope ilk="function" line="461" lineend="464" name="_convert_LOAD_NAME" returns="PyFlowGraph._lookupName()" signature="_convert_LOAD_NAME(arg)">
+          <variable citdl="PyFlowGraph" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="478" name="_convert_STORE_GLOBAL" />
+        <variable attributes="__instancevar__" citdl="list" line="368" name="insts" />
+        <variable attributes="__instancevar__" citdl="list" line="270" name="names" />
+        <variable citdl="list" line="500" name="opname" />
+        <variable attributes="__instancevar__" citdl="list()" line="280" name="varnames" />
+        <variable attributes="__instancevar__" citdl="getArgCount()" line="263" name="argcount" />
+        <variable attributes="__instancevar__" line="260" name="filename" />
+        <variable attributes="protected" citdl="list()" line="492" name="_cmp" />
+        <variable attributes="__instancevar__" citdl="list" line="274" name="cellvars" />
+        <variable attributes="__instancevar__" citdl="computeStackDepth.max_depth()" line="363" name="stacksize" />
+        <variable attributes="protected" citdl="dict" line="449" name="_converters" />
+        <variable citdl="set()" line="398" name="hasjrel" />
+        <variable attributes="__instancevar__" citdl="tuple" line="262" name="args" />
+        <variable attributes="__instancevar__" line="261" name="docstring" />
+        <variable attributes="__instancevar__" citdl="list()" line="273" name="freevars" />
+        <variable citdl="dict" line="525" name="opnum" />
+        <variable attributes="__instancevar__" citdl="list" line="269" name="consts" />
+        <variable attributes="__instancevar__" citdl="str" line="285" name="stage" />
+        <variable attributes="__instancevar__" citdl="list" line="279" name="closure" />
+        <variable attributes="__instancevar__" line="259" name="name" />
+        <variable attributes="__instancevar__" citdl="int" line="266" name="flags" />
+        <variable attributes="__instancevar__" line="264" name="klass" />
+        <variable attributes="__instancevar__" citdl="LineAddrTable()" line="506" name="lnotab" />
+        <variable citdl="set()" line="401" name="hasjabs" />
+      </scope>
+      <variable citdl="str" line="249" name="RAW" />
+      <scope doc="&#10;" ilk="class" line="653" lineend="761" name="StackDepthTracker">
+        <scope ilk="function" line="739" lineend="740" name="BUILD_SET" returns="int" signature="BUILD_SET(count)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="657" lineend="683" name="findDepth" returns="pat_delta" signature="findDepth(insts, debug=0)">
+          <variable ilk="argument" name="insts" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable citdl="self.effect.get()" line="658" name="depth" />
+          <variable citdl="int" line="659" name="maxDepth" />
+          <variable citdl="pat_delta" line="664" name="delta" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable line="661" name="opname" />
+          <variable citdl="getattr()" line="676" name="meth" />
+        </scope>
+        <scope ilk="function" line="741" lineend="743" name="CALL_FUNCTION" returns="int" signature="CALL_FUNCTION(argc)">
+          <variable line="742" name="lo" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable line="742" name="hi" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="750" lineend="751" name="MAKE_FUNCTION" signature="MAKE_FUNCTION(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="733" lineend="734" name="UNPACK_SEQUENCE" returns="int" signature="UNPACK_SEQUENCE(count)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="744" lineend="745" name="CALL_FUNCTION_VAR" returns="StackDepthTracker.CALL_FUNCTION()" signature="CALL_FUNCTION_VAR(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="755" lineend="759" name="BUILD_SLICE" returns="int" signature="BUILD_SLICE(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="746" lineend="747" name="CALL_FUNCTION_KW" returns="StackDepthTracker.CALL_FUNCTION()" signature="CALL_FUNCTION_KW(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="735" lineend="736" name="BUILD_TUPLE" returns="int" signature="BUILD_TUPLE(count)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="737" lineend="738" name="BUILD_LIST" returns="int" signature="BUILD_LIST(count)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="748" lineend="749" name="CALL_FUNCTION_VAR_KW" returns="StackDepthTracker.CALL_FUNCTION()" signature="CALL_FUNCTION_VAR_KW(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="752" lineend="754" name="MAKE_CLOSURE" signature="MAKE_CLOSURE(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <scope ilk="function" line="760" lineend="761" name="DUP_TOPX" signature="DUP_TOPX(argc)">
+          <variable citdl="StackDepthTracker" ilk="argument" name="self" />
+          <variable ilk="argument" name="argc" />
+        </scope>
+        <variable citdl="list" line="728" name="patterns" />
+        <variable citdl="dict" line="685" name="effect" />
+      </scope>
+      <scope doc="Helper for marking func defs with nested tuples in arglist&#10;" ilk="class" line="563" lineend="571" name="TupleArg">
+        <scope ilk="function" line="570" lineend="571" name="getName" returns="str" signature="getName()">
+          <variable citdl="TupleArg" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="565" lineend="567" name="__init__" signature="TupleArg(count, names)">
+          <variable ilk="argument" name="count" />
+          <variable citdl="TupleArg" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+        </scope>
+        <scope ilk="function" line="568" lineend="569" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="TupleArg" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="566" name="count" />
+        <variable attributes="__instancevar__" line="567" name="names" />
+      </scope>
+      <import module="dis" />
+      <scope ilk="function" line="763" name="findDepth" />
+      <scope ilk="function" line="573" lineend="580" name="getArgCount" returns="len()" signature="getArgCount(args)">
+        <variable citdl="len()" line="578" name="numNames" />
+        <variable citdl="len()" line="574" name="argcount" />
+        <variable ilk="argument" name="args" />
+      </scope>
+      <scope ilk="function" line="559" lineend="561" name="isJump" returns="int" signature="isJump(opname)">
+        <variable ilk="argument" name="opname" />
+      </scope>
+      <import module="misc" />
+      <scope doc="Order blocks so that they are emitted in the right order" ilk="function" line="98" lineend="162" name="order_blocks" returns="list" signature="order_blocks(start_block, exit_block)">
+        <variable line="136" name="c" />
+        <variable citdl="todo.pop()" line="111" name="b" />
+        <variable citdl="set()" line="108" name="remaining" />
+        <variable ilk="argument" name="start_block" />
+        <variable citdl="dict" line="121" name="dominators" />
+        <variable ilk="argument" name="exit_block" />
+        <variable citdl="list" line="109" name="todo" />
+        <variable citdl="list" line="105" name="order" />
+        <scope ilk="function" line="140" lineend="148" name="find_next" returns="todo.pop()" signature="find_next()" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Convert an int argument into high and low bytes" ilk="function" line="582" lineend="585" name="twobyte" returns="divmod()" signature="twobyte(val)">
+        <variable ilk="argument" name="val" />
+      </scope>
+      <import module="types" />
+    </scope>
+    

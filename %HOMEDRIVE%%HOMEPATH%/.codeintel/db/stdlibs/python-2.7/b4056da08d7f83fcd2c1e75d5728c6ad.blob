@@ -1,0 +1,63 @@
+<scope doc="Simple textbox editing widget with Emacs-like keybindings.&#10;" ilk="blob" lang="Python" name="curses.textpad">
+      <scope doc="Editing widget using the interior of a window object.&#10;Supports the following Emacs-like key bindings:  Ctrl-A      Go to left edge of window. Ctrl-B      Cursor left, wrapping to previous line if appropriate. Ctrl-D      Delete character under cursor. Ctrl-E      Go to right edge (stripspaces off) or end of line (stripspaces on). Ctrl-F      Cursor right, wrapping to next line when appropriate. Ctrl-G      Terminate, returning the window contents. Ctrl-H      Delete character backward. Ctrl-J      Terminate if the window is 1 line, otherwise insert newline." ilk="class" line="19" lineend="175" name="Textbox">
+        <scope doc="Edit in the widget window and collect the results." ilk="function" line="164" lineend="175" name="edit" returns="Textbox.gather()" signature="edit(validate=None)">
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable citdl="validate()" line="167" name="ch" />
+          <variable ilk="argument" name="validate" />
+        </scope>
+        <scope doc="Collect and return the contents of the window." ilk="function" line="148" lineend="162" name="gather" returns="str" signature="gather()">
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable citdl="_end_of_line()" line="153" name="stop" />
+          <variable citdl="str" line="150" name="result" />
+        </scope>
+        <scope doc="Go to the location of the first blank on the given line,&#10;returning the index of the last non-blank character." ilk="function" line="53" lineend="64" name="_end_of_line" returns="min()" signature="_end_of_line(y)">
+          <variable ilk="argument" name="y" />
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable citdl="min()" line="56" name="last" />
+        </scope>
+        <scope ilk="function" line="66" lineend="82" name="_insert_printable_char" signature="_insert_printable_char(ch)">
+          <variable ilk="argument" name="ch" />
+          <variable line="79" name="backx" />
+          <variable line="79" name="backy" />
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable citdl="self.win.inch()" line="70" name="oldch" />
+          <variable line="67" name="y" />
+          <variable line="67" name="x" />
+        </scope>
+        <scope doc="Process a single editing command." ilk="function" line="84" lineend="146" name="do_command" returns="int" signature="do_command(ch)">
+          <variable line="86" name="y" />
+          <variable line="86" name="x" />
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="ch" />
+        </scope>
+        <scope ilk="function" line="43" lineend="51" name="__init__" signature="Textbox(win, insert_mode=False)">
+          <variable ilk="argument" name="win" />
+          <variable citdl="Textbox" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="insert_mode" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="46" name="maxx" />
+        <variable attributes="__instancevar__" citdl="int" line="46" name="maxy" />
+        <variable attributes="__instancevar__" line="44" name="win" />
+        <variable attributes="__instancevar__" line="50" name="lastcmd" />
+        <variable attributes="__instancevar__" citdl="int" line="49" name="stripspaces" />
+        <variable attributes="__instancevar__" citdl="False" line="45" name="insert_mode" />
+      </scope>
+      <import module="curses" />
+      <scope doc="Draw a rectangle with corners at the provided upper-left and&#10;lower-right coordinates." ilk="function" line="6" lineend="17" name="rectangle" signature="rectangle(win, uly, ulx, lry, lrx)">
+        <variable ilk="argument" name="lry" />
+        <variable ilk="argument" name="win" />
+        <variable ilk="argument" name="ulx" />
+        <variable ilk="argument" name="uly" />
+        <variable ilk="argument" name="lrx" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="178" lineend="185" name="test_editbox" signature="test_editbox(stdscr)">
+        <variable ilk="argument" name="stdscr" />
+        <variable citdl="int" line="179" name="nlines" />
+        <variable citdl="int" line="179" name="ncols" />
+        <variable citdl="int" line="180" name="ulx" />
+        <variable citdl="int" line="180" name="uly" />
+        <variable citdl="curses.newwin()" line="182" name="win" />
+      </scope>
+      <variable attributes="__hidden__" citdl="curses.wrapper()" line="187" name="str" />
+    </scope>
+    

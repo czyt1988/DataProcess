@@ -1,0 +1,343 @@
+<scope doc="Generic output formatting.&#10;Formatter objects transform an abstract flow of formatting events into specific output events on writer objects. Formatters manage several stack structures to allow various properties of a writer object to be changed and restored; writers need not be able to handle relative changes nor any sort of ``change back'' operation. Specific writer properties which may be controlled via formatter objects are horizontal alignment, font, and left margin indentations. A mechanism is provided which supports providing arbitrary, non-exclusive style settings to a writer as well. Additional interfaces facilitate formatting events which are not reversible, such as paragraph separation." ilk="blob" lang="Python" name="formatter">
+      <variable citdl="NoneType" line="24" name="AS_IS" />
+      <scope doc="The standard formatter.&#10;This implementation has demonstrated wide applicability to many writers, and may be used directly in most circumstances.  It has been used to implement a full-featured World Wide Web browser." ilk="class" line="61" lineend="292" name="AbstractFormatter">
+        <scope ilk="function" line="101" lineend="106" name="add_line_break" signature="add_line_break()">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="90" lineend="99" name="end_paragraph" signature="end_paragraph(blankline)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="blankline" />
+        </scope>
+        <scope ilk="function" line="221" lineend="229" name="pop_alignment" signature="pop_alignment()">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="256" lineend="261" name="push_margin" signature="push_margin(margin)">
+          <variable citdl="filter()" line="258" name="fstack" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="margin" />
+        </scope>
+        <scope ilk="function" line="273" lineend="275" name="set_spacing" signature="set_spacing(spacing)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="spacing" />
+        </scope>
+        <scope ilk="function" line="75" lineend="88" name="__init__" signature="AbstractFormatter(writer)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="writer" />
+        </scope>
+        <scope ilk="function" line="286" lineend="288" name="pop_style" signature="pop_style(n=1)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="263" lineend="271" name="pop_margin" signature="pop_margin()">
+          <variable citdl="filter()" line="266" name="fstack" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable line="268" name="margin" />
+        </scope>
+        <scope ilk="function" line="277" lineend="284" name="push_style" signature="push_style(*styles)">
+          <variable attributes="varargs" ilk="argument" name="styles" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="290" lineend="292" name="assert_line_data" signature="assert_line_data(flag=1)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flag" />
+        </scope>
+        <scope ilk="function" line="153" lineend="175" name="format_roman" returns="str" signature="format_roman(case, counter)">
+          <variable ilk="argument" name="case" />
+          <variable citdl="int" line="156" name="index" />
+          <variable citdl="list" line="155" name="fives" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="counter" />
+          <variable citdl="str" line="156" name="label" />
+          <variable citdl="str" line="166" name="s" />
+          <variable citdl="list" line="154" name="ones" />
+          <variable citdl="int" line="159" name="x" />
+        </scope>
+        <scope ilk="function" line="177" lineend="195" name="add_flowing_data" signature="add_flowing_data(data)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable line="179" name="prespace" />
+          <variable citdl="str.join()" ilk="argument" name="data" />
+          <variable line="180" name="postspace" />
+        </scope>
+        <scope ilk="function" line="127" lineend="140" name="format_counter" returns="self.format_letter()" signature="format_counter(format, counter)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="counter" />
+          <variable citdl="str" line="128" name="label" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope ilk="function" line="197" lineend="204" name="add_literal_data" signature="add_literal_data(data)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="231" lineend="245" name="push_font" signature="push_font(font)">
+          <variable citdl="cb" line="241" name="b" />
+          <variable citdl="ci" line="240" name="i" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="font" />
+          <variable citdl="ctt" line="242" name="tt" />
+          <variable citdl="csize" line="239" name="size" />
+        </scope>
+        <scope ilk="function" line="247" lineend="254" name="pop_font" signature="pop_font()">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable line="251" name="font" />
+        </scope>
+        <scope ilk="function" line="213" lineend="219" name="push_alignment" signature="push_alignment(align)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="align" />
+        </scope>
+        <scope ilk="function" line="108" lineend="113" name="add_hor_rule" signature="add_hor_rule(*args, **kw)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="142" lineend="151" name="format_letter" returns="str" signature="format_letter(case, counter)">
+          <variable ilk="argument" name="case" />
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="counter" />
+          <variable citdl="str" line="143" name="label" />
+          <variable citdl="chr()" line="149" name="s" />
+          <variable line="145" name="x" />
+        </scope>
+        <scope ilk="function" line="115" lineend="125" name="add_label_data" signature="add_label_data(format, counter, blankline=None)">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="counter" />
+          <variable ilk="argument" name="blankline" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope ilk="function" line="206" lineend="211" name="flush_softspace" signature="flush_softspace()">
+          <variable citdl="AbstractFormatter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="85" name="para_end" />
+        <variable attributes="__instancevar__" citdl="list" line="82" name="style_stack" />
+        <variable attributes="__instancevar__" citdl="int" line="84" name="softspace" />
+        <variable attributes="__instancevar__" citdl="int" line="87" name="hard_break" />
+        <variable attributes="__instancevar__" citdl="list" line="79" name="font_stack" />
+        <variable attributes="__instancevar__" line="77" name="align" />
+        <variable attributes="__instancevar__" citdl="int" line="88" name="have_label" />
+        <variable attributes="__instancevar__" line="81" name="spacing" />
+        <variable attributes="__instancevar__" citdl="int" line="83" name="nospace" />
+        <variable attributes="__instancevar__" line="76" name="writer" />
+        <variable attributes="__instancevar__" citdl="list" line="78" name="align_stack" />
+        <variable attributes="__instancevar__" citdl="list" line="80" name="margin_stack" />
+        <variable attributes="__instancevar__" citdl="int" line="86" name="parskip" />
+      </scope>
+      <scope classrefs="NullWriter" doc="A writer which can be used in debugging formatters, but not much else.&#10;Each method simply announces itself by printing its name and arguments on standard output." ilk="class" line="318" lineend="357" name="AbstractWriter">
+        <scope ilk="function" line="335" lineend="336" name="new_spacing" signature="new_spacing(spacing)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="spacing" />
+        </scope>
+        <scope ilk="function" line="356" lineend="357" name="send_literal_data" signature="send_literal_data(data)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="329" lineend="330" name="new_font" signature="new_font(font)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="font" />
+        </scope>
+        <scope ilk="function" line="353" lineend="354" name="send_flowing_data" signature="send_flowing_data(data)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="326" lineend="327" name="new_alignment" signature="new_alignment(align)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="align" />
+        </scope>
+        <scope ilk="function" line="344" lineend="345" name="send_line_break" signature="send_line_break()">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="332" lineend="333" name="new_margin" signature="new_margin(margin, level)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="margin" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="338" lineend="339" name="new_styles" signature="new_styles(styles)">
+          <variable ilk="argument" name="styles" />
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="350" lineend="351" name="send_label_data" signature="send_label_data(data)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="341" lineend="342" name="send_paragraph" signature="send_paragraph(blankline)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="blankline" />
+        </scope>
+        <scope ilk="function" line="347" lineend="348" name="send_hor_rule" signature="send_hor_rule(*args, **kw)">
+          <variable citdl="AbstractWriter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+      </scope>
+      <scope classrefs="NullWriter" doc="Simple writer class which writes output on the file object passed in&#10;as the file parameter or, if file is omitted, on standard output.  The output is simply word-wrapped to the number of columns specified by the maxcol parameter.  This class is suitable for reflowing a sequence of paragraphs." ilk="class" line="360" lineend="424" name="DumbWriter">
+        <scope ilk="function" line="375" lineend="377" name="reset" signature="reset()">
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="396" lineend="404" name="send_literal_data" signature="send_literal_data(data)">
+          <variable citdl="data.rfind()" line="398" name="i" />
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+          <variable citdl="data.expandtabs()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="406" lineend="424" name="send_flowing_data" signature="send_flowing_data(data)">
+          <variable citdl="int" line="410" name="maxcol" />
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+          <variable citdl="self.file.write" line="411" name="write" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="len()" line="409" name="col" />
+          <variable citdl="int" line="408" name="atbreak" />
+        </scope>
+        <scope ilk="function" line="384" lineend="387" name="send_line_break" signature="send_line_break()">
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="379" lineend="382" name="send_paragraph" signature="send_paragraph(blankline)">
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="blankline" />
+        </scope>
+        <scope ilk="function" line="389" lineend="394" name="send_hor_rule" signature="send_hor_rule(*args, **kw)">
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="369" lineend="373" name="__init__" signature="DumbWriter(file=None, maxcol=72)">
+          <variable citdl="DumbWriter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxcol" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="371" name="maxcol" />
+        <variable attributes="__instancevar__" citdl="int" line="376" name="col" />
+        <variable attributes="__instancevar__" citdl="sys.stdout" line="370" name="file" />
+        <variable attributes="__instancevar__" citdl="int" line="377" name="atbreak" />
+      </scope>
+      <scope doc="A formatter which does nothing.&#10;If the writer parameter is omitted, a NullWriter instance is created. No methods of the writer are called by NullFormatter instances.  Implementations should inherit from this class if implementing a writer interface but don't need to inherit any implementation." ilk="class" line="27" lineend="58" name="NullFormatter">
+        <scope ilk="function" line="49" lineend="49" name="push_alignment" signature="push_alignment(align)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="align" />
+        </scope>
+        <scope ilk="function" line="43" lineend="43" name="add_line_break" signature="add_line_break()">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="57" lineend="57" name="pop_style" signature="pop_style(n=1)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="56" lineend="56" name="push_style" signature="push_style(*styles)">
+          <variable attributes="varargs" ilk="argument" name="styles" />
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="54" lineend="54" name="pop_margin" signature="pop_margin()">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="42" lineend="42" name="end_paragraph" signature="end_paragraph(blankline)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="blankline" />
+        </scope>
+        <scope ilk="function" line="58" lineend="58" name="assert_line_data" signature="assert_line_data(flag=1)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flag" />
+        </scope>
+        <scope ilk="function" line="50" lineend="50" name="pop_alignment" signature="pop_alignment()">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="53" lineend="53" name="push_margin" signature="push_margin(margin)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="margin" />
+        </scope>
+        <scope ilk="function" line="51" lineend="51" name="push_font" signature="push_font(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="44" lineend="44" name="add_hor_rule" signature="add_hor_rule(*args, **kw)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="46" lineend="46" name="add_flowing_data" signature="add_flowing_data(data)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="48" lineend="48" name="flush_softspace" signature="flush_softspace()">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="55" lineend="55" name="set_spacing" signature="set_spacing(spacing)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="spacing" />
+        </scope>
+        <scope ilk="function" line="45" lineend="45" name="add_label_data" signature="add_label_data(format, counter, blankline=None)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="counter" />
+          <variable ilk="argument" name="blankline" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope ilk="function" line="47" lineend="47" name="add_literal_data" signature="add_literal_data(data)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="38" lineend="41" name="__init__" signature="NullFormatter(writer=None)">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+          <variable citdl="NullWriter()" ilk="argument" name="writer" />
+        </scope>
+        <scope ilk="function" line="52" lineend="52" name="pop_font" signature="pop_font()">
+          <variable citdl="NullFormatter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="NullWriter()" line="41" name="writer" />
+      </scope>
+      <scope doc="Minimal writer interface to use in testing &amp; inheritance.&#10;A writer which only provides the interface definition; no actions are taken on any methods.  This should be the base class for all writers which do not need to inherit any implementation methods." ilk="class" line="295" lineend="315" name="NullWriter">
+        <scope ilk="function" line="308" lineend="308" name="new_spacing" signature="new_spacing(spacing)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="spacing" />
+        </scope>
+        <scope ilk="function" line="315" lineend="315" name="send_literal_data" signature="send_literal_data(data)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="306" lineend="306" name="new_font" signature="new_font(font)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="font" />
+        </scope>
+        <scope ilk="function" line="314" lineend="314" name="send_flowing_data" signature="send_flowing_data(data)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="305" lineend="305" name="new_alignment" signature="new_alignment(align)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="align" />
+        </scope>
+        <scope ilk="function" line="311" lineend="311" name="send_line_break" signature="send_line_break()">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="307" lineend="307" name="new_margin" signature="new_margin(margin, level)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="margin" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="309" lineend="309" name="new_styles" signature="new_styles(styles)">
+          <variable ilk="argument" name="styles" />
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="313" lineend="313" name="send_label_data" signature="send_label_data(data)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="304" lineend="304" name="flush" signature="flush()">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="310" lineend="310" name="send_paragraph" signature="send_paragraph(blankline)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="blankline" />
+        </scope>
+        <scope ilk="function" line="312" lineend="312" name="send_hor_rule" signature="send_hor_rule(*args, **kw)">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="303" lineend="303" name="__init__" signature="NullWriter()">
+          <variable citdl="NullWriter" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <import module="sys" />
+      <scope ilk="function" line="427" lineend="441" name="test" signature="test(file=None)">
+        <variable citdl="open()" line="431" name="fp" />
+        <variable citdl="DumbWriter" line="428" name="w" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="AbstractFormatter" line="429" name="f" />
+      </scope>
+    </scope>
+    

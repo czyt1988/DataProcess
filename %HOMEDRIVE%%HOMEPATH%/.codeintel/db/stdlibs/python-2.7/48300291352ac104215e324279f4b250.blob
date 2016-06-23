@@ -1,0 +1,41 @@
+<scope doc="macresource - Locate and open the resources needed for a script.&#10;" ilk="blob" lang="Python" name="macresource">
+      <scope classrefs="TypeError" doc="&#10;" ilk="class" line="12" lineend="12" name="ArgumentError" />
+      <import module="MacOS" />
+      <import module="Res" />
+      <scope classrefs="ImportError" doc="&#10;" ilk="class" line="13" lineend="13" name="ResourceFileNotFoundError" />
+      <import module="macostools" />
+      <scope doc="Open a resource file, if needed." ilk="function" line="15" lineend="75" name="need" returns="open_pathname()" signature="need(restype, resid, filename=None, modname=None)">
+        <variable ilk="argument" name="modname" />
+        <variable ilk="argument" name="resid" />
+        <variable citdl="Res.GetResource()" line="29" name="h" />
+        <variable ilk="argument" name="restype" />
+        <variable citdl="str" ilk="argument" name="filename" />
+        <variable citdl="open_pathname()" line="68" name="refno" />
+        <variable citdl="os.path.join()" line="62" name="pathname" />
+        <variable citdl="list" line="50" name="searchdirs" />
+        <variable line="55" name="mod" />
+      </scope>
+      <scope doc="Open the resource file containing the error code to error&#10;message mapping." ilk="function" line="114" lineend="117" name="open_error_resource" signature="open_error_resource()" />
+      <scope doc="Open a resource file given by pathname, possibly decoding an&#10;AppleSingle file" ilk="function" line="77" lineend="93" name="open_pathname" returns="Res.FSOpenResourceFile()" signature="open_pathname(pathname, verbose=0)">
+        <variable citdl="Res.FSOpenResourceFile()" line="84" name="refno" />
+        <variable citdl="_decode()" ilk="argument" name="pathname" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+      </scope>
+      <import module="os" />
+      <scope doc="Return the pathname for a resource file (either DF or RF&#10;based)." ilk="function" line="95" lineend="112" name="resource_pathname" returns="Res.FSOpenResourceFile()" signature="resource_pathname(pathname, verbose=0)">
+        <variable citdl="Res.FSOpenResourceFile()" line="103" name="refno" />
+        <variable citdl="_decode()" ilk="argument" name="pathname" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope attributes="protected __hidden__" ilk="function" line="119" lineend="135" name="_decode" returns="str" signature="_decode(pathname, verbose=0)">
+        <import line="129" module="tempfile" />
+        <import line="133" module="applesingle" />
+        <variable ilk="argument" name="pathname" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="str" line="121" name="newpathname" />
+        <variable line="130" name="fd" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,36 @@
+<scope doc="Fixer for print.&#10;Change: 'print'          into 'print()' 'print ...'      into 'print(...)' 'print ... ,'    into 'print(..., end=&quot; &quot;)' 'print &gt;&gt;x, ...' into 'print(..., file=x)'  No changes are applied if print_function is imported from __future__" ilk="blob" lang="Python" name="lib2to3.fixes.fix_print">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="29" lineend="87" name="FixPrint">
+        <scope ilk="function" line="37" lineend="75" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="str" line="57" name="end" />
+          <variable citdl="list" line="63" name="l_args" />
+          <variable line="54" name="sep" />
+          <variable citdl="results.get()" line="40" name="bare_print" />
+          <variable citdl="list" line="48" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable line="60" name="file" />
+          <variable citdl="FixPrint" ilk="argument" name="self" />
+          <variable citdl="Call()" line="73" name="n_stmt" />
+        </scope>
+        <scope ilk="function" line="77" lineend="87" name="add_kwarg" signature="add_kwarg(l_nodes, s_kwd, n_expr)">
+          <variable citdl="FixPrint" ilk="argument" name="self" />
+          <variable ilk="argument" name="l_nodes" />
+          <variable ilk="argument" name="s_kwd" />
+          <variable citdl="pytree.Node()" line="80" name="n_argument" />
+          <variable ilk="argument" name="n_expr" />
+        </scope>
+        <variable citdl="True" line="31" name="BM_compatible" />
+        <variable citdl="str" line="33" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope doc="A string leaf" ilk="function" name="String" signature="String(string, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Does the node represent a tuple literal?" ilk="function" name="is_tuple" signature="is_tuple(node)" />
+      <variable citdl="NodePattern" line="24" name="parend_expr" />
+      <import module="patcomp" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

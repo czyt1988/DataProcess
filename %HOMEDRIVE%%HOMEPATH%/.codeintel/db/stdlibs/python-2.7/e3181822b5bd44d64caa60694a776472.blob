@@ -1,0 +1,93 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="hotshot.log">
+      <variable citdl="int" line="18" name="ENTER" />
+      <variable citdl="int" line="19" name="EXIT" />
+      <variable citdl="int" line="20" name="LINE" />
+      <scope doc="&#10;" ilk="class" line="23" lineend="194" name="LogReader">
+        <scope doc="Return the file descriptor of the log reader's log file." ilk="function" line="50" lineend="52" name="fileno" returns="self._reader.fileno()" signature="fileno()">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="74" lineend="75" name="get_filenames" returns="self._filemap.values()" signature="get_filenames()">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="95" lineend="132" name="next" returns="tuple" signature="next(index=0)">
+          <variable citdl="int" ilk="argument" name="index" />
+          <variable line="98" name="what" />
+          <variable line="98" name="fileno" />
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable line="103" name="funcname" />
+          <variable line="98" name="lineno" />
+          <variable line="98" name="tdelta" />
+          <variable citdl="os.path.normcase()" line="103" name="filename" />
+          <variable citdl="tuple" line="104" name="t" />
+        </scope>
+        <scope ilk="function" line="134" lineend="135" name="__iter__" returns="LogReader" signature="__iter__()">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="88" name="get_funcname" signature="get_funcname(fileno, lineno)">
+          <variable ilk="argument" name="fileno" />
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <scope ilk="function" line="141" lineend="158" name="_decode_location" returns="tuple" signature="_decode_location(fileno, lineno)">
+          <variable ilk="argument" name="fileno" />
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable line="156" name="funcname" />
+          <variable ilk="argument" name="lineno" />
+          <variable citdl="self._filemap.get()" line="151" name="filename" />
+        </scope>
+        <scope ilk="function" line="77" lineend="82" name="get_fileno" returns="LogReader.fileno" signature="get_fileno(filename)">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable citdl="os.path.normcase()" ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="160" lineend="194" name="_loadfile" returns="int" signature="_loadfile(fileno)">
+          <variable citdl="open()" line="171" name="fp" />
+          <variable ilk="argument" name="fileno" />
+          <variable citdl="symbol.lambdef" line="180" name="lambdef" />
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable citdl="stack.pop()" line="185" name="tree" />
+          <variable line="187" name="sym" />
+          <variable citdl="parser.suite()" line="174" name="st" />
+          <variable citdl="os.path.normcase()" line="168" name="absname" />
+          <variable citdl="symbol.funcdef" line="179" name="funcdef" />
+          <variable line="162" name="filename" />
+          <variable citdl="list" line="182" name="stack" />
+        </scope>
+        <scope ilk="function" line="68" lineend="72" name="get_filename" signature="get_filename(fileno)">
+          <variable ilk="argument" name="fileno" />
+          <variable citdl="LogReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="47" lineend="48" name="close" signature="close()">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This method is called for each additional ADD_INFO record." ilk="function" line="54" lineend="66" name="addinfo" signature="addinfo(key, value)">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="24" lineend="45" name="__init__" signature="LogReader(logfn)">
+          <variable citdl="LogReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="logfn" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self._stack.pop" line="45" name="_pop" />
+        <variable attributes="protected __instancevar__" citdl="self._reader.next" line="31" name="_nextitem" />
+        <variable attributes="protected __instancevar__" citdl="_hotshot.logreader()" line="30" name="_reader" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="28" name="_funcmap" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="26" name="_filemap" />
+        <variable attributes="protected __instancevar__" citdl="self._stack.append" line="44" name="_append" />
+        <variable attributes="protected __instancevar__" citdl="self._reader.info" line="32" name="_info" />
+        <variable attributes="protected __instancevar__" citdl="list" line="43" name="_stack" />
+        <variable attributes="__instancevar__" line="34" name="cwd" />
+      </scope>
+      <variable citdl="int" name="WHAT_ADD_INFO" />
+      <variable citdl="int" name="WHAT_DEFINE_FILE" />
+      <variable citdl="int" name="WHAT_DEFINE_FUNC" />
+      <variable citdl="int" name="WHAT_ENTER" />
+      <variable citdl="int" name="WHAT_EXIT" />
+      <variable citdl="int" name="WHAT_LINENO" />
+      <variable citdl="list" line="15" name="__all__" />
+      <import module="_hotshot" />
+      <import module="os" />
+      <import module="parser" />
+      <import module="symbol" />
+    </scope>
+    

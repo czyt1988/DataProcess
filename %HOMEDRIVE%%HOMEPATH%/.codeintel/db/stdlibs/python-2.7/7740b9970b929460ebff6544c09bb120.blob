@@ -1,0 +1,14 @@
+<scope doc="Fixer for basestring -&gt; str.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_basestring">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="8" lineend="14" name="FixBasestring">
+        <scope ilk="function" line="13" lineend="14" name="transform" returns="Name()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixBasestring" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="9" name="BM_compatible" />
+        <variable citdl="str" line="11" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

@@ -1,0 +1,17 @@
+<scope doc="Guess which db package to use to open a db file.&#10;" ilk="blob" lang="Python" name="whichdb">
+      <variable citdl="NoneType" line="12" name="dbm" />
+      <import module="os" />
+      <import module="struct" />
+      <import module="sys" />
+      <scope doc="Guess which db package to use to open a db file." ilk="function" line="17" lineend="113" name="whichdb" returns="str" signature="whichdb(filename)">
+        <variable line="89" name="magic" />
+        <variable citdl="dbm.open()" line="49" name="d" />
+        <variable citdl="open()" line="32" name="f" />
+        <variable citdl="f.read()" line="79" name="s16" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="list" line="81" name="s" />
+        <variable line="59" name="size" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="IOError" line="10" name="_dbmerror" />
+    </scope>
+    

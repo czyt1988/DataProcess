@@ -1,0 +1,24 @@
+<scope doc="Execute shell commands via os.popen() and return status, output.&#10;Interface summary:  import commands  outtext = commands.getoutput(cmd) (exitstatus, outtext) = commands.getstatusoutput(cmd) outtext = commands.getstatus(file)  # returns output of &quot;ls -ld file&quot;  A trailing newline is removed from the output string. " ilk="blob" lang="Python" name="commands">
+      <variable citdl="list" line="26" name="__all__" />
+      <scope doc="Return output (stdout or stderr) of executing cmd in a&#10;shell." ilk="function" line="48" lineend="50" name="getoutput" signature="getoutput(cmd)">
+        <variable ilk="argument" name="cmd" />
+      </scope>
+      <scope doc="Return output of &quot;ls -ld &lt;file&gt;&quot; in a string." ilk="function" line="37" lineend="41" name="getstatus" returns="getoutput()" signature="getstatus(file)">
+        <variable ilk="argument" name="file" />
+      </scope>
+      <scope doc="Return (status, output) of executing cmd in a shell." ilk="function" line="56" lineend="64" name="getstatusoutput" returns="tuple" signature="Return (status, output) of executing cmd in a shell.">
+        <variable citdl="os.popen()" line="59" name="pipe" />
+        <variable citdl="list" line="60" name="text" />
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="int" line="61" name="sts" />
+      </scope>
+      <scope doc="# Make command argument from directory and pathname (prefix&#10;space, add quotes)." ilk="function" line="69" lineend="71" name="mk2arg" returns="mkarg()" signature="mk2arg(head, x)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="head" />
+      </scope>
+      <scope doc="# Make a shell command argument from a string." ilk="function" line="81" lineend="90" name="mkarg" returns="str" signature="mkarg(x)">
+        <variable ilk="argument" name="x" />
+        <variable citdl="str" line="84" name="s" />
+      </scope>
+    </scope>
+    

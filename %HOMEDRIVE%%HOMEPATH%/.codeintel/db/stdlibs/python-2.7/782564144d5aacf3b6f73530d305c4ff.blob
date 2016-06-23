@@ -1,0 +1,49 @@
+<scope doc="Fixer for execfile.&#10;This converts usages of the execfile function into calls to the built-in exec() function." ilk="blob" lang="Python" name="lib2to3.fixes.fix_execfile">
+      <scope doc="A parenthesised argument list, used by Call()" ilk="function" name="ArgList" signature="ArgList(args, lparen=Leaf(7, u'('), rparen=Leaf(8, u')'))" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope doc="A period (.) leaf" ilk="function" name="Dot" signature="Dot()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="15" lineend="52" name="FixExecfile">
+        <scope ilk="function" line="24" lineend="52" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="32" name="execfile_paren" />
+          <variable citdl="filename.clone()" line="41" name="filename_arg" />
+          <variable citdl="list" line="36" name="read" />
+          <variable citdl="FixExecfile" ilk="argument" name="self" />
+          <variable citdl="list" line="47" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable line="26" name="filename" />
+          <variable citdl="list" line="44" name="compile_args" />
+          <variable citdl="list" line="38" name="open_expr" />
+          <variable citdl="ArgList()" line="34" name="open_args" />
+          <variable citdl="Node()" line="35" name="open_call" />
+          <variable citdl="String()" line="43" name="exec_str" />
+          <variable citdl="Call()" line="45" name="compile_call" />
+          <variable citdl="results.get()" line="28" name="locals" />
+          <variable citdl="results.get()" line="27" name="globals" />
+        </scope>
+        <variable citdl="True" line="16" name="BM_compatible" />
+        <variable citdl="str" line="18" name="PATTERN" />
+      </scope>
+      <scope ilk="function" name="LParen" signature="LParen()" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope ilk="function" name="RParen" signature="RParen()" />
+      <scope doc="A string leaf" ilk="function" name="String" signature="String(string, prefix=None)" />
+      <import module="fixer_base" />
+      <variable citdl="Symbols" name="syms" />
+    </scope>
+    

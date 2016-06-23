@@ -1,0 +1,45 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="mmap">
+      <variable citdl="int" name="ACCESS_COPY" />
+      <variable citdl="int" name="ACCESS_READ" />
+      <variable citdl="int" name="ACCESS_WRITE" />
+      <variable citdl="int" name="ALLOCATIONGRANULARITY" />
+      <variable citdl="int" name="PAGESIZE" />
+      <scope classrefs="EnvironmentError" doc="&#10;" ilk="class" name="error" />
+      <scope classrefs="object" doc="Windows: mmap(fileno, length[, tagname[, access[, offset]]])&#10;Maps length bytes from the file specified by the file handle fileno, and returns a mmap object.  If length is larger than the current size of the file, the file is extended to contain length bytes.  If length is 0, the maximum length of the map is the current size of the file, except that if the file is empty Windows raises an exception (you cannot create an empty mapping on Windows).  Unix: mmap(fileno, length[, flags[, prot[, access[, offset]]]])  Maps length bytes from the file specified by the file descriptor fileno," ilk="class" name="mmap">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="move" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="flush" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="find" />
+        <scope ilk="function" name="size" />
+        <scope ilk="function" name="write" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope ilk="function" name="read_byte" />
+        <scope ilk="function" name="tell" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope ilk="function" name="read" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="write_byte" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="resize" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope ilk="function" name="rfind" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+      </scope>
+      <variable citdl="int" name="PROT_WRITE" />
+      <variable citdl="int" name="PROT_READ" />
+      <variable citdl="int" name="MAP_DENYWRITE" />
+      <variable citdl="int" name="MAP_SHARED" />
+      <variable citdl="int" name="MAP_EXECUTABLE" />
+      <variable citdl="int" name="PROT_EXEC" />
+      <variable citdl="int" name="MAP_PRIVATE" />
+      <variable citdl="int" name="MAP_ANON" />
+      <variable citdl="int" name="MAP_ANONYMOUS" />
+    </scope>
+    

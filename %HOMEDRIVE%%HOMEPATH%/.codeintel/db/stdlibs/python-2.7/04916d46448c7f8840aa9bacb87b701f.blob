@@ -1,0 +1,333 @@
+<scope doc="Internal support module for sre&#10;" ilk="blob" lang="Python" name="sre_parse">
+      <variable citdl="str" name="ANY" />
+      <variable citdl="str" name="ANY_ALL" />
+      <variable citdl="str" name="ASSERT" />
+      <variable citdl="str" name="ASSERT_NOT" />
+      <variable citdl="str" name="AT" />
+      <variable citdl="dict" name="ATCODES" />
+      <variable citdl="str" name="AT_BEGINNING" />
+      <variable citdl="str" name="AT_BEGINNING_LINE" />
+      <variable citdl="str" name="AT_BEGINNING_STRING" />
+      <variable citdl="str" name="AT_BOUNDARY" />
+      <variable citdl="str" name="AT_END" />
+      <variable citdl="str" name="AT_END_LINE" />
+      <variable citdl="str" name="AT_END_STRING" />
+      <variable citdl="dict" name="AT_LOCALE" />
+      <variable citdl="str" name="AT_LOC_BOUNDARY" />
+      <variable citdl="str" name="AT_LOC_NON_BOUNDARY" />
+      <variable citdl="dict" name="AT_MULTILINE" />
+      <variable citdl="str" name="AT_NON_BOUNDARY" />
+      <variable citdl="dict" name="AT_UNICODE" />
+      <variable citdl="str" name="AT_UNI_BOUNDARY" />
+      <variable citdl="str" name="AT_UNI_NON_BOUNDARY" />
+      <variable citdl="str" name="BIGCHARSET" />
+      <variable citdl="str" name="BRANCH" />
+      <variable citdl="str" name="CALL" />
+      <variable citdl="dict" line="40" name="CATEGORIES" />
+      <variable citdl="str" name="CATEGORY" />
+      <variable citdl="str" name="CATEGORY_DIGIT" />
+      <variable citdl="str" name="CATEGORY_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_LOC_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_LOC_WORD" />
+      <variable citdl="str" name="CATEGORY_NOT_DIGIT" />
+      <variable citdl="str" name="CATEGORY_NOT_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_NOT_SPACE" />
+      <variable citdl="str" name="CATEGORY_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_DIGIT" />
+      <variable citdl="str" name="CATEGORY_UNI_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_DIGIT" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_UNI_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_WORD" />
+      <variable citdl="str" name="CATEGORY_WORD" />
+      <variable citdl="str" name="CHARSET" />
+      <variable citdl="dict" name="CHCODES" />
+      <variable citdl="dict" name="CH_LOCALE" />
+      <variable citdl="dict" name="CH_UNICODE" />
+      <variable citdl="set" line="22" name="DIGITS" />
+      <variable citdl="dict" line="29" name="ESCAPES" />
+      <variable citdl="str" name="FAILURE" />
+      <variable citdl="dict" line="53" name="FLAGS" />
+      <variable citdl="str" name="GROUPREF" />
+      <variable citdl="str" name="GROUPREF_EXISTS" />
+      <variable citdl="str" name="GROUPREF_IGNORE" />
+      <variable citdl="set" line="25" name="HEXDIGITS" />
+      <variable citdl="str" name="IN" />
+      <variable citdl="str" name="INFO" />
+      <variable citdl="str" name="IN_IGNORE" />
+      <variable citdl="str" name="JUMP" />
+      <variable citdl="str" name="LITERAL" />
+      <variable citdl="str" name="LITERAL_IGNORE" />
+      <variable citdl="int" name="MAGIC" />
+      <variable citdl="str" name="MARK" />
+      <variable citdl="int" name="MAXREPEAT" />
+      <variable citdl="str" name="MAX_REPEAT" />
+      <variable citdl="str" name="MAX_UNTIL" />
+      <variable citdl="str" name="MIN_REPEAT" />
+      <variable citdl="str" name="MIN_REPEAT_ONE" />
+      <variable citdl="str" name="MIN_UNTIL" />
+      <variable citdl="str" name="NEGATE" />
+      <variable citdl="str" name="NOT_LITERAL" />
+      <variable citdl="str" name="NOT_LITERAL_IGNORE" />
+      <variable citdl="set" line="24" name="OCTDIGITS" />
+      <variable citdl="dict" name="OPCODES" />
+      <variable citdl="dict" name="OP_IGNORE" />
+      <scope doc="&#10;" ilk="class" line="65" lineend="86" name="Pattern">
+        <scope ilk="function" line="83" lineend="84" name="closegroup" signature="closegroup(gid)">
+          <variable citdl="Pattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="gid" />
+        </scope>
+        <scope ilk="function" line="72" lineend="82" name="opengroup" returns="int" signature="opengroup(name=None)">
+          <variable citdl="Pattern" ilk="argument" name="self" />
+          <variable citdl="int" line="73" name="gid" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.groupdict.get()" line="76" name="ogid" />
+        </scope>
+        <scope ilk="function" line="85" lineend="86" name="checkgroup" returns="bool" signature="checkgroup(gid)">
+          <variable citdl="Pattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="gid" />
+        </scope>
+        <scope doc="# master pattern object." ilk="function" line="67" lineend="71" name="__init__" signature="Pattern()">
+          <variable citdl="Pattern" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="71" name="groupdict" />
+        <variable attributes="__instancevar__" citdl="list" line="69" name="open" />
+        <variable attributes="__instancevar__" citdl="int" line="68" name="flags" />
+        <variable attributes="__instancevar__" citdl="int" line="70" name="groups" />
+      </scope>
+      <variable citdl="str" name="RANGE" />
+      <variable citdl="str" name="REPEAT" />
+      <variable citdl="str" line="20" name="REPEAT_CHARS" />
+      <variable citdl="str" name="REPEAT_ONE" />
+      <variable citdl="str" line="19" name="SPECIAL_CHARS" />
+      <variable citdl="int" name="SRE_FLAG_DEBUG" />
+      <variable citdl="int" name="SRE_FLAG_DOTALL" />
+      <variable citdl="int" name="SRE_FLAG_IGNORECASE" />
+      <variable citdl="int" name="SRE_FLAG_LOCALE" />
+      <variable citdl="int" name="SRE_FLAG_MULTILINE" />
+      <variable citdl="int" name="SRE_FLAG_TEMPLATE" />
+      <variable citdl="int" name="SRE_FLAG_UNICODE" />
+      <variable citdl="int" name="SRE_FLAG_VERBOSE" />
+      <variable citdl="int" name="SRE_INFO_CHARSET" />
+      <variable citdl="int" name="SRE_INFO_LITERAL" />
+      <variable citdl="int" name="SRE_INFO_PREFIX" />
+      <variable citdl="str" name="SUBPATTERN" />
+      <variable citdl="str" name="SUCCESS" />
+      <scope doc="&#10;" ilk="class" line="88" lineend="175" name="SubPattern">
+        <scope ilk="function" line="128" lineend="129" name="__delitem__" signature="__delitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="130" lineend="133" name="__getitem__" returns="SubPattern" signature="__getitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="96" lineend="123" name="dump" signature="dump(level=0)">
+          <variable citdl="int" line="108" name="i" />
+          <variable citdl="tuple" line="98" name="seqtypes" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable citdl="int" line="97" name="nl" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="136" lineend="137" name="insert" signature="insert(index, code)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <scope ilk="function" line="138" lineend="139" name="append" signature="append(code)">
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <scope ilk="function" line="140" lineend="175" name="getwidth" returns="tuple" signature="getwidth()">
+          <variable citdl="tuple" line="146" name="REPEATCODES" />
+          <variable citdl="min()" line="149" name="i" />
+          <variable citdl="min()" line="144" name="lo" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable citdl="int" line="150" name="j" />
+          <variable line="152" name="l" />
+          <variable citdl="max()" line="156" name="hi" />
+          <variable citdl="tuple" line="145" name="UNITCODES" />
+          <variable line="152" name="h" />
+        </scope>
+        <scope ilk="function" line="134" lineend="135" name="__setitem__" signature="__setitem__(index, code)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <scope doc="# a subpattern, in intermediate form" ilk="function" line="90" lineend="95" name="__init__" signature="SubPattern(pattern, data=None)">
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="126" lineend="127" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="124" lineend="125" name="__repr__" returns="repr()" signature="__repr__()">
+          <variable citdl="SubPattern" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="91" name="pattern" />
+        <variable attributes="__instancevar__" citdl="list" line="94" name="data" />
+        <variable attributes="__instancevar__" citdl="tuple" line="95" name="width" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="177" lineend="208" name="Tokenizer">
+        <scope ilk="function" line="201" lineend="204" name="get" signature="get()">
+          <variable line="202" name="this" />
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="_Tokenizer__next" />
+        <scope ilk="function" line="178" lineend="181" name="__init__" signature="Tokenizer(string)">
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+          <variable ilk="argument" name="string" />
+        </scope>
+        <scope ilk="function" line="207" lineend="208" name="seek" signature="seek(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="205" lineend="206" name="tell" returns="tuple" signature="tell()">
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="195" lineend="200" name="match" returns="int" signature="match(char, skip=1)">
+          <variable ilk="argument" name="char" />
+          <variable citdl="int" ilk="argument" name="skip" />
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="180" name="index" />
+        <scope attributes="private" ilk="function" line="182" lineend="194" name="__next" signature="__next()">
+          <variable citdl="Tokenizer" ilk="argument" name="self" />
+          <variable line="186" name="char" />
+          <variable line="189" name="c" />
+        </scope>
+        <variable attributes="__instancevar__" line="179" name="string" />
+        <variable attributes="__instancevar__" line="184" name="next" />
+      </scope>
+      <variable citdl="set" line="27" name="WHITESPACE" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" line="778" lineend="790" name="expand_template" returns="sep.join()" signature="expand_template(template, match)">
+        <variable ilk="argument" name="template" />
+        <variable citdl="list" line="782" name="literals" />
+        <variable citdl="match.group" line="779" name="g" />
+        <variable ilk="argument" name="match" />
+        <variable citdl="list" line="780" name="sep" />
+      </scope>
+      <scope ilk="function" line="213" lineend="214" name="isdigit" returns="bool" signature="isdigit(char)">
+        <variable ilk="argument" name="char" />
+      </scope>
+      <scope ilk="function" line="210" lineend="211" name="isident" returns="bool" signature="isident(char)">
+        <variable ilk="argument" name="char" />
+      </scope>
+      <scope ilk="function" line="216" lineend="223" name="isname" returns="bool" signature="isname(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope ilk="function" name="makedict" signature="makedict(list)" />
+      <scope ilk="function" line="663" lineend="689" name="parse" returns="_parse_sub()" signature="parse(str, flags=0, pattern=None)">
+        <variable citdl="Tokenizer" line="666" name="source" />
+        <variable citdl="Pattern" ilk="argument" name="pattern" />
+        <variable citdl="_parse_sub()" line="673" name="p" />
+        <variable citdl="source.get()" line="675" name="tail" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="str" />
+      </scope>
+      <scope ilk="function" line="691" lineend="776" name="parse_template" returns="tuple" signature="parse_template(source, pattern)">
+        <variable citdl="p.append" line="697" name="a" />
+        <variable citdl="int()" line="728" name="index" />
+        <variable citdl="list" line="714" name="c" />
+        <variable citdl="unichr" line="705" name="makechar" />
+        <variable citdl="groups.append" line="767" name="groupsappend" />
+        <variable citdl="str" line="716" name="name" />
+        <variable citdl="list" line="703" name="sep" />
+        <variable citdl="parse_template.sget()" line="709" name="this" />
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="s.get" line="695" name="sget" />
+        <variable citdl="list" line="696" name="p" />
+        <variable citdl="sget()" line="719" name="char" />
+        <variable ilk="argument" name="source" />
+        <scope ilk="function" line="698" lineend="702" name="literal" signature="literal(literal, p=p, pappend=a)">
+          <variable ilk="argument" name="literal" />
+          <variable citdl="list" ilk="argument" name="p" />
+          <variable citdl="p.append" ilk="argument" name="pappend" />
+        </scope>
+        <variable citdl="list" line="766" name="groups" />
+        <variable citdl="list" line="768" name="literals" />
+        <variable citdl="Tokenizer" line="694" name="s" />
+        <variable citdl="int" line="765" name="i" />
+        <variable citdl="False" line="746" name="isoctal" />
+      </scope>
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="301" lineend="358" name="_parse_sub" returns="SubPattern" signature="_parse_sub(source, state, nested=1)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="state" />
+        <variable citdl="int" ilk="argument" name="nested" />
+        <variable citdl="list" line="304" name="items" />
+        <variable citdl="items.append" line="305" name="itemsappend" />
+        <variable citdl="source.match" line="306" name="sourcematch" />
+        <variable citdl="SubPattern" line="321" name="subpattern" />
+        <variable citdl="subpattern.append" line="322" name="subpatternappend" />
+        <variable line="326" name="prefix" />
+        <variable citdl="list" line="350" name="set" />
+        <variable citdl="set.append" line="351" name="setappend" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="375" name="_ASSERTCHARS" />
+      <variable attributes="protected __hidden__" citdl="set()" line="376" name="_LOOKBEHINDASSERTCHARS" />
+      <variable attributes="protected __hidden__" citdl="set()" line="374" name="_PATTERNENDERS" />
+      <scope attributes="protected __hidden__" ilk="function" line="360" lineend="372" name="_parse_sub_cond" returns="SubPattern" signature="_parse_sub_cond(source, state, condgroup)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="state" />
+        <variable ilk="argument" name="condgroup" />
+        <variable citdl="_parse()" line="361" name="item_yes" />
+        <variable citdl="_parse()" line="363" name="item_no" />
+        <variable citdl="SubPattern" line="370" name="subpattern" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="377" name="_REPEATCODES" />
+      <scope attributes="protected __hidden__" ilk="function" line="225" lineend="255" name="_class_escape" returns="CATEGORIES.get()" signature="_class_escape(source, escape)">
+        <variable ilk="argument" name="source" />
+        <variable citdl="source.get()" ilk="argument" name="escape" />
+        <variable citdl="CATEGORIES.get()" line="227" name="code" />
+        <variable citdl="list" line="234" name="c" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="379" lineend="661" name="_parse" returns="SubPattern" signature="_parse(source, state)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="state" />
+        <variable citdl="SubPattern" line="381" name="subpattern" />
+        <variable citdl="subpattern.append" line="384" name="subpatternappend" />
+        <variable citdl="source.get" line="385" name="sourceget" />
+        <variable citdl="source.match" line="386" name="sourcematch" />
+        <variable attributes="protected" citdl="len" line="387" name="_len" />
+        <variable citdl="set()" line="388" name="PATTERNENDERS" />
+        <variable citdl="set()" line="389" name="ASSERTCHARS" />
+        <variable citdl="set()" line="390" name="LOOKBEHINDASSERTCHARS" />
+        <variable citdl="set()" line="391" name="REPEATCODES" />
+        <variable citdl="sourceget()" line="397" name="this" />
+        <variable citdl="list" line="417" name="set" />
+        <variable citdl="set.append" line="418" name="setappend" />
+        <variable citdl="list" line="424" name="start" />
+        <variable citdl="tuple" line="430" name="code1" />
+        <variable citdl="tuple" line="446" name="code2" />
+        <variable citdl="str" line="451" name="lo" />
+        <variable citdl="_parse.sourceget()" line="452" name="hi" />
+        <variable citdl="int" line="475" name="min" />
+        <variable citdl="MAXREPEAT" line="475" name="max" />
+        <variable citdl="source.tell()" line="485" name="here" />
+        <variable citdl="list" line="509" name="item" />
+        <variable citdl="int" line="525" name="group" />
+        <variable citdl="str" line="526" name="name" />
+        <variable citdl="int()" line="527" name="condgroup" />
+        <variable citdl="sourceget()" line="537" name="char" />
+        <variable citdl="state.groupdict.get()" line="558" name="gid" />
+        <variable citdl="int" line="583" name="dir" />
+        <variable citdl="_parse_sub()" line="589" name="p" />
+        <variable citdl="str" line="599" name="condname" />
+        <variable citdl="_escape()" line="655" name="code" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="257" lineend="299" name="_escape" returns="CATEGORIES.get()" signature="_escape(source, escape, state)">
+        <variable ilk="argument" name="source" />
+        <variable citdl="source.get()" ilk="argument" name="escape" />
+        <variable ilk="argument" name="state" />
+        <variable citdl="ESCAPES.get()" line="259" name="code" />
+        <variable citdl="list" line="266" name="c" />
+        <variable citdl="int()" line="289" name="group" />
+      </scope>
+    </scope>
+    

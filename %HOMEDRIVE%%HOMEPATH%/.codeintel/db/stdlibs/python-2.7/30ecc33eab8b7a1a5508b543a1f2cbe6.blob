@@ -1,0 +1,21 @@
+<scope doc="Macintosh-specific module for conversion between pathnames and URLs.&#10;Do not import directly; use urllib instead." ilk="blob" lang="Python" name="macurl2path">
+      <variable citdl="list" line="8" name="__all__" />
+      <import module="os" />
+      <scope doc="OS-specific conversion from a file system path to a relative&#10;URL of the 'file' scheme; not recommended for general use." ilk="function" line="52" lineend="73" name="pathname2url" returns="str" signature="pathname2url(pathname)">
+        <variable ilk="argument" name="pathname" />
+        <variable citdl="map()" line="57" name="components" />
+      </scope>
+      <scope ilk="function" line="79" lineend="94" name="test" signature="test()" />
+      <scope doc="OS-specific conversion from a relative URL of the 'file'&#10;scheme to a file system path; not recommended for general&#10;use." ilk="function" line="10" lineend="50" name="url2pathname" returns="urllib.unquote()" signature="url2pathname(pathname)">
+        <variable citdl="int" line="26" name="i" />
+        <variable citdl="str.join()" line="40" name="rv" />
+        <variable citdl="list" ilk="argument" name="pathname" />
+        <variable citdl="pathname.split()" line="24" name="components" />
+        <variable line="16" name="tp" />
+      </scope>
+      <import module="urllib" />
+      <scope attributes="protected __hidden__" ilk="function" line="75" lineend="77" name="_pncomp2url" returns="urllib.quote()" signature="_pncomp2url(component)">
+        <variable citdl="urllib.quote()" ilk="argument" name="component" />
+      </scope>
+    </scope>
+    

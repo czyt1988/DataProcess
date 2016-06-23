@@ -1,0 +1,580 @@
+<scope doc="A Python debugger.&#10;" ilk="blob" lang="Python" name="pdb">
+      <scope classrefs="Bdb Cmd" doc="&#10;" ilk="class" line="59" lineend="1233" name="Pdb">
+        <scope ilk="function" line="493" lineend="508" name="do_enable" signature="do_enable(arg)">
+          <variable citdl="int()" line="497" name="i" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="494" name="args" />
+          <variable line="506" name="bp" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="111" lineend="115" name="forget" signature="forget()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Three possibilities, tried in this order: clear -&gt; clear all&#10;breaks, ask for confirmation clear file:lineno -&gt; clear all&#10;breaks at file:lineno clear bpno bpno ..." ilk="function" line="627" name="do_cl" />
+        <scope ilk="function" line="1057" lineend="1058" name="help_list" signature="help_list()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="738" lineend="748" name="do_args" signature="do_args(arg)">
+          <variable citdl="self.curframe.f_code" line="739" name="co" />
+          <variable line="745" name="name" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="co.co_argcount" line="741" name="n" />
+          <variable citdl="self.curframe.f_locals" line="740" name="dict" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1080" lineend="1081" name="help_pp" signature="help_pp()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="983" lineend="984" name="help_disable" signature="help_disable()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="758" lineend="768" name="_getval" returns="eval()" signature="_getval(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="t.__name__" line="765" name="exc_type_name" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="666" lineend="668" name="do_next" returns="int" signature="do_next(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="756" name="do_rv" />
+        <scope ilk="function" line="905" lineend="906" name="help_help" signature="help_help()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1027" lineend="1028" name="help_return" signature="help_return()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="do_cont" />
+        <scope ilk="function" line="942" lineend="943" name="help_break" signature="help_break()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="661" lineend="663" name="do_step" returns="int" signature="do_step(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="732" lineend="736" name="do_EOF" returns="int" signature="do_EOF(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="Check whether specified line seems to be executable." ilk="function" line="472" lineend="491" name="checkline" returns="int" signature="checkline(filename, lineno)">
+          <variable ilk="argument" name="lineno" />
+          <variable citdl="line.strip()" line="481" name="line" />
+          <variable line="480" name="globs" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="634" lineend="642" name="do_up" signature="do_up(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="632" name="do_bt" />
+        <scope doc="This method is called when there is the remote possibility&#10;that we ever need to stop in this function." ilk="function" line="141" lineend="148" name="user_call" signature="user_call(frame, argument_list)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame" />
+          <variable ilk="argument" name="argument_list" />
+        </scope>
+        <scope ilk="function" line="730" name="do_exit" />
+        <scope doc="Call every command that was set for the current active&#10;breakpoint (if there is one)." ilk="function" line="160" lineend="182" name="bp_commands" returns="int" signature="bp_commands(frame)">
+          <variable citdl="self.lastcmd" line="171" name="lastcmd_back" />
+          <variable citdl="self.currentbp" line="169" name="currentbp" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope doc="arg is bp number followed by ignore count." ilk="function" line="552" lineend="582" name="do_ignore" signature="do_ignore(arg)">
+          <variable citdl="int" line="563" name="count" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="554" name="args" />
+          <variable line="567" name="bp" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="str" line="574" name="reply" />
+          <variable citdl="int()" line="556" name="bpnum" />
+        </scope>
+        <scope ilk="function" line="656" lineend="658" name="do_until" returns="int" signature="do_until(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="893" lineend="899" name="print_stack_entry" signature="print_stack_entry(frame_lineno, prompt_prefix=line_prefix)">
+          <variable citdl="str" ilk="argument" name="prompt_prefix" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame_lineno" />
+        </scope>
+        <scope ilk="function" line="1184" lineend="1185" name="help_pdb" signature="help_pdb()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1145" lineend="1146" name="help_unalias" signature="help_unalias()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="629" lineend="630" name="do_where" signature="do_where(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="117" lineend="125" name="setup" signature="setup(f, t)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="t" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="1111" name="help_exit" />
+        <scope doc="Handles one command line during command list definition." ilk="function" line="283" name="handle_command_def" returns="int" signature="handle_command_def(line)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable line="285" name="cmd" />
+          <variable line="294" name="cmdlist" />
+          <variable citdl="Pdb.default" line="301" name="func" />
+          <variable line="285" name="arg" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Interpret the argument as though it had been typed in&#10;response to the prompt." ilk="function" line="271" lineend="281" name="onecmd" returns="cmd.Cmd.onecmd()" signature="onecmd(line)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="315" name="do_h" />
+        <scope ilk="function" line="776" lineend="780" name="do_pp" signature="do_pp(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="958" lineend="959" name="help_clear" signature="help_clear()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="344" lineend="422" name="do_break" signature="do_break(arg, temporary=0)">
+          <variable citdl="func.func_code" line="395" name="code" />
+          <variable line="403" name="ok" />
+          <variable citdl="self.set_break()" line="418" name="err" />
+          <variable citdl="self.lookupmodule()" line="368" name="f" />
+          <variable line="403" name="ln" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="temporary" />
+          <variable citdl="self.defaultFile()" line="355" name="filename" />
+          <variable citdl="arg.find()" line="358" name="comma" />
+          <variable citdl="int()" line="356" name="lineno" />
+          <variable citdl="eval()" line="387" name="func" />
+          <variable ilk="argument" name="arg" />
+          <variable line="421" name="bp" />
+          <variable citdl="arg.rfind()" line="364" name="colon" />
+          <variable citdl="code.co_name" line="365" name="funcname" />
+          <variable line="357" name="cond" />
+          <variable citdl="self.checkline()" line="415" name="line" />
+        </scope>
+        <scope ilk="function" line="683" lineend="685" name="do_return" returns="int" signature="do_return(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="724" lineend="727" name="do_quit" returns="int" signature="do_quit(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="978" lineend="979" name="help_enable" signature="help_enable()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This function is called when a return trap is set here." ilk="function" line="184" lineend="190" name="user_return" signature="user_return(frame, return_value)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="return_value" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="1003" lineend="1004" name="help_step" signature="help_step()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="436" lineend="437" name="do_tbreak" signature="do_tbreak(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="868" lineend="872" name="do_unalias" signature="do_unalias(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="869" name="args" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1211" lineend="1233" name="_runscript" signature="_runscript(filename)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="str" line="1232" name="statement" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="1014" lineend="1017" name="help_unt" signature="help_unt()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="996" lineend="997" name="help_condition" signature="help_condition()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="207" lineend="211" name="interaction" signature="interaction(frame, traceback)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="traceback" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="751" lineend="755" name="do_retval" signature="do_retval(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="782" lineend="825" name="do_list" signature="do_list(arg)">
+          <variable citdl="int()" line="784" name="last" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="self.curframe.f_code.co_filename" line="806" name="filename" />
+          <variable citdl="str" line="816" name="s" />
+          <variable citdl="self.get_file_breaks()" line="807" name="breaklist" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="eval()" line="787" name="x" />
+          <variable citdl="linecache.getline()" line="810" name="line" />
+          <variable citdl="max()" line="790" name="first" />
+        </scope>
+        <scope ilk="function" line="527" lineend="550" name="do_condition" signature="do_condition(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="529" name="args" />
+          <variable line="542" name="bp" />
+          <variable ilk="argument" name="arg" />
+          <variable line="538" name="cond" />
+          <variable citdl="int()" line="531" name="bpnum" />
+        </scope>
+        <scope doc="Produce a reasonable default." ilk="function" line="427" lineend="432" name="defaultFile" returns="str" signature="defaultFile()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="str" line="429" name="filename" />
+        </scope>
+        <scope ilk="function" line="1149" lineend="1150" name="help_commands" signature="help_commands()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1102" name="help_restart" />
+        <scope ilk="function" line="828" lineend="853" name="do_whatis" signature="do_whatis(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="value.func_code" line="839" name="code" />
+          <variable citdl="t.__name__" line="835" name="exc_type_name" />
+          <variable citdl="eval()" line="830" name="value" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1117" lineend="1118" name="help_EOF" signature="help_EOF()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="974" lineend="975" name="help_tbreak" signature="help_tbreak()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="961" lineend="963" name="help_cl" signature="help_cl()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="886" lineend="891" name="print_stack_trace" signature="print_stack_trace()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1069" lineend="1070" name="help_args" signature="help_args()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handle alias expansion and ';;' separator." ilk="function" line="246" lineend="269" name="precmd" returns="line.replace()" signature="precmd(line)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="line.split()" line="250" name="args" />
+          <variable line="266" name="next" />
+          <variable citdl="int" line="253" name="ii" />
+          <variable citdl="line.find()" line="263" name="marker" />
+          <variable citdl="line.replace()" ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="1030" lineend="1031" name="help_r" signature="help_r()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1006" lineend="1007" name="help_s" signature="help_s()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1076" lineend="1077" name="help_p" signature="help_p()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1107" lineend="1108" name="help_q" signature="help_q()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="918" lineend="919" name="help_w" signature="help_w()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="937" lineend="938" name="help_u" signature="help_u()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="693" lineend="709" name="do_jump" signature="do_jump(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="int()" ilk="argument" name="arg" />
+        </scope>
+        <scope doc="Helper function for break/clear parsing -- may be&#10;overridden." ilk="function" line="1187" lineend="1209" name="lookupmodule" returns="str" signature="lookupmodule(filename)">
+          <variable citdl="os.path.join()" line="1195" name="f" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="filename" />
+          <variable line="1198" name="ext" />
+          <variable citdl="os.path.join()" line="1206" name="fullname" />
+          <variable citdl="os.readlink()" line="1205" name="dirname" />
+          <variable line="1198" name="root" />
+        </scope>
+        <scope ilk="function" line="915" lineend="916" name="help_where" signature="help_where()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="945" lineend="946" name="help_b" signature="help_b()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1040" lineend="1041" name="help_c" signature="help_c()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1072" lineend="1073" name="help_a" signature="help_a()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="510" lineend="525" name="do_disable" signature="do_disable(arg)">
+          <variable citdl="int()" line="514" name="i" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="511" name="args" />
+          <variable line="523" name="bp" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="929" lineend="930" name="help_d" signature="help_d()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="645" lineend="653" name="do_down" signature="do_down(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1047" lineend="1048" name="help_j" signature="help_j()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1044" lineend="1045" name="help_jump" signature="help_jump()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="908" lineend="909" name="help_h" signature="help_h()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1022" lineend="1023" name="help_n" signature="help_n()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1060" lineend="1061" name="help_l" signature="help_l()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Defines a list of commands associated to a breakpoint." ilk="function" line="317" lineend="342" name="do_commands" signature="do_commands(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="str" line="335" name="prompt_back" />
+          <variable citdl="int()" line="323" name="bnum" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="Three possibilities, tried in this order: clear -&gt; clear all&#10;breaks, ask for confirmation clear file:lineno -&gt; clear all&#10;breaks at file:lineno clear bpno bpno ..." ilk="function" line="584" lineend="626" name="do_clear" signature="do_clear(arg)">
+          <variable citdl="self.clear_break()" line="606" name="err" />
+          <variable citdl="arg.rfind()" line="600" name="i" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="list" line="601" name="filename" />
+          <variable citdl="int()" line="604" name="lineno" />
+          <variable citdl="list" ilk="argument" name="arg" />
+          <variable citdl="raw_input()" line="591" name="reply" />
+          <variable citdl="arg.split()" line="611" name="numberlist" />
+        </scope>
+        <scope doc="Restart program by raising an exception to be caught in the&#10;main debugger loop." ilk="function" line="681" name="do_restart" />
+        <scope ilk="function" line="107" lineend="109" name="reset" signature="reset()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="654" name="do_d" />
+        <scope ilk="function" line="434" name="do_b" />
+        <scope ilk="function" line="691" name="do_c" />
+        <scope ilk="function" line="749" name="do_a" />
+        <scope ilk="function" line="669" name="do_n" />
+        <scope ilk="function" line="988" lineend="989" name="help_ignore" signature="help_ignore()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="826" name="do_l" />
+        <scope ilk="function" line="710" name="do_j" />
+        <scope ilk="function" line="439" lineend="470" name="lineinfo" returns="tuple" signature="lineinfo(identifier)">
+          <variable citdl="find_function()" line="469" name="answer" />
+          <variable line="461" name="item" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="self.lookupmodule()" line="465" name="f" />
+          <variable citdl="tuple" line="440" name="failed" />
+          <variable citdl="id.split()" line="452" name="parts" />
+          <variable citdl="self.lookupmodule()" line="459" name="fname" />
+          <variable citdl="identifier.split()" line="442" name="idstring" />
+          <variable ilk="argument" name="identifier" />
+          <variable line="445" name="id" />
+        </scope>
+        <scope ilk="function" line="631" name="do_w" />
+        <scope ilk="function" line="643" name="do_u" />
+        <scope ilk="function" line="686" name="do_r" />
+        <scope ilk="function" line="664" name="do_s" />
+        <scope ilk="function" line="770" lineend="774" name="do_p" signature="do_p(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="729" name="do_q" />
+        <scope ilk="function" line="1095" lineend="1100" name="help_run" signature="help_run()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This function is called when we stop or break at this line." ilk="function" line="150" lineend="158" name="user_line" signature="user_line(frame)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="1121" lineend="1122" name="help_alias" signature="help_alias()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="855" lineend="866" name="do_alias" signature="do_alias(arg)">
+          <variable citdl="self.aliases.keys()" line="858" name="keys" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="arg.split()" line="856" name="args" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1084" lineend="1085" name="help_exec" signature="help_exec()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1104" lineend="1105" name="help_quit" signature="help_quit()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This function is called if an exception occurs, but only if&#10;we are to stop at or just below this level." ilk="function" line="192" lineend="203" name="user_exception" signature="user_exception(frame, exc_info)">
+          <variable ilk="argument" name="exc_info" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="exc_type" line="200" name="exc_type_name" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="1011" lineend="1012" name="help_until" signature="help_until()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="61" lineend="104" name="__init__" signature="Pdb(completekey='tab', stdin=None, stdout=None, skip=None)">
+          <variable ilk="argument" name="stdout" />
+          <variable ilk="argument" name="skip" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="stdin" />
+          <variable citdl="str" ilk="argument" name="completekey" />
+          <variable line="79" name="envHome" />
+          <variable citdl="open()" line="81" name="rcFile" />
+        </scope>
+        <scope doc="# Can be executed earlier than 'setup' if desired" ilk="function" line="128" lineend="137" name="execRcLines" signature="execRcLines()">
+          <variable citdl="list" line="131" name="rcLines" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="list" line="135" name="line" />
+        </scope>
+        <scope ilk="function" line="1051" lineend="1052" name="help_debug" signature="help_debug()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1037" lineend="1038" name="help_cont" signature="help_cont()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="712" lineend="722" name="do_debug" signature="do_debug(arg)">
+          <variable citdl="" line="716" name="p" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="self.curframe.f_globals" line="714" name="globals" />
+          <variable citdl="self.curframe.f_locals" line="715" name="locals" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="221" lineend="244" name="default" signature="default(line)">
+          <variable citdl="sys.stdout" line="227" name="save_stdout" />
+          <variable citdl="sys.displayhook" line="229" name="save_displayhook" />
+          <variable citdl="compile()" line="226" name="code" />
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="t" line="242" name="exc_type_name" />
+          <variable citdl="self.curframe.f_globals" line="224" name="globals" />
+          <variable citdl="sys.stdin" line="228" name="save_stdin" />
+          <variable citdl="list" ilk="argument" name="line" />
+          <variable citdl="self.curframe.f_locals" line="223" name="locals" />
+        </scope>
+        <scope ilk="function" line="688" lineend="690" name="do_continue" returns="int" signature="do_continue(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1019" lineend="1020" name="help_next" signature="help_next()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="926" lineend="927" name="help_down" signature="help_down()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Restart program by raising an exception to be caught in the&#10;main debugger loop." ilk="function" line="671" lineend="679" name="do_run" signature="do_run(arg)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable citdl="list" line="676" name="argv0" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="659" name="do_unt" />
+        <scope ilk="function" line="934" lineend="935" name="help_up" signature="help_up()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1113" lineend="1114" name="help_whatis" signature="help_whatis()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="924" name="help_bt" />
+        <scope doc="Custom displayhook for the exec in default(), which prevents&#10;assignment of the _ variable in the builtins." ilk="function" line="213" lineend="219" name="displayhook" signature="displayhook(obj)">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <scope ilk="function" line="1034" lineend="1035" name="help_continue" signature="help_continue()">
+          <variable citdl="Pdb" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="list" line="875" name="commands_resuming" />
+        <variable attributes="__instancevar__" citdl="dict" line="100" name="commands_silent" />
+        <variable attributes="__instancevar__" citdl="dict" line="97" name="commands" />
+        <variable attributes="protected __instancevar__" citdl="int" line="69" name="_wait_for_mainpyfile" />
+        <variable attributes="__instancevar__" citdl="str" line="66" name="prompt" />
+        <variable attributes="__instancevar__" citdl="list" line="292" name="cmdqueue" />
+        <variable attributes="protected __instancevar__" citdl="int" line="725" name="_user_requested_quit" />
+        <variable attributes="__instancevar__" line="115" name="curframe" />
+        <variable attributes="__instancevar__" citdl="int" line="170" name="currentbp" />
+        <variable attributes="__instancevar__" citdl="int()" line="104" name="commands_bnum" />
+        <variable attributes="__instancevar__" citdl="dict" line="98" name="commands_doprompt" />
+        <variable attributes="__instancevar__" citdl="True" line="102" name="commands_defining" />
+        <variable attributes="__instancevar__" citdl="self.curframe.f_locals" line="124" name="curframe_locals" />
+        <variable attributes="__instancevar__" line="112" name="lineno" />
+        <variable attributes="__instancevar__" citdl="int" line="65" name="use_rawinput" />
+        <variable attributes="__instancevar__" citdl="list" line="77" name="rcLines" />
+        <variable attributes="__instancevar__" citdl="int" line="114" name="curindex" />
+        <variable attributes="__instancevar__" citdl="self.lastcmd" line="175" name="lastcmd" />
+        <variable attributes="__instancevar__" citdl="list" line="113" name="stack" />
+        <variable attributes="__instancevar__" citdl="self.canonic()" line="68" name="mainpyfile" />
+        <variable attributes="__instancevar__" citdl="dict" line="67" name="aliases" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Repr">
+        <scope ilk="function" name="repr_instance" />
+        <scope ilk="function" name="repr_array" />
+        <scope ilk="function" name="repr_tuple" />
+        <scope ilk="function" name="repr_list" />
+        <scope ilk="function" name="repr_str" />
+        <scope ilk="function" name="repr_long" />
+        <scope ilk="function" name="_repr_iterable" />
+        <scope ilk="function" name="repr" />
+        <scope ilk="function" name="repr_set" />
+        <scope ilk="function" name="repr_frozenset" />
+        <scope ilk="function" name="repr_deque" />
+        <scope ilk="function" name="repr1" />
+        <scope ilk="function" name="repr_dict" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Causes a debugger to be restarted for the debugged python program.&#10;" ilk="class" line="18" lineend="20" name="Restart" />
+      <variable citdl="str" line="1275" name="TESTCMD" />
+      <variable citdl="list" line="28" name="__all__" />
+      <import module="bdb" />
+      <import module="cmd" />
+      <scope ilk="function" line="31" lineend="49" name="find_function" returns="tuple" signature="find_function(funcname, filename)">
+        <variable citdl="open()" line="34" name="fp" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="int" line="38" name="lineno" />
+        <variable citdl="re.compile()" line="32" name="cre" />
+        <variable citdl="tuple" line="39" name="answer" />
+        <variable citdl="fp.readline()" line="41" name="line" />
+        <variable ilk="argument" name="funcname" />
+      </scope>
+      <scope doc="# print help" ilk="function" line="1281" lineend="1290" name="help" signature="help()">
+        <variable citdl="os.path.join()" line="1283" name="fullname" />
+        <variable citdl="os.system()" line="1285" name="sts" />
+      </scope>
+      <variable citdl="str" line="57" name="line_prefix" />
+      <import module="linecache" />
+      <scope ilk="function" line="1292" lineend="1332" name="main" signature="main()">
+        <variable citdl="Pdb" line="1311" name="pdb" />
+        <variable line="1297" name="mainpyfile" />
+        <variable line="1329" name="t" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="1269" lineend="1270" name="pm" signature="pm()" />
+      <scope ilk="function" line="1255" lineend="1267" name="post_mortem" signature="post_mortem(t=None)">
+        <variable citdl="Pdb" line="1265" name="p" />
+        <variable ilk="argument" name="t" />
+      </scope>
+      <import module="pprint" />
+      <import module="re" />
+      <scope ilk="function" line="1237" lineend="1238" name="run" signature="run(statement, globals=None, locals=None)">
+        <variable ilk="argument" name="globals" />
+        <variable ilk="argument" name="locals" />
+        <variable ilk="argument" name="statement" />
+      </scope>
+      <scope ilk="function" line="1247" lineend="1248" name="runcall" signature="runcall(*args, **kwds)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+      </scope>
+      <scope ilk="function" line="1243" lineend="1245" name="runctx" signature="runctx(statement, globals, locals)">
+        <variable ilk="argument" name="globals" />
+        <variable ilk="argument" name="locals" />
+        <variable ilk="argument" name="statement" />
+      </scope>
+      <scope ilk="function" line="1240" lineend="1241" name="runeval" signature="runeval(expression, globals=None, locals=None)">
+        <variable ilk="argument" name="globals" />
+        <variable ilk="argument" name="expression" />
+        <variable ilk="argument" name="locals" />
+      </scope>
+      <scope ilk="function" line="1250" lineend="1251" name="set_trace" signature="set_trace()" />
+      <import module="sys" />
+      <scope ilk="function" line="1277" lineend="1278" name="test" signature="test()" />
+      <import module="traceback" />
+      <variable attributes="protected __hidden__" citdl="_repr.repr" line="26" name="_saferepr" />
+      <variable attributes="protected __hidden__" citdl="Repr()" line="24" name="_repr" />
+    </scope>
+    

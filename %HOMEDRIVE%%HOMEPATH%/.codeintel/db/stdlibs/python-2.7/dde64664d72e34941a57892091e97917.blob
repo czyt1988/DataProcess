@@ -1,0 +1,73 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="compiler.misc">
+      <variable citdl="int" line="44" name="MANGLE_LEN" />
+      <scope doc="&#10;" ilk="class" line="11" lineend="29" name="Set">
+        <scope ilk="function" line="20" lineend="21" name="elements" returns="self.elts.keys()" signature="elements()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="16" lineend="17" name="__contains__" returns="bool" signature="__contains__(elt)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="elt" />
+        </scope>
+        <scope ilk="function" line="24" lineend="25" name="remove" signature="remove(elt)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="elt" />
+        </scope>
+        <scope ilk="function" line="18" lineend="19" name="add" signature="add(elt)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="elt" />
+        </scope>
+        <scope ilk="function" line="12" lineend="13" name="__init__" signature="Set()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="22" lineend="23" name="has_elt" returns="bool" signature="has_elt(elt)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="elt" />
+        </scope>
+        <scope ilk="function" line="26" lineend="29" name="copy" signature="copy()">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="" line="27" name="c" />
+        </scope>
+        <scope ilk="function" line="14" lineend="15" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="13" name="elts" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="31" lineend="42" name="Stack">
+        <scope ilk="function" line="41" lineend="42" name="__getitem__" signature="__getitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Stack" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="39" lineend="40" name="top" signature="top()">
+          <variable citdl="Stack" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="32" lineend="34" name="__init__" signature="Stack()">
+          <variable citdl="Stack" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="37" lineend="38" name="push" signature="push(elt)">
+          <variable citdl="Stack" ilk="argument" name="self" />
+          <variable ilk="argument" name="elt" />
+        </scope>
+        <scope ilk="function" line="35" lineend="36" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Stack" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="33" name="stack" />
+        <variable attributes="__instancevar__" citdl="self.stack.pop" line="34" name="pop" />
+      </scope>
+      <scope ilk="function" line="2" lineend="9" name="flatten" returns="list" signature="flatten(tup)">
+        <variable ilk="argument" name="tup" />
+        <variable citdl="list" line="3" name="elts" />
+      </scope>
+      <scope ilk="function" line="46" lineend="65" name="mangle" returns="tuple" signature="mangle(name, klass)">
+        <variable citdl="int" line="54" name="i" />
+        <variable citdl="list" ilk="argument" name="klass" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="len()" line="61" name="tlen" />
+      </scope>
+      <scope doc="Set the filename attribute to filename on every node in tree" ilk="function" line="67" lineend="73" name="set_filename" signature="set_filename(filename, tree)">
+        <variable citdl="worklist.pop()" line="71" name="node" />
+        <variable citdl="list" line="69" name="worklist" />
+        <variable ilk="argument" name="tree" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,33 @@
+<scope doc="This module provides access to the Unicode Character Database which&#10;defines character properties for all Unicode characters. The data in this database is based on the UnicodeData.txt file version 5.2.0 which is publically available from ftp://ftp.unicode.org/.  The module uses the same names and symbols as defined by the UnicodeData File Format 5.2.0 (see http://www.unicode.org/reports/tr44/tr44-4.html)." ilk="blob" lang="Python" name="unicodedata">
+      <scope classrefs="object" doc="&#10;" ilk="class" name="UCD">
+        <scope doc="Returns the general category assigned to the Unicode&#10;character unichr as string." ilk="function" name="category" signature="category(unichr)" />
+        <scope doc="Return the normal form 'form' for the Unicode string unistr." ilk="function" name="normalize" signature="normalize(form, unistr)" />
+        <scope doc="Returns the digit value assigned to the Unicode character&#10;unichr as integer." ilk="function" name="digit" signature="digit(unichr[, default])" />
+        <scope doc="Returns the name assigned to the Unicode character unichr as&#10;a string." ilk="function" name="name" signature="name(unichr[, default])" />
+        <scope doc="Returns the decimal value assigned to the Unicode character&#10;unichr as integer." ilk="function" name="decimal" signature="decimal(unichr[, default])" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Returns the numeric value assigned to the Unicode character&#10;unichr as float." ilk="function" name="numeric" signature="numeric(unichr[, default])" />
+        <scope doc="Returns the character decomposition mapping assigned to the&#10;Unicode character unichr as string." ilk="function" name="decomposition" signature="decomposition(unichr)" />
+        <scope doc="Returns the mirrored property assigned to the Unicode&#10;character unichr as integer." ilk="function" name="mirrored" signature="mirrored(unichr)" />
+        <scope doc="Returns the canonical combining class assigned to the&#10;Unicode character unichr as integer." ilk="function" name="combining" signature="combining(unichr)" />
+        <scope doc="Returns the bidirectional category assigned to the Unicode&#10;character unichr as string." ilk="function" name="bidirectional" signature="bidirectional(unichr)" />
+        <scope doc="Look up character by name." ilk="function" name="lookup" signature="lookup(name)" />
+        <scope doc="Returns the east asian width assigned to the Unicode&#10;character unichr as string." ilk="function" name="east_asian_width" signature="east_asian_width(unichr)" />
+      </scope>
+      <scope doc="Returns the bidirectional category assigned to the Unicode&#10;character unichr as string." ilk="function" name="bidirectional" signature="bidirectional(unichr)" />
+      <scope doc="Returns the general category assigned to the Unicode&#10;character unichr as string." ilk="function" name="category" signature="category(unichr)" />
+      <scope doc="Returns the canonical combining class assigned to the&#10;Unicode character unichr as integer." ilk="function" name="combining" signature="combining(unichr)" />
+      <scope doc="Returns the decimal value assigned to the Unicode character&#10;unichr as integer." ilk="function" name="decimal" signature="decimal(unichr[, default])" />
+      <scope doc="Returns the character decomposition mapping assigned to the&#10;Unicode character unichr as string." ilk="function" name="decomposition" signature="decomposition(unichr)" />
+      <scope doc="Returns the digit value assigned to the Unicode character&#10;unichr as integer." ilk="function" name="digit" signature="digit(unichr[, default])" />
+      <scope doc="Returns the east asian width assigned to the Unicode&#10;character unichr as string." ilk="function" name="east_asian_width" signature="east_asian_width(unichr)" />
+      <scope doc="Look up character by name." ilk="function" name="lookup" signature="lookup(name)" />
+      <scope doc="Returns the mirrored property assigned to the Unicode&#10;character unichr as integer." ilk="function" name="mirrored" signature="mirrored(unichr)" />
+      <scope doc="Returns the name assigned to the Unicode character unichr as&#10;a string." ilk="function" name="name" signature="name(unichr[, default])" />
+      <scope doc="Return the normal form 'form' for the Unicode string unistr." ilk="function" name="normalize" signature="normalize(form, unistr)" />
+      <scope doc="Returns the numeric value assigned to the Unicode character&#10;unichr as float." ilk="function" name="numeric" signature="numeric(unichr[, default])" />
+      <variable citdl="UCD" name="ucd_3_2_0" />
+      <variable citdl="PyCapsule" name="ucnhash_CAPI" />
+      <variable citdl="str" name="unidata_version" />
+    </scope>
+    

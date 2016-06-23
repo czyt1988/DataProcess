@@ -1,0 +1,54 @@
+<scope doc="Miscellaneous WSGI-related Utilities&#10;" ilk="blob" lang="Python" name="wsgiref.util">
+      <scope doc="Wrapper to convert file-like objects to iterables&#10;" ilk="class" line="11" lineend="33" name="FileWrapper">
+        <scope ilk="function" line="20" lineend="24" name="__getitem__" returns="self.filelike.read()" signature="__getitem__(key)">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+          <variable citdl="self.filelike.read()" line="21" name="data" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="29" lineend="33" name="next" returns="self.filelike.read()" signature="next()">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+          <variable citdl="self.filelike.read()" line="30" name="data" />
+        </scope>
+        <scope ilk="function" line="26" lineend="27" name="__iter__" returns="FileWrapper" signature="__iter__()">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="14" lineend="18" name="__init__" signature="FileWrapper(filelike, blksize=8192)">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="blksize" />
+          <variable ilk="argument" name="filelike" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="filelike.close" line="18" name="close" />
+        <variable attributes="__instancevar__" citdl="int" line="16" name="blksize" />
+        <variable attributes="__instancevar__" line="15" name="filelike" />
+      </scope>
+      <variable citdl="list" line="5" name="__all__" />
+      <scope doc="Return the application's base URI (no PATH_INFO or&#10;QUERY_STRING)" ilk="function" line="43" lineend="61" name="application_uri" returns="str" signature="application_uri(environ)">
+        <variable citdl="str" line="45" name="url" />
+        <variable ilk="argument" name="environ" />
+      </scope>
+      <scope doc="Return a guess for whether 'wsgi.url_scheme' should be&#10;'http' or 'https'" ilk="function" line="35" lineend="41" name="guess_scheme" returns="str" signature="guess_scheme(environ)">
+        <variable ilk="argument" name="environ" />
+      </scope>
+      <scope doc="Return true if 'header_name' is an HTTP/1.1 &quot;Hop-by-Hop&quot;&#10;header" ilk="function" line="163" lineend="165" name="is_hop_by_hop" returns="_hoppish()" signature="is_hop_by_hop(header_name)">
+        <variable ilk="argument" name="header_name" />
+      </scope>
+      <import module="posixpath" />
+      <scope doc="Return the full request URI, optionally including the query&#10;string" ilk="function" line="63" lineend="74" name="request_uri" returns="application_uri()" signature="request_uri(environ, include_query=1)">
+        <variable citdl="int" ilk="argument" name="include_query" />
+        <variable citdl="application_uri()" line="65" name="url" />
+        <variable ilk="argument" name="environ" />
+        <variable citdl="quote()" line="67" name="path_info" />
+      </scope>
+      <scope doc="Update 'environ' with trivial defaults for testing purposes" ilk="function" line="117" lineend="153" name="setup_testing_defaults" signature="setup_testing_defaults(environ)">
+        <variable ilk="argument" name="environ" />
+      </scope>
+      <scope doc="Shift a name from PATH_INFO to SCRIPT_NAME, returning it" ilk="function" line="76" lineend="115" name="shift_path_info" signature="shift_path_info(environ)">
+        <variable citdl="path_info.split()" line="93" name="path_parts" />
+        <variable ilk="argument" name="environ" />
+        <variable citdl="environ.get()" line="89" name="path_info" />
+        <variable citdl="environ.get()" line="98" name="script_name" />
+        <variable line="95" name="name" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="{}.__contains__" line="157" name="_hoppish" />
+    </scope>
+    

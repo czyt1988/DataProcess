@@ -1,0 +1,92 @@
+<scope doc="A parser of RFC 2822 and MIME email messages.&#10;" ilk="blob" lang="Python" name="email.parser">
+      <scope doc="A feed-style parser of email.&#10;" ilk="class" name="FeedParser">
+        <scope doc="Push more data into the parser." ilk="function" name="feed" />
+        <scope ilk="function" name="_pop_message" />
+        <scope ilk="function" name="_call_parse" />
+        <scope ilk="function" name="_parse_headers" />
+        <scope ilk="function" name="_new_message" />
+        <scope ilk="function" name="_parsegen" />
+        <scope doc="# Non-public interface for supporting Parser's headersonly&#10;flag" ilk="function" name="_set_headersonly" />
+        <scope doc="Parse all remaining data and return the root message object." ilk="function" name="close" />
+        <scope doc="_factory is called with no arguments to create a new message&#10;obj" ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Parser" doc="&#10;" ilk="class" line="86" lineend="91" name="HeaderParser">
+        <scope ilk="function" line="87" lineend="88" name="parse" returns="Parser.parse()" signature="parse(fp, headersonly=True)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="HeaderParser" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="headersonly" />
+        </scope>
+        <scope ilk="function" line="90" lineend="91" name="parsestr" returns="Parser.parsestr()" signature="parsestr(text, headersonly=True)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="HeaderParser" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="headersonly" />
+        </scope>
+      </scope>
+      <scope doc="Basic message object.&#10;A message object is defined as something that has a bunch of RFC 2822 headers and a payload.  It may optionally have an envelope header (a.k.a. Unix-From or From_ header).  If the message is a container (i.e. a multipart or a message/rfc822), then the payload is a list of Message objects, otherwise it is a string.  Message objects implement part of the `mapping' interface, which assumes there is exactly one occurrence of the header per message.  Some headers do in fact appear multiple times (e.g. Received) and for those headers, you must use the explicit API to set or get all the headers.  Not all of" ilk="class" name="Message">
+        <scope doc="Return a list of all the values for the named field." ilk="function" name="get_all" />
+        <scope doc="Return the entire formatted message as a string." ilk="function" name="as_string" />
+        <scope doc="Return the entire formatted message as a string." ilk="function" name="__str__" />
+        <scope doc="Walk over the message tree, yielding each subpart." ilk="function" name="walk" />
+        <scope doc="Extended header setting." ilk="function" name="add_header" />
+        <scope doc="Return true if the message contains the header." ilk="function" name="has_key" />
+        <scope doc="Returns the message's sub-content type." ilk="function" name="get_content_subtype" />
+        <scope doc="Return the filename associated with the payload if present." ilk="function" name="get_filename" />
+        <scope doc="Remove the given parameter completely from the Content-Type&#10;header." ilk="function" name="del_param" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="_get_params_preserve" />
+        <scope doc="Get a header value." ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__contains__" />
+        <scope doc="Return the message's content type." ilk="function" name="get_content_type" />
+        <scope doc="Set a parameter in the Content-Type header." ilk="function" name="set_param" />
+        <scope doc="Return the message's Content-Type parameters, as a list." ilk="function" name="get_params" />
+        <scope doc="Add the given payload to the current payload." ilk="function" name="attach" />
+        <scope doc="Set the boundary parameter in Content-Type to 'boundary'." ilk="function" name="set_boundary" />
+        <scope doc="Set the charset of the payload to a given character set." ilk="function" name="set_charset" />
+        <scope doc="Return the total number of headers, including duplicates." ilk="function" name="__len__" />
+        <scope doc="Set the payload to the given value." ilk="function" name="set_payload" />
+        <scope ilk="function" name="get_unixfrom" />
+        <scope doc="Return the Charset instance associated with the message's&#10;payload." ilk="function" name="get_charset" />
+        <scope doc="Get a header value." ilk="function" name="get" />
+        <scope doc="Return a list of all the message's header field names." ilk="function" name="keys" />
+        <scope doc="Set the main type and subtype for the Content-Type header." ilk="function" name="set_type" />
+        <scope doc="# Unix From_ line" ilk="function" name="set_unixfrom" />
+        <scope doc="Set the value of a header." ilk="function" name="__setitem__" />
+        <scope doc="Return a list containing the charset(s) used in this&#10;message." ilk="function" name="get_charsets" />
+        <scope doc="Return the `default' content type." ilk="function" name="get_default_type" />
+        <scope doc="Delete all occurrences of a header, if present." ilk="function" name="__delitem__" />
+        <scope doc="Return the message's main content type." ilk="function" name="get_content_maintype" />
+        <scope doc="Get all the message's header fields and values." ilk="function" name="items" />
+        <scope doc="Return True if the message consists of multiple parts." ilk="function" name="is_multipart" />
+        <scope doc="Replace a header." ilk="function" name="replace_header" />
+        <scope doc="Return the charset parameter of the Content-Type header." ilk="function" name="get_content_charset" />
+        <scope doc="Set the `default' content type." ilk="function" name="set_default_type" />
+        <scope doc="Return a list of all the message's header values." ilk="function" name="values" />
+        <scope doc="Return the boundary associated with the payload if present." ilk="function" name="get_boundary" />
+        <scope doc="Return a reference to the payload." ilk="function" name="get_payload" />
+        <scope doc="Return the parameter value if found in the Content-Type&#10;header." ilk="function" name="get_param" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="17" lineend="82" name="Parser">
+        <scope doc="Create a message structure from the data in a file." ilk="function" line="56" lineend="72" name="parse" returns="feedparser.close()" signature="parse(fp, headersonly=False)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="Parser" ilk="argument" name="self" />
+          <variable citdl="FeedParser()" line="64" name="feedparser" />
+          <variable citdl="fp.read()" line="68" name="data" />
+          <variable citdl="False" ilk="argument" name="headersonly" />
+        </scope>
+        <scope doc="Create a message structure from a string." ilk="function" line="74" lineend="82" name="parsestr" returns="Parser.parse()" signature="parsestr(text, headersonly=False)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="Parser" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="headersonly" />
+        </scope>
+        <scope doc="Parser of RFC 2822 and MIME email messages." ilk="function" line="18" lineend="54" name="__init__" signature="Parser(*args, **kws)">
+          <variable citdl="Parser" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kws" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="Message" line="45" name="_class" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="warnings" />
+    </scope>
+    

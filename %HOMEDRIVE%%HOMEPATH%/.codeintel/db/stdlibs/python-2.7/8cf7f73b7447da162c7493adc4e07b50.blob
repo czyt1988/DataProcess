@@ -1,0 +1,5 @@
+<scope doc="Implements low-level Internet Config interface&#10;" ilk="blob" lang="Python" name="icglue">
+      <scope doc="(OSType)-&gt;ic_instance; Create an Internet Config instance" ilk="function" name="ICStart" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+    </scope>
+    

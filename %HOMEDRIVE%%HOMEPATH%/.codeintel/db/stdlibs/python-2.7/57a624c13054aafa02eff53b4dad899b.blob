@@ -1,0 +1,40 @@
+<scope doc="Utilities to get a password and/or the current user name.&#10;getpass(prompt[, stream]) - Prompt for a password, with echo turned off. getuser() - Get the user name from the environment or password database.  GetPassWarning - This UserWarning is issued when getpass() cannot prevent echoing of the password contents while reading.  On Windows, the msvcrt module will be used. On the Mac EasyDialogs.AskPassword is used, if available." ilk="blob" lang="Python" name="getpass">
+      <scope classrefs="UserWarning" doc="&#10;" ilk="class" line="23" lineend="23" name="GetPassWarning" />
+      <variable citdl="list" line="20" name="__all__" />
+      <scope ilk="function" line="112" lineend="118" name="fallback_getpass" returns="_raw_input()" signature="fallback_getpass(prompt='Password: ', stream=None)">
+        <variable citdl="str" ilk="argument" name="prompt" />
+        <variable citdl="sys.stderr" ilk="argument" name="stream" />
+      </scope>
+      <scope doc="Prompt for password with echo off, using Windows getch()." ilk="function" line="173" name="getpass" signature="getpass(prompt='Password: ', stream=None)" />
+      <scope doc="Get the username from the environment or password database." ilk="function" line="141" lineend="158" name="getuser" returns="os.environ.get()" signature="getuser()">
+        <variable citdl="os.environ.get()" line="152" name="user" />
+      </scope>
+      <import module="msvcrt" />
+      <import module="os" />
+      <import module="sys" />
+      <scope doc="Prompt for a password, with echo turned off." ilk="function" line="26" lineend="86" name="unix_getpass" returns="_raw_input()" signature="unix_getpass(prompt='Password: ', stream=None)">
+        <variable citdl="os.fdopen()" line="42" name="tty" />
+        <variable citdl="termios.tcgetattr()" line="63" name="old" />
+        <variable citdl="os.fdopen()" ilk="argument" name="stream" />
+        <variable citdl="termios.TCSAFLUSH" line="66" name="tcsetattr_flags" />
+        <variable citdl="fallback_getpass()" line="55" name="passwd" />
+        <variable citdl="str" ilk="argument" name="prompt" />
+        <variable citdl="sys.stdin.fileno()" line="41" name="fd" />
+        <variable citdl="list" line="64" name="new" />
+        <variable citdl="sys.stdin" line="47" name="input" />
+      </scope>
+      <import module="warnings" />
+      <scope doc="Prompt for password with echo off, using Windows getch()." ilk="function" line="89" lineend="109" name="win_getpass" returns="str" signature="win_getpass(prompt='Password: ', stream=None)">
+        <variable citdl="msvcrt.getch()" line="98" name="c" />
+        <variable citdl="str" ilk="argument" name="prompt" />
+        <variable citdl="list" line="96" name="pw" />
+        <variable ilk="argument" name="stream" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="121" lineend="138" name="_raw_input" returns="input.readline()" signature="_raw_input(prompt='', stream=None, input=None)">
+        <variable citdl="str()" ilk="argument" name="prompt" />
+        <variable citdl="sys.stderr" ilk="argument" name="stream" />
+        <variable citdl="sys.stdin" ilk="argument" name="input" />
+        <variable citdl="input.readline()" line="133" name="line" />
+      </scope>
+    </scope>
+    

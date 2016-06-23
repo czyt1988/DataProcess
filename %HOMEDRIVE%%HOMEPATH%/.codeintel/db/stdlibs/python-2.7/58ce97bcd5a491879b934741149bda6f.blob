@@ -1,0 +1,71 @@
+<scope doc="A bottom-up tree matching algorithm implementation meant to speed&#10;up 2to3's matching process. After the tree patterns are reduced to their rarest linear path, a linear Aho-Corasick automaton is created. The linear automaton traverses the linear paths from the leaves to the root of the AST and returns a set of nodes for further matching. This reduces significantly the number of candidate nodes." ilk="blob" lang="Python" name="lib2to3.btm_matcher">
+      <scope classrefs="object" doc="Class for a node of the Aho-Corasick automaton used in matching&#10;" ilk="class" line="17" lineend="24" name="BMNode">
+        <scope ilk="function" line="20" lineend="24" name="__init__" signature="BMNode()">
+          <variable citdl="BMNode" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="itertools.count()" line="19" name="count" />
+        <variable attributes="__instancevar__" citdl="str" line="24" name="content" />
+        <variable attributes="__instancevar__" citdl="dict" line="21" name="transition_table" />
+        <variable attributes="__instancevar__" citdl="list" line="22" name="fixers" />
+        <variable attributes="__instancevar__" citdl="next()" line="23" name="id" />
+      </scope>
+      <scope classrefs="object" doc="The main matcher class. After instantiating the patterns should&#10;be added using the add_fixer method" ilk="class" line="26" lineend="156" name="BottomMatcher">
+        <scope doc="Prints a graphviz diagram of the BM automaton(for debugging)" ilk="function" line="144" lineend="156" name="print_ac" signature="print_ac()">
+          <variable citdl="BottomMatcher" ilk="argument" name="self" />
+          <scope ilk="function" line="147" lineend="154" name="print_node" signature="print_node(node)">
+            <variable ilk="argument" name="node" />
+            <variable line="149" name="subnode" />
+          </scope>
+        </scope>
+        <scope doc="The main interface with the bottom matcher." ilk="function" line="83" lineend="142" name="run" returns="defaultdict()" signature="run(leaves)">
+          <variable citdl="current_ast_node.parent" line="102" name="current_ast_node" />
+          <variable ilk="argument" name="leaves" />
+          <variable citdl="defaultdict()" line="100" name="results" />
+          <variable citdl="current_ast_node.value" line="112" name="node_token" />
+          <variable citdl="BMNode" line="99" name="current_ac_node" />
+          <variable citdl="BottomMatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Reduces a fixer's pattern tree to a linear path and adds it&#10;to the matcher(a common Aho-Corasick automaton)." ilk="function" line="37" lineend="47" name="add_fixer" signature="add_fixer(fixer)">
+          <variable citdl="BottomMatcher" ilk="argument" name="self" />
+          <variable citdl="reduce_tree()" line="43" name="tree" />
+          <variable ilk="argument" name="fixer" />
+          <variable citdl="self.add()" line="45" name="match_nodes" />
+          <variable citdl="tree.get_linear_subpattern()" line="44" name="linear" />
+        </scope>
+        <scope doc="Recursively adds a linear pattern to the AC automaton" ilk="function" line="49" lineend="81" name="add" returns="list" signature="add(pattern, start)">
+          <variable ilk="argument" name="pattern" />
+          <variable citdl="BottomMatcher" ilk="argument" name="self" />
+          <variable citdl="()" line="62" name="end_nodes" />
+          <variable ilk="argument" name="start" />
+          <variable citdl="BMNode" line="71" name="next_node" />
+          <variable citdl="list" line="58" name="match_nodes" />
+        </scope>
+        <scope ilk="function" line="30" lineend="35" name="__init__" signature="BottomMatcher()">
+          <variable citdl="BottomMatcher" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="33" name="nodes" />
+        <variable attributes="__instancevar__" citdl="logging.getLogger()" line="35" name="logger" />
+        <variable attributes="__instancevar__" citdl="BMNode" line="32" name="root" />
+        <variable attributes="__instancevar__" citdl="list" line="34" name="fixers" />
+        <variable attributes="__instancevar__" citdl="set()" line="31" name="match" />
+      </scope>
+      <variable citdl="str" line="8" name="__author__" />
+      <scope classrefs="dict" doc="defaultdict(default_factory) --&gt; dict with default factory&#10;The default factory is called without arguments to produce a new value when a key is not present, in __getitem__ only. A defaultdict compares equal to a dict with the same items." ilk="class" name="defaultdict">
+        <scope doc="D.copy() -&gt; a shallow copy of D." ilk="function" name="copy" signature="D.copy() -&gt; a shallow copy of D." />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="if self.default_factory is None: raise KeyError((key,))&#10;self[key] = value = self.default_factory() return value" ilk="function" name="__missing__" signature="__missing__(key) # Called by __getitem__ for missing key; pseudo-code:" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="D.copy() -&gt; a shallow copy of D." ilk="function" name="__copy__" signature="D.copy() -&gt; a shallow copy of D." />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <import module="itertools" />
+      <import module="logging" />
+      <import module="pytree" />
+      <scope doc="Internal function." ilk="function" name="reduce_tree" signature="reduce_tree(node, parent=None)" />
+      <scope ilk="function" line="160" lineend="168" name="type_repr" returns="_type_reprs.setdefault()" signature="type_repr(type_num)">
+        <variable ilk="argument" name="type_num" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="159" name="_type_reprs" />
+    </scope>
+    

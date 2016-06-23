@@ -1,0 +1,80 @@
+<scope doc="# Symbolic constants for Tk&#10;" ilk="blob" lang="Python" name="Tkconstants">
+      <variable citdl="str" line="72" name="ACTIVE" />
+      <variable citdl="str" line="67" name="ALL" />
+      <variable citdl="str" line="66" name="ANCHOR" />
+      <variable citdl="str" line="97" name="ARC" />
+      <variable citdl="str" line="53" name="BASELINE" />
+      <variable citdl="str" line="103" name="BEVEL" />
+      <variable citdl="str" line="25" name="BOTH" />
+      <variable citdl="str" line="31" name="BOTTOM" />
+      <variable citdl="str" line="85" name="BROWSE" />
+      <variable citdl="str" line="100" name="BUTT" />
+      <variable citdl="str" line="77" name="CASCADE" />
+      <variable citdl="str" line="19" name="CENTER" />
+      <variable citdl="str" line="49" name="CHAR" />
+      <variable citdl="str" line="78" name="CHECKBUTTON" />
+      <variable citdl="str" line="96" name="CHORD" />
+      <variable citdl="str" line="79" name="COMMAND" />
+      <variable citdl="str" line="65" name="CURRENT" />
+      <variable citdl="str" line="71" name="DISABLED" />
+      <variable citdl="str" line="91" name="DOTBOX" />
+      <variable citdl="str" line="11" name="E" />
+      <variable citdl="str" line="63" name="END" />
+      <variable citdl="str" line="17" name="EW" />
+      <variable citdl="str" line="87" name="EXTENDED" />
+      <variable citdl="int" name="FALSE" />
+      <variable citdl="str" line="98" name="FIRST" />
+      <variable citdl="str" line="36" name="FLAT" />
+      <variable citdl="str" line="38" name="GROOVE" />
+      <variable citdl="str" line="74" name="HIDDEN" />
+      <variable citdl="str" line="42" name="HORIZONTAL" />
+      <variable citdl="str" line="64" name="INSERT" />
+      <variable citdl="str" line="56" name="INSIDE" />
+      <variable citdl="str" line="99" name="LAST" />
+      <variable citdl="str" line="28" name="LEFT" />
+      <variable citdl="str" line="104" name="MITER" />
+      <variable citdl="str" line="107" name="MOVETO" />
+      <variable citdl="str" line="86" name="MULTIPLE" />
+      <variable citdl="str" line="8" name="N" />
+      <variable citdl="str" line="14" name="NE" />
+      <variable citdl="int" line="4" name="NO" />
+      <variable citdl="str" line="22" name="NONE" />
+      <variable citdl="str" line="70" name="NORMAL" />
+      <variable citdl="str" line="16" name="NS" />
+      <variable citdl="str" line="18" name="NSEW" />
+      <variable citdl="str" line="46" name="NUMERIC" />
+      <variable citdl="str" line="12" name="NW" />
+      <variable citdl="int" name="OFF" />
+      <variable citdl="int" name="ON" />
+      <variable citdl="str" line="57" name="OUTSIDE" />
+      <variable citdl="str" line="110" name="PAGES" />
+      <variable citdl="str" line="95" name="PIESLICE" />
+      <variable citdl="str" line="101" name="PROJECTING" />
+      <variable citdl="str" line="80" name="RADIOBUTTON" />
+      <variable citdl="str" line="34" name="RAISED" />
+      <variable citdl="str" line="37" name="RIDGE" />
+      <variable citdl="str" line="30" name="RIGHT" />
+      <variable citdl="str" line="102" name="ROUND" />
+      <variable citdl="str" line="9" name="S" />
+      <variable citdl="str" line="108" name="SCROLL" />
+      <variable citdl="str" line="15" name="SE" />
+      <variable citdl="str" line="60" name="SEL" />
+      <variable citdl="str" line="61" name="SEL_FIRST" />
+      <variable citdl="str" line="62" name="SEL_LAST" />
+      <variable citdl="str" line="81" name="SEPARATOR" />
+      <variable citdl="str" line="84" name="SINGLE" />
+      <variable citdl="str" line="39" name="SOLID" />
+      <variable citdl="str" line="35" name="SUNKEN" />
+      <variable citdl="str" line="13" name="SW" />
+      <variable citdl="str" line="29" name="TOP" />
+      <variable citdl="int" name="TRUE" />
+      <variable citdl="str" line="92" name="UNDERLINE" />
+      <variable citdl="str" line="109" name="UNITS" />
+      <variable citdl="str" line="43" name="VERTICAL" />
+      <variable citdl="str" line="10" name="W" />
+      <variable citdl="str" line="50" name="WORD" />
+      <variable citdl="str" line="23" name="X" />
+      <variable citdl="str" line="24" name="Y" />
+      <variable citdl="int" line="5" name="YES" />
+    </scope>
+    

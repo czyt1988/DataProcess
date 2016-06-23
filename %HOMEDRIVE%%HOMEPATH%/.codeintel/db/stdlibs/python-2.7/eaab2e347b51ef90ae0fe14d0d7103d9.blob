@@ -1,0 +1,153 @@
+<scope doc="Python part of the warnings subsystem.&#10;" ilk="blob" lang="Python" name="warnings">
+      <scope classrefs="object" doc="Holds the result of a single showwarning() call.&#10;" ilk="class" line="281" lineend="298" name="WarningMessage">
+        <scope ilk="function" line="295" lineend="298" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="WarningMessage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="288" lineend="293" name="__init__" signature="WarningMessage(message, category, filename, lineno, file=None, line=None)">
+          <variable ilk="argument" name="category" />
+          <variable citdl="WarningMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="lineno" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="line" />
+          <variable citdl="locals()" line="290" name="local_values" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="285" name="_WARNING_DETAILS" />
+        <variable attributes="protected __instancevar__" line="293" name="_category_name" />
+      </scope>
+      <variable citdl="list" line="10" name="__all__" />
+      <scope classrefs="object" doc="A context manager that copies and restores the warnings filter upon&#10;exiting the context.  The 'record' argument specifies whether warnings should be captured by a custom implementation of warnings.showwarning() and be appended to a list returned by the context manager. Otherwise None is returned by the context manager. The objects appended to the list are arguments whose attributes mirror the arguments to showwarning().  The 'module' argument is to specify an alternative module to the module named 'warnings' and imported under that name. This argument is only useful" ilk="class" line="301" lineend="359" name="catch_warnings">
+        <scope ilk="function" line="355" lineend="359" name="__exit__" signature="__exit__(*exc_info)">
+          <variable attributes="varargs" ilk="argument" name="exc_info" />
+          <variable citdl="catch_warnings" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="330" lineend="337" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="catch_warnings" ilk="argument" name="self" />
+          <variable citdl="list" line="331" name="args" />
+          <variable line="336" name="name" />
+        </scope>
+        <scope ilk="function" line="339" lineend="353" name="__enter__" returns="list" signature="__enter__()">
+          <variable citdl="catch_warnings" ilk="argument" name="self" />
+          <scope ilk="function" line="348" lineend="349" name="showwarning" signature="showwarning(*args, **kwargs)">
+            <variable attributes="varargs" ilk="argument" name="args" />
+            <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          </scope>
+          <variable citdl="list" line="347" name="log" />
+        </scope>
+        <scope doc="Specify whether to record warnings and if an alternative&#10;module should be used other than sys.modules['warnings']." ilk="function" line="318" lineend="328" name="__init__" signature="catch_warnings(record=False, module=None)">
+          <variable citdl="False" ilk="argument" name="record" />
+          <variable citdl="catch_warnings" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="327" name="_module" />
+        <variable attributes="protected __instancevar__" citdl="False" line="328" name="_entered" />
+        <variable attributes="protected __instancevar__" citdl="False" line="326" name="_record" />
+        <variable attributes="protected __instancevar__" citdl="self._module.filters" line="343" name="_filters" />
+        <variable attributes="protected __instancevar__" citdl="self._module.showwarning" line="345" name="_showwarning" />
+      </scope>
+      <variable citdl="str" name="default_action" />
+      <variable citdl="str" line="374" name="defaultaction" />
+      <variable citdl="list" line="378" name="filters" />
+      <scope doc="Insert an entry into the list of warnings filters (at the&#10;front)." ilk="function" line="45" lineend="72" name="filterwarnings" signature="filterwarnings(action, message='', category=&lt;type 'exceptions.Warning'&gt;, module='', lineno=0, append=0)">
+        <variable citdl="Warning" ilk="argument" name="category" />
+        <variable citdl="str" ilk="argument" name="module" />
+        <variable citdl="tuple" line="67" name="item" />
+        <variable citdl="int" ilk="argument" name="lineno" />
+        <variable ilk="argument" name="action" />
+        <variable citdl="str" ilk="argument" name="message" />
+        <variable citdl="int" ilk="argument" name="append" />
+      </scope>
+      <scope doc="Function to format a warning the standard way." ilk="function" line="36" lineend="43" name="formatwarning" returns="tuple" signature="formatwarning(message, category, filename, lineno, line=None)">
+        <variable ilk="argument" name="category" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="str" line="38" name="s" />
+        <variable ilk="argument" name="lineno" />
+        <variable ilk="argument" name="message" />
+        <variable citdl="line.strip()" ilk="argument" name="line" />
+      </scope>
+      <import module="linecache" />
+      <variable citdl="dict" name="once_registry" />
+      <variable citdl="dict" line="375" name="onceregistry" />
+      <scope doc="Clear the list of warning filters, so that no filters are&#10;active." ilk="function" line="94" lineend="96" name="resetwarnings" signature="resetwarnings()" />
+      <scope doc="Hook to write a warning to a file; replace if you like." ilk="function" line="34" name="showwarning" signature="showwarning(message, category, filename, lineno, file=None, line=None)" />
+      <scope doc="Insert a simple entry into the list of warnings filters (at&#10;the front)." ilk="function" line="74" lineend="92" name="simplefilter" signature="simplefilter(action, category=&lt;type 'exceptions.Warning'&gt;, lineno=0, append=0)">
+        <variable ilk="argument" name="action" />
+        <variable citdl="Warning" ilk="argument" name="category" />
+        <variable citdl="int" ilk="argument" name="lineno" />
+        <variable citdl="int" ilk="argument" name="append" />
+        <variable citdl="tuple" line="88" name="item" />
+      </scope>
+      <import module="sys" />
+      <import module="types" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" line="175" lineend="213" name="warn" signature="warn(message, category=None, stacklevel=1)">
+        <variable citdl="UserWarning" ilk="argument" name="category" />
+        <variable citdl="int" ilk="argument" name="stacklevel" />
+        <variable citdl="sys._getframe()" line="186" name="caller" />
+        <variable citdl="str" line="194" name="module" />
+        <variable citdl="str" line="197" name="filename" />
+        <variable citdl="dict" line="188" name="globals" />
+        <variable citdl="int" line="189" name="lineno" />
+        <variable ilk="argument" name="message" />
+        <variable citdl="filename.lower()" line="199" name="fnl" />
+        <variable citdl="globals.setdefault()" line="211" name="registry" />
+      </scope>
+      <scope doc="Low-level inferface to warnings functionality." ilk="function" line="215" lineend="278" name="warn_explicit" signature="warn_explicit(message, category, filename, lineno, module=None, registry=None, module_globals=None)">
+        <variable citdl="message.__class__" ilk="argument" name="category" />
+        <variable ilk="argument" name="module_globals" />
+        <variable citdl="str()" line="225" name="text" />
+        <variable citdl="list" ilk="argument" name="module" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="tuple" line="266" name="altkey" />
+        <variable citdl="int()" ilk="argument" name="lineno" />
+        <variable citdl="tuple" line="230" name="key" />
+        <variable citdl="defaultaction" line="243" name="action" />
+        <variable citdl="category()" ilk="argument" name="message" />
+        <variable citdl="tuple" line="258" name="oncekey" />
+        <variable citdl="dict" ilk="argument" name="registry" />
+      </scope>
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" line="14" lineend="22" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)">
+        <variable citdl="DeprecationWarning" ilk="argument" name="category" />
+        <variable citdl="int" ilk="argument" name="stacklevel" />
+        <variable ilk="argument" name="message" />
+      </scope>
+      <variable attributes="__hidden__" citdl="str" line="394" name="bytes_action" />
+      <scope attributes="protected __hidden__" ilk="function" line="103" lineend="108" name="_processoptions" signature="_processoptions(args)">
+        <variable ilk="argument" name="args" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Hook to write a warning to a file; replace if you like." ilk="function" line="24" lineend="31" name="_show_warning" signature="_show_warning(message, category, filename, lineno, file=None, line=None)">
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="category" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="lineno" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+        <variable ilk="argument" name="line" />
+      </scope>
+      <variable attributes="__hidden__" citdl="sys.flags.bytes_warning" line="392" name="bytes_warning" />
+      <scope attributes="protected __hidden__" classrefs="Exception" doc="Exception used by option processing helpers." ilk="class" line="98" lineend="100" name="_OptionError" />
+      <scope attributes="protected __hidden__" ilk="function" line="138" lineend="145" name="_getaction" returns="str" signature="_getaction(action)">
+        <variable ilk="argument" name="action" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="111" lineend="135" name="_setoption" signature="_setoption(arg)">
+        <import line="112" module="re" />
+        <variable ilk="argument" name="arg" />
+        <variable citdl="arg.split()" line="113" name="parts" />
+        <variable citdl="_getaction()" line="120" name="action" />
+        <variable citdl="re.escape()" line="121" name="message" />
+        <variable citdl="_getcategory()" line="122" name="category" />
+        <variable citdl="re.escape()" line="123" name="module" />
+        <variable citdl="int" line="128" name="lineno" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="True" line="370" name="_warnings_defaults" />
+      <scope attributes="protected __hidden__" ilk="function" line="148" lineend="171" name="_getcategory" returns="getattr()" signature="_getcategory(category)">
+        <import line="149" module="re" />
+        <variable ilk="argument" name="category" />
+        <variable citdl="eval()" line="154" name="cat" />
+        <variable citdl="category.rfind()" line="158" name="i" />
+        <variable citdl="list" line="159" name="module" />
+        <variable citdl="list" line="160" name="klass" />
+        <variable citdl="__import__()" line="162" name="m" />
+      </scope>
+      <variable attributes="__hidden__" citdl="list" line="386" name="silence" />
+    </scope>
+    

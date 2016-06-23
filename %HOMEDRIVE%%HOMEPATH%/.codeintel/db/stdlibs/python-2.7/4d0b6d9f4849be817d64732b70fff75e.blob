@@ -1,0 +1,11 @@
+<scope doc="Heap queue algorithm (a.k.a. priority queue).&#10;Heaps are arrays for which a[k] &lt;= a[2*k+1] and a[k] &lt;= a[2*k+2] for all k, counting elements from 0.  For the sake of comparison, non-existing elements are considered to be infinite.  The interesting property of a heap is that a[0] is always its smallest element.  Usage:  heap = []            # creates an empty heap heappush(heap, item) # pushes a new item on the heap item = heappop(heap) # pops the smallest item from the heap" ilk="blob" lang="Python" name="_heapq">
+      <variable citdl="str" name="__about__" />
+      <scope doc="Transform list into a heap, in-place, in O(len(heap)) time." ilk="function" name="heapify" />
+      <scope doc="Pop the smallest item off the heap, maintaining the heap&#10;invariant." ilk="function" name="heappop" />
+      <scope doc="Push item onto heap, maintaining the heap invariant." ilk="function" name="heappush" />
+      <scope doc="Push item on the heap, then pop and return the smallest item&#10;from the heap." ilk="function" name="heappushpop" />
+      <scope doc="Pop and return the current smallest value, and add the new&#10;item." ilk="function" name="heapreplace" />
+      <scope doc="Find the n largest elements in a dataset." ilk="function" name="nlargest" />
+      <scope doc="Find the n smallest elements in a dataset." ilk="function" name="nsmallest" />
+    </scope>
+    

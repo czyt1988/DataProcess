@@ -1,0 +1,221 @@
+<scope doc="This module provides some more Pythonic support for SSL.&#10;Object types:  SSLSocket -- subtype of socket.socket which does SSL over the socket  Exceptions:  SSLError -- exception raised for I/O errors  Functions: " ilk="blob" lang="Python" name="ssl">
+      <variable citdl="int" name="CERT_NONE" />
+      <variable citdl="int" name="CERT_OPTIONAL" />
+      <variable citdl="int" name="CERT_REQUIRED" />
+      <scope doc="Takes a certificate in binary DER format and returns the PEM&#10;version of it as a string." ilk="function" line="389" lineend="403" name="DER_cert_to_PEM_cert" returns="str" signature="DER_cert_to_PEM_cert(der_cert_bytes)">
+        <variable ilk="argument" name="der_cert_bytes" />
+        <variable citdl="base64.standard_b64encode()" line="396" name="f" />
+      </scope>
+      <variable citdl="str" name="OPENSSL_VERSION" />
+      <variable citdl="tuple" name="OPENSSL_VERSION_INFO" />
+      <variable citdl="long" name="OPENSSL_VERSION_NUMBER" />
+      <variable citdl="str" line="387" name="PEM_FOOTER" />
+      <variable citdl="str" line="386" name="PEM_HEADER" />
+      <scope doc="Takes a certificate in ASCII PEM format and returns the DER-&#10;encoded version of it as a byte sequence" ilk="function" line="405" lineend="417" name="PEM_cert_to_DER_cert" returns="base64.decodestring()" signature="PEM_cert_to_DER_cert(pem_cert_string)">
+        <variable citdl="list" line="416" name="d" />
+        <variable ilk="argument" name="pem_cert_string" />
+      </scope>
+      <variable citdl="int" name="PROTOCOL_SSLv2" />
+      <variable citdl="int" name="PROTOCOL_SSLv23" />
+      <variable citdl="int" name="PROTOCOL_SSLv3" />
+      <variable citdl="int" name="PROTOCOL_TLSv1" />
+      <scope doc="Mix string into the OpenSSL PRNG state." ilk="function" name="RAND_add" signature="RAND_add(string, entropy)" />
+      <scope doc="Queries the entropy gather daemon (EGD) on the socket named&#10;by 'path'." ilk="function" name="RAND_egd" signature="RAND_egd(path) -&gt; bytes" />
+      <scope doc="Returns 1 if the OpenSSL PRNG has been seeded with enough&#10;data and 0 if not." ilk="function" name="RAND_status" signature="RAND_status() -&gt; 0 or 1" />
+      <scope classrefs="error" doc="&#10;" ilk="class" name="SSLError" />
+      <scope classrefs="_socketobject" doc="This class implements a subtype of socket.socket that wraps&#10;the underlying OS socket in an SSL context when necessary, and provides read and write methods over that channel." ilk="class" line="94" lineend="357" name="SSLSocket">
+        <scope ilk="function" line="273" lineend="279" name="unwrap" returns="self._sslobj.shutdown()" signature="unwrap()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="self._sslobj.shutdown()" line="275" name="s" />
+        </scope>
+        <scope doc="Read up to LEN bytes and return them." ilk="function" line="145" lineend="156" name="read" returns="self._sslobj.read()" signature="read(len=1024)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="len" />
+        </scope>
+        <scope ilk="function" line="298" lineend="317" name="_real_connect" returns="int" signature="_real_connect(addr, return_errno)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="return_errno" />
+          <variable ilk="argument" name="addr" />
+        </scope>
+        <scope doc="Perform a TLS/SSL handshake." ilk="function" line="292" lineend="296" name="do_handshake" signature="do_handshake()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Accepts a new connection from a remote client, and returns a&#10;tuple containing that new connection wrapped with a server-&#10;side SSL channel, and the address of the remote client." ilk="function" line="329" lineend="346" name="accept" returns="tuple" signature="accept()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable line="335" name="newsock" />
+          <variable line="335" name="addr" />
+        </scope>
+        <scope ilk="function" line="211" lineend="224" name="sendall" returns="socket.sendall()" signature="sendall(data, flags=0)">
+          <variable citdl="int" line="218" name="count" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="len()" line="217" name="amount" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="send()" line="220" name="v" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="174" lineend="179" name="cipher" returns="self._sslobj.cipher()" signature="cipher()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Connects to remote ADDR, and then wraps the connection in an&#10;SSL channel." ilk="function" line="319" lineend="322" name="connect" signature="connect(addr)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="addr" />
+        </scope>
+        <scope ilk="function" line="281" lineend="283" name="shutdown" signature="shutdown(how)">
+          <variable ilk="argument" name="how" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="285" lineend="290" name="close" signature="close()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="260" lineend="265" name="recvfrom_into" returns="self._sock.recvfrom_into()" signature="recvfrom_into(buffer, nbytes=None, flags=0)">
+          <variable ilk="argument" name="buffer" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable ilk="argument" name="nbytes" />
+        </scope>
+        <scope ilk="function" line="100" lineend="143" name="__init__" signature="SSLSocket(sock, keyfile=None, certfile=None, server_side=False, cert_reqs=CERT_NONE, ssl_version=PROTOCOL_SSLv23, ca_certs=None, do_handshake_on_connect=True, suppress_ragged_eofs=True, ciphers=None)">
+          <variable ilk="argument" name="ciphers" />
+          <variable ilk="argument" name="certfile" />
+          <variable citdl="False" ilk="argument" name="server_side" />
+          <variable citdl="PROTOCOL_SSLv23" ilk="argument" name="ssl_version" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="do_handshake_on_connect" />
+          <variable ilk="argument" name="sock" />
+          <variable citdl="CERT_NONE" ilk="argument" name="cert_reqs" />
+          <variable ilk="argument" name="ca_certs" />
+          <variable ilk="argument" name="keyfile" />
+          <variable citdl="True" ilk="argument" name="suppress_ragged_eofs" />
+        </scope>
+        <scope ilk="function" line="253" lineend="258" name="recvfrom" returns="self._sock.recvfrom()" signature="recvfrom(buflen=1024, flags=0)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="int" ilk="argument" name="buflen" />
+        </scope>
+        <scope doc="Connects to remote ADDR, and then wraps the connection in an&#10;SSL channel." ilk="function" line="324" lineend="327" name="connect_ex" returns="SSLSocket._real_connect()" signature="connect_ex(addr)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="addr" />
+        </scope>
+        <scope ilk="function" line="226" lineend="234" name="recv" returns="self._sock.recv()" signature="recv(buflen=1024, flags=0)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="int" ilk="argument" name="buflen" />
+        </scope>
+        <scope doc="Make and return a file-like object that works with the SSL&#10;connection." ilk="function" line="348" lineend="357" name="makefile" returns="_fileobject()" signature="makefile(mode='r', bufsize=-1)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable citdl="str" ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Returns a formatted version of the data in the certificate&#10;provided by the other end of the SSL channel." ilk="function" line="165" lineend="172" name="getpeercert" returns="self._sslobj.peer_certificate()" signature="getpeercert(binary_form=False)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="binary_form" />
+        </scope>
+        <scope ilk="function" line="181" lineend="200" name="send" returns="self._sock.send()" signature="send(data, flags=0)">
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="self._sslobj.write()" line="189" name="v" />
+        </scope>
+        <scope doc="Write DATA to the underlying SSL channel." ilk="function" line="158" lineend="163" name="write" returns="self._sslobj.write()" signature="write(data)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="202" lineend="209" name="sendto" returns="self._sock.sendto()" signature="sendto(data, flags_or_addr, addr=None)">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="addr" />
+          <variable ilk="argument" name="flags_or_addr" />
+        </scope>
+        <scope ilk="function" line="236" lineend="251" name="recv_into" returns="self._sock.recv_into()" signature="recv_into(buffer, nbytes=None, flags=0)">
+          <variable ilk="argument" name="buffer" />
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="int" ilk="argument" name="nbytes" />
+          <variable citdl="len()" line="247" name="v" />
+          <variable citdl="read()" line="246" name="tmp_buffer" />
+        </scope>
+        <scope ilk="function" line="267" lineend="271" name="pending" returns="self._sslobj.pending()" signature="pending()">
+          <variable citdl="SSLSocket" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="False" line="124" name="_connected" />
+        <variable attributes="__instancevar__" line="140" name="ciphers" />
+        <variable attributes="__instancevar__" line="136" name="certfile" />
+        <variable attributes="protected __instancevar__" citdl="int" line="143" name="_makefile_refs" />
+        <variable attributes="protected __instancevar__" citdl="_ssl.sslwrap()" line="125" name="_sslobj" />
+        <variable attributes="__instancevar__" citdl="True" line="141" name="do_handshake_on_connect" />
+        <variable attributes="__instancevar__" citdl="True" line="142" name="suppress_ragged_eofs" />
+        <variable attributes="__instancevar__" citdl="PROTOCOL_SSLv23" line="138" name="ssl_version" />
+        <variable attributes="__instancevar__" citdl="CERT_NONE" line="137" name="cert_reqs" />
+        <variable attributes="__instancevar__" line="139" name="ca_certs" />
+        <variable attributes="__instancevar__" line="135" name="keyfile" />
+      </scope>
+      <variable citdl="int" name="SSL_ERROR_EOF" />
+      <variable citdl="int" name="SSL_ERROR_INVALID_ERROR_CODE" />
+      <variable citdl="int" name="SSL_ERROR_SSL" />
+      <variable citdl="int" name="SSL_ERROR_SYSCALL" />
+      <variable citdl="int" name="SSL_ERROR_WANT_CONNECT" />
+      <variable citdl="int" name="SSL_ERROR_WANT_READ" />
+      <variable citdl="int" name="SSL_ERROR_WANT_WRITE" />
+      <variable citdl="int" name="SSL_ERROR_WANT_X509_LOOKUP" />
+      <variable citdl="int" name="SSL_ERROR_ZERO_RETURN" />
+      <import module="_ssl" />
+      <import module="base64" />
+      <scope doc="Takes a date-time string in standard ASN1_print form (&quot;MON&#10;DAY 24HOUR:MINUTE:SEC YEAR TIMEZONE&quot;) and return a Python&#10;time value in seconds past the epoch." ilk="function" line="377" lineend="384" name="cert_time_to_seconds" returns="time.mktime()" signature="cert_time_to_seconds(cert_time)">
+        <variable ilk="argument" name="cert_time" />
+      </scope>
+      <import module="errno" />
+      <scope ilk="function" line="438" lineend="439" name="get_protocol_name" returns="_PROTOCOL_NAMES.get()" signature="get_protocol_name(protocol_code)">
+        <variable ilk="argument" name="protocol_code" />
+      </scope>
+      <scope doc="Retrieve the certificate from the server at the specified&#10;address, and return it as a PEM-encoded string." ilk="function" line="419" lineend="436" name="get_server_certificate" returns="DER_cert_to_PEM_cert()" signature="get_server_certificate(addr, ssl_version=1, ca_certs=None)">
+        <variable ilk="argument" name="addr" />
+        <variable citdl="PROTOCOL_SSLv3" ilk="argument" name="ssl_version" />
+        <variable citdl="s.getpeercert()" line="434" name="dercert" />
+        <variable citdl="wrap_socket()" line="431" name="s" />
+        <variable citdl="CERT_REQUIRED" line="428" name="cert_reqs" />
+        <variable ilk="argument" name="ca_certs" />
+      </scope>
+      <scope classrefs="object" doc="socket([family[, type[, proto]]]) -&gt; socket object&#10;Open a socket of the given type.  The family argument specifies the address family; it defaults to AF_INET.  The type argument specifies whether this is a stream (SOCK_STREAM, this is the default) or datagram (SOCK_DGRAM) socket.  The protocol argument defaults to 0, specifying the default protocol.  Keyword arguments are accepted.  A socket object represents one endpoint of a network connection.  Methods of socket objects (keyword arguments not allowed): " ilk="class" name="socket">
+        <scope doc="Shut down the reading side of the socket (flag == SHUT_RD),&#10;the writing side of the socket (flag == SHUT_WR), or both&#10;ends (flag == SHUT_RDWR)." ilk="function" name="shutdown" signature="shutdown(flag)" />
+        <scope doc="Returns the timeout in floating seconds associated with&#10;socket operations." ilk="function" name="gettimeout" signature="gettimeout() -&gt; timeout" />
+        <scope doc="Wait for an incoming connection." ilk="function" name="accept" signature="accept() -&gt; (socket object, address info)" />
+        <scope doc="Connect the socket to a remote address." ilk="function" name="connect" signature="connect(address)" />
+        <scope doc="Return the address of the local endpoint." ilk="function" name="getsockname" signature="getsockname() -&gt; address info" />
+        <scope doc="Close the socket. It cannot be used after this call." ilk="function" name="close" signature="close()" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Get a socket option." ilk="function" name="getsockopt" signature="getsockopt(level, option[, buffersize]) -&gt; value" />
+        <scope doc="This is like connect(address), but returns an error code&#10;(the errno value) instead of raising an exception when an&#10;error occurs." ilk="function" name="connect_ex" signature="connect_ex(address) -&gt; errno" />
+        <scope doc="Return a regular file object corresponding to the socket." ilk="function" name="makefile" returns="file" signature="makefile([mode[, bufsize]]) -&gt; file object" />
+        <scope doc="Enable a server to accept connections." ilk="function" name="listen" signature="listen(backlog)" />
+        <scope doc="Set a socket option." ilk="function" name="setsockopt" signature="setsockopt(level, option, value)" />
+        <scope doc="Return a new socket object connected to the same system&#10;resource." ilk="function" name="dup" signature="dup() -&gt; socket object" />
+        <scope doc="Control the socket with WSAIoctl syscall." ilk="function" name="ioctl" returns="long" signature="ioctl(cmd, option) -&gt; long" />
+        <scope doc="Return the address of the remote endpoint." ilk="function" name="getpeername" signature="getpeername() -&gt; address info" />
+        <scope doc="Set the socket to blocking (flag is true) or non-blocking&#10;(false)." ilk="function" name="setblocking" signature="setblocking(flag)" />
+        <scope doc="Return the integer file descriptor of the socket." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; integer" />
+        <scope doc="Bind the socket to a local address." ilk="function" name="bind" signature="bind(address)" />
+        <scope doc="Send a data string to the socket." ilk="function" name="sendall" signature="sendall(data[, flags])" />
+        <scope doc="Set a timeout on socket operations." ilk="function" name="settimeout" signature="settimeout(timeout)" />
+      </scope>
+      <scope classrefs="IOError" doc="&#10;" ilk="class" name="socket_error" />
+      <scope doc="A replacement for the old socket.ssl function." ilk="function" line="444" lineend="464" name="sslwrap_simple" returns="_ssl.sslwrap()" signature="sslwrap_simple(sock, keyfile=None, certfile=None)">
+        <variable citdl="_ssl.sslwrap()" line="453" name="ssl_sock" />
+        <variable ilk="argument" name="certfile" />
+        <variable ilk="argument" name="keyfile" />
+        <variable citdl="sock._sock" ilk="argument" name="sock" />
+      </scope>
+      <import module="textwrap" />
+      <scope ilk="function" line="361" lineend="372" name="wrap_socket" returns="SSLSocket" signature="wrap_socket(sock, keyfile=None, certfile=None, server_side=False, cert_reqs=0, ssl_version=2, ca_certs=None, do_handshake_on_connect=True, suppress_ragged_eofs=True, ciphers=None)">
+        <variable ilk="argument" name="ciphers" />
+        <variable ilk="argument" name="certfile" />
+        <variable citdl="False" ilk="argument" name="server_side" />
+        <variable citdl="PROTOCOL_SSLv23" ilk="argument" name="ssl_version" />
+        <variable citdl="True" ilk="argument" name="do_handshake_on_connect" />
+        <variable ilk="argument" name="sock" />
+        <variable citdl="CERT_NONE" ilk="argument" name="cert_reqs" />
+        <variable ilk="argument" name="ca_certs" />
+        <variable ilk="argument" name="keyfile" />
+        <variable citdl="True" ilk="argument" name="suppress_ragged_eofs" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="77" name="_PROTOCOL_NAMES" />
+    </scope>
+    

@@ -1,0 +1,54 @@
+<scope doc="Utilities to compile possibly incomplete Python source code.&#10;This module provides two interfaces, broadly similar to the builtin function compile(), which take program text, a filename and a 'mode' and:  - Return code object if the command is complete and valid - Return None if the command is incomplete - Raise SyntaxError, ValueError or OverflowError if the command is a syntax error (OverflowError and ValueError can be produced by malformed literals). " ilk="blob" lang="Python" name="codeop">
+      <scope doc="Instances of this class have __call__ methods identical in&#10;signature to compile_command; the difference is that if the instance compiles program text containing a __future__ statement, the instance 'remembers' and compiles all subsequent program texts with the statement in force." ilk="class" line="139" lineend="168" name="CommandCompiler">
+        <scope doc="Compile a command and determine whether it is incomplete." ilk="function" line="149" lineend="168" name="__call__" returns="_maybe_compile()" signature="__call__(source, filename='&lt;input&gt;', symbol='single')">
+          <variable ilk="argument" name="source" />
+          <variable citdl="CommandCompiler" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="symbol" />
+          <variable citdl="str" ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="146" lineend="147" name="__init__" signature="CommandCompiler()">
+          <variable citdl="CommandCompiler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Compile" line="147" name="compiler" />
+      </scope>
+      <scope doc="Instances of this class behave much like the built-in compile&#10;function, but if one is used to compile text containing a future statement, it &quot;remembers&quot; and compiles all subsequent program texts with the statement in force." ilk="class" line="124" lineend="137" name="Compile">
+        <scope ilk="function" line="132" lineend="137" name="__call__" returns="compile()" signature="__call__(source, filename, symbol)">
+          <variable ilk="argument" name="source" />
+          <variable ilk="argument" name="symbol" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="compile()" line="133" name="codeob" />
+          <variable citdl="Compile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="129" lineend="130" name="__init__" signature="Compile()">
+          <variable citdl="Compile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="130" name="flags" />
+      </scope>
+      <variable citdl="int" line="66" name="PyCF_DONT_IMPLY_DEDENT" />
+      <variable citdl="list" line="64" name="__all__" />
+      <import module="__future__" />
+      <scope doc="Compile a command and determine whether it is incomplete." ilk="function" line="104" lineend="122" name="compile_command" returns="_maybe_compile()" signature="compile_command(source, filename='&lt;input&gt;', symbol='single')">
+        <variable ilk="argument" name="source" />
+        <variable citdl="str" ilk="argument" name="symbol" />
+        <variable citdl="str" ilk="argument" name="filename" />
+      </scope>
+      <variable citdl="str" name="fname" />
+      <scope attributes="protected __hidden__" ilk="function" line="101" lineend="102" name="_compile" returns="compile()" signature="_compile(source, filename, symbol)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="symbol" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="68" lineend="99" name="_maybe_compile" returns="compiler()" signature="_maybe_compile(compiler, source, filename, symbol)">
+        <variable ilk="argument" name="compiler" />
+        <variable citdl="str" ilk="argument" name="source" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="symbol" />
+        <variable citdl="line.strip()" line="71" name="line" />
+        <variable line="78" name="err" />
+        <variable citdl="compiler()" line="79" name="code" />
+        <variable citdl="compiler()" line="87" name="code1" />
+        <variable citdl="compiler()" line="92" name="code2" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="61" name="_features" />
+    </scope>
+    

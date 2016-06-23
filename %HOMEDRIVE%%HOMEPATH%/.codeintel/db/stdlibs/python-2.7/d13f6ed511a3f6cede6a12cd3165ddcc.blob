@@ -1,0 +1,135 @@
+<scope doc="Guess the MIME type of a file.&#10;This module defines two useful functions:  guess_type(url, strict=1) -- guess the MIME type and encoding of a URL.  guess_extension(type, strict=1) -- guess the extension for a given MIME type.  It also contains the following, for tuning the behavior:  Data: " ilk="blob" lang="Python" name="mimetypes">
+      <scope doc="MIME-types datastore.&#10;This datastore can handle information from mime.types-style files and supports basic determination of MIME type from a filename or URL, and can guess a reasonable extension given a MIME type." ilk="class" line="56" lineend="272" name="MimeTypes">
+        <scope doc="Guess the type of a file based on its URL." ilk="function" line="95" lineend="155" name="guess_type" returns="tuple" signature="guess_type(url, strict=True)">
+          <variable line="142" name="types_map" />
+          <variable citdl="url.find()" line="126" name="semi" />
+          <variable line="138" name="encoding" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable line="134" name="ext" />
+          <variable line="134" name="base" />
+          <variable citdl="url.find()" line="122" name="comma" />
+          <variable line="114" name="scheme" />
+          <variable citdl="list" line="128" name="type" />
+        </scope>
+        <scope doc="Load the MIME types database from Windows registry." ilk="function" line="228" lineend="272" name="read_windows_registry" signature="read_windows_registry(strict=True)">
+          <variable citdl="suffix.encode()" line="262" name="suffix" />
+          <variable line="262" name="datatype" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable citdl="sys.getdefaultencoding()" line="256" name="default_encoding" />
+          <variable citdl="True" ilk="argument" name="strict" />
+          <scope ilk="function" line="241" lineend="254" name="enum_types" signature="enum_types(mimedb)">
+            <variable ilk="argument" name="mimedb" />
+            <variable citdl="int" line="242" name="i" />
+            <variable citdl="_winreg.EnumKey()" line="245" name="ctype" />
+          </scope>
+        </scope>
+        <scope doc="Guess the extensions for a file based on its MIME type." ilk="function" line="157" lineend="174" name="guess_all_extensions" signature="guess_all_extensions(type, strict=True)">
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable citdl="type.lower()" ilk="argument" name="type" />
+          <variable line="169" name="extensions" />
+        </scope>
+        <scope doc="Add a mapping between a type and an extension." ilk="function" line="78" lineend="93" name="add_type" signature="add_type(type, ext, strict=True)">
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable line="91" name="exts" />
+          <variable ilk="argument" name="ext" />
+          <variable ilk="argument" name="type" />
+        </scope>
+        <scope doc="Guess the extension for a file based on its MIME type." ilk="function" line="176" lineend="192" name="guess_extension" signature="guess_extension(type, strict=True)">
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="guess_all_extensions()" line="189" name="extensions" />
+        </scope>
+        <scope doc="Read a single mime.types-format file." ilk="function" line="205" lineend="226" name="readfp" signature="readfp(fp, strict=True)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="line.split()" line="217" name="words" />
+          <variable citdl="fp.readline()" line="214" name="line" />
+          <variable line="224" name="type" />
+          <variable citdl="list" line="224" name="suffixes" />
+        </scope>
+        <scope doc="Read a single mime.types-format file, specified by pathname." ilk="function" line="194" lineend="203" name="read" signature="read(filename, strict=True)">
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="64" lineend="76" name="__init__" signature="MimeTypes(filenames=(), strict=True)">
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable citdl="MimeTypes" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="filenames" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="encodings_map.copy()" line="67" name="encodings_map" />
+        <variable attributes="__instancevar__" citdl="tuple" line="70" name="types_map_inv" />
+        <variable attributes="__instancevar__" citdl="tuple" line="69" name="types_map" />
+        <variable attributes="__instancevar__" citdl="suffix_map.copy()" line="68" name="suffix_map" />
+      </scope>
+      <variable citdl="list" line="35" name="__all__" />
+      <import module="_winreg" />
+      <scope doc="Add a mapping between a type and an extension." ilk="function" line="331" lineend="345" name="add_type" returns="_db.add_type()" signature="add_type(type, ext, strict=True)">
+        <variable citdl="True" ilk="argument" name="strict" />
+        <variable ilk="argument" name="ext" />
+        <variable ilk="argument" name="type" />
+      </scope>
+      <variable citdl="dict" name="common_types" />
+      <variable citdl="dict" name="encodings_map" />
+      <scope doc="Guess the extensions for a file based on its MIME type." ilk="function" line="298" lineend="313" name="guess_all_extensions" returns="_db.guess_all_extensions()" signature="guess_all_extensions(type, strict=True)">
+        <variable citdl="True" ilk="argument" name="strict" />
+        <variable ilk="argument" name="type" />
+      </scope>
+      <scope doc="Guess the extension for a file based on its MIME type." ilk="function" line="315" lineend="329" name="guess_extension" returns="_db.guess_extension()" signature="guess_extension(type, strict=True)">
+        <variable citdl="True" ilk="argument" name="strict" />
+        <variable ilk="argument" name="type" />
+      </scope>
+      <scope doc="Guess the type of a file based on its URL." ilk="function" line="275" lineend="295" name="guess_type" returns="_db.guess_type()" signature="guess_type(url, strict=True)">
+        <variable ilk="argument" name="url" />
+        <variable citdl="True" ilk="argument" name="strict" />
+      </scope>
+      <scope ilk="function" line="348" lineend="365" name="init" signature="init(files=None)">
+        <variable citdl="list" ilk="argument" name="files" />
+        <variable line="362" name="types_map" />
+        <variable citdl="db.encodings_map" line="360" name="encodings_map" />
+        <variable attributes="protected" citdl="MimeTypes" line="365" name="_db" />
+        <variable citdl="MimeTypes" line="352" name="db" />
+        <variable citdl="True" line="351" name="inited" />
+        <variable line="363" name="common_types" />
+        <variable citdl="db.suffix_map" line="361" name="suffix_map" />
+      </scope>
+      <variable citdl="bool" line="52" name="inited" />
+      <variable citdl="list" line="40" name="knownfiles" />
+      <import module="os" />
+      <import module="posixpath" />
+      <scope ilk="function" line="368" lineend="375" name="read_mime_types" signature="read_mime_types(file)">
+        <variable citdl="MimeTypes" line="373" name="db" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="open()" line="370" name="f" />
+      </scope>
+      <variable citdl="dict" name="suffix_map" />
+      <import module="sys" />
+      <variable citdl="dict" name="types_map" />
+      <import module="urllib" />
+      <variable attributes="__hidden__" citdl="guess_extension()" line="585" name="guess" />
+      <variable attributes="__hidden__" citdl="int" line="575" name="extension" />
+      <variable attributes="__hidden__" line="589" name="encoding" />
+      <variable attributes="protected __hidden__" line="53" name="_db" />
+      <variable attributes="__hidden__" line="569" name="args" />
+      <variable attributes="__hidden__" citdl="str" line="551" name="USAGE" />
+      <variable attributes="__hidden__" citdl="int" line="574" name="strict" />
+      <variable attributes="protected __hidden__" line="33" name="_winreg" />
+      <scope attributes="__hidden__" ilk="function" line="563" lineend="566" name="usage" signature="usage(code, msg='')">
+        <variable ilk="argument" name="code" />
+        <variable citdl="str" ilk="argument" name="msg" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="378" lineend="541" name="_default_mime_types" signature="_default_mime_types()">
+        <variable citdl="dict" line="384" name="suffix_map" />
+        <variable citdl="dict" line="391" name="encodings_map" />
+        <variable citdl="dict" line="402" name="types_map" />
+        <variable citdl="dict" line="533" name="common_types" />
+      </scope>
+      <variable attributes="__hidden__" line="569" name="opts" />
+    </scope>
+    

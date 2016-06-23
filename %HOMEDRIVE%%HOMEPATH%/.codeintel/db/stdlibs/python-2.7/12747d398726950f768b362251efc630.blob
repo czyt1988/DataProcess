@@ -1,0 +1,455 @@
+<scope doc="Module difflib -- helpers for computing deltas between objects.&#10;Function get_close_matches(word, possibilities, n=3, cutoff=0.6): Use SequenceMatcher to return list of the best &quot;good enough&quot; matches.  Function context_diff(a, b): For two lists of strings, return a delta in context diff format.  Function ndiff(a, b): Return a delta: the difference between `a` and `b` (lists of strings).  Function restore(delta, which):" ilk="blob" lang="Python" name="difflib">
+      <scope doc="Differ is a class for comparing sequences of lines of text, and&#10;producing human-readable differences or deltas.  Differ uses SequenceMatcher both to compare sequences of lines, and to compare sequences of characters within similar (near-matching) lines.  Each line of a Differ delta begins with a two-letter code:  '- '    line unique to sequence 1 '+ '    line unique to sequence 2 '  '    line common to both sequences '? '    line not present in either input sequence" ilk="class" line="766" lineend="1087" name="Differ">
+        <scope ilk="function" line="930" lineend="943" name="_plain_replace" signature="_plain_replace(a, alo, ahi, b, blo, bhi)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="alo" />
+          <variable ilk="argument" name="bhi" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="ahi" />
+          <variable citdl="_dump()" line="936" name="second" />
+          <variable ilk="argument" name="blo" />
+          <variable citdl="_dump()" line="935" name="first" />
+        </scope>
+        <scope doc="Compare two sequences of lines; generate the resulting&#10;delta." ilk="function" line="884" lineend="923" name="compare" signature="compare(a, b)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="SequenceMatcher" line="909" name="cruncher" />
+          <variable citdl="self._dump()" line="912" name="g" />
+        </scope>
+        <scope doc="Generate comparison results for a same-tagged range." ilk="function" line="925" lineend="928" name="_dump" signature="_dump(tag, x, lo, hi)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="hi" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="lo" />
+        </scope>
+        <scope doc="Format &quot;?&quot; output and deal with leading tabs." ilk="function" line="1056" lineend="1087" name="_qformat" signature="_qformat(aline, bline, atags, btags)">
+          <variable ilk="argument" name="bline" />
+          <variable ilk="argument" name="aline" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="btags" />
+          <variable citdl="min()" line="1074" name="common" />
+          <variable ilk="argument" name="atags" />
+        </scope>
+        <scope ilk="function" line="1043" lineend="1054" name="_fancy_helper" signature="_fancy_helper(a, alo, ahi, b, blo, bhi)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="alo" />
+          <variable ilk="argument" name="bhi" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="_dump()" line="1044" name="g" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="ahi" />
+          <variable ilk="argument" name="blo" />
+        </scope>
+        <scope doc="When replacing one block of lines with another, search the&#10;blocks for *similar* lines; the best-matching pair (if any)&#10;is used as a synch point, and intraline difference marking&#10;is done on the similar pair." ilk="function" line="945" lineend="1041" name="_fancy_replace" signature="_fancy_replace(a, alo, ahi, b, blo, bhi)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="alo" />
+          <variable ilk="argument" name="bhi" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="bj1" line="1020" name="lb" />
+          <variable citdl="float" line="966" name="cutoff" />
+          <variable line="977" name="ai" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable citdl="ai2" line="1020" name="la" />
+          <variable line="974" name="bj" />
+          <variable line="1014" name="belt" />
+          <variable citdl="i" line="968" name="eqi" />
+          <variable ilk="argument" name="blo" />
+          <variable citdl="j" line="968" name="eqj" />
+          <variable line="1014" name="aelt" />
+          <variable citdl="str" line="1017" name="atags" />
+          <variable citdl="float" line="966" name="best_ratio" />
+          <variable ilk="argument" name="ahi" />
+          <variable citdl="i" line="992" name="best_i" />
+          <variable citdl="SequenceMatcher" line="967" name="cruncher" />
+          <variable citdl="j" line="992" name="best_j" />
+        </scope>
+        <scope doc="Construct a text differencer, with optional filters." ilk="function" line="860" lineend="882" name="__init__" signature="Differ(linejunk=None, charjunk=None)">
+          <variable ilk="argument" name="linejunk" />
+          <variable citdl="Differ" ilk="argument" name="self" />
+          <variable ilk="argument" name="charjunk" />
+        </scope>
+        <variable attributes="__instancevar__" line="881" name="linejunk" />
+        <variable attributes="__instancevar__" line="882" name="charjunk" />
+      </scope>
+      <scope classrefs="object" doc="For producing HTML side by side comparison with change highlights.&#10;This class can be used to create an HTML table (or a complete HTML file containing the table) showing a side by side, line by line comparison of text with inter-line and intra-line change highlights.  The table can be generated in either full or contextual difference mode.  The following methods are provided for HTML generation:  make_table -- generates HTML for a single side by side table make_file -- generates complete HTML file with a single side by side table " ilk="class" line="1672" lineend="2018" name="HtmlDiff">
+        <scope doc="Create unique anchor prefixes" ilk="function" line="1885" lineend="1894" name="_make_prefix" signature="_make_prefix()">
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="str" line="1890" name="fromprefix" />
+          <variable citdl="str" line="1891" name="toprefix" />
+        </scope>
+        <scope doc="Makes list of &quot;next&quot; links" ilk="function" line="1896" lineend="1941" name="_convert_flags" returns="tuple" signature="_convert_flags(fromlist, tolist, flaglist, context, numlines)">
+          <variable citdl="list" ilk="argument" name="fromlist" />
+          <variable citdl="list" ilk="argument" name="tolist" />
+          <variable citdl="int" line="1906" name="last" />
+          <variable citdl="int" line="1905" name="num_chg" />
+          <variable line="1900" name="toprefix" />
+          <variable citdl="max()" line="1915" name="i" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable ilk="argument" name="numlines" />
+          <variable citdl="list" ilk="argument" name="flaglist" />
+          <variable citdl="list" line="1904" name="next_href" />
+          <variable ilk="argument" name="context" />
+          <variable citdl="list" line="1903" name="next_id" />
+          <variable citdl="False" line="1905" name="in_change" />
+        </scope>
+        <scope doc="Returns iterator that splits (wraps) mdiff text lines" ilk="function" line="1813" lineend="1839" name="_line_wrapper" signature="_line_wrapper(diffs)">
+          <variable citdl="list" line="1825" name="fromlist" />
+          <variable ilk="argument" name="diffs" />
+          <variable citdl="tolist.pop()" line="1836" name="todata" />
+          <variable citdl="list" line="1825" name="tolist" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="fromlist.pop()" line="1832" name="fromdata" />
+        </scope>
+        <scope doc="Collects mdiff output into separate lists" ilk="function" line="1841" lineend="1860" name="_collect_lines" returns="tuple" signature="_collect_lines(diffs)">
+          <variable citdl="list" line="1848" name="fromlist" />
+          <variable ilk="argument" name="diffs" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="list" line="1848" name="flaglist" />
+          <variable citdl="list" line="1848" name="tolist" />
+        </scope>
+        <scope doc="HtmlDiff instance initializer" ilk="function" line="1694" lineend="1709" name="__init__" signature="HtmlDiff(tabsize=8, wrapcolumn=None, linejunk=None, charjunk=IS_CHARACTER_JUNK)">
+          <variable ilk="argument" name="wrapcolumn" />
+          <variable ilk="argument" name="linejunk" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="tabsize" />
+          <variable citdl="IS_CHARACTER_JUNK" ilk="argument" name="charjunk" />
+        </scope>
+        <scope doc="Builds list of text lines by splitting text lines at wrap&#10;point" ilk="function" line="1758" lineend="1811" name="_split_line" signature="_split_line(data_list, line_num, text)">
+          <variable ilk="argument" name="line_num" />
+          <variable citdl="int" line="1781" name="i" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="list" line="1798" name="line2" />
+          <variable citdl="list" line="1797" name="line1" />
+          <variable citdl="int" line="1782" name="n" />
+          <variable ilk="argument" name="data_list" />
+          <variable line="1774" name="max" />
+          <variable citdl="str" line="1783" name="mark" />
+          <variable citdl="len()" line="1773" name="size" />
+        </scope>
+        <scope doc="Returns from/to line lists with tabs expanded and newlines&#10;removed." ilk="function" line="1735" lineend="1756" name="_tab_newline_replace" returns="tuple" signature="_tab_newline_replace(fromlines, tolines)">
+          <variable citdl="list" ilk="argument" name="fromlines" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <scope ilk="function" line="1745" lineend="1753" name="expand_tabs" signature="expand_tabs(line)">
+            <variable citdl="line.replace()" ilk="argument" name="line" />
+          </scope>
+          <variable citdl="list" ilk="argument" name="tolines" />
+        </scope>
+        <scope doc="Returns HTML table of side by side comparison with change&#10;highlights" ilk="function" line="1943" lineend="2018" name="make_table" signature="make_table(fromlines, tolines, fromdesc='', todesc='', context=False, numlines=5)">
+          <variable ilk="argument" name="fromlines" />
+          <variable citdl="_mdiff()" line="1974" name="diffs" />
+          <variable line="1982" name="fromlist" />
+          <variable line="1982" name="tolist" />
+          <variable citdl="int" line="1971" name="context_lines" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="str" line="1989" name="fmt" />
+          <variable citdl="str" line="2001" name="header_row" />
+          <variable citdl="list" line="1988" name="s" />
+          <variable citdl="int" ilk="argument" name="numlines" />
+          <variable line="1982" name="flaglist" />
+          <variable citdl="str" ilk="argument" name="fromdesc" />
+          <variable line="1985" name="next_href" />
+          <variable citdl="False" ilk="argument" name="context" />
+          <variable ilk="argument" name="tolines" />
+          <variable citdl="dict()" line="2009" name="table" />
+          <variable line="1985" name="next_id" />
+          <variable citdl="str" ilk="argument" name="todesc" />
+        </scope>
+        <scope doc="Returns HTML file of side by side comparison with change&#10;highlights" ilk="function" line="1711" lineend="1733" name="make_file" returns="dict()" signature="make_file(fromlines, tolines, fromdesc='', todesc='', context=False, numlines=5)">
+          <variable ilk="argument" name="fromlines" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="numlines" />
+          <variable citdl="str" ilk="argument" name="fromdesc" />
+          <variable citdl="False" ilk="argument" name="context" />
+          <variable ilk="argument" name="tolines" />
+          <variable citdl="str" ilk="argument" name="todesc" />
+        </scope>
+        <scope doc="Returns HTML markup of &quot;from&quot; / &quot;to&quot; text lines" ilk="function" line="1862" lineend="1883" name="_format_line" returns="tuple" signature="_format_line(side, flag, linenum, text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="HtmlDiff" ilk="argument" name="self" />
+          <variable ilk="argument" name="side" />
+          <variable citdl="str" ilk="argument" name="linenum" />
+          <variable ilk="argument" name="flag" />
+          <variable citdl="str" line="1872" name="id" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1708" name="_linejunk" />
+        <variable attributes="protected" line="1690" name="_table_template" />
+        <variable attributes="protected" line="1689" name="_styles" />
+        <variable attributes="protected __instancevar__" citdl="list" line="1894" name="_prefix" />
+        <variable attributes="protected __instancevar__" citdl="IS_CHARACTER_JUNK" line="1709" name="_charjunk" />
+        <variable attributes="protected" line="1691" name="_legend" />
+        <variable attributes="protected" line="1688" name="_file_template" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1706" name="_tabsize" />
+        <variable attributes="protected" citdl="int" line="1692" name="_default_prefix" />
+        <variable attributes="protected __instancevar__" line="1707" name="_wrapcolumn" />
+      </scope>
+      <scope doc="Return 1 for ignorable character: iff `ch` is a space or&#10;tab." ilk="function" line="1124" lineend="1140" name="IS_CHARACTER_JUNK" returns="bool" signature="IS_CHARACTER_JUNK(ch, ws=' \t')">
+        <variable ilk="argument" name="ch" />
+        <variable citdl="str" ilk="argument" name="ws" />
+      </scope>
+      <scope doc="Return 1 for ignorable line: iff `line` is blank or contains&#10;a single '#'." ilk="function" line="1108" lineend="1122" name="IS_LINE_JUNK" returns="bool" signature="IS_LINE_JUNK(line, pat=&lt;built-in method match of _sre.SRE_Pattern object at 0x03727360&gt;)">
+        <variable ilk="argument" name="line" />
+        <variable ilk="argument" name="pat" />
+      </scope>
+      <scope classrefs="tuple" doc="Match(a, b, size)&#10;" ilk="class" line="39" name="Match">
+        <scope doc="Create new instance of Match(a, b, size)" ilk="function" name="__new__" signature="__new__(_cls, a, b, size)" />
+        <scope doc="Make a new Match object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new Match object replacing specified fields with&#10;new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <scope doc="SequenceMatcher is a flexible class for comparing pairs of sequences of&#10;any type, so long as the sequence elements are hashable.  The basic algorithm predates, and is a little fancier than, an algorithm published in the late 1980's by Ratcliff and Obershelp under the hyperbolic name &quot;gestalt pattern matching&quot;.  The basic idea is to find the longest contiguous matching subsequence that contains no &quot;junk&quot; elements (R-O doesn't address junk).  The same idea is then applied recursively to the pieces of the sequences to the left and to the right of the matching subsequence.  This does not yield minimal edit sequences, but does tend to yield matches that &quot;look right&quot; to people. " ilk="class" line="46" lineend="701" name="SequenceMatcher">
+        <scope doc="Return a measure of the sequences' similarity (float in&#10;[0,1])." ilk="function" line="636" lineend="660" name="ratio" returns="_calculate_ratio()" signature="ratio()">
+          <variable citdl="reduce()" line="658" name="matches" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Isolate change clusters by eliminating ranges with no&#10;changes." ilk="function" line="586" lineend="634" name="get_grouped_opcodes" signature="get_grouped_opcodes(n=3)">
+          <variable citdl="list" line="611" name="codes" />
+          <variable citdl="list" line="623" name="group" />
+          <variable citdl="int" line="622" name="nn" />
+          <variable citdl="max()" line="631" name="i1" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable citdl="max()" line="631" name="j1" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Return list of triples describing matching subsequences." ilk="function" line="460" lineend="529" name="get_matching_blocks" returns="map()" signature="get_matching_blocks()">
+          <variable line="492" name="bhi" />
+          <variable line="492" name="alo" />
+          <variable line="493" name="j" />
+          <variable citdl="len()" line="481" name="lb" />
+          <variable citdl="len()" line="481" name="la" />
+          <variable line="493" name="i" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable line="492" name="ahi" />
+          <variable citdl="list" line="490" name="matching_blocks" />
+          <variable citdl="j2" line="523" name="j1" />
+          <variable citdl="list" line="489" name="queue" />
+          <variable citdl="int" line="508" name="i1" />
+          <variable line="492" name="blo" />
+          <variable citdl="list" line="509" name="non_adjacent" />
+          <variable line="493" name="k" />
+          <variable citdl="k2" line="523" name="k1" />
+        </scope>
+        <scope doc="Set the first sequence to be compared." ilk="function" line="235" lineend="259" name="set_seq1" signature="set_seq1(a)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the second sequence to be compared." ilk="function" line="261" lineend="287" name="set_seq2" signature="set_seq2(b)">
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Set the two sequences to be compared." ilk="function" line="223" lineend="233" name="set_seqs" signature="set_seqs(a, b)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Return an upper bound on ratio() relatively quickly." ilk="function" line="662" lineend="689" name="quick_ratio" returns="_calculate_ratio()" signature="quick_ratio()">
+          <variable citdl="dict" line="676" name="fullbcount" />
+          <variable citdl="int" line="680" name="matches" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable citdl="dict" line="679" name="avail" />
+          <variable citdl="fullbcount.get()" line="683" name="numb" />
+          <variable citdl="avail.__contains__" line="680" name="availhas" />
+        </scope>
+        <scope doc="Return list of 5-tuples describing how to turn a into b." ilk="function" line="531" lineend="584" name="get_opcodes" returns="self.opcodes" signature="get_opcodes()">
+          <variable citdl="int" line="562" name="i" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable citdl="str" line="570" name="tag" />
+          <variable citdl="size" line="579" name="j" />
+        </scope>
+        <scope ilk="function" name="_SequenceMatcher__chain_b" />
+        <scope doc="Find longest matching block in a[alo:ahi] and b[blo:bhi]." ilk="function" line="350" lineend="458" name="find_longest_match" returns="Match()" signature="find_longest_match(alo, ahi, blo, bhi)">
+          <variable ilk="argument" name="bhi" />
+          <variable ilk="argument" name="alo" />
+          <variable citdl="SequenceMatcher.find_longest_match.j2lenget()" line="407" name="besti" />
+          <variable citdl="junk.__contains__" line="406" name="isbjunk" />
+          <variable citdl="SequenceMatcher.find_longest_match.j2lenget()" line="407" name="bestj" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="ahi" />
+          <variable citdl="SequenceMatcher.find_longest_match.j2lenget()" line="407" name="bestsize" />
+          <variable ilk="argument" name="blo" />
+          <variable citdl="dict" line="417" name="newj2len" />
+          <variable citdl="dict" line="406" name="b2j" />
+          <variable line="406" name="a" />
+          <variable citdl="list" line="412" name="nothing" />
+          <variable line="406" name="b" />
+          <variable citdl="dict" line="411" name="j2len" />
+          <variable citdl="SequenceMatcher.find_longest_match.j2lenget()" line="424" name="k" />
+          <variable citdl="j2len.get" line="416" name="j2lenget" />
+        </scope>
+        <scope doc="Construct a SequenceMatcher." ilk="function" line="154" lineend="221" name="__init__" signature="SequenceMatcher(isjunk=None, a='', b='', autojunk=True)">
+          <variable ilk="argument" name="isjunk" />
+          <variable citdl="str" ilk="argument" name="a" />
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="b" />
+          <variable citdl="True" ilk="argument" name="autojunk" />
+        </scope>
+        <scope doc="Return an upper bound on ratio() very quickly." ilk="function" line="691" lineend="701" name="real_quick_ratio" returns="_calculate_ratio()" signature="real_quick_ratio()">
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable citdl="len()" line="698" name="lb" />
+          <variable citdl="len()" line="698" name="la" />
+        </scope>
+        <variable attributes="__instancevar__" line="219" name="a" />
+        <variable attributes="__instancevar__" citdl="list" line="563" name="opcodes" />
+        <variable attributes="__instancevar__" line="284" name="b" />
+        <variable attributes="__instancevar__" citdl="dict" line="286" name="fullbcount" />
+        <variable attributes="__instancevar__" citdl="True" line="220" name="autojunk" />
+        <variable attributes="__instancevar__" citdl="list" line="259" name="matching_blocks" />
+        <scope attributes="private" ilk="function" line="306" lineend="348" name="__chain_b" signature="__chain_b()">
+          <variable citdl="SequenceMatcher" ilk="argument" name="self" />
+          <variable line="317" name="b" />
+          <variable citdl="b2j.setdefault()" line="321" name="indices" />
+          <variable citdl="set()" line="325" name="junk" />
+          <variable line="326" name="isjunk" />
+          <variable citdl="set()" line="334" name="popular" />
+          <variable citdl="len()" line="335" name="n" />
+          <variable citdl="int" line="337" name="ntest" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="junk.__contains__" line="347" name="isbjunk" />
+        <variable attributes="__instancevar__" citdl="dict" line="318" name="b2j" />
+        <variable attributes="__instancevar__" line="218" name="isjunk" />
+        <variable attributes="__instancevar__" citdl="popular.__contains__" line="348" name="isbpopular" />
+      </scope>
+      <variable citdl="list" line="31" name="__all__" />
+      <scope doc="Compare two sequences of lines; generate the delta as a&#10;context diff." ilk="function" line="1242" lineend="1314" name="context_diff" signature="context_diff(a, b, fromfile='', tofile='', fromfiledate='', tofiledate='', n=3, lineterm='\n')">
+        <variable ilk="argument" name="a" />
+        <variable line="1291" name="todate" />
+        <variable citdl="_format_range_context()" line="1298" name="file1_range" />
+        <variable citdl="str" ilk="argument" name="tofiledate" />
+        <variable line="1295" name="last" />
+        <variable citdl="True" line="1286" name="started" />
+        <variable citdl="_format_range_context()" line="1307" name="file2_range" />
+        <variable citdl="int" ilk="argument" name="n" />
+        <variable citdl="dict()" line="1285" name="prefix" />
+        <variable ilk="argument" name="b" />
+        <variable citdl="str" ilk="argument" name="tofile" />
+        <variable citdl="str" ilk="argument" name="lineterm" />
+        <variable line="1290" name="fromdate" />
+        <variable citdl="str" ilk="argument" name="fromfile" />
+        <variable citdl="str" ilk="argument" name="fromfiledate" />
+        <variable line="1295" name="first" />
+      </scope>
+      <scope doc="Use SequenceMatcher to return list of the best &quot;good enough&quot;&#10;matches." ilk="function" line="703" lineend="749" name="get_close_matches" returns="list" signature="get_close_matches(word, possibilities, n=3, cutoff=0.6)">
+        <variable citdl="float" ilk="argument" name="cutoff" />
+        <variable ilk="argument" name="word" />
+        <variable citdl="int" ilk="argument" name="n" />
+        <variable ilk="argument" name="possibilities" />
+        <variable citdl="SequenceMatcher" line="737" name="s" />
+        <variable citdl="list" line="736" name="result" />
+      </scope>
+      <import module="heapq" />
+      <scope doc="Compare `a` and `b` (lists of strings); return a&#10;`Differ`-style delta." ilk="function" line="1316" lineend="1350" name="ndiff" signature="ndiff(a, b, linejunk=None, charjunk=&lt;function IS_CHARACTER_JUNK at 0x03615C30&gt;)">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="linejunk" />
+        <variable citdl="IS_CHARACTER_JUNK" ilk="argument" name="charjunk" />
+        <variable ilk="argument" name="b" />
+      </scope>
+      <scope doc="Apply a function of two arguments cumulatively to the items&#10;of a sequence, from left to right, so as to reduce the&#10;sequence to a single value." ilk="function" name="reduce" signature="reduce(function, sequence[, initial]) -&gt; value" />
+      <scope doc="Generate one of the two sequences that generated a delta." ilk="function" line="2022" lineend="2052" name="restore" signature="restore(delta, which)">
+        <variable citdl="tuple" line="2049" name="prefixes" />
+        <variable line="2045" name="tag" />
+        <variable ilk="argument" name="which" />
+        <variable ilk="argument" name="delta" />
+      </scope>
+      <scope doc="Compare two sequences of lines; generate the delta as a&#10;unified diff." ilk="function" line="1158" lineend="1223" name="unified_diff" signature="unified_diff(a, b, fromfile='', tofile='', fromfiledate='', tofiledate='', n=3, lineterm='\n')">
+        <variable ilk="argument" name="a" />
+        <variable line="1204" name="todate" />
+        <variable citdl="_format_range_unified()" line="1209" name="file1_range" />
+        <variable citdl="str" ilk="argument" name="tofiledate" />
+        <variable line="1208" name="last" />
+        <variable citdl="False" line="1199" name="started" />
+        <variable citdl="_format_range_unified()" line="1210" name="file2_range" />
+        <variable citdl="int" ilk="argument" name="n" />
+        <variable ilk="argument" name="b" />
+        <variable citdl="str" ilk="argument" name="tofile" />
+        <variable citdl="str" ilk="argument" name="lineterm" />
+        <variable line="1203" name="fromdate" />
+        <variable citdl="str" ilk="argument" name="fromfile" />
+        <variable citdl="str" ilk="argument" name="fromfiledate" />
+        <variable line="1208" name="first" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Return number of `ch` characters at the start of `line`." ilk="function" line="751" lineend="764" name="_count_leading" returns="int" signature="_count_leading(line, ch)">
+        <variable ilk="argument" name="line" />
+        <variable ilk="argument" name="ch" />
+        <variable citdl="int" line="761" name="i" />
+        <variable citdl="len()" line="761" name="n" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="1645" name="_table_template" />
+      <scope attributes="protected __hidden__" ilk="function" line="2054" lineend="2056" name="_test" returns="doctest.testmod()" signature="_test()">
+        <import line="2055" module="doctest" />
+        <import line="2055" module="difflib" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Returns generator yielding marked up from/to side by side&#10;differences." ilk="function" line="1352" lineend="1613" name="_mdiff" signature="_mdiff(fromlines, tolines, context=None, linejunk=None, charjunk=IS_CHARACTER_JUNK)">
+        <import line="1386" module="re" />
+        <variable ilk="argument" name="fromlines" />
+        <variable ilk="argument" name="tolines" />
+        <variable ilk="argument" name="context" />
+        <variable ilk="argument" name="linejunk" />
+        <variable citdl="IS_CHARACTER_JUNK" ilk="argument" name="charjunk" />
+        <variable citdl="re.compile()" line="1389" name="change_re" />
+        <variable citdl="ndiff()" line="1392" name="diff_lines_iterator" />
+        <scope attributes="protected" doc="Returns line of text with user's change markup and line&#10;formatting." ilk="function" line="1394" lineend="1448" name="_make_line" returns="tuple" signature="_make_line(lines, format_key, side, num_lines=[0, 0])">
+          <variable ilk="argument" name="lines" />
+          <variable ilk="argument" name="format_key" />
+          <variable ilk="argument" name="side" />
+          <variable citdl="list" ilk="argument" name="num_lines" />
+          <variable citdl="list" line="1424" name="text" />
+          <variable citdl="lines.pop()" line="1424" name="markers" />
+          <variable citdl="list" line="1426" name="sub_info" />
+          <scope ilk="function" line="1427" lineend="1429" name="record_sub_info" returns="match_object.group()" signature="record_sub_info(match_object, sub_info=sub_info)">
+            <variable ilk="argument" name="match_object" />
+            <variable citdl="list" ilk="argument" name="sub_info" />
+          </scope>
+        </scope>
+        <scope attributes="protected" doc="Yields from/to lines of text with a change indication." ilk="function" line="1450" lineend="1539" name="_line_iterator" signature="_line_iterator()">
+          <variable citdl="list" line="1464" name="lines" />
+          <variable citdl="int" line="1465" name="num_blanks_to_yield" />
+          <variable citdl="int" line="1465" name="num_blanks_pending" />
+          <variable citdl="str.join()" line="1475" name="s" />
+          <variable citdl="_make_line()" line="1494" name="to_line" />
+          <variable citdl="_make_line()" line="1494" name="from_line" />
+        </scope>
+        <scope attributes="protected" doc="Yields from/to lines of text with a change indication." ilk="function" line="1541" lineend="1567" name="_line_pair_iterator" signature="_line_pair_iterator()">
+          <variable citdl="_line_iterator()" line="1554" name="line_iterator" />
+          <variable citdl="list" line="1555" name="fromlines" />
+          <variable citdl="list" line="1555" name="tolines" />
+          <variable line="1559" name="to_line" />
+          <variable line="1559" name="from_line" />
+          <variable line="1559" name="found_diff" />
+          <variable line="1565" name="fromDiff" />
+          <variable line="1566" name="to_diff" />
+        </scope>
+        <variable citdl="_line_pair_iterator()" line="1571" name="line_pair_iterator" />
+        <variable citdl="int" line="1579" name="lines_to_write" />
+        <variable citdl="int" line="1584" name="index" />
+        <variable citdl="list" line="1584" name="contextLines" />
+        <variable citdl="False" line="1585" name="found_diff" />
+        <variable line="1587" name="from_line" />
+        <variable line="1587" name="to_line" />
+        <variable line="1588" name="i" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="1616" name="_file_template" />
+      <scope attributes="protected __hidden__" doc="Convert range to the &quot;ed&quot; format" ilk="function" line="1230" lineend="1239" name="_format_range_context" returns="str.format()" signature="_format_range_context(start, stop)">
+        <variable ilk="argument" name="start" />
+        <variable ilk="argument" name="stop" />
+        <variable citdl="int" line="1233" name="beginning" />
+        <variable line="1234" name="length" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="1655" name="_legend" />
+      <scope attributes="protected __hidden__" doc="Convert range to the &quot;ed&quot; format" ilk="function" line="1147" lineend="1156" name="_format_range_unified" returns="str.format()" signature="_format_range_unified(start, stop)">
+        <variable ilk="argument" name="start" />
+        <variable ilk="argument" name="stop" />
+        <variable citdl="int" line="1150" name="beginning" />
+        <variable line="1151" name="length" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="41" lineend="44" name="_calculate_ratio" returns="float" signature="_calculate_ratio(matches, length)">
+        <variable ilk="argument" name="matches" />
+        <variable ilk="argument" name="length" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="1636" name="_styles" />
+    </scope>
+    

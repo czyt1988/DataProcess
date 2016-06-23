@@ -1,0 +1,69 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_sre">
+      <variable citdl="int" name="CODESIZE" />
+      <variable citdl="int" name="MAGIC" />
+      <scope ilk="function" name="compile" returns="SRE_Pattern" />
+      <variable citdl="str" name="copyright" />
+      <scope ilk="function" name="getcodesize" />
+      <scope ilk="function" name="getlower" />
+      <scope attributes="__hidden__" doc="Compiled regular expression objects&#10;" ilk="class" name="SRE_Pattern">
+        <scope ilk="function" name="__copy__" />
+        <scope ilk="function" name="__deepcopy__" />
+        <variable citdl="method-wrapper" name="__delattr__" />
+        <scope doc="default object formatter" ilk="function" name="__format__" />
+        <variable citdl="method-wrapper" name="__getattribute__" />
+        <variable citdl="method-wrapper" name="__hash__" />
+        <variable citdl="method-wrapper" name="__init__" />
+        <scope doc="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" ilk="function" name="__new__" signature="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce__" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce_ex__" />
+        <variable citdl="method-wrapper" name="__repr__" />
+        <variable citdl="method-wrapper" name="__setattr__" />
+        <scope doc="size of object in memory, in bytes" ilk="function" name="__sizeof__" returns="int" signature="__sizeof__() -&gt; int" />
+        <variable citdl="method-wrapper" name="__str__" />
+        <scope doc="Abstract classes can override this to customize&#10;issubclass()." ilk="function" name="__subclasshook__" />
+        <scope doc="Return a list of all non-overlapping matches of pattern in&#10;string." ilk="function" name="findall" returns="list" signature="findall(string[, pos[, endpos]]) --&gt; list." />
+        <scope doc="Return an iterator over all non-overlapping matches for the&#10;RE pattern in string." ilk="function" name="finditer" signature="finditer(string[, pos[, endpos]]) --&gt; iterator." />
+        <variable citdl="int" name="flags" />
+        <variable citdl="NoneType" name="groupindex" />
+        <variable citdl="int" name="groups" />
+        <scope doc="Matches zero or more characters at the beginning of the&#10;string" ilk="function" name="match" returns="SRE_Match" signature="match(string[, pos[, endpos]]) --&gt; match object or None." />
+        <variable citdl="str" name="pattern" />
+        <scope ilk="function" name="scanner" />
+        <scope doc="Scan through string looking for a match, and return a&#10;corresponding MatchObject instance." ilk="function" name="search" returns="SRE_Match" signature="search(string[, pos[, endpos]]) --&gt; match object or None." />
+        <scope doc="Split string by the occurrences of pattern." ilk="function" name="split" returns="list" signature="split(string[, maxsplit = 0])  --&gt; list." />
+        <scope doc="Return the string obtained by replacing the leftmost non-&#10;overlapping occurrences of pattern in string by the&#10;replacement repl." ilk="function" name="sub" returns="str" signature="sub(repl, string[, count = 0]) --&gt; newstring" />
+        <scope doc="Return the tuple (new_string, number_of_subs_made) found by&#10;replacing the leftmost non-overlapping occurrences of&#10;pattern with the replacement repl." ilk="function" name="subn" returns="str" signature="subn(repl, string[, count = 0]) --&gt; (newstring, number of subs)" />
+      </scope>
+      <scope attributes="__hidden__" doc="&#10;" ilk="class" name="SRE_Match">
+        <scope ilk="function" name="__copy__" />
+        <scope ilk="function" name="__deepcopy__" />
+        <variable citdl="method-wrapper" name="__delattr__" />
+        <scope doc="default object formatter" ilk="function" name="__format__" />
+        <variable citdl="method-wrapper" name="__getattribute__" />
+        <variable citdl="method-wrapper" name="__hash__" />
+        <variable citdl="method-wrapper" name="__init__" />
+        <scope doc="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" ilk="function" name="__new__" signature="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce__" />
+        <scope doc="helper for pickle" ilk="function" name="__reduce_ex__" />
+        <variable citdl="method-wrapper" name="__repr__" />
+        <variable citdl="method-wrapper" name="__setattr__" />
+        <scope doc="size of object in memory, in bytes" ilk="function" name="__sizeof__" returns="int" signature="__sizeof__() -&gt; int" />
+        <variable citdl="method-wrapper" name="__str__" />
+        <scope doc="Abstract classes can override this to customize&#10;issubclass()." ilk="function" name="__subclasshook__" />
+        <scope ilk="function" name="end" />
+        <variable citdl="int" name="endpos" />
+        <scope ilk="function" name="expand" />
+        <scope ilk="function" name="group" />
+        <scope ilk="function" name="groupdict" />
+        <scope ilk="function" name="groups" />
+        <variable citdl="NoneType" name="lastgroup" />
+        <variable citdl="NoneType" name="lastindex" />
+        <variable citdl="int" name="pos" />
+        <variable citdl="SRE_Pattern" name="re" />
+        <variable citdl="tuple" name="regs" />
+        <scope ilk="function" name="span" />
+        <scope ilk="function" name="start" />
+        <variable citdl="str" name="string" />
+      </scope>
+    </scope>
+    

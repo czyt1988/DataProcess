@@ -1,0 +1,141 @@
+<scope doc="Mimification and unmimification of mail messages.&#10;Decode quoted-printable parts of a mail message or encode using quoted-printable.  Usage: mimify(input, output) unmimify(input, output, decode_base64 = 0) to encode and decode respectively.  Input and output may be the name of a file or an open file object.  Only a readline() method is used on the input file, only a write() method is used on the output file. When using file names, the input and output file names may be the" ilk="blob" lang="Python" name="mimify">
+      <variable citdl="str" line="26" name="CHARSET" />
+      <scope doc="A simple fake file object that knows about limited read-ahead and&#10;boundaries.  The only supported method is readline()." ilk="class" line="47" lineend="69" name="File">
+        <scope ilk="function" line="56" lineend="69" name="readline" returns="str" signature="readline()">
+          <variable citdl="File" ilk="argument" name="self" />
+          <variable citdl="self.file.readline()" line="59" name="line" />
+        </scope>
+        <scope ilk="function" line="51" lineend="54" name="__init__" signature="File(file, boundary)">
+          <variable citdl="File" ilk="argument" name="self" />
+          <variable ilk="argument" name="boundary" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.file.readline()" line="54" name="peek" />
+        <variable attributes="__instancevar__" line="53" name="boundary" />
+        <variable attributes="__instancevar__" line="52" name="file" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="71" lineend="92" name="HeaderFile">
+        <scope ilk="function" line="76" lineend="92" name="readline" returns="self.file.readline()" signature="readline()">
+          <variable citdl="HeaderFile" ilk="argument" name="self" />
+          <variable citdl="self.file.readline()" line="78" name="line" />
+        </scope>
+        <scope ilk="function" line="72" lineend="74" name="__init__" signature="HeaderFile(file)">
+          <variable citdl="HeaderFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.file.readline()" line="74" name="peek" />
+        <variable attributes="__instancevar__" line="73" name="file" />
+      </scope>
+      <variable citdl="int" line="25" name="MAXLEN" />
+      <variable citdl="str" line="27" name="QUOTE" />
+      <variable citdl="list" line="36" name="__all__" />
+      <variable citdl="SRE_Pattern" line="39" name="base64_re" />
+      <variable citdl="SRE_Pattern" line="41" name="chrset" />
+      <variable citdl="SRE_Pattern" line="277" name="cte" />
+      <variable citdl="SRE_Pattern" line="42" name="he" />
+      <variable citdl="SRE_Pattern" line="278" name="iso_char" />
+      <variable citdl="SRE_Pattern" line="225" name="mime_char" />
+      <variable citdl="SRE_Pattern" line="43" name="mime_code" />
+      <scope doc="Decode a single line of quoted-printable text to 8bit." ilk="function" line="94" lineend="105" name="mime_decode" returns="str" signature="mime_decode(line)">
+        <variable citdl="mime_code.search()" line="99" name="res" />
+        <variable ilk="argument" name="line" />
+        <variable citdl="str" line="96" name="newline" />
+        <variable citdl="int" line="97" name="pos" />
+      </scope>
+      <scope doc="Decode a header line to 8bit." ilk="function" line="107" lineend="120" name="mime_decode_header" returns="str" signature="mime_decode_header(line)">
+        <variable citdl="mime_head.search()" line="112" name="res" />
+        <variable ilk="argument" name="line" />
+        <variable citdl="str" line="109" name="newline" />
+        <variable citdl="int" line="110" name="pos" />
+        <variable citdl="res.group()" line="115" name="match" />
+      </scope>
+      <scope doc="Code a single line as quoted-printable." ilk="function" line="228" lineend="258" name="mime_encode" returns="str" signature="mime_encode(line, header)">
+        <variable citdl="int" line="252" name="i" />
+        <variable citdl="reg.search()" line="242" name="res" />
+        <variable citdl="str" line="235" name="newline" />
+        <variable citdl="int" line="236" name="pos" />
+        <variable ilk="argument" name="header" />
+        <variable citdl="list" ilk="argument" name="line" />
+        <variable citdl="re.compile()" line="232" name="reg" />
+      </scope>
+      <scope doc="Code a single header line as quoted-printable." ilk="function" line="262" lineend="274" name="mime_encode_header" returns="tuple" signature="mime_encode_header(line)">
+        <variable citdl="mime_header.search()" line="267" name="res" />
+        <variable ilk="argument" name="line" />
+        <variable citdl="str" line="264" name="newline" />
+        <variable citdl="int" line="265" name="pos" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="44" name="mime_head" />
+      <variable citdl="SRE_Pattern" line="260" name="mime_header" />
+      <variable citdl="SRE_Pattern" line="226" name="mime_header_char" />
+      <scope doc="Convert 8bit parts of a MIME mail message to quoted-&#10;printable." ilk="function" line="415" lineend="431" name="mimify" signature="mimify(infile, outfile)">
+        <variable citdl="open()" line="418" name="ifile" />
+        <variable citdl="File" line="429" name="nifile" />
+        <variable line="421" name="d" />
+        <variable line="421" name="f" />
+        <variable ilk="argument" name="outfile" />
+        <variable citdl="open()" line="426" name="ofile" />
+        <variable ilk="argument" name="infile" />
+      </scope>
+      <scope doc="Convert an 8bit part of a MIME mail message to quoted-&#10;printable." ilk="function" line="280" lineend="413" name="mimify_part" signature="mimify_part(ifile, ofile, is_mime)">
+        <variable citdl="mp_res.group()" line="283" name="multipart" />
+        <variable ilk="argument" name="ifile" />
+        <variable citdl="hfile.readline()" line="287" name="header_end" />
+        <variable citdl="ifile.readline()" line="289" name="message_end" />
+        <variable citdl="mp.match()" line="306" name="mp_res" />
+        <variable citdl="int" line="305" name="is_base64" />
+        <variable citdl="int" ilk="argument" name="is_mime" />
+        <variable citdl="ifile.readline()" line="332" name="newline" />
+        <variable citdl="int" line="284" name="must_quote_body" />
+        <variable citdl="int" line="282" name="has_cte" />
+        <variable citdl="list" line="286" name="header" />
+        <variable citdl="File" line="398" name="nifile" />
+        <variable citdl="int" line="340" name="has_iso_chars" />
+        <variable citdl="int" line="303" name="is_qp" />
+        <variable citdl="list" line="288" name="message" />
+        <variable citdl="int" line="297" name="must_quote_header" />
+        <variable ilk="argument" name="ofile" />
+        <variable citdl="str" line="293" name="line" />
+        <variable citdl="chrset.match()" line="349" name="chrset_res" />
+        <variable citdl="HeaderFile" line="291" name="hfile" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="40" name="mp" />
+      <variable citdl="SRE_Pattern" line="276" name="mv" />
+      <variable citdl="SRE_Pattern" line="38" name="qp" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="45" name="repl" />
+      <import module="sys" />
+      <scope doc="Convert quoted-printable parts of a MIME mail message to&#10;8bit." ilk="function" line="207" lineend="223" name="unmimify" signature="unmimify(infile, outfile, decode_base64=0)">
+        <variable citdl="open()" line="210" name="ifile" />
+        <variable citdl="File" line="221" name="nifile" />
+        <variable line="213" name="d" />
+        <variable line="213" name="f" />
+        <variable citdl="int" ilk="argument" name="decode_base64" />
+        <variable ilk="argument" name="outfile" />
+        <variable citdl="open()" line="218" name="ofile" />
+        <variable ilk="argument" name="infile" />
+      </scope>
+      <scope doc="Convert a quoted-printable part of a MIME mail message to&#10;8bit." ilk="function" line="122" lineend="205" name="unmimify_part" signature="unmimify_part(ifile, ofile, decode_base64=0)">
+        <variable ilk="argument" name="ifile" />
+        <variable citdl="str" line="141" name="pref" />
+        <variable citdl="mp.match()" line="155" name="mp_res" />
+        <variable citdl="int" line="126" name="is_base64" />
+        <variable citdl="int" line="125" name="quoted_printable" />
+        <variable citdl="int" line="127" name="is_repl" />
+        <variable citdl="list" line="196" name="newline" />
+        <variable citdl="str" line="129" name="prefix" />
+        <variable citdl="File" line="184" name="nifile" />
+        <variable citdl="mp_res.group()" line="124" name="multipart" />
+        <variable citdl="list" line="136" name="line" />
+        <variable ilk="argument" name="ofile" />
+        <variable citdl="int" ilk="argument" name="decode_base64" />
+        <variable citdl="HeaderFile" line="134" name="hfile" />
+      </scope>
+      <import module="warnings" />
+      <variable attributes="__hidden__" line="439" name="args" />
+      <variable attributes="__hidden__" citdl="str" line="436" name="usage" />
+      <variable attributes="__hidden__" citdl="tuple" line="461" name="encode_args" />
+      <variable attributes="__hidden__" citdl="mimify" line="449" name="encode" />
+      <variable attributes="__hidden__" citdl="int" line="438" name="decode_base64" />
+      <variable attributes="__hidden__" line="439" name="opts" />
+    </scope>
+    

@@ -1,0 +1,33 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_tkinter">
+      <variable citdl="int" name="ALL_EVENTS" />
+      <variable citdl="int" name="DONT_WAIT" />
+      <variable citdl="int" name="EXCEPTION" />
+      <variable citdl="int" name="FILE_EVENTS" />
+      <variable citdl="int" name="IDLE_EVENTS" />
+      <variable citdl="int" name="READABLE" />
+      <variable citdl="str" name="TCL_VERSION" />
+      <variable citdl="int" name="TIMER_EVENTS" />
+      <variable citdl="str" name="TK_VERSION" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="TclError" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Tcl_Obj">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="convert argument to unicode" ilk="function" name="__unicode__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="TkappType" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="TkttType">
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <variable citdl="int" name="WINDOW_EVENTS" />
+      <variable citdl="int" name="WRITABLE" />
+      <scope ilk="function" name="create" />
+      <scope ilk="function" name="createtimerhandler" />
+      <scope ilk="function" name="dooneevent" />
+      <scope doc="Return the current busy-wait interval between successive&#10;calls to Tcl_DoOneEvent in a threaded Python interpreter." ilk="function" name="getbusywaitinterval" returns="int" signature="getbusywaitinterval() -&gt; int" />
+      <scope ilk="function" name="mainloop" />
+      <scope ilk="function" name="quit" />
+      <scope doc="Set the busy-wait interval in milliseconds between&#10;successive calls to Tcl_DoOneEvent in a threaded Python&#10;interpreter." ilk="function" name="setbusywaitinterval" signature="setbusywaitinterval(n) -&gt; None" />
+    </scope>
+    

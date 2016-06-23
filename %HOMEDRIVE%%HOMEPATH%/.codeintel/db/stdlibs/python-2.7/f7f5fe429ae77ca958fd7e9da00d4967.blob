@@ -1,0 +1,93 @@
+<scope doc="File-like objects that read from or write to a string buffer.&#10;This implements (nearly) all stdio methods.  f = StringIO()      # ready for writing f = StringIO(buf)   # ready for reading f.close()           # explicitly release resources held flag = f.isatty()   # always false pos = f.tell()      # get current position f.seek(pos)         # set current position f.seek(pos, mode)   # mode 0: absolute; 1: relative; 2: relative to EOF buf = f.read()      # read until EOF" ilk="blob" lang="Python" name="StringIO">
+      <variable citdl="int" line="34" name="EINVAL" />
+      <scope doc="class StringIO([buffer])&#10;When a StringIO object is created, it can be initialized to an existing string by passing the string to the constructor. If no string is given, the StringIO will start empty.  The StringIO object can accept either Unicode or 8-bit strings, but mixing the two may take some care. If both are used, 8-bit strings that cannot be interpreted as 7-bit ASCII (that use the 8th bit) will cause a UnicodeError to be raised when getvalue() is called." ilk="class" line="42" lineend="273" name="StringIO" signature="class StringIO([buffer])">
+        <scope doc="Returns False because StringIO objects are not connected to&#10;a tty-like device." ilk="function" line="88" lineend="93" name="isatty" returns="bool" signature="isatty()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Truncate the file's size." ilk="function" line="187" lineend="206" name="truncate" signature="truncate(size=None)">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="len()" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Read at most size bytes from the file (less if the read hits&#10;EOF before obtaining size bytes)." ilk="function" line="119" lineend="137" name="read" returns="list" signature="read(n=-1)">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="list" line="135" name="r" />
+          <variable citdl="len()" line="132" name="newpos" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Write a sequence of strings to the file." ilk="function" line="241" lineend="251" name="writelines" signature="writelines(iterable)">
+          <variable citdl="StringIO.write" line="249" name="write" />
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Read until EOF using readline() and return a list containing&#10;the lines thus read." ilk="function" line="168" lineend="185" name="readlines" returns="list" signature="readlines(sizehint=0)">
+          <variable citdl="list" line="177" name="lines" />
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="int" line="176" name="total" />
+          <variable citdl="int" ilk="argument" name="sizehint" />
+          <variable citdl="readline()" line="178" name="line" />
+        </scope>
+        <scope doc="A file object is its own iterator, for example iter(f)&#10;returns f (unless f is closed)." ilk="function" line="68" lineend="79" name="next" returns="self.readline()" signature="next()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="self.readline()" line="76" name="r" />
+        </scope>
+        <scope doc="Write a string to the file." ilk="function" line="208" lineend="239" name="write" signature="write(s)">
+          <variable citdl="str()" ilk="argument" name="s" />
+          <variable citdl="len()" line="218" name="spos" />
+          <variable citdl="len()" line="219" name="slen" />
+          <variable citdl="len()" line="227" name="newpos" />
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="__iter__" returns="StringIO" signature="__iter__()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the file's current position." ilk="function" line="114" lineend="117" name="tell" returns="max()" signature="tell()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush the internal buffer" ilk="function" line="253" lineend="256" name="flush" signature="flush()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Free the memory buffer." ilk="function" line="81" lineend="86" name="close" signature="close()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read one entire line from the file." ilk="function" line="139" lineend="166" name="readline" returns="list" signature="readline(length=None)">
+          <variable citdl="self.buf.find()" line="156" name="i" />
+          <variable ilk="argument" name="length" />
+          <variable citdl="list" line="164" name="r" />
+          <variable citdl="len()" line="158" name="newpos" />
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Retrieve the entire contents of the &quot;file&quot; at any time&#10;before the StringIO object's close() method is called." ilk="function" line="258" lineend="273" name="getvalue" returns="str" signature="getvalue()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the file's current position." ilk="function" line="95" lineend="112" name="seek" signature="seek(pos, mode=0)">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+          <variable citdl="int" ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="54" lineend="63" name="__init__" signature="StringIO(buf='')">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="str()" ilk="argument" name="buf" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="63" name="softspace" />
+        <variable attributes="__instancevar__" citdl="list" line="60" name="buflist" />
+        <variable attributes="__instancevar__" citdl="len()" line="61" name="pos" />
+        <variable attributes="__instancevar__" citdl="len()" line="59" name="len" />
+        <variable attributes="__instancevar__" citdl="True" line="62" name="closed" />
+        <variable attributes="__instancevar__" citdl="str" line="58" name="buf" />
+      </scope>
+      <variable citdl="list" line="36" name="__all__" />
+      <scope ilk="function" line="278" lineend="321" name="test" signature="test()">
+        <variable citdl="StringIO" line="286" name="f" />
+        <variable line="285" name="text" />
+        <variable citdl="f.readlines()" line="306" name="list" />
+        <variable citdl="f.read()" line="302" name="line2" />
+        <variable citdl="f.tell()" line="292" name="length" />
+        <variable citdl="str" line="281" name="file" />
+        <variable citdl="f.readline()" line="299" name="line" />
+        <variable line="284" name="lines" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="38" lineend="40" name="_complain_ifclosed" signature="_complain_ifclosed(closed)">
+        <variable ilk="argument" name="closed" />
+      </scope>
+    </scope>
+    

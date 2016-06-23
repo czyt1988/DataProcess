@@ -1,0 +1,126 @@
+<scope doc="Provides classes to represent module version numbers (one class for&#10;each style of version numbering).  There are currently two such classes implemented: StrictVersion and LooseVersion.  Every version number class implements the following interface: * the 'parse' method takes a string and parses it to some internal representation; if the string is an invalid version number, 'parse' raises a ValueError exception * the class constructor takes an optional string argument which, if supplied, is passed to 'parse' * __str__ reconstructs the string that was passed to 'parse' (or" ilk="blob" lang="Python" name="distutils.version">
+      <scope classrefs="Version" doc="Version numbering for anarchists and software realists.&#10;Implements the standard interface for version number classes as described above.  A version number consists of a series of numbers, separated by either periods or strings of letters.  When comparing version numbers, the numeric components will be compared numerically, and the alphabetic components lexically.  The following are all valid version numbers, in no particular order:  1.5.1 1.5.2b2 161" ilk="class" line="228" lineend="296" name="LooseVersion">
+        <scope ilk="function" line="284" lineend="285" name="__str__" signature="__str__()">
+          <variable citdl="LooseVersion" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="268" lineend="281" name="parse" signature="parse(vstring)">
+          <variable citdl="LooseVersion" ilk="argument" name="self" />
+          <variable citdl="filter()" line="273" name="components" />
+          <variable ilk="argument" name="vstring" />
+        </scope>
+        <scope ilk="function" line="288" lineend="289" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="LooseVersion" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="292" lineend="296" name="__cmp__" returns="cmp()" signature="__cmp__(other)">
+          <variable citdl="LooseVersion" ilk="argument" name="self" />
+          <variable citdl="" ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="263" lineend="265" name="__init__" signature="LooseVersion(vstring=None)">
+          <variable citdl="LooseVersion" ilk="argument" name="self" />
+          <variable ilk="argument" name="vstring" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="filter()" line="281" name="version" />
+        <variable attributes="__instancevar__" line="272" name="vstring" />
+        <variable citdl="re.compile()" line="261" name="component_re" />
+      </scope>
+      <scope classrefs="Version" doc="Version numbering for anal retentives and software idealists.&#10;Implements the standard interface for version number classes as described above.  A version number consists of two or three dot-separated numeric components, with an optional &quot;pre-release&quot; tag on the end.  The pre-release tag consists of the letter 'a' or 'b' followed by a number.  If the numeric components of two version numbers are equal, then one with a pre-release tag will always be deemed earlier (lesser) than one without.  The following are valid version numbers (shown in the order that would be obtained by sorting according to the supplied cmp function):" ilk="class" line="63" lineend="158" name="StrictVersion">
+        <scope ilk="function" line="123" lineend="133" name="__str__" returns="string.join()" signature="__str__()">
+          <variable citdl="StrictVersion" ilk="argument" name="self" />
+          <variable citdl="string.join()" line="126" name="vstring" />
+        </scope>
+        <scope ilk="function" line="136" lineend="158" name="__cmp__" returns="cmp()" signature="__cmp__(other)">
+          <variable citdl="StrictVersion" ilk="argument" name="self" />
+          <variable citdl="" ilk="argument" name="other" />
+          <variable citdl="cmp()" line="140" name="compare" />
+        </scope>
+        <scope ilk="function" line="104" lineend="120" name="parse" signature="parse(vstring)">
+          <variable line="109" name="prerelease_num" />
+          <variable line="109" name="major" />
+          <variable citdl="StrictVersion" ilk="argument" name="self" />
+          <variable ilk="argument" name="vstring" />
+          <variable line="109" name="patch" />
+          <variable line="109" name="prerelease" />
+          <variable line="109" name="minor" />
+          <variable citdl="self.version_re.match()" line="105" name="match" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tuple()" line="113" name="version" />
+        <variable attributes="__instancevar__" citdl="tuple" line="118" name="prerelease" />
+        <variable citdl="re.compile()" line="100" name="version_re" />
+      </scope>
+      <scope classrefs="basestring" doc="str(object) -&gt; string&#10;Return a nice string representation of the object. If the argument is a string, the return value is the same object." ilk="class" name="StringType">
+        <scope doc="Return a copy of the string S converted to uppercase." ilk="function" name="upper" returns="str" signature="S.upper() -&gt; string" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="str" signature="S.__format__(format_spec) -&gt; string" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="S.lstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Return a copy of the string S with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="S.capitalize() -&gt; string" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of string S with all occurrences of substring&#10;old replaced by new." ilk="function" name="replace" returns="str" signature="S.replace(old, new[, count]) -&gt; string" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="str" signature="S.expandtabs([tabsize]) -&gt; string" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="S.strip([chars]) -&gt; string or unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a string of length width." ilk="function" name="ljust" returns="str" signature="S.ljust(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="str" signature="S.format(*args, **kwargs) -&gt; string" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="S.decode([encoding[,errors]]) -&gt; object" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="S.rstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="S.encode([encoding[,errors]]) -&gt; object" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="S.translate(table [,deletechars]) -&gt; string" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a string of length width." ilk="function" name="rjust" returns="str" signature="S.rjust(width[, fillchar]) -&gt; string" />
+        <scope doc="Return a copy of the string S with uppercase characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="S.swapcase() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="str" signature="S.zfill(width) -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="str" signature="S.lower() -&gt; string" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="str" signature="S.join(iterable) -&gt; string" />
+        <scope doc="Return S centered in a string of length width." ilk="function" name="center" returns="str" signature="S.center(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="str" signature="S.title() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Abstract base class for version numbering classes.  Just provides&#10;constructor (__init__) and reproducer (__repr__), because those seem to be the same for all version numbering classes." ilk="class" line="32" lineend="43" name="Version">
+        <scope ilk="function" line="38" lineend="40" name="__init__" signature="Version(vstring=None)">
+          <variable citdl="Version" ilk="argument" name="self" />
+          <variable ilk="argument" name="vstring" />
+        </scope>
+        <scope ilk="function" line="42" lineend="43" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Version" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <import module="re" />
+      <import module="string" />
+    </scope>
+    

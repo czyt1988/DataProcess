@@ -1,0 +1,65 @@
+<scope doc="# Analogue of `multiprocessing.connection` which uses queues instead of sockets&#10;# # multiprocessing/dummy/connection.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #" ilk="blob" lang="Python" name="multiprocessing.dummy.connection">
+      <scope ilk="function" line="57" lineend="60" name="Client" returns="Connection()" signature="Client(address)">
+        <variable attributes="protected" citdl="Queue()" line="58" name="_out" />
+        <variable attributes="protected" citdl="Queue()" line="58" name="_in" />
+        <variable ilk="argument" name="address" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="68" lineend="87" name="Connection">
+        <scope ilk="function" line="86" lineend="87" name="close" signature="close()">
+          <variable citdl="Connection" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="76" lineend="84" name="poll" returns="bool" signature="poll(timeout=0.0)">
+          <variable citdl="Connection" ilk="argument" name="self" />
+          <variable citdl="float" ilk="argument" name="timeout" />
+        </scope>
+        <scope ilk="function" line="70" lineend="74" name="__init__" signature="Connection(_in, _out)">
+          <variable ilk="argument" name="_in" />
+          <variable citdl="Connection" ilk="argument" name="self" />
+          <variable ilk="argument" name="_out" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="72" name="_in" />
+        <variable attributes="__instancevar__" citdl="_in.get" line="74" name="recv" />
+        <variable attributes="__instancevar__" citdl="_out.put" line="73" name="send" />
+        <variable attributes="protected __instancevar__" line="71" name="_out" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="43" lineend="54" name="Listener">
+        <scope ilk="function" line="48" lineend="49" name="accept" returns="Connection()" signature="accept()">
+          <variable citdl="Listener" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="51" lineend="52" name="close" signature="close()">
+          <variable citdl="Listener" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="45" lineend="46" name="__init__" signature="Listener(address=None, family=None, backlog=1)">
+          <variable citdl="Listener" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="backlog" />
+          <variable ilk="argument" name="family" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="Queue()" line="46" name="_backlog_queue" />
+        <variable citdl="property()" line="54" name="address" />
+      </scope>
+      <scope ilk="function" line="63" lineend="65" name="Pipe" returns="tuple" signature="Pipe(duplex=True)">
+        <variable citdl="True" ilk="argument" name="duplex" />
+        <variable citdl="Queue()" line="64" name="a" />
+        <variable citdl="Queue()" line="64" name="b" />
+      </scope>
+      <scope doc="Create a queue object with a given maximum size.&#10;If maxsize is &lt;= 0, the queue size is infinite." ilk="class" name="Queue">
+        <scope doc="Return the approximate size of the queue (not reliable!)." ilk="function" name="qsize" />
+        <scope doc="Blocks until all items in the Queue have been gotten and&#10;processed." ilk="function" name="join" />
+        <scope doc="Remove and return an item from the queue without blocking." ilk="function" name="get_nowait" />
+        <scope doc="# Put a new item in the queue" ilk="function" name="_put" />
+        <scope doc="Remove and return an item from the queue." ilk="function" name="get" />
+        <scope doc="Indicate that a formerly enqueued task is complete." ilk="function" name="task_done" />
+        <scope doc="# Initialize the queue representation" ilk="function" name="_init" />
+        <scope doc="# Get an item from the queue" ilk="function" name="_get" />
+        <scope doc="Return True if the queue is full, False otherwise (not&#10;reliable!)." ilk="function" name="full" />
+        <scope doc="Return True if the queue is empty, False otherwise (not&#10;reliable!)." ilk="function" name="empty" />
+        <scope doc="Put an item into the queue without blocking." ilk="function" name="put_nowait" />
+        <scope doc="Put an item into the queue." ilk="function" name="put" />
+        <scope ilk="function" name="_qsize" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="35" name="__all__" />
+      <variable citdl="list" line="40" name="families" />
+    </scope>
+    

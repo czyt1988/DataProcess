@@ -1,0 +1,99 @@
+<scope doc="codefragments.py -- wrapper to modify code fragments.&#10;" ilk="blob" lang="Python" name="cfmfile">
+      <variable citdl="int" line="22" name="BUFSIZE" />
+      <import module="Carbon" />
+      <scope doc="&#10;" ilk="class" line="61" lineend="101" name="CfrgResource">
+        <scope ilk="function" line="83" lineend="91" name="parse" signature="parse(data)">
+          <variable citdl="FragmentDescriptor()" line="89" name="frag" />
+          <variable line="86" name="res2" />
+          <variable line="86" name="res3" />
+          <variable citdl="CfrgResource" ilk="argument" name="self" />
+          <variable line="86" name="res1" />
+          <variable line="86" name="res6" />
+          <variable line="86" name="res4" />
+          <variable line="86" name="res5" />
+          <variable citdl="list" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="93" lineend="98" name="build" returns="frag.build()" signature="build()">
+          <variable citdl="CfrgResource" ilk="argument" name="self" />
+          <variable citdl="struct.pack()" line="95" name="data" />
+        </scope>
+        <scope ilk="function" line="63" lineend="81" name="__init__" signature="CfrgResource(path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="CfrgResource" ilk="argument" name="self" />
+          <variable citdl="Res.FSpOpenResFile()" line="69" name="resref" />
+          <variable line="73" name="data" />
+          <variable citdl="Res.CurResFile()" line="68" name="currentresref" />
+        </scope>
+        <scope ilk="function" line="100" lineend="101" name="append" signature="append(frag)">
+          <variable ilk="argument" name="frag" />
+          <variable citdl="CfrgResource" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="len()" line="86" name="memberCount" />
+        <variable attributes="__instancevar__" line="66" name="path" />
+        <variable attributes="__instancevar__" citdl="list" line="65" name="fragments" />
+        <variable attributes="__instancevar__" citdl="int" line="64" name="version" />
+      </scope>
+      <variable citdl="int" line="18" name="DEBUG" />
+      <scope doc="&#10;" ilk="class" line="104" lineend="187" name="FragmentDescriptor">
+        <scope ilk="function" line="111" lineend="125" name="parse" signature="parse(data)">
+          <variable citdl="list" line="124" name="pname" />
+          <variable citdl="FragmentDescriptor" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="127" lineend="147" name="build" returns="str" signature="build()">
+          <variable citdl="FragmentDescriptor" ilk="argument" name="self" />
+          <variable citdl="list" line="128" name="data" />
+        </scope>
+        <scope ilk="function" line="161" lineend="187" name="copydata" signature="copydata(outfile)">
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="FragmentDescriptor" ilk="argument" name="self" />
+          <variable citdl="open()" line="164" name="infile" />
+          <variable citdl="infile.tell()" line="179" name="l" />
+          <variable citdl="outfile.tell()" line="173" name="offset" />
+        </scope>
+        <scope ilk="function" line="106" lineend="109" name="__init__" signature="FragmentDescriptor(path, data=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="FragmentDescriptor" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="149" lineend="159" name="getfragment" returns="f.read()" signature="getfragment()">
+          <variable citdl="f.read()" line="155" name="frag" />
+          <variable citdl="FragmentDescriptor" ilk="argument" name="self" />
+          <variable citdl="open()" line="152" name="f" />
+        </scope>
+        <variable attributes="__instancevar__" line="123" name="fragtype" />
+        <variable attributes="__instancevar__" citdl="list" line="125" name="name" />
+        <variable attributes="__instancevar__" line="123" name="res2" />
+        <variable attributes="__instancevar__" line="123" name="res1" />
+        <variable attributes="__instancevar__" line="123" name="oldDefVersion" />
+        <variable attributes="__instancevar__" citdl="infile.tell()" line="123" name="length" />
+        <variable attributes="__instancevar__" line="123" name="currentVersion" />
+        <variable attributes="__instancevar__" citdl="list" line="112" name="architecture" />
+        <variable attributes="__instancevar__" citdl="len()" line="123" name="memberSize" />
+        <variable attributes="__instancevar__" citdl="outfile.tell()" line="123" name="offset" />
+        <variable attributes="__instancevar__" line="123" name="updatelevel" />
+        <variable attributes="__instancevar__" line="107" name="path" />
+        <variable attributes="__instancevar__" line="123" name="stacksize" />
+        <variable attributes="__instancevar__" line="123" name="where" />
+        <variable attributes="__instancevar__" line="123" name="applibdir" />
+      </scope>
+      <import module="Res" />
+      <variable citdl="str" line="6" name="__author__" />
+      <variable citdl="str" line="5" name="__version__" />
+      <variable citdl="str" line="20" name="error" />
+      <scope doc="Merge all files in srclist into a new file dst." ilk="function" line="24" lineend="58" name="mergecfmfiles" signature="mergecfmfiles(srclist, dst, architecture='fat')">
+        <variable citdl="open()" line="38" name="dstfile" />
+        <variable citdl="Res.Resource()" line="53" name="cfrgres" />
+        <variable citdl="CfrgResource()" line="41" name="dstcfrg" />
+        <variable citdl="Carbon.File.pathname()" ilk="argument" name="dst" />
+        <variable citdl="list()" ilk="argument" name="srclist" />
+        <variable citdl="Res.CloseResFile()" line="39" name="rf" />
+        <variable citdl="str" ilk="argument" name="architecture" />
+        <variable citdl="CfrgResource()" line="43" name="srccfrg" />
+      </scope>
+      <import module="os" />
+      <import module="struct" />
+      <import module="sys" />
+      <import module="warnings" />
+    </scope>
+    

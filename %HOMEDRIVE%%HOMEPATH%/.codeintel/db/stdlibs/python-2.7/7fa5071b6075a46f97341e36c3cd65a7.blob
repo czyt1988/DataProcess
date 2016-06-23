@@ -1,0 +1,65 @@
+<scope doc="Pseudo terminal utilities.&#10;" ilk="blob" lang="Python" name="pty">
+      <variable citdl="int" line="19" name="CHILD" />
+      <variable citdl="int" line="17" name="STDERR_FILENO" />
+      <variable citdl="int" line="15" name="STDIN_FILENO" />
+      <variable citdl="int" line="16" name="STDOUT_FILENO" />
+      <variable citdl="list" line="13" name="__all__" />
+      <scope doc="Fork and make the child a session leader with a controlling&#10;terminal." ilk="function" line="90" lineend="128" name="fork" returns="tuple" signature="fork() -&gt; (pid, master_fd)">
+        <variable line="95" name="fd" />
+        <variable line="107" name="master_fd" />
+        <variable citdl="os.fork()" line="95" name="pid" />
+        <variable line="107" name="slave_fd" />
+        <variable citdl="os.open()" line="122" name="tmp_fd" />
+      </scope>
+      <scope doc="Open a pty master and return the fd, and the filename of the&#10;slave end." ilk="function" line="33" lineend="47" name="master_open" returns="tuple" signature="master_open() -&gt; (master_fd, slave_name)">
+        <variable line="39" name="master_fd" />
+        <variable line="39" name="slave_fd" />
+        <variable citdl="os.ttyname()" line="43" name="slave_name" />
+      </scope>
+      <scope doc="Open a pty master/slave pair, using os.openpty() if&#10;possible." ilk="function" line="21" lineend="31" name="openpty" returns="tuple" signature="openpty() -&gt; (master_fd, slave_fd)">
+        <variable line="29" name="master_fd" />
+        <variable citdl="slave_open()" line="30" name="slave_fd" />
+        <variable line="29" name="slave_name" />
+      </scope>
+      <import module="os" />
+      <scope doc="Wait until one or more file descriptors are ready for some&#10;kind of I/O." ilk="function" name="select" signature="select(rlist, wlist, xlist[, timeout]) -&gt; (rlist, wlist, xlist)" />
+      <scope doc="Open the pty slave and acquire the controlling terminal,&#10;returning opened filedescriptor." ilk="function" line="72" lineend="88" name="slave_open" returns="os.open()" signature="slave_open(tty_name) -&gt; slave_fd">
+        <variable ilk="argument" name="tty_name" />
+        <variable citdl="os.open()" line="78" name="result" />
+      </scope>
+      <scope doc="Create a spawned process." ilk="function" line="155" lineend="174" name="spawn" signature="spawn(argv, master_read=&lt;function _read at 0x9bc6c80&gt;, stdin_read=&lt;function _read at 0x9bc6c80&gt;)">
+        <variable citdl="int" line="165" name="restore" />
+        <variable line="159" name="pid" />
+        <variable citdl="tuple" ilk="argument" name="argv" />
+        <variable citdl="tty.tcgetattr()" line="163" name="mode" />
+        <variable line="159" name="master_fd" />
+        <variable citdl="_read" ilk="argument" name="stdin_read" />
+        <variable citdl="_read" ilk="argument" name="master_read" />
+      </scope>
+      <import module="tty" />
+      <scope attributes="protected __hidden__" doc="Open pty master and return (master_fd, tty_name).&#10;SGI and generic BSD version, for when openpty() fails." ilk="function" line="49" lineend="70" name="_open_terminal" returns="tuple" signature="_open_terminal()">
+        <import line="53" module="sgi" />
+        <variable line="58" name="master_fd" />
+        <variable line="58" name="tty_name" />
+        <variable citdl="y" line="64" name="pty_name" />
+        <variable citdl="os.open()" line="66" name="fd" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Parent copy loop.&#10;Copies&#10;        pty master -&gt; standard output   (master_read)&#10;        standard input -&gt; pty master    (stdin_read)" ilk="function" line="140" lineend="153" name="_copy" signature="_copy(master_fd, master_read=_read, stdin_read=_read)">
+        <variable ilk="argument" name="master_fd" />
+        <variable citdl="_read" ilk="argument" name="master_read" />
+        <variable citdl="_read" ilk="argument" name="stdin_read" />
+        <variable line="146" name="wfds" />
+        <variable line="146" name="rfds" />
+        <variable line="146" name="xfds" />
+        <variable citdl="master_read()" line="149" name="data" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Default read function." ilk="function" line="136" lineend="138" name="_read" returns="os.read()" signature="_read(fd)">
+        <variable ilk="argument" name="fd" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Write all the data to a descriptor." ilk="function" line="130" lineend="134" name="_writen" signature="_writen(fd, data)">
+        <variable ilk="argument" name="fd" />
+        <variable citdl="list" ilk="argument" name="data" />
+        <variable citdl="os.write()" line="133" name="n" />
+      </scope>
+    </scope>
+    

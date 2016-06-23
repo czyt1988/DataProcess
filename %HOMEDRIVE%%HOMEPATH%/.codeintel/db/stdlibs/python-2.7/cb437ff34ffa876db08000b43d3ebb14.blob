@@ -1,0 +1,119 @@
+<scope doc="Fast implementation of the datetime type.&#10;" ilk="blob" lang="Python" name="datetime">
+      <variable citdl="int" name="MAXYEAR" />
+      <variable citdl="int" name="MINYEAR" />
+      <scope classrefs="object" doc="date(year, month, day) --&gt; date object&#10;" ilk="class" name="date">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Return proleptic Gregorian ordinal." ilk="function" name="toordinal" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return a 3-tuple containing ISO year, week number, and&#10;weekday." ilk="function" name="isocalendar" />
+        <scope doc="Formats self with strftime." ilk="function" name="__format__" />
+        <scope doc="Return time tuple, compatible with time.localtime()." ilk="function" name="timetuple" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="weekday" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="isoweekday" />
+        <scope doc="Return date with new specified fields." ilk="function" name="replace" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return string in ISO 8601 format, YYYY-MM-DD." ilk="function" name="isoformat" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return ctime() style string." ilk="function" name="ctime" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="format -&gt; strftime() style string." ilk="function" name="strftime" />
+      </scope>
+      <scope classrefs="date" doc="datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])&#10;The year, month and day arguments are required. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments may be ints or longs." ilk="class" name="datetime">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Return UTC time tuple, compatible with time.localtime()." ilk="function" name="utctimetuple" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="Return self.tzinfo.dst(self)." ilk="function" name="dst" />
+        <scope doc="tz -&gt; convert to local time in new timezone tz" ilk="function" name="astimezone" />
+        <scope doc="Return time tuple, compatible with time.localtime()." ilk="function" name="timetuple" />
+        <scope doc="Return self.tzinfo.tzname(self)." ilk="function" name="tzname" />
+        <scope doc="[sep] -&gt; string in ISO 8601 format, YYYY-MM-&#10;DDTHH:MM:SS[.mmmmmm][+HH:MM]." ilk="function" name="isoformat" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return datetime with new specified fields." ilk="function" name="replace" />
+        <scope doc="Return self.tzinfo.utcoffset(self)." ilk="function" name="utcoffset" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return date object with same year, month and day." ilk="function" name="date" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return ctime() style string." ilk="function" name="ctime" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return time object with same time but with tzinfo=None." ilk="function" name="time" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="Return time object with same time and tzinfo." ilk="function" name="timetz" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <variable citdl="PyCapsule" name="datetime_CAPI" />
+      <scope classrefs="object" doc="time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --&gt; a time object&#10;All arguments are optional. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments may be ints or longs." ilk="class" name="time">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return string in ISO 8601 format, HH:MM:SS[.mmmmmm][+HH:MM]." ilk="function" name="isoformat" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return self.tzinfo.dst(self)." ilk="function" name="dst" />
+        <scope doc="Formats self with strftime." ilk="function" name="__format__" />
+        <scope doc="Return self.tzinfo.tzname(self)." ilk="function" name="tzname" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return self.tzinfo.utcoffset(self)." ilk="function" name="utcoffset" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return time with new specified fields." ilk="function" name="replace" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="format -&gt; strftime() style string." ilk="function" name="strftime" />
+      </scope>
+      <scope classrefs="object" doc="Difference between two datetime values.&#10;" ilk="class" name="timedelta">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__rdiv__(y) &lt;==&gt; y/x" ilk="function" name="__rdiv__" signature="x.__rdiv__(y) &lt;==&gt; y/x" />
+        <scope doc="x.__rmul__(y) &lt;==&gt; y*x" ilk="function" name="__rmul__" signature="x.__rmul__(y) &lt;==&gt; y*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__mul__(y) &lt;==&gt; x*y" ilk="function" name="__mul__" signature="x.__mul__(y) &lt;==&gt; x*y" />
+        <scope doc="x.__abs__() &lt;==&gt; abs(x)" ilk="function" name="__abs__" signature="x.__abs__() &lt;==&gt; abs(x)" />
+        <scope doc="x.__pos__() &lt;==&gt; +x" ilk="function" name="__pos__" signature="x.__pos__() &lt;==&gt; +x" />
+        <scope doc="x.__rfloordiv__(y) &lt;==&gt; y//x" ilk="function" name="__rfloordiv__" signature="x.__rfloordiv__(y) &lt;==&gt; y//x" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="Total seconds in the duration." ilk="function" name="total_seconds" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__div__(y) &lt;==&gt; x/y" ilk="function" name="__div__" signature="x.__div__(y) &lt;==&gt; x/y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__neg__() &lt;==&gt; -x" ilk="function" name="__neg__" signature="x.__neg__() &lt;==&gt; -x" />
+        <scope doc="x.__floordiv__(y) &lt;==&gt; x//y" ilk="function" name="__floordiv__" signature="x.__floordiv__(y) &lt;==&gt; x//y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="object" doc="Abstract base class for time zone info objects.&#10;" ilk="class" name="tzinfo">
+        <scope doc="datetime in UTC -&gt; datetime in local time." ilk="function" name="fromutc" />
+        <scope doc="-&gt; (cls, state)" ilk="function" name="__reduce__" />
+        <scope doc="datetime -&gt; DST offset in minutes east of UTC." ilk="function" name="dst" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="datetime -&gt; minutes east of UTC (negative for west of UTC)." ilk="function" name="utcoffset" />
+        <scope doc="datetime -&gt; string name of time zone." ilk="function" name="tzname" />
+      </scope>
+    </scope>
+    

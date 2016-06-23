@@ -1,0 +1,49 @@
+<scope doc="Fix incompatible imports and module references.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_imports">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="85" lineend="145" name="FixImports">
+        <scope ilk="function" line="99" lineend="103" name="compile_pattern" signature="compile_pattern()">
+          <variable citdl="FixImports" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="122" lineend="145" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="unicode()" line="126" name="new_name" />
+          <variable citdl="results.get()" line="123" name="import_mod" />
+          <variable citdl="FixImports" ilk="argument" name="self" />
+          <variable citdl="match()" ilk="argument" name="results" />
+          <variable line="142" name="bare_name" />
+          <variable citdl="import_mod.value" line="125" name="mod_name" />
+        </scope>
+        <scope ilk="function" line="118" lineend="120" name="start_tree" signature="start_tree(tree, filename)">
+          <variable citdl="FixImports" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="96" lineend="97" name="build_pattern" returns="str.join()" signature="build_pattern()">
+          <variable citdl="FixImports" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Don't match the node if it's within another match." ilk="function" line="106" lineend="116" name="match" returns="match()" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixImports" ilk="argument" name="self" />
+          <variable citdl="match()" line="108" name="results" />
+          <variable line="107" name="match" />
+        </scope>
+        <variable citdl="True" line="88" name="keep_line_order" />
+        <variable attributes="__instancevar__" citdl="build_pattern()" line="102" name="PATTERN" />
+        <variable citdl="int" line="94" name="run_order" />
+        <variable citdl="dict" line="90" name="mapping" />
+        <variable attributes="__instancevar__" citdl="dict" line="120" name="replace" />
+        <variable citdl="True" line="87" name="BM_compatible" />
+      </scope>
+      <variable citdl="dict" line="8" name="MAPPING" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope ilk="function" line="61" lineend="62" name="alternates" returns="str" signature="alternates(members)">
+        <variable ilk="argument" name="members" />
+      </scope>
+      <scope doc="Follow an attribute chain." ilk="function" name="attr_chain" signature="attr_chain(obj, attr)" />
+      <scope ilk="function" line="65" lineend="82" name="build_pattern" signature="build_pattern(mapping={'dbm': 'dbm.ndbm', 'tkFileDialog': 'tkinter.filedialog', '__builtin__': 'builtins', 'ttk': 'tkinter.ttk', 'dummy_thread': '_dummy_thread', 'tkSimpleDialog': 'tkinter.simpledialog', 'FileDialog': 'tkinter.filedialog', 'Tix': 'tkinter.tix', 'gdbm': 'dbm.gnu', 'robotparser': 'urllib.robotparser', 'CGIHTTPServer': 'http.server', 'Cookie': 'http.cookies', 'cPickle': 'pickle', 'SocketServer': 'socketserver', 'repr': 'reprlib', 'Dialog': 'tkinter.dialog', 'ScrolledText': 'tkinter.scrolledtext', 'cookielib': 'http.cookiejar', 'ConfigParser': 'configparser', 'httplib': 'http.client', 'markupbase': '_markupbase', 'tkMessageBox': 'tkinter.messagebox', '_winreg': 'winreg', 'DocXMLRPCServer': 'xmlrpc.server', 'cStringIO': 'io', 'copy_reg': 'copyreg', 'Tkdnd': 'tkinter.dnd', 'SimpleHTTPServer': 'http.server', 'SimpleDialog': 'tkinter.simpledialog', 'HTMLParser': 'html.parser', 'BaseHTTPServer': 'http.server', 'tkCommonDialog': 'tkinter.commondialog', 'dumbdbm': 'dbm.dumb', 'UserList': 'collections', 'UserString': 'collections', 'Tkinter': 'tkinter', 'tkFont': 'tkinter.font', 'htmlentitydefs': 'html.entities', 'SimpleXMLRPCServer': 'xmlrpc.server', 'Queue': 'queue', 'tkColorChooser': 'tkinter.colorchooser', 'commands': 'subprocess', 'thread': '_thread', 'StringIO': 'io', 'xmlrpclib': 'xmlrpc.client', 'Tkconstants': 'tkinter.constants', 'urlparse': 'urllib.parse', 'dbhash': 'dbm.bsd'})">
+        <variable citdl="alternates()" line="67" name="bare_names" />
+        <variable citdl="dict" ilk="argument" name="mapping" />
+        <variable citdl="str.join()" line="66" name="mod_list" />
+      </scope>
+      <import module="fixer_base" />
+    </scope>
+    

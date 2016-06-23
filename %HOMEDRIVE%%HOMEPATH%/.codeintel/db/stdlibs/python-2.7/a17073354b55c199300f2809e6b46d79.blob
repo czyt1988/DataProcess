@@ -1,0 +1,8 @@
+<scope doc="Core XML support for Python.&#10;This package contains four sub-packages:  dom -- The W3C Document Object Model.  This supports DOM Level 1 + Namespaces.  parsers -- Python wrappers for XML parsers (currently only supports Expat).  sax -- The Simple API for XML, developed by XML-Dev, led by David Megginson and ported to Python by Lars Marius Garshol.  This supports the SAX 2 API." ilk="blob" lang="Python" name="xml">
+      <variable citdl="list" line="20" name="__all__" />
+      <import module="etree" />
+      <import module="parsers" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="22" name="_MINIMUM_XMLPLUS_VERSION" />
+      <variable attributes="__hidden__" citdl="_xmlplus.version_info" line="31" name="v" />
+    </scope>
+    

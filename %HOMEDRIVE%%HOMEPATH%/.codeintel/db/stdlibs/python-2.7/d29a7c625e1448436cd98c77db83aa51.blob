@@ -1,0 +1,36 @@
+<scope doc="hashlib module - A common interface to many hash functions.&#10;new(name, string='') - returns a new hash object implementing the given hash function; initializing the hash using the given string data.  Named constructor functions are also available, these are much faster than using new():  md5(), sha1(), sha224(), sha256(), sha384(), and sha512()  More algorithms may be available on your platform but the above are" ilk="blob" lang="Python" name="hashlib">
+      <variable citdl="tuple" line="63" name="__all__" />
+      <import module="_hashlib" />
+      <variable citdl="tuple" line="61" name="algorithms" />
+      <scope doc="Returns a md5 hash object; optionally initialized with a&#10;string" ilk="function" name="md5" />
+      <scope doc="Return a new hashing object using the named algorithm;" ilk="function" line="129" name="new" signature="new(name, string='')" />
+      <scope doc="Returns a sha1 hash object; optionally initialized with a&#10;string" ilk="function" name="sha1" />
+      <scope doc="Returns a sha224 hash object; optionally initialized with a&#10;string" ilk="function" name="sha224" />
+      <scope doc="Returns a sha256 hash object; optionally initialized with a&#10;string" ilk="function" name="sha256" />
+      <scope doc="Returns a sha384 hash object; optionally initialized with a&#10;string" ilk="function" name="sha384" />
+      <scope doc="Returns a sha512 hash object; optionally initialized with a&#10;string" ilk="function" name="sha512" />
+      <scope attributes="private __hidden__" doc="Return a new hashing object using the named algorithm;" ilk="function" line="106" lineend="110" name="__py_new" returns="__get_builtin_constructor()()" signature="new(name, string='')">
+        <variable ilk="argument" name="name" />
+        <variable citdl="str" ilk="argument" name="string" />
+      </scope>
+      <variable attributes="private __hidden__" citdl="__get_builtin_constructor" line="130" name="__get_hash" />
+      <scope attributes="private __hidden__" ilk="function" line="66" lineend="91" name="__get_builtin_constructor" returns="_md5.new" signature="__get_builtin_constructor(name)">
+        <import line="69" module="_sha" />
+        <import line="72" module="_md5" />
+        <import line="75" module="_sha256" />
+        <import line="82" module="_sha512" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="list" line="76" name="bs" />
+      </scope>
+      <variable attributes="private __hidden__" citdl="tuple" line="59" name="__always_supported" />
+      <scope attributes="private __hidden__" doc="Return a new hashing object using the named algorithm;" ilk="function" line="113" lineend="124" name="__hash_new" returns="__get_builtin_constructor()()" signature="new(name, string='')">
+        <variable ilk="argument" name="name" />
+        <variable citdl="str" ilk="argument" name="string" />
+      </scope>
+      <scope attributes="private __hidden__" ilk="function" line="94" lineend="103" name="__get_openssl_constructor" returns="getattr()" signature="__get_openssl_constructor(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="getattr()" line="96" name="f" />
+      </scope>
+      <variable attributes="__hidden__" citdl="str" line="7" name="__doc__" />
+    </scope>
+    

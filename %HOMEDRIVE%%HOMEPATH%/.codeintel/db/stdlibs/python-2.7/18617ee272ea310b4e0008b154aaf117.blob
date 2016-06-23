@@ -1,0 +1,114 @@
+<scope doc="A lexical analyzer class for simple shell-like syntaxes.&#10;" ilk="blob" lang="Python" name="shlex">
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="19" name="__all__" />
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <import module="os" />
+      <scope doc="A lexical analyzer class for simple shell-like syntaxes.&#10;" ilk="class" line="21" lineend="272" name="shlex">
+        <scope doc="Hook called on a filename to be sourced." ilk="function" line="248" lineend="255" name="sourcehook" returns="tuple" signature="sourcehook(newfile)">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" ilk="argument" name="newfile" />
+        </scope>
+        <scope ilk="function" line="120" lineend="246" name="read_token" returns="str" signature="read_token()">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="self.instream.read()" line="124" name="nextchar" />
+          <variable citdl="str" line="122" name="escapedstate" />
+          <variable citdl="False" line="121" name="quoted" />
+          <variable citdl="self.instream.read()" line="237" name="result" />
+        </scope>
+        <scope doc="Emit a C-compiler-like, Emacs-friendly error-message leader." ilk="function" line="257" lineend="263" name="error_leader" returns="tuple" signature="error_leader(infile=None, lineno=None)">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable ilk="argument" name="infile" />
+          <variable citdl="int" ilk="argument" name="lineno" />
+        </scope>
+        <scope ilk="function" line="268" lineend="272" name="next" returns="get_token()" signature="next()">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="get_token()" line="269" name="token" />
+        </scope>
+        <scope ilk="function" line="265" lineend="266" name="__iter__" returns="shlex" signature="__iter__()">
+          <variable citdl="shlex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get a token from the input stream (or from stack if it's&#10;nonempty)" ilk="function" line="88" lineend="118" name="get_token" returns="str" signature="get_token()">
+          <variable citdl="self.pushback.popleft()" line="91" name="tok" />
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="self.sourcehook()" line="100" name="spec" />
+          <variable citdl="()" line="96" name="raw" />
+        </scope>
+        <scope doc="Pop the input source stack." ilk="function" line="79" lineend="86" name="pop_source" signature="pop_source()">
+          <variable citdl="shlex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Push a token onto the stack popped by the get_token method" ilk="function" line="59" lineend="63" name="push_token" signature="push_token(tok)">
+          <variable ilk="argument" name="tok" />
+          <variable citdl="shlex" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="23" lineend="57" name="__init__" signature="shlex(instream=None, infile=None, posix=False)">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="posix" />
+          <variable citdl="StringIO()" ilk="argument" name="instream" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <scope doc="Push an input source onto the lexer's input source stack." ilk="function" line="65" lineend="77" name="push_source" signature="push_source(newstream, newfile=None)">
+          <variable citdl="shlex" ilk="argument" name="self" />
+          <variable citdl="StringIO()" ilk="argument" name="newstream" />
+          <variable ilk="argument" name="newfile" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="43" name="whitespace" />
+        <variable attributes="__instancevar__" citdl="str" line="38" name="wordchars" />
+        <variable attributes="__instancevar__" citdl="str" line="45" name="quotes" />
+        <variable attributes="__instancevar__" citdl="deque()" line="49" name="pushback" />
+        <variable attributes="__instancevar__" citdl="str" line="47" name="escapedquotes" />
+        <variable attributes="__instancevar__" citdl="False" line="44" name="whitespace_split" />
+        <variable attributes="__instancevar__" citdl="self.instream.read()" line="52" name="token" />
+        <variable attributes="__instancevar__" citdl="str" line="34" name="eof" />
+        <variable attributes="__instancevar__" line="54" name="source" />
+        <variable attributes="__instancevar__" citdl="str" line="48" name="state" />
+        <variable attributes="__instancevar__" citdl="False" line="32" name="posix" />
+        <variable attributes="__instancevar__" citdl="int" line="50" name="lineno" />
+        <variable attributes="__instancevar__" citdl="StringIO()" line="27" name="instream" />
+        <variable attributes="__instancevar__" citdl="str" line="46" name="escape" />
+        <variable attributes="__instancevar__" citdl="int" line="51" name="debug" />
+        <variable attributes="__instancevar__" citdl="deque()" line="53" name="filestack" />
+        <variable attributes="__instancevar__" line="28" name="infile" />
+        <variable attributes="__instancevar__" citdl="str" line="37" name="commenters" />
+      </scope>
+      <scope ilk="function" line="274" lineend="279" name="split" returns="list()" signature="split(s, comments=False, posix=True)">
+        <variable citdl="shlex" line="275" name="lex" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="True" ilk="argument" name="posix" />
+        <variable citdl="False" ilk="argument" name="comments" />
+      </scope>
+      <import module="sys" />
+      <variable attributes="__hidden__" citdl="lexer.get_token()" line="288" name="tt" />
+      <variable attributes="__hidden__" citdl="shlex" line="283" name="lexer" />
+      <variable attributes="__hidden__" line="285" name="file" />
+    </scope>
+    

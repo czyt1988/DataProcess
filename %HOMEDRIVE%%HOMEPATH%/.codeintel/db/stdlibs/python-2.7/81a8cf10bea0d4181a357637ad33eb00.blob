@@ -1,0 +1,243 @@
+<scope doc="Abstract Base Classes (ABCs) for numbers, according to PEP 3141.&#10;TODO: Fill out more detailed documentation on the operators." ilk="blob" lang="Python" name="numbers">
+      <scope classrefs="type" doc="Metaclass for defining Abstract Base Classes (ABCs).&#10;Use this metaclass to create an ABC.  An ABC can be subclassed directly, and then acts as a mix-in class.  You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super())." ilk="class" name="ABCMeta">
+        <scope ilk="function" name="__new__" signature="__new__(mcls, name, bases, namespace)" />
+        <scope doc="Override for isinstance(instance, cls)." ilk="function" name="__instancecheck__" />
+        <scope doc="Register a virtual subclass of an ABC." ilk="function" name="register" />
+        <scope doc="Override for issubclass(subclass, cls)." ilk="function" name="__subclasscheck__" />
+        <scope doc="Debug helper to print the ABC registry." ilk="function" name="_dump_registry" />
+      </scope>
+      <scope classrefs="Number" doc="Complex defines the operations that work on the builtin complex type.&#10;In short, those are: a conversion to complex, .real, .imag, +, -, *, /, abs(), .conjugate, ==, and !=.  If it is given heterogenous arguments, and doesn't have special knowledge about them, it should fall back to the builtin complex type as described below." ilk="class" line="34" lineend="164" name="Complex">
+        <scope doc="self != other" ilk="function" line="161" lineend="164" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other / self with __future__ division" ilk="function" line="132" lineend="134" name="__rtruediv__" signature="__rtruediv__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other / self without __future__ division" ilk="function" line="119" lineend="121" name="__rdiv__" signature="__rdiv__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other + self" ilk="function" line="78" lineend="80" name="__radd__" signature="__radd__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self / other with __future__ division." ilk="function" line="124" lineend="129" name="__truediv__" signature="__truediv__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other - self" ilk="function" line="96" lineend="98" name="__rsub__" returns="Complex" signature="__rsub__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self**exponent; should promote to float or complex when&#10;necessary." ilk="function" line="137" lineend="139" name="__pow__" signature="__pow__(exponent)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="exponent" />
+        </scope>
+        <scope doc="self + other" ilk="function" line="73" lineend="75" name="__add__" signature="__add__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="(x+y*i).conjugate() returns (x-y*i)." ilk="function" line="152" lineend="154" name="conjugate" signature="conjugate()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="other * self" ilk="function" line="106" lineend="108" name="__rmul__" signature="__rmul__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self == other" ilk="function" line="157" lineend="159" name="__eq__" signature="__eq__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return a builtin complex instance. Called for complex(self)." ilk="function" line="48" name="__complex__" signature="__complex__()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="base ** self" ilk="function" line="142" lineend="144" name="__rpow__" signature="__rpow__(base)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="base" />
+        </scope>
+        <scope doc="True if self != 0. Called for bool(self)." ilk="function" line="52" lineend="54" name="__nonzero__" returns="bool" signature="__nonzero__()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="self / other without __future__ division" ilk="function" line="111" lineend="116" name="__div__" signature="__div__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Returns the Real distance from 0. Called for abs(self)." ilk="function" line="147" lineend="149" name="__abs__" signature="__abs__()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="+self" ilk="function" line="88" lineend="90" name="__pos__" signature="__pos__()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="-self" ilk="function" line="83" lineend="85" name="__neg__" signature="__neg__()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="self - other" ilk="function" line="92" lineend="94" name="__sub__" returns="Complex" signature="__sub__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self * other" ilk="function" line="101" lineend="103" name="__mul__" signature="__mul__(other)">
+          <variable citdl="Complex" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Retrieve the real component of this number." ilk="function" line="57" lineend="62" name="real" signature="real()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="45" name="__slots__" />
+        <scope doc="Retrieve the imaginary component of this number." ilk="function" line="65" lineend="70" name="imag" signature="imag()">
+          <variable citdl="Complex" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="Rational" doc="Integral adds a conversion to long and the bit-string operations.&#10;" ilk="class" line="295" lineend="388" name="Integral">
+        <scope doc="~self" ilk="function" line="371" lineend="373" name="__invert__" signature="__invert__()">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <scope doc="other | self" ilk="function" line="366" lineend="368" name="__ror__" signature="__ror__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other &gt;&gt; self" ilk="function" line="336" lineend="338" name="__rrshift__" signature="__rrshift__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self | other" ilk="function" line="361" lineend="363" name="__or__" signature="__or__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self &lt;&lt; other" ilk="function" line="321" lineend="323" name="__lshift__" signature="__lshift__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self &amp; other" ilk="function" line="341" lineend="343" name="__and__" signature="__and__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other &lt;&lt; self" ilk="function" line="326" lineend="328" name="__rlshift__" signature="__rlshift__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other ^ self" ilk="function" line="356" lineend="358" name="__rxor__" signature="__rxor__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="float(self) == float(long(self))" ilk="function" line="376" lineend="378" name="__float__" returns="float()" signature="float(self) == float(long(self))">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <scope doc="self &gt;&gt; other" ilk="function" line="331" lineend="333" name="__rshift__" signature="__rshift__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other &amp; self" ilk="function" line="346" lineend="348" name="__rand__" signature="__rand__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self ^ other" ilk="function" line="351" lineend="353" name="__xor__" signature="__xor__(other)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="index(self)" ilk="function" line="305" lineend="307" name="__index__" returns="long()" signature="index(self)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <scope doc="long(self)" ilk="function" line="301" lineend="303" name="__long__" signature="long(self)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <scope doc="self ** exponent % modulus, but maybe faster." ilk="function" line="310" lineend="318" name="__pow__" signature="__pow__(exponent, modulus=None)">
+          <variable citdl="Integral" ilk="argument" name="self" />
+          <variable ilk="argument" name="modulus" />
+          <variable ilk="argument" name="exponent" />
+        </scope>
+        <scope attributes="__hidden__" doc="Integers have a denominator of 1." ilk="function" line="386" lineend="388" name="denominator (property getter)" returns="int" signature="denominator (property getter)()">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="298" name="__slots__" />
+        <scope attributes="__hidden__" doc="Integers are their own numerators." ilk="function" line="381" lineend="383" name="numerator (property getter)" returns="Integral" signature="numerator (property getter)()">
+          <variable citdl="Integral" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="Integral" line="381" name="numerator" />
+        <variable attributes="property" citdl="int" line="386" name="denominator" />
+      </scope>
+      <scope classrefs="object" doc="All numbers inherit from this class.&#10;If you just want to check if an argument x is a number, without caring what kind, use isinstance(x, Number)." ilk="class" line="13" lineend="23" name="Number">
+        <variable line="23" name="__hash__" />
+        <variable citdl="tuple" line="20" name="__slots__" />
+        <variable citdl="ABCMeta" line="19" name="__metaclass__" />
+      </scope>
+      <scope classrefs="Real" doc=".numerator and .denominator should be in lowest terms.&#10;" ilk="class" line="270" lineend="292" name="Rational">
+        <scope doc="It's important that this conversion use the integer's &quot;true&quot;&#10;division rather than casting one side to float before&#10;dividing so that ratios of huge integers convert without&#10;overflowing." ilk="function" line="284" lineend="292" name="__float__" returns="Rational.numerator" signature="float(self) = self.numerator / self.denominator">
+          <variable citdl="Rational" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="273" name="__slots__" />
+        <scope ilk="function" line="280" lineend="281" name="denominator" signature="denominator()">
+          <variable citdl="Rational" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="276" lineend="277" name="numerator" signature="numerator()">
+          <variable citdl="Rational" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="Complex" doc="To Complex, Real adds the operations that work on real numbers.&#10;In short, those are: a conversion to float, trunc(), divmod, %, &lt;, &lt;=, &gt;, and &gt;=.  Real also provides defaults for the derived operations." ilk="class" line="169" lineend="265" name="Real">
+        <scope doc="The pair (self // other, self % other)." ilk="function" line="208" lineend="214" name="__rdivmod__" returns="tuple" signature="divmod(other, self)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="The pair (self // other, self % other)." ilk="function" line="200" lineend="206" name="__divmod__" returns="tuple" signature="divmod(self, other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Conjugate is a no-op for Reals." ilk="function" line="263" lineend="265" name="conjugate" returns="Real" signature="conjugate()">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+        <scope doc="other % self" ilk="function" line="232" lineend="234" name="__rmod__" signature="__rmod__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self &lt; other" ilk="function" line="237" lineend="241" name="__lt__" signature="__lt__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="complex(self) == complex(float(self), 0)" ilk="function" line="249" lineend="251" name="__complex__" returns="complex()" signature="complex(self) == complex(float(self), 0)">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Truncates self to an Integral." ilk="function" line="188" lineend="198" name="__trunc__" signature="trunc(self)">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+        <scope doc="self % other" ilk="function" line="227" lineend="229" name="__mod__" signature="__mod__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self &lt;= other" ilk="function" line="244" lineend="246" name="__le__" signature="__le__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="other // self: The floor() of other/self." ilk="function" line="222" lineend="224" name="__rfloordiv__" signature="__rfloordiv__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="self // other: The floor() of self/other." ilk="function" line="217" lineend="219" name="__floordiv__" signature="__floordiv__(other)">
+          <variable citdl="Real" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Any Real can be converted to a native float object." ilk="function" line="181" lineend="185" name="__float__" signature="__float__()">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="Real" line="254" name="real" />
+        <variable citdl="tuple" line="178" name="__slots__" />
+        <variable attributes="property" citdl="int" line="259" name="imag" />
+        <scope attributes="__hidden__" doc="Real numbers are their real component." ilk="function" line="254" lineend="256" name="real (property getter)" returns="Real" signature="real (property getter)()">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" doc="Real numbers have no imaginary component." ilk="function" line="259" lineend="261" name="imag (property getter)" returns="int" signature="imag (property getter)()">
+          <variable citdl="Real" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="11" name="__all__" />
+      <scope doc="A decorator indicating abstract methods." ilk="function" name="abstractmethod" signature="abstractmethod(funcobj)" />
+      <scope classrefs="property" doc="A decorator indicating abstract properties.&#10;Requires that the metaclass is ABCMeta or derived from it.  A class that has a metaclass derived from ABCMeta cannot be instantiated unless all of its abstract properties are overridden. The abstract properties can be called using any of the normal 'super' call mechanisms.  Usage:  class C: __metaclass__ = ABCMeta" ilk="class" name="abstractproperty" />
+      <variable citdl="__future__._Feature" name="division" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+    </scope>
+    

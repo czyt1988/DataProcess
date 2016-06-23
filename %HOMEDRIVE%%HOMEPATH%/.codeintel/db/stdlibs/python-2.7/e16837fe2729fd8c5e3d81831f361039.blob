@@ -1,0 +1,626 @@
+<scope doc="Logging package for Python. Based on PEP 282 and comments thereto in&#10;comp.lang.python, and influenced by Apache's log4j system.  Copyright (C) 2001-2010 Vinay Sajip. All Rights Reserved.  To use, simply 'import logging' and log away!" ilk="blob" lang="Python" name="logging">
+      <variable citdl="str" line="1469" name="BASIC_FORMAT" />
+      <scope classrefs="object" doc="A formatter suitable for formatting a number of records.&#10;" ilk="class" line="490" lineend="526" name="BufferingFormatter">
+        <scope doc="Return the footer string for the specified records." ilk="function" line="510" lineend="514" name="formatFooter" returns="str" signature="formatFooter(records)">
+          <variable ilk="argument" name="records" />
+          <variable citdl="BufferingFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Format the specified records and return the result as a&#10;string." ilk="function" line="516" lineend="526" name="format" returns="str" signature="format(records)">
+          <variable ilk="argument" name="records" />
+          <variable citdl="BufferingFormatter" ilk="argument" name="self" />
+          <variable citdl="str" line="520" name="rv" />
+        </scope>
+        <scope doc="Return the header string for the specified records." ilk="function" line="504" lineend="508" name="formatHeader" returns="str" signature="formatHeader(records)">
+          <variable ilk="argument" name="records" />
+          <variable citdl="BufferingFormatter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Optionally specify a formatter which will be used to format&#10;each individual record." ilk="function" line="494" lineend="502" name="__init__" signature="BufferingFormatter(linefmt=None)">
+          <variable ilk="argument" name="linefmt" />
+          <variable citdl="BufferingFormatter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Formatter" line="500" name="linefmt" />
+      </scope>
+      <variable citdl="int" line="128" name="CRITICAL" />
+      <variable citdl="int" line="134" name="DEBUG" />
+      <variable citdl="int" line="130" name="ERROR" />
+      <variable citdl="int" line="129" name="FATAL" />
+      <scope classrefs="StreamHandler" doc="A handler class which writes formatted logging records to disk files.&#10;" ilk="class" line="872" lineend="926" name="FileHandler">
+        <scope doc="Open the specified file and use it as the stream for&#10;logging." ilk="function" line="876" lineend="893" name="__init__" signature="FileHandler(filename, mode='a', encoding=None, delay=0)">
+          <variable citdl="int" ilk="argument" name="delay" />
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Closes the stream." ilk="function" line="895" lineend="904" name="close" signature="close()">
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="917" lineend="926" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Open the current base file with the (original) mode and&#10;encoding." ilk="function" line="906" lineend="915" name="_open" returns="open()" signature="_open()">
+          <variable citdl="FileHandler" ilk="argument" name="self" />
+          <variable citdl="open()" line="912" name="stream" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.path.abspath()" line="884" name="baseFilename" />
+        <variable attributes="__instancevar__" citdl="str" line="885" name="mode" />
+        <variable attributes="__instancevar__" citdl="_open()" line="891" name="stream" />
+        <variable attributes="__instancevar__" line="886" name="encoding" />
+      </scope>
+      <scope classrefs="object" doc="Filter instances are used to perform arbitrary filtering of LogRecords.&#10;Loggers and Handlers can optionally use Filter instances to filter records as desired. The base filter class only allows events which are below a certain point in the logger hierarchy. For example, a filter initialized with &quot;A.B&quot; will allow events logged by loggers &quot;A.B&quot;, &quot;A.B.C&quot;, &quot;A.B.C.D&quot;, &quot;A.B.D&quot; etc. but not &quot;A.BB&quot;, &quot;B.A.B&quot; etc. If initialized with the empty string, all events are passed." ilk="class" line="532" lineend="567" name="Filter">
+        <scope doc="Determine if the specified record is to be logged." ilk="function" line="554" lineend="567" name="filter" returns="bool" signature="filter(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Filter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a filter." ilk="function" line="543" lineend="552" name="__init__" signature="Filter(name='')">
+          <variable citdl="Filter" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="551" name="name" />
+        <variable attributes="__instancevar__" citdl="len()" line="552" name="nlen" />
+      </scope>
+      <scope classrefs="object" doc="A base class for loggers and handlers which allows them to share&#10;common code." ilk="class" line="569" lineend="607" name="Filterer">
+        <scope doc="Determine if a record is loggable by consulting all the&#10;filters." ilk="function" line="594" lineend="607" name="filter" returns="int" signature="filter(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Filterer" ilk="argument" name="self" />
+          <variable citdl="int" line="602" name="rv" />
+        </scope>
+        <scope doc="Add the specified filter to this handler." ilk="function" line="580" lineend="585" name="addFilter" signature="addFilter(filter)">
+          <variable ilk="argument" name="filter" />
+          <variable citdl="Filterer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove the specified filter from this handler." ilk="function" line="587" lineend="592" name="removeFilter" signature="removeFilter(filter)">
+          <variable ilk="argument" name="filter" />
+          <variable citdl="Filterer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize the list of filters to be an empty list." ilk="function" line="574" lineend="578" name="__init__" signature="Filterer()">
+          <variable citdl="Filterer" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="578" name="filters" />
+      </scope>
+      <scope classrefs="object" doc="Formatter instances are used to convert a LogRecord to text.&#10;Formatters need to know how a LogRecord is constructed. They are responsible for converting a LogRecord to (usually) a string which can be interpreted by either a human or an external system. The base Formatter allows a formatting string to be specified. If none is supplied, the default value of &quot;%s(message)\n&quot; is used.  The Formatter can be initialized with a format string which makes use of knowledge of the LogRecord attributes - e.g. the default value mentioned above makes use of the fact that the user's message and arguments are pre- formatted into a LogRecord's message attribute. Currently, the useful" ilk="class" line="346" lineend="483" name="Formatter">
+        <scope doc="Format the specified record as text." ilk="function" line="451" lineend="483" name="format" returns="str" signature="format(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable citdl="str" line="467" name="s" />
+        </scope>
+        <scope doc="Check if the format uses the creation time of the record." ilk="function" line="445" lineend="449" name="usesTime" returns="bool" signature="usesTime()">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the creation time of the specified LogRecord as&#10;formatted text." ilk="function" line="404" lineend="428" name="formatTime" returns="time.strftime()" signature="formatTime(record, datefmt=None)">
+          <variable ilk="argument" name="datefmt" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="time.strftime()" line="424" name="s" />
+          <variable citdl="time.strftime()" line="426" name="t" />
+          <variable citdl="converter()" line="422" name="ct" />
+        </scope>
+        <scope doc="Format and return the specified exception information as a&#10;string." ilk="function" line="430" lineend="443" name="formatException" returns="sio.getvalue()" signature="formatException(ei)">
+          <variable citdl="cStringIO.StringIO()" line="437" name="sio" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="ei" />
+          <variable citdl="sio.getvalue()" line="439" name="s" />
+        </scope>
+        <scope doc="Initialize the formatter with specified format strings." ilk="function" line="390" lineend="402" name="__init__" signature="Formatter(fmt=None, datefmt=None)">
+          <variable ilk="argument" name="datefmt" />
+          <variable ilk="argument" name="fmt" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="402" name="datefmt" />
+        <variable attributes="protected __instancevar__" citdl="str" line="399" name="_fmt" />
+        <variable citdl="time.localtime" line="388" name="converter" />
+      </scope>
+      <scope classrefs="Filterer" doc="Handler instances dispatch logging events to specific destinations.&#10;The base handler class. Acts as a placeholder which defines the Handler interface. Handlers can optionally use Formatter instances to format records as desired. By default, no formatter is specified; in this case, the 'raw' message as determined by record.message is logged." ilk="class" line="641" lineend="803" name="Handler">
+        <scope doc="Acquire the I/O thread lock." ilk="function" line="688" lineend="693" name="acquire" signature="acquire()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Conditionally emit the specified logging record." ilk="function" line="731" lineend="747" name="handle" returns="self.filter()" signature="handle(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable citdl="self.filter()" line="740" name="rv" />
+        </scope>
+        <scope doc="Format the specified record." ilk="function" line="708" lineend="719" name="format" returns="fmt.format()" signature="format(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable citdl="Formatter" line="716" name="fmt" />
+        </scope>
+        <scope doc="Set the logging level of this handler." ilk="function" line="702" lineend="706" name="setLevel" signature="setLevel(level)">
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Handle errors which occur during an emit() call." ilk="function" line="781" lineend="803" name="handleError" signature="handleError(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable citdl="sys.exc_info()" line="794" name="ei" />
+        </scope>
+        <scope doc="Ensure all logging output has been flushed." ilk="function" line="755" lineend="762" name="flush" signature="flush()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Tidy up any resources used by the handler." ilk="function" line="764" lineend="779" name="close" signature="close()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the formatter for this handler." ilk="function" line="749" lineend="753" name="setFormatter" signature="setFormatter(fmt)">
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable ilk="argument" name="fmt" />
+        </scope>
+        <scope ilk="function" line="666" lineend="675" name="set_name" signature="set_name(name)">
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="663" lineend="664" name="get_name" signature="get_name()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Acquire a thread lock for serializing access to the&#10;underlying I/O." ilk="function" line="679" lineend="686" name="createLock" signature="createLock()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initializes the instance - basically setting the formatter&#10;to None and the filter list to empty." ilk="function" line="650" lineend="661" name="__init__" signature="Handler(level=NOTSET)">
+          <variable citdl="Handler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Release the I/O thread lock." ilk="function" line="695" lineend="700" name="release" signature="release()">
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Do whatever it takes to actually log the specified logging&#10;record." ilk="function" line="721" lineend="728" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Handler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="threading.RLock()" line="684" name="lock" />
+        <variable attributes="__instancevar__" line="658" name="formatter" />
+        <variable attributes="protected __instancevar__" line="656" name="_name" />
+        <variable citdl="property()" line="677" name="name" />
+        <variable attributes="__instancevar__" citdl="_checkLevel()" line="657" name="level" />
+      </scope>
+      <variable citdl="int" line="133" name="INFO" />
+      <scope classrefs="object" doc="A LogRecord instance represents an event being logged.&#10;LogRecord instances are created every time something is logged. They contain all the information pertinent to the event being logged. The main information passed in is in msg and args, which are combined using str(msg) % args to create the message field of the record. The record also includes information such as when the record was created, the source line where the logging call was made, and any exception information to be logged." ilk="class" line="230" lineend="329" name="LogRecord">
+        <scope ilk="function" line="307" lineend="309" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="LogRecord" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the message for this LogRecord." ilk="function" line="311" lineend="329" name="getMessage" returns="str()" signature="getMessage()">
+          <variable citdl="str()" line="319" name="msg" />
+          <variable citdl="LogRecord" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a logging record with interesting information." ilk="function" line="242" lineend="305" name="__init__" signature="LogRecord(name, level, pathname, lineno, msg, args, exc_info, func=None)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="level" />
+          <variable citdl="LogRecord" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="pathname" />
+          <variable ilk="argument" name="lineno" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="msg" />
+          <variable ilk="argument" name="exc_info" />
+          <variable citdl="sys.modules.get()" line="292" name="mp" />
+          <variable citdl="time.time()" line="247" name="ct" />
+        </scope>
+        <variable attributes="__instancevar__" line="284" name="threadName" />
+        <variable attributes="__instancevar__" line="248" name="name" />
+        <variable attributes="__instancevar__" citdl="thread.get_ident()" line="283" name="thread" />
+        <variable attributes="__instancevar__" citdl="time.time()" line="281" name="relativeCreated" />
+        <variable attributes="__instancevar__" citdl="os.getpid()" line="303" name="process" />
+        <variable attributes="__instancevar__" line="265" name="args" />
+        <variable attributes="__instancevar__" citdl="str" line="271" name="module" />
+        <variable attributes="__instancevar__" line="278" name="funcName" />
+        <variable attributes="__instancevar__" line="267" name="levelno" />
+        <variable attributes="__instancevar__" citdl="str" line="289" name="processName" />
+        <variable attributes="__instancevar__" line="276" name="exc_text" />
+        <variable attributes="__instancevar__" line="277" name="lineno" />
+        <variable attributes="__instancevar__" line="275" name="exc_info" />
+        <variable attributes="__instancevar__" citdl="time.time()" line="279" name="created" />
+        <variable attributes="__instancevar__" line="249" name="msg" />
+        <variable attributes="__instancevar__" line="268" name="pathname" />
+        <variable attributes="__instancevar__" citdl="os.path.basename()" line="270" name="filename" />
+        <variable attributes="__instancevar__" citdl="getLevelName()" line="266" name="levelname" />
+        <variable attributes="__instancevar__" citdl="long()" line="280" name="msecs" />
+      </scope>
+      <scope classrefs="Filterer" doc="Instances of the Logger class represent a single logging channel. A&#10;&quot;logging channel&quot; indicates an area of an application. Exactly how an &quot;area&quot; is defined is up to the application developer. Since an application can have any number of areas, logging channels are identified by a unique string. Application areas can be nested (e.g. an area of &quot;input processing&quot; might include sub-areas &quot;read CSV files&quot;, &quot;read XLS files&quot; and &quot;read Gnumeric files&quot;). To cater for this natural nesting, channel names are organized into a namespace hierarchy where levels are separated by periods, much like the Java or Python package namespace. So in the instance given above, channel names might be &quot;input&quot; for the upper level, and &quot;input.csv&quot;, &quot;input.xls&quot; and &quot;input.gnu&quot; for the sub-levels." ilk="class" line="1077" lineend="1349" name="Logger">
+        <scope doc="Call the handlers for the specified record." ilk="function" line="1252" lineend="1260" name="handle" signature="handle(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the logging level of this logger." ilk="function" line="1104" lineend="1108" name="setLevel" signature="setLevel(level)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Pass a record to all relevant handlers." ilk="function" line="1284" lineend="1308" name="callHandlers" signature="callHandlers(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable citdl="Logger" line="1294" name="c" />
+          <variable citdl="int" line="1295" name="found" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'WARNING'." ilk="function" line="1146" name="warn" />
+        <scope doc="Find the stack frame of the caller so that we can note the&#10;source file name, line number and function name." ilk="function" line="1197" lineend="1216" name="findCaller" returns="tuple" signature="findCaller()">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable citdl="os.path.normcase()" line="1210" name="filename" />
+          <variable citdl="f.f_code" line="1209" name="co" />
+          <variable citdl="tuple" line="1207" name="rv" />
+          <variable citdl="f.f_back" line="1202" name="f" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'WARNING'." ilk="function" line="1134" lineend="1144" name="warning" signature="warning(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Low-level logging routine which creates a LogRecord and then&#10;calls all the handlers of this logger to handle the record." ilk="function" line="1231" lineend="1250" name="_log" signature="_log(level, msg, args, exc_info=None, extra=None)">
+          <variable ilk="argument" name="extra" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="makeRecord()" line="1249" name="record" />
+          <variable citdl="int" line="1241" name="lno" />
+          <variable citdl="str" line="1241" name="func" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="sys.exc_info()" ilk="argument" name="exc_info" />
+          <variable ilk="argument" name="level" />
+          <variable citdl="str" line="1241" name="fn" />
+        </scope>
+        <scope doc="Is this logger enabled for level 'level'?" ilk="function" line="1324" lineend="1330" name="isEnabledFor" returns="bool" signature="isEnabledFor(level)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Get the effective level for this logger." ilk="function" line="1310" lineend="1322" name="getEffectiveLevel" returns="int" signature="getEffectiveLevel()">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable citdl="Logger" line="1317" name="logger" />
+        </scope>
+        <scope doc="Initialize the logger with a name and an optional level." ilk="function" line="1092" lineend="1102" name="__init__" signature="Logger(name, level=NOTSET)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="A factory method which can be overridden in subclasses to&#10;create specialized LogRecords." ilk="function" line="1218" lineend="1229" name="makeRecord" returns="LogRecord" signature="makeRecord(name, level, fn, lno, msg, args, exc_info, func=None, extra=None)">
+          <variable ilk="argument" name="extra" />
+          <variable citdl="LogRecord" line="1223" name="rv" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="level" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="lno" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="msg" />
+          <variable ilk="argument" name="exc_info" />
+          <variable ilk="argument" name="fn" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'INFO'." ilk="function" line="1122" lineend="1132" name="info" signature="info(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Convenience method for logging an ERROR with exception&#10;information." ilk="function" line="1160" lineend="1164" name="exception" signature="exception(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Log 'msg % args' with the integer severity 'level'." ilk="function" line="1180" lineend="1195" name="log" signature="log(level, msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Add the specified handler to this logger." ilk="function" line="1262" lineend="1271" name="addHandler" signature="addHandler(hdlr)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="hdlr" />
+        </scope>
+        <scope doc="Remove the specified handler from this logger." ilk="function" line="1273" lineend="1282" name="removeHandler" signature="removeHandler(hdlr)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable ilk="argument" name="hdlr" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'CRITICAL'." ilk="function" line="1166" lineend="1176" name="critical" signature="critical(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Get a logger which is a descendant to this one." ilk="function" line="1332" lineend="1349" name="getChild" returns="self.manager.getLogger()" signature="getChild(suffix)">
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable citdl="str.join()" ilk="argument" name="suffix" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'ERROR'." ilk="function" line="1148" lineend="1158" name="error" signature="error(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'DEBUG'." ilk="function" line="1110" lineend="1120" name="debug" signature="debug(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Logger" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Log 'msg % args' with severity 'CRITICAL'." ilk="function" line="1178" name="fatal" />
+        <variable attributes="__instancevar__" line="1097" name="name" />
+        <variable attributes="__instancevar__" line="1099" name="parent" />
+        <variable attributes="__instancevar__" citdl="list" line="1101" name="handlers" />
+        <variable attributes="__instancevar__" citdl="_checkLevel()" line="1098" name="level" />
+        <variable attributes="__instancevar__" citdl="int" line="1102" name="disabled" />
+        <variable attributes="__instancevar__" citdl="Manager" line="1463" name="manager" />
+        <variable attributes="__instancevar__" citdl="int" line="1100" name="propagate" />
+        <variable attributes="__instancevar__" citdl="RootLogger" line="1462" name="root" />
+      </scope>
+      <scope classrefs="object" doc="An adapter for loggers which makes it easier to specify contextual&#10;information in logging output." ilk="class" line="1365" lineend="1459" name="LoggerAdapter">
+        <scope doc="Delegate an info call to the underlying logger, after adding&#10;contextual information from this adapter instance." ilk="function" line="1406" lineend="1412" name="info" signature="info(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate a log call to the underlying logger, after adding&#10;contextual information from this adapter instance." ilk="function" line="1447" lineend="1453" name="log" signature="log(level, msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Process the logging message and keyword arguments passed in&#10;to a logging call to insert contextual information." ilk="function" line="1385" lineend="1396" name="process" returns="tuple" signature="process(msg, kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate an exception call to the underlying logger, after&#10;adding contextual information from this adapter instance." ilk="function" line="1430" lineend="1437" name="exception" signature="exception(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate a debug call to the underlying logger, after adding&#10;contextual information from this adapter instance." ilk="function" line="1398" lineend="1404" name="debug" signature="debug(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate a warning call to the underlying logger, after&#10;adding contextual information from this adapter instance." ilk="function" line="1414" lineend="1420" name="warning" signature="warning(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate a critical call to the underlying logger, after&#10;adding contextual information from this adapter instance." ilk="function" line="1439" lineend="1445" name="critical" signature="critical(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="Delegate an error call to the underlying logger, after&#10;adding contextual information from this adapter instance." ilk="function" line="1422" lineend="1428" name="error" signature="error(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope doc="See if the underlying logger is enabled for the specified&#10;level." ilk="function" line="1455" lineend="1459" name="isEnabledFor" returns="self.logger.isEnabledFor()" signature="isEnabledFor(level)">
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Initialize the adapter with a logger and a dict-like object&#10;which provides contextual information." ilk="function" line="1371" lineend="1383" name="__init__" signature="LoggerAdapter(logger, extra)">
+          <variable citdl="LoggerAdapter" ilk="argument" name="self" />
+          <variable ilk="argument" name="logger" />
+          <variable ilk="argument" name="extra" />
+        </scope>
+        <variable attributes="__instancevar__" line="1382" name="logger" />
+        <variable attributes="__instancevar__" line="1383" name="extra" />
+      </scope>
+      <scope classrefs="object" doc="There is [under normal circumstances] just one Manager instance, which&#10;holds the hierarchy of loggers." ilk="class" line="979" lineend="1071" name="Manager">
+        <scope doc="Ensure that children of the placeholder ph are connected to&#10;the specified logger." ilk="function" line="1060" lineend="1071" name="_fixupChildren" signature="_fixupChildren(ph, alogger)">
+          <variable citdl="len()" line="1066" name="namelen" />
+          <variable citdl="Manager" ilk="argument" name="self" />
+          <variable ilk="argument" name="ph" />
+          <variable ilk="argument" name="alogger" />
+          <variable citdl="alogger.name" line="1065" name="name" />
+        </scope>
+        <scope doc="Get a logger with the specified name (channel name),&#10;creating it if it doesn't yet exist." ilk="function" line="994" lineend="1024" name="getLogger" signature="getLogger(name)">
+          <variable citdl="Manager" ilk="argument" name="self" />
+          <variable line="1011" name="ph" />
+          <variable line="1005" name="rv" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Set the class to be used when instantiating a logger with&#10;this Manager." ilk="function" line="1026" lineend="1034" name="setLoggerClass" signature="setLoggerClass(klass)">
+          <variable citdl="Manager" ilk="argument" name="self" />
+          <variable ilk="argument" name="klass" />
+        </scope>
+        <scope doc="Ensure that there are either loggers or placeholders all the&#10;way from the specified logger to the root of the logger&#10;hierarchy." ilk="function" line="1036" lineend="1058" name="_fixupParents" signature="_fixupParents(alogger)">
+          <variable line="1043" name="rv" />
+          <variable line="1049" name="obj" />
+          <variable citdl="alogger.name" line="1041" name="name" />
+          <variable citdl="name.rfind()" line="1042" name="i" />
+          <variable citdl="Manager" ilk="argument" name="self" />
+          <variable ilk="argument" name="alogger" />
+          <variable citdl="list" line="1045" name="substr" />
+        </scope>
+        <scope doc="Initialize the manager with the root node of the logger&#10;hierarchy." ilk="function" line="984" lineend="992" name="__init__" signature="Manager(rootnode)">
+          <variable citdl="Manager" ilk="argument" name="self" />
+          <variable ilk="argument" name="rootnode" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="990" name="emittedNoHandlerWarning" />
+        <variable attributes="__instancevar__" citdl="int" line="989" name="disable" />
+        <variable attributes="__instancevar__" line="988" name="root" />
+        <variable attributes="__instancevar__" citdl="dict" line="991" name="loggerDict" />
+        <variable attributes="__instancevar__" line="992" name="loggerClass" />
+      </scope>
+      <variable citdl="int" line="135" name="NOTSET" />
+      <scope classrefs="Handler" doc="This handler does nothing. It's intended to be used to avoid the&#10;&quot;No handlers could be found for logger XXX&quot; one-off warning. This is important for library code, which may contain code to log events. If a user of the library does not configure logging, the one-off warning might be produced; to avoid this, the library developer simply needs to instantiate a NullHandler and add it to the top-level logger of the library module or package." ilk="class" line="1652" lineend="1669" name="NullHandler">
+        <scope ilk="function" line="1668" lineend="1669" name="createLock" signature="createLock()">
+          <variable citdl="NullHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1662" lineend="1663" name="handle" signature="handle(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="NullHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1665" lineend="1666" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="NullHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="1669" name="lock" />
+      </scope>
+      <scope classrefs="object" doc="PlaceHolder instances are used in the Manager logger hierarchy to take&#10;the place of nodes for which no loggers have been defined. This class is intended for internal use only and not as part of the public API." ilk="class" line="932" lineend="952" name="PlaceHolder">
+        <scope doc="Add the specified logger as a child of this placeholder." ilk="function" line="945" lineend="952" name="append" signature="append(alogger)">
+          <variable citdl="PlaceHolder" ilk="argument" name="self" />
+          <variable ilk="argument" name="alogger" />
+        </scope>
+        <scope doc="Initialize with the specified logger being a child of this&#10;placeholder." ilk="function" line="938" lineend="943" name="__init__" signature="PlaceHolder(alogger)">
+          <variable citdl="PlaceHolder" ilk="argument" name="self" />
+          <variable ilk="argument" name="alogger" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="943" name="loggerMap" />
+      </scope>
+      <scope classrefs="Logger" doc="A root logger is not that different to any other logger, except that&#10;it must have a logging level and there is only one instance of it in the hierarchy." ilk="class" line="1351" lineend="1361" name="RootLogger">
+        <scope doc="Initialize the logger with the name &quot;root&quot;." ilk="function" line="1357" lineend="1361" name="__init__" signature="RootLogger(level)">
+          <variable citdl="RootLogger" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+      </scope>
+      <scope classrefs="Handler" doc="A handler class which writes logging records, appropriately formatted,&#10;to a stream. Note that this class does not close the stream, as sys.stdout or sys.stderr may be used." ilk="class" line="805" lineend="870" name="StreamHandler">
+        <scope doc="Flushes the stream." ilk="function" line="823" lineend="828" name="flush" signature="flush()">
+          <variable citdl="StreamHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="830" lineend="870" name="emit" signature="emit(record)">
+          <variable citdl="str" line="844" name="fs" />
+          <variable citdl="sys.stderr" line="843" name="stream" />
+          <variable citdl="StreamHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="self.format()" line="842" name="msg" />
+          <variable citdl="fs.decode()" line="851" name="ufs" />
+        </scope>
+        <scope doc="Initialize the handler." ilk="function" line="812" lineend="821" name="__init__" signature="StreamHandler(stream=None)">
+          <variable citdl="StreamHandler" ilk="argument" name="self" />
+          <variable citdl="sys.stderr" ilk="argument" name="stream" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="sys.stderr" line="821" name="stream" />
+      </scope>
+      <variable citdl="int" line="132" name="WARN" />
+      <variable citdl="int" line="131" name="WARNING" />
+      <variable citdl="list" line="28" name="__all__" />
+      <variable citdl="str" line="47" name="__author__" />
+      <variable citdl="str" line="50" name="__date__" />
+      <variable citdl="str" line="48" name="__status__" />
+      <variable citdl="str" line="49" name="__version__" />
+      <scope doc="Associate 'levelName' with 'level'." ilk="function" line="169" lineend="180" name="addLevelName" signature="addLevelName(level, levelName)">
+        <variable ilk="argument" name="levelName" />
+        <variable ilk="argument" name="level" />
+      </scope>
+      <import module="atexit" />
+      <scope doc="Do basic configuration for the logging system." ilk="function" line="1471" lineend="1524" name="basicConfig" signature="basicConfig(**kwargs)">
+        <variable citdl="kwargs.get()" line="1515" name="fs" />
+        <variable citdl="kwargs.get()" line="1513" name="stream" />
+        <variable citdl="kwargs.get()" line="1520" name="level" />
+        <variable citdl="Formatter" line="1517" name="fmt" />
+        <variable citdl="kwargs.get()" line="1516" name="dfs" />
+        <variable citdl="kwargs.get()" line="1508" name="filename" />
+        <variable citdl="kwargs.get()" line="1510" name="mode" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        <variable citdl="FileHandler" line="1511" name="hdlr" />
+      </scope>
+      <import module="cStringIO" />
+      <scope doc="If capture is true, redirect all warnings to the logging&#10;package." ilk="function" line="1693" lineend="1707" name="captureWarnings" signature="captureWarnings(capture)">
+        <variable ilk="argument" name="capture" />
+        <variable attributes="protected" citdl="warnings.showwarning" line="1702" name="_warnings_showwarning" />
+      </scope>
+      <import module="codecs" />
+      <scope doc="Log a message with severity 'CRITICAL' on the root logger." ilk="function" line="1551" lineend="1557" name="critical" signature="critical(msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Return the frame object for the caller's stack frame." ilk="function" line="74" lineend="79" name="currentframe" signature="currentframe()" />
+      <scope doc="Log a message with severity 'DEBUG' on the root logger." ilk="function" line="1594" lineend="1600" name="debug" signature="debug(msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Disable all logging calls of severity 'level' and below." ilk="function" line="1610" lineend="1614" name="disable" signature="disable(level)">
+        <variable ilk="argument" name="level" />
+      </scope>
+      <scope doc="Log a message with severity 'ERROR' on the root logger." ilk="function" line="1561" lineend="1567" name="error" signature="error(msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Log a message with severity 'ERROR' on the root logger, with&#10;exception information." ilk="function" line="1569" lineend="1574" name="exception" signature="exception(msg, *args)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Log a message with severity 'CRITICAL' on the root logger." ilk="function" line="1559" name="fatal" signature="fatal(msg, *args, **kwargs)" />
+      <scope doc="Return the textual representation of logging level 'level'." ilk="function" line="153" lineend="167" name="getLevelName" returns="_levelNames.get()" signature="getLevelName(level)">
+        <variable ilk="argument" name="level" />
+      </scope>
+      <scope doc="Return a logger with the specified name, creating it if&#10;necessary." ilk="function" line="1531" lineend="1540" name="getLogger" returns="RootLogger" signature="getLogger(name=None)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="Return the class to be used when instantiating a logger." ilk="function" line="972" lineend="977" name="getLoggerClass" signature="getLoggerClass()" />
+      <scope doc="Log a message with severity 'INFO' on the root logger." ilk="function" line="1586" lineend="1592" name="info" signature="info(msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Log 'msg % args' with the integer severity 'level' on the&#10;root logger." ilk="function" line="1602" lineend="1608" name="log" signature="log(level, msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="level" />
+      </scope>
+      <variable citdl="int" line="110" name="logMultiprocessing" />
+      <variable citdl="int" line="115" name="logProcesses" />
+      <variable citdl="int" line="105" name="logThreads" />
+      <scope doc="Make a LogRecord whose attributes are defined by the&#10;specified dictionary, This function is useful for converting&#10;a logging event received over a socket connection (which is&#10;sent as a dictionary) into a LogRecord instance." ilk="function" line="331" lineend="340" name="makeLogRecord" returns="LogRecord" signature="makeLogRecord(dict)">
+        <variable citdl="LogRecord" line="338" name="rv" />
+        <variable ilk="argument" name="dict" />
+      </scope>
+      <import module="os" />
+      <variable citdl="int" line="100" name="raiseExceptions" />
+      <variable citdl="RootLogger" line="1461" name="root" />
+      <scope doc="Set the class to be used when instantiating a logger." ilk="function" line="959" lineend="970" name="setLoggerClass" signature="setLoggerClass(klass)">
+        <variable attributes="protected" line="970" name="_loggerClass" />
+        <variable ilk="argument" name="klass" />
+      </scope>
+      <scope doc="Perform any cleanup actions in the logging system (e.g." ilk="function" line="1616" lineend="1643" name="shutdown" signature="shutdown(handlerList=[])">
+        <variable citdl="wr()" line="1627" name="h" />
+        <variable citdl="list" ilk="argument" name="handlerList" />
+      </scope>
+      <import module="sys" />
+      <import module="thread" />
+      <import module="threading" />
+      <import module="time" />
+      <import module="traceback" />
+      <scope doc="Log a message with severity 'WARNING' on the root logger." ilk="function" line="1584" name="warn" signature="warn(msg, *args, **kwargs)" />
+      <scope doc="Log a message with severity 'WARNING' on the root logger." ilk="function" line="1576" lineend="1582" name="warning" signature="warning(msg, *args, **kwargs)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <import module="warnings" />
+      <import module="weakref" />
+      <variable attributes="protected __hidden__" line="1673" name="_warnings_showwarning" />
+      <variable attributes="protected __hidden__" citdl="Formatter" line="488" name="_defaultFormatter" />
+      <variable attributes="protected __hidden__" citdl="str" line="66" name="_srcfile" />
+      <variable attributes="__hidden__" line="45" name="thread" />
+      <variable attributes="protected __hidden__" citdl="weakref.WeakValueDictionary()" line="613" name="_handlers" />
+      <variable attributes="protected __hidden__" citdl="time.time()" line="94" name="_startTime" />
+      <variable attributes="protected __hidden__" citdl="threading.RLock()" line="206" name="_lock" />
+      <variable attributes="protected __hidden__" citdl="dict" line="137" name="_levelNames" />
+      <variable attributes="protected __hidden__" citdl="False" line="57" name="_unicode" />
+      <scope attributes="protected __hidden__" doc="Add a handler to the internal cleanup list using a weak&#10;reference." ilk="function" line="631" lineend="639" name="_addHandlerRef" signature="_addHandlerRef(handler)">
+        <variable ilk="argument" name="handler" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="Logger" line="957" name="_loggerClass" />
+      <scope attributes="protected __hidden__" doc="Implementation of showwarnings which redirects to logging,&#10;which will first check to see if the file parameter is None." ilk="function" line="1675" lineend="1691" name="_showwarning" signature="_showwarning(message, category, filename, lineno, file=None, line=None)">
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="category" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="lineno" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="line" />
+        <variable citdl="warnings.formatwarning()" line="1687" name="s" />
+        <variable citdl="getLogger()" line="1688" name="logger" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Remove a handler reference from the internal cleanup list." ilk="function" line="616" lineend="629" name="_removeHandlerRef" signature="_removeHandlerRef(wr)">
+        <variable ilk="argument" name="wr" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Release the module-level lock acquired by calling&#10;_acquireLock()." ilk="function" line="219" lineend="224" name="_releaseLock" signature="_releaseLock()" />
+      <scope attributes="protected __hidden__" doc="Acquire the module-level lock for serializing access to&#10;shared data." ilk="function" line="210" lineend="217" name="_acquireLock" signature="_acquireLock()" />
+      <variable attributes="protected __hidden__" citdl="list" line="614" name="_handlerList" />
+      <scope attributes="protected __hidden__" ilk="function" line="182" lineend="191" name="_checkLevel" signature="_checkLevel(level)">
+        <variable ilk="argument" name="level" />
+        <variable line="184" name="rv" />
+      </scope>
+      <variable attributes="__hidden__" line="39" name="codecs" />
+    </scope>
+    

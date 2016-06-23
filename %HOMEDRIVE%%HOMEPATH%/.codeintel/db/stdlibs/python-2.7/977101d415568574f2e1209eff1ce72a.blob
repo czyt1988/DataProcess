@@ -1,0 +1,231 @@
+<scope doc="TELNET client class.&#10;Based on RFC 854: TELNET Protocol Specification, by J. Postel and J. Reynolds  Example:  &gt;&gt;&gt; from telnetlib import Telnet &gt;&gt;&gt; tn = Telnet('www.python.org', 79)   # connect to finger port &gt;&gt;&gt; tn.write('guido\r\n') &gt;&gt;&gt; print tn.read_all() Login       Name               TTY         Idle    When    Where" ilk="blob" lang="Python" name="telnetlib">
+      <variable citdl="str" line="62" name="AO" />
+      <variable citdl="str" line="109" name="AUTHENTICATION" />
+      <variable citdl="str" line="63" name="AYT" />
+      <variable citdl="str" line="72" name="BINARY" />
+      <variable citdl="str" line="91" name="BM" />
+      <variable citdl="str" line="60" name="BRK" />
+      <variable citdl="str" line="118" name="CHARSET" />
+      <variable citdl="str" line="120" name="COM_PORT_OPTION" />
+      <variable citdl="int" line="44" name="DEBUGLEVEL" />
+      <variable citdl="str" line="92" name="DET" />
+      <variable citdl="str" line="59" name="DM" />
+      <variable citdl="str" line="52" name="DO" />
+      <variable citdl="str" line="51" name="DONT" />
+      <variable citdl="str" line="64" name="EC" />
+      <variable citdl="str" line="73" name="ECHO" />
+      <variable citdl="str" line="65" name="EL" />
+      <variable citdl="str" line="110" name="ENCRYPT" />
+      <variable citdl="str" line="97" name="EOR" />
+      <variable citdl="str" line="129" name="EXOPL" />
+      <variable citdl="str" line="125" name="FORWARD_X" />
+      <variable citdl="str" line="66" name="GA" />
+      <variable citdl="str" line="50" name="IAC" />
+      <variable citdl="str" line="61" name="IP" />
+      <variable citdl="str" line="123" name="KERMIT" />
+      <variable citdl="str" line="105" name="LFLOW" />
+      <variable citdl="str" line="106" name="LINEMODE" />
+      <variable citdl="str" line="90" name="LOGOUT" />
+      <variable citdl="str" line="76" name="NAMS" />
+      <variable citdl="str" line="82" name="NAOCRD" />
+      <variable citdl="str" line="85" name="NAOFFD" />
+      <variable citdl="str" line="84" name="NAOHTD" />
+      <variable citdl="str" line="83" name="NAOHTS" />
+      <variable citdl="str" line="80" name="NAOL" />
+      <variable citdl="str" line="88" name="NAOLFD" />
+      <variable citdl="str" line="81" name="NAOP" />
+      <variable citdl="str" line="87" name="NAOVTD" />
+      <variable citdl="str" line="86" name="NAOVTS" />
+      <variable citdl="str" line="103" name="NAWS" />
+      <variable citdl="str" line="111" name="NEW_ENVIRON" />
+      <variable citdl="str" line="130" name="NOOPT" />
+      <variable citdl="str" line="58" name="NOP" />
+      <variable citdl="str" line="108" name="OLD_ENVIRON" />
+      <variable citdl="str" line="99" name="OUTMRK" />
+      <variable citdl="str" line="128" name="PRAGMA_HEARTBEAT" />
+      <variable citdl="str" line="126" name="PRAGMA_LOGON" />
+      <variable citdl="str" line="74" name="RCP" />
+      <variable citdl="str" line="79" name="RCTE" />
+      <variable citdl="str" line="119" name="RSP" />
+      <variable citdl="str" line="67" name="SB" />
+      <variable citdl="str" line="57" name="SE" />
+      <variable citdl="str" line="124" name="SEND_URL" />
+      <variable citdl="str" line="75" name="SGA" />
+      <variable citdl="str" line="95" name="SNDLOC" />
+      <variable citdl="str" line="127" name="SSPI_LOGON" />
+      <variable citdl="str" line="77" name="STATUS" />
+      <variable citdl="str" line="93" name="SUPDUP" />
+      <variable citdl="str" line="94" name="SUPDUPOUTPUT" />
+      <variable citdl="str" line="121" name="SUPPRESS_LOCAL_ECHO" />
+      <variable citdl="int" line="47" name="TELNET_PORT" />
+      <variable citdl="str" line="122" name="TLS" />
+      <variable citdl="str" line="78" name="TM" />
+      <variable citdl="str" line="116" name="TN3270E" />
+      <variable citdl="str" line="104" name="TSPEED" />
+      <variable citdl="str" line="100" name="TTYLOC" />
+      <variable citdl="str" line="96" name="TTYPE" />
+      <variable citdl="str" line="98" name="TUID" />
+      <scope doc="Telnet interface class.&#10;An instance of this class represents a connection to a telnet server.  The instance is initially not connected; the open() method must be used to establish a connection.  Alternatively, the host name and optional port number can be passed to the constructor, too.  Don't try to reopen an already connected instance.  This class has many read_*() methods.  Note that some of them raise EOFError when the end of the connection is read, because" ilk="class" line="132" lineend="625" name="Telnet">
+        <scope doc="Set the debug level." ilk="function" line="245" lineend="251" name="set_debuglevel" signature="set_debuglevel(debuglevel)">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable ilk="argument" name="debuglevel" />
+        </scope>
+        <scope doc="Return the socket object used internally." ilk="function" line="262" lineend="264" name="get_socket" returns="socket.create_connection()" signature="get_socket()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return any data available in the SB ... SE queue." ilk="function" line="398" lineend="408" name="read_sb_data" returns="str" signature="read_sb_data()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="str" line="406" name="buf" />
+        </scope>
+        <scope doc="Read until one from a list of a regular expressions matches." ilk="function" line="570" lineend="625" name="expect" returns="tuple" signature="expect(list, timeout=None)">
+          <variable citdl="time()" line="601" name="time_start" />
+          <variable line="618" name="w" />
+          <variable citdl="tuple" line="617" name="s_args" />
+          <variable line="605" name="m" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="list" />
+          <variable citdl="time()" line="614" name="elapsed" />
+          <variable line="592" name="re" />
+          <variable line="618" name="r" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="list" line="608" name="text" />
+          <variable citdl="range()" line="594" name="indices" />
+          <variable line="618" name="x" />
+          <variable citdl="m.end()" line="607" name="e" />
+        </scope>
+        <scope doc="Close the connection." ilk="function" line="253" lineend="260" name="close" signature="close()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Test whether data is available on the socket." ilk="function" line="521" lineend="523" name="sock_avail" returns="bool" signature="sock_avail()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Provide a callback function called after each receipt of a&#10;telnet option." ilk="function" line="410" lineend="412" name="set_option_negotiation_callback" signature="set_option_negotiation_callback(callback)">
+          <variable ilk="argument" name="callback" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Connect to a host." ilk="function" line="211" lineend="225" name="open" signature="open(host, port=0, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="187" lineend="209" name="__init__" signature="Telnet(host=None, port=0, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Fill raw queue from exactly one recv() system call." ilk="function" line="504" lineend="519" name="fill_rawq" signature="fill_rawq()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="self.sock.recv()" line="516" name="buf" />
+        </scope>
+        <scope doc="Interaction function, emulates a very dumb telnet client." ilk="function" line="525" lineend="545" name="interact" signature="interact()">
+          <variable citdl="read_eager()" line="534" name="text" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable line="531" name="xfd" />
+          <variable line="531" name="wfd" />
+          <variable line="531" name="rfd" />
+          <variable citdl="sys.stdin.readline()" line="542" name="line" />
+        </scope>
+        <scope doc="Read at least one byte of cooked data unless EOF is hit." ilk="function" line="331" lineend="344" name="read_some" returns="str" signature="read_some()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="list" line="342" name="buf" />
+        </scope>
+        <scope doc="Write a string to the socket, doubling any IAC characters." ilk="function" line="270" lineend="280" name="write" signature="write(buffer)">
+          <variable citdl="buffer.replace()" ilk="argument" name="buffer" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Process and return data that's already in the queues (lazy)." ilk="function" line="374" lineend="383" name="read_lazy" returns="self.read_very_lazy()" signature="read_lazy()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return any data available in the cooked queue (very lazy)." ilk="function" line="385" lineend="396" name="read_very_lazy" returns="str" signature="read_very_lazy()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="list" line="392" name="buf" />
+        </scope>
+        <scope doc="Get next char from raw queue." ilk="function" line="486" lineend="502" name="rawq_getchar" signature="rawq_getchar()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable line="497" name="c" />
+        </scope>
+        <scope doc="Multithreaded version of interact()." ilk="function" line="547" lineend="555" name="mt_interact" signature="mt_interact()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="sys.stdin.readline()" line="552" name="line" />
+        </scope>
+        <scope doc="Destructor -- close the connection." ilk="function" line="227" lineend="229" name="__del__" signature="__del__()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Transfer from raw queue to cooked queue." ilk="function" line="414" lineend="484" name="process_rawq" signature="process_rawq()">
+          <variable citdl="self.rawq_getchar()" line="464" name="opt" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable line="462" name="cmd" />
+          <variable citdl="list" line="421" name="buf" />
+          <variable citdl="self.rawq_getchar()" line="424" name="c" />
+        </scope>
+        <scope doc="Helper for mt_interact() -- this executes in the other&#10;thread." ilk="function" line="557" lineend="568" name="listener" signature="listener()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="read_eager()" line="561" name="data" />
+        </scope>
+        <scope doc="Print a debug message, when the debug level is &gt; 0." ilk="function" line="231" lineend="243" name="msg" signature="msg(msg, *args)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Return the fileno() of the socket object used internally." ilk="function" line="266" lineend="268" name="fileno" returns="self.sock.fileno()" signature="fileno()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read readily available data." ilk="function" line="360" lineend="372" name="read_eager" returns="self.read_very_lazy()" signature="read_eager()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read all data until EOF; block until connection closed." ilk="function" line="321" lineend="329" name="read_all" returns="str" signature="read_all()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="list" line="327" name="buf" />
+        </scope>
+        <scope doc="Read everything that's possible without blocking in I/O&#10;(eager)." ilk="function" line="346" lineend="358" name="read_very_eager" returns="self.read_very_lazy()" signature="read_very_eager()">
+          <variable citdl="Telnet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read until a given string is encountered or until timeout." ilk="function" line="282" lineend="319" name="read_until" returns="list" signature="read_until(match, timeout=None)">
+          <variable citdl="time()" line="303" name="time_start" />
+          <variable citdl="tuple" line="299" name="s_args" />
+          <variable citdl="self.cookedq.find()" line="292" name="i" />
+          <variable citdl="Telnet" ilk="argument" name="self" />
+          <variable citdl="tuple" line="298" name="s_reply" />
+          <variable citdl="len()" line="290" name="n" />
+          <variable ilk="argument" name="timeout" />
+          <variable citdl="time()" line="315" name="elapsed" />
+          <variable citdl="list" line="295" name="buf" />
+          <variable ilk="argument" name="match" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="200" name="rawq" />
+        <variable attributes="__instancevar__" citdl="int" line="203" name="eof" />
+        <variable attributes="__instancevar__" citdl="str" line="206" name="sbdataq" />
+        <variable attributes="__instancevar__" citdl="int" line="199" name="sock" />
+        <variable attributes="__instancevar__" line="196" name="host" />
+        <variable attributes="__instancevar__" citdl="str" line="202" name="cookedq" />
+        <variable attributes="__instancevar__" citdl="socket._GLOBAL_DEFAULT_TIMEOUT" line="198" name="timeout" />
+        <variable attributes="__instancevar__" citdl="int" line="195" name="debuglevel" />
+        <variable attributes="__instancevar__" line="207" name="option_callback" />
+        <variable attributes="__instancevar__" citdl="int" line="205" name="sb" />
+        <variable attributes="__instancevar__" citdl="str" line="204" name="iacseq" />
+        <variable attributes="__instancevar__" citdl="int" line="197" name="port" />
+        <variable attributes="__instancevar__" citdl="int" line="201" name="irawq" />
+      </scope>
+      <variable citdl="str" line="101" name="VT3270REGIME" />
+      <variable citdl="str" line="54" name="WILL" />
+      <variable citdl="str" line="53" name="WONT" />
+      <variable citdl="str" line="102" name="X3PAD" />
+      <variable citdl="str" line="89" name="XASCII" />
+      <variable citdl="str" line="117" name="XAUTH" />
+      <variable citdl="str" line="107" name="XDISPLOC" />
+      <variable citdl="list" line="41" name="__all__" />
+      <import module="select" />
+      <import module="socket" />
+      <import module="sys" />
+      <scope doc="Test program for telnetlib." ilk="function" line="628" lineend="654" name="test" signature="test()">
+        <variable citdl="Telnet" line="650" name="tn" />
+        <variable line="645" name="portstr" />
+        <variable citdl="str" line="640" name="host" />
+        <variable citdl="int" line="643" name="port" />
+        <variable citdl="int" line="636" name="debuglevel" />
+      </scope>
+      <variable citdl="str" line="55" name="theNULL" />
+    </scope>
+    

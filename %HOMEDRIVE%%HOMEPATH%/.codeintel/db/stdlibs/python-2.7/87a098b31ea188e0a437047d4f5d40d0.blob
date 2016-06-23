@@ -1,0 +1,70 @@
+<scope doc="functools.py - Tools for working with functions and callable objects&#10;" ilk="blob" lang="Python" name="functools">
+      <variable citdl="tuple" line="15" name="WRAPPER_ASSIGNMENTS" />
+      <variable citdl="tuple" line="16" name="WRAPPER_UPDATES" />
+      <scope doc="Convert a cmp= function into a key= function" ilk="function" line="80" lineend="100" name="cmp_to_key" returns="cmp_to_key.K" signature="cmp_to_key(mycmp)">
+        <scope classrefs="object" ilk="class" line="82" lineend="99" name="K">
+          <variable citdl="list" line="83" name="__slots__" />
+          <scope attributes="__ctor__" ilk="function" line="84" lineend="85" name="__init__" signature="K(obj, *args)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="obj" />
+            <variable attributes="varargs" ilk="argument" name="args" />
+          </scope>
+          <variable attributes="__instancevar__" line="85" name="obj" />
+          <scope ilk="function" line="86" lineend="87" name="__lt__" returns="bool" signature="__lt__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="88" lineend="89" name="__gt__" returns="bool" signature="__gt__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="90" lineend="91" name="__eq__" returns="bool" signature="__eq__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="92" lineend="93" name="__le__" returns="bool" signature="__le__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="94" lineend="95" name="__ge__" returns="bool" signature="__ge__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="96" lineend="97" name="__ne__" returns="bool" signature="__ne__(other)">
+            <variable citdl="K" ilk="argument" name="self" />
+            <variable ilk="argument" name="other" />
+          </scope>
+          <scope ilk="function" line="98" lineend="99" name="__hash__" signature="__hash__()">
+            <variable citdl="K" ilk="argument" name="self" />
+          </scope>
+        </scope>
+        <variable ilk="argument" name="mycmp" />
+      </scope>
+      <scope classrefs="object" doc="partial(func, *args, **keywords) - new function with partial application&#10;of the given arguments and keywords." ilk="class" name="partial">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope ilk="function" name="__setstate__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+      </scope>
+      <scope doc="Apply a function of two arguments cumulatively to the items&#10;of a sequence, from left to right, so as to reduce the&#10;sequence to a single value." ilk="function" name="reduce" signature="reduce(function, sequence[, initial]) -&gt; value" />
+      <scope doc="Class decorator that fills in missing ordering methods" ilk="function" line="53" lineend="78" name="total_ordering" signature="total_ordering(cls)">
+        <variable citdl="dict" line="55" name="convert" />
+        <variable citdl="max()" line="72" name="root" />
+        <variable citdl="int" line="69" name="roots" />
+        <variable ilk="argument" name="cls" />
+      </scope>
+      <scope doc="Update a wrapper function to look like the wrapped function" ilk="function" line="17" lineend="37" name="update_wrapper" signature="update_wrapper(wrapper, wrapped, assigned=('__module__', '__name__', '__doc__'), updated=('__dict__',))">
+        <variable ilk="argument" name="wrapped" />
+        <variable citdl="tuple" ilk="argument" name="assigned" />
+        <variable citdl="tuple" ilk="argument" name="updated" />
+        <variable ilk="argument" name="wrapper" />
+      </scope>
+      <scope doc="Decorator factory to apply update_wrapper() to a wrapper&#10;function" ilk="function" line="39" lineend="51" name="wraps" returns="partial()" signature="wraps(wrapped, assigned=('__module__', '__name__', '__doc__'), updated=('__dict__',))">
+        <variable ilk="argument" name="wrapped" />
+        <variable citdl="tuple" ilk="argument" name="assigned" />
+        <variable citdl="tuple" ilk="argument" name="updated" />
+      </scope>
+    </scope>
+    

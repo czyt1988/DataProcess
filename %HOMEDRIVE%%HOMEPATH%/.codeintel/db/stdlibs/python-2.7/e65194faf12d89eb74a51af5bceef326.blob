@@ -1,0 +1,71 @@
+<scope doc="distutils.command.install_egg_info&#10;Implements the Distutils 'install_egg_info' command, for installing a package's PKG-INFO metadata." ilk="blob" lang="Python" name="distutils.command.install_egg_info">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <import module="dir_util" />
+      <scope classrefs="Command" doc="Install an .egg-info file for the package&#10;" ilk="class" line="11" lineend="48" name="install_egg_info">
+        <scope ilk="function" line="32" lineend="45" name="run" signature="run()">
+          <variable citdl="install_egg_info" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="33" name="target" />
+          <variable citdl="open()" line="43" name="f" />
+        </scope>
+        <scope ilk="function" line="19" lineend="20" name="initialize_options" signature="initialize_options()">
+          <variable citdl="install_egg_info" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="47" lineend="48" name="get_outputs" returns="list" signature="get_outputs()">
+          <variable citdl="install_egg_info" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="22" lineend="30" name="finalize_options" signature="finalize_options()">
+          <variable citdl="install_egg_info" ilk="argument" name="self" />
+          <variable citdl="str" line="24" name="basename" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="30" name="outputs" />
+        <variable citdl="list" line="15" name="user_options" />
+        <variable attributes="__instancevar__" line="20" name="install_dir" />
+        <variable attributes="__instancevar__" citdl="os.path.join()" line="29" name="target" />
+        <variable citdl="str" line="14" name="description" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Convert an arbitrary string to a standard distribution name" ilk="function" line="55" lineend="60" name="safe_name" returns="re.sub()" signature="safe_name(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="Convert an arbitrary string to a standard version string" ilk="function" line="63" lineend="70" name="safe_version" returns="re.sub()" signature="safe_version(version)">
+        <variable citdl="version.replace()" ilk="argument" name="version" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Convert a project or version name to its filename-escaped&#10;form" ilk="function" line="73" lineend="78" name="to_filename" returns="name.replace()" signature="to_filename(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+    </scope>
+    

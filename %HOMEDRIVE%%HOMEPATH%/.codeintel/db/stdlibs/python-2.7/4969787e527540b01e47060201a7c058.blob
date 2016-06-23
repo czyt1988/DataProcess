@@ -1,0 +1,40 @@
+<scope doc="Convert use of sys.exitfunc to use the atexit module.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_exitfunc">
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="72" name="FixExitfunc">
+        <scope ilk="function" line="33" lineend="35" name="start_tree" signature="start_tree(tree, filename)">
+          <variable citdl="FixExitfunc" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="30" lineend="31" name="__init__" signature="FixExitfunc(*args)">
+          <variable citdl="FixExitfunc" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="37" lineend="72" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="containing_stmt.parent" line="66" name="stmt_container" />
+          <variable citdl="self.sys_import.parent" line="64" name="containing_stmt" />
+          <variable citdl="FixExitfunc" ilk="argument" name="self" />
+          <variable citdl="pytree.Node()" line="46" name="register" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="pytree.Node()" line="67" name="new_import" />
+          <variable citdl="Call()" line="49" name="call" />
+          <variable line="59" name="names" />
+          <variable line="44" name="func" />
+          <variable citdl="pytree.Node()" line="70" name="new" />
+          <variable citdl="containing_stmt.children.index()" line="65" name="position" />
+        </scope>
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="True" line="12" name="keep_line_order" />
+        <variable attributes="__instancevar__" line="35" name="sys_import" />
+        <variable citdl="str" line="15" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope doc="A newline literal" ilk="function" name="Newline" signature="Newline()" />
+      <import module="fixer_base" />
+      <import module="pytree" />
+      <variable citdl="Symbols" name="syms" />
+    </scope>
+    

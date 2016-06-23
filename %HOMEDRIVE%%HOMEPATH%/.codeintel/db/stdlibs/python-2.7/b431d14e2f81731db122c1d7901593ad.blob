@@ -1,0 +1,95 @@
+<scope doc="CGI-savvy HTTP Server.&#10;This module builds on SimpleHTTPServer by implementing GET and POST requests to cgi-bin scripts.  If the os.fork() function is not present (e.g. on Windows), os.popen2() is used as a fallback, with slightly altered semantics; if that function is not present either (e.g. on Macintosh), only Python scripts are supported, and they are executed by the current process.  In all cases, the implementation is intentionally naive -- all requests are executed sychronously." ilk="blob" lang="Python" name="CGIHTTPServer">
+      <import module="BaseHTTPServer" />
+      <scope classrefs="SimpleHTTPRequestHandler" doc="Complete HTTP server with GET, HEAD and POST commands.&#10;GET and HEAD also support running CGI scripts.  The POST command is *only* implemented for CGI scripts." ilk="class" line="35" lineend="298" name="CGIHTTPRequestHandler">
+        <scope doc="Test whether self.path corresponds to a CGI script." ilk="function" line="73" lineend="91" name="is_cgi" returns="bool" signature="is_cgi()">
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="_url_collapse_path_split()" line="87" name="splitpath" />
+        </scope>
+        <scope doc="Version of send_head that support CGI scripts" ilk="function" line="66" lineend="71" name="send_head" returns="SimpleHTTPServer.SimpleHTTPRequestHandler.send_head()" signature="send_head()">
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Test whether argument path is an executable file." ilk="function" line="95" lineend="97" name="is_executable" returns="executable()" signature="is_executable(path)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Test whether argument path is a Python script." ilk="function" line="99" lineend="102" name="is_python" returns="bool" signature="is_python(path)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+          <variable line="101" name="head" />
+          <variable line="101" name="tail" />
+        </scope>
+        <scope doc="Serve a POST request." ilk="function" line="54" lineend="64" name="do_POST" signature="do_POST()">
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Execute a CGI script." ilk="function" line="104" lineend="298" name="run_cgi" signature="run_cgi()">
+          <variable citdl="filter()" line="211" name="co" />
+          <variable line="288" name="stdout" />
+          <variable citdl="os.fork()" line="232" name="pid" />
+          <variable citdl="list" line="116" name="rest" />
+          <variable citdl="self.translate_path()" line="114" name="scriptdir" />
+          <variable citdl="list" line="259" name="cmdline" />
+          <variable citdl="list" line="136" name="scriptname" />
+          <variable citdl="list" line="124" name="query" />
+          <variable citdl="query.replace()" line="223" name="decoded_query" />
+          <variable citdl="list" line="111" name="nextdir" />
+          <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="copy.deepcopy()" line="158" name="env" />
+          <variable citdl="authorization.split()" line="175" name="authorization" />
+          <variable citdl="int()" line="271" name="nbytes" />
+          <variable citdl="p.returncode" line="294" name="status" />
+          <variable citdl="nobody_uid()" line="230" name="nobody" />
+          <variable citdl="is_python()" line="145" name="ispy" />
+          <variable citdl="list" line="261" name="interp" />
+          <variable citdl="list" line="227" name="args" />
+          <variable citdl="self.address_string()" line="171" name="host" />
+          <variable citdl="self.headers.getheader()" line="198" name="referer" />
+          <variable citdl="list" line="201" name="accept" />
+          <variable citdl="self.path" line="106" name="path" />
+          <variable citdl="self.rfile.read()" line="281" name="data" />
+          <variable citdl="urllib.unquote()" line="165" name="uqrest" />
+          <variable citdl="path.find()" line="109" name="i" />
+          <variable citdl="list" line="112" name="nextrest" />
+          <variable citdl="list" line="132" name="script" />
+          <variable citdl="subprocess.Popen()" line="274" name="p" />
+          <variable citdl="self.headers.getheader()" line="195" name="length" />
+          <variable citdl="self.translate_path()" line="137" name="scriptfile" />
+          <variable line="288" name="stderr" />
+          <variable line="235" name="sts" />
+          <variable citdl="self.headers.getheader()" line="208" name="ua" />
+          <variable citdl="list" line="116" name="dir" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="_url_collapse_path_split()" line="89" name="cgi_info" />
+        <variable citdl="hasattr()" line="46" name="have_fork" />
+        <variable citdl="list" line="93" name="cgi_directories" />
+        <variable citdl="int" line="52" name="rbufsize" />
+        <variable citdl="hasattr()" line="47" name="have_popen2" />
+        <variable citdl="hasattr()" line="48" name="have_popen3" />
+      </scope>
+      <import module="SimpleHTTPServer" />
+      <variable citdl="list" line="24" name="__all__" />
+      <variable citdl="str" line="22" name="__version__" />
+      <import module="copy" />
+      <scope doc="Test for executable file." ilk="function" line="359" lineend="365" name="executable" returns="bool" signature="executable(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="os.stat()" line="362" name="st" />
+      </scope>
+      <variable citdl="NoneType" line="341" name="nobody" />
+      <scope doc="Internal routine to get nobody's uid" ilk="function" line="343" lineend="356" name="nobody_uid" returns="max()" signature="nobody_uid()">
+        <variable citdl="max()" line="353" name="nobody" />
+      </scope>
+      <import module="os" />
+      <import module="select" />
+      <import module="sys" />
+      <scope ilk="function" line="368" lineend="370" name="test" signature="test(HandlerClass=&lt;class CGIHTTPServer.CGIHTTPRequestHandler at 0x02EA5DC0&gt;, ServerClass=&lt;class BaseHTTPServer.HTTPServer at 0x02C3E848&gt;)">
+        <variable citdl="CGIHTTPRequestHandler" ilk="argument" name="HandlerClass" />
+        <variable citdl="BaseHTTPServer.HTTPServer" ilk="argument" name="ServerClass" />
+      </scope>
+      <import module="urllib" />
+      <scope attributes="protected __hidden__" doc="Given a URL path, remove extra '/'s and '.' path elements&#10;and collapse any '..' references." ilk="function" line="302" lineend="338" name="_url_collapse_path_split" returns="tuple" signature="_url_collapse_path_split(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="list" line="317" name="path_parts" />
+        <variable citdl="str" line="326" name="tail_part" />
+        <variable citdl="list" line="329" name="head_parts" />
+      </scope>
+    </scope>
+    

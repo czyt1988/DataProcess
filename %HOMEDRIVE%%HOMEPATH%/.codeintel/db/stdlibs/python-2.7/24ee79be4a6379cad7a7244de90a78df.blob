@@ -1,0 +1,10 @@
+<scope doc="The pgen2 package.&#10;" ilk="blob" lang="Python" name="lib2to3.pgen2">
+      <import module="driver" />
+      <import module="grammar" />
+      <import module="literals" />
+      <import module="parse" />
+      <import module="pgen" />
+      <import module="token" />
+      <import module="tokenize" />
+    </scope>
+    

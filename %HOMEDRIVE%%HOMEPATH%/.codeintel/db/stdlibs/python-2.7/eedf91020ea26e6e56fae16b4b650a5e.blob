@@ -1,0 +1,27 @@
+<scope doc="Fixer for has_key().&#10;Calls to .has_key() methods are expressed in terms of the 'in' operator:  d.has_key(k) -&gt; k in d  CAVEATS: 1) While the primary target of this fixer is dict.has_key(), the fixer will change any has_key() method call, regardless of its class. " ilk="blob" lang="Python" name="lib2to3.fixes.fix_has_key">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="39" lineend="110" name="FixHasKey">
+        <scope ilk="function" line="72" lineend="110" name="transform" returns="pytree.Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Name()" line="96" name="n_op" />
+          <variable citdl="Name()" line="98" name="n_not" />
+          <variable citdl="FixHasKey" ilk="argument" name="self" />
+          <variable citdl="list" line="85" name="after" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="results.get()" line="80" name="negation" />
+          <variable citdl="self.syms" line="74" name="syms" />
+          <variable citdl="node.prefix" line="82" name="prefix" />
+          <variable citdl="parenthesize()" line="84" name="arg" />
+          <variable citdl="parenthesize()" line="100" name="new" />
+          <variable line="81" name="anchor" />
+          <variable citdl="list" line="83" name="before" />
+        </scope>
+        <variable citdl="True" line="40" name="BM_compatible" />
+        <variable citdl="str" line="42" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope ilk="function" name="parenthesize" signature="parenthesize(node)" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

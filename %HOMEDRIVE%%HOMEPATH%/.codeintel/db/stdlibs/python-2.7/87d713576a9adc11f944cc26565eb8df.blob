@@ -1,0 +1,26 @@
+<scope doc="This module is always available. It provides access to mathematical&#10;functions for complex numbers." ilk="blob" lang="Python" name="cmath">
+      <scope doc="Return the arc cosine of x." ilk="function" name="acos" signature="acos(x)" />
+      <scope doc="Return the hyperbolic arccosine of x." ilk="function" name="acosh" signature="acosh(x)" />
+      <scope doc="Return the arc sine of x." ilk="function" name="asin" signature="asin(x)" />
+      <scope doc="Return the hyperbolic arc sine of x." ilk="function" name="asinh" signature="asinh(x)" />
+      <scope doc="Return the arc tangent of x." ilk="function" name="atan" signature="atan(x)" />
+      <scope doc="Return the hyperbolic arc tangent of x." ilk="function" name="atanh" signature="atanh(x)" />
+      <scope doc="Return the cosine of x." ilk="function" name="cos" signature="cos(x)" />
+      <scope doc="Return the hyperbolic cosine of x." ilk="function" name="cosh" signature="cosh(x)" />
+      <variable citdl="float" name="e" />
+      <scope doc="Return the exponential value e**x." ilk="function" name="exp" signature="exp(x)" />
+      <scope doc="Checks if the real or imaginary part of z is infinite." ilk="function" name="isinf" returns="bool" signature="isinf(z) -&gt; bool" />
+      <scope doc="Checks if the real or imaginary part of z not a number (NaN)" ilk="function" name="isnan" returns="bool" signature="isnan(z) -&gt; bool" />
+      <scope doc="If the base not specified, returns the natural logarithm&#10;(base e) of x." ilk="function" name="log" signature="log(x[, base]) -&gt; the logarithm of x to the given base." />
+      <scope doc="Return the base-10 logarithm of x." ilk="function" name="log10" signature="log10(x)" />
+      <scope doc="Return argument, also known as the phase angle, of a&#10;complex." ilk="function" name="phase" returns="float" signature="phase(z) -&gt; float" />
+      <variable citdl="float" name="pi" />
+      <scope doc="Convert a complex from rectangular coordinates to polar&#10;coordinates." ilk="function" name="polar" signature="polar(z) -&gt; r: float, phi: float" />
+      <scope doc="Convert from polar coordinates to rectangular coordinates." ilk="function" name="rect" signature="rect(r, phi) -&gt; z: complex" />
+      <scope doc="Return the sine of x." ilk="function" name="sin" signature="sin(x)" />
+      <scope doc="Return the hyperbolic sine of x." ilk="function" name="sinh" signature="sinh(x)" />
+      <scope doc="Return the square root of x." ilk="function" name="sqrt" signature="sqrt(x)" />
+      <scope doc="Return the tangent of x." ilk="function" name="tan" signature="tan(x)" />
+      <scope doc="Return the hyperbolic tangent of x." ilk="function" name="tanh" signature="tanh(x)" />
+    </scope>
+    

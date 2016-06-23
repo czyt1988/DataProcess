@@ -1,0 +1,89 @@
+<scope doc="Fix changes imports of urllib which are now incompatible.&#10;This is rather similar to fix_imports, but because of the more complex nature of the fixing for urllib, it has its own fixer." ilk="blob" lang="Python" name="lib2to3.fixes.fix_urllib">
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" name="FixImports">
+        <scope ilk="function" name="compile_pattern" />
+        <scope ilk="function" name="transform" />
+        <scope ilk="function" name="start_tree" />
+        <scope ilk="function" name="build_pattern" />
+        <scope doc="# Don't match the node if it's within another match." ilk="function" name="match" />
+      </scope>
+      <scope classrefs="FixImports" doc="&#10;" ilk="class" line="72" lineend="197" name="FixUrllib">
+        <scope doc="Transform for the basic import case." ilk="function" line="77" lineend="91" name="transform_import" signature="transform_import(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="results.get()" line="82" name="import_mod" />
+          <variable citdl="FixUrllib" ilk="argument" name="self" />
+          <variable citdl="import_mod.prefix" line="83" name="pref" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="list" line="85" name="names" />
+        </scope>
+        <scope doc="Transform for calls to module members in code." ilk="function" line="169" lineend="184" name="transform_dot" signature="transform_dot(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="173" name="new_name" />
+          <variable citdl="FixUrllib" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="results.get()" line="172" name="member" />
+          <variable citdl="results.get()" line="171" name="module_dot" />
+        </scope>
+        <scope ilk="function" line="74" lineend="75" name="build_pattern" returns="str.join()" signature="build_pattern()">
+          <variable citdl="FixUrllib" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="186" lineend="197" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixUrllib" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Transform for imports of specific module elements." ilk="function" line="93" lineend="167" name="transform_member" signature="transform_member(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="107" name="new_name" />
+          <variable line="149" name="elts" />
+          <scope ilk="function" line="141" lineend="147" name="handle_name" returns="list" signature="handle_name(name, prefix)">
+            <variable ilk="argument" name="name" />
+            <variable ilk="argument" name="prefix" />
+            <variable citdl="list" line="143" name="kids" />
+          </scope>
+          <variable citdl="find_indentation()" line="139" name="indentation" />
+          <variable citdl="FixUrllib" ilk="argument" name="self" />
+          <variable citdl="mod_member.prefix" line="99" name="pref" />
+          <variable citdl="list" line="120" name="modules" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="FromImport()" line="155" name="new" />
+          <variable citdl="results.get()" line="98" name="mod_member" />
+          <variable citdl="results.get()" line="100" name="member" />
+          <variable citdl="list" line="150" name="names" />
+          <variable line="122" name="members" />
+          <variable citdl="member.value" line="127" name="member_name" />
+          <variable citdl="list" line="138" name="new_nodes" />
+          <variable citdl="list" line="161" name="nodes" />
+          <variable citdl="dict" line="121" name="mod_dict" />
+          <variable line="126" name="as_name" />
+          <variable citdl="True" line="140" name="first" />
+        </scope>
+      </scope>
+      <scope doc="Return an import statement in the form: from package import&#10;name_leafs" ilk="function" name="FromImport" signature="FromImport(package_name, name_leafs)" />
+      <variable citdl="dict" line="13" name="MAPPING" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope doc="A newline literal" ilk="function" name="Newline" signature="Newline()" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope ilk="function" name="alternates" signature="alternates(members)" />
+      <scope ilk="function" line="49" lineend="69" name="build_pattern" signature="build_pattern()">
+        <variable citdl="set()" line="50" name="bare" />
+        <variable citdl="alternates()" line="54" name="members" />
+      </scope>
+      <scope doc="Find the indentation of *node*." ilk="function" name="find_indentation" signature="find_indentation(node)" />
+      <import module="fixer_base" />
+      <variable citdl="Symbols" name="syms" />
+    </scope>
+    

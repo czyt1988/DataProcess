@@ -1,0 +1,203 @@
+<scope doc="Python unit testing framework, based on Erich Gamma's JUnit and Kent Beck's&#10;Smalltalk testing framework.  This module contains the core framework classes that form the basis of specific test cases and suites (TestCase, TestSuite etc.), and also a text-based utility class for running the tests and reporting the results (TextTestRunner).  Simple usage:  import unittest" ilk="blob" lang="Python" name="unittest">
+      <scope classrefs="object" doc="A simple test suite that doesn't provide class or module shared fixtures.&#10;" ilk="class" name="BaseTestSuite">
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="run" />
+        <scope ilk="function" name="addTests" />
+        <scope ilk="function" name="__call__" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Run the tests without collecting errors in a TestResult" ilk="function" name="debug" />
+        <scope ilk="function" name="addTest" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="countTestCases" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="TestCase" doc="A test case that wraps a test function.&#10;This is useful for slipping pre-existing test functions into the unittest framework. Optionally, set-up and tidy-up functions can be supplied. As with TestCase, the tidy-up ('tearDown') function will always be called if the set-up ('setUp') function ran successfully." ilk="class" name="FunctionTestCase">
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="tearDown" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="setUp" />
+        <scope ilk="function" name="runTest" />
+        <scope ilk="function" name="__str__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__hash__" />
+        <scope ilk="function" name="shortDescription" />
+        <scope ilk="function" name="id" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="Raise this exception in a test to skip it.&#10;Usually you can use TestResult.skip() or one of the skipping decorators instead of raising this directly." ilk="class" name="SkipTest" />
+      <scope classrefs="object" doc="A class whose instances are single test cases.&#10;By default, the test code itself should be placed in a method named 'runTest'.  If the fixture may be used for many test cases, create as many test methods as are needed. When instantiating such a TestCase subclass, specify in the constructor arguments the name of the test method that the instance is to execute.  Test authors should subclass TestCase for their own tests. Construction and deconstruction of the test's environment ('fixture') can be" ilk="class" name="TestCase">
+        <scope doc="Fail if the two objects are equal as determined by the '=='&#10;operator." ilk="function" name="assertNotEquals" />
+        <scope ilk="function" name="__str__" />
+        <scope doc="Add a function, with arguments, to be called when the test&#10;is completed." ilk="function" name="addCleanup" />
+        <scope doc="Get a detailed comparison function for the types of the two&#10;args." ilk="function" name="_getAssertEqualityFunc" />
+        <scope doc="Just like self.assertTrue(a &gt; b), but with a nicer default&#10;message." ilk="function" name="assertGreater" />
+        <scope doc="Assert that two multi-line strings are equal." ilk="function" name="assertMultiLineEqual" />
+        <scope doc="Included for symmetry with assertIsNone." ilk="function" name="assertIsNotNone" />
+        <scope ilk="function" name="_addSkip" />
+        <scope ilk="function" name="_truncateMessage" />
+        <scope doc="Fail if the two objects are equal as determined by the '=='&#10;operator." ilk="function" name="assertNotEqual" />
+        <scope doc="Asserts that the message in a raised exception matches a&#10;regexp." ilk="function" name="assertRaisesRegexp" />
+        <scope doc="Fail if the two objects are equal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is less than the given delta." ilk="function" name="assertNotAlmostEqual" />
+        <scope doc="Fail the test unless the text matches the regular&#10;expression." ilk="function" name="assertRegexpMatches" />
+        <scope doc="The default assertEqual implementation, not type specific." ilk="function" name="_baseAssertEqual" />
+        <scope doc="Just like self.assertTrue(a &lt;= b), but with a nicer default&#10;message." ilk="function" name="assertLessEqual" />
+        <scope ilk="function" name="__call__" />
+        <scope doc="Hook method for deconstructing the class fixture after&#10;running all tests in the class." ilk="function" name="tearDownClass" />
+        <scope ilk="function" name="assertDictEqual" />
+        <scope doc="An unordered sequence specific comparison." ilk="function" name="assertItemsEqual" />
+        <scope doc="Just like self.assertTrue(a in b), but with a nicer default&#10;message." ilk="function" name="assertIn" />
+        <scope doc="Fail if the two objects are unequal as determined by the&#10;'==' operator." ilk="function" name="assertEquals" />
+        <scope doc="Included for symmetry with assertIsInstance." ilk="function" name="assertNotIsInstance" />
+        <scope doc="A tuple-specific equality assertion." ilk="function" name="assertTupleEqual" />
+        <scope doc="Same as self.assertTrue(obj is None), with a nicer default&#10;message." ilk="function" name="assertIsNone" />
+        <scope doc="Just like self.assertTrue(a is b), but with a nicer default&#10;message." ilk="function" name="assertIs" />
+        <scope doc="Same as self.assertTrue(isinstance(obj, cls)), with a nicer&#10;default message." ilk="function" name="assertIsInstance" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="failUnless" />
+        <scope doc="Fail if the two objects are unequal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is more than the given delta." ilk="function" name="assertAlmostEqual" />
+        <scope doc="Hook method for setting up class fixture before running&#10;tests in the class." ilk="function" name="setUpClass" />
+        <scope doc="Skip this test." ilk="function" name="skipTest" />
+        <scope doc="Just like self.assertTrue(a is not b), but with a nicer&#10;default message." ilk="function" name="assertIsNot" />
+        <scope doc="Fail if the two objects are unequal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is more than the given delta." ilk="function" name="assertAlmostEquals" />
+        <scope ilk="function" name="defaultTestResult" />
+        <scope ilk="function" name="failIf" />
+        <scope doc="Run the test without collecting errors in a TestResult" ilk="function" name="debug" />
+        <scope doc="# These fail* assertion method names are pending deprecation&#10;and will # be a DeprecationWarning in 3.2;&#10;http://bugs.python.org/issue2578" ilk="function" name="_deprecate" />
+        <scope doc="A set-specific equality assertion." ilk="function" name="assertSetEqual" />
+        <scope doc="Add a type specific assertEqual style function to compare a&#10;type." ilk="function" name="addTypeEqualityFunc" />
+        <scope doc="Hook method for deconstructing the test fixture after&#10;testing it." ilk="function" name="tearDown" />
+        <scope doc="Fail if the two objects are equal as determined by their&#10;difference rounded to the given number of decimal places&#10;(default 7) and comparing to zero, or by comparing that the&#10;between the two objects is less than the given delta." ilk="function" name="assertNotAlmostEquals" />
+        <scope doc="Fail immediately, with the given message." ilk="function" name="fail" />
+        <scope doc="Fail if the two objects are unequal as determined by the&#10;'==' operator." ilk="function" name="assertEqual" />
+        <scope doc="Returns a one-line description of the test, or None if no&#10;description has been provided." ilk="function" name="shortDescription" />
+        <scope ilk="function" name="id" />
+        <scope doc="Create an instance of the class that will use the named test&#10;method when executed." ilk="function" name="__init__" />
+        <scope doc="Just like self.assertTrue(a &lt; b), but with a nicer default&#10;message." ilk="function" name="assertLess" />
+        <scope ilk="function" name="failUnlessEqual" />
+        <scope doc="An equality assertion for ordered sequences (like lists and&#10;tuples)." ilk="function" name="assertSequenceEqual" />
+        <scope doc="Just like self.assertTrue(a not in b), but with a nicer&#10;default message." ilk="function" name="assertNotIn" />
+        <scope ilk="function" name="failUnlessRaises" />
+        <scope doc="Execute all cleanup functions." ilk="function" name="doCleanups" />
+        <scope doc="Fail unless an exception of class excClass is thrown by&#10;callableObj when invoked with arguments args and keyword&#10;arguments kwargs." ilk="function" name="assertRaises" />
+        <scope doc="Check that the expression is true." ilk="function" name="assertTrue" />
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="run" />
+        <scope doc="Checks whether actual is a superset of expected." ilk="function" name="assertDictContainsSubset" />
+        <scope ilk="function" name="failIfEqual" />
+        <scope ilk="function" name="failUnlessAlmostEqual" />
+        <scope doc="Hook method for setting up the test fixture before&#10;exercising it." ilk="function" name="setUp" />
+        <scope doc="Fail the test if the text matches the regular expression." ilk="function" name="assertNotRegexpMatches" />
+        <scope ilk="function" name="__hash__" />
+        <scope doc="Honour the longMessage attribute when generating failure&#10;messages." ilk="function" name="_formatMessage" />
+        <scope doc="Check that the expression is true." ilk="function" name="assert_" />
+        <scope doc="A list-specific equality assertion." ilk="function" name="assertListEqual" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Check that the expression is false." ilk="function" name="assertFalse" />
+        <scope ilk="function" name="countTestCases" />
+        <scope ilk="function" name="failIfAlmostEqual" />
+        <scope doc="Just like self.assertTrue(a &gt;= b), but with a nicer default&#10;message." ilk="function" name="assertGreaterEqual" />
+      </scope>
+      <scope classrefs="object" doc="This class is responsible for loading tests according to various criteria&#10;and returning them wrapped in a TestSuite" ilk="class" name="TestLoader">
+        <scope doc="Return a suite of all tests cases found using the given&#10;sequence of string specifiers." ilk="function" name="loadTestsFromNames" />
+        <scope ilk="function" name="_get_module_from_name" />
+        <scope ilk="function" name="_get_directory_containing_module" />
+        <scope doc="Find and return all test modules from the specified start&#10;directory, recursing into subdirectories to find them." ilk="function" name="discover" />
+        <scope doc="Return a suite of all tests cases contained in the given&#10;module" ilk="function" name="loadTestsFromModule" />
+        <scope doc="Return a suite of all tests cases contained in testCaseClass" ilk="function" name="loadTestsFromTestCase" />
+        <scope ilk="function" name="_get_name_from_path" />
+        <scope ilk="function" name="_match_path" />
+        <scope doc="Return a sorted sequence of method names found within&#10;testCaseClass" ilk="function" name="getTestCaseNames" />
+        <scope doc="Return a suite of all tests cases given a string specifier." ilk="function" name="loadTestsFromName" />
+        <scope doc="Used by discovery. Yields test suites it loads." ilk="function" name="_find_tests" />
+      </scope>
+      <scope classrefs="object" doc="A command-line program that runs a set of tests; this is primarily&#10;for making test modules conveniently executable." ilk="class" name="TestProgram">
+        <scope ilk="function" name="parseArgs" />
+        <scope ilk="function" name="createTests" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="_do_discovery" />
+        <scope ilk="function" name="usageExit" />
+        <scope ilk="function" name="runTests" />
+      </scope>
+      <scope classrefs="object" doc="Holder for test result information.&#10;Test results are automatically managed by the TestCase and TestSuite classes, and do not need to be explicitly manipulated by writers of tests.  Each instance holds the total number of tests run, and collections of failures and errors that occurred among those test runs. The collections contain tuples of (testcase, exceptioninfo), where exceptioninfo is the formatted traceback of the error that occurred." ilk="class" name="TestResult">
+        <scope doc="Called when a test has completed successfully" ilk="function" name="addSuccess" />
+        <scope doc="Called when an error has occurred." ilk="function" name="addFailure" />
+        <scope doc="Indicates that the tests should be aborted" ilk="function" name="stop" />
+        <scope ilk="function" name="_is_relevant_tb_level" />
+        <scope doc="Called when a test was expected to fail, but succeed." ilk="function" name="addUnexpectedSuccess" />
+        <scope doc="Called when an expected failure/error occured." ilk="function" name="addExpectedFailure" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Called when an error has occurred." ilk="function" name="addError" />
+        <scope doc="Called when the given test is about to be run" ilk="function" name="startTest" />
+        <scope ilk="function" name="_restoreStdout" />
+        <scope ilk="function" name="_count_relevant_tb_levels" />
+        <scope doc="Called when the given test has been run" ilk="function" name="stopTest" />
+        <scope doc="Converts a sys.exc_info()-style tuple of values into a&#10;string." ilk="function" name="_exc_info_to_string" />
+        <scope doc="Called once after all tests are executed." ilk="function" name="stopTestRun" />
+        <scope ilk="function" name="_setupStdout" />
+        <scope doc="Called once before any tests are executed." ilk="function" name="startTestRun" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Tells whether or not this result was a success" ilk="function" name="wasSuccessful" />
+        <scope doc="Called when a test is skipped." ilk="function" name="addSkip" />
+        <scope doc="Called by TestRunner after test run" ilk="function" name="printErrors" />
+      </scope>
+      <scope classrefs="BaseTestSuite" doc="A test suite is a composite test consisting of a number of TestCases.&#10;For use, create an instance of TestSuite, then add test case instances. When all tests have been added, the suite can be passed to a test runner, such as TextTestRunner. It will run the individual test cases in the order in which they were added, aggregating the results. When subclassing, do not forget to call the base class constructor." ilk="class" name="TestSuite">
+        <scope ilk="function" name="_addClassOrModuleLevelException" />
+        <scope ilk="function" name="run" />
+        <scope ilk="function" name="_get_previous_module" />
+        <scope ilk="function" name="_handleClassSetUp" />
+        <scope ilk="function" name="_handleModuleTearDown" />
+        <scope doc="Run the tests without collecting errors in a TestResult" ilk="function" name="debug" />
+        <scope ilk="function" name="_handleModuleFixture" />
+        <scope ilk="function" name="_tearDownPreviousClass" />
+      </scope>
+      <scope classrefs="TestResult" doc="A test result class that can print formatted text results to a stream.&#10;Used by TextTestRunner." ilk="class" name="TextTestResult">
+        <scope ilk="function" name="addSuccess" />
+        <scope ilk="function" name="addError" />
+        <scope ilk="function" name="printErrorList" />
+        <scope ilk="function" name="getDescription" />
+        <scope ilk="function" name="addFailure" />
+        <scope ilk="function" name="startTest" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="addUnexpectedSuccess" />
+        <scope ilk="function" name="addExpectedFailure" />
+        <scope ilk="function" name="addSkip" />
+        <scope ilk="function" name="printErrors" />
+      </scope>
+      <scope classrefs="object" doc="A test runner class that displays results in textual form.&#10;It prints out the names of tests as they are run, errors as they occur, and a summary of the results at the end of the test run." ilk="class" name="TextTestRunner">
+        <scope ilk="function" name="_makeResult" />
+        <scope doc="Run the given test case or test suite." ilk="function" name="run" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="47" name="__all__" />
+      <import module="case" />
+      <variable citdl="TestLoader" name="defaultTestLoader" />
+      <scope ilk="function" name="expectedFailure" signature="expectedFailure(func)" />
+      <scope ilk="function" name="findTestCases" signature="findTestCases(module, prefix='test', sortUsing=&lt;built-in function cmp&gt;, suiteClass=&lt;class 'unittest.suite.TestSuite'&gt;)" />
+      <scope ilk="function" name="getTestCaseNames" signature="getTestCaseNames(testCaseClass, prefix, sortUsing=&lt;built-in function cmp&gt;)" />
+      <scope ilk="function" name="installHandler" signature="installHandler()" />
+      <import module="loader" />
+      <scope classrefs="object" doc="A command-line program that runs a set of tests; this is primarily&#10;for making test modules conveniently executable." ilk="class" name="main">
+        <scope ilk="function" name="parseArgs" />
+        <scope ilk="function" name="createTests" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="_do_discovery" />
+        <scope ilk="function" name="usageExit" />
+        <scope ilk="function" name="runTests" />
+      </scope>
+      <scope ilk="function" name="makeSuite" signature="makeSuite(testCaseClass, prefix='test', sortUsing=&lt;built-in function cmp&gt;, suiteClass=&lt;class 'unittest.suite.TestSuite'&gt;)" />
+      <scope ilk="function" name="registerResult" signature="registerResult(result)" />
+      <scope ilk="function" name="removeHandler" signature="removeHandler(method=None)" />
+      <scope ilk="function" name="removeResult" signature="removeResult(result)" />
+      <import module="result" />
+      <import module="runner" />
+      <import module="signals" />
+      <scope doc="Unconditionally skip a test." ilk="function" name="skip" signature="skip(reason)" />
+      <scope doc="Skip a test if the condition is true." ilk="function" name="skipIf" signature="skipIf(condition, reason)" />
+      <scope doc="Skip a test unless the condition is true." ilk="function" name="skipUnless" signature="skipUnless(condition, reason)" />
+      <import module="suite" />
+      <import module="util" />
+      <variable attributes="protected __hidden__" citdl="TextTestResult" line="69" name="_TextTestResult" />
+      <variable attributes="private __hidden__" citdl="True" line="56" name="__unittest" />
+    </scope>
+    

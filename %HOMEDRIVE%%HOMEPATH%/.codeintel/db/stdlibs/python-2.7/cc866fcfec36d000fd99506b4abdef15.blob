@@ -1,0 +1,9 @@
+<scope doc="# $Id$&#10;# #  Copyright (C) 2005   Gregory P. Smith (greg@krypto.org) #  Licensed to PSF under a Contributor Agreement." ilk="blob" lang="Python" name="sha">
+      <variable citdl="int" line="13" name="blocksize" />
+      <variable citdl="int" line="14" name="digest_size" />
+      <variable citdl="int" line="15" name="digestsize" />
+      <scope doc="Returns a sha1 hash object; optionally initialized with a&#10;string" ilk="function" line="11" name="new" />
+      <scope doc="Returns a sha1 hash object; optionally initialized with a&#10;string" ilk="function" name="sha" />
+      <import module="warnings" />
+    </scope>
+    

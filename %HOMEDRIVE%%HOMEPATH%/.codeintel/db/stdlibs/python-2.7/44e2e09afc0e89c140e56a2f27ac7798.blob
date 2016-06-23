@@ -1,0 +1,9 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="msilib.text">
+      <variable citdl="list" line="3" name="ActionText" />
+      <variable citdl="list" line="76" name="UIText" />
+      <variable citdl="str" line="1" name="dirname" />
+      <import module="msilib" />
+      <import module="os" />
+      <variable citdl="list" line="129" name="tables" />
+    </scope>
+    

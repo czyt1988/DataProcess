@@ -1,0 +1,75 @@
+<scope doc="Record of phased-in incompatible language changes.&#10;Each line is of the form:  FeatureName = &quot;_Feature(&quot; OptionalRelease &quot;,&quot; MandatoryRelease &quot;,&quot; CompilerFlag &quot;)&quot;  where, normally, OptionalRelease &lt; MandatoryRelease, and both are 5-tuples of the same form as sys.version_info:  (PY_MAJOR_VERSION, # the 2 in 2.1.0a3; an int PY_MINOR_VERSION, # the 1; an int" ilk="blob" lang="Python" name="__future__">
+      <variable citdl="int" line="69" name="CO_FUTURE_ABSOLUTE_IMPORT" />
+      <variable citdl="int" line="68" name="CO_FUTURE_DIVISION" />
+      <variable citdl="int" line="71" name="CO_FUTURE_PRINT_FUNCTION" />
+      <variable citdl="int" line="72" name="CO_FUTURE_UNICODE_LITERALS" />
+      <variable citdl="int" line="70" name="CO_FUTURE_WITH_STATEMENT" />
+      <variable citdl="int" line="67" name="CO_GENERATOR_ALLOWED" />
+      <variable citdl="int" line="66" name="CO_NESTED" />
+      <variable citdl="list" line="60" name="__all__" />
+      <variable citdl="_Feature" line="114" name="absolute_import" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="50" name="all_feature_names" />
+      <variable citdl="_Feature" line="110" name="division" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="_Feature" line="106" name="generators" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="_Feature" line="102" name="nested_scopes" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="_Feature" line="122" name="print_function" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="_Feature" line="126" name="unicode_literals" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="_Feature" line="118" name="with_statement" />
+      <scope doc="&#10;" ilk="class" line="74" lineend="100" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" line="88" lineend="95" name="getMandatoryRelease" signature="getMandatoryRelease()">
+          <variable citdl="_Feature" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return first release in which this feature was recognized." ilk="function" line="80" lineend="86" name="getOptionalRelease" signature="getOptionalRelease()">
+          <variable citdl="_Feature" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="97" lineend="100" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="_Feature" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="75" lineend="78" name="__init__" signature="_Feature(optionalRelease, mandatoryRelease, compiler_flag)">
+          <variable ilk="argument" name="mandatoryRelease" />
+          <variable citdl="_Feature" ilk="argument" name="self" />
+          <variable ilk="argument" name="optionalRelease" />
+          <variable ilk="argument" name="compiler_flag" />
+        </scope>
+        <variable attributes="__instancevar__" line="76" name="optional" />
+        <variable attributes="__instancevar__" line="77" name="mandatory" />
+        <variable attributes="__instancevar__" line="78" name="compiler_flag" />
+      </scope>
+    </scope>
+    

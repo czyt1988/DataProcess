@@ -1,0 +1,58 @@
+<scope doc="Different kinds of SAX Exceptions&#10;" ilk="blob" lang="Python" name="xml.sax._exceptions">
+      <scope classrefs="Exception" doc="Encapsulate an XML error or warning. This class can contain&#10;basic error or warning information from either the XML parser or the application: you can subclass it to provide additional functionality, or to add localization. Note that although you will receive a SAXException as the argument to the handlers in the ErrorHandler interface, you are not actually required to throw the exception; instead, you can simply read the information in it." ilk="class" line="9" lineend="41" name="SAXException">
+        <scope doc="Return a message for this exception." ilk="function" line="26" lineend="28" name="getMessage" signature="getMessage()">
+          <variable citdl="SAXException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the embedded exception, or None if there was none." ilk="function" line="30" lineend="32" name="getException" signature="getException()">
+          <variable citdl="SAXException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Avoids weird error messages if someone does exception[ix] by&#10;mistake, since Exception has __getitem__ defined." ilk="function" line="38" lineend="41" name="__getitem__" signature="__getitem__(ix)">
+          <variable ilk="argument" name="ix" />
+          <variable citdl="SAXException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a string representation of the exception." ilk="function" line="34" lineend="36" name="__str__" signature="__str__()">
+          <variable citdl="SAXException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Creates an exception." ilk="function" line="19" lineend="24" name="__init__" signature="SAXException(msg, exception=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="SAXException" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="23" name="_exception" />
+        <variable attributes="protected __instancevar__" line="22" name="_msg" />
+      </scope>
+      <scope classrefs="SAXException" doc="Exception class for an unrecognized identifier.&#10;An XMLReader will raise this exception when it is confronted with an unrecognized feature or property. SAX applications and extensions may use this class for similar purposes." ilk="class" line="105" name="SAXNotRecognizedException" />
+      <scope classrefs="SAXException" doc="Exception class for an unsupported operation.&#10;An XMLReader will raise this exception when a service it cannot perform is requested (specifically setting a state or value). SAX applications and extensions may use this class for similar purposes." ilk="class" line="115" name="SAXNotSupportedException" />
+      <scope classrefs="SAXException" doc="Encapsulate an XML parse error or warning.&#10;This exception will include information for locating the error in the original XML document. Note that although the application will receive a SAXParseException as the argument to the handlers in the ErrorHandler interface, the application is not actually required to throw the exception; instead, it can simply read the information in it and take a different action.  Since this exception is a subclass of SAXException, it inherits the ability to wrap another exception." ilk="class" line="46" lineend="100" name="SAXParseException">
+        <scope doc="Get the public identifier of the entity where the exception&#10;occurred." ilk="function" line="81" lineend="83" name="getPublicId" returns="self._locator.getPublicId()" signature="getPublicId()">
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="The column number of the end of the text where the exception&#10;occurred." ilk="function" line="72" lineend="75" name="getColumnNumber" returns="self._locator.getColumnNumber()" signature="getColumnNumber()">
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a string representation of the exception." ilk="function" line="89" lineend="100" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="getColumnNumber()" line="97" name="colnum" />
+          <variable citdl="getSystemId()" line="91" name="sysid" />
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+          <variable citdl="str" line="94" name="linenum" />
+        </scope>
+        <scope doc="Get the system identifier of the entity where the exception&#10;occurred." ilk="function" line="85" lineend="87" name="getSystemId" returns="self._locator.getSystemId()" signature="getSystemId()">
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="The line number of the end of the text where the exception&#10;occurred." ilk="function" line="77" lineend="79" name="getLineNumber" returns="self._locator.getLineNumber()" signature="getLineNumber()">
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Creates the exception." ilk="function" line="59" lineend="70" name="__init__" signature="SAXParseException(msg, exception, locator)">
+          <variable ilk="argument" name="msg" />
+          <variable ilk="argument" name="locator" />
+          <variable citdl="SAXParseException" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self._locator.getSystemId()" line="68" name="_systemId" />
+        <variable attributes="protected __instancevar__" line="62" name="_locator" />
+        <variable attributes="protected __instancevar__" citdl="self._locator.getColumnNumber()" line="69" name="_colnum" />
+        <variable attributes="protected __instancevar__" citdl="self._locator.getLineNumber()" line="70" name="_linenum" />
+      </scope>
+      <scope classrefs="SAXNotSupportedException" doc="Exception class for a missing driver.&#10;An XMLReader module (driver) should raise this exception when it is first imported, e.g. when a support module cannot be imported. It also may be raised during parsing, e.g. if executing an external program is not permitted." ilk="class" line="125" name="SAXReaderNotAvailable" />
+    </scope>
+    

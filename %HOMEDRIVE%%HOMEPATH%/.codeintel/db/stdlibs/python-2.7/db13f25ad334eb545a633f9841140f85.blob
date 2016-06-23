@@ -1,0 +1,92 @@
+<scope doc="Mailcap file handling.  See RFC 1524.&#10;" ilk="blob" lang="Python" name="mailcap">
+      <variable citdl="list" line="5" name="__all__" />
+      <scope doc="Find a match for a mailcap entry." ilk="function" line="138" lineend="156" name="findmatch" returns="tuple" signature="findmatch(caps, MIMEtype, key='view', filename='/dev/null', plist=[])">
+        <variable ilk="argument" name="MIMEtype" />
+        <variable citdl="str" ilk="argument" name="filename" />
+        <variable citdl="subst()" line="154" name="command" />
+        <variable citdl="str" ilk="argument" name="key" />
+        <variable citdl="lookup()" line="147" name="entries" />
+        <variable citdl="subst()" line="151" name="test" />
+        <variable ilk="argument" name="caps" />
+        <variable citdl="list" ilk="argument" name="plist" />
+      </scope>
+      <scope ilk="function" line="202" lineend="208" name="findparam" returns="str" signature="findparam(name, plist)">
+        <variable citdl="len()" line="204" name="n" />
+        <variable ilk="argument" name="plist" />
+        <variable citdl="str" ilk="argument" name="name" />
+      </scope>
+      <scope doc="Return a dictionary containing the mailcap database." ilk="function" line="9" lineend="32" name="getcaps" returns="dict" signature="getcaps()">
+        <variable citdl="open()" line="22" name="fp" />
+        <variable citdl="readmailcapfile()" line="25" name="morecaps" />
+        <variable citdl="dict" line="19" name="caps" />
+      </scope>
+      <scope doc="Return a list of all mailcap files found on the system." ilk="function" line="34" lineend="48" name="listmailcapfiles" returns="list" signature="listmailcapfiles()">
+        <variable citdl="str" line="42" name="home" />
+        <variable citdl="str.split()" line="39" name="mailcaps" />
+        <variable line="38" name="str" />
+      </scope>
+      <scope ilk="function" line="158" lineend="168" name="lookup" returns="filter()" signature="lookup(caps, MIMEtype, key=None)">
+        <variable citdl="str" ilk="argument" name="MIMEtype" />
+        <variable citdl="MIMEtype.split()" line="162" name="MIMEtypes" />
+        <variable citdl="list" line="159" name="entries" />
+        <variable ilk="argument" name="key" />
+        <variable ilk="argument" name="caps" />
+      </scope>
+      <import module="os" />
+      <scope doc="Separate one key-value pair in a mailcap entry." ilk="function" line="122" lineend="133" name="parsefield" returns="tuple" signature="parsefield(line, i, n)">
+        <variable citdl="int" ilk="argument" name="i" />
+        <variable line="124" name="start" />
+        <variable ilk="argument" name="line" />
+        <variable line="126" name="c" />
+        <variable ilk="argument" name="n" />
+      </scope>
+      <scope doc="Parse one entry in a mailcap file and return a dictionary." ilk="function" line="91" lineend="120" name="parseline" returns="tuple" signature="parseline(line)">
+        <variable citdl="int" line="98" name="i" />
+        <variable citdl="dict" line="97" name="fields" />
+        <variable citdl="list" line="105" name="rest" />
+        <variable citdl="len()" line="98" name="n" />
+        <variable line="100" name="field" />
+        <variable line="105" name="key" />
+        <variable line="110" name="fkey" />
+        <variable ilk="argument" name="line" />
+        <variable citdl="str" line="111" name="fvalue" />
+        <variable line="105" name="view" />
+      </scope>
+      <scope doc="Read a mailcap file and return a dictionary keyed by MIME&#10;type." ilk="function" line="53" lineend="89" name="readmailcapfile" returns="dict" signature="readmailcapfile(fp)">
+        <variable ilk="argument" name="fp" />
+        <variable citdl="fp.readline()" line="69" name="nextline" />
+        <variable line="76" name="fields" />
+        <variable citdl="dict" line="62" name="caps" />
+        <variable line="76" name="key" />
+        <variable citdl="fp.readline()" line="64" name="line" />
+        <variable citdl="key.split()" line="80" name="types" />
+      </scope>
+      <scope ilk="function" line="235" lineend="252" name="show" signature="show(caps)">
+        <variable citdl="e.keys()" line="248" name="keys" />
+        <variable line="246" name="entries" />
+        <variable citdl="caps.keys()" line="242" name="ckeys" />
+        <variable citdl="getcaps()" ilk="argument" name="caps" />
+      </scope>
+      <scope ilk="function" line="170" lineend="200" name="subst" returns="str" signature="subst(field, MIMEtype, filename, plist=[])">
+        <variable ilk="argument" name="MIMEtype" />
+        <variable citdl="list" line="175" name="c" />
+        <variable citdl="list" line="192" name="name" />
+        <variable citdl="int" line="189" name="start" />
+        <variable citdl="int" line="173" name="i" />
+        <variable citdl="list" line="172" name="res" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="field" />
+        <variable citdl="len()" line="173" name="n" />
+        <variable citdl="list" ilk="argument" name="plist" />
+      </scope>
+      <scope ilk="function" line="213" lineend="233" name="test" signature="test()">
+        <variable line="224" name="MIMEtype" />
+        <variable line="226" name="e" />
+        <variable citdl="list" line="220" name="args" />
+        <variable citdl="getcaps()" line="215" name="caps" />
+        <variable line="226" name="command" />
+        <variable line="225" name="file" />
+        <variable citdl="os.system()" line="231" name="sts" />
+      </scope>
+    </scope>
+    

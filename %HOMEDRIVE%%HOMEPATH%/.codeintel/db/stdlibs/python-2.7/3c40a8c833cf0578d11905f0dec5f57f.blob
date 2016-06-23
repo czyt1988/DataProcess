@@ -1,0 +1,14 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="MacOS">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Error" />
+      <scope doc="Get MacOS 4-char creator and type for a file" ilk="function" name="GetCreatorAndType" />
+      <scope doc="Convert OSErr number to string" ilk="function" name="GetErrorString" />
+      <scope doc="Return number of ticks since bootup" ilk="function" name="GetTicks" />
+      <scope classrefs="object" doc="Resource fork file object&#10;" ilk="class" name="ResourceForkType" />
+      <scope doc="Set MacOS 4-char creator and type for a file" ilk="function" name="SetCreatorAndType" />
+      <scope doc="True if this process can interact with the display.Will&#10;foreground the application on the first call as a side-&#10;effect." ilk="function" name="WMAvailable" />
+      <variable citdl="str" name="linkmodel" />
+      <scope doc="Open resource fork of a file" ilk="function" name="openrf" />
+      <variable citdl="str" name="runtimemodel" />
+      <variable citdl="int" name="string_id_to_buffer" />
+    </scope>
+    

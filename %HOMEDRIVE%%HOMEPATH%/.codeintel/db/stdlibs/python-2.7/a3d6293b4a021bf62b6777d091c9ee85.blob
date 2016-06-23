@@ -1,0 +1,19 @@
+<scope doc="Manually generated suite used as base class for StdSuites Required and Standard&#10;suites. This is needed because the events and enums in this suite belong in the Required suite according to the Apple docs, but they often seem to be in the Standard suite." ilk="blob" lang="Python" name="_builtinSuites">
+      <import module="MacOS" />
+      <import module="aetools" />
+      <import module="builtin_Suite" />
+      <scope doc="&#10;" ilk="class" name="builtin_Suite_Events">
+        <scope doc="quit: Quit an application Keyword argument saving: specifies&#10;whether to save currently open documents Keyword argument&#10;_attributes: AppleEvent attribute dictionary" ilk="function" name="quit" />
+        <scope doc="run: Run an application." ilk="function" name="run" />
+        <scope doc="reopen: Reactivate a running application." ilk="function" name="reopen" />
+        <scope doc="print: Print the specified object(s) Required argument: list&#10;of objects to print Keyword argument _attributes: AppleEvent&#10;attribute dictionary" ilk="function" name="_print" />
+        <scope doc="open: Open the specified object(s) Required argument: list&#10;of objects to open Keyword argument _attributes: AppleEvent&#10;attribute dictionary" ilk="function" name="open" />
+      </scope>
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <variable attributes="protected __hidden__" citdl="dict" line="15" name="_code_to_module" />
+      <scope attributes="protected __hidden__" classrefs="builtin_Suite_Events aetools.TalkTo" ilk="class" line="29" lineend="31" name="_builtinSuites">
+        <variable attributes="protected" citdl="str" line="31" name="_signature" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="22" name="_code_to_fullname" />
+    </scope>
+    

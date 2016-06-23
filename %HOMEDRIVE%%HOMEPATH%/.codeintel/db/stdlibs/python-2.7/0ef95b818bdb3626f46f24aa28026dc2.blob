@@ -1,0 +1,20 @@
+<scope doc="Functions to convert between Python values and C structs represented&#10;as Python strings. It uses format strings (explained below) as compact descriptions of the lay-out of the C structs and the intended conversion to/from Python values.  The optional first format char indicates byte order, size and alignment: @: native order, size &amp; alignment (default) =: native order, std. size &amp; alignment &lt;: little-endian, std. size &amp; alignment &gt;: big-endian, std. size &amp; alignment !: same as &gt;" ilk="blob" lang="Python" name="_struct">
+      <scope classrefs="object" doc="Compiled struct object&#10;" ilk="class" name="Struct">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Pack the values v1, v2, ..." ilk="function" name="pack_into" signature="S.pack_into(buffer, offset, v1, v2, ...)" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="Return tuple containing values unpacked according to this&#10;Struct's format." ilk="function" name="unpack_from" signature="S.unpack_from(buffer[, offset]) -&gt; (v1, v2, ...)" />
+        <scope doc="Return tuple containing values unpacked according to this&#10;Struct's format." ilk="function" name="unpack" signature="S.unpack(str) -&gt; (v1, v2, ...)" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Return a string containing values v1, v2, ..." ilk="function" name="pack" returns="str" signature="S.pack(v1, v2, ...) -&gt; string" />
+      </scope>
+      <variable citdl="str" name="__version__" />
+      <scope doc="Return size of C struct described by format string fmt." ilk="function" name="calcsize" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope doc="Return string containing values v1, v2, ..." ilk="function" name="pack" />
+      <scope doc="Pack the values v1, v2, ... according to fmt." ilk="function" name="pack_into" />
+      <scope doc="Unpack the string containing packed C structure data,&#10;according to fmt." ilk="function" name="unpack" />
+      <scope doc="Unpack the buffer, containing packed C structure data,&#10;according to fmt, starting at offset." ilk="function" name="unpack_from" />
+    </scope>
+    

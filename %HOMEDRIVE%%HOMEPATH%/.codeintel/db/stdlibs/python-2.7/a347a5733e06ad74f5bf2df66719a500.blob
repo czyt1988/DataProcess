@@ -1,0 +1,25 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_symtable">
+      <variable citdl="int" name="CELL" />
+      <variable citdl="int" name="DEF_BOUND" />
+      <variable citdl="int" name="DEF_FREE" />
+      <variable citdl="int" name="DEF_FREE_CLASS" />
+      <variable citdl="int" name="DEF_GLOBAL" />
+      <variable citdl="int" name="DEF_IMPORT" />
+      <variable citdl="int" name="DEF_LOCAL" />
+      <variable citdl="int" name="DEF_PARAM" />
+      <variable citdl="int" name="FREE" />
+      <variable citdl="int" name="GLOBAL_EXPLICIT" />
+      <variable citdl="int" name="GLOBAL_IMPLICIT" />
+      <variable citdl="int" name="LOCAL" />
+      <variable citdl="int" name="OPT_BARE_EXEC" />
+      <variable citdl="int" name="OPT_EXEC" />
+      <variable citdl="int" name="OPT_IMPORT_STAR" />
+      <variable citdl="int" name="SCOPE_MASK" />
+      <variable citdl="int" name="SCOPE_OFF" />
+      <variable citdl="int" name="TYPE_CLASS" />
+      <variable citdl="int" name="TYPE_FUNCTION" />
+      <variable citdl="int" name="TYPE_MODULE" />
+      <variable citdl="int" name="USE" />
+      <scope doc="Return symbol and scope dictionaries used internally by&#10;compiler." ilk="function" name="symtable" />
+    </scope>
+    

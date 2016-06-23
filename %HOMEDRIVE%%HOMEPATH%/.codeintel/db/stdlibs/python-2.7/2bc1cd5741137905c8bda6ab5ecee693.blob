@@ -1,0 +1,29 @@
+<scope doc="Standard &quot;encodings&quot; Package&#10;Standard Python encoding modules are stored in this package directory.  Codec modules must have names corresponding to normalized encoding names as defined in the normalize_encoding() function below, e.g. 'utf-8' must be implemented by the module 'utf_8.py'.  Each codec module must export the following interface:  * getregentry() -&gt; codecs.CodecInfo object" ilk="blob" lang="Python" name="encodings">
+      <scope classrefs="LookupError SystemError" doc="&#10;" ilk="class" line="46" lineend="47" name="CodecRegistryError" />
+      <import module="__builtin__" />
+      <import module="aliases" />
+      <import module="ascii" />
+      <import module="codecs" />
+      <import module="cp1252" />
+      <import module="mbcs" />
+      <scope doc="Normalize an encoding name." ilk="function" line="49" lineend="69" name="normalize_encoding" returns="str.join()" signature="normalize_encoding(encoding)">
+        <variable citdl="encoding.encode()" ilk="argument" name="encoding" />
+      </scope>
+      <scope ilk="function" line="71" lineend="154" name="search_function" returns="getregentry()" signature="search_function(encoding)">
+        <variable ilk="argument" name="encoding" />
+        <variable citdl="normalize_encoding()" line="85" name="norm_encoding" />
+        <variable citdl="_aliases.get()" line="86" name="aliased_encoding" />
+        <variable citdl="mod.getaliases()" line="145" name="codecaliases" />
+        <variable citdl="list" line="89" name="modnames" />
+        <variable citdl="mod.getregentry" line="109" name="getregentry" />
+        <variable citdl="_cache.get()" line="74" name="entry" />
+        <variable citdl="__import__()" line="99" name="mod" />
+      </scope>
+      <import module="utf_8" />
+      <variable attributes="protected __hidden__" citdl="list" line="37" name="_import_tail" />
+      <variable attributes="protected __hidden__" citdl="str" line="38" name="_norm_encoding_map" />
+      <variable attributes="protected __hidden__" citdl="str" line="36" name="_unknown" />
+      <variable attributes="protected __hidden__" citdl="aliases.aliases" line="44" name="_aliases" />
+      <variable attributes="protected __hidden__" citdl="dict" line="35" name="_cache" />
+    </scope>
+    

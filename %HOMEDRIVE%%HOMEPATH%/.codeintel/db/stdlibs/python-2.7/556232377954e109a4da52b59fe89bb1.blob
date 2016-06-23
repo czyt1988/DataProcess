@@ -1,0 +1,48 @@
+<scope doc="Common pathname manipulations, WindowsNT/95 version.&#10;Instead of importing this module directly, import os and refer to this module as os.path." ilk="blob" lang="Python" name="os.path">
+      <variable citdl="list" name="__all__" />
+      <scope doc="Return the absolute version of a path." ilk="function" name="abspath" signature="abspath(path)" />
+      <variable citdl="str" name="altsep" />
+      <scope doc="Returns the final component of a pathname" ilk="function" name="basename" signature="basename(p)" />
+      <scope doc="Given a list of pathnames, returns the longest common&#10;leading component" ilk="function" name="commonprefix" signature="commonprefix(m)" />
+      <variable citdl="str" name="curdir" />
+      <variable citdl="str" name="defpath" />
+      <variable citdl="str" name="devnull" />
+      <scope doc="Returns the directory component of a pathname" ilk="function" name="dirname" signature="dirname(p)" />
+      <scope doc="Test whether a path exists." ilk="function" name="exists" signature="exists(path)" />
+      <scope doc="Expand ~ and ~user constructs." ilk="function" name="expanduser" signature="expanduser(path)" />
+      <scope doc="Expand shell variables of the forms $var, ${var} and %var%." ilk="function" name="expandvars" signature="expandvars(path)" />
+      <variable citdl="str" name="extsep" />
+      <import module="genericpath" />
+      <scope doc="Return the last access time of a file, reported by&#10;os.stat()." ilk="function" name="getatime" signature="getatime(filename)" />
+      <scope doc="Return the metadata change time of a file, reported by&#10;os.stat()." ilk="function" name="getctime" signature="getctime(filename)" />
+      <scope doc="Return the last modification time of a file, reported by&#10;os.stat()." ilk="function" name="getmtime" signature="getmtime(filename)" />
+      <scope doc="Return the size of a file, reported by os.stat()." ilk="function" name="getsize" signature="getsize(filename)" />
+      <scope doc="Test whether a path is absolute" ilk="function" name="isabs" signature="isabs(s)" />
+      <scope doc="Return true if the pathname refers to an existing directory." ilk="function" name="isdir" signature="isdir(s)" />
+      <scope doc="Test whether a path is a regular file" ilk="function" name="isfile" signature="isfile(path)" />
+      <scope doc="Test for symbolic link." ilk="function" name="islink" signature="islink(path)" />
+      <scope doc="Test whether a path is a mount point (defined as root of&#10;drive)" ilk="function" name="ismount" signature="ismount(path)" />
+      <scope doc="Join two or more pathname components, inserting &quot;\&quot; as&#10;needed." ilk="function" name="join" signature="join(a, *p)" />
+      <scope doc="Test whether a path exists." ilk="function" name="lexists" signature="lexists(path)" />
+      <scope doc="Normalize case of pathname." ilk="function" name="normcase" signature="normcase(s)" />
+      <scope doc="Normalize path, eliminating double slashes, etc." ilk="function" name="normpath" signature="normpath(path)" />
+      <import module="os" />
+      <variable citdl="str" name="pardir" />
+      <variable citdl="str" name="pathsep" />
+      <scope doc="Return the absolute version of a path." ilk="function" name="realpath" signature="realpath(path)" />
+      <scope doc="Return a relative version of a path" ilk="function" name="relpath" signature="relpath(path, start='.')" />
+      <variable citdl="str" name="sep" />
+      <scope doc="Split a pathname." ilk="function" name="split" signature="split(p)" />
+      <scope doc="Split a pathname into drive and path specifiers." ilk="function" name="splitdrive" signature="splitdrive(p)" />
+      <scope doc="Split the extension from a pathname." ilk="function" name="splitext" signature="splitext(p)" />
+      <scope doc="Split a pathname into UNC mount point and relative path&#10;specifiers." ilk="function" name="splitunc" signature="splitunc(p)" />
+      <import module="stat" />
+      <variable citdl="bool" name="supports_unicode_filenames" />
+      <import module="sys" />
+      <scope doc="Directory tree walk with callback function." ilk="function" name="walk" signature="walk(top, func, arg)" />
+      <import module="warnings" />
+      <scope doc="Test whether two pathnames reference the same actual file" ilk="function" name="samefile" signature="samefile(f1, f2)" />
+      <scope doc="Test whether two stat buffers reference the same file" ilk="function" name="samestat" signature="samestat(s1, s2)" />
+      <scope doc="Test whether two open file objects reference the same file" ilk="function" name="sameopenfile" signature="sameopenfile(fp1, fp2)" />
+    </scope>
+    

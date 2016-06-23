@@ -1,0 +1,104 @@
+<scope doc="Parse a Python module and describe its classes and methods.&#10;Parse enough of a Python file to recognize imports and class and method definitions, and to find out the superclasses of a class.  The interface consists of a single function: readmodule_ex(module [, path]) where module is the name of a Python module, and path is an optional list of directories where the module is to be searched.  If present, path is prepended to the system search path sys.path.  The return value is a dictionary.  The keys of the dictionary are the names of the classes defined in the module (including classes that are defined" ilk="blob" lang="Python" name="pyclbr">
+      <scope doc="Class to represent a Python class.&#10;" ilk="class" line="53" lineend="66" name="Class">
+        <scope ilk="function" line="55" lineend="63" name="__init__" signature="Class(module, name, super, file, lineno)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="Class" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+          <variable ilk="argument" name="lineno" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="list" ilk="argument" name="super" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="_addmethod" signature="_addmethod(name, lineno)">
+          <variable citdl="Class" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <variable attributes="__instancevar__" line="57" name="name" />
+        <variable attributes="__instancevar__" line="56" name="module" />
+        <variable attributes="__instancevar__" line="63" name="lineno" />
+        <variable attributes="__instancevar__" line="62" name="file" />
+        <variable attributes="__instancevar__" citdl="list" line="60" name="super" />
+        <variable attributes="__instancevar__" citdl="dict" line="61" name="methods" />
+      </scope>
+      <variable citdl="int" name="DEDENT" />
+      <scope doc="Class to represent a top-level Python function&#10;" ilk="class" line="68" lineend="74" name="Function">
+        <scope ilk="function" line="70" lineend="74" name="__init__" signature="Function(module, name, file, lineno)">
+          <variable ilk="argument" name="file" />
+          <variable citdl="Function" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="module" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <variable attributes="__instancevar__" line="73" name="file" />
+        <variable attributes="__instancevar__" line="74" name="lineno" />
+        <variable attributes="__instancevar__" line="71" name="module" />
+        <variable attributes="__instancevar__" line="72" name="name" />
+      </scope>
+      <variable citdl="int" name="NAME" />
+      <variable citdl="int" name="OP" />
+      <variable citdl="list" line="48" name="__all__" />
+      <import module="imp" />
+      <scope classrefs="object" doc="itemgetter(item, ...) --&gt; itemgetter object&#10;Return a callable object that fetches the given item(s) from its operand. After, f=itemgetter(2), the call f(r) returns r[2]. After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])" ilk="class" name="itemgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope doc="Backwards compatible interface." ilk="function" line="76" lineend="86" name="readmodule" returns="dict" signature="readmodule(module, path=None)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="module" />
+        <variable citdl="dict" line="82" name="res" />
+      </scope>
+      <scope doc="Read a module file and return a dictionary of classes." ilk="function" line="88" lineend="95" name="readmodule_ex" returns="_readmodule()" signature="readmodule_ex(module, path=None)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="module" />
+      </scope>
+      <import module="sys" />
+      <import module="tokenize" />
+      <scope attributes="protected __hidden__" ilk="function" line="277" lineend="295" name="_getnamelist" returns="list" signature="_getnamelist(g)">
+        <variable ilk="argument" name="g" />
+        <variable citdl="list" line="281" name="names" />
+        <variable line="283" name="token" />
+        <variable line="283" name="name" />
+        <variable line="287" name="name2" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="297" lineend="314" name="_getname" returns="tuple" signature="_getname(g)">
+        <variable ilk="argument" name="g" />
+        <variable citdl="list" line="301" name="parts" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Do the hard work for readmodule[_ex]." ilk="function" line="97" lineend="275" name="_readmodule" returns="dict" signature="_readmodule(module, path, inpackage=None)">
+        <variable ilk="argument" name="module" />
+        <variable citdl="list" ilk="argument" name="path" />
+        <variable ilk="argument" name="inpackage" />
+        <variable citdl="str" line="107" name="fullmodule" />
+        <variable citdl="dict" line="116" name="dict" />
+        <variable citdl="module.rfind()" line="124" name="i" />
+        <variable citdl="list" line="126" name="package" />
+        <variable citdl="list" line="127" name="submodule" />
+        <variable citdl="()" line="128" name="parent" />
+        <variable line="134" name="f" />
+        <variable line="136" name="fname" />
+        <variable citdl="list" line="149" name="stack" />
+        <variable citdl="tokenize.generate_tokens()" line="151" name="g" />
+        <variable citdl="Class" line="168" name="cur_class" />
+        <variable citdl="list" line="188" name="inherit" />
+        <variable citdl="_getnamelist()" line="190" name="names" />
+        <variable citdl="int" line="192" name="level" />
+        <variable citdl="list" line="193" name="super" />
+        <variable citdl="str.join()" line="197" name="n" />
+        <variable citdl="n.split()" line="202" name="c" />
+        <variable line="207" name="m" />
+        <variable citdl="()" line="210" name="d" />
+        <variable citdl="_getnamelist()" line="234" name="modules" />
+        <variable line="250" name="mod" />
+        <variable line="250" name="token" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="316" lineend="339" name="_main" signature="_main()">
+        <import line="318" module="os" />
+        <variable citdl="os.path.basename()" line="319" name="mod" />
+        <variable citdl="list" line="321" name="path" />
+        <variable citdl="readmodule_ex()" line="327" name="dict" />
+        <variable citdl="dict.values()" line="328" name="objs" />
+        <variable citdl="sorted()" line="334" name="methods" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="50" name="_modules" />
+    </scope>
+    

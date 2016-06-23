@@ -1,0 +1,90 @@
+<scope doc="# Package analogous to 'threading.py' but using processes&#10;# # multiprocessing/__init__.py # # This package is intended to duplicate the functionality (and much of # the API) of threading.py but uses processes instead of threads.  A # subpackage 'multiprocessing.dummy' has the same API but is a simple # wrapper for 'threading'. # # Try calling `multiprocessing.doc.main()` to read the html # documentation in in a webbrowser." ilk="blob" lang="Python" name="multiprocessing">
+      <scope doc="Returns a synchronized shared array" ilk="function" line="255" lineend="260" name="Array" returns="Array()" signature="Array(typecode_or_type, size_or_initializer, **kwds)">
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+        <variable ilk="argument" name="size_or_initializer" />
+      </scope>
+      <scope classrefs="ProcessError" doc="&#10;" ilk="class" line="80" lineend="81" name="AuthenticationError" />
+      <scope doc="Returns a bounded semaphore object" ilk="function" line="199" lineend="204" name="BoundedSemaphore" returns="BoundedSemaphore()" signature="BoundedSemaphore(value=1)">
+        <variable citdl="int" ilk="argument" name="value" />
+      </scope>
+      <scope classrefs="ProcessError" doc="&#10;" ilk="class" line="74" lineend="75" name="BufferTooShort" />
+      <scope doc="Returns a condition object" ilk="function" line="185" lineend="190" name="Condition" returns="Condition()" signature="Condition(lock=None)">
+        <variable ilk="argument" name="lock" />
+      </scope>
+      <scope doc="Returns an event object" ilk="function" line="206" lineend="211" name="Event" returns="Event()" signature="Event()" />
+      <scope doc="Returns a queue object" ilk="function" line="220" lineend="225" name="JoinableQueue" returns="JoinableQueue()" signature="JoinableQueue(maxsize=0)">
+        <variable citdl="int" ilk="argument" name="maxsize" />
+      </scope>
+      <scope doc="Returns a non-recursive lock object" ilk="function" line="171" lineend="176" name="Lock" returns="Lock()" signature="Lock()" />
+      <scope doc="Returns a manager associated with a running server process" ilk="function" line="90" lineend="100" name="Manager" returns="SyncManager()" signature="Manager()">
+        <variable citdl="SyncManager()" line="98" name="m" />
+      </scope>
+      <scope doc="Returns two connection object connected by a pipe" ilk="function" line="102" lineend="107" name="Pipe" returns="Pipe()" signature="Pipe(duplex=True)">
+        <variable citdl="True" ilk="argument" name="duplex" />
+      </scope>
+      <scope doc="Returns a process pool object" ilk="function" line="227" lineend="232" name="Pool" returns="Pool()" signature="Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)">
+        <variable citdl="tuple" ilk="argument" name="initargs" />
+        <variable ilk="argument" name="processes" />
+        <variable ilk="argument" name="maxtasksperchild" />
+        <variable ilk="argument" name="initializer" />
+      </scope>
+      <scope classrefs="object" doc="Process objects represent activity that is run in a separate process&#10;The class is analagous to `threading.Thread`" ilk="class" name="Process">
+        <scope doc="Method to be run in sub-process; can be overridden in sub-&#10;class" ilk="function" name="run" />
+        <scope doc="Terminate process; sends SIGTERM signal or uses&#10;TerminateProcess()" ilk="function" name="terminate" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Wait until child process terminates" ilk="function" name="join" />
+        <scope doc="Start child process" ilk="function" name="start" />
+        <scope ilk="function" name="_bootstrap" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether process is alive" ilk="function" name="is_alive" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="71" lineend="72" name="ProcessError" />
+      <scope doc="Returns a queue object" ilk="function" line="213" lineend="218" name="Queue" returns="Queue()" signature="Queue(maxsize=0)">
+        <variable citdl="int" ilk="argument" name="maxsize" />
+      </scope>
+      <scope doc="Returns a recursive lock object" ilk="function" line="178" lineend="183" name="RLock" returns="RLock()" signature="RLock()" />
+      <scope doc="Returns a shared array" ilk="function" line="241" lineend="246" name="RawArray" returns="RawArray()" signature="RawArray(typecode_or_type, size_or_initializer)">
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable ilk="argument" name="size_or_initializer" />
+      </scope>
+      <scope doc="Returns a shared object" ilk="function" line="234" lineend="239" name="RawValue" returns="RawValue()" signature="RawValue(typecode_or_type, *args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="typecode_or_type" />
+      </scope>
+      <variable citdl="int" name="SUBDEBUG" />
+      <variable citdl="int" name="SUBWARNING" />
+      <scope doc="Returns a semaphore object" ilk="function" line="192" lineend="197" name="Semaphore" returns="Semaphore()" signature="Semaphore(value=1)">
+        <variable citdl="int" ilk="argument" name="value" />
+      </scope>
+      <scope classrefs="ProcessError" doc="&#10;" ilk="class" line="77" lineend="78" name="TimeoutError" />
+      <scope doc="Returns a synchronized shared object" ilk="function" line="248" lineend="253" name="Value" returns="Value()" signature="Value(typecode_or_type, *args, **kwds)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+      </scope>
+      <variable citdl="list" line="46" name="__all__" />
+      <variable citdl="str" line="55" name="__author__" />
+      <variable citdl="str" line="44" name="__version__" />
+      <import module="_multiprocessing" />
+      <scope doc="Return list of process objects corresponding to live child&#10;processes" ilk="function" name="active_children" signature="active_children()" />
+      <scope doc="Install support for sending connections and sockets between&#10;processes" ilk="function" line="161" lineend="165" name="allow_connection_pickling" signature="allow_connection_pickling()" />
+      <scope doc="Returns the number of CPUs in the system" ilk="function" line="109" lineend="136" name="cpu_count" returns="int()" signature="cpu_count()">
+        <variable citdl="int" line="115" name="num" />
+        <variable citdl="str" line="119" name="comm" />
+      </scope>
+      <scope doc="Return process object representing the current process" ilk="function" name="current_process" signature="current_process()" />
+      <scope doc="Check whether this is a fake forked process in a frozen&#10;executable." ilk="function" line="138" lineend="145" name="freeze_support" signature="freeze_support()" />
+      <scope doc="Return package logger -- if it does not already exist then&#10;it is created" ilk="function" line="147" lineend="152" name="get_logger" returns="get_logger()" signature="get_logger()" />
+      <scope doc="Turn on logging and add a handler which prints to stderr" ilk="function" line="154" lineend="159" name="log_to_stderr" returns="log_to_stderr()" signature="log_to_stderr(level=None)">
+        <variable ilk="argument" name="level" />
+      </scope>
+      <import module="os" />
+      <import module="process" />
+      <scope doc="Sets the path to a python.exe or pythonw.exe binary used to&#10;run child processes on Windows instead of sys.executable." ilk="function" line="268" lineend="275" name="set_executable" signature="set_executable(executable)">
+        <variable ilk="argument" name="executable" />
+      </scope>
+      <import module="sys" />
+      <import module="util" />
+    </scope>
+    

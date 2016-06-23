@@ -1,0 +1,23 @@
+<scope doc="C implementation and optimization of the Python pickle module.&#10;" ilk="blob" lang="Python" name="cPickle">
+      <scope classrefs="UnpicklingError" doc="&#10;" ilk="class" name="BadPickleGet" />
+      <variable citdl="int" name="HIGHEST_PROTOCOL" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="PickleError">
+        <scope ilk="function" name="__str__" />
+      </scope>
+      <scope doc="Create a pickler." ilk="function" name="Pickler" signature="Pickler(file, protocol=0)" />
+      <scope classrefs="PickleError" doc="&#10;" ilk="class" name="PicklingError" />
+      <scope classrefs="PicklingError" doc="&#10;" ilk="class" name="UnpickleableError">
+        <scope ilk="function" name="__str__" />
+      </scope>
+      <scope doc="Create an unpickler." ilk="function" name="Unpickler" signature="Unpickler(file)" />
+      <scope classrefs="PickleError" doc="&#10;" ilk="class" name="UnpicklingError" />
+      <import module="__builtins__" />
+      <variable citdl="str" name="__version__" />
+      <variable citdl="list" name="compatible_formats" />
+      <scope doc="Write an object in pickle format to the given file." ilk="function" name="dump" signature="dump(obj, file, protocol=0)" />
+      <scope doc="Return a string containing an object in pickle format." ilk="function" name="dumps" signature="dumps(obj, protocol=0)" />
+      <variable citdl="str" name="format_version" />
+      <scope doc="Load a pickle from the given file" ilk="function" name="load" signature="load(file)" />
+      <scope doc="Load a pickle from the given string" ilk="function" name="loads" signature="loads(string)" />
+    </scope>
+    

@@ -1,0 +1,21 @@
+<scope doc="Conversion between binary data and ASCII&#10;" ilk="blob" lang="Python" name="binascii">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Error" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Incomplete" />
+      <scope doc="(ascii) -&gt; bin." ilk="function" name="a2b_base64" />
+      <scope doc="hexstr must contain an even number of hex digits (upper or&#10;lower case)." ilk="function" name="a2b_hex" signature="a2b_hex(hexstr) -&gt; s; Binary data of hexadecimal representation." />
+      <scope doc="ascii -&gt; bin, done." ilk="function" name="a2b_hqx" />
+      <scope doc="Decode a string of qp-encoded data" ilk="function" name="a2b_qp" />
+      <scope doc="(ascii) -&gt; bin." ilk="function" name="a2b_uu" />
+      <scope doc="(bin) -&gt; ascii." ilk="function" name="b2a_base64" />
+      <scope doc="This function is also available as &quot;hexlify()&quot;." ilk="function" name="b2a_hex" signature="b2a_hex(data) -&gt; s; Hexadecimal representation of binary data." />
+      <scope doc="Encode .hqx data" ilk="function" name="b2a_hqx" />
+      <scope doc="Encode a string using quoted-printable encoding." ilk="function" name="b2a_qp" signature="b2a_qp(data, quotetabs=0, istext=1, header=0) -&gt; s;" />
+      <scope doc="(bin) -&gt; ascii." ilk="function" name="b2a_uu" />
+      <scope doc="(data, oldcrc = 0) -&gt; newcrc." ilk="function" name="crc32" />
+      <scope doc="(data, oldcrc) -&gt; newcrc." ilk="function" name="crc_hqx" />
+      <scope doc="This function is also available as &quot;hexlify()&quot;." ilk="function" name="hexlify" signature="b2a_hex(data) -&gt; s; Hexadecimal representation of binary data." />
+      <scope doc="Binhex RLE-code binary data" ilk="function" name="rlecode_hqx" />
+      <scope doc="Decode hexbin RLE-coded string" ilk="function" name="rledecode_hqx" />
+      <scope doc="hexstr must contain an even number of hex digits (upper or&#10;lower case)." ilk="function" name="unhexlify" signature="a2b_hex(hexstr) -&gt; s; Binary data of hexadecimal representation." />
+    </scope>
+    

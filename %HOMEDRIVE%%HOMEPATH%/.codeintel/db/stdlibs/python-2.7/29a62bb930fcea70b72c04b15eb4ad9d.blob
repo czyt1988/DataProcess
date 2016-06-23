@@ -1,0 +1,111 @@
+<scope doc="Classes for manipulating audio devices (currently only for Sun and SGI)&#10;" ilk="blob" lang="Python" name="audiodev">
+      <scope ilk="function" line="220" lineend="236" name="AudioDev" returns="Audio_mac.Play_Audio_mac()" signature="AudioDev()" />
+      <scope doc="&#10;" ilk="class" line="11" lineend="145" name="Play_Audio_sgi">
+        <scope ilk="function" line="91" lineend="104" name="setsampwidth" signature="setsampwidth(width)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="143" lineend="145" name="ulaw2lin" returns="audioop.ulaw2lin()" signature="ulaw2lin(data)">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="57" lineend="63" name="__del__" signature="__del__()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="115" lineend="126" name="writeframes" signature="writeframes(data)">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+          <variable citdl="converter()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="73" lineend="80" name="stop" signature="stop()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="106" lineend="113" name="setnchannels" signature="setnchannels(nchannels)">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+          <variable ilk="argument" name="nchannels" />
+        </scope>
+        <scope ilk="function" line="65" lineend="71" name="wait" signature="wait()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="128" lineend="132" name="getfilled" returns="self.port.getfilled()" signature="getfilled()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="82" lineend="89" name="setoutrate" signature="setoutrate(rate)">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+          <variable ilk="argument" name="rate" />
+        </scope>
+        <scope ilk="function" line="134" lineend="138" name="getfillable" returns="self.port.getfillable()" signature="getfillable()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="43" name="__init__" signature="Play_Audio_sgi()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="20" lineend="41" name="initclass" signature="initclass()">
+          <variable citdl="Play_Audio_sgi" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="list" line="18" name="frameratelist" />
+        <variable attributes="__instancevar__" citdl="self.ulaw2lin" line="53" name="converter" />
+        <variable attributes="__instancevar__" citdl="int" line="51" name="inited_width" />
+        <variable attributes="__instancevar__" citdl="int" line="52" name="inited_nchannels" />
+        <variable attributes="__instancevar__" citdl="int" line="50" name="inited_outrate" />
+        <variable attributes="__instancevar__" citdl="list" line="47" name="oldparams" />
+        <variable citdl="int" line="17" name="classinited" />
+        <variable attributes="__instancevar__" citdl="list" line="48" name="params" />
+        <variable attributes="__instancevar__" citdl="list" line="36" name="sampwidthlist" />
+        <variable attributes="__instancevar__" citdl="al.newconfig()" line="49" name="config" />
+        <variable attributes="__instancevar__" citdl="al.openport()" line="54" name="port" />
+        <variable attributes="__instancevar__" citdl="list" line="31" name="nchannelslist" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="147" lineend="214" name="Play_Audio_sun">
+        <scope ilk="function" line="169" lineend="171" name="setsampwidth" signature="setsampwidth(width)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="162" lineend="163" name="__del__" signature="__del__()">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="204" lineend="208" name="stop" signature="stop()">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="177" lineend="196" name="writeframes" signature="writeframes(data)">
+          <variable citdl="self.port.getinfo()" line="183" name="info" />
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+          <variable citdl="converter()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="173" lineend="175" name="setnchannels" signature="setnchannels(nchannels)">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+          <variable ilk="argument" name="nchannels" />
+        </scope>
+        <scope ilk="function" line="210" lineend="214" name="getfilled" returns="self.port.obufcount()" signature="getfilled()">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="165" lineend="167" name="setoutrate" signature="setoutrate(rate)">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+          <variable ilk="argument" name="rate" />
+        </scope>
+        <scope ilk="function" line="151" name="__init__" signature="Play_Audio_sun()">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="198" lineend="202" name="wait" signature="wait()">
+          <variable citdl="Play_Audio_sun" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="153" name="sampwidth" />
+        <variable attributes="__instancevar__" line="158" name="converter" />
+        <variable attributes="__instancevar__" citdl="int" line="154" name="nchannels" />
+        <variable attributes="__instancevar__" citdl="int" line="157" name="inited_nchannels" />
+        <variable attributes="__instancevar__" citdl="int" line="155" name="inited_outrate" />
+        <variable attributes="__instancevar__" citdl="SUNAUDIODEV.ENCODING_ULAW" line="188" name="o_encoding" />
+        <variable attributes="__instancevar__" citdl="int" line="156" name="inited_width" />
+        <variable attributes="__instancevar__" citdl="sunaudiodev.open()" line="159" name="port" />
+        <variable attributes="__instancevar__" citdl="int" line="152" name="outrate" />
+      </scope>
+      <variable citdl="list" line="6" name="__all__" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="8" lineend="9" name="error" />
+      <scope ilk="function" line="238" lineend="257" name="test" signature="test(fn=None)">
+        <variable citdl="AudioDev()" line="247" name="p" />
+        <variable citdl="af.readframes()" line="253" name="data" />
+        <variable citdl="af.getnchannels()" line="251" name="BUFSIZ" />
+        <variable citdl="str" ilk="argument" name="fn" />
+        <variable citdl="aifc.open()" line="245" name="af" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,145 @@
+<scope doc="HTTP server base class.&#10;Note: the class in this module doesn't implement any HTTP request; see SimpleHTTPServer for simple implementations of GET, HEAD and POST (including CGI scripts).  It does, however, optionally implement HTTP/1.1 persistent connections, as of version 0.3.  Contents:  - BaseHTTPRequestHandler: HTTP request handler base class - test: test function " ilk="blob" lang="Python" name="BaseHTTPServer">
+      <scope classrefs="StreamRequestHandler" doc="HTTP request handler base class.&#10;The following explanation of HTTP serves to guide you through the code as well as to expose any misunderstandings I may have about HTTP (so you don't need to read the code to figure out I'm wrong :-).  HTTP (HyperText Transfer Protocol) is an extensible protocol on top of a reliable stream transport (e.g. TCP/IP).  The protocol recognizes three parts to a request:  1. One line identifying the request type and path" ilk="class" line="114" lineend="578" name="BaseHTTPRequestHandler">
+        <scope doc="Parse a request (internal)." ilk="function" line="232" lineend="302" name="parse_request" returns="bool" signature="parse_request()">
+          <variable citdl="base_version_number.split()" line="260" name="version_number" />
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="list" line="246" name="requestline" />
+          <variable line="259" name="base_version_number" />
+          <variable citdl="self.headers.get()" line="296" name="conntype" />
+          <variable citdl="requestline.split()" line="252" name="words" />
+        </scope>
+        <scope doc="Return the server software version string." ilk="function" line="463" lineend="465" name="version_string" returns="str" signature="version_string()">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the current time formatted for logging." ilk="function" line="478" lineend="484" name="log_date_time_string" returns="tuple" signature="log_date_time_string()">
+          <variable line="481" name="z" />
+          <variable line="481" name="mm" />
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="str" line="482" name="s" />
+          <variable line="481" name="month" />
+          <variable line="481" name="ss" />
+          <variable line="481" name="hh" />
+          <variable line="481" name="year" />
+          <variable line="481" name="y" />
+          <variable line="481" name="x" />
+          <variable citdl="time.time()" line="480" name="now" />
+          <variable line="481" name="day" />
+        </scope>
+        <scope doc="Send a MIME header." ilk="function" line="401" lineend="410" name="send_header" signature="send_header(keyword, value)">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="keyword" />
+        </scope>
+        <scope doc="Send and log an error reply." ilk="function" line="347" lineend="376" name="send_error" signature="send_error(code, message=None)">
+          <variable ilk="argument" name="code" />
+          <variable citdl="str" line="366" name="explain" />
+          <variable citdl="str" line="363" name="long" />
+          <variable citdl="self.error_message_format" line="369" name="content" />
+          <variable citdl="str" line="363" name="short" />
+          <variable citdl="str" ilk="argument" name="message" />
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Log an error." ilk="function" line="427" lineend="439" name="log_error" signature="log_error(format, *args)">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope doc="Send the response header and log the response code." ilk="function" line="381" lineend="399" name="send_response" signature="send_response(code, message=None)">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="str" ilk="argument" name="message" />
+        </scope>
+        <scope doc="Handle multiple requests if necessary." ilk="function" line="339" lineend="345" name="handle" signature="handle()">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the current date and time formatted for a message&#10;header." ilk="function" line="467" lineend="476" name="date_time_string" returns="tuple" signature="date_time_string(timestamp=None)">
+          <variable line="471" name="wd" />
+          <variable line="471" name="mm" />
+          <variable citdl="time.time()" ilk="argument" name="timestamp" />
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="str" line="472" name="s" />
+          <variable line="471" name="month" />
+          <variable line="471" name="ss" />
+          <variable line="471" name="hh" />
+          <variable line="471" name="year" />
+          <variable line="471" name="y" />
+          <variable line="471" name="z" />
+          <variable line="471" name="day" />
+        </scope>
+        <scope doc="Return the client address formatted for logging." ilk="function" line="492" lineend="501" name="address_string" returns="socket.getfqdn()" signature="address_string()">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Log an accepted request." ilk="function" line="417" lineend="425" name="log_request" signature="log_request(code='-', size='-')">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="code" />
+          <variable citdl="str" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Log an arbitrary message." ilk="function" line="441" lineend="461" name="log_message" signature="log_message(format, *args)">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope doc="Send the blank line ending the MIME headers." ilk="function" line="412" lineend="415" name="end_headers" signature="end_headers()">
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handle a single HTTP request." ilk="function" line="304" name="handle_one_request" signature="handle_one_request()">
+          <variable citdl="str" line="326" name="mname" />
+          <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="330" name="method" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.raw_requestline" line="251" name="requestline" />
+        <variable citdl="str" line="378" name="error_message_format" />
+        <variable citdl="dict" line="515" name="responses" />
+        <variable citdl="str" line="230" name="default_request_version" />
+        <variable citdl="str" line="379" name="error_content_type" />
+        <variable citdl="list" line="486" name="weekdayname" />
+        <variable attributes="__instancevar__" citdl="self.rfile.readline()" line="313" name="raw_requestline" />
+        <variable attributes="__instancevar__" citdl="int" line="245" name="close_connection" />
+        <variable attributes="__instancevar__" citdl="self.MessageClass()" line="294" name="headers" />
+        <variable attributes="__instancevar__" citdl="str" line="243" name="command" />
+        <variable citdl="list" line="488" name="monthname" />
+        <variable attributes="__instancevar__" line="291" name="path" />
+        <variable citdl="str" line="507" name="protocol_version" />
+        <variable citdl="str" line="219" name="sys_version" />
+        <variable attributes="__instancevar__" citdl="str" line="244" name="request_version" />
+        <variable citdl="str" line="224" name="server_version" />
+        <variable citdl="mimetools.Message" line="510" name="MessageClass" />
+      </scope>
+      <variable citdl="str" line="97" name="DEFAULT_ERROR_CONTENT_TYPE" />
+      <variable citdl="str" line="85" name="DEFAULT_ERROR_MESSAGE" />
+      <scope classrefs="TCPServer" doc="&#10;" ilk="class" line="102" lineend="111" name="HTTPServer">
+        <scope doc="Override server_bind to store the server name." ilk="function" line="106" lineend="111" name="server_bind" signature="server_bind()">
+          <variable citdl="HTTPServer" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="104" name="allow_reuse_address" />
+        <variable attributes="__instancevar__" citdl="port" line="111" name="server_port" />
+        <variable attributes="__instancevar__" citdl="socket.getfqdn()" line="110" name="server_name" />
+      </scope>
+      <import module="SocketServer" />
+      <variable citdl="list" line="71" name="__all__" />
+      <variable citdl="str" line="69" name="__version__" />
+      <scope classrefs="object" doc="A context manager that copies and restores the warnings filter upon&#10;exiting the context.  The 'record' argument specifies whether warnings should be captured by a custom implementation of warnings.showwarning() and be appended to a list returned by the context manager. Otherwise None is returned by the context manager. The objects appended to the list are arguments whose attributes mirror the arguments to showwarning().  The 'module' argument is to specify an alternative module to the module named 'warnings' and imported under that name. This argument is only useful" ilk="class" name="catch_warnings">
+        <scope ilk="function" name="__exit__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__enter__" />
+        <scope doc="Specify whether to record warnings and if an alternative&#10;module should be used other than sys.modules['warnings']." ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Insert an entry into the list of warnings filters (at the&#10;front)." ilk="function" name="filterwarnings" signature="filterwarnings(action, message='', category=&lt;type 'exceptions.Warning'&gt;, module='', lineno=0, append=0)" />
+      <import module="mimetools" />
+      <import module="socket" />
+      <import module="sys" />
+      <scope doc="Test the HTTP request handler class." ilk="function" line="582" lineend="602" name="test" signature="test(HandlerClass=&lt;class BaseHTTPServer.BaseHTTPRequestHandler at 0x02C3EA78&gt;, ServerClass=&lt;class BaseHTTPServer.HTTPServer at 0x02C3E848&gt;, protocol='HTTP/1.0')">
+        <variable citdl="ServerClass()" line="598" name="httpd" />
+        <variable citdl="str" ilk="argument" name="protocol" />
+        <variable citdl="tuple" line="595" name="server_address" />
+        <variable citdl="BaseHTTPRequestHandler" ilk="argument" name="HandlerClass" />
+        <variable citdl="HTTPServer" ilk="argument" name="ServerClass" />
+        <variable citdl="httpd.socket.getsockname()" line="600" name="sa" />
+        <variable citdl="int" line="592" name="port" />
+      </scope>
+      <import module="time" />
+      <scope attributes="protected __hidden__" ilk="function" line="99" lineend="100" name="_quote_html" signature="_quote_html(html)">
+        <variable ilk="argument" name="html" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,45 @@
+<scope doc="This module is always available.  It provides access to the&#10;mathematical functions defined by the C standard." ilk="blob" lang="Python" name="math">
+      <scope doc="Return the arc cosine (measured in radians) of x." ilk="function" name="acos" signature="acos(x)" />
+      <scope doc="Return the hyperbolic arc cosine (measured in radians) of x." ilk="function" name="acosh" signature="acosh(x)" />
+      <scope doc="Return the arc sine (measured in radians) of x." ilk="function" name="asin" signature="asin(x)" />
+      <scope doc="Return the hyperbolic arc sine (measured in radians) of x." ilk="function" name="asinh" signature="asinh(x)" />
+      <scope doc="Return the arc tangent (measured in radians) of x." ilk="function" name="atan" signature="atan(x)" />
+      <scope doc="Return the arc tangent (measured in radians) of y/x." ilk="function" name="atan2" signature="atan2(y, x)" />
+      <scope doc="Return the hyperbolic arc tangent (measured in radians) of&#10;x." ilk="function" name="atanh" signature="atanh(x)" />
+      <scope doc="Return the ceiling of x as a float." ilk="function" name="ceil" signature="ceil(x)" />
+      <scope doc="Return x with the sign of y." ilk="function" name="copysign" signature="copysign(x, y)" />
+      <scope doc="Return the cosine of x (measured in radians)." ilk="function" name="cos" signature="cos(x)" />
+      <scope doc="Return the hyperbolic cosine of x." ilk="function" name="cosh" signature="cosh(x)" />
+      <scope doc="Convert angle x from radians to degrees." ilk="function" name="degrees" signature="degrees(x)" />
+      <variable citdl="float" name="e" />
+      <scope doc="Error function at x." ilk="function" name="erf" signature="erf(x)" />
+      <scope doc="Complementary error function at x." ilk="function" name="erfc" signature="erfc(x)" />
+      <scope doc="Return e raised to the power of x." ilk="function" name="exp" signature="exp(x)" />
+      <scope doc="Return exp(x)-1." ilk="function" name="expm1" signature="expm1(x)" />
+      <scope doc="Return the absolute value of the float x." ilk="function" name="fabs" signature="fabs(x)" />
+      <scope doc="Find x!." ilk="function" name="factorial" signature="factorial(x) -&gt; Integral" />
+      <scope doc="Return the floor of x as a float." ilk="function" name="floor" signature="floor(x)" />
+      <scope doc="Return fmod(x, y), according to platform C." ilk="function" name="fmod" signature="fmod(x, y)" />
+      <scope doc="Return the mantissa and exponent of x, as pair (m, e)." ilk="function" name="frexp" signature="frexp(x)" />
+      <scope doc="Return an accurate floating point sum of values in the&#10;iterable." ilk="function" name="fsum" signature="fsum(iterable)" />
+      <scope doc="Gamma function at x." ilk="function" name="gamma" signature="gamma(x)" />
+      <scope doc="Return the Euclidean distance, sqrt(x*x + y*y)." ilk="function" name="hypot" signature="hypot(x, y)" />
+      <scope doc="Check if float x is infinite (positive or negative)." ilk="function" name="isinf" returns="bool" signature="isinf(x) -&gt; bool" />
+      <scope doc="Check if float x is not a number (NaN)." ilk="function" name="isnan" returns="bool" signature="isnan(x) -&gt; bool" />
+      <scope doc="Return x * (2**i)." ilk="function" name="ldexp" signature="ldexp(x, i)" />
+      <scope doc="Natural logarithm of absolute value of Gamma function at x." ilk="function" name="lgamma" signature="lgamma(x)" />
+      <scope doc="Return the logarithm of x to the given base." ilk="function" name="log" signature="log(x[, base])" />
+      <scope doc="Return the base 10 logarithm of x." ilk="function" name="log10" signature="log10(x)" />
+      <scope doc="Return the natural logarithm of 1+x (base e)." ilk="function" name="log1p" signature="log1p(x)" />
+      <scope doc="Return the fractional and integer parts of x." ilk="function" name="modf" signature="modf(x)" />
+      <variable citdl="float" name="pi" />
+      <scope doc="Return x**y (x to the power of y)." ilk="function" name="pow" signature="pow(x, y)" />
+      <scope doc="Convert angle x from degrees to radians." ilk="function" name="radians" signature="radians(x)" />
+      <scope doc="Return the sine of x (measured in radians)." ilk="function" name="sin" signature="sin(x)" />
+      <scope doc="Return the hyperbolic sine of x." ilk="function" name="sinh" signature="sinh(x)" />
+      <scope doc="Return the square root of x." ilk="function" name="sqrt" signature="sqrt(x)" />
+      <scope doc="Return the tangent of x (measured in radians)." ilk="function" name="tan" signature="tan(x)" />
+      <scope doc="Return the hyperbolic tangent of x." ilk="function" name="tanh" signature="tanh(x)" />
+      <scope doc="Truncates x to the nearest Integral toward 0." ilk="function" name="trunc" signature="trunc(x:Real) -&gt; Integral" />
+    </scope>
+    

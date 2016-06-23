@@ -1,0 +1,49 @@
+<scope doc="Routine to &quot;compile&quot; a .py file to a .pyc (or .pyo) file.&#10;This module has intimate knowledge of the format of .pyc files." ilk="blob" lang="Python" name="py_compile">
+      <variable citdl="str" line="13" name="MAGIC" />
+      <scope classrefs="Exception" doc="Exception raised when an error occurs while attempting to&#10;compile the file.  To raise this exception, use  raise PyCompileError(exc_type,exc_value,file[,msg])  where  exc_type:   exception type to be used in error message type name can be accesses as class variable" ilk="class" line="18" lineend="61" name="PyCompileError">
+        <scope ilk="function" line="60" lineend="61" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="PyCompileError" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="45" lineend="58" name="__init__" signature="PyCompileError(exc_type, exc_value, file, msg='')">
+          <variable citdl="PyCompileError" ilk="argument" name="self" />
+          <variable citdl="exc_type.__name__" line="46" name="exc_type_name" />
+          <variable citdl="str.join()" line="48" name="tbtext" />
+          <variable ilk="argument" name="exc_value" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="str" ilk="argument" name="msg" />
+          <variable ilk="argument" name="exc_type" />
+          <variable citdl="str" line="49" name="errmsg" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tbtext.replace()" line="58" name="msg" />
+        <variable attributes="__instancevar__" citdl="exc_type.__name__" line="55" name="exc_type_name" />
+        <variable attributes="__instancevar__" line="56" name="exc_value" />
+        <variable attributes="__instancevar__" line="57" name="file" />
+      </scope>
+      <variable citdl="list" line="15" name="__all__" />
+      <import module="__builtin__" />
+      <scope doc="Byte-compile one Python source file to Python bytecode." ilk="function" line="71" lineend="129" name="compile" signature="compile(file, cfile=None, dfile=None, doraise=False)">
+        <variable citdl="__debug__" ilk="argument" name="cfile" />
+        <variable citdl="long()" line="108" name="timestamp" />
+        <variable citdl="False" ilk="argument" name="doraise" />
+        <variable citdl="PyCompileError" line="115" name="py_exc" />
+        <variable citdl="f.read()" line="111" name="codestring" />
+        <variable citdl="__builtin__.compile()" line="113" name="codeobject" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="dfile" />
+      </scope>
+      <import module="imp" />
+      <scope doc="Compile several source files." ilk="function" line="131" lineend="167" name="main" returns="int" signature="main(args=None)">
+        <variable citdl="int" line="144" name="rv" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="filename.rstrip()" line="147" name="filename" />
+      </scope>
+      <import module="marshal" />
+      <import module="os" />
+      <import module="sys" />
+      <import module="traceback" />
+      <scope doc="Internal; write a 32-bit int to a file in little-endian&#10;order." ilk="function" line="64" lineend="69" name="wr_long" signature="wr_long(f, x)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="f" />
+      </scope>
+    </scope>
+    

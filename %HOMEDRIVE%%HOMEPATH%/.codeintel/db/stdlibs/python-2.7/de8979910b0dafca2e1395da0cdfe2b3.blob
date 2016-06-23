@@ -1,0 +1,78 @@
+<scope doc="Disassembler of Python byte code into mnemonics.&#10;" ilk="blob" lang="Python" name="dis">
+      <variable citdl="int" name="EXTENDED_ARG" />
+      <variable citdl="int" name="HAVE_ARGUMENT" />
+      <variable citdl="list" line="9" name="__all__" />
+      <variable citdl="tuple" name="cmp_op" />
+      <scope doc="Disassemble classes, methods, functions, or code." ilk="function" line="16" lineend="49" name="dis" signature="dis(x=None)">
+        <variable citdl="x.func_code" ilk="argument" name="x" />
+        <variable citdl="x.__dict__.items()" line="32" name="items" />
+      </scope>
+      <scope doc="Disassemble a code object." ilk="function" line="61" lineend="108" name="disassemble" signature="disassemble(co, lasti=-1)">
+        <variable citdl="int" line="68" name="extended_arg" />
+        <variable citdl="co.co_code" line="63" name="code" />
+        <variable ilk="argument" name="co" />
+        <variable citdl="int" line="67" name="i" />
+        <variable citdl="findlabels()" line="64" name="labels" />
+        <variable citdl="int" ilk="argument" name="lasti" />
+        <variable line="71" name="c" />
+        <variable citdl="co.co_freevars" line="69" name="free" />
+        <variable citdl="len()" line="66" name="n" />
+        <variable citdl="ord()" line="88" name="oparg" />
+        <variable citdl="dict()" line="65" name="linestarts" />
+        <variable citdl="ord()" line="72" name="op" />
+      </scope>
+      <scope ilk="function" line="110" lineend="148" name="disassemble_string" signature="disassemble_string(code, lasti=-1, varnames=None, names=None, constants=None)">
+        <variable line="116" name="c" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="int" line="114" name="i" />
+        <variable citdl="findlabels()" line="112" name="labels" />
+        <variable citdl="int" ilk="argument" name="lasti" />
+        <variable citdl="len()" line="113" name="n" />
+        <variable ilk="argument" name="varnames" />
+        <variable citdl="ord()" line="126" name="oparg" />
+        <variable ilk="argument" name="names" />
+        <variable ilk="argument" name="constants" />
+        <variable citdl="ord()" line="117" name="op" />
+      </scope>
+      <scope doc="Disassemble a code object." ilk="function" line="150" name="disco" signature="disco(co, lasti=-1)" />
+      <scope doc="Disassemble a traceback (default: last traceback)." ilk="function" line="51" lineend="59" name="distb" signature="distb(tb=None)">
+        <variable citdl="tb.tb_next" ilk="argument" name="tb" />
+      </scope>
+      <scope doc="Detect all offsets in a byte code which are jump targets." ilk="function" line="152" lineend="176" name="findlabels" returns="list" signature="findlabels(code)">
+        <variable line="162" name="c" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="int" line="160" name="i" />
+        <variable citdl="list" line="158" name="labels" />
+        <variable citdl="len()" line="159" name="n" />
+        <variable citdl="ord()" line="166" name="oparg" />
+        <variable citdl="ord()" line="168" name="label" />
+        <variable citdl="ord()" line="163" name="op" />
+      </scope>
+      <scope doc="Find the offsets in a byte code which are start of lines in&#10;the source." ilk="function" line="178" lineend="198" name="findlinestarts" signature="findlinestarts(code)">
+        <variable ilk="argument" name="code" />
+        <variable citdl="int" line="189" name="addr" />
+        <variable citdl="list" line="185" name="line_increments" />
+        <variable citdl="code.co_firstlineno" line="188" name="lineno" />
+        <variable citdl="list" line="184" name="byte_increments" />
+        <variable citdl="code.co_firstlineno" line="187" name="lastlineno" />
+      </scope>
+      <variable citdl="list" name="hascompare" />
+      <variable citdl="list" name="hasconst" />
+      <variable citdl="list" name="hasfree" />
+      <variable citdl="list" name="hasjabs" />
+      <variable citdl="list" name="hasjrel" />
+      <variable citdl="list" name="haslocal" />
+      <variable citdl="list" name="hasname" />
+      <variable citdl="dict" name="opmap" />
+      <variable citdl="list" name="opname" />
+      <import module="sys" />
+      <import module="types" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="13" name="_have_code" />
+      <scope attributes="protected __hidden__" doc="Simple test program to disassemble a file." ilk="function" line="200" lineend="221" name="_test" signature="_test()">
+        <variable citdl="str" line="206" name="fn" />
+        <variable citdl="open()" line="212" name="f" />
+        <variable citdl="f.read()" line="215" name="source" />
+        <variable citdl="compile()" line="220" name="code" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,28 @@
+<scope doc="# tk common colour chooser dialogue&#10;# # this module provides an interface to the native color dialogue # available in Tk 4.2 and newer. # # written by Fredrik Lundh, May 1997 # # fixed initialcolor handling in August 1998 #" ilk="blob" lang="Python" name="tkColorChooser">
+      <scope classrefs="Dialog" doc="Ask for a color&#10;" ilk="class" line="28" lineend="52" name="Chooser">
+        <scope ilk="function" line="33" lineend="41" name="_fixoptions" signature="_fixoptions()">
+          <variable line="36" name="color" />
+          <variable citdl="Chooser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="43" lineend="52" name="_fixresult" returns="tuple" signature="_fixresult(widget, result)">
+          <variable ilk="argument" name="widget" />
+          <variable line="51" name="b" />
+          <variable line="51" name="g" />
+          <variable citdl="Chooser" ilk="argument" name="self" />
+          <variable line="51" name="r" />
+          <variable ilk="argument" name="result" />
+        </scope>
+        <variable citdl="str" line="31" name="command" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Dialog">
+        <scope ilk="function" name="_fixoptions" />
+        <scope ilk="function" name="show" />
+        <scope ilk="function" name="_fixresult" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Ask for a color" ilk="function" line="58" lineend="65" name="askcolor" signature="askcolor(color=None, **options)">
+        <variable ilk="argument" name="color" />
+        <variable attributes="kwargs" citdl="options.copy()" ilk="argument" name="options" />
+      </scope>
+    </scope>
+    

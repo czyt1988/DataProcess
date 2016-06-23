@@ -1,0 +1,23 @@
+<scope doc="Interpret sun audio headers.&#10;" ilk="blob" lang="Python" name="sunaudio">
+      <variable citdl="str" line="8" name="MAGIC" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="10" lineend="11" name="error" />
+      <scope doc="Convert a 4-char value to integer." ilk="function" line="14" lineend="16" name="get_long_be" returns="int" signature="get_long_be(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Read a sound header from an open file." ilk="function" line="19" lineend="35" name="gethdr" returns="tuple" signature="gethdr(fp)">
+        <variable ilk="argument" name="fp" />
+        <variable citdl="fp.read()" line="32" name="info" />
+        <variable citdl="get_long_be()" line="23" name="hdr_size" />
+        <variable citdl="get_long_be()" line="25" name="encoding" />
+        <variable citdl="get_long_be()" line="27" name="channels" />
+        <variable citdl="get_long_be()" line="26" name="sample_rate" />
+        <variable citdl="get_long_be()" line="28" name="excess" />
+        <variable citdl="get_long_be()" line="24" name="data_size" />
+      </scope>
+      <scope doc="Read and print the sound header of a named file." ilk="function" line="38" lineend="49" name="printhdr" signature="printhdr(file)">
+        <variable citdl="list" line="43" name="info" />
+        <variable citdl="gethdr()" line="40" name="hdr" />
+        <variable ilk="argument" name="file" />
+      </scope>
+    </scope>
+    

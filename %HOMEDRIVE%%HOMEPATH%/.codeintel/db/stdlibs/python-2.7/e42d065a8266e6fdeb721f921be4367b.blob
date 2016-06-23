@@ -1,0 +1,102 @@
+<scope doc="Internal support module for sre&#10;" ilk="blob" lang="Python" name="sre_constants">
+      <variable citdl="str" line="33" name="ANY" />
+      <variable citdl="str" line="34" name="ANY_ALL" />
+      <variable citdl="str" line="35" name="ASSERT" />
+      <variable citdl="str" line="36" name="ASSERT_NOT" />
+      <variable citdl="str" line="37" name="AT" />
+      <variable citdl="dict" line="130" name="ATCODES" />
+      <variable citdl="str" line="67" name="AT_BEGINNING" />
+      <variable citdl="str" line="68" name="AT_BEGINNING_LINE" />
+      <variable citdl="str" line="69" name="AT_BEGINNING_STRING" />
+      <variable citdl="str" line="70" name="AT_BOUNDARY" />
+      <variable citdl="str" line="72" name="AT_END" />
+      <variable citdl="str" line="73" name="AT_END_LINE" />
+      <variable citdl="str" line="74" name="AT_END_STRING" />
+      <variable citdl="dict" line="172" name="AT_LOCALE" />
+      <variable citdl="str" line="75" name="AT_LOC_BOUNDARY" />
+      <variable citdl="str" line="76" name="AT_LOC_NON_BOUNDARY" />
+      <variable citdl="dict" line="167" name="AT_MULTILINE" />
+      <variable citdl="str" line="71" name="AT_NON_BOUNDARY" />
+      <variable citdl="dict" line="177" name="AT_UNICODE" />
+      <variable citdl="str" line="77" name="AT_UNI_BOUNDARY" />
+      <variable citdl="str" line="78" name="AT_UNI_NON_BOUNDARY" />
+      <variable citdl="str" line="38" name="BIGCHARSET" />
+      <variable citdl="str" line="39" name="BRANCH" />
+      <variable citdl="str" line="40" name="CALL" />
+      <variable citdl="str" line="41" name="CATEGORY" />
+      <variable citdl="str" line="81" name="CATEGORY_DIGIT" />
+      <variable citdl="str" line="87" name="CATEGORY_LINEBREAK" />
+      <variable citdl="str" line="90" name="CATEGORY_LOC_NOT_WORD" />
+      <variable citdl="str" line="89" name="CATEGORY_LOC_WORD" />
+      <variable citdl="str" line="82" name="CATEGORY_NOT_DIGIT" />
+      <variable citdl="str" line="88" name="CATEGORY_NOT_LINEBREAK" />
+      <variable citdl="str" line="84" name="CATEGORY_NOT_SPACE" />
+      <variable citdl="str" line="86" name="CATEGORY_NOT_WORD" />
+      <variable citdl="str" line="83" name="CATEGORY_SPACE" />
+      <variable citdl="str" line="91" name="CATEGORY_UNI_DIGIT" />
+      <variable citdl="str" line="97" name="CATEGORY_UNI_LINEBREAK" />
+      <variable citdl="str" line="92" name="CATEGORY_UNI_NOT_DIGIT" />
+      <variable citdl="str" line="98" name="CATEGORY_UNI_NOT_LINEBREAK" />
+      <variable citdl="str" line="94" name="CATEGORY_UNI_NOT_SPACE" />
+      <variable citdl="str" line="96" name="CATEGORY_UNI_NOT_WORD" />
+      <variable citdl="str" line="93" name="CATEGORY_UNI_SPACE" />
+      <variable citdl="str" line="95" name="CATEGORY_UNI_WORD" />
+      <variable citdl="str" line="85" name="CATEGORY_WORD" />
+      <variable citdl="str" line="42" name="CHARSET" />
+      <variable citdl="dict" line="137" name="CHCODES" />
+      <variable citdl="dict" line="182" name="CH_LOCALE" />
+      <variable citdl="dict" line="193" name="CH_UNICODE" />
+      <variable citdl="str" line="30" name="FAILURE" />
+      <variable citdl="str" line="43" name="GROUPREF" />
+      <variable citdl="str" line="45" name="GROUPREF_EXISTS" />
+      <variable citdl="str" line="44" name="GROUPREF_IGNORE" />
+      <variable citdl="str" line="46" name="IN" />
+      <variable citdl="str" line="48" name="INFO" />
+      <variable citdl="str" line="47" name="IN_IGNORE" />
+      <variable citdl="str" line="49" name="JUMP" />
+      <variable citdl="str" line="50" name="LITERAL" />
+      <variable citdl="str" line="51" name="LITERAL_IGNORE" />
+      <variable citdl="int" line="16" name="MAGIC" />
+      <variable citdl="str" line="52" name="MARK" />
+      <variable citdl="int" line="20" name="MAXREPEAT" />
+      <variable citdl="str" line="53" name="MAX_REPEAT" />
+      <variable citdl="str" line="54" name="MAX_UNTIL" />
+      <variable citdl="str" line="55" name="MIN_REPEAT" />
+      <variable citdl="str" line="64" name="MIN_REPEAT_ONE" />
+      <variable citdl="str" line="56" name="MIN_UNTIL" />
+      <variable citdl="str" line="57" name="NEGATE" />
+      <variable citdl="str" line="58" name="NOT_LITERAL" />
+      <variable citdl="str" line="59" name="NOT_LITERAL_IGNORE" />
+      <variable citdl="dict" line="100" name="OPCODES" />
+      <variable citdl="dict" line="160" name="OP_IGNORE" />
+      <variable citdl="str" line="60" name="RANGE" />
+      <variable citdl="str" line="61" name="REPEAT" />
+      <variable citdl="str" line="62" name="REPEAT_ONE" />
+      <variable citdl="int" line="212" name="SRE_FLAG_DEBUG" />
+      <variable citdl="int" line="209" name="SRE_FLAG_DOTALL" />
+      <variable citdl="int" line="206" name="SRE_FLAG_IGNORECASE" />
+      <variable citdl="int" line="207" name="SRE_FLAG_LOCALE" />
+      <variable citdl="int" line="208" name="SRE_FLAG_MULTILINE" />
+      <variable citdl="int" line="205" name="SRE_FLAG_TEMPLATE" />
+      <variable citdl="int" line="210" name="SRE_FLAG_UNICODE" />
+      <variable citdl="int" line="211" name="SRE_FLAG_VERBOSE" />
+      <variable citdl="int" line="217" name="SRE_INFO_CHARSET" />
+      <variable citdl="int" line="216" name="SRE_INFO_LITERAL" />
+      <variable citdl="int" line="215" name="SRE_INFO_PREFIX" />
+      <variable citdl="str" line="63" name="SUBPATTERN" />
+      <variable citdl="str" line="31" name="SUCCESS" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="25" lineend="26" name="error" />
+      <scope ilk="function" line="147" lineend="153" name="makedict" returns="dict" signature="makedict(list)">
+        <variable citdl="int" line="149" name="i" />
+        <variable ilk="argument" name="list" />
+        <variable citdl="dict" line="148" name="d" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="220" lineend="224" name="dump" signature="dump(f, d, prefix)">
+        <variable ilk="argument" name="f" />
+        <variable ilk="argument" name="d" />
+        <variable ilk="argument" name="prefix" />
+        <variable citdl="d.items()" line="221" name="items" />
+      </scope>
+      <variable attributes="__hidden__" citdl="open()" line="225" name="f" />
+    </scope>
+    

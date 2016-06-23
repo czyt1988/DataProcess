@@ -1,0 +1,135 @@
+<scope doc="Self documenting XML-RPC Server.&#10;This module can be used to create XML-RPC servers that serve pydoc-style documentation in response to HTTP GET requests. This documentation is dynamically generated based on the functions and methods registered with the server.  This module is built upon the pydoc and SimpleXMLRPCServer modules." ilk="blob" lang="Python" name="DocXMLRPCServer">
+      <scope classrefs="SimpleXMLRPCDispatcher" doc="Simple handler for XML-RPC data passed through CGI.&#10;" ilk="class" name="CGIXMLRPCRequestHandler">
+        <scope doc="Handle a single XML-RPC request passed through a CGI post&#10;method." ilk="function" name="handle_request" />
+        <scope doc="Handle a single XML-RPC request" ilk="function" name="handle_xmlrpc" />
+        <scope doc="Handle a single HTTP GET request." ilk="function" name="handle_get" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="CGIXMLRPCRequestHandler XMLRPCDocGenerator" doc="Handler for XML-RPC data and documentation requests passed through&#10;CGI" ilk="class" line="258" lineend="279" name="DocCGIXMLRPCRequestHandler">
+        <scope ilk="function" line="277" lineend="279" name="__init__" signature="DocCGIXMLRPCRequestHandler()">
+          <variable citdl="DocCGIXMLRPCRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handles the HTTP GET request." ilk="function" line="263" lineend="275" name="handle_get" signature="handle_get()">
+          <variable citdl="DocCGIXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="self.generate_html_documentation()" line="270" name="response" />
+        </scope>
+      </scope>
+      <scope classrefs="SimpleXMLRPCRequestHandler" doc="XML-RPC and documentation request handler class.&#10;Handles all HTTP POST requests and attempts to decode them as XML-RPC requests.  Handles all HTTP GET requests and interprets them as requests for documentation." ilk="class" line="215" lineend="241" name="DocXMLRPCRequestHandler">
+        <scope doc="Handles the HTTP GET request." ilk="function" line="225" lineend="241" name="do_GET" signature="do_GET()">
+          <variable citdl="DocXMLRPCRequestHandler" ilk="argument" name="self" />
+          <variable citdl="self.server.generate_html_documentation()" line="236" name="response" />
+        </scope>
+      </scope>
+      <scope classrefs="SimpleXMLRPCServer XMLRPCDocGenerator" doc="XML-RPC and HTML documentation server.&#10;Adds the ability to serve server documentation to the capabilities of SimpleXMLRPCServer." ilk="class" line="243" lineend="256" name="DocXMLRPCServer">
+        <scope ilk="function" line="251" lineend="256" name="__init__" signature="DocXMLRPCServer(addr, requestHandler=DocXMLRPCRequestHandler, logRequests=1, allow_none=False, encoding=None, bind_and_activate=True)">
+          <variable ilk="argument" name="addr" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="True" ilk="argument" name="bind_and_activate" />
+          <variable citdl="DocXMLRPCServer" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="logRequests" />
+          <variable citdl="False" ilk="argument" name="allow_none" />
+          <variable citdl="DocXMLRPCRequestHandler" ilk="argument" name="requestHandler" />
+        </scope>
+      </scope>
+      <scope classrefs="HTMLDoc" doc="Class used to generate pydoc HTML document for a server&#10;" ilk="class" line="23" lineend="132" name="ServerHTMLDoc">
+        <scope doc="Produce HTML documentation for a function or method object." ilk="function" line="67" lineend="107" name="docroutine" returns="tuple" signature="docroutine(object, name, mod=None, funcs={}, classes={}, methods={}, cl=None)">
+          <variable citdl="dict" ilk="argument" name="funcs" />
+          <variable citdl="str" line="101" name="decl" />
+          <variable line="78" name="args" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="cl" />
+          <variable citdl="markup()" line="104" name="doc" />
+          <variable citdl="ServerHTMLDoc" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="pydoc.getdoc()" line="97" name="docstring" />
+          <variable citdl="str" line="72" name="note" />
+          <variable citdl="inspect.formatargspec()" line="81" name="argspec" />
+          <variable citdl="dict" ilk="argument" name="classes" />
+          <variable citdl="dict" ilk="argument" name="methods" />
+          <variable line="78" name="defaults" />
+          <variable line="78" name="varargs" />
+          <variable citdl="str" line="74" name="title" />
+          <variable line="78" name="varkw" />
+          <variable citdl="str" line="71" name="anchor" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <scope doc="Mark up some plain text, given a context of symbols to look&#10;for." ilk="function" line="26" lineend="65" name="markup" returns="str.join()" signature="markup(text, escape=None, funcs={}, classes={}, methods={})">
+          <variable citdl="dict" ilk="argument" name="funcs" />
+          <variable line="47" name="all" />
+          <variable line="44" name="end" />
+          <variable citdl="dict" ilk="argument" name="methods" />
+          <variable citdl="int()" line="49" name="url" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="ServerHTMLDoc" ilk="argument" name="self" />
+          <variable line="47" name="pep" />
+          <variable citdl="list" line="30" name="results" />
+          <variable citdl="int" line="31" name="here" />
+          <variable line="47" name="rfc" />
+          <variable line="44" name="start" />
+          <variable citdl="dict" ilk="argument" name="classes" />
+          <variable citdl="self.escape" ilk="argument" name="escape" />
+          <variable citdl="re.compile()" line="37" name="pattern" />
+          <variable line="47" name="scheme" />
+          <variable line="47" name="selfdot" />
+          <variable citdl="pattern.search()" line="42" name="match" />
+          <variable line="47" name="name" />
+        </scope>
+        <scope doc="Produce HTML documentation for an XML-RPC server." ilk="function" line="109" lineend="132" name="docserver" returns="self.bigsection()" signature="docserver(server_name, package_documentation, methods)">
+          <variable citdl="self.escape()" line="118" name="head" />
+          <variable citdl="self.escape()" ilk="argument" name="server_name" />
+          <variable ilk="argument" name="package_documentation" />
+          <variable citdl="markup()" line="121" name="doc" />
+          <variable citdl="ServerHTMLDoc" ilk="argument" name="self" />
+          <variable citdl="sorted()" line="126" name="method_items" />
+          <variable citdl="self.heading()" line="119" name="result" />
+          <variable citdl="dict" line="112" name="fdict" />
+          <variable citdl="list" line="125" name="contents" />
+          <variable ilk="argument" name="methods" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseHTTPRequestHandler" doc="Simple XML-RPC request handler class.&#10;Handles all HTTP POST requests and attempts to decode them as XML-RPC requests." ilk="class" name="SimpleXMLRPCRequestHandler">
+        <scope ilk="function" name="decode_request_content" />
+        <scope ilk="function" name="is_rpc_path_valid" />
+        <scope ilk="function" name="report_404" />
+        <scope ilk="function" name="accept_encodings" />
+        <scope doc="Selectively log an accepted request." ilk="function" name="log_request" />
+        <scope doc="Handles the HTTP POST request." ilk="function" name="do_POST" />
+      </scope>
+      <scope classrefs="TCPServer SimpleXMLRPCDispatcher" doc="Simple XML-RPC server.&#10;Simple XML-RPC server that allows functions and a single instance to be installed to handle requests. The default implementation attempts to dispatch XML-RPC calls to the functions or instance installed in the server. Override the _dispatch method inhereted from SimpleXMLRPCDispatcher to change this behavior." ilk="class" name="SimpleXMLRPCServer">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Generates documentation for an XML-RPC server.&#10;This class is designed as mix-in and should not be constructed directly." ilk="class" line="134" lineend="213" name="XMLRPCDocGenerator">
+        <scope doc="Generates HTML documentation for the server using&#10;introspection for installed functions and instances that do&#10;not implement the _dispatch method." ilk="function" line="164" lineend="213" name="generate_html_documentation" returns="documenter.page()" signature="generate_html_documentation() =&gt; html documentation for the server">
+          <variable citdl="dict" line="175" name="methods" />
+          <variable citdl="XMLRPCDocGenerator" ilk="argument" name="self" />
+          <variable citdl="documenter.docserver()" line="207" name="documentation" />
+          <variable citdl="ServerHTMLDoc" line="206" name="documenter" />
+          <variable citdl="tuple()" line="179" name="method" />
+          <variable citdl="tuple()" line="181" name="method_info" />
+        </scope>
+        <scope doc="Set the name of the generated HTML server documentation" ilk="function" line="154" lineend="157" name="set_server_name" signature="set_server_name(server_name)">
+          <variable citdl="XMLRPCDocGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="server_name" />
+        </scope>
+        <scope doc="Set the HTML title of the generated server documentation" ilk="function" line="149" lineend="152" name="set_server_title" signature="set_server_title(server_title)">
+          <variable citdl="XMLRPCDocGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="server_title" />
+        </scope>
+        <scope doc="Set the documentation string for the entire server." ilk="function" line="159" lineend="162" name="set_server_documentation" signature="set_server_documentation(server_documentation)">
+          <variable citdl="XMLRPCDocGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="server_documentation" />
+        </scope>
+        <scope ilk="function" line="141" lineend="147" name="__init__" signature="XMLRPCDocGenerator()">
+          <variable citdl="XMLRPCDocGenerator" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="147" name="server_title" />
+        <variable attributes="__instancevar__" citdl="str" line="144" name="server_documentation" />
+        <variable attributes="__instancevar__" citdl="str" line="143" name="server_name" />
+      </scope>
+      <import module="inspect" />
+      <import module="pydoc" />
+      <import module="re" />
+      <scope doc="Resolves a dotted attribute name to an object." ilk="function" name="resolve_dotted_attribute" signature="resolve_dotted_attribute(a, 'b.c.d') =&gt; a.b.c.d" />
+      <import module="sys" />
+    </scope>
+    

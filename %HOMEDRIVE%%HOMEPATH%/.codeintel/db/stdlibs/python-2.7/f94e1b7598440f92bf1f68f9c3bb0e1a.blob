@@ -1,0 +1,17 @@
+<scope doc="CSV parsing and writing.&#10;This module provides classes that assist in the reading and writing of Comma Separated Value (CSV) files, and implements the interface described by PEP 305.  Although many CSV files are simple to parse, the format is not formally defined by a stable specification and is subtle enough that parsing lines of a CSV file with something like line.split(&quot;,&quot;) is bound to fail.  The module supports three basic APIs: reading, writing, and registration of dialects.   DIALECT REGISTRATION:" ilk="blob" lang="Python" name="_csv">
+      <scope classrefs="object" doc="CSV dialect&#10;The Dialect type records CSV parsing and generation options." ilk="class" name="Dialect" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Error" />
+      <variable citdl="int" name="QUOTE_ALL" />
+      <variable citdl="int" name="QUOTE_MINIMAL" />
+      <variable citdl="int" name="QUOTE_NONE" />
+      <variable citdl="int" name="QUOTE_NONNUMERIC" />
+      <variable citdl="str" name="__version__" />
+      <scope doc="Sets an upper limit on parsed fields." ilk="function" name="field_size_limit" />
+      <scope doc="Return the dialect instance associated with name." ilk="function" name="get_dialect" />
+      <scope doc="Return a list of all know dialect names." ilk="function" name="list_dialects" />
+      <scope doc="csv_reader = reader(iterable [, dialect='excel'] [optional&#10;keyword args]) for row in csv_reader: process(row)" ilk="function" name="reader" />
+      <scope doc="Create a mapping from a string name to a dialect class." ilk="function" name="register_dialect" />
+      <scope doc="Delete the name/dialect mapping associated with a string&#10;name." ilk="function" name="unregister_dialect" />
+      <scope doc="csv_writer = csv.writer(fileobj [, dialect='excel']&#10;[optional keyword args]) for row in sequence:&#10;csv_writer.writerow(row)" ilk="function" name="writer" />
+    </scope>
+    

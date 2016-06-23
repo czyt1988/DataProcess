@@ -1,0 +1,16 @@
+<scope doc="Fixer that changes buffer(...) into memoryview(...).&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_buffer">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="22" name="FixBuffer">
+        <scope ilk="function" line="20" lineend="22" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixBuffer" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="21" name="name" />
+        </scope>
+        <variable citdl="True" line="12" name="BM_compatible" />
+        <variable citdl="True" line="14" name="explicit" />
+        <variable citdl="str" line="16" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

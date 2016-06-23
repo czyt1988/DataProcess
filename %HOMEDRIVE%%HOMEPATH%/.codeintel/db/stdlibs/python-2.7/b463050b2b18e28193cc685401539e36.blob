@@ -1,0 +1,14 @@
+<scope doc="Fixer for StandardError -&gt; Exception.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_standarderror">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="18" name="FixStandarderror">
+        <scope ilk="function" line="17" lineend="18" name="transform" returns="Name()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixStandarderror" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="12" name="BM_compatible" />
+        <variable citdl="str" line="13" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

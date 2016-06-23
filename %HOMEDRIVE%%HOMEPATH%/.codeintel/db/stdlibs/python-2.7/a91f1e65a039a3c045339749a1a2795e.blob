@@ -1,0 +1,1185 @@
+<scope doc="Parse tree transformation module.&#10;Transforms Python source code into an abstract syntax tree (AST) defined in the ast module.  The simplest ways to invoke this module are via parse and parseFile. parse(buf) -&gt; AST parseFile(path) -&gt; AST" ilk="blob" lang="Python" name="compiler.transformer">
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Add">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="And">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="AssAttr">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="AssList">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="AssName">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="AssTuple">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Assert">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Assign">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="AugAssign">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Backquote">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Bitand">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Bitor">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Bitxor">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Break">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="int" name="CO_VARARGS" />
+      <variable citdl="int" name="CO_VARKEYWORDS" />
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="CallFunc">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Class">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Compare">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Const">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Continue">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Decorators">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Dict">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="DictComp">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Discard">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Div">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Ellipsis">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="EmptyNode" />
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Exec">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Expression">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="FloorDiv">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="For">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="From">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Function">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="GenExpr">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="GenExprFor">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="GenExprIf">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="GenExprInner">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Getattr">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Global">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="If">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="IfExp">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Import">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Invert">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Keyword">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Lambda">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="LeftShift">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="List">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="ListComp">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="ListCompFor">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="ListCompIf">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Mod">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Module">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Mul">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Name">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" line="82" lineend="91" name="Node" signature="Node(*args)">
+        <variable line="83" name="kind" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Not">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" name="OP_APPLY" />
+      <variable citdl="str" name="OP_ASSIGN" />
+      <variable citdl="str" name="OP_DELETE" />
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Or">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Pass">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Power">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Print">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Printnl">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Raise">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Return">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="RightShift">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Set">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="SetComp">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Slice">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Sliceobj">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Stmt">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Sub">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Subscript">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Utility object for transforming Python parse trees.&#10;Exposes the following methods: tree = transform(ast_tree) tree = parsesuite(text) tree = parseexpr(text) tree = parsefile(fileob | filename)" ilk="class" line="94" lineend="1422" name="Transformer">
+        <scope ilk="function" line="928" lineend="967" name="com_try_except_finally" returns="TryExcept()" signature="com_try_except_finally(nodelist)">
+          <variable line="944" name="node" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="com_node()" line="941" name="elseNode" />
+          <variable citdl="TryExcept()" line="962" name="try_except" />
+          <variable citdl="self.com_assign()" line="950" name="expr2" />
+          <variable citdl="com_node()" line="948" name="expr1" />
+          <variable citdl="list" line="940" name="clauses" />
+          <variable citdl="com_node()" line="942" name="finallyNode" />
+        </scope>
+        <scope ilk="function" line="549" lineend="550" name="try_stmt" returns="self.com_try_except_finally()" signature="try_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="319" name="small_stmt" />
+        <scope doc="Return a modified parse tree for the given expression text." ilk="function" line="130" lineend="132" name="parseexpr" returns="Transformer.transform()" signature="parseexpr(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="969" lineend="976" name="com_with" returns="self.com_with_item()" signature="com_with(nodelist)">
+          <variable citdl="com_node()" line="971" name="body" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="self.com_with_item()" line="973" name="ret" />
+        </scope>
+        <scope doc="Compile 'NODE (OP NODE)*' into (type, [ node1, ..., nodeN&#10;])." ilk="function" line="1077" lineend="1087" name="com_binary" returns="Transformer.com_binary.constructor()" signature="com_binary(constructor, nodelist)">
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="list" line="1083" name="items" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="len()" line="1079" name="l" />
+          <variable line="1081" name="n" />
+          <variable ilk="argument" name="constructor" />
+        </scope>
+        <scope ilk="function" line="1120" lineend="1167" name="com_comprehension" returns="ListComp()" signature="com_comprehension(expr1, expr2, node, type)">
+          <variable citdl="self.com_list_iter()" ilk="argument" name="node" />
+          <variable citdl="com_node()" line="1136" name="compNode" />
+          <variable citdl="com_node()" line="1147" name="test" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="expr2" />
+          <variable citdl="ListCompFor()" line="1137" name="newfor" />
+          <variable ilk="argument" name="expr1" />
+          <variable line="1130" name="lineno" />
+          <variable citdl="ListCompIf()" line="1148" name="newif" />
+          <variable citdl="list" line="1131" name="fors" />
+          <variable citdl="com_assign()" line="1135" name="assignNode" />
+          <variable ilk="argument" name="type" />
+          <variable line="1133" name="t" />
+        </scope>
+        <scope ilk="function" line="978" lineend="985" name="com_with_item" returns="With()" signature="com_with_item(nodelist, body, lineno)">
+          <variable ilk="argument" name="body" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="com_node()" line="984" name="expr" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="lineno" />
+          <variable citdl="self.com_assign()" line="981" name="var" />
+        </scope>
+        <scope ilk="function" line="1344" lineend="1378" name="com_sliceobj" returns="Sliceobj()" signature="com_sliceobj(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="list" line="1354" name="items" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="1373" name="ch" />
+          <variable citdl="int" line="1358" name="i" />
+        </scope>
+        <scope ilk="function" line="345" lineend="346" name="comp_op" signature="comp_op(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="330" lineend="331" name="parameters" signature="parameters(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1169" lineend="1171" name="com_list_iter" signature="com_list_iter(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1096" lineend="1102" name="com_append_stmt" signature="com_append_stmt(stmts, node)">
+          <variable ilk="argument" name="stmts" />
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.lookup_node()()" line="1097" name="result" />
+        </scope>
+        <scope ilk="function" line="712" lineend="723" name="factor" returns="Invert()" signature="factor(nodelist)">
+          <variable citdl="self.lookup_node()()" line="715" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="714" name="t" />
+          <variable line="713" name="elt" />
+        </scope>
+        <scope ilk="function" line="580" name="testlist_safe" />
+        <scope ilk="function" line="665" lineend="667" name="and_expr" returns="self.com_binary()" signature="and_expr(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1256" lineend="1293" name="com_call_function" returns="CallFunc()" signature="com_call_function(primaryNode, nodelist)">
+          <variable line="1265" name="node" />
+          <variable ilk="argument" name="nodelist" />
+          <variable ilk="argument" name="primaryNode" />
+          <variable citdl="len()" line="1262" name="len_nodelist" />
+          <variable citdl="com_node()" line="1276" name="dstar_node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="1259" name="args" />
+          <variable citdl="int" line="1263" name="i" />
+          <variable citdl="int" line="1260" name="kw" />
+          <variable line="1281" name="result" />
+          <variable citdl="com_node()" line="1261" name="star_node" />
+        </scope>
+        <scope ilk="function" line="323" lineend="328" name="simple_stmt" returns="Stmt()" signature="simple_stmt(nodelist)">
+          <variable citdl="list" line="325" name="stmts" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1251" lineend="1254" name="com_select_member" returns="Getattr()" signature="com_select_member(primaryNode, nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable ilk="argument" name="primaryNode" />
+        </scope>
+        <scope ilk="function" line="574" lineend="578" name="testlist" returns="self.com_binary()" signature="testlist(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="294" lineend="314" name="classdef" returns="Class()" signature="classdef(nodelist)">
+          <variable citdl="self.com_node()" line="307" name="code" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="297" name="name" />
+          <variable citdl="self.get_docstring()" line="298" name="doc" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="300" name="bases" />
+        </scope>
+        <scope ilk="function" line="454" lineend="474" name="import_from" returns="From()" signature="import_from(nodelist)">
+          <variable line="472" name="node" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="int" line="458" name="idx" />
+          <variable citdl="int" line="461" name="level" />
+          <variable citdl="self.com_dotted_name()" line="463" name="fromname" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="497" lineend="504" name="assert_stmt" returns="Assert()" signature="assert_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="501" name="expr2" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="499" name="expr1" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="534" lineend="547" name="for_stmt" returns="For()" signature="for_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="538" name="listNode" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="542" name="elseNode" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="self.com_node()" line="539" name="bodyNode" />
+          <variable citdl="self.com_assign()" line="537" name="assignNode" />
+        </scope>
+        <scope ilk="function" line="280" lineend="291" name="lambdef" returns="Lambda()" signature="lambdef(nodelist)">
+          <variable citdl="self.com_node()" line="289" name="code" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="int" line="283" name="flags" />
+          <variable citdl="tuple" line="283" name="names" />
+          <variable line="283" name="defaults" />
+        </scope>
+        <scope ilk="function" line="362" lineend="377" name="expr_stmt" returns="Discard()" signature="expr_stmt(nodelist)">
+          <variable line="364" name="en" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="self.lookup_node()()" line="365" name="exprNode" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_augassign()" line="374" name="lval" />
+          <variable citdl="list" line="369" name="nodesl" />
+          <variable citdl="self.com_augassign_op()" line="375" name="op" />
+        </scope>
+        <scope ilk="function" line="210" lineend="225" name="decorator" returns="decorator_name()" signature="decorator(nodelist)">
+          <variable citdl="decorator_name()" line="221" name="expr" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="decorator_name()" line="217" name="funcname" />
+        </scope>
+        <scope ilk="function" line="196" lineend="208" name="decorator_name" returns="self.atom_name()" signature="decorator_name(nodelist)">
+          <variable citdl="int" line="201" name="i" />
+          <variable citdl="Getattr()" line="200" name="item" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="len()" line="197" name="listlen" />
+        </scope>
+        <scope ilk="function" line="694" lineend="710" name="term" returns="Mul()" signature="term(nodelist)">
+          <variable citdl="Mul()" line="695" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="697" name="right" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="698" name="t" />
+        </scope>
+        <scope ilk="function" line="1064" lineend="1072" name="com_assign_trailer" returns="self.com_assign_attr()" signature="com_assign_trailer(primary, node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="assigning" />
+          <variable ilk="argument" name="primary" />
+          <variable line="1065" name="t" />
+        </scope>
+        <scope ilk="function" line="751" lineend="754" name="atom_lbrace" returns="Dict()" signature="atom_lbrace(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="506" lineend="519" name="if_stmt" returns="If()" signature="if_stmt(nodelist)">
+          <variable citdl="list" line="508" name="tests" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="515" name="elseNode" />
+          <variable citdl="self.com_node()" line="510" name="testNode" />
+          <variable citdl="self.com_node()" line="511" name="suiteNode" />
+        </scope>
+        <scope ilk="function" line="896" lineend="902" name="com_dotted_as_names" returns="list" signature="com_dotted_as_names(node)">
+          <variable citdl="list" ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="899" name="names" />
+        </scope>
+        <scope ilk="function" line="1211" lineend="1238" name="com_dictorsetmaker" returns="Transformer.com_comprehension()" signature="com_dictorsetmaker(nodelist)">
+          <variable citdl="list" ilk="argument" name="nodelist" />
+          <variable citdl="list" line="1218" name="items" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="com_node()" line="1230" name="value" />
+          <variable citdl="com_node()" line="1229" name="key" />
+          <variable citdl="com_node()" line="1224" name="expr" />
+        </scope>
+        <scope ilk="function" line="606" lineend="610" name="or_test" returns="Transformer.lambdef()" signature="or_test(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="552" lineend="553" name="with_stmt" returns="self.com_with()" signature="with_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="746" lineend="749" name="atom_lsqb" returns="List()" signature="atom_lsqb(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="179" lineend="189" name="file_input" returns="Module()" signature="file_input(nodelist)">
+          <variable citdl="int" line="182" name="i" />
+          <variable citdl="self.get_docstring()" line="180" name="doc" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="185" name="stmts" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="904" lineend="912" name="com_import_as_name" returns="tuple" signature="com_import_as_name(node)">
+          <variable citdl="list" ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="348" lineend="349" name="trailer" signature="trailer(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1334" lineend="1342" name="com_subscript" returns="self.com_sliceobj()" signature="com_subscript(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="1336" name="ch" />
+          <variable line="1337" name="t" />
+        </scope>
+        <scope ilk="function" line="145" lineend="167" name="compile_node" returns="self.classdef()" signature="compile_node(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="147" name="n" />
+        </scope>
+        <scope ilk="function" line="1380" lineend="1392" name="com_slice" returns="Slice()" signature="com_slice(primary, node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="com_node()" line="1385" name="upper" />
+          <variable citdl="com_node()" line="1382" name="lower" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="primary" />
+          <variable ilk="argument" name="assigning" />
+        </scope>
+        <scope ilk="function" line="558" lineend="567" name="suite" returns="Stmt()" signature="suite(nodelist)">
+          <variable citdl="list" line="563" name="stmts" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="320" name="flow_stmt" />
+        <scope ilk="function" line="1045" lineend="1049" name="com_assign_tuple" returns="AssTuple()" signature="com_assign_tuple(node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="assigning" />
+          <variable citdl="list" line="1046" name="assigns" />
+        </scope>
+        <scope ilk="function" line="1394" lineend="1422" name="get_docstring" returns="eval()" signature="get_docstring(node, n=None)">
+          <variable citdl="list" ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="str" line="1412" name="s" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="669" lineend="680" name="shift_expr" returns="RightShift()" signature="shift_expr(nodelist)">
+          <variable citdl="self.com_node()" line="671" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="673" name="right" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope doc="Return a modified parse tree for the contents of the given&#10;file." ilk="function" line="134" lineend="138" name="parsefile" returns="Transformer.parsesuite()" signature="parsefile(file)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="open()" ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="483" lineend="495" name="exec_stmt" returns="Exec()" signature="exec_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="487" name="expr2" />
+          <variable citdl="self.com_node()" line="489" name="expr3" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="485" name="expr1" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1117" lineend="1118" name="com_list_comprehension" returns="self.com_comprehension()" signature="com_list_comprehension(expr, node)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="expr" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="227" lineend="233" name="decorators" returns="Decorators()" signature="decorators(nodelist)">
+          <variable citdl="list" line="229" name="items" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="321" name="compound_stmt" />
+        <scope ilk="function" line="342" lineend="343" name="dotted_name" signature="dotted_name(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="725" lineend="736" name="power" returns="Power()" signature="power(nodelist)">
+          <variable citdl="self.com_apply_trailer()" line="727" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="729" name="elt" />
+        </scope>
+        <scope ilk="function" line="316" lineend="317" name="stmt" returns="self.com_stmt()" signature="stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="775" lineend="779" name="atom_string" returns="Const()" signature="atom_string(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="str" line="776" name="k" />
+        </scope>
+        <scope doc="Return node suitable for lvalue of augmented assignment" ilk="function" line="991" lineend="999" name="com_augassign" returns="com_node()" signature="com_augassign(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="com_node()" line="996" name="l" />
+        </scope>
+        <scope ilk="function" line="661" lineend="663" name="xor_expr" returns="self.com_binary()" signature="xor_expr(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="351" lineend="352" name="sliceop" signature="sliceop(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="624" lineend="655" name="comparison" returns="Compare()" signature="comparison(nodelist)">
+          <variable citdl="self.com_node()" line="626" name="node" />
+          <variable line="632" name="nl" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="630" name="results" />
+          <variable line="636" name="n" />
+          <variable line="647" name="lineno" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="str" line="638" name="type" />
+        </scope>
+        <scope ilk="function" line="402" lineend="403" name="pass_stmt" returns="Pass()" signature="pass_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="682" lineend="692" name="arith_expr" returns="Add()" signature="arith_expr(nodelist)">
+          <variable citdl="Add()" line="683" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="685" name="right" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="914" lineend="920" name="com_import_as_names" returns="list" signature="com_import_as_names(node)">
+          <variable citdl="list" ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="917" name="names" />
+        </scope>
+        <scope ilk="function" line="408" lineend="409" name="continue_stmt" returns="Continue()" signature="continue_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1074" lineend="1075" name="com_assign_attr" returns="AssAttr()" signature="com_assign_attr(primary, node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="assigning" />
+          <variable ilk="argument" name="primary" />
+        </scope>
+        <scope ilk="function" line="886" lineend="894" name="com_dotted_as_name" returns="tuple" signature="com_dotted_as_name(node)">
+          <variable citdl="list" ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="com_dotted_name()" line="889" name="dot" />
+        </scope>
+        <scope ilk="function" line="987" lineend="989" name="com_augassign_op" signature="com_augassign_op(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="411" lineend="415" name="return_stmt" returns="Return()" signature="return_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="584" lineend="590" name="testlist_comp" returns="Transformer.testlist()" signature="testlist_comp(nodelist)">
+          <variable citdl="self.com_node()" line="588" name="test" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1089" lineend="1094" name="com_stmt" returns="Stmt()" signature="com_stmt(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.lookup_node()()" line="1090" name="result" />
+        </scope>
+        <scope ilk="function" line="611" name="old_test" />
+        <scope ilk="function" line="444" lineend="447" name="import_stmt" returns="self.com_node()" signature="import_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1240" lineend="1249" name="com_apply_trailer" returns="self.com_select_member()" signature="com_apply_trailer(primaryNode, nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable ilk="argument" name="primaryNode" />
+          <variable line="1241" name="t" />
+        </scope>
+        <scope ilk="function" line="169" lineend="177" name="single_input" returns="Pass()" signature="single_input(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="173" name="n" />
+        </scope>
+        <scope doc="Transform an AST into a modified parse tree." ilk="function" line="120" lineend="124" name="transform" returns="self.compile_node()" signature="transform(tree)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="parser.st2tuple()" ilk="argument" name="tree" />
+        </scope>
+        <scope ilk="function" line="781" lineend="782" name="atom_name" returns="Name()" signature="atom_name(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="1314" lineend="1332" name="com_subscriptlist" returns="Subscript()" signature="com_subscriptlist(primary, nodelist, assigning)">
+          <variable citdl="list" line="1328" name="subscripts" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="1322" name="sub" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="primary" />
+          <variable ilk="argument" name="assigning" />
+        </scope>
+        <scope ilk="function" line="379" lineend="397" name="print_stmt" returns="Printnl()" signature="print_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="384" name="dest" />
+          <variable citdl="list" line="381" name="items" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="int" line="383" name="start" />
+        </scope>
+        <scope ilk="function" line="922" lineend="926" name="com_bases" returns="list" signature="com_bases(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="923" name="bases" />
+        </scope>
+        <scope ilk="function" line="738" lineend="739" name="atom" signature="atom(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="247" lineend="278" name="funcdef" returns="Function()" signature="funcdef(nodelist)">
+          <variable citdl="self.com_node()" line="271" name="code" />
+          <variable ilk="argument" name="nodelist" />
+          <variable line="260" name="name" />
+          <variable citdl="self.get_docstring()" line="268" name="doc" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="261" name="args" />
+          <variable citdl="int" line="264" name="flags" />
+          <variable line="259" name="lineno" />
+          <variable line="264" name="defaults" />
+          <variable citdl="decorators()" line="254" name="decorators" />
+          <variable citdl="tuple" line="264" name="names" />
+        </scope>
+        <scope ilk="function" line="428" lineend="442" name="raise_stmt" returns="Raise()" signature="raise_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="435" name="expr2" />
+          <variable citdl="self.com_node()" line="431" name="expr3" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="439" name="expr1" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="292" name="old_lambdef" />
+        <scope ilk="function" line="582" name="exprlist" />
+        <scope ilk="function" line="1061" lineend="1062" name="com_assign_name" returns="AssName()" signature="com_assign_name(node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="assigning" />
+        </scope>
+        <scope ilk="function" line="1177" lineend="1209" name="com_generator_expression" returns="GenExpr()" signature="com_generator_expression(expr, node)">
+          <variable citdl="com_comp_iter()" ilk="argument" name="node" />
+          <variable ilk="argument" name="expr" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="GenExprFor()" line="1189" name="newfor" />
+          <variable line="1182" name="lineno" />
+          <variable citdl="com_node()" line="1197" name="test" />
+          <variable line="1185" name="t" />
+          <variable citdl="GenExprIf()" line="1198" name="newif" />
+          <variable citdl="list" line="1183" name="fors" />
+          <variable citdl="com_assign()" line="1187" name="assignNode" />
+          <variable citdl="com_node()" line="1188" name="genNode" />
+        </scope>
+        <scope ilk="function" line="657" lineend="659" name="expr" returns="self.com_binary()" signature="expr(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="813" lineend="861" name="com_arglist" returns="tuple" signature="com_arglist(nodelist)">
+          <variable line="825" name="node" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="int" line="823" name="i" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="int" line="821" name="flags" />
+          <variable citdl="list" line="819" name="names" />
+          <variable citdl="list" line="820" name="defaults" />
+          <variable line="836" name="t" />
+        </scope>
+        <scope ilk="function" line="807" lineend="811" name="com_NEWLINE" returns="Discard()" signature="com_NEWLINE(*args)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="1104" lineend="1115" name="com_list_constructor" returns="List()" signature="com_list_constructor(nodelist)">
+          <variable citdl="list" line="1106" name="values" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="417" lineend="419" name="yield_stmt" returns="Discard()" signature="yield_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="418" name="expr" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope doc="Return a modified parse tree for the given suite text." ilk="function" line="126" lineend="128" name="parsesuite" returns="Transformer.transform()" signature="parsesuite(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="863" lineend="867" name="com_fpdef" returns="self.com_fplist()" signature="com_fpdef(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="354" lineend="355" name="argument" signature="argument(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="759" lineend="762" name="atom_number" returns="Const()" signature="atom_number(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="eval()" line="761" name="k" />
+        </scope>
+        <scope ilk="function" line="339" lineend="340" name="fplist" signature="fplist(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="617" lineend="622" name="not_test" returns="Not()" signature="not_test(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="self.com_node()" line="619" name="result" />
+        </scope>
+        <scope ilk="function" line="1051" lineend="1059" name="com_assign_list" returns="AssList()" signature="com_assign_list(node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="assigning" />
+          <variable citdl="list" line="1052" name="assigns" />
+        </scope>
+        <scope ilk="function" line="104" lineend="118" name="__init__" signature="Transformer()">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="405" lineend="406" name="break_stmt" returns="Break()" signature="break_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="741" lineend="744" name="atom_lpar" returns="Tuple()" signature="atom_lpar(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="756" lineend="757" name="atom_backquote" returns="Backquote()" signature="atom_backquote(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="191" lineend="194" name="eval_input" returns="Expression()" signature="eval_input(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="336" lineend="337" name="fpdef" signature="fpdef(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="797" lineend="798" name="lookup_node" signature="lookup_node(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="800" lineend="805" name="com_node" signature="com_node(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1001" lineend="1043" name="com_assign" returns="self.com_assign_trailer()" signature="com_assign(node, assigning)">
+          <variable ilk="argument" name="node" />
+          <variable line="1020" name="ch" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_apply_trailer()" line="1018" name="primary" />
+          <variable line="1005" name="t" />
+          <variable ilk="argument" name="assigning" />
+        </scope>
+        <scope ilk="function" line="592" lineend="604" name="test" returns="Transformer.lambdef()" signature="test(nodelist)">
+          <variable citdl="self.com_node()" line="601" name="test" />
+          <variable citdl="self.com_node()" line="596" name="then" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="602" name="else_" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="476" lineend="481" name="global_stmt" returns="Global()" signature="global_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="list" line="478" name="names" />
+        </scope>
+        <scope ilk="function" line="878" lineend="884" name="com_dotted_name" returns="list" signature="com_dotted_name(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="str" line="880" name="name" />
+        </scope>
+        <scope ilk="function" line="449" lineend="452" name="import_name" returns="Import()" signature="import_name(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="421" lineend="426" name="yield_expr" returns="Yield()" signature="yield_expr(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="Const()" line="423" name="value" />
+        </scope>
+        <scope ilk="function" line="1173" lineend="1175" name="com_comp_iter" signature="com_comp_iter(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="613" lineend="615" name="and_test" returns="self.com_binary()" signature="and_test(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="869" lineend="876" name="com_fplist" returns="Transformer.com_fpdef()" signature="com_fplist(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="list" line="873" name="list" />
+        </scope>
+        <scope ilk="function" line="235" lineend="245" name="decorated" returns="self.classdef()" signature="decorated(nodelist)">
+          <variable citdl="decorators()" line="241" name="decorators" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.classdef()" line="242" name="cls" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="list()" line="238" name="n" />
+        </scope>
+        <scope ilk="function" line="764" lineend="773" name="decode_literal" returns="eval()" signature="decode_literal(lit)">
+          <variable ilk="argument" name="lit" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1295" lineend="1312" name="com_argument" returns="tuple" signature="com_argument(nodelist, kw, star_node)">
+          <variable citdl="Keyword()" line="1311" name="node" />
+          <variable ilk="argument" name="nodelist" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable line="1306" name="n" />
+          <variable ilk="argument" name="kw" />
+          <variable citdl="com_node()" line="1305" name="result" />
+          <variable citdl="com_node()" line="1297" name="test" />
+          <variable ilk="argument" name="star_node" />
+        </scope>
+        <scope ilk="function" line="555" lineend="556" name="with_var" returns="self.com_with_var()" signature="with_var(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="399" lineend="400" name="del_stmt" returns="self.com_assign()" signature="del_stmt(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="521" lineend="532" name="while_stmt" returns="While()" signature="while_stmt(nodelist)">
+          <variable citdl="self.com_node()" line="524" name="testNode" />
+          <variable citdl="self.com_node()" line="525" name="bodyNode" />
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable citdl="self.com_node()" line="528" name="elseNode" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="333" lineend="334" name="varargslist" signature="varargslist(nodelist)">
+          <variable citdl="Transformer" ilk="argument" name="self" />
+          <variable ilk="argument" name="nodelist" />
+        </scope>
+        <scope ilk="function" line="581" name="testlist1" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="105" name="_dispatch" />
+        <variable attributes="__instancevar__" line="118" name="encoding" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="110" name="_atom_dispatch" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="TryExcept">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="TryFinally">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Tuple">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="UnaryAdd">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="UnarySub">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="StandardError" doc="&#10;" ilk="class" line="33" lineend="34" name="WalkerError" />
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="While">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="With">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="Yield">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" line="58" lineend="70" name="asList" returns="list" signature="asList(nodes)">
+        <variable ilk="argument" name="nodes" />
+        <variable citdl="list" line="59" name="l" />
+      </scope>
+      <scope ilk="function" line="1526" lineend="1535" name="debug_tree" returns="list" signature="debug_tree(tree)">
+        <variable ilk="argument" name="tree" />
+        <variable citdl="list" line="1527" name="l" />
+      </scope>
+      <scope ilk="function" line="72" lineend="80" name="extractLineNo" returns="()" signature="extractLineNo(ast)">
+        <variable citdl="()" line="78" name="lineno" />
+        <variable ilk="argument" name="ast" />
+      </scope>
+      <scope ilk="function" name="flatten" signature="flatten(seq)" />
+      <scope ilk="function" name="flatten_nodes" signature="flatten_nodes(seq)" />
+      <variable citdl="int" name="k" />
+      <variable citdl="str" name="name" />
+      <variable citdl="dict" name="nodes" />
+      <scope classrefs="Node" doc="&#10;" ilk="class" name="obj">
+        <scope ilk="function" name="getChildNodes" />
+        <scope ilk="function" name="getChildren" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" line="49" lineend="55" name="parse" signature="parse(buf, mode='exec')">
+        <variable ilk="argument" name="buf" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <scope ilk="function" line="39" lineend="47" name="parseFile" returns="parse()" signature="parseFile(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="f.read()" line="45" name="src" />
+        <variable citdl="open()" line="40" name="f" />
+      </scope>
+      <import module="parser" />
+      <import module="symbol" />
+      <import module="token" />
+      <variable citdl="str" name="v" />
+      <variable attributes="protected __hidden__" citdl="dict" line="1446" name="_cmp_types" />
+      <variable attributes="protected __hidden__" citdl="list" line="1456" name="_legal_node_types" />
+      <variable attributes="protected __hidden__" citdl="dict" line="1520" name="_names" />
+      <variable attributes="protected __hidden__" citdl="list" line="1425" name="_doc_nodes" />
+      <variable attributes="protected __hidden__" citdl="list" line="1505" name="_assign_types" />
+    </scope>
+    

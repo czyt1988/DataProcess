@@ -1,0 +1,243 @@
+<scope doc="Implements the bdist_msi command.&#10;" ilk="blob" lang="Python" name="distutils.command.bdist_msi">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Dialog">
+        <scope ilk="function" name="control" />
+        <scope ilk="function" name="checkbox" />
+        <scope ilk="function" name="text" />
+        <scope ilk="function" name="pushbutton" />
+        <scope ilk="function" name="bitmap" />
+        <scope ilk="function" name="radiogroup" />
+        <scope ilk="function" name="line" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Directory">
+        <scope ilk="function" name="make_short" />
+        <scope doc="Add a list of files to the current component as specified in&#10;the glob pattern." ilk="function" name="glob" />
+        <scope doc="Remove .pyc/.pyo files on uninstall" ilk="function" name="remove_pyc" />
+        <scope doc="Add a file to the current component of the directory,&#10;starting a new one one if there is no current component." ilk="function" name="add_file" />
+        <scope doc="Add an entry to the Component table, and make this component&#10;the current for this directory." ilk="function" name="start_component" />
+        <scope doc="Create a new directory in the Directory table." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <scope doc="&#10;" ilk="class" name="Feature">
+        <scope ilk="function" name="set_current" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Dialog" doc="Dialog class with a fixed layout: controls at the top, then a ruler,&#10;then a list of buttons: back, next, cancel. Optionally a bitmap at the left." ilk="class" line="23" lineend="82" name="PyDialog">
+        <scope doc="Add a button with a given title, the tab-next button, its&#10;name in the Control table, giving its x position; the&#10;y-position is aligned with the other buttons." ilk="function" line="76" lineend="82" name="xbutton" returns="self.pushbutton()" signature="xbutton(name, title, next, xpos)">
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="next" />
+          <variable ilk="argument" name="xpos" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="title" />
+        </scope>
+        <scope doc="Set the title text of the dialog at the top." ilk="function" line="36" lineend="41" name="title" signature="title(title)">
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="title" />
+        </scope>
+        <scope doc="Add a back button with a given title, the tab-next button,&#10;its name in the Control table, possibly initially disabled." ilk="function" line="43" lineend="52" name="back" returns="self.pushbutton()" signature="back(title, next, name='Back', active=1)">
+          <variable citdl="str" ilk="argument" name="name" />
+          <variable ilk="argument" name="title" />
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="next" />
+          <variable citdl="int" line="49" name="flags" />
+          <variable citdl="int" ilk="argument" name="active" />
+        </scope>
+        <scope doc="Add a Next button with a given title, the tab-next button,&#10;its name in the Control table, possibly initially disabled." ilk="function" line="65" lineend="74" name="next" returns="self.pushbutton()" signature="next(title, next, name='Next', active=1)">
+          <variable citdl="str" ilk="argument" name="name" />
+          <variable ilk="argument" name="title" />
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="next" />
+          <variable citdl="int" line="71" name="flags" />
+          <variable citdl="int" ilk="argument" name="active" />
+        </scope>
+        <scope doc="Add a cancel button with a given title, the tab-next button,&#10;its name in the Control table, possibly initially disabled." ilk="function" line="54" lineend="63" name="cancel" returns="self.pushbutton()" signature="cancel(title, next, name='Cancel', active=1)">
+          <variable citdl="str" ilk="argument" name="name" />
+          <variable ilk="argument" name="title" />
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="next" />
+          <variable citdl="int" line="60" name="flags" />
+          <variable citdl="int" ilk="argument" name="active" />
+        </scope>
+        <scope doc="Dialog(database, name, x, y, w, h, attributes, title, first,&#10;default, cancel, bitmap=true)" ilk="function" line="27" lineend="34" name="__init__" signature="PyDialog(*args, **kw)">
+          <variable citdl="self.h" line="31" name="ruler" />
+          <variable citdl="PyDialog" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+      </scope>
+      <scope classrefs="Version" doc="Version numbering for anal retentives and software idealists.&#10;Implements the standard interface for version number classes as described above.  A version number consists of two or three dot-separated numeric components, with an optional &quot;pre-release&quot; tag on the end.  The pre-release tag consists of the letter 'a' or 'b' followed by a number.  If the numeric components of two version numbers are equal, then one with a pre-release tag will always be deemed earlier (lesser) than one without.  The following are valid version numbers (shown in the order that would be obtained by sorting according to the supplied cmp function):" ilk="class" name="StrictVersion">
+        <scope ilk="function" name="__str__" />
+        <scope ilk="function" name="__cmp__" />
+        <scope ilk="function" name="parse" />
+      </scope>
+      <scope ilk="function" name="add_data" signature="add_data(db, table, values)" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="84" lineend="738" name="bdist_msi">
+        <scope ilk="function" line="375" lineend="410" name="add_scripts" signature="add_scripts()">
+          <variable citdl="open()" line="391" name="f" />
+          <variable citdl="ver" line="380" name="exe_prop" />
+          <variable citdl="os.path.join()" line="390" name="scriptfn" />
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="ver" line="379" name="install_action" />
+          <variable citdl="int" line="377" name="start" />
+        </scope>
+        <scope ilk="function" line="176" lineend="265" name="run" signature="run()">
+          <variable citdl="get_python_version()" line="197" name="target_version" />
+          <variable citdl="metadata.author" line="224" name="author" />
+          <variable citdl="tuple" line="261" name="tup" />
+          <variable citdl="str" line="232" name="sversion" />
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="str" line="238" name="product_name" />
+          <variable citdl="metadata.get_version()" line="229" name="version" />
+          <variable citdl="os.path.abspath()" line="219" name="installer_name" />
+          <variable citdl="self.get_finalized_command()" line="202" name="build" />
+          <variable citdl="self.reinitialize_command()" line="180" name="install" />
+          <variable citdl="list" line="245" name="props" />
+          <variable citdl="self.reinitialize_command()" line="185" name="install_lib" />
+          <variable citdl="self.distribution.get_fullname()" line="218" name="fullname" />
+          <variable citdl="str" line="201" name="plat_specifier" />
+          <variable citdl="metadata.maintainer_email" line="246" name="email" />
+          <variable citdl="self.distribution.metadata" line="223" name="metadata" />
+        </scope>
+        <scope ilk="function" line="267" lineend="319" name="add_files" signature="add_files()">
+          <variable citdl="list" line="294" name="todo" />
+          <variable citdl="str" line="300" name="short" />
+          <variable citdl="version" line="278" name="target" />
+          <variable citdl="Feature()" line="273" name="f" />
+          <variable citdl="version" line="301" name="default" />
+          <variable citdl="list" line="276" name="items" />
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="int" line="283" name="level" />
+          <variable citdl="msilib.init_database()" line="268" name="db" />
+          <variable citdl="Directory()" line="302" name="newdir" />
+          <variable citdl="os.path.abspath()" line="270" name="rootdir" />
+          <variable citdl="str" line="282" name="title" />
+          <variable citdl="dir.add_file()" line="308" name="key" />
+          <variable citdl="msilib.CAB()" line="269" name="cab" />
+          <variable citdl="dict" line="292" name="seen" />
+          <variable citdl="os.path.join()" line="298" name="afile" />
+          <variable citdl="str" line="280" name="desc" />
+          <variable citdl="Directory()" line="272" name="root" />
+          <variable citdl="todo.pop()" line="288" name="dir" />
+          <variable citdl="version" line="279" name="name" />
+        </scope>
+        <scope doc="Adds code to the installer to compute the location of&#10;Python." ilk="function" line="321" lineend="373" name="add_find_python" signature="add_find_python()">
+          <variable citdl="ver" line="339" name="machine_action" />
+          <variable citdl="ver" line="342" name="target_dir_prop" />
+          <variable citdl="ver" line="341" name="exe_action" />
+          <variable citdl="ver" line="343" name="exe_prop" />
+          <variable citdl="ver" line="340" name="user_action" />
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="ver" line="334" name="install_path" />
+          <variable citdl="int" line="332" name="start" />
+          <variable citdl="ver" line="338" name="user_prop" />
+          <variable citdl="ver" line="337" name="machine_prop" />
+          <variable citdl="ver" line="336" name="user_reg" />
+          <variable citdl="int" line="346" name="Type" />
+          <variable citdl="ver" line="335" name="machine_reg" />
+        </scope>
+        <scope ilk="function" line="126" lineend="137" name="initialize_options" signature="initialize_options()">
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="730" lineend="738" name="get_installer_filename" returns="os.path.join()" signature="get_installer_filename(fullname)">
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="737" name="installer_name" />
+          <variable ilk="argument" name="fullname" />
+          <variable citdl="str" line="733" name="base_name" />
+        </scope>
+        <scope ilk="function" line="139" lineend="172" name="finalize_options" signature="finalize_options()">
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable line="141" name="bdist_base" />
+          <variable citdl="get_python_version()" line="143" name="short_version" />
+        </scope>
+        <scope ilk="function" line="413" lineend="728" name="add_ui" signature="add_ui()">
+          <variable citdl="PyDialog" line="692" name="maint" />
+          <variable citdl="int" line="421" name="modal" />
+          <variable citdl="PyDialog" line="620" name="cost" />
+          <variable citdl="Dialog()" line="536" name="cancel" />
+          <variable citdl="Dialog()" line="550" name="costing" />
+          <variable citdl="str" line="600" name="ver" />
+          <variable citdl="str" line="418" name="title" />
+          <variable citdl="bdist_msi" ilk="argument" name="self" />
+          <variable citdl="PyDialog" line="667" name="progress" />
+          <variable citdl="PyDialog" line="461" name="fatal" />
+          <variable citdl="PyDialog" line="559" name="prep" />
+          <variable citdl="str" line="602" name="dont_install_other_cond" />
+          <variable citdl="int" line="422" name="modeless" />
+          <variable citdl="msilib.init_database()" line="414" name="db" />
+          <variable citdl="PyDialog" line="473" name="user_exit" />
+          <variable citdl="PyDialog" line="575" name="seldlg" />
+          <variable citdl="prep.text()" line="470" name="c" />
+          <variable citdl="maint.radiogroup()" line="651" name="g" />
+          <variable citdl="PyDialog" line="498" name="inuse" />
+          <variable citdl="int" line="417" name="h" />
+          <variable citdl="str" line="601" name="install_other_cond" />
+          <variable citdl="PyDialog" line="647" name="whichusers" />
+          <variable citdl="PyDialog" line="486" name="exit_dialog" />
+          <variable citdl="int" line="416" name="w" />
+          <variable citdl="Dialog()" line="519" name="error" />
+          <variable citdl="int" line="415" name="x" />
+          <variable citdl="int" line="585" name="order" />
+        </scope>
+        <variable citdl="list" line="88" name="user_options" />
+        <variable attributes="__instancevar__" citdl="get_python_version()" line="132" name="target_version" />
+        <variable citdl="str" line="86" name="description" />
+        <variable citdl="list" line="120" name="all_versions" />
+        <variable attributes="__instancevar__" citdl="int" line="131" name="no_target_optimize" />
+        <variable attributes="__instancevar__" citdl="list" line="137" name="versions" />
+        <variable attributes="__instancevar__" citdl="msilib.init_database()" line="241" name="db" />
+        <variable attributes="__instancevar__" line="128" name="plat_name" />
+        <variable attributes="__instancevar__" citdl="dir.add_file()" line="172" name="install_script_key" />
+        <variable attributes="__instancevar__" citdl="int" line="134" name="skip_build" />
+        <variable attributes="__instancevar__" citdl="os.path.join()" line="127" name="bdist_dir" />
+        <variable citdl="list" line="117" name="boolean_options" />
+        <variable attributes="__instancevar__" line="136" name="pre_install_script" />
+        <variable attributes="__instancevar__" citdl="int" line="130" name="no_target_compile" />
+        <variable attributes="__instancevar__" citdl="int" line="129" name="keep_temp" />
+        <variable attributes="__instancevar__" line="135" name="install_script" />
+        <variable attributes="__instancevar__" line="133" name="dist_dir" />
+        <variable citdl="str" line="124" name="other_version" />
+      </scope>
+      <scope doc="Return a string that identifies the current platform." ilk="function" name="get_platform" signature="get_platform()" />
+      <scope ilk="function" name="get_python_version" signature="get_python_version()" />
+      <import module="log" />
+      <import module="msilib" />
+      <import module="os" />
+      <scope doc="Recursively remove an entire directory tree." ilk="function" name="remove_tree" signature="remove_tree(directory, verbose=1, dry_run=0)" />
+      <import module="schema" />
+      <import module="sequence" />
+      <import module="sys" />
+      <import module="text" />
+    </scope>
+    

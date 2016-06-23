@@ -1,0 +1,142 @@
+<scope doc="Test result object&#10;" ilk="blob" lang="Python" name="unittest.result">
+      <variable citdl="str" line="23" name="STDERR_LINE" />
+      <variable citdl="str" line="22" name="STDOUT_LINE" />
+      <scope doc="class StringIO([buffer])&#10;When a StringIO object is created, it can be initialized to an existing string by passing the string to the constructor. If no string is given, the StringIO will start empty.  The StringIO object can accept either Unicode or 8-bit strings, but mixing the two may take some care. If both are used, 8-bit strings that cannot be interpreted as 7-bit ASCII (that use the 8th bit) will cause a UnicodeError to be raised when getvalue() is called." ilk="class" name="StringIO">
+        <scope doc="Returns False because StringIO objects are not connected to&#10;a tty-like device." ilk="function" name="isatty" />
+        <scope doc="Truncate the file's size." ilk="function" name="truncate" />
+        <scope doc="Read at most size bytes from the file (less if the read hits&#10;EOF before obtaining size bytes)." ilk="function" name="read" />
+        <scope doc="Write a sequence of strings to the file." ilk="function" name="writelines" />
+        <scope doc="Read until EOF using readline() and return a list containing&#10;the lines thus read." ilk="function" name="readlines" />
+        <scope doc="A file object is its own iterator, for example iter(f)&#10;returns f (unless f is closed)." ilk="function" name="next" />
+        <scope doc="Write a string to the file." ilk="function" name="write" />
+        <scope ilk="function" name="__iter__" />
+        <scope doc="Return the file's current position." ilk="function" name="tell" />
+        <scope doc="Flush the internal buffer" ilk="function" name="flush" />
+        <scope doc="Free the memory buffer." ilk="function" name="close" />
+        <scope doc="Read one entire line from the file." ilk="function" name="readline" />
+        <scope doc="Retrieve the entire contents of the &quot;file&quot; at any time&#10;before the StringIO object's close() method is called." ilk="function" name="getvalue" />
+        <scope doc="Set the file's current position." ilk="function" name="seek" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="Holder for test result information.&#10;Test results are automatically managed by the TestCase and TestSuite classes, and do not need to be explicitly manipulated by writers of tests.  Each instance holds the total number of tests run, and collections of failures and errors that occurred among those test runs. The collections contain tuples of (testcase, exceptioninfo), where exceptioninfo is the formatted traceback of the error that occurred." ilk="class" line="26" lineend="193" name="TestResult">
+        <scope doc="Called when a test has completed successfully" ilk="function" line="126" lineend="128" name="addSuccess" signature="addSuccess(test)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called when an error has occurred." ilk="function" line="120" lineend="124" name="addFailure" signature="addFailure(test, err)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="err" />
+        </scope>
+        <scope doc="Indicates that the tests should be aborted" ilk="function" line="148" lineend="150" name="stop" signature="stop()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="180" lineend="181" name="_is_relevant_tb_level" returns="bool" signature="_is_relevant_tb_level(tb)">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="tb" />
+        </scope>
+        <scope doc="Called when a test was expected to fail, but succeed." ilk="function" line="140" lineend="142" name="addUnexpectedSuccess" signature="addUnexpectedSuccess(test)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called when an expected failure/error occured." ilk="function" line="134" lineend="137" name="addExpectedFailure" signature="addExpectedFailure(test, err)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="err" />
+        </scope>
+        <scope ilk="function" line="40" lineend="54" name="__init__" signature="TestResult(stream=None, descriptions=None, verbosity=None)">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="verbosity" />
+          <variable ilk="argument" name="stream" />
+          <variable ilk="argument" name="descriptions" />
+        </scope>
+        <scope doc="Called when an error has occurred." ilk="function" line="112" lineend="117" name="addError" signature="addError(test, err)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="err" />
+        </scope>
+        <scope doc="Called when the given test is about to be run" ilk="function" line="59" lineend="63" name="startTest" signature="startTest(test)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="103" name="_restoreStdout" signature="_restoreStdout()">
+          <variable citdl="sys.stdout.getvalue()" line="87" name="output" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable citdl="sys.stderr.getvalue()" line="88" name="error" />
+        </scope>
+        <scope ilk="function" line="183" lineend="188" name="_count_relevant_tb_levels" returns="int" signature="_count_relevant_tb_levels(tb)">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable citdl="tb.tb_next" ilk="argument" name="tb" />
+          <variable citdl="int" line="184" name="length" />
+        </scope>
+        <scope doc="Called when the given test has been run" ilk="function" line="79" lineend="82" name="stopTest" signature="stopTest(test)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Converts a sys.exc_info()-style tuple of values into a&#10;string." ilk="function" line="152" lineend="177" name="_exc_info_to_string" returns="str.join()" signature="_exc_info_to_string(err, test)">
+          <variable ilk="argument" name="err" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable citdl="traceback.format_exception()" line="162" name="msgLines" />
+          <variable citdl="self._count_relevant_tb_levels()" line="161" name="length" />
+          <variable citdl="sys.stderr.getvalue()" line="168" name="error" />
+          <variable ilk="argument" name="test" />
+          <variable citdl="sys.stdout.getvalue()" line="167" name="output" />
+          <variable citdl="tb.tb_next" line="157" name="tb" />
+        </scope>
+        <scope doc="Called once after all tests are executed." ilk="function" line="105" name="stopTestRun" signature="stopTestRun()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="71" name="_setupStdout" signature="_setupStdout()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called once before any tests are executed." ilk="function" line="73" name="startTestRun" signature="startTestRun()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="190" lineend="193" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Tells whether or not this result was a success" ilk="function" line="144" lineend="146" name="wasSuccessful" returns="bool" signature="wasSuccessful()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called when a test is skipped." ilk="function" line="130" lineend="132" name="addSkip" signature="addSkip(test, reason)">
+          <variable ilk="argument" name="test" />
+          <variable citdl="TestResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="reason" />
+        </scope>
+        <scope doc="Called by TestRunner after test run" ilk="function" line="56" name="printErrors" signature="printErrors()">
+          <variable citdl="TestResult" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="sys.stdout" line="52" name="_original_stdout" />
+        <variable attributes="__instancevar__" citdl="list" line="43" name="errors" />
+        <variable attributes="protected __instancevar__" citdl="False" line="54" name="_mirrorOutput" />
+        <variable attributes="__instancevar__" citdl="int" line="44" name="testsRun" />
+        <variable attributes="protected" citdl="False" line="38" name="_testRunEntered" />
+        <variable attributes="protected __instancevar__" citdl="sys.stderr" line="53" name="_original_stderr" />
+        <variable attributes="protected __instancevar__" citdl="StringIO()" line="50" name="_stdout_buffer" />
+        <variable attributes="protected __instancevar__" citdl="StringIO()" line="51" name="_stderr_buffer" />
+        <variable attributes="protected" citdl="False" line="39" name="_moduleSetUpFailed" />
+        <variable attributes="__instancevar__" citdl="list" line="46" name="expectedFailures" />
+        <variable attributes="__instancevar__" citdl="list" line="45" name="skipped" />
+        <variable attributes="__instancevar__" citdl="False" line="49" name="buffer" />
+        <variable attributes="protected" line="37" name="_previousTestClass" />
+        <variable attributes="__instancevar__" citdl="list" line="42" name="failures" />
+        <variable attributes="__instancevar__" citdl="list" line="47" name="unexpectedSuccesses" />
+        <variable attributes="__instancevar__" citdl="False" line="48" name="shouldStop" />
+        <variable attributes="__instancevar__" citdl="False" line="41" name="failfast" />
+      </scope>
+      <scope ilk="function" line="14" lineend="20" name="failfast" returns="failfast.inner" signature="failfast(method)">
+        <variable ilk="argument" name="method" />
+        <scope ilk="function" line="16" lineend="19" name="inner" returns="failfast.method()" signature="inner(self, *args, **kw)">
+          <variable ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+      </scope>
+      <import module="os" />
+      <import module="sys" />
+      <import module="traceback" />
+      <import module="util" />
+      <scope doc="Decorator factory to apply update_wrapper() to a wrapper&#10;function" ilk="function" name="wraps" signature="wraps(wrapped, assigned=('__module__', '__name__', '__doc__'), updated=('__dict__',))" />
+      <variable attributes="private __hidden__" citdl="True" line="12" name="__unittest" />
+    </scope>
+    

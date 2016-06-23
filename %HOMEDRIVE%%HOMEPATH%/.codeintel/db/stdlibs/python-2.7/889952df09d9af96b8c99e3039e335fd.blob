@@ -1,0 +1,7 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_sha">
+      <variable citdl="int" name="blocksize" />
+      <variable citdl="int" name="digest_size" />
+      <variable citdl="int" name="digestsize" />
+      <scope doc="Return a new SHA hashing object." ilk="function" name="new" />
+    </scope>
+    

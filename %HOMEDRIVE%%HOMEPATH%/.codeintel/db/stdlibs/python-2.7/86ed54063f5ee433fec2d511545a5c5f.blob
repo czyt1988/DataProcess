@@ -1,0 +1,15 @@
+<scope doc="Backport of importlib.import_module from 3.x.&#10;" ilk="blob" lang="Python" name="importlib">
+      <scope doc="Import a module." ilk="function" line="20" lineend="38" name="import_module" signature="import_module(name, package=None)">
+        <variable citdl="int" line="31" name="level" />
+        <variable citdl="_resolve_name()" ilk="argument" name="name" />
+        <variable ilk="argument" name="package" />
+      </scope>
+      <import module="sys" />
+      <scope attributes="protected __hidden__" doc="Return the absolute name of the module to be imported." ilk="function" line="6" lineend="17" name="_resolve_name" returns="tuple" signature="_resolve_name(name, package, level)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="package" />
+        <variable ilk="argument" name="level" />
+        <variable citdl="len()" line="10" name="dot" />
+      </scope>
+    </scope>
+    

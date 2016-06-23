@@ -1,0 +1,227 @@
+<scope doc="Generic socket server classes.&#10;This module tries to capture the various aspects of defining a server:  For socket-based servers:  - address family: - AF_INET{,6}: IP (Internet Protocol) sockets (default) - AF_UNIX: Unix domain sockets - others, e.g. AF_DECNET are conceivable (see &lt;socket.h&gt; - socket type: - SOCK_STREAM (reliable stream, e.g. TCP)" ilk="blob" lang="Python" name="SocketServer">
+      <scope doc="Base class for request handler classes.&#10;This class is instantiated for each request to be handled.  The constructor sets the instance variables request, client_address and server, and then calls the handle() method.  To implement a specific service, all you need to do is to derive a class which defines a handle() method.  The handle() method can find the request as self.request, the client address as self.client_address, and the server (in case it needs access to per-server information) as self.server.  Since a separate instance is created for each request, the handle() method" ilk="class" line="615" lineend="650" name="BaseRequestHandler">
+        <scope ilk="function" line="649" lineend="650" name="finish" signature="finish()">
+          <variable citdl="BaseRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="646" lineend="647" name="handle" signature="handle()">
+          <variable citdl="BaseRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="643" lineend="644" name="setup" signature="setup()">
+          <variable citdl="BaseRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="633" lineend="641" name="__init__" signature="BaseRequestHandler(request, client_address, server)">
+          <variable citdl="BaseRequestHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+          <variable ilk="argument" name="server" />
+        </scope>
+        <variable attributes="__instancevar__" line="634" name="request" />
+        <variable attributes="__instancevar__" line="635" name="client_address" />
+        <variable attributes="__instancevar__" line="636" name="server" />
+      </scope>
+      <scope doc="Base class for server classes.&#10;Methods for the caller:  - __init__(server_address, RequestHandlerClass) - serve_forever(poll_interval=0.5) - shutdown() - handle_request()  # if you do not use serve_forever() - fileno() -&gt; int   # for select()  Methods that may be overridden: " ilk="class" line="150" lineend="344" name="BaseServer">
+        <scope doc="Called by constructor to activate the server." ilk="function" line="203" lineend="209" name="server_activate" signature="server_activate()">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handle one request at a time until shutdown." ilk="function" line="211" lineend="230" name="serve_forever" signature="serve_forever(poll_interval=0.5)">
+          <variable line="225" name="e" />
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable line="225" name="r" />
+          <variable citdl="float" ilk="argument" name="poll_interval" />
+          <variable line="225" name="w" />
+        </scope>
+        <scope doc="Stops the serve_forever loop." ilk="function" line="232" lineend="240" name="shutdown" signature="shutdown()">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Call finish_request." ilk="function" line="304" lineend="311" name="process_request" signature="process_request(request, client_address)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Verify the request. May be overridden." ilk="function" line="296" lineend="302" name="verify_request" returns="bool" signature="verify_request(request, client_address)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Called to clean-up the server." ilk="function" line="313" lineend="319" name="server_close" signature="server_close()">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called if no new request arrives within self.timeout." ilk="function" line="289" lineend="294" name="handle_timeout" signature="handle_timeout()">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handle one request, possibly blocking." ilk="function" line="253" lineend="269" name="handle_request" signature="handle_request()">
+          <variable citdl="select.select()" line="265" name="fd_sets" />
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable citdl="min()" line="260" name="timeout" />
+        </scope>
+        <scope doc="Called to clean up an individual request." ilk="function" line="329" lineend="331" name="close_request" signature="close_request(request)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope doc="Called to shutdown and close an individual request." ilk="function" line="325" lineend="327" name="shutdown_request" signature="shutdown_request(request)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope doc="Handle an error gracefully. May be overridden." ilk="function" line="333" lineend="344" name="handle_error" signature="handle_error(request, client_address)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Finish one request by instantiating RequestHandlerClass." ilk="function" line="321" lineend="323" name="finish_request" signature="finish_request(request, client_address)">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Handle one request, without blocking." ilk="function" line="271" lineend="287" name="_handle_request_noblock" signature="_handle_request_noblock()">
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable line="279" name="request" />
+          <variable line="279" name="client_address" />
+        </scope>
+        <scope doc="Constructor. May be extended, do not override." ilk="function" line="196" lineend="201" name="__init__" signature="BaseServer(server_address, RequestHandlerClass)">
+          <variable ilk="argument" name="RequestHandlerClass" />
+          <variable citdl="BaseServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="server_address" />
+        </scope>
+        <variable attributes="__instancevar__" line="199" name="RequestHandlerClass" />
+        <variable attributes="private __instancevar__" citdl="threading.Event()" line="200" name="__is_shut_down" />
+        <variable attributes="__instancevar__" line="198" name="server_address" />
+        <variable attributes="private __instancevar__" citdl="False" line="201" name="__shutdown_request" />
+        <variable line="194" name="timeout" />
+      </scope>
+      <scope classrefs="BaseRequestHandler" doc="Define self.rfile and self.wfile for datagram sockets.&#10;" ilk="class" line="699" lineend="716" name="DatagramRequestHandler">
+        <scope ilk="function" line="706" lineend="713" name="setup" signature="setup()">
+          <variable citdl="DatagramRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="715" lineend="716" name="finish" signature="finish()">
+          <variable citdl="DatagramRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="StringIO()" line="713" name="wfile" />
+        <variable attributes="__instancevar__" citdl="StringIO()" line="712" name="rfile" />
+      </scope>
+      <scope doc="Mix-in class to handle each request in a new process.&#10;" ilk="class" line="495" lineend="565" name="ForkingMixIn">
+        <scope doc="Internal routine to wait for children that have exited." ilk="function" line="503" lineend="533" name="collect_children" signature="collect_children()">
+          <variable line="512" name="status" />
+          <variable citdl="ForkingMixIn" ilk="argument" name="self" />
+          <variable line="512" name="pid" />
+        </scope>
+        <scope doc="Fork a new subprocess to process the request." ilk="function" line="542" lineend="565" name="process_request" signature="process_request(request, client_address)">
+          <variable citdl="os.fork()" line="545" name="pid" />
+          <variable citdl="ForkingMixIn" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Wait for zombies after self.timeout seconds of inactivity." ilk="function" line="535" lineend="540" name="handle_timeout" signature="handle_timeout()">
+          <variable citdl="ForkingMixIn" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="501" name="max_children" />
+        <variable citdl="int" line="499" name="timeout" />
+        <variable citdl="list" line="500" name="active_children" />
+      </scope>
+      <scope classrefs="ForkingMixIn TCPServer" doc="&#10;" ilk="class" line="598" lineend="598" name="ForkingTCPServer" />
+      <scope classrefs="ForkingMixIn UDPServer" doc="&#10;" ilk="class" line="597" lineend="597" name="ForkingUDPServer" />
+      <scope classrefs="BaseRequestHandler" doc="Define self.rfile and self.wfile for stream sockets.&#10;" ilk="class" line="661" lineend="696" name="StreamRequestHandler">
+        <scope ilk="function" line="692" lineend="696" name="finish" signature="finish()">
+          <variable citdl="StreamRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="682" lineend="690" name="setup" signature="setup()">
+          <variable citdl="StreamRequestHandler" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="673" name="wbufsize" />
+        <variable attributes="__instancevar__" citdl="self.connection.makefile()" line="690" name="wfile" />
+        <variable citdl="int" line="672" name="rbufsize" />
+        <variable attributes="__instancevar__" citdl="self.request" line="683" name="connection" />
+        <variable attributes="__instancevar__" citdl="self.connection.makefile()" line="689" name="rfile" />
+        <variable line="676" name="timeout" />
+        <variable citdl="False" line="680" name="disable_nagle_algorithm" />
+      </scope>
+      <scope classrefs="BaseServer" doc="Base class for various socket-based server classes.&#10;Defaults to synchronous IP stream (i.e., TCP).  Methods for the caller:  - __init__(server_address, RequestHandlerClass, bind_and_activate=True) - serve_forever(poll_interval=0.5) - shutdown() - handle_request()  # if you don't use serve_forever() - fileno() -&gt; int   # for select() " ilk="class" line="347" lineend="466" name="TCPServer">
+        <scope doc="Called by constructor to activate the server." ilk="function" line="422" lineend="428" name="server_activate" signature="server_activate()">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return socket file number." ilk="function" line="438" lineend="444" name="fileno" returns="self.socket.fileno()" signature="fileno()">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called to clean-up the server." ilk="function" line="430" lineend="436" name="server_close" signature="server_close()">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called to clean up an individual request." ilk="function" line="464" lineend="466" name="close_request" signature="close_request(request)">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope doc="Called to shutdown and close an individual request." ilk="function" line="454" lineend="462" name="shutdown_request" signature="shutdown_request(request)">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope doc="Get the request and client address from the socket." ilk="function" line="446" lineend="452" name="get_request" returns="self.socket.accept()" signature="get_request()">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called by constructor to bind the socket." ilk="function" line="411" lineend="420" name="server_bind" signature="server_bind()">
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructor. May be extended, do not override." ilk="function" line="402" lineend="409" name="__init__" signature="TCPServer(server_address, RequestHandlerClass, bind_and_activate=True)">
+          <variable ilk="argument" name="RequestHandlerClass" />
+          <variable citdl="True" ilk="argument" name="bind_and_activate" />
+          <variable citdl="TCPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="server_address" />
+        </scope>
+        <variable citdl="False" line="400" name="allow_reuse_address" />
+        <variable citdl="socket.AF_INET" line="394" name="address_family" />
+        <variable attributes="__instancevar__" citdl="self.socket.getsockname()" line="420" name="server_address" />
+        <variable citdl="socket.SOCK_STREAM" line="396" name="socket_type" />
+        <variable attributes="__instancevar__" citdl="socket.socket()" line="405" name="socket" />
+        <variable citdl="int" line="398" name="request_queue_size" />
+      </scope>
+      <scope doc="Mix-in class to handle each request in a new thread.&#10;" ilk="class" line="568" lineend="594" name="ThreadingMixIn">
+        <scope doc="Start a new thread to process the request." ilk="function" line="588" lineend="594" name="process_request" signature="process_request(request, client_address)">
+          <variable citdl="ThreadingMixIn" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="threading.Thread()" line="590" name="t" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <scope doc="Same as in BaseServer but as a thread." ilk="function" line="575" lineend="586" name="process_request_thread" signature="process_request_thread(request, client_address)">
+          <variable citdl="ThreadingMixIn" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="client_address" />
+        </scope>
+        <variable citdl="False" line="573" name="daemon_threads" />
+      </scope>
+      <scope classrefs="ThreadingMixIn TCPServer" doc="&#10;" ilk="class" line="601" lineend="601" name="ThreadingTCPServer" />
+      <scope classrefs="ThreadingMixIn UDPServer" doc="&#10;" ilk="class" line="600" lineend="600" name="ThreadingUDPServer" />
+      <scope classrefs="TCPServer" doc="UDP server class.&#10;" ilk="class" line="469" lineend="493" name="UDPServer">
+        <scope ilk="function" line="483" lineend="485" name="server_activate" signature="server_activate()">
+          <variable citdl="UDPServer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="491" lineend="493" name="close_request" signature="close_request(request)">
+          <variable citdl="UDPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope ilk="function" line="487" lineend="489" name="shutdown_request" signature="shutdown_request(request)">
+          <variable citdl="UDPServer" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope ilk="function" line="479" lineend="481" name="get_request" returns="tuple" signature="get_request()">
+          <variable citdl="UDPServer" ilk="argument" name="self" />
+          <variable line="480" name="data" />
+          <variable line="480" name="client_addr" />
+        </scope>
+        <variable citdl="False" line="473" name="allow_reuse_address" />
+        <variable citdl="int" line="477" name="max_packet_size" />
+        <variable citdl="socket.SOCK_DGRAM" line="475" name="socket_type" />
+      </scope>
+      <variable citdl="list" line="141" name="__all__" />
+      <variable citdl="str" line="129" name="__version__" />
+      <import module="os" />
+      <import module="select" />
+      <import module="socket" />
+      <import module="sys" />
+      <import module="threading" />
+      <scope attributes="__hidden__" classrefs="UDPServer" doc="&#10;" ilk="class" line="608" lineend="609" name="UnixDatagramServer">
+        <variable citdl="socket.AF_UNIX" line="609" name="address_family" />
+      </scope>
+      <scope attributes="__hidden__" classrefs="ThreadingMixIn UnixDatagramServer" doc="&#10;" ilk="class" line="613" lineend="613" name="ThreadingUnixDatagramServer" />
+      <scope attributes="__hidden__" classrefs="ThreadingMixIn UnixStreamServer" doc="&#10;" ilk="class" line="611" lineend="611" name="ThreadingUnixStreamServer" />
+      <scope attributes="__hidden__" classrefs="TCPServer" doc="&#10;" ilk="class" line="605" lineend="606" name="UnixStreamServer">
+        <variable citdl="socket.AF_UNIX" line="606" name="address_family" />
+      </scope>
+    </scope>
+    

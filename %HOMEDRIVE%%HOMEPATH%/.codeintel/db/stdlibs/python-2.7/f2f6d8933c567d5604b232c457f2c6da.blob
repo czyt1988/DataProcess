@@ -1,0 +1,46 @@
+<scope doc="Registration facilities for DOM. This module should not be used&#10;directly. Instead, the functions getDOMImplementation and registerDOMImplementation should be imported from xml.dom." ilk="blob" lang="Python" name="xml.dom.domreg">
+      <scope classrefs="tuple" doc="&#10;" ilk="class" name="EmptyNodeList">
+        <scope ilk="function" name="__radd__" />
+        <scope ilk="function" name="item" />
+        <scope ilk="function" name="__add__" />
+        <scope ilk="function" name="_set_length" />
+        <scope ilk="function" name="_get_length" />
+      </scope>
+      <scope classrefs="list" doc="&#10;" ilk="class" name="NodeList">
+        <scope ilk="function" name="_set_length" />
+        <scope ilk="function" name="__setstate__" />
+        <scope ilk="function" name="item" />
+        <scope ilk="function" name="__getstate__" />
+        <scope ilk="function" name="_get_length" />
+      </scope>
+      <variable citdl="tuple" name="StringTypes" />
+      <scope ilk="function" name="defproperty" signature="defproperty(klass, name, doc)" />
+      <scope doc="Return a suitable DOM implementation." ilk="function" line="39" lineend="80" name="getDOMImplementation" returns="mod.getDOMImplementation()" signature="getDOMImplementation(name = None, features = ()) -&gt; DOM implementation.">
+        <variable citdl="__import__()" line="54" name="mod" />
+        <variable citdl="creator()" line="68" name="dom" />
+        <variable citdl="_parse_feature_string()" ilk="argument" name="features" />
+        <variable ilk="argument" name="name" />
+        <variable line="53" name="creator" />
+      </scope>
+      <scope doc="Register the factory function with the name." ilk="function" line="21" lineend="30" name="registerDOMImplementation" signature="registerDOMImplementation(name, factory)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="factory" />
+      </scope>
+      <variable citdl="dict" line="19" name="registered" />
+      <variable citdl="dict" line="11" name="well_known_implementations" />
+      <scope attributes="protected __hidden__" ilk="function" line="82" lineend="99" name="_parse_feature_string" returns="tuple()" signature="_parse_feature_string(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="list" line="83" name="features" />
+        <variable citdl="s.split()" line="84" name="parts" />
+        <variable citdl="int" line="85" name="i" />
+        <variable citdl="len()" line="86" name="length" />
+        <variable line="88" name="feature" />
+        <variable line="92" name="version" />
+        <variable line="94" name="v" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="32" lineend="37" name="_good_enough" returns="int" signature="_good_enough(dom, features) -&gt; Return 1 if the dom offers the features">
+        <variable ilk="argument" name="dom" />
+        <variable ilk="argument" name="features" />
+      </scope>
+    </scope>
+    

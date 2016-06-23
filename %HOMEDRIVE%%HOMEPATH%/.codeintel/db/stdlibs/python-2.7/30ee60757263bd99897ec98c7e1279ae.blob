@@ -1,0 +1,200 @@
+<scope doc="Header encoding and decoding functionality.&#10;" ilk="blob" lang="Python" name="email.header">
+      <scope doc="Map character sets to their email properties.&#10;This class provides information about the requirements imposed on email for a specific character set.  It also provides convenience routines for converting between character sets, given the availability of the applicable codecs.  Given a character set, it will do its best to provide information on how to use that character set in an email in an RFC-compliant way.  Certain character sets must be encoded with quoted-printable or base64 when used in email headers or bodies.  Certain character sets must be converted outright, and are not allowed in email.  Instances of this" ilk="class" name="Charset">
+        <scope doc="Convert a splittable string back into an encoded string." ilk="function" name="from_splittable" />
+        <scope ilk="function" name="__ne__" />
+        <scope doc="Return the length of the encoded header string." ilk="function" name="encoded_header_len" />
+        <scope ilk="function" name="__str__" />
+        <scope doc="Convert a string from the input_codec to the output_codec." ilk="function" name="convert" />
+        <scope doc="Convert a possibly multibyte string to a safely splittable&#10;format." ilk="function" name="to_splittable" />
+        <scope doc="Return the content-transfer-encoding used for body encoding." ilk="function" name="get_body_encoding" />
+        <scope doc="Return the output character set." ilk="function" name="get_output_charset" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Header-encode a string, optionally converting it to&#10;output_charset." ilk="function" name="header_encode" />
+        <scope doc="Body-encode a string and convert it to output_charset." ilk="function" name="body_encode" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="144" lineend="414" name="Header">
+        <scope ilk="function" line="230" lineend="231" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="334" lineend="337" name="_split_ascii" returns="zip()" signature="_split_ascii(s, charset, firstlen, splitchars)">
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable ilk="argument" name="firstlen" />
+          <variable ilk="argument" name="s" />
+          <variable ilk="argument" name="splitchars" />
+          <variable citdl="()" line="335" name="chunks" />
+        </scope>
+        <scope doc="A synonym for self.encode()." ilk="function" line="198" lineend="200" name="__str__" returns="self.encode()" signature="__str__()">
+          <variable citdl="Header" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Append a string to the MIME header." ilk="function" line="233" lineend="286" name="append" signature="append(s, charset=None, errors='strict')">
+          <variable citdl="str" ilk="argument" name="errors" />
+          <variable citdl="unicode()" line="267" name="ustr" />
+          <variable citdl="charset.output_codec" line="271" name="outcodec" />
+          <variable citdl="Charset()" ilk="argument" name="charset" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable citdl="s.encode()" ilk="argument" name="s" />
+          <variable citdl="charset.input_codec" line="266" name="incodec" />
+        </scope>
+        <scope ilk="function" line="339" lineend="372" name="_encode_chunks" returns="joiner.join()" signature="_encode_chunks(newchunks, maxlinelen)">
+          <variable ilk="argument" name="maxlinelen" />
+          <variable citdl="str" line="367" name="extra" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable ilk="argument" name="newchunks" />
+          <variable citdl="header" line="362" name="s" />
+          <variable citdl="list" line="357" name="chunks" />
+          <variable citdl="str" line="371" name="joiner" />
+        </scope>
+        <scope doc="Create a MIME-compliant header that can contain many&#10;character sets." ilk="function" line="145" lineend="196" name="__init__" signature="Header(s=None, charset=None, maxlinelen=None, header_name=None, continuation_ws=' ', errors='strict')">
+          <variable citdl="int" ilk="argument" name="maxlinelen" />
+          <variable ilk="argument" name="header_name" />
+          <variable citdl="str" ilk="argument" name="continuation_ws" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable citdl="Charset()" ilk="argument" name="charset" />
+          <variable ilk="argument" name="s" />
+          <variable citdl="str" ilk="argument" name="errors" />
+          <variable citdl="len()" line="179" name="cws_expanded_len" />
+        </scope>
+        <scope doc="Encode a message header into an RFC-compliant format." ilk="function" line="374" lineend="414" name="encode" returns="_encode_chunks()" signature="encode(splitchars=';, ')">
+          <variable citdl="int" line="397" name="maxlinelen" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable citdl="_encode_chunks()" line="410" name="value" />
+          <variable citdl="list" line="396" name="newchunks" />
+          <variable citdl="str" ilk="argument" name="splitchars" />
+          <variable citdl="len()" line="403" name="targetlen" />
+          <variable citdl="int" line="398" name="lastlen" />
+        </scope>
+        <scope doc="# Rich comparison operators for equality only." ilk="function" line="225" lineend="228" name="__eq__" returns="bool" signature="__eq__(other)">
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Helper for the built-in unicode function." ilk="function" line="202" lineend="221" name="__unicode__" returns="UEMPTYSTRING.join()" signature="__unicode__()">
+          <variable citdl="list" line="204" name="uchunks" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable citdl="charset" line="211" name="nextcs" />
+          <variable citdl="charset" line="205" name="lastcs" />
+        </scope>
+        <scope ilk="function" line="288" lineend="332" name="_split" returns="list" signature="_split(s, charset, maxlinelen, splitchars)">
+          <variable ilk="argument" name="maxlinelen" />
+          <variable citdl="charset.from_splittable()" line="323" name="last" />
+          <variable citdl="charset.to_splittable()" line="290" name="splittable" />
+          <variable citdl="charset.to_splittable()" line="329" name="fsplittable" />
+          <variable citdl="Header" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable citdl="charset.encoded_header_len()" line="292" name="elen" />
+          <variable ilk="argument" name="s" />
+          <variable ilk="argument" name="splitchars" />
+          <variable line="321" name="splitpnt" />
+          <variable citdl="charset.from_splittable()" line="291" name="encoded" />
+          <variable citdl="charset.from_splittable()" line="330" name="fencoded" />
+          <variable citdl="list" line="331" name="chunk" />
+          <variable citdl="charset.from_splittable()" line="322" name="first" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="Charset()" line="177" name="_charset" />
+        <variable attributes="protected __instancevar__" citdl="int" line="189" name="_firstlinelen" />
+        <variable attributes="protected __instancevar__" citdl="str" line="178" name="_continuation_ws" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="196" name="_maxlinelen" />
+        <variable attributes="protected __instancevar__" citdl="list" line="181" name="_chunks" />
+      </scope>
+      <scope classrefs="MessageParseError" doc="Error while parsing headers.&#10;" ilk="class" name="HeaderParseError" />
+      <variable citdl="int" line="28" name="MAXLINELEN" />
+      <variable citdl="str" line="22" name="NL" />
+      <variable citdl="str" line="23" name="SPACE" />
+      <variable citdl="str" line="25" name="SPACE8" />
+      <variable citdl="unicode" line="26" name="UEMPTYSTRING" />
+      <variable citdl="email.charset.Charset" line="30" name="USASCII" />
+      <scope doc="Map character sets to their email properties.&#10;This class provides information about the requirements imposed on email for a specific character set.  It also provides convenience routines for converting between character sets, given the availability of the applicable codecs.  Given a character set, it will do its best to provide information on how to use that character set in an email in an RFC-compliant way.  Certain character sets must be encoded with quoted-printable or base64 when used in email headers or bodies.  Certain character sets must be converted outright, and are not allowed in email.  Instances of this" ilk="class" name="Charset">
+        <scope doc="Convert a splittable string back into an encoded string." ilk="function" name="from_splittable" />
+        <scope ilk="function" name="__ne__" />
+        <scope doc="Return the length of the encoded header string." ilk="function" name="encoded_header_len" />
+        <scope ilk="function" name="__str__" />
+        <scope doc="Convert a string from the input_codec to the output_codec." ilk="function" name="convert" />
+        <scope doc="Convert a possibly multibyte string to a safely splittable&#10;format." ilk="function" name="to_splittable" />
+        <scope doc="Return the content-transfer-encoding used for body encoding." ilk="function" name="get_body_encoding" />
+        <scope doc="Return the output character set." ilk="function" name="get_output_charset" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Header-encode a string, optionally converting it to&#10;output_charset." ilk="function" name="header_encode" />
+        <scope doc="Body-encode a string and convert it to output_charset." ilk="function" name="body_encode" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="unicode" line="24" name="USPACE" />
+      <variable citdl="email.charset.Charset" line="31" name="UTF8" />
+      <scope doc="Map character sets to their email properties.&#10;This class provides information about the requirements imposed on email for a specific character set.  It also provides convenience routines for converting between character sets, given the availability of the applicable codecs.  Given a character set, it will do its best to provide information on how to use that character set in an email in an RFC-compliant way.  Certain character sets must be encoded with quoted-printable or base64 when used in email headers or bodies.  Certain character sets must be converted outright, and are not allowed in email.  Instances of this" ilk="class" name="Charset">
+        <scope doc="Convert a splittable string back into an encoded string." ilk="function" name="from_splittable" />
+        <scope ilk="function" name="__ne__" />
+        <scope doc="Return the length of the encoded header string." ilk="function" name="encoded_header_len" />
+        <scope ilk="function" name="__str__" />
+        <scope doc="Convert a string from the input_codec to the output_codec." ilk="function" name="convert" />
+        <scope doc="Convert a possibly multibyte string to a safely splittable&#10;format." ilk="function" name="to_splittable" />
+        <scope doc="Return the content-transfer-encoding used for body encoding." ilk="function" name="get_body_encoding" />
+        <scope doc="Return the output character set." ilk="function" name="get_output_charset" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Header-encode a string, optionally converting it to&#10;output_charset." ilk="function" name="header_encode" />
+        <scope doc="Body-encode a string and convert it to output_charset." ilk="function" name="body_encode" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="binascii" />
+      <scope doc="Decode a message header value without converting charset." ilk="function" line="61" lineend="117" name="decode_header" returns="list" signature="decode_header(header)">
+        <variable citdl="list" line="76" name="decoded" />
+        <variable line="85" name="unenc" />
+        <variable citdl="len()" line="99" name="paderr" />
+        <variable citdl="str()" ilk="argument" name="header" />
+        <variable citdl="ecre.split()" line="83" name="parts" />
+        <variable line="94" name="encoded" />
+        <variable citdl="email.quoprimime.header_decode()" line="77" name="dec" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="34" name="ecre" />
+      <import module="email" />
+      <variable citdl="SRE_Pattern" line="48" name="fcre" />
+      <scope doc="Create a Header from a sequence of pairs as returned by&#10;decode_header()" ilk="function" line="121" lineend="140" name="make_header" returns="Header()" signature="make_header(decoded_seq, maxlinelen=None, header_name=None, continuation_ws=' ')">
+        <variable ilk="argument" name="maxlinelen" />
+        <variable ilk="argument" name="header_name" />
+        <variable citdl="Header()" line="133" name="h" />
+        <variable citdl="Charset()" line="138" name="charset" />
+        <variable ilk="argument" name="decoded_seq" />
+        <variable citdl="str" ilk="argument" name="continuation_ws" />
+      </scope>
+      <import module="re" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="52" name="_embeded_header" />
+      <variable attributes="protected __hidden__" citdl="email.quoprimime._max_append" line="57" name="_max_append" />
+      <scope attributes="protected __hidden__" ilk="function" line="488" lineend="514" name="_binsplit" returns="tuple" signature="_binsplit(splittable, charset, maxlinelen)">
+        <variable ilk="argument" name="splittable" />
+        <variable ilk="argument" name="charset" />
+        <variable ilk="argument" name="maxlinelen" />
+        <variable citdl="int" line="489" name="i" />
+        <variable citdl="int" line="490" name="j" />
+        <variable citdl="int" line="500" name="m" />
+        <variable citdl="charset.from_splittable()" line="501" name="chunk" />
+        <variable citdl="charset.encoded_header_len()" line="502" name="chunklen" />
+        <variable citdl="charset.from_splittable()" line="512" name="first" />
+        <variable citdl="charset.from_splittable()" line="513" name="last" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="418" lineend="484" name="_split_ascii" returns="list" signature="_split_ascii(s, firstlen, restlen, continuation_ws, splitchars)">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="firstlen" />
+        <variable ilk="argument" name="restlen" />
+        <variable ilk="argument" name="continuation_ws" />
+        <variable ilk="argument" name="splitchars" />
+        <variable citdl="list" line="419" name="lines" />
+        <variable line="420" name="maxlen" />
+        <variable citdl="line.lstrip()" line="424" name="line" />
+        <variable citdl="re.compile()" line="443" name="cre" />
+        <variable citdl="ch" line="445" name="eol" />
+        <variable citdl="str" line="448" name="joiner" />
+        <variable citdl="len()" line="449" name="joinlen" />
+        <variable citdl="len()" line="450" name="wslen" />
+        <variable citdl="list" line="451" name="this" />
+        <variable citdl="len()" line="452" name="linelen" />
+        <variable citdl="len()" line="454" name="curlen" />
+        <variable citdl="len()" line="455" name="partlen" />
+        <variable citdl="bool" line="456" name="onfirstline" />
+        <variable citdl="()" line="470" name="subl" />
+      </scope>
+    </scope>
+    

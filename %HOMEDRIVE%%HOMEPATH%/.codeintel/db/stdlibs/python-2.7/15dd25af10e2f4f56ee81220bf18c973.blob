@@ -1,0 +1,5 @@
+<scope doc="distutils&#10;The main package for the Python Module Distribution Utilities.  Normally used from a setup script as  from distutils.core import setup  setup (...)" ilk="blob" lang="Python" name="distutils">
+      <variable citdl="str" line="11" name="__revision__" />
+      <variable citdl="str" line="18" name="__version__" />
+    </scope>
+    

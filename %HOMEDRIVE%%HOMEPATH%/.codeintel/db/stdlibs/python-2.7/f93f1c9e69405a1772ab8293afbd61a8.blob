@@ -1,0 +1,25 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="msvcrt">
+      <variable citdl="str" name="CRT_ASSEMBLY_VERSION" />
+      <variable citdl="str" name="LIBRARIES_ASSEMBLY_NAME_PREFIX" />
+      <variable citdl="int" name="LK_LOCK" />
+      <variable citdl="int" name="LK_NBLCK" />
+      <variable citdl="int" name="LK_NBRLCK" />
+      <variable citdl="int" name="LK_RLCK" />
+      <variable citdl="int" name="LK_UNLCK" />
+      <variable citdl="str" name="VC_ASSEMBLY_PUBLICKEYTOKEN" />
+      <scope doc="Return the file handle for the file descriptor fd." ilk="function" name="get_osfhandle" returns="file" signature="get_osfhandle(fd) -&gt; file handle" />
+      <scope doc="Read a keypress and return the resulting character." ilk="function" name="getch" signature="getch() -&gt; key character" />
+      <scope doc="Similar to getch(), but the keypress will be echoed if it&#10;represents a printable character." ilk="function" name="getche" signature="getche() -&gt; key character" />
+      <scope doc="Wide char variant of getch(), returning a Unicode value." ilk="function" name="getwch" returns="unicode" signature="getwch() -&gt; Unicode key character" />
+      <scope doc="Wide char variant of getche(), returning a Unicode value." ilk="function" name="getwche" returns="unicode" signature="getwche() -&gt; Unicode key character" />
+      <scope doc="Force the malloc() heap to clean itself up and return unused&#10;blocks to the operating system." ilk="function" name="heapmin" signature="heapmin() -&gt; None" />
+      <scope doc="Return true if a keypress is waiting to be read." ilk="function" name="kbhit" returns="bool" signature="kbhit() -&gt; bool" />
+      <scope doc="Lock part of a file based on file descriptor fd from the C&#10;runtime." ilk="function" name="locking" signature="locking(fd, mode, nbytes) -&gt; None" />
+      <scope doc="Create a C runtime file descriptor from the file handle&#10;handle." ilk="function" name="open_osfhandle" returns="file" signature="open_osfhandle(handle, flags) -&gt; file descriptor" />
+      <scope doc="Print the character char to the console without buffering." ilk="function" name="putch" signature="putch(char) -&gt; None" />
+      <scope doc="Wide char variant of putch(), accepting a Unicode value." ilk="function" name="putwch" signature="putwch(unicode_char) -&gt; None" />
+      <scope doc="Set the line-end translation mode for the file descriptor&#10;fd." ilk="function" name="setmode" signature="setmode(fd, mode) -&gt; Previous mode" />
+      <scope doc="Cause the character char to be &quot;pushed back&quot; into the&#10;console buffer; it will be the next character read by&#10;getch() or getche()." ilk="function" name="ungetch" signature="ungetch(char) -&gt; None" />
+      <scope doc="Wide char variant of ungetch(), accepting a Unicode value." ilk="function" name="ungetwch" signature="ungetwch(unicode_char) -&gt; None" />
+    </scope>
+    

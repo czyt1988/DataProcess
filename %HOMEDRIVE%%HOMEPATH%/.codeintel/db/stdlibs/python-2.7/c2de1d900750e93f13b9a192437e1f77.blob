@@ -1,0 +1,67 @@
+<scope doc="macostools - Various utility functions for MacOS.&#10;mkalias(src, dst) - Create a finder alias 'dst' pointing to 'src' copy(src, dst) - Full copy of 'src' to 'dst'" ilk="blob" lang="Python" name="macostools">
+      <variable citdl="int" line="23" name="BUFSIZ" />
+      <variable citdl="int" line="25" name="COPY_FLAGS" />
+      <variable citdl="str" line="21" name="Error" />
+      <import module="File" />
+      <import module="Files" />
+      <import module="MacOS" />
+      <import module="Res" />
+      <scope doc="Copy a file, including finder info, resource fork, etc" ilk="function" line="90" lineend="128" name="copy" signature="copy(src, dst, createpath=0, copydates=1, forcetype=None)">
+        <variable ilk="argument" name="forcetype" />
+        <variable citdl="File.pathname()" ilk="argument" name="src" />
+        <variable citdl="int" ilk="argument" name="copydates" />
+        <variable citdl="openrf()" line="97" name="ifp" />
+        <variable citdl="ifp.read()" line="99" name="d" />
+        <variable citdl="dstfss.FSpGetFInfo()" line="118" name="df" />
+        <variable citdl="File.pathname()" ilk="argument" name="dst" />
+        <variable citdl="int" ilk="argument" name="createpath" />
+        <variable citdl="File.FSSpec()" line="115" name="srcfss" />
+        <variable citdl="File.FSRef()" line="125" name="srcfsr" />
+        <variable citdl="openrf()" line="98" name="ofp" />
+        <variable citdl="File.FSRef()" line="126" name="dstfsr" />
+        <variable citdl="File.FSSpec()" line="116" name="dstfss" />
+        <variable citdl="srcfss.FSpGetFInfo()" line="117" name="sf" />
+        <variable attributes="protected" line="127" name="_" />
+        <variable line="127" name="catinfo" />
+      </scope>
+      <scope doc="Copy a complete file tree to a new destination" ilk="function" line="130" lineend="138" name="copytree" signature="copytree(src, dst, copydates=1)">
+        <variable citdl="os.listdir()" line="134" name="files" />
+        <variable ilk="argument" name="src" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="int" ilk="argument" name="copydates" />
+      </scope>
+      <import module="errno" />
+      <scope doc="Create a finder alias" ilk="function" line="32" lineend="56" name="mkalias" signature="mkalias(src, dst, relative=None)">
+        <variable ilk="argument" name="src" />
+        <variable citdl="Res.Resource()" line="50" name="resource" />
+        <variable line="37" name="dstname" />
+        <variable citdl="os.curdir" line="37" name="dstdir" />
+        <variable citdl="Res.FSOpenResourceFile()" line="49" name="h" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="File.FSRef()" line="34" name="srcfsr" />
+        <variable ilk="argument" name="relative" />
+        <variable citdl="srcfsr.FSNewAliasMinimal()" line="43" name="alias" />
+        <variable citdl="File.FSRef()" line="41" name="relativefsr" />
+        <variable citdl="dstfss.FSpGetFInfo()" line="54" name="dstfinfo" />
+        <variable line="47" name="dstfsr" />
+        <variable line="47" name="dstfss" />
+        <variable citdl="File.FSRef()" line="39" name="dstdirfsr" />
+      </scope>
+      <scope doc="Make directories leading to 'dst' if they don't exist yet" ilk="function" line="58" lineend="72" name="mkdirs" signature="mkdirs(dst)">
+        <variable ilk="argument" name="dst" />
+        <variable citdl="str" line="62" name="head" />
+        <variable line="62" name="tail" />
+      </scope>
+      <scope doc="Open resource fork of a file" ilk="function" line="16" name="openrf" />
+      <import module="os" />
+      <scope doc="Tell the finder a file has changed. No-op on MacOSX." ilk="function" line="75" lineend="79" name="touched" signature="touched(dst)">
+        <variable ilk="argument" name="dst" />
+      </scope>
+      <scope doc="Tell the finder a file has changed" ilk="function" line="81" lineend="88" name="touched_ae" signature="touched_ae(dst)">
+        <variable citdl="os.curdir" line="83" name="pardir" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="Finder.Finder()" line="87" name="f" />
+      </scope>
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+    </scope>
+    

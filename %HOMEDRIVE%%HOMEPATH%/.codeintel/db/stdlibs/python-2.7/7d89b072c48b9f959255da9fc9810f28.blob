@@ -1,0 +1,291 @@
+<scope doc="create and manipulate C data types in Python&#10;" ilk="blob" lang="Python" name="ctypes">
+      <scope doc="# XXX Deprecated" ilk="function" line="314" lineend="315" name="ARRAY" signature="ARRAY(typ, len)">
+        <variable ilk="argument" name="typ" />
+        <variable ilk="argument" name="len" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ArgumentError" />
+      <scope classrefs="_CData" doc="XXX to be provided&#10;" ilk="class" name="Array">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+      </scope>
+      <scope classrefs="Structure" doc="Structure with big endian byte order&#10;" ilk="class" name="BigEndianStructure" />
+      <scope classrefs="object" doc="An instance of this class represents a loaded dll/shared&#10;library, exporting functions using the standard C calling convention (named 'cdecl' on Windows).  The exported functions can be accessed as attributes, or by indexing with the function name.  Examples:  &lt;obj&gt;.qsort -&gt; callable object &lt;obj&gt;['qsort'] -&gt; callable object  Calling the functions releases the Python GIL during the call and" ilk="class" line="320" lineend="374" name="CDLL">
+        <scope ilk="function" line="370" lineend="374" name="__getitem__" returns="_FuncPtr()" signature="__getitem__(name_or_ordinal)">
+          <variable citdl="CDLL" ilk="argument" name="self" />
+          <variable ilk="argument" name="name_or_ordinal" />
+          <variable citdl="_FuncPtr()" line="371" name="func" />
+        </scope>
+        <scope ilk="function" line="363" lineend="368" name="__getattr__" returns="self.__getitem__()" signature="__getattr__(name)">
+          <variable citdl="CDLL" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.__getitem__()" line="366" name="func" />
+        </scope>
+        <scope ilk="function" line="357" lineend="361" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="CDLL" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="337" lineend="355" name="__init__" signature="CDLL(name, mode=DEFAULT_MODE, handle=None, use_errno=False, use_last_error=False)">
+          <scope attributes="protected" classrefs="_CFuncPtr" ilk="class" line="347" lineend="349" name="_FuncPtr">
+            <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="348" name="_flags_" />
+            <variable attributes="protected" citdl="c_int" line="349" name="_restype_" />
+          </scope>
+          <variable ilk="argument" name="handle" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="False" ilk="argument" name="use_last_error" />
+          <variable citdl="CDLL" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="use_errno" />
+          <variable citdl="_FUNCFLAG_CDECL" line="341" name="flags" />
+          <variable citdl="RTLD_GLOBAL" ilk="argument" name="mode" />
+        </scope>
+        <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="334" name="_func_flags_" />
+        <variable attributes="protected __instancevar__" citdl="CDLL.__init__._FuncPtr" line="350" name="_FuncPtr" />
+        <variable attributes="protected" citdl="c_int" line="335" name="_func_restype_" />
+        <variable attributes="protected __instancevar__" citdl="_dlopen()" line="353" name="_handle" />
+        <variable attributes="protected __instancevar__" line="340" name="_name" />
+      </scope>
+      <scope doc="CFUNCTYPE(restype, *argtypes, use_errno=False,&#10;use_last_error=False) -&gt; function prototype." ilk="function" line="78" lineend="109" name="CFUNCTYPE" returns="CFUNCTYPE.CFunctionType" signature="CFUNCTYPE(restype, *argtypes, **kw)">
+        <variable citdl="_FUNCFLAG_CDECL" line="94" name="flags" />
+        <scope classrefs="_CFuncPtr" ilk="class" line="104" lineend="107" name="CFunctionType">
+          <variable attributes="protected" line="105" name="_argtypes_" />
+          <variable attributes="protected" line="106" name="_restype_" />
+          <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="107" name="_flags_" />
+        </scope>
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable ilk="argument" name="restype" />
+        <variable attributes="varargs" ilk="argument" name="argtypes" />
+      </scope>
+      <variable citdl="int" line="25" name="DEFAULT_MODE" />
+      <scope ilk="function" line="523" lineend="528" name="DllCanUnloadNow" returns="ccom.DllCanUnloadNow()" signature="DllCanUnloadNow()">
+        <variable citdl="__import__()" line="525" name="ccom" />
+      </scope>
+      <scope ilk="function" line="515" lineend="521" name="DllGetClassObject" returns="ccom.DllGetClassObject()" signature="DllGetClassObject(rclsid, riid, ppv)">
+        <variable citdl="__import__()" line="517" name="ccom" />
+        <variable ilk="argument" name="riid" />
+        <variable ilk="argument" name="ppv" />
+        <variable ilk="argument" name="rclsid" />
+      </scope>
+      <scope doc="Convert a win32 error code into a string." ilk="function" name="FormatError" returns="str" signature="FormatError([integer]) -&gt; string" />
+      <variable citdl="_FuncPtr" line="449" name="GetLastError" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="394" lineend="405" name="HRESULT">
+        <variable attributes="protected" citdl="str" line="395" name="_type_" />
+        <variable attributes="protected" citdl="_check_HRESULT" line="405" name="_check_retval_" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="416" lineend="431" name="LibraryLoader">
+        <scope ilk="function" line="427" lineend="428" name="__getitem__" returns="getattr()" signature="__getitem__(name)">
+          <variable citdl="LibraryLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="420" lineend="425" name="__getattr__" returns="_dlltype()" signature="__getattr__(name)">
+          <variable citdl="LibraryLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="_dlltype()" line="423" name="dll" />
+        </scope>
+        <scope ilk="function" line="430" lineend="431" name="LoadLibrary" returns="LibraryLoader._dlltype()" signature="LoadLibrary(name)">
+          <variable citdl="LibraryLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="417" lineend="418" name="__init__" signature="LibraryLoader(dlltype)">
+          <variable citdl="LibraryLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="dlltype" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="418" name="_dlltype" />
+      </scope>
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="LittleEndianStructure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention, and returning HRESULT. HRESULT error values are automatically raised as WindowsError exceptions." ilk="class" line="407" lineend="414" name="OleDLL">
+        <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="413" name="_func_flags_" />
+        <variable attributes="protected" citdl="HRESULT" line="414" name="_func_restype_" />
+      </scope>
+      <scope ilk="function" name="POINTER" />
+      <scope ilk="function" line="483" lineend="488" name="PYFUNCTYPE" returns="PYFUNCTYPE.CFunctionType" signature="PYFUNCTYPE(restype, *argtypes)">
+        <scope classrefs="_CFuncPtr" ilk="class" line="484" lineend="487" name="CFunctionType">
+          <variable attributes="protected" line="485" name="_argtypes_" />
+          <variable attributes="protected" line="486" name="_restype_" />
+          <variable attributes="protected" citdl="int" line="487" name="_flags_" />
+        </scope>
+        <variable ilk="argument" name="restype" />
+        <variable attributes="varargs" ilk="argument" name="argtypes" />
+      </scope>
+      <scope classrefs="CDLL" doc="This class represents the Python library itself.  It allows to&#10;access Python API functions.  The GIL is not released, and Python exceptions are handled correctly." ilk="class" line="376" lineend="381" name="PyDLL">
+        <variable attributes="protected" citdl="int" line="381" name="_func_flags_" />
+      </scope>
+      <variable citdl="int" name="RTLD_GLOBAL" />
+      <variable citdl="int" name="RTLD_LOCAL" />
+      <scope doc="# XXX Deprecated" ilk="function" line="304" lineend="311" name="SetPointerType" signature="SetPointerType(pointer, cls)">
+        <variable ilk="argument" name="pointer" />
+        <variable ilk="argument" name="cls" />
+      </scope>
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="Structure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_CData" doc="Union base class&#10;" ilk="class" name="Union">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" line="119" lineend="136" name="WINFUNCTYPE" returns="WINFUNCTYPE.WinFunctionType" signature="WINFUNCTYPE(restype, *argtypes, **kw)">
+        <scope classrefs="_CFuncPtr" ilk="class" line="131" lineend="134" name="WinFunctionType">
+          <variable attributes="protected" line="132" name="_argtypes_" />
+          <variable attributes="protected" line="133" name="_restype_" />
+          <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="134" name="_flags_" />
+        </scope>
+        <variable ilk="argument" name="restype" />
+        <variable attributes="varargs" ilk="argument" name="argtypes" />
+        <variable citdl="_FUNCFLAG_CDECL" line="121" name="flags" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable citdl="CFUNCTYPE.__doc__.replace()" line="138" name="__doc__" />
+      </scope>
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention." ilk="class" line="385" lineend="389" name="WinDLL">
+        <variable attributes="protected" citdl="_FUNCFLAG_CDECL" line="389" name="_func_flags_" />
+      </scope>
+      <scope ilk="function" line="454" lineend="459" name="WinError" returns="WindowsError()" signature="WinError(code=None, descr=None)">
+        <variable citdl="GetLastError()" ilk="argument" name="code" />
+        <variable ilk="argument" name="descr" />
+      </scope>
+      <variable citdl="str" line="8" name="__version__" />
+      <import module="_endian" />
+      <import module="_os" />
+      <import module="_sys" />
+      <scope doc="Return the address of the C instance internal buffer" ilk="function" name="addressof" returns="int" signature="addressof(C instance) -&gt; integer" />
+      <scope doc="Return the alignment requirements of a C instance" ilk="function" name="alignment" signature="alignment(C type) -&gt; integer&#10;alignment(C instance) -&gt; integer" />
+      <scope doc="Return a pointer lookalike to a C instance, only usable as&#10;function argument" ilk="function" name="byref" signature="byref(C instance[, offset=0]) -&gt; byref-object" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="260" lineend="261" name="c_bool">
+        <variable attributes="protected" citdl="str" line="261" name="_type_" />
+      </scope>
+      <scope ilk="function" line="70" lineend="75" name="c_buffer" returns="create_string_buffer()" signature="c_buffer(init, size=None)">
+        <variable ilk="argument" name="init" />
+        <variable ilk="argument" name="size" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="233" lineend="234" name="c_byte">
+        <variable attributes="protected" citdl="str" line="234" name="_type_" />
+        <variable attributes="__instancevar__" citdl="c_byte" line="235" name="__ctype_le__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="238" lineend="239" name="c_char">
+        <variable attributes="protected" citdl="str" line="239" name="_type_" />
+        <variable attributes="__instancevar__" citdl="c_char" line="240" name="__ctype_le__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="243" lineend="252" name="c_char_p">
+        <scope ilk="function" line="251" lineend="252" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="c_char_p" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="str" line="244" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="201" lineend="202" name="c_double">
+        <variable attributes="protected" citdl="str" line="202" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="197" lineend="198" name="c_float">
+        <variable attributes="protected" citdl="str" line="198" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="189" lineend="190" name="c_int">
+        <variable attributes="protected" citdl="str" line="190" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="536" name="c_int16" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="537" name="c_int32" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="538" name="c_int64" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="533" name="c_int8" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="176" lineend="177" name="c_long">
+        <variable attributes="protected" citdl="str" line="177" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="205" name="c_longdouble" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="215" lineend="216" name="c_longlong">
+        <variable attributes="protected" citdl="str" line="216" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="168" lineend="169" name="c_short">
+        <variable attributes="protected" citdl="str" line="169" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="464" name="c_size_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="465" name="c_ssize_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="226" lineend="227" name="c_ubyte">
+        <variable attributes="protected" citdl="str" line="227" name="_type_" />
+        <variable attributes="__instancevar__" citdl="c_ubyte" line="228" name="__ctype_le__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="193" lineend="194" name="c_uint">
+        <variable attributes="protected" citdl="str" line="194" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="540" name="c_uint16" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="541" name="c_uint32" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="542" name="c_uint64" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="534" name="c_uint8" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="180" lineend="181" name="c_ulong">
+        <variable attributes="protected" citdl="str" line="181" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="219" lineend="220" name="c_ulonglong">
+        <variable attributes="protected" citdl="str" line="220" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="172" lineend="173" name="c_ushort">
+        <variable attributes="protected" citdl="str" line="173" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="255" lineend="256" name="c_void_p">
+        <variable attributes="protected" citdl="str" line="256" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="257" name="c_voidp" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="278" lineend="279" name="c_wchar">
+        <variable attributes="protected" citdl="str" line="279" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="275" lineend="276" name="c_wchar_p">
+        <variable attributes="protected" citdl="str" line="276" name="_type_" />
+      </scope>
+      <scope ilk="function" line="491" lineend="492" name="cast" returns="_cast()" signature="cast(obj, typ)">
+        <variable ilk="argument" name="typ" />
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <variable citdl="LibraryLoader" line="433" name="cdll" />
+      <scope doc="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array" ilk="function" line="52" lineend="68" name="create_string_buffer" returns="buftype()" signature="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array">
+        <variable citdl="c_char" line="60" name="buftype" />
+        <variable ilk="argument" name="init" />
+        <variable citdl="buftype()" line="61" name="buf" />
+        <variable citdl="len()" ilk="argument" name="size" />
+      </scope>
+      <scope doc="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array" ilk="function" line="283" lineend="299" name="create_unicode_buffer" returns="buftype()" signature="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array">
+        <variable citdl="c_wchar" line="291" name="buftype" />
+        <variable ilk="argument" name="init" />
+        <variable citdl="buftype()" line="292" name="buf" />
+        <variable citdl="len()" ilk="argument" name="size" />
+      </scope>
+      <scope ilk="function" name="get_errno" />
+      <scope ilk="function" name="get_last_error" />
+      <variable citdl="CFunctionType" line="478" name="memmove" />
+      <variable citdl="CFunctionType" line="481" name="memset" />
+      <variable citdl="LibraryLoader" line="446" name="oledll" />
+      <scope ilk="function" name="pointer" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="159" lineend="165" name="py_object">
+        <scope ilk="function" line="161" lineend="165" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="py_object" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="str" line="160" name="_type_" />
+      </scope>
+      <variable citdl="LibraryLoader" line="434" name="pydll" />
+      <variable citdl="PyDLL" line="437" name="pythonapi" />
+      <scope doc="Resize the memory buffer of a ctypes instance" ilk="function" name="resize" />
+      <scope doc="Set the encoding and error handling ctypes uses when&#10;converting between unicode and strings." ilk="function" name="set_conversion_mode" signature="set_conversion_mode(encoding, errors) -&gt; (previous-encoding, previous-errors)" />
+      <scope ilk="function" name="set_errno" />
+      <scope ilk="function" name="set_last_error" />
+      <scope doc="Return the size in bytes of a C instance" ilk="function" name="sizeof" signature="sizeof(C type) -&gt; integer&#10;sizeof(C instance) -&gt; integer" />
+      <scope doc="Return the string at addr." ilk="function" line="495" lineend="499" name="string_at" returns="_string_at()" signature="string_at(addr[, size]) -&gt; string">
+        <variable ilk="argument" name="ptr" />
+        <variable citdl="int" ilk="argument" name="size" />
+      </scope>
+      <variable citdl="LibraryLoader" line="445" name="windll" />
+      <scope doc="Return the string at addr." ilk="function" line="507" lineend="511" name="wstring_at" returns="_wstring_at()" signature="wstring_at(addr[, size]) -&gt; string">
+        <variable ilk="argument" name="ptr" />
+        <variable citdl="int" ilk="argument" name="size" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="147" lineend="157" name="_check_size" signature="_check_size(typ, typecode=None)">
+        <import line="150" module="struct" symbol="calcsize" />
+        <variable ilk="argument" name="typ" />
+        <variable citdl="typ._type_" ilk="argument" name="typecode" />
+        <variable citdl="calcsize()" line="154" name="required" />
+        <variable citdl="sizeof()" line="154" name="actual" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="77" name="_c_functype_cache" />
+      <variable attributes="protected __hidden__" citdl="PYFUNCTYPE()()" line="506" name="_wstring_at" />
+      <variable attributes="protected __hidden__" citdl="dict" line="118" name="_win_functype_cache" />
+      <variable attributes="protected __hidden__" citdl="PYFUNCTYPE()()" line="490" name="_cast" />
+      <variable attributes="protected __hidden__" citdl="_FUNCFLAG_CDECL" line="116" name="_FUNCFLAG_STDCALL" />
+      <variable attributes="protected __hidden__" citdl="PYFUNCTYPE()()" line="494" name="_string_at" />
+    </scope>
+    

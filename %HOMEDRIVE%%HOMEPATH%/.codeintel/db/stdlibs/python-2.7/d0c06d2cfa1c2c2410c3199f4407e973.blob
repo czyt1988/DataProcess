@@ -1,0 +1,60 @@
+<scope doc="Suite builtin_Suite: Every application supports open, reopen, print, run, and quit&#10;Level 1, version 1" ilk="blob" lang="Python" name="_builtinSuites.builtin_Suite">
+      <import module="MacOS" />
+      <import module="aetools" />
+      <scope doc="&#10;" ilk="class" line="10" lineend="117" name="builtin_Suite_Events">
+        <scope doc="quit: Quit an application Keyword argument saving: specifies&#10;whether to save currently open documents Keyword argument&#10;_attributes: AppleEvent attribute dictionary" ilk="function" line="94" lineend="113" name="quit" signature="quit(_no_object=None, _attributes={}, **_arguments)">
+          <variable attributes="protected" line="107" name="_reply" />
+          <variable ilk="argument" name="_no_object" />
+          <variable citdl="builtin_Suite_Events" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_attributes" />
+          <variable attributes="protected" citdl="str" line="99" name="_code" />
+          <variable attributes="kwargs" ilk="argument" name="_arguments" />
+          <variable attributes="protected" citdl="str" line="100" name="_subcode" />
+        </scope>
+        <scope doc="run: Run an application." ilk="function" line="32" lineend="49" name="run" signature="run(_no_object=None, _attributes={}, **_arguments)">
+          <variable attributes="protected" line="43" name="_reply" />
+          <variable ilk="argument" name="_no_object" />
+          <variable citdl="builtin_Suite_Events" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_attributes" />
+          <variable attributes="protected" citdl="str" line="36" name="_code" />
+          <variable attributes="kwargs" ilk="argument" name="_arguments" />
+          <variable attributes="protected" citdl="str" line="37" name="_subcode" />
+        </scope>
+        <scope doc="reopen: Reactivate a running application." ilk="function" line="51" lineend="68" name="reopen" signature="reopen(_no_object=None, _attributes={}, **_arguments)">
+          <variable attributes="protected" line="62" name="_reply" />
+          <variable ilk="argument" name="_no_object" />
+          <variable citdl="builtin_Suite_Events" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_attributes" />
+          <variable attributes="protected" citdl="str" line="55" name="_code" />
+          <variable attributes="kwargs" ilk="argument" name="_arguments" />
+          <variable attributes="protected" citdl="str" line="56" name="_subcode" />
+        </scope>
+        <scope doc="print: Print the specified object(s) Required argument: list&#10;of objects to print Keyword argument _attributes: AppleEvent&#10;attribute dictionary" ilk="function" line="70" lineend="88" name="_print" signature="_print(_object, _attributes={}, **_arguments)">
+          <variable attributes="protected" line="82" name="_reply" />
+          <variable attributes="protected" citdl="str" line="75" name="_code" />
+          <variable citdl="builtin_Suite_Events" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_attributes" />
+          <variable ilk="argument" name="_object" />
+          <variable attributes="kwargs" ilk="argument" name="_arguments" />
+          <variable attributes="protected" citdl="str" line="76" name="_subcode" />
+        </scope>
+        <scope doc="open: Open the specified object(s) Required argument: list&#10;of objects to open Keyword argument _attributes: AppleEvent&#10;attribute dictionary" ilk="function" line="12" lineend="30" name="open" signature="open(_object, _attributes={}, **_arguments)">
+          <variable attributes="protected" line="24" name="_reply" />
+          <variable attributes="protected" citdl="str" line="17" name="_code" />
+          <variable citdl="builtin_Suite_Events" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="_attributes" />
+          <variable ilk="argument" name="_object" />
+          <variable attributes="kwargs" ilk="argument" name="_arguments" />
+          <variable attributes="protected" citdl="str" line="18" name="_subcode" />
+        </scope>
+        <variable attributes="protected" citdl="dict" line="115" name="_argmap_close" />
+        <variable attributes="protected" citdl="dict" line="90" name="_argmap_quit" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="129" name="_classdeclarations" />
+      <variable attributes="protected __hidden__" citdl="dict" line="138" name="_enumdeclarations" />
+      <variable attributes="protected __hidden__" citdl="dict" line="135" name="_compdeclarations" />
+      <variable attributes="protected __hidden__" citdl="str" line="8" name="_code" />
+      <variable attributes="protected __hidden__" citdl="dict" line="132" name="_propdeclarations" />
+      <variable attributes="protected __hidden__" citdl="dict" line="120" name="_Enum_savo" />
+    </scope>
+    

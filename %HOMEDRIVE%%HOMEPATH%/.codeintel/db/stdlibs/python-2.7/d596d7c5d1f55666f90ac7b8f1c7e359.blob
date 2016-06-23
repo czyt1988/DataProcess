@@ -1,0 +1,74 @@
+<scope doc="distutils.command.bdist&#10;Implements the Distutils 'bdist' command (create a built [binary] distribution)." ilk="blob" lang="Python" name="distutils.command.bdist">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <variable citdl="str" line="6" name="__revision__" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="27" lineend="146" name="bdist">
+        <scope ilk="function" line="121" lineend="146" name="run" signature="run()">
+          <variable citdl="self.reinitialize_command()" line="133" name="sub_cmd" />
+          <variable citdl="list" line="123" name="commands" />
+          <variable line="132" name="cmd_name" />
+          <variable citdl="bdist" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="84" lineend="91" name="initialize_options" signature="initialize_options()">
+          <variable citdl="bdist" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="93" lineend="119" name="finalize_options" signature="finalize_options()">
+          <variable citdl="bdist" ilk="argument" name="self" />
+          <variable line="105" name="build_base" />
+        </scope>
+        <variable citdl="dict" line="72" name="format_command" />
+        <variable citdl="list" line="31" name="user_options" />
+        <variable attributes="__instancevar__" line="90" name="group" />
+        <variable citdl="str" line="29" name="description" />
+        <variable attributes="__instancevar__" citdl="str" line="88" name="dist_dir" />
+        <variable attributes="__instancevar__" citdl="get_platform()" line="86" name="plat_name" />
+        <variable citdl="list" line="53" name="help_options" />
+        <variable citdl="tuple" line="59" name="no_format_option" />
+        <variable citdl="list" line="68" name="format_commands" />
+        <variable attributes="__instancevar__" citdl="int" line="89" name="skip_build" />
+        <variable citdl="list" line="51" name="boolean_options" />
+        <variable attributes="__instancevar__" citdl="list" line="87" name="formats" />
+        <variable attributes="__instancevar__" line="91" name="owner" />
+        <variable citdl="dict" line="63" name="default_format" />
+        <variable attributes="__instancevar__" citdl="os.path.join()" line="85" name="bdist_base" />
+      </scope>
+      <scope doc="Return a string that identifies the current platform." ilk="function" name="get_platform" signature="get_platform()" />
+      <import module="os" />
+      <scope doc="Print list of available formats (arguments to &quot;--format&quot;&#10;option)." ilk="function" line="15" lineend="24" name="show_formats" signature="show_formats()">
+        <variable citdl="FancyGetopt()" line="23" name="pretty_printer" />
+        <variable citdl="list" line="19" name="formats" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,295 @@
+<scope doc="# Module providing the `Pool` class for managing a process pool&#10;# # multiprocessing/pool.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #" ilk="blob" lang="Python" name="multiprocessing.pool">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="490" lineend="534" name="ApplyResult">
+        <scope ilk="function" line="500" lineend="501" name="ready" returns="bool" signature="ready()">
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="515" lineend="522" name="get" returns="self._value" signature="get(timeout=None)">
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <scope ilk="function" line="503" lineend="505" name="successful" returns="self._success" signature="successful()">
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="524" lineend="534" name="_set" signature="_set(i, obj)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <scope ilk="function" line="492" lineend="498" name="__init__" signature="ApplyResult(cache, callback)">
+          <variable ilk="argument" name="callback" />
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="cache" />
+        </scope>
+        <scope ilk="function" line="507" lineend="513" name="wait" signature="wait(timeout=None)">
+          <variable citdl="ApplyResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="job_counter.next()" line="494" name="_job" />
+        <variable attributes="protected __instancevar__" line="495" name="_cache" />
+        <variable attributes="protected __instancevar__" citdl="threading.Condition()" line="493" name="_cond" />
+        <variable attributes="protected __instancevar__" line="497" name="_callback" />
+        <variable attributes="protected __instancevar__" citdl="True" line="496" name="_ready" />
+      </scope>
+      <variable citdl="int" line="55" name="CLOSE" />
+      <scope classrefs="object" doc="Class which supports object finalization using weakrefs&#10;" ilk="class" name="Finalize">
+        <scope doc="Run the callback unless it has already been called or&#10;cancelled" ilk="function" name="__call__" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether this finalizer is still waiting to invoke&#10;callback" ilk="function" name="still_active" />
+        <scope doc="Cancel finalization of the object" ilk="function" name="cancel" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="584" lineend="651" name="IMapIterator">
+        <scope ilk="function" line="643" lineend="651" name="_set_length" signature="_set_length(length)">
+          <variable citdl="IMapIterator" ilk="argument" name="self" />
+          <variable ilk="argument" name="length" />
+        </scope>
+        <scope ilk="function" line="624" lineend="641" name="_set" signature="_set(i, obj)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="IMapIterator" ilk="argument" name="self" />
+          <variable citdl="self._unsorted.pop()" ilk="argument" name="obj" />
+        </scope>
+        <scope ilk="function" line="622" name="__next__" />
+        <scope ilk="function" line="596" lineend="597" name="__iter__" returns="IMapIterator" signature="__iter__()">
+          <variable citdl="IMapIterator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="586" lineend="594" name="__init__" signature="IMapIterator(cache)">
+          <variable citdl="IMapIterator" ilk="argument" name="self" />
+          <variable ilk="argument" name="cache" />
+        </scope>
+        <scope ilk="function" line="599" lineend="620" name="next" returns="value" signature="next(timeout=None)">
+          <variable citdl="self._items.popleft()" line="603" name="item" />
+          <variable citdl="IMapIterator" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="591" name="_index" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="593" name="_unsorted" />
+        <variable attributes="protected __instancevar__" line="592" name="_length" />
+        <variable attributes="protected __instancevar__" citdl="threading.Condition()" line="587" name="_cond" />
+        <variable attributes="protected __instancevar__" citdl="job_counter.next()" line="588" name="_job" />
+        <variable attributes="protected __instancevar__" line="589" name="_cache" />
+        <variable attributes="protected __instancevar__" citdl="collections.deque()" line="590" name="_items" />
+      </scope>
+      <scope classrefs="IMapIterator" doc="&#10;" ilk="class" line="657" lineend="668" name="IMapUnorderedIterator">
+        <scope ilk="function" line="659" lineend="668" name="_set" signature="_set(i, obj)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="IMapUnorderedIterator" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+      </scope>
+      <scope classrefs="ApplyResult" doc="&#10;" ilk="class" line="540" lineend="578" name="MapResult">
+        <scope ilk="function" line="553" lineend="578" name="_set" signature="_set(i, success_result)">
+          <variable ilk="argument" name="i" />
+          <variable ilk="argument" name="success_result" />
+          <variable citdl="MapResult" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="542" lineend="551" name="__init__" signature="MapResult(cache, chunksize, length, callback)">
+          <variable ilk="argument" name="callback" />
+          <variable ilk="argument" name="length" />
+          <variable ilk="argument" name="cache" />
+          <variable citdl="MapResult" ilk="argument" name="self" />
+          <variable ilk="argument" name="chunksize" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="True" line="544" name="_success" />
+        <variable attributes="protected __instancevar__" citdl="result" line="545" name="_value" />
+        <variable attributes="protected __instancevar__" citdl="True" line="549" name="_ready" />
+        <variable attributes="protected __instancevar__" line="546" name="_chunksize" />
+        <variable attributes="protected __instancevar__" citdl="int" line="548" name="_number_left" />
+      </scope>
+      <scope classrefs="object" doc="Class which supports an async version of the `apply()` builtin&#10;" ilk="class" line="107" lineend="484" name="Pool">
+        <scope doc="Equivalent of `map()` builtin" ilk="function" line="220" lineend="225" name="map" signature="map(func, iterable, chunksize=None)">
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="chunksize" />
+        </scope>
+        <scope doc="Like `imap()` method but ordering of results is arbitrary" ilk="function" line="245" lineend="261" name="imap_unordered" returns="IMapUnorderedIterator()" signature="imap_unordered(func, iterable, chunksize=1)">
+          <variable citdl="int" ilk="argument" name="chunksize" />
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable citdl="Pool._get_tasks()" line="257" name="task_batches" />
+          <variable citdl="IMapUnorderedIterator()" line="251" name="result" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope ilk="function" line="303" lineend="339" name="_handle_tasks" signature="_handle_tasks(taskqueue, put, outqueue, pool)">
+          <variable citdl="threading.current_thread()" line="304" name="thread" />
+          <variable ilk="argument" name="outqueue" />
+          <variable citdl="int" line="307" name="i" />
+          <variable citdl="Pool" ilk="argument" name="taskqueue" />
+          <variable ilk="argument" name="put" />
+          <variable ilk="argument" name="pool" />
+        </scope>
+        <scope ilk="function" line="408" lineend="410" name="__reduce__" signature="__reduce__()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="444" lineend="484" name="_terminate_pool" signature="_terminate_pool(taskqueue, inqueue, outqueue, pool, worker_handler, task_handler, result_handler, cache)">
+          <variable ilk="argument" name="taskqueue" />
+          <variable ilk="argument" name="cache" />
+          <variable ilk="argument" name="result_handler" />
+          <variable ilk="argument" name="outqueue" />
+          <variable ilk="argument" name="inqueue" />
+          <variable ilk="argument" name="task_handler" />
+          <variable ilk="argument" name="worker_handler" />
+          <variable ilk="argument" name="pool" />
+          <variable citdl="Pool" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Clean up any exited workers and start replacements for them." ilk="function" line="200" lineend="204" name="_maintain_pool" signature="_maintain_pool()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="419" lineend="423" name="terminate" signature="terminate()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Asynchronous equivalent of `apply()` builtin" ilk="function" line="263" lineend="270" name="apply_async" returns="ApplyResult()" signature="apply_async(func, args=(), kwds={}, callback=None)">
+          <variable citdl="dict" ilk="argument" name="kwds" />
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable ilk="argument" name="callback" />
+          <variable citdl="ApplyResult()" line="268" name="result" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope ilk="function" line="294" lineend="300" name="_handle_workers" signature="_handle_workers(pool)">
+          <variable citdl="Pool" ilk="argument" name="pool" />
+        </scope>
+        <scope ilk="function" line="413" lineend="417" name="close" signature="close()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Equivalent of `apply()` builtin" ilk="function" line="213" lineend="218" name="apply" signature="apply(func, args=(), kwds={})">
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable citdl="dict" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope ilk="function" line="206" lineend="211" name="_setup_queues" signature="_setup_queues()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Equivalent of `itertools.imap()` -- can be MUCH slower than&#10;`Pool.map()`" ilk="function" line="227" lineend="243" name="imap" returns="IMapIterator()" signature="imap(func, iterable, chunksize=1)">
+          <variable citdl="int" ilk="argument" name="chunksize" />
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable citdl="Pool._get_tasks()" line="239" name="task_batches" />
+          <variable citdl="IMapIterator()" line="233" name="result" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope ilk="function" line="113" lineend="166" name="__init__" signature="Pool(processes=None, initializer=None, initargs=(), maxtasksperchild=None)">
+          <variable citdl="tuple" ilk="argument" name="initargs" />
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable ilk="argument" name="initializer" />
+          <variable citdl="cpu_count()" ilk="argument" name="processes" />
+          <variable ilk="argument" name="maxtasksperchild" />
+        </scope>
+        <scope doc="Bring the number of pool processes up to the specified&#10;number, for use after reaping workers which have exited." ilk="function" line="184" lineend="198" name="_repopulate_pool" signature="_repopulate_pool()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable citdl="Process()" line="189" name="w" />
+        </scope>
+        <scope ilk="function" line="435" lineend="441" name="_help_stuff_finish" signature="_help_stuff_finish(inqueue, task_handler, size)">
+          <variable citdl="Pool" ilk="argument" name="inqueue" />
+          <variable ilk="argument" name="task_handler" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="425" lineend="432" name="join" signature="join()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="342" lineend="397" name="_handle_results" signature="_handle_results(outqueue, get, cache)">
+          <variable citdl="Pool" ilk="argument" name="outqueue" />
+          <variable citdl="get()" line="347" name="task" />
+          <variable ilk="argument" name="cache" />
+          <variable citdl="threading.current_thread()" line="343" name="thread" />
+          <variable ilk="argument" name="get" />
+        </scope>
+        <scope ilk="function" line="400" lineend="406" name="_get_tasks" signature="_get_tasks(func, it, size)">
+          <variable citdl="tuple()" line="403" name="x" />
+          <variable citdl="iter()" ilk="argument" name="it" />
+          <variable citdl="Pool" ilk="argument" name="func" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Cleanup after any worker processes which have exited due to&#10;reaching their specified lifetime." ilk="function" line="169" lineend="182" name="_join_exited_workers" returns="bool" signature="_join_exited_workers()">
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable line="175" name="worker" />
+          <variable citdl="False" line="173" name="cleaned" />
+        </scope>
+        <scope doc="Asynchronous equivalent of `map()` builtin" ilk="function" line="272" lineend="291" name="map_async" returns="MapResult()" signature="map_async(func, iterable, chunksize=None, callback=None)">
+          <variable citdl="int" ilk="argument" name="chunksize" />
+          <variable line="281" name="extra" />
+          <variable citdl="Pool" ilk="argument" name="self" />
+          <variable ilk="argument" name="callback" />
+          <variable citdl="Pool._get_tasks()" line="287" name="task_batches" />
+          <variable citdl="MapResult()" line="288" name="result" />
+          <variable ilk="argument" name="func" />
+          <variable citdl="list()" ilk="argument" name="iterable" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="threading.Thread()" line="136" name="_worker_handler" />
+        <variable attributes="protected __instancevar__" citdl="tuple" line="121" name="_initargs" />
+        <variable line="111" name="Process" />
+        <variable attributes="protected __instancevar__" citdl="list" line="133" name="_pool" />
+        <variable attributes="protected __instancevar__" citdl="threading.Thread()" line="153" name="_result_handler" />
+        <variable attributes="protected __instancevar__" citdl="self._outqueue._reader.recv" line="211" name="_quick_get" />
+        <variable attributes="protected __instancevar__" citdl="int" line="118" name="_state" />
+        <variable attributes="protected __instancevar__" citdl="cpu_count()" line="132" name="_processes" />
+        <variable attributes="protected __instancevar__" citdl="Queue.Queue()" line="116" name="_taskqueue" />
+        <variable attributes="protected __instancevar__" citdl="threading.Thread()" line="145" name="_task_handler" />
+        <variable attributes="protected __instancevar__" citdl="SimpleQueue()" line="209" name="_outqueue" />
+        <variable attributes="protected __instancevar__" citdl="SimpleQueue()" line="208" name="_inqueue" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="117" name="_cache" />
+        <variable attributes="protected __instancevar__" line="119" name="_maxtasksperchild" />
+        <variable attributes="protected __instancevar__" citdl="self._inqueue._writer.send" line="210" name="_quick_put" />
+        <variable attributes="protected __instancevar__" line="120" name="_initializer" />
+        <variable attributes="protected __instancevar__" citdl="Finalize()" line="161" name="_terminate" />
+      </scope>
+      <scope classrefs="object" doc="Process objects represent activity that is run in a separate process&#10;The class is analagous to `threading.Thread`" ilk="class" name="Process">
+        <scope doc="Method to be run in sub-process; can be overridden in sub-&#10;class" ilk="function" name="run" />
+        <scope doc="Terminate process; sends SIGTERM signal or uses&#10;TerminateProcess()" ilk="function" name="terminate" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Wait until child process terminates" ilk="function" name="join" />
+        <scope doc="Start child process" ilk="function" name="start" />
+        <scope ilk="function" name="_bootstrap" />
+        <scope ilk="function" name="__repr__" />
+        <scope doc="Return whether process is alive" ilk="function" name="is_alive" />
+      </scope>
+      <import module="Queue" />
+      <variable citdl="int" line="54" name="RUN" />
+      <variable citdl="int" line="56" name="TERMINATE" />
+      <scope classrefs="Pool" doc="&#10;" ilk="class" line="674" lineend="696" name="ThreadPool">
+        <scope ilk="function" line="688" lineend="696" name="_help_stuff_finish" signature="_help_stuff_finish(inqueue, task_handler, size)">
+          <variable citdl="ThreadPool" ilk="argument" name="inqueue" />
+          <variable ilk="argument" name="task_handler" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="681" lineend="685" name="_setup_queues" signature="_setup_queues()">
+          <variable citdl="ThreadPool" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="678" lineend="679" name="__init__" signature="ThreadPool(processes=None, initializer=None, initargs=())">
+          <variable citdl="tuple" ilk="argument" name="initargs" />
+          <variable citdl="ThreadPool" ilk="argument" name="self" />
+          <variable ilk="argument" name="processes" />
+          <variable ilk="argument" name="initializer" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self._inqueue.put" line="684" name="_quick_put" />
+        <variable attributes="protected __instancevar__" citdl="Queue.Queue()" line="683" name="_outqueue" />
+        <variable attributes="protected __instancevar__" citdl="self._outqueue.get" line="685" name="_quick_get" />
+        <variable attributes="protected __instancevar__" citdl="Queue.Queue()" line="682" name="_inqueue" />
+      </scope>
+      <scope classrefs="ProcessError" doc="&#10;" ilk="class" name="TimeoutError" />
+      <variable citdl="list" line="35" name="__all__" />
+      <import module="collections" />
+      <scope doc="Returns the number of CPUs in the system" ilk="function" name="cpu_count" signature="cpu_count()" />
+      <scope ilk="function" name="debug" signature="debug(msg, *args)" />
+      <import module="itertools" />
+      <variable citdl="count" line="62" name="job_counter" />
+      <scope ilk="function" line="64" lineend="65" name="mapstar" returns="map()" signature="mapstar(args)">
+        <variable ilk="argument" name="args" />
+      </scope>
+      <import module="threading" />
+      <import module="time" />
+      <scope ilk="function" line="71" lineend="101" name="worker" signature="worker(inqueue, outqueue, initializer=None, initargs=(), maxtasks=None)">
+        <variable citdl="get()" line="85" name="task" />
+        <variable citdl="inqueue.get" line="74" name="get" />
+        <variable citdl="int" line="82" name="completed" />
+        <variable citdl="outqueue.put" line="73" name="put" />
+        <variable ilk="argument" name="initializer" />
+        <variable ilk="argument" name="outqueue" />
+        <variable ilk="argument" name="inqueue" />
+        <variable ilk="argument" name="maxtasks" />
+        <variable citdl="tuple" ilk="argument" name="initargs" />
+        <variable citdl="tuple" line="96" name="result" />
+      </scope>
+    </scope>
+    

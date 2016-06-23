@@ -1,0 +1,44 @@
+<scope doc="Path operations common to more than one OS&#10;Do not use directly.  The OS specific modules import the appropriate functions from this module themselves." ilk="blob" lang="Python" name="genericpath">
+      <variable citdl="list" line="9" name="__all__" />
+      <scope doc="Given a list of pathnames, returns the longest common&#10;leading component" ilk="function" line="68" lineend="76" name="commonprefix" returns="str" signature="commonprefix(m)">
+        <variable citdl="max()" line="72" name="s2" />
+        <variable citdl="min()" line="71" name="s1" />
+        <variable ilk="argument" name="m" />
+      </scope>
+      <scope doc="Test whether a path exists." ilk="function" line="15" lineend="21" name="exists" returns="bool" signature="exists(path)">
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Return the last access time of a file, reported by&#10;os.stat()." ilk="function" line="57" lineend="59" name="getatime" signature="getatime(filename)">
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return the metadata change time of a file, reported by&#10;os.stat()." ilk="function" line="62" lineend="64" name="getctime" signature="getctime(filename)">
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return the last modification time of a file, reported by&#10;os.stat()." ilk="function" line="52" lineend="54" name="getmtime" signature="getmtime(filename)">
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return the size of a file, reported by os.stat()." ilk="function" line="47" lineend="49" name="getsize" signature="getsize(filename)">
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return true if the pathname refers to an existing directory." ilk="function" line="38" lineend="44" name="isdir" returns="bool" signature="isdir(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="os.stat()" line="41" name="st" />
+      </scope>
+      <scope doc="Test whether a path is a regular file" ilk="function" line="26" lineend="32" name="isfile" returns="stat.S_ISREG()" signature="isfile(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="os.stat()" line="29" name="st" />
+      </scope>
+      <import module="os" />
+      <import module="stat" />
+      <scope attributes="protected __hidden__" doc="Split the extension from a pathname." ilk="function" line="85" lineend="105" name="_splitext" returns="tuple" signature="_splitext(p, sep, altsep, extsep)">
+        <variable ilk="argument" name="p" />
+        <variable ilk="argument" name="sep" />
+        <variable ilk="argument" name="altsep" />
+        <variable ilk="argument" name="extsep" />
+        <variable citdl="p.rfind()" line="91" name="sepIndex" />
+        <variable citdl="p.rfind()" line="93" name="altsepIndex" />
+        <variable citdl="p.rfind()" line="96" name="dotIndex" />
+        <variable citdl="p.rfind()" line="99" name="filenameIndex" />
+      </scope>
+    </scope>
+    

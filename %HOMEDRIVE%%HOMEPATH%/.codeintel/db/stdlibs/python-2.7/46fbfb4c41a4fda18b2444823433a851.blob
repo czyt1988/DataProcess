@@ -1,0 +1,23 @@
+<scope doc="# operation flags&#10;" ilk="blob" lang="Python" name="compiler.consts">
+      <variable citdl="int" line="21" name="CO_FUTURE_ABSIMPORT" />
+      <variable citdl="int" line="20" name="CO_FUTURE_DIVISION" />
+      <variable citdl="int" line="23" name="CO_FUTURE_PRINT_FUNCTION" />
+      <variable citdl="int" line="22" name="CO_FUTURE_WITH_STATEMENT" />
+      <variable citdl="int" line="18" name="CO_GENERATOR" />
+      <variable citdl="int" line="19" name="CO_GENERATOR_ALLOWED" />
+      <variable citdl="int" line="17" name="CO_NESTED" />
+      <variable citdl="int" line="14" name="CO_NEWLOCALS" />
+      <variable citdl="int" line="13" name="CO_OPTIMIZED" />
+      <variable citdl="int" line="15" name="CO_VARARGS" />
+      <variable citdl="int" line="16" name="CO_VARKEYWORDS" />
+      <variable citdl="str" line="4" name="OP_APPLY" />
+      <variable citdl="str" line="2" name="OP_ASSIGN" />
+      <variable citdl="str" line="3" name="OP_DELETE" />
+      <variable citdl="int" line="10" name="SC_CELL" />
+      <variable citdl="int" line="9" name="SC_FREE" />
+      <variable citdl="int" line="8" name="SC_GLOBAL_EXPLICT" />
+      <variable citdl="int" line="7" name="SC_GLOBAL_IMPLICIT" />
+      <variable citdl="int" line="6" name="SC_LOCAL" />
+      <variable citdl="int" line="11" name="SC_UNKNOWN" />
+    </scope>
+    

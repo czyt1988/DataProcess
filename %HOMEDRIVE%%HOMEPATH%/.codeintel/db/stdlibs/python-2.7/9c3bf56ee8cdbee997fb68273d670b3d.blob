@@ -1,0 +1,6 @@
+<scope doc="HTML character entity references.&#10;" ilk="blob" lang="Python" name="htmlentitydefs">
+      <variable citdl="dict" line="260" name="codepoint2name" />
+      <variable citdl="dict" line="264" name="entitydefs" />
+      <variable citdl="dict" line="4" name="name2codepoint" />
+    </scope>
+    

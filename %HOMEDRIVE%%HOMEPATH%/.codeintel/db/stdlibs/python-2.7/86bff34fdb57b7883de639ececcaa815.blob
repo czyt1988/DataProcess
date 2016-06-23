@@ -1,0 +1,330 @@
+<scope doc="This module tries to retrieve as much platform-identifying data as&#10;possible. It makes this information available via function APIs.  If called from the command line, it prints the platform information concatenated as single string to stdout. The output format is useable as part of a filename." ilk="blob" lang="Python" name="platform">
+      <variable citdl="str" line="122" name="DEV_NULL" />
+      <variable citdl="str" line="93" name="__copyright__" />
+      <variable citdl="str" line="114" name="__version__" />
+      <scope doc="Queries the given executable (defaults to the Python&#10;interpreter binary) for various architecture information." ilk="function" line="1049" lineend="1132" name="architecture" returns="tuple" signature="architecture(...)">
+        <variable citdl="sys.executable" ilk="argument" name="executable" />
+        <variable citdl="list" line="1100" name="fileout" />
+        <variable citdl="_syscmd_file()" line="1083" name="output" />
+        <variable citdl="str" ilk="argument" name="bits" />
+        <variable citdl="str" ilk="argument" name="linkage" />
+        <variable citdl="struct.calcsize()" line="1075" name="size" />
+      </scope>
+      <scope doc="Tries to determine the name of the Linux OS distribution&#10;name." ilk="function" line="347" lineend="363" name="dist" returns="linux_distribution()" signature="dist(distname='', version='', id='', supported_dists=('SuSE', 'debian', 'fedora', 'redhat', 'centos', 'mandrake', 'mandriva', 'rocks', 'slackware', 'yellowdog', 'gentoo', 'UnitedLinux', 'turbolinux'))">
+        <variable citdl="str" ilk="argument" name="distname" />
+        <variable citdl="str" ilk="argument" name="version" />
+        <variable citdl="str" ilk="argument" name="id" />
+        <variable citdl="tuple" ilk="argument" name="supported_dists" />
+      </scope>
+      <scope doc="Version interface for Jython." ilk="function" line="827" lineend="858" name="java_ver" returns="tuple" signature="java_ver(release='', vendor='', vminfo=('', '', ''), osinfo=('', '', ''))">
+        <variable citdl="tuple" ilk="argument" name="osinfo" />
+        <variable citdl="_java_getprop()" line="848" name="vm_name" />
+        <variable citdl="_java_getprop()" line="854" name="os_name" />
+        <variable citdl="str" ilk="argument" name="vendor" />
+        <variable citdl="tuple" ilk="argument" name="vminfo" />
+        <variable citdl="_java_getprop()" line="853" name="os_arch" />
+        <variable citdl="_java_getprop()" line="855" name="os_version" />
+        <variable citdl="_java_getprop()" line="849" name="vm_vendor" />
+        <variable citdl="str" ilk="argument" name="release" />
+        <variable citdl="_java_getprop()" line="850" name="vm_release" />
+      </scope>
+      <scope doc="Tries to determine the libc version that the file executable&#10;(which defaults to the Python interpreter) is linked&#10;against." ilk="function" line="141" lineend="192" name="libc_ver" returns="tuple" signature="libc_ver(...)">
+        <variable citdl="f.read()" line="164" name="binary" />
+        <variable citdl="sys.executable" ilk="argument" name="executable" />
+        <variable line="174" name="soversion" />
+        <variable line="174" name="threads" />
+        <variable citdl="int" ilk="argument" name="chunksize" />
+        <variable citdl="str" ilk="argument" name="lib" />
+        <variable citdl="open()" line="163" name="f" />
+        <variable line="174" name="libcinit" />
+        <variable citdl="_libc_search.search()" line="167" name="m" />
+        <variable citdl="int" line="165" name="pos" />
+        <variable citdl="str" ilk="argument" name="version" />
+        <variable line="174" name="so" />
+        <variable line="174" name="glibcversion" />
+        <variable line="174" name="glibc" />
+      </scope>
+      <scope doc="Tries to determine the name of the Linux OS distribution&#10;name." ilk="function" line="291" lineend="343" name="linux_distribution" returns="tuple" signature="linux_distribution(distname='', version='', id='', supported_dists=('SuSE', 'debian', 'fedora', 'redhat', 'centos', 'mandrake', 'mandriva', 'rocks', 'slackware', 'yellowdog', 'gentoo', 'UnitedLinux', 'turbolinux'), full_distribution_name=1)">
+        <variable line="324" name="dummy" />
+        <variable citdl="f.readline()" line="333" name="firstline" />
+        <variable citdl="tuple" ilk="argument" name="supported_dists" />
+        <variable citdl="int" ilk="argument" name="full_distribution_name" />
+        <variable citdl="str" ilk="argument" name="distname" />
+        <variable citdl="open()" line="332" name="f" />
+        <variable citdl="_release_filename.match()" line="322" name="m" />
+        <variable attributes="protected" line="335" name="_version" />
+        <variable citdl="os.listdir()" line="316" name="etc" />
+        <variable citdl="str" ilk="argument" name="version" />
+        <variable attributes="protected" line="324" name="_distname" />
+        <variable attributes="protected" line="335" name="_id" />
+        <variable citdl="str" ilk="argument" name="id" />
+      </scope>
+      <scope doc="Get MacOS version information and return it as tuple&#10;(release, versioninfo, machine) with versioninfo being a&#10;tuple (version, dev_stage, non_release_version)." ilk="function" line="791" lineend="814" name="mac_ver" returns="tuple" signature="mac_ver(release='', versioninfo=('', '', ''), machine='')">
+        <variable citdl="str" ilk="argument" name="release" />
+        <variable citdl="str" ilk="argument" name="machine" />
+        <variable citdl="tuple" ilk="argument" name="versioninfo" />
+        <variable citdl="_mac_ver_gestalt()" line="803" name="info" />
+      </scope>
+      <scope doc="Returns the machine type, e.g." ilk="function" line="1312" lineend="1319" name="machine" signature="machine()" />
+      <scope doc="Returns the computer's network name (which may not be fully&#10;qualified)" ilk="function" line="1284" lineend="1292" name="node" signature="node()" />
+      <import module="os" />
+      <scope doc="Returns a single string identifying the underlying platform&#10;with as much useful information as possible (but no more :)." ilk="function" line="1527" lineend="1605" name="platform" returns="_platform_cache.get()" signature="platform(aliased=0, terse=0)">
+        <variable citdl="int" ilk="argument" name="aliased" />
+        <variable line="1560" name="ptype" />
+        <variable citdl="_platform_cache.get()" line="1546" name="result" />
+        <variable line="1568" name="distid" />
+        <variable line="1575" name="libcname" />
+        <variable line="1581" name="vminfo" />
+        <variable line="1552" name="system" />
+        <variable line="1552" name="machine" />
+        <variable citdl="_platform()" line="1562" name="platform" />
+        <variable line="1552" name="version" />
+        <variable line="1560" name="rel" />
+        <variable line="1601" name="bits" />
+        <variable line="1568" name="distversion" />
+        <variable line="1552" name="node" />
+        <variable line="1560" name="vers" />
+        <variable citdl="int" ilk="argument" name="terse" />
+        <variable line="1581" name="v" />
+        <variable line="1601" name="linkage" />
+        <variable line="1568" name="distname" />
+        <variable line="1581" name="r" />
+        <variable line="1560" name="csd" />
+        <variable line="1552" name="release" />
+        <variable citdl="str" line="1552" name="processor" />
+        <variable line="1575" name="libcversion" />
+      </scope>
+      <scope doc="Portable popen() interface." ilk="function" line="419" lineend="450" name="popen" returns="popen.popen()" signature="popen(cmd, mode='r', bufsize=None)">
+        <variable ilk="argument" name="cmd" />
+        <variable ilk="argument" name="bufsize" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable citdl="_popen" line="425" name="popen" />
+      </scope>
+      <scope doc="Returns the (true) processor name, e.g." ilk="function" line="1321" lineend="1331" name="processor" signature="processor()" />
+      <scope doc="Returns a string identifying the Python implementation&#10;branch." ilk="function" line="1480" lineend="1492" name="python_branch" signature="python_branch()" />
+      <scope doc="Returns a tuple (buildno, builddate) stating the Python&#10;build number and date as strings." ilk="function" line="1507" lineend="1513" name="python_build" returns="list" signature="python_build()" />
+      <scope doc="Returns a string identifying the compiler used for compiling&#10;Python." ilk="function" line="1515" lineend="1521" name="python_compiler" signature="python_compiler()" />
+      <scope doc="Returns a string identifying the Python implementation." ilk="function" line="1446" lineend="1457" name="python_implementation" signature="python_implementation()" />
+      <scope doc="Returns a string identifying the Python implementation&#10;revision." ilk="function" line="1494" lineend="1505" name="python_revision" signature="python_revision()" />
+      <scope doc="Returns the Python version as string&#10;'major.minor.patchlevel'" ilk="function" line="1459" lineend="1467" name="python_version" signature="python_version()" />
+      <scope doc="Returns the Python version as tuple (major, minor,&#10;patchlevel) of strings." ilk="function" line="1469" lineend="1478" name="python_version_tuple" returns="tuple()" signature="python_version_tuple()" />
+      <import module="re" />
+      <scope doc="Returns the system's release, e.g." ilk="function" line="1294" lineend="1301" name="release" signature="release()" />
+      <import module="string" />
+      <import module="sys" />
+      <scope doc="Returns the system/OS name, e.g." ilk="function" line="1275" lineend="1282" name="system" signature="system()" />
+      <scope doc="marketing names used for some systems." ilk="function" line="862" lineend="912" name="system_alias" returns="tuple" signature="Returns (system,release,version) aliased to common">
+        <variable citdl="string.join()" ilk="argument" name="release" />
+        <variable citdl="int()" line="885" name="major" />
+        <variable citdl="str" ilk="argument" name="version" />
+        <variable citdl="str" ilk="argument" name="system" />
+        <variable citdl="string.split()" line="882" name="l" />
+      </scope>
+      <scope doc="Fairly portable uname interface." ilk="function" line="1138" lineend="1271" name="uname" returns="tuple" signature="uname()">
+        <variable citdl="_node()" line="1160" name="node" />
+        <variable line="1224" name="osinfo" />
+        <variable line="1224" name="vendor" />
+        <variable line="1178" name="csd" />
+        <variable line="1178" name="ptype" />
+        <variable citdl="str" line="1160" name="system" />
+        <variable citdl="os.environ.get()" line="1160" name="machine" />
+        <variable citdl="str" line="1160" name="version" />
+        <variable citdl="int" line="1151" name="no_os_uname" />
+        <variable line="1242" name="csid" />
+        <variable citdl="int" line="1174" name="use_syscmd_ver" />
+        <variable line="1224" name="vminfo" />
+        <variable citdl="str" line="1160" name="release" />
+        <variable line="1242" name="cpu_number" />
+        <variable citdl="str" line="1156" name="processor" />
+        <variable attributes="protected" citdl="tuple" line="1270" name="_uname_cache" />
+      </scope>
+      <scope doc="Returns the system's release version, e.g." ilk="function" line="1303" lineend="1310" name="version" signature="version()" />
+      <scope doc="Get additional version information from the Windows Registry&#10;and return a tuple (version,csd,ptype) referring to version&#10;number, CSD level and OS type (multi/single processor)." ilk="function" line="553" lineend="711" name="win32_ver" returns="tuple" signature="win32_ver(release='', version='', csd='', ptype='')">
+        <variable citdl="_winreg.CloseKey" line="601" name="RegCloseKey" />
+        <variable citdl="RegOpenKeyEx()" line="687" name="keyCurVer" />
+        <variable citdl="int" line="607" name="REG_SZ" />
+        <variable citdl="sys.getwindowsversion" line="598" name="GetVersionEx" />
+        <variable citdl="int" line="604" name="VER_PLATFORM_WIN32_NT" />
+        <variable citdl="_winreg.QueryValueEx" line="599" name="RegQueryValueEx" />
+        <variable citdl="int" line="606" name="VER_NT_SERVER" />
+        <variable citdl="GetVersionEx()" line="610" name="winver" />
+        <variable citdl="str" ilk="argument" name="csd" />
+        <variable citdl="str" ilk="argument" name="version" />
+        <variable line="699" name="build" />
+        <variable line="658" name="type" />
+        <variable citdl="str" ilk="argument" name="ptype" />
+        <variable citdl="_winreg.HKEY_LOCAL_MACHINE" line="602" name="HKEY_LOCAL_MACHINE" />
+        <variable citdl="RegOpenKeyEx()" line="657" name="key" />
+        <variable citdl="int" line="650" name="product_type" />
+        <variable line="658" name="name" />
+        <variable citdl="int" line="605" name="VER_NT_WORKSTATION" />
+        <variable citdl="int" line="603" name="VER_PLATFORM_WIN32_WINDOWS" />
+        <variable citdl="_winreg.OpenKeyEx" line="600" name="RegOpenKeyEx" />
+        <variable citdl="str" ilk="argument" name="release" />
+        <variable citdl="str" line="621" name="regkey" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="770" lineend="788" name="_mac_ver_xml" returns="tuple" signature="_mac_ver_xml()">
+        <import line="776" module="plistlib" />
+        <variable citdl="str" line="771" name="fn" />
+        <variable citdl="plistlib.readPlist()" line="780" name="pl" />
+        <variable line="781" name="release" />
+        <variable citdl="tuple" line="782" name="versioninfo" />
+        <variable citdl="str" line="783" name="machine" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Interface to the system's uname command." ilk="function" line="994" lineend="1010" name="_syscmd_uname" returns="str" signature="_syscmd_uname(option, default='')">
+        <variable ilk="argument" name="option" />
+        <variable citdl="str" ilk="argument" name="default" />
+        <variable citdl="os.popen()" line="1002" name="f" />
+        <variable citdl="string.strip()" line="1005" name="output" />
+        <variable citdl="f.close()" line="1006" name="rc" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Thanks to Mark R." ilk="function" line="730" lineend="768" name="_mac_ver_gestalt" returns="tuple" signature="_mac_ver_gestalt()">
+        <import line="740" module="gestalt" />
+        <import line="741" module="MacOS" />
+        <variable line="745" name="sysv" />
+        <variable line="745" name="sysa" />
+        <variable citdl="int" line="748" name="major" />
+        <variable citdl="int" line="749" name="minor" />
+        <variable citdl="int" line="750" name="patch" />
+        <variable citdl="str" line="759" name="release" />
+        <variable citdl="{}.get()" line="764" name="machine" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="244" name="_release_filename" />
+      <scope attributes="protected __hidden__" doc="Tries some special tricks to get the distribution&#10;information in case the default method fails." ilk="function" line="194" lineend="242" name="_dist_try_harder" returns="tuple" signature="_dist_try_harder(distname, version, id)">
+        <variable citdl="str" ilk="argument" name="distname" />
+        <variable citdl="list" ilk="argument" name="version" />
+        <variable ilk="argument" name="id" />
+        <variable line="205" name="info" />
+        <variable citdl="string.split()" line="208" name="tv" />
+        <variable citdl="string.split()" line="216" name="values" />
+        <variable citdl="string.split()" line="224" name="pkg" />
+        <variable citdl="os.listdir()" line="232" name="verfiles" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Helper to format the platform string in a filename&#10;compatible format e.g." ilk="function" line="916" lineend="950" name="_platform" returns="string.join()" signature="_platform(*args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable citdl="replace()" line="922" name="platform" />
+        <variable citdl="string.replace" line="928" name="replace" />
+        <variable citdl="replace()" line="943" name="cleaned" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="1340" name="_ironpython_sys_version_parser" />
+      <variable attributes="protected __hidden__" citdl="dict" line="1041" name="_default_architecture" />
+      <variable attributes="protected __hidden__" line="1136" name="_uname_cache" />
+      <scope attributes="protected __hidden__" ilk="function" line="264" lineend="289" name="_parse_release_file" returns="tuple" signature="_parse_release_file(firstline)">
+        <variable ilk="argument" name="firstline" />
+        <variable citdl="str" line="269" name="version" />
+        <variable citdl="str" line="270" name="id" />
+        <variable citdl="_release_version.match()" line="273" name="m" />
+        <variable citdl="string.split()" line="284" name="l" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="function" line="970" name="_abspath" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="135" name="_libc_search" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="245" name="_lsb_release_version" />
+      <scope attributes="protected __hidden__" doc="Read a value for name from the registry key." ilk="function" line="534" lineend="551" name="_win32_getvalue" returns="str" signature="_win32_getvalue(key, name, default='')">
+        <import line="543" module="win32api" symbol="RegQueryValueEx" />
+        <import line="546" module="_winreg" />
+        <variable ilk="argument" name="key" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="str" ilk="argument" name="default" />
+        <variable citdl="_winreg.QueryValueEx" line="547" name="RegQueryValueEx" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="713" lineend="724" name="_mac_ver_lookup" returns="list" signature="_mac_ver_lookup(selectors, default=None)">
+        <import line="715" module="gestalt" symbol="gestalt" />
+        <import line="716" module="MacOS" />
+        <variable ilk="argument" name="selectors" />
+        <variable ilk="argument" name="default" />
+        <variable citdl="list" line="717" name="l" />
+        <variable citdl="l.append" line="718" name="append" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="tuple" line="259" name="_supported_dists" />
+      <variable attributes="__hidden__" citdl="bool" line="1611" name="terse" />
+      <scope attributes="protected __hidden__" doc="Helper to determine the node name of this machine." ilk="function" line="952" lineend="965" name="_node" returns="str" signature="_node(default='')">
+        <import line="957" module="socket" />
+        <variable citdl="str" ilk="argument" name="default" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="249" name="_release_version" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="1346" name="_pypy_sys_version_parser" />
+      <scope attributes="protected __hidden__" doc="Interface to the system's file command." ilk="function" line="1012" lineend="1035" name="_syscmd_file" returns="str" signature="_syscmd_file(target, default='')">
+        <variable ilk="argument" name="target" />
+        <variable citdl="str" ilk="argument" name="default" />
+        <variable citdl="os.popen()" line="1027" name="f" />
+        <variable citdl="string.strip()" line="1030" name="output" />
+        <variable citdl="f.close()" line="1031" name="rc" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="1351" name="_sys_version_cache" />
+      <scope attributes="protected __hidden__" doc="Tries to figure out the OS version used and returns a tuple&#10;(system,release,version)." ilk="function" line="482" lineend="532" name="_syscmd_ver" returns="tuple" signature="_syscmd_ver(system='', release='', version='', supported_platforms=('win32', 'win16', 'dos', 'os2'))">
+        <variable citdl="str" ilk="argument" name="system" />
+        <variable citdl="list" ilk="argument" name="release" />
+        <variable citdl="_norm_version()" ilk="argument" name="version" />
+        <variable citdl="tuple" ilk="argument" name="supported_platforms" />
+        <variable citdl="popen()" line="502" name="pipe" />
+        <variable citdl="string.strip()" line="503" name="info" />
+        <variable citdl="_ver_output.match()" line="521" name="m" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Fairly portable (alternative) popen implementation." ilk="class" line="365" lineend="417" name="_popen">
+        <variable citdl="str" line="376" name="tmpfile" />
+        <variable citdl="open()" line="377" name="pipe" />
+        <variable line="378" name="bufsize" />
+        <variable citdl="str" line="379" name="mode" />
+        <scope attributes="__ctor__" ilk="function" line="381" lineend="390" name="__init__" signature="_popen(cmd, mode='r', bufsize=None)">
+          <import line="385" module="tempfile" />
+          <variable citdl="_popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable ilk="argument" name="bufsize" />
+        </scope>
+        <scope ilk="function" line="392" lineend="394" name="read" returns="self.pipe.read()" signature="read()">
+          <variable citdl="_popen" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="396" lineend="399" name="readlines" returns="self.pipe.readlines()" signature="readlines()">
+          <variable citdl="_popen" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="401" lineend="414" name="close" returns="self.pipe.close()" signature="close(remove=os.unlink, error=os.error)">
+          <variable citdl="_popen" ilk="argument" name="self" />
+          <variable citdl="os.unlink" ilk="argument" name="remove" />
+          <variable citdl="os.error" ilk="argument" name="error" />
+          <variable citdl="self.pipe.close()" line="406" name="rc" />
+        </scope>
+        <variable citdl="_popen.close" line="417" name="__del__" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="1525" name="_platform_cache" />
+      <scope attributes="protected __hidden__" ilk="function" line="726" lineend="728" name="_bcd2str" returns="list" signature="_bcd2str(bcd)">
+        <variable ilk="argument" name="bcd" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Normalize the version and build strings and return a single&#10;version string using the format major.minor.build (or&#10;patchlevel)." ilk="function" line="452" lineend="467" name="_norm_version" returns="string.join()" signature="_norm_version(version, build='')">
+        <variable citdl="string.join()" ilk="argument" name="version" />
+        <variable citdl="str" ilk="argument" name="build" />
+        <variable citdl="string.split()" line="457" name="l" />
+        <variable citdl="map()" line="461" name="ints" />
+        <variable citdl="string.split()" line="463" name="strings" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="1335" name="_sys_version_parser" />
+      <scope attributes="protected __hidden__" doc="In case filepath is a symlink, follow it until a real file&#10;is reached." ilk="function" line="983" lineend="992" name="_follow_symlinks" returns="_abspath()" signature="_follow_symlinks(filepath)">
+        <variable citdl="os.path.normpath()" ilk="argument" name="filepath" />
+      </scope>
+      <variable attributes="protected __hidden__" line="1047" name="_architecture_split" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="469" name="_ver_output" />
+      <scope attributes="protected __hidden__" doc="Returns a parsed version of Python's sys.version as tuple&#10;(name, version, branch, revision, buildno, builddate,&#10;compiler) referring to the Python implementation name,&#10;version, branch, revision, build number, build date/time as&#10;string and the compiler" ilk="function" line="1353" lineend="1444" name="_sys_version" returns="_sys_version_cache.get()" signature="_sys_version(sys_version=None)">
+        <variable citdl="sys.version" ilk="argument" name="sys_version" />
+        <variable citdl="tuple" line="1378" name="result" />
+        <variable citdl="str" line="1385" name="name" />
+        <variable citdl="_sys_version_parser.match()" line="1386" name="match" />
+        <variable line="1391" name="alt_version" />
+        <variable citdl="sys.platform" line="1391" name="compiler" />
+        <variable citdl="string.join()" line="1391" name="version" />
+        <variable citdl="str" line="1392" name="buildno" />
+        <variable citdl="str" line="1393" name="builddate" />
+        <variable line="1403" name="buildtime" />
+        <variable attributes="protected" line="1403" name="_" />
+        <variable citdl="str" line="1432" name="branch" />
+        <variable citdl="str" line="1433" name="revision" />
+        <variable citdl="string.split()" line="1436" name="l" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="816" lineend="825" name="_java_getprop" returns="System.getProperty()" signature="_java_getprop(name, default)">
+        <import line="818" module="java.lang" symbol="System" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="default" />
+        <variable citdl="System.getProperty()" line="820" name="value" />
+      </scope>
+      <variable attributes="__hidden__" citdl="bool" line="1612" name="aliased" />
+    </scope>
+    

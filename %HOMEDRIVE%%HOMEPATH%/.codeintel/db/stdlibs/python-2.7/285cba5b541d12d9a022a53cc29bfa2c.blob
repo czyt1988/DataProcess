@@ -1,0 +1,600 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="msilib.schema">
+      <variable citdl="msilib.Table" line="15" name="ActionText" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="20" name="AdminExecuteSequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="30" name="AdminUISequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="35" name="AdvtExecuteSequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="40" name="AdvtUISequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="45" name="AppId" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="54" name="AppSearch" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="62" name="BBControl" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="73" name="Billboard" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="89" name="Binary" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="93" name="BindImage" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="107" name="CCPSearch" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="110" name="CheckBox" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="114" name="Class" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="149" name="ComboBox" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="155" name="CompLocator" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="160" name="Complus" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="129" name="Component" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="25" name="Condition" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="169" name="Control" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="195" name="ControlCondition" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="201" name="ControlEvent" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="209" name="CreateFolder" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="213" name="CustomAction" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="183" name="Dialog" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="164" name="Directory" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="219" name="DrLocator" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="225" name="DuplicateFile" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="232" name="Environment" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="238" name="Error" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="242" name="EventMapping" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="248" name="Extension" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="79" name="Feature" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="260" name="FeatureComponents" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="97" name="File" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="264" name="FileSFPCatalog" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="273" name="Font" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="137" name="Icon" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="277" name="IniFile" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="287" name="IniLocator" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="295" name="InstallExecuteSequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="300" name="InstallUISequence" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="305" name="IsolatedComponent" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="309" name="LaunchCondition" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="313" name="ListBox" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="319" name="ListView" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="326" name="LockPermissions" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="255" name="MIME" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="333" name="Media" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="341" name="MoveFile" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="350" name="MsiAssembly" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="357" name="MsiAssemblyName" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="362" name="MsiDigitalCertificate" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="366" name="MsiDigitalSignature" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="372" name="MsiFileHash" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="380" name="MsiPatchHeaders" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="384" name="ODBCAttribute" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="396" name="ODBCDataSource" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="389" name="ODBCDriver" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="403" name="ODBCSourceAttribute" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="408" name="ODBCTranslator" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="415" name="Patch" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="423" name="PatchPackage" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="141" name="ProgId" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="58" name="Property" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="427" name="PublishComponent" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="434" name="RadioButton" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="453" name="RegLocator" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="445" name="Registry" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="460" name="RemoveFile" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="467" name="RemoveIniFile" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="477" name="RemoveRegistry" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="484" name="ReserveCost" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="268" name="SFPCatalog" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="491" name="SelfReg" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="495" name="ServiceControl" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="503" name="ServiceInstall" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="518" name="Shortcut" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="532" name="Signature" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="543" name="TextStyle" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="550" name="TypeLib" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="560" name="UIText" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="564" name="Upgrade" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="msilib.Table" line="573" name="Verb" />
+      <scope doc="&#10;" ilk="class" name="Table">
+        <scope ilk="function" name="create" />
+        <scope ilk="function" name="add_field" />
+        <scope ilk="function" name="sql" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="580" name="tables" />
+      <variable attributes="protected __hidden__" citdl="Table()" line="3" name="_Validation" />
+      <variable attributes="protected __hidden__" citdl="list" line="582" name="_Validation_records" />
+    </scope>
+    

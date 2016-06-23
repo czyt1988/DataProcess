@@ -1,0 +1,23 @@
+<scope doc="distutils.errors&#10;Provides exceptions used by the Distutils modules.  Note that Distutils modules may raise standard exceptions; in particular, SystemExit is usually raised for errors that are obviously the end-user's fault (eg. bad command-line arguments).  This module is safe to use in &quot;from ... import *&quot; mode; it only exports symbols whose names start with &quot;Distutils&quot; and end with &quot;Error&quot;." ilk="blob" lang="Python" name="distutils.errors">
+      <scope classrefs="Exception" doc="Some compile/link operation failed.&#10;" ilk="class" line="70" name="CCompilerError" />
+      <scope classrefs="CCompilerError" doc="Failure to compile one or more C/C++ source files.&#10;" ilk="class" line="76" name="CompileError" />
+      <scope classrefs="DistutilsError" doc="Raised by fancy_getopt in response to getopt.error -- ie. an&#10;error in the command line usage." ilk="class" line="29" name="DistutilsArgError" />
+      <scope classrefs="DistutilsError" doc="Byte compile error.&#10;" ilk="class" line="66" name="DistutilsByteCompileError" />
+      <scope classrefs="DistutilsError" doc="Some command class (or possibly distribution class, if anyone&#10;feels a need to subclass Distribution) is found not to be holding up its end of the bargain, ie. implementing some part of the &quot;command &quot;interface." ilk="class" line="20" name="DistutilsClassError" />
+      <scope classrefs="Exception" doc="The root of all Distutils evil.&#10;" ilk="class" line="13" name="DistutilsError" />
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" line="55" name="DistutilsExecError" />
+      <scope classrefs="DistutilsError" doc="Any problems in the filesystem: expected file not found, etc.&#10;Typically this is for problems that we detect before IOError or OSError could be raised." ilk="class" line="33" name="DistutilsFileError" />
+      <scope classrefs="DistutilsError" doc="The option table provided to 'fancy_getopt()' is bogus.&#10;" ilk="class" line="26" name="DistutilsGetoptError" />
+      <scope classrefs="DistutilsError" doc="Internal inconsistencies or impossibilities (obviously, this&#10;should never be seen if the code is working!)." ilk="class" line="59" name="DistutilsInternalError" />
+      <scope classrefs="DistutilsError" doc="Unable to load an expected module, or to find an expected class&#10;within some module (in particular, command modules and classes)." ilk="class" line="16" name="DistutilsModuleError" />
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" line="38" name="DistutilsOptionError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" line="50" name="DistutilsPlatformError" />
+      <scope classrefs="DistutilsError" doc="For errors that can be definitely blamed on the setup script,&#10;such as invalid keyword arguments to 'setup()'." ilk="class" line="46" name="DistutilsSetupError" />
+      <scope classrefs="DistutilsError" doc="Syntax error in a file list template.&#10;" ilk="class" line="63" name="DistutilsTemplateError" />
+      <scope classrefs="CCompilerError" doc="Failure to create a static library from one or more C/C++ object&#10;files." ilk="class" line="79" name="LibError" />
+      <scope classrefs="CCompilerError" doc="Failure to link one or more C/C++ object files into an executable&#10;or shared library file." ilk="class" line="83" name="LinkError" />
+      <scope classrefs="CCompilerError" doc="Failure to preprocess one or more C/C++ files.&#10;" ilk="class" line="73" name="PreprocessError" />
+      <scope classrefs="CCompilerError" doc="Attempt to process an unknown file type.&#10;" ilk="class" line="87" name="UnknownFileError" />
+      <variable citdl="str" line="11" name="__revision__" />
+    </scope>
+    

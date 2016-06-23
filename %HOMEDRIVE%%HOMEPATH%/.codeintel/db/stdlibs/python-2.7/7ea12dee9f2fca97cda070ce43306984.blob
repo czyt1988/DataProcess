@@ -1,0 +1,128 @@
+<scope doc="Manage shelves of pickled objects.&#10;A &quot;shelf&quot; is a persistent, dictionary-like object.  The difference with dbm databases is that the values (not the keys!) in a shelf can be essentially arbitrary Python objects -- anything that the &quot;pickle&quot; module can handle.  This includes most class instances, recursive data types, and objects containing lots of shared sub-objects.  The keys are ordinary strings.  To summarize the interface (key is a string, data is an arbitrary object): " ilk="blob" lang="Python" name="shelve">
+      <scope classrefs="Shelf" doc="Shelf implementation using the &quot;BSD&quot; db interface.&#10;This adds methods first(), next(), previous(), last() and set_location() that have no counterpart in [g]dbm databases.  The actual database must be opened using one of the &quot;bsddb&quot; modules &quot;open&quot; routines (i.e. bsddb.hashopen, bsddb.btopen or bsddb.rnopen) and passed to the constructor.  See the module's __doc__ string for an overview of the interface." ilk="class" line="172" lineend="211" name="BsdDbShelf">
+        <scope ilk="function" line="208" lineend="211" name="last" returns="tuple" signature="last()">
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable line="209" name="value" />
+          <variable line="209" name="key" />
+          <variable citdl="StringIO()" line="210" name="f" />
+        </scope>
+        <scope ilk="function" line="188" lineend="191" name="set_location" returns="tuple" signature="set_location(key)">
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable line="189" name="value" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="StringIO()" line="190" name="f" />
+        </scope>
+        <scope ilk="function" line="193" lineend="196" name="next" returns="tuple" signature="next()">
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable line="194" name="value" />
+          <variable line="194" name="key" />
+          <variable citdl="StringIO()" line="195" name="f" />
+        </scope>
+        <scope ilk="function" line="203" lineend="206" name="first" returns="tuple" signature="first()">
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable line="204" name="value" />
+          <variable line="204" name="key" />
+          <variable citdl="StringIO()" line="205" name="f" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="__init__" signature="BsdDbShelf(dict, protocol=None, writeback=False)">
+          <variable ilk="argument" name="protocol" />
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="dict" />
+          <variable citdl="False" ilk="argument" name="writeback" />
+        </scope>
+        <scope ilk="function" line="198" lineend="201" name="previous" returns="tuple" signature="previous()">
+          <variable citdl="BsdDbShelf" ilk="argument" name="self" />
+          <variable line="199" name="value" />
+          <variable line="199" name="key" />
+          <variable citdl="StringIO()" line="200" name="f" />
+        </scope>
+      </scope>
+      <scope classrefs="Shelf" doc="Shelf implementation using the &quot;anydbm&quot; generic dbm interface.&#10;This is initialized with the filename for the dbm database. See the module's __doc__ string for an overview of the interface." ilk="class" line="214" lineend="223" name="DbfilenameShelf">
+        <scope ilk="function" line="221" lineend="223" name="__init__" signature="DbfilenameShelf(filename, flag='c', protocol=None, writeback=False)">
+          <variable citdl="False" ilk="argument" name="writeback" />
+          <variable citdl="DbfilenameShelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="protocol" />
+          <variable citdl="str" ilk="argument" name="flag" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+      </scope>
+      <scope doc="Create a pickler." ilk="function" name="Pickler" signature="Pickler(file, protocol=0)" />
+      <scope classrefs="DictMixin" doc="Base class for shelf implementations.&#10;This is initialized with a dictionary-like object. See the module's __doc__ string for an overview of the interface." ilk="class" line="85" lineend="169" name="Shelf">
+        <scope ilk="function" line="135" lineend="140" name="__delitem__" signature="__delitem__(key)">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="117" lineend="125" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable line="119" name="value" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="StringIO()" line="121" name="f" />
+        </scope>
+        <scope ilk="function" line="109" lineend="110" name="__contains__" returns="bool" signature="__contains__(key)">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="100" lineend="101" name="keys" returns="self.dict.keys()" signature="keys()">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="112" lineend="115" name="get" signature="get(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="161" lineend="169" name="sync" signature="sync()">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="155" lineend="159" name="__del__" signature="__del__()">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="127" lineend="133" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="Pickler()" line="131" name="p" />
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="StringIO()" line="130" name="f" />
+        </scope>
+        <scope ilk="function" line="106" lineend="107" name="has_key" returns="bool" signature="has_key(key)">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="92" lineend="98" name="__init__" signature="Shelf(dict, protocol=None, writeback=False)">
+          <variable citdl="int" ilk="argument" name="protocol" />
+          <variable citdl="Shelf" ilk="argument" name="self" />
+          <variable ilk="argument" name="dict" />
+          <variable citdl="False" ilk="argument" name="writeback" />
+        </scope>
+        <scope ilk="function" line="142" lineend="153" name="close" signature="close()">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="103" lineend="104" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Shelf" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="97" name="writeback" />
+        <variable attributes="__instancevar__" citdl="dict" line="98" name="cache" />
+        <variable attributes="__instancevar__" citdl="_ClosedDict" line="93" name="dict" />
+        <variable attributes="protected __instancevar__" citdl="int" line="96" name="_protocol" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <scope doc="Create an unpickler." ilk="function" name="Unpickler" signature="Unpickler(file)" />
+      <import module="UserDict" />
+      <variable citdl="list" line="73" name="__all__" />
+      <scope doc="Open a persistent dictionary for reading and writing." ilk="function" line="226" lineend="239" name="open" returns="DbfilenameShelf" signature="open(filename, flag='c', protocol=None, writeback=False)">
+        <variable citdl="False" ilk="argument" name="writeback" />
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable ilk="argument" name="protocol" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="UserDict.DictMixin" doc="Marker for a closed dict. Access attempts raise a&#10;ValueError." ilk="class" line="75" lineend="83" name="_ClosedDict">
+        <scope ilk="function" line="78" lineend="79" name="closed" signature="closed(*args)">
+          <variable citdl="_ClosedDict" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <variable citdl="_ClosedDict.closed" line="80" name="__getitem__" />
+        <scope ilk="function" line="82" lineend="83" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="_ClosedDict" ilk="argument" name="self" />
+        </scope>
+      </scope>
+    </scope>
+    

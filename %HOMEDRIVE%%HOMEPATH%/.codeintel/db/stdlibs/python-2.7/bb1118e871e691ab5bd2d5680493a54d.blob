@@ -1,0 +1,32 @@
+<scope doc="opcode module - potentially shared between dis and other modules which&#10;operate on bytecodes (e.g. peephole optimizers)." ilk="blob" lang="Python" name="opcode">
+      <variable citdl="int" line="188" name="EXTENDED_ARG" />
+      <variable citdl="int" line="124" name="HAVE_ARGUMENT" />
+      <variable citdl="list" line="7" name="__all__" />
+      <variable citdl="tuple" line="11" name="cmp_op" />
+      <variable citdl="list" line="19" name="hascompare" />
+      <variable citdl="list" line="14" name="hasconst" />
+      <variable citdl="list" line="20" name="hasfree" />
+      <variable citdl="list" line="17" name="hasjabs" />
+      <variable citdl="list" line="16" name="hasjrel" />
+      <variable citdl="list" line="18" name="haslocal" />
+      <variable citdl="list" line="15" name="hasname" />
+      <variable citdl="dict" line="22" name="opmap" />
+      <variable citdl="list" line="23" name="opname" />
+      <scope attributes="__hidden__" ilk="function" line="27" lineend="29" name="def_op" signature="def_op(name, op)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="op" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="35" lineend="37" name="jrel_op" signature="jrel_op(name, op)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="op" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="31" lineend="33" name="name_op" signature="name_op(name, op)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="op" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="39" lineend="41" name="jabs_op" signature="jabs_op(name, op)">
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="op" />
+      </scope>
+    </scope>
+    

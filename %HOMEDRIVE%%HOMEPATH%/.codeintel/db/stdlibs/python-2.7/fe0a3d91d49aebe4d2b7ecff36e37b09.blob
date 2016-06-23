@@ -1,0 +1,527 @@
+<scope doc="HTTP/1.1 client library&#10;&lt;intro stuff goes here&gt; &lt;other stuff, too&gt;  HTTPConnection goes through a number of &quot;states&quot;, which define when a client may legally make another request or fetch the response for a particular request. This diagram details these state transitions:  (null) | | HTTPConnection()" ilk="blob" lang="Python" name="httplib">
+      <variable citdl="int" line="112" name="ACCEPTED" />
+      <variable citdl="int" line="156" name="BAD_GATEWAY" />
+      <variable citdl="int" line="130" name="BAD_REQUEST" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1243" lineend="1248" name="BadStatusLine">
+        <scope ilk="function" line="1244" lineend="1248" name="__init__" signature="BadStatusLine(line)">
+          <variable citdl="BadStatusLine" ilk="argument" name="self" />
+          <variable citdl="repr()" ilk="argument" name="line" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="repr()" line="1248" name="line" />
+        <variable attributes="__instancevar__" citdl="tuple" line="1247" name="args" />
+      </scope>
+      <variable citdl="int" line="139" name="CONFLICT" />
+      <variable citdl="int" line="105" name="CONTINUE" />
+      <variable citdl="int" line="111" name="CREATED" />
+      <scope classrefs="ImproperConnectionState" doc="&#10;" ilk="class" line="1237" lineend="1238" name="CannotSendHeader" />
+      <scope classrefs="ImproperConnectionState" doc="&#10;" ilk="class" line="1234" lineend="1235" name="CannotSendRequest" />
+      <variable citdl="int" line="147" name="EXPECTATION_FAILED" />
+      <variable citdl="int" line="150" name="FAILED_DEPENDENCY" />
+      <variable citdl="int" line="133" name="FORBIDDEN" />
+      <variable citdl="int" line="123" name="FOUND" />
+      <scope ilk="function" line="1188" lineend="1192" name="FakeSocket" signature="FakeSocket(sock, sslobj)">
+        <variable ilk="argument" name="sock" />
+        <variable ilk="argument" name="sslobj" />
+      </scope>
+      <variable citdl="int" line="158" name="GATEWAY_TIMEOUT" />
+      <variable citdl="int" line="140" name="GONE" />
+      <scope doc="Compatibility class with httplib.py from 1.5.&#10;" ilk="class" line="1041" lineend="1130" name="HTTP">
+        <scope ilk="function" line="1063" lineend="1076" name="_setup" signature="_setup(conn)">
+          <variable citdl="HTTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="conn" />
+        </scope>
+        <scope doc="Compat definition since superclass does not define it." ilk="function" line="1089" lineend="1120" name="getreply" returns="tuple" signature="getreply(buffering=False)">
+          <variable citdl="HTTP" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="buffering" />
+          <variable citdl="self._conn.getresponse()" line="1099" name="response" />
+        </scope>
+        <scope doc="Provide a default host, since the superclass requires one." ilk="function" line="1051" lineend="1061" name="__init__" signature="HTTP(host='', port=None, strict=None)">
+          <variable ilk="argument" name="strict" />
+          <variable citdl="HTTP" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1122" lineend="1130" name="close" signature="close()">
+          <variable citdl="HTTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Provide a getfile, since the superclass' does not use this&#10;concept." ilk="function" line="1085" lineend="1087" name="getfile" signature="getfile()">
+          <variable citdl="HTTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Accept arguments to set the host/port, since the superclass&#10;doesn't." ilk="function" line="1078" lineend="1083" name="connect" signature="connect(host=None, port=None)">
+          <variable citdl="HTTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="response.fp" line="1076" name="file" />
+        <variable attributes="__instancevar__" citdl="conn.putheader" line="1069" name="putheader" />
+        <variable attributes="__instancevar__" citdl="conn.putrequest" line="1068" name="putrequest" />
+        <variable attributes="__instancevar__" citdl="conn.set_debuglevel" line="1071" name="set_debuglevel" />
+        <variable attributes="__instancevar__" citdl="conn.send" line="1067" name="send" />
+        <variable attributes="protected" citdl="HTTPConnection" line="1049" name="_connection_class" />
+        <variable attributes="__instancevar__" citdl="response.msg" line="1115" name="headers" />
+        <variable attributes="protected" citdl="str" line="1045" name="_http_vsn_str" />
+        <variable citdl="int" line="1047" name="debuglevel" />
+        <variable attributes="protected __instancevar__" line="1064" name="_conn" />
+        <variable attributes="__instancevar__" citdl="conn.endheaders" line="1070" name="endheaders" />
+        <variable attributes="protected" citdl="int" line="1044" name="_http_vsn" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="669" lineend="1038" name="HTTPConnection">
+        <scope ilk="function" line="957" lineend="972" name="_set_content_length" signature="_set_content_length(body)">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str()" line="959" name="thelen" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="727" lineend="728" name="set_debuglevel" signature="set_debuglevel(level)">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Connect to the host and port specified in __init__." ilk="function" line="751" lineend="757" name="connect" signature="connect()">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close the connection to the HTTP server." ilk="function" line="759" lineend="767" name="close" signature="close()">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="680" lineend="695" name="__init__" signature="HTTPConnection(host, port=None, strict=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT, source_address=None)">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="strict" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable ilk="argument" name="source_address" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope doc="Send `data' to the server." ilk="function" line="769" lineend="787" name="send" signature="send(data)">
+          <variable citdl="int" line="779" name="blocksize" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="data.read()" line="782" name="datablock" />
+        </scope>
+        <scope doc="Send a request to the server." ilk="function" line="817" lineend="925" name="putrequest" signature="putrequest(method, url, skip_host=0, skip_accept_encoding=0)">
+          <variable citdl="self.host.encode()" line="893" name="host_enc" />
+          <variable citdl="str" line="859" name="hdr" />
+          <variable line="883" name="nil" />
+          <variable citdl="int" ilk="argument" name="skip_host" />
+          <variable citdl="str" ilk="argument" name="url" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable citdl="str" line="881" name="netloc" />
+          <variable citdl="netloc.encode()" line="887" name="netloc_enc" />
+          <variable citdl="int" ilk="argument" name="skip_accept_encoding" />
+          <variable ilk="argument" name="method" />
+        </scope>
+        <scope doc="Indicate that the last header line has been sent to the&#10;server." ilk="function" line="938" lineend="951" name="endheaders" signature="endheaders(message_body=None)">
+          <variable ilk="argument" name="message_body" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Send a request header line to the server." ilk="function" line="927" lineend="936" name="putheader" signature="putheader(header, *values)">
+          <variable ilk="argument" name="header" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="values" />
+          <variable citdl="str" line="935" name="hdr" />
+        </scope>
+        <scope doc="Send the currently buffered request and clear the buffer." ilk="function" line="796" lineend="815" name="_send_output" signature="_send_output(message_body=None)">
+          <variable ilk="argument" name="message_body" />
+          <variable citdl="str.join()" line="803" name="msg" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="730" lineend="748" name="_tunnel" signature="_tunnel()">
+          <variable line="738" name="code" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable citdl="response_class()" line="736" name="response" />
+          <variable line="738" name="version" />
+          <variable citdl="response.fp.readline()" line="745" name="line" />
+          <variable line="738" name="message" />
+        </scope>
+        <scope doc="Send a complete request to the server." ilk="function" line="953" lineend="955" name="request" signature="request(method, url, body=None, headers={})">
+          <variable ilk="argument" name="url" />
+          <variable ilk="argument" name="body" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="method" />
+          <variable citdl="dict" ilk="argument" name="headers" />
+        </scope>
+        <scope ilk="function" line="710" lineend="725" name="_set_hostport" signature="_set_hostport(host, port)">
+          <variable citdl="host.rfind()" line="712" name="i" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable citdl="host.rfind()" line="713" name="j" />
+          <variable citdl="list" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Sets up the host and the port for the HTTP CONNECT&#10;Tunnelling." ilk="function" line="697" lineend="708" name="set_tunnel" signature="set_tunnel(host, port=None, headers=None)">
+          <variable ilk="argument" name="headers" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope doc="Get the response from the server." ilk="function" line="991" lineend="1038" name="getresponse" returns="response_class()" signature="getresponse(buffering=False)">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="buffering" />
+          <variable citdl="dict" line="1018" name="kwds" />
+          <variable citdl="tuple" line="1017" name="args" />
+          <variable citdl="response_class()" line="1025" name="response" />
+        </scope>
+        <scope doc="Add a line of output to the current request buffer." ilk="function" line="789" lineend="794" name="_output" signature="_output(s)">
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <scope ilk="function" line="974" lineend="989" name="_send_request" signature="_send_request(method, url, body, headers)">
+          <variable ilk="argument" name="body" />
+          <variable citdl="dict" line="977" name="skips" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="HTTPConnection" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="dict.fromkeys()" line="976" name="header_names" />
+          <variable ilk="argument" name="method" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="socket._GLOBAL_DEFAULT_TIMEOUT" line="682" name="timeout" />
+        <variable attributes="protected __instancevar__" line="690" name="_tunnel_port" />
+        <variable attributes="protected __instancevar__" citdl="list" line="685" name="_buffer" />
+        <variable attributes="private __instancevar__" citdl="response_class()" line="686" name="__response" />
+        <variable attributes="protected __instancevar__" line="689" name="_tunnel_host" />
+        <variable citdl="int" line="675" name="default_port" />
+        <variable attributes="__instancevar__" citdl="socket.create_connection()" line="684" name="sock" />
+        <variable attributes="__instancevar__" citdl="list" line="724" name="host" />
+        <variable citdl="int" line="678" name="strict" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="691" name="_tunnel_headers" />
+        <variable attributes="protected" citdl="str" line="672" name="_http_vsn_str" />
+        <variable attributes="protected" citdl="int" line="671" name="_http_vsn" />
+        <variable citdl="HTTPResponse" line="674" name="response_class" />
+        <variable citdl="int" line="677" name="debuglevel" />
+        <variable citdl="int" line="676" name="auto_open" />
+        <variable attributes="__instancevar__" line="683" name="source_address" />
+        <variable attributes="__instancevar__" citdl="int" line="725" name="port" />
+        <variable attributes="private __instancevar__" citdl="str" line="687" name="__state" />
+        <variable attributes="protected __instancevar__" line="688" name="_method" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="1195" lineend="1198" name="HTTPException" />
+      <scope classrefs="Message" doc="&#10;" ilk="class" line="218" lineend="323" name="HTTPMessage">
+        <scope doc="Read header lines." ilk="function" line="234" lineend="323" name="readheaders" signature="readheaders()">
+          <variable citdl="int" line="267" name="firstline" />
+          <variable citdl="HTTPMessage" ilk="argument" name="self" />
+          <variable citdl="tell()" line="268" name="startofline" />
+          <variable citdl="self.isheader()" line="266" name="headerseen" />
+          <variable citdl="self.fp.readline()" line="280" name="line" />
+          <variable citdl="self.fp.unread" line="270" name="unread" />
+          <variable citdl="self.fp.tell" line="272" name="tell" />
+        </scope>
+        <scope doc="Add more field data from a continuation line." ilk="function" line="229" lineend="232" name="addcontinue" signature="addcontinue(key, more)">
+          <variable citdl="HTTPMessage" ilk="argument" name="self" />
+          <variable line="231" name="prev" />
+          <variable ilk="argument" name="key" />
+          <variable ilk="argument" name="more" />
+        </scope>
+        <scope doc="Add header for field key handling repeats." ilk="function" line="220" lineend="227" name="addheader" signature="addheader(key, value)">
+          <variable citdl="HTTPMessage" ilk="argument" name="self" />
+          <variable citdl="self.dict.get()" line="222" name="prev" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="str.join()" line="226" name="combined" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="265" name="status" />
+        <variable attributes="__instancevar__" citdl="list" line="264" name="headers" />
+        <variable attributes="__instancevar__" citdl="str" line="263" name="unixfrom" />
+        <variable attributes="__instancevar__" citdl="dict" line="262" name="dict" />
+        <variable attributes="__instancevar__" citdl="int" line="279" name="seekable" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="325" lineend="666" name="HTTPResponse">
+        <scope ilk="function" line="486" lineend="514" name="_check_close" returns="bool" signature="_check_close()">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="self.msg.getheader()" line="487" name="conn" />
+          <variable citdl="self.msg.getheader()" line="509" name="pconn" />
+        </scope>
+        <scope ilk="function" line="654" lineend="655" name="fileno" returns="self.fp.fileno()" signature="fileno()">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="532" lineend="566" name="read" returns="self._read_chunked()" signature="read(amt=None)">
+          <variable citdl="self.fp.read()" line="546" name="s" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="amt" />
+        </scope>
+        <scope ilk="function" line="657" lineend="660" name="getheader" returns="self.msg.getheader()" signature="getheader(name, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="568" lineend="624" name="_read_chunked" returns="str.join()" signature="_read_chunked(amt)">
+          <variable citdl="line.find()" line="577" name="i" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="str" line="570" name="chunk_left" />
+          <variable citdl="list" line="571" name="value" />
+          <variable citdl="self.fp.readline()" line="574" name="line" />
+          <variable ilk="argument" name="amt" />
+        </scope>
+        <scope ilk="function" line="400" lineend="484" name="begin" signature="begin()">
+          <variable line="407" name="status" />
+          <variable citdl="self.msg.getheader()" line="448" name="tr_enc" />
+          <variable citdl="skip.strip()" line="412" name="skip" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="self.msg.getheader()" line="460" name="length" />
+          <variable line="407" name="reason" />
+          <variable line="407" name="version" />
+        </scope>
+        <scope ilk="function" line="521" lineend="528" name="isclosed" returns="bool" signature="isclosed()">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="363" lineend="398" name="_read_status" returns="tuple" signature="_read_status()">
+          <variable citdl="int()" line="373" name="status" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="str" line="373" name="version" />
+          <variable citdl="str" line="373" name="reason" />
+          <variable citdl="self.fp.readline()" line="365" name="line" />
+        </scope>
+        <scope doc="Read the number of bytes requested, compensating for partial&#10;reads." ilk="function" line="626" lineend="652" name="_safe_read" returns="str.join()" signature="_safe_read(amt)">
+          <variable citdl="list" line="645" name="s" />
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable citdl="self.fp.read()" line="647" name="chunk" />
+          <variable ilk="argument" name="amt" />
+        </scope>
+        <scope doc="Return list of (header, value) tuples." ilk="function" line="662" lineend="666" name="getheaders" returns="self.msg.items()" signature="getheaders()">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="516" lineend="519" name="close" signature="close()">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="335" lineend="361" name="__init__" signature="HTTPResponse(sock, debuglevel=0, strict=0, method=None, buffering=False)">
+          <variable citdl="HTTPResponse" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+          <variable citdl="int" ilk="argument" name="strict" />
+          <variable citdl="int" ilk="argument" name="debuglevel" />
+          <variable citdl="False" ilk="argument" name="buffering" />
+          <variable ilk="argument" name="method" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="sock.makefile()" line="339" name="fp" />
+        <variable attributes="__instancevar__" citdl="str" line="355" name="status" />
+        <variable attributes="__instancevar__" citdl="int" line="361" name="will_close" />
+        <variable attributes="__instancevar__" citdl="str" line="359" name="chunk_left" />
+        <variable attributes="__instancevar__" citdl="int" line="360" name="length" />
+        <variable attributes="__instancevar__" citdl="int" line="348" name="strict" />
+        <variable attributes="__instancevar__" citdl="reason.strip()" line="356" name="reason" />
+        <variable attributes="__instancevar__" citdl="int" line="354" name="version" />
+        <variable attributes="__instancevar__" citdl="int" line="347" name="debuglevel" />
+        <variable attributes="__instancevar__" citdl="HTTPMessage" line="351" name="msg" />
+        <variable attributes="__instancevar__" citdl="int" line="358" name="chunked" />
+        <variable attributes="protected __instancevar__" line="349" name="_method" />
+      </scope>
+      <scope classrefs="HTTP" doc="Compatibility with 1.5 httplib interface&#10;Python 1.5.2 did not have an HTTPS class, but it defined an interface for sending http requests that is also useful for https." ilk="class" line="1162" lineend="1185" name="HTTPS">
+        <scope ilk="function" line="1172" lineend="1185" name="__init__" signature="HTTPS(host='', port=None, key_file=None, cert_file=None, strict=None)">
+          <variable ilk="argument" name="cert_file" />
+          <variable ilk="argument" name="port" />
+          <variable ilk="argument" name="strict" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable ilk="argument" name="key_file" />
+          <variable citdl="HTTPS" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="1184" name="key_file" />
+        <variable attributes="__instancevar__" line="1185" name="cert_file" />
+        <variable attributes="protected" citdl="HTTPSConnection" line="1170" name="_connection_class" />
+      </scope>
+      <scope classrefs="HTTPConnection" doc="This class allows communication via SSL.&#10;" ilk="class" line="1137" lineend="1158" name="HTTPSConnection">
+        <scope doc="Connect to a host on a given (SSL) port." ilk="function" line="1150" lineend="1158" name="connect" signature="connect()">
+          <variable citdl="HTTPSConnection" ilk="argument" name="self" />
+          <variable citdl="socket.create_connection()" line="1153" name="sock" />
+        </scope>
+        <scope ilk="function" line="1142" lineend="1148" name="__init__" signature="HTTPSConnection(host, port=None, key_file=None, cert_file=None, strict=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT, source_address=None)">
+          <variable ilk="argument" name="cert_file" />
+          <variable ilk="argument" name="port" />
+          <variable ilk="argument" name="strict" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable ilk="argument" name="key_file" />
+          <variable ilk="argument" name="source_address" />
+          <variable citdl="HTTPSConnection" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="1148" name="cert_file" />
+        <variable attributes="__instancevar__" citdl="socket.create_connection()" line="1156" name="sock" />
+        <variable attributes="__instancevar__" line="1147" name="key_file" />
+        <variable citdl="int" line="1140" name="default_port" />
+      </scope>
+      <variable citdl="int" line="94" name="HTTPS_PORT" />
+      <variable citdl="int" line="93" name="HTTP_PORT" />
+      <variable citdl="int" line="159" name="HTTP_VERSION_NOT_SUPPORTED" />
+      <variable citdl="int" line="118" name="IM_USED" />
+      <variable citdl="int" line="160" name="INSUFFICIENT_STORAGE" />
+      <variable citdl="int" line="154" name="INTERNAL_SERVER_ERROR" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1231" lineend="1232" name="ImproperConnectionState" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1217" lineend="1229" name="IncompleteRead">
+        <scope ilk="function" line="1228" lineend="1229" name="__str__" returns="repr()" signature="__str__()">
+          <variable citdl="IncompleteRead" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1218" lineend="1221" name="__init__" signature="IncompleteRead(partial, expected=None)">
+          <variable ilk="argument" name="expected" />
+          <variable citdl="IncompleteRead" ilk="argument" name="self" />
+          <variable ilk="argument" name="partial" />
+        </scope>
+        <scope ilk="function" line="1222" lineend="1227" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="IncompleteRead" ilk="argument" name="self" />
+          <variable citdl="str" line="1224" name="e" />
+        </scope>
+        <variable attributes="__instancevar__" line="1221" name="expected" />
+        <variable attributes="__instancevar__" citdl="tuple" line="1219" name="args" />
+        <variable attributes="__instancevar__" line="1220" name="partial" />
+      </scope>
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1203" lineend="1204" name="InvalidURL" />
+      <variable citdl="int" line="141" name="LENGTH_REQUIRED" />
+      <variable citdl="int" line="149" name="LOCKED" />
+      <scope doc="A limited file-like object for HTTP/0.9 responses.&#10;" ilk="class" line="1258" lineend="1324" name="LineAndFileWrapper">
+        <scope ilk="function" line="1276" lineend="1283" name="_done" signature="_done()">
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1285" lineend="1305" name="read" returns="self._file.read()" signature="read(amt=None)">
+          <variable citdl="int" line="1298" name="i" />
+          <variable citdl="list" line="1290" name="s" />
+          <variable line="1299" name="j" />
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="amt" />
+        </scope>
+        <scope ilk="function" line="1315" lineend="1324" name="readlines" returns="list" signature="readlines(size=None)">
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+          <variable citdl="list" line="1319" name="L" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="1273" lineend="1274" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope ilk="function" line="1307" lineend="1313" name="readline" returns="list" signature="readline()">
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+          <variable citdl="list" line="1311" name="s" />
+        </scope>
+        <scope ilk="function" line="1266" lineend="1271" name="__init__" signature="LineAndFileWrapper(line, file)">
+          <variable citdl="LineAndFileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1267" name="_line" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="1271" name="_line_left" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1269" name="_line_consumed" />
+        <variable attributes="protected __instancevar__" line="1268" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1270" name="_line_offset" />
+      </scope>
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1250" lineend="1253" name="LineTooLong">
+        <scope ilk="function" line="1251" lineend="1253" name="__init__" signature="LineTooLong(line_type)">
+          <variable citdl="LineTooLong" ilk="argument" name="self" />
+          <variable ilk="argument" name="line_type" />
+        </scope>
+      </scope>
+      <variable citdl="int" line="213" name="MAXAMOUNT" />
+      <variable citdl="int" line="135" name="METHOD_NOT_ALLOWED" />
+      <variable citdl="int" line="122" name="MOVED_PERMANENTLY" />
+      <variable citdl="int" line="121" name="MULTIPLE_CHOICES" />
+      <variable citdl="int" line="117" name="MULTI_STATUS" />
+      <variable citdl="int" line="113" name="NON_AUTHORITATIVE_INFORMATION" />
+      <variable citdl="int" line="136" name="NOT_ACCEPTABLE" />
+      <variable citdl="int" line="161" name="NOT_EXTENDED" />
+      <variable citdl="int" line="134" name="NOT_FOUND" />
+      <variable citdl="int" line="155" name="NOT_IMPLEMENTED" />
+      <variable citdl="int" line="125" name="NOT_MODIFIED" />
+      <variable citdl="int" line="114" name="NO_CONTENT" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1200" lineend="1201" name="NotConnected" />
+      <variable citdl="int" line="110" name="OK" />
+      <variable citdl="int" line="116" name="PARTIAL_CONTENT" />
+      <variable citdl="int" line="132" name="PAYMENT_REQUIRED" />
+      <variable citdl="int" line="142" name="PRECONDITION_FAILED" />
+      <variable citdl="int" line="107" name="PROCESSING" />
+      <variable citdl="int" line="137" name="PROXY_AUTHENTICATION_REQUIRED" />
+      <variable citdl="int" line="146" name="REQUESTED_RANGE_NOT_SATISFIABLE" />
+      <variable citdl="int" line="143" name="REQUEST_ENTITY_TOO_LARGE" />
+      <variable citdl="int" line="138" name="REQUEST_TIMEOUT" />
+      <variable citdl="int" line="144" name="REQUEST_URI_TOO_LONG" />
+      <variable citdl="int" line="115" name="RESET_CONTENT" />
+      <scope classrefs="ImproperConnectionState" doc="&#10;" ilk="class" line="1240" lineend="1241" name="ResponseNotReady" />
+      <variable citdl="int" line="124" name="SEE_OTHER" />
+      <variable citdl="int" line="157" name="SERVICE_UNAVAILABLE" />
+      <variable citdl="int" line="106" name="SWITCHING_PROTOCOLS" />
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="int" line="127" name="TEMPORARY_REDIRECT" />
+      <variable citdl="int" line="131" name="UNAUTHORIZED" />
+      <variable citdl="int" line="148" name="UNPROCESSABLE_ENTITY" />
+      <variable citdl="int" line="145" name="UNSUPPORTED_MEDIA_TYPE" />
+      <variable citdl="int" line="151" name="UPGRADE_REQUIRED" />
+      <variable citdl="int" line="126" name="USE_PROXY" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1214" lineend="1215" name="UnimplementedFileMode" />
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1206" lineend="1209" name="UnknownProtocol">
+        <scope ilk="function" line="1207" lineend="1209" name="__init__" signature="UnknownProtocol(version)">
+          <variable citdl="UnknownProtocol" ilk="argument" name="self" />
+          <variable ilk="argument" name="version" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tuple" line="1208" name="args" />
+        <variable attributes="__instancevar__" line="1209" name="version" />
+      </scope>
+      <scope classrefs="HTTPException" doc="&#10;" ilk="class" line="1211" lineend="1212" name="UnknownTransferEncoding" />
+      <variable citdl="list" line="86" name="__all__" />
+      <scope classrefs="object" doc="array(typecode [, initializer]) -&gt; array&#10;Return a new array whose items are restricted by typecode, and initialized from the optional initializer value, which must be a list, string. or iterable over elements of the appropriate type.  Arrays represent basic values and behave very much like lists, except the type of objects stored in them is constrained.  Methods:  append() -- append a new item to the end of the array" ilk="class" name="array">
+        <scope doc="Append items to array from list." ilk="function" name="fromlist" signature="fromlist(list)" />
+        <scope doc="Convert the array to a unicode string." ilk="function" name="tounicode" returns="unicode" signature="tounicode() -&gt; unicode" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Convert array to an ordinary list with the same items." ilk="function" name="tolist" returns="list" signature="tolist() -&gt; list" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return the i-th element and delete it from the array." ilk="function" name="pop" signature="pop([i])" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="tofile" signature="tofile(f)" />
+        <scope doc="Remove the first occurrence of x in the array." ilk="function" name="remove" signature="remove(x)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Append items to the end of the array." ilk="function" name="extend" signature="extend(array or iterable)" />
+        <scope doc="Append new value x to the end of the array." ilk="function" name="append" signature="append(x)" />
+        <scope doc="Return index of first occurrence of x in the array." ilk="function" name="index" signature="index(x)" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="write" signature="tofile(f)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="fromfile" signature="fromfile(f, n)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Insert a new item x into the array before position i." ilk="function" name="insert" signature="insert(i,x)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="read" signature="fromfile(f, n)" />
+        <scope doc="Return a copy of the array." ilk="function" name="__deepcopy__" signature="copy(array)" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="Convert the array to an array of machine values and return&#10;the string representation." ilk="function" name="tostring" returns="str" signature="tostring() -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Extends this array with data from the unicode string ustr." ilk="function" name="fromunicode" signature="fromunicode(ustr)" />
+        <scope doc="Reverse the order of the items in the array." ilk="function" name="reverse" signature="reverse()" />
+        <scope doc="Return number of occurrences of x in the array." ilk="function" name="count" signature="count(x)" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Return a tuple (address, length) giving the current memory&#10;address and the length in items of the buffer used to hold&#10;array's contents The length should be multiplied by the&#10;itemsize attribute to calculate the buffer length in bytes." ilk="function" name="buffer_info" signature="buffer_info() -&gt; (address, length)" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Appends items from the string, interpreting it as an array&#10;of machine values,as if it had been read from a file using&#10;the fromfile() method)." ilk="function" name="fromstring" signature="fromstring(string)" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Byteswap all items of the array." ilk="function" name="byteswap" signature="byteswap()" />
+        <scope doc="Return a copy of the array." ilk="function" name="__copy__" signature="copy(array)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="1256" name="error" />
+      <import module="mimetools" />
+      <import module="os" />
+      <variable citdl="bool" name="py3kwarning" />
+      <variable citdl="dict" line="164" name="responses" />
+      <import module="socket" />
+      <import module="ssl" />
+      <scope doc="Test this module." ilk="function" line="1326" lineend="1389" name="test" signature="test()">
+        <variable line="1348" name="status" />
+        <variable citdl="int" line="1336" name="dl" />
+        <scope classrefs="HTTP" ilk="class" line="1358" lineend="1360" name="HTTP11">
+          <variable attributes="protected" citdl="int" line="1359" name="_http_vsn" />
+          <variable attributes="protected" citdl="str" line="1360" name="_http_vsn_str" />
+        </scope>
+        <variable citdl="HTTP11" line="1343" name="h" />
+        <variable line="1335" name="args" />
+        <variable line="1348" name="reason" />
+        <variable citdl="str" line="1340" name="selector" />
+        <variable line="1348" name="headers" />
+        <variable citdl="str" line="1339" name="host" />
+        <variable citdl="HTTPS" line="1377" name="hs" />
+        <variable line="1335" name="opts" />
+      </scope>
+      <scope doc="Parse a URL into 5 components:&#10;&lt;scheme&gt;://&lt;netloc&gt;/&lt;path&gt;?&lt;query&gt;#&lt;fragment&gt; Return a&#10;5-tuple: (scheme, netloc, path, query, fragment)." ilk="function" name="urlsplit" signature="urlsplit(url, scheme='', allow_fragments=True)" />
+      <import module="warnings" />
+      <variable attributes="protected __hidden__" citdl="str" line="100" name="_CS_REQ_STARTED" />
+      <variable attributes="protected __hidden__" citdl="str" line="99" name="_CS_IDLE" />
+      <variable attributes="protected __hidden__" citdl="str" line="96" name="_UNKNOWN" />
+      <variable attributes="protected __hidden__" citdl="str" line="101" name="_CS_REQ_SENT" />
+      <variable attributes="protected __hidden__" citdl="int" line="216" name="_MAXLINE" />
+    </scope>
+    

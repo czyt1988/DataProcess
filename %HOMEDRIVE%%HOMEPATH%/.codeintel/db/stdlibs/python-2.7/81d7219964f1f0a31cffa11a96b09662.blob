@@ -1,0 +1,26 @@
+<scope doc="atexit.py - allow programmer to define multiple exit functions to be executed&#10;upon normal program termination.  One public function, register, is defined." ilk="blob" lang="Python" name="atexit">
+      <variable citdl="list" line="8" name="__all__" />
+      <scope doc="register a function to be executed upon normal program&#10;termination" ilk="function" line="37" lineend="47" name="register" signature="register(func, *targs, **kargs)">
+        <variable attributes="varargs" ilk="argument" name="targs" />
+        <variable ilk="argument" name="func" />
+        <variable attributes="kwargs" ilk="argument" name="kargs" />
+      </scope>
+      <import module="sys" />
+      <scope attributes="protected __hidden__" doc="run any registered exit functions" ilk="function" line="13" lineend="34" name="_run_exitfuncs" signature="_run_exitfuncs()">
+        <import line="28" module="traceback" />
+        <variable citdl="sys.exc_info()" line="20" name="exc_info" />
+        <variable line="22" name="func" />
+        <variable line="22" name="targs" />
+        <variable line="22" name="kargs" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="57" lineend="58" name="x2" signature="x2(n)">
+        <variable ilk="argument" name="n" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="55" lineend="56" name="x1" signature="x1()" />
+      <variable attributes="protected __hidden__" citdl="list" line="12" name="_exithandlers" />
+      <scope attributes="__hidden__" ilk="function" line="59" lineend="60" name="x3" signature="x3(n, kwd=None)">
+        <variable ilk="argument" name="n" />
+        <variable ilk="argument" name="kwd" />
+      </scope>
+    </scope>
+    

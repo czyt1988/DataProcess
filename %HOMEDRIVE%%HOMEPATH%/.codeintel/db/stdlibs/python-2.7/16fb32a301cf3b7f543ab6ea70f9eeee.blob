@@ -1,0 +1,394 @@
+<scope doc="distutils.dist&#10;Provides the Distribution class, which represents the module distribution being built/installed/distributed." ilk="blob" lang="Python" name="distutils.dist">
+      <variable citdl="NoneType" name="DEBUG" />
+      <scope doc="The core of the Distutils.  Most of the work hiding behind 'setup'&#10;is really done within a Distribution instance, which farms the work out to the Distutils commands specified on the command line.  Setup scripts will almost never instantiate Distribution directly, unless the 'setup()' function is totally inadequate to their needs. However, it is conceivable that a setup script might wish to subclass Distribution for some specialized purpose, and then pass the subclass to 'setup()' as the 'distclass' keyword argument.  If so, it is necessary to respect the expectations that 'setup' has of Distribution. See the code for 'setup()', in core.py, for details." ilk="class" line="34" lineend="1002" name="Distribution">
+        <scope doc="Parse the setup script's command line, taken from the&#10;'script_args' instance attribute (which defaults to&#10;'sys.argv[1:]' -- see 'setup()' in core.py)." ilk="function" line="423" lineend="488" name="parse_command_line" returns="int" signature="parse_command_line()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="self._parse_command_opts()" line="459" name="args" />
+          <variable citdl="FancyGetopt()" line="456" name="parser" />
+          <variable citdl="parser.get_option_order()" line="460" name="option_order" />
+          <variable citdl="self._get_toplevel_options()" line="446" name="toplevel_options" />
+        </scope>
+        <scope ilk="function" line="987" lineend="988" name="has_modules" returns="Distribution.has_pure_modules()" signature="has_modules()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a new Distribution instance: initialize all the&#10;attributes of a Distribution, and then use 'attrs' (a&#10;dictionary mapping attribute names to values) to assign some&#10;of those attributes their &quot;real&quot; values." ilk="function" line="128" lineend="287" name="__init__" signature="Distribution(attrs=None)">
+          <variable citdl="self.get_option_dict()" line="242" name="opt_dict" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="basename" line="153" name="method_name" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="str" line="249" name="msg" />
+          <variable citdl="attrs.get()" line="238" name="options" />
+        </scope>
+        <scope doc="Run each command that was seen on the setup script command&#10;line." ilk="function" line="947" lineend="953" name="run_commands" signature="run_commands()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="990" lineend="991" name="has_headers" returns="bool" signature="has_headers()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="377" lineend="419" name="parse_config_files" signature="parse_config_files(filenames=None)">
+          <variable citdl="opt.replace()" line="398" name="opt" />
+          <variable citdl="parser.get()" line="397" name="val" />
+          <variable citdl="get_option_dict()" line="393" name="opt_dict" />
+          <variable citdl="ConfigParser()" line="386" name="parser" />
+          <variable citdl="find_config_files()" ilk="argument" name="filenames" />
+          <variable citdl="self.negative_opt.get()" line="410" name="alias" />
+          <variable citdl="parser.options()" line="392" name="options" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the non-display options recognized at the top level." ilk="function" line="490" lineend="498" name="_get_toplevel_options" returns="list" signature="_get_toplevel_options()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="944" lineend="945" name="announce" signature="announce(msg, level=log.INFO)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="log.INFO" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Return a list of packages from which commands are loaded." ilk="function" line="782" lineend="792" name="get_command_packages" returns="str" signature="get_command_packages()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="list" line="784" name="pkgs" />
+        </scope>
+        <scope doc="Set the options for 'command_obj' from 'option_dict'." ilk="function" line="860" lineend="901" name="_set_command_options" signature="_set_command_options(command_obj, option_dict=None)">
+          <variable citdl="get_option_dict()" ilk="argument" name="option_dict" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="command_obj.negative_opt" line="884" name="neg_opt" />
+          <variable citdl="isinstance()" line="889" name="is_string" />
+          <variable citdl="list" line="880" name="bool_opts" />
+          <variable ilk="argument" name="command_obj" />
+          <variable citdl="command_obj.get_command_name()" line="869" name="command_name" />
+        </scope>
+        <scope doc="Reinitializes a command to the state it was in when first&#10;returned by 'get_command_obj()': ie., initialized but not&#10;yet finalized." ilk="function" line="903" lineend="940" name="reinitialize_command" returns="get_command_obj()" signature="reinitialize_command(command, reinit_subcommands=0)">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="get_command_obj()" ilk="argument" name="command" />
+          <variable citdl="int" ilk="argument" name="reinit_subcommands" />
+          <variable citdl="command.get_command_name()" line="924" name="command_name" />
+        </scope>
+        <scope doc="Parse the command-line options for a single command." ilk="function" line="501" lineend="592" name="_parse_command_opts" signature="_parse_command_opts(parser, args)">
+          <variable ilk="argument" name="args" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable ilk="argument" name="parser" />
+          <variable citdl="self.get_command_class()" line="523" name="cmd_class" />
+          <variable citdl="fix_help_options()" line="553" name="help_options" />
+          <variable line="514" name="command" />
+          <variable citdl="int" line="571" name="help_option_found" />
+          <variable citdl="get_option_dict()" line="588" name="opt_dict" />
+          <variable line="564" name="opts" />
+          <variable citdl="negative_opt.copy()" line="544" name="negative_opt" />
+        </scope>
+        <scope ilk="function" line="978" lineend="979" name="has_pure_modules" returns="bool" signature="has_pure_modules()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If there were any non-global &quot;display-only&quot; options (--help-&#10;commands or the metadata display options) on the command&#10;line, display the requested info and return true; else&#10;return false." ilk="function" line="657" lineend="695" name="handle_display_options" returns="int" signature="handle_display_options(option_order)">
+          <variable citdl="dict" line="678" name="is_display_option" />
+          <variable citdl="translate_longopt()" line="684" name="opt" />
+          <variable ilk="argument" name="option_order" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="getattr()()" line="685" name="value" />
+          <variable citdl="int" line="677" name="any_display_options" />
+        </scope>
+        <scope doc="Find as many configuration files as should be processed for&#10;this platform, and return a list of filenames in the order&#10;in which they should be parsed." ilk="function" line="329" lineend="375" name="find_config_files" returns="list" signature="find_config_files()">
+          <variable citdl="list" line="344" name="files" />
+          <variable citdl="str" line="368" name="local_file" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="363" name="user_file" />
+          <variable citdl="os.path.join()" line="351" name="sys_file" />
+          <variable citdl="os.path.dirname()" line="348" name="sys_dir" />
+          <variable citdl="str" line="357" name="user_filename" />
+        </scope>
+        <scope ilk="function" line="981" lineend="982" name="has_ext_modules" returns="bool" signature="has_ext_modules()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="999" lineend="1002" name="is_pure" returns="Distribution.has_pure_modules()" signature="is_pure()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="300" lineend="325" name="dump_option_dicts" signature="dump_option_dicts(header=None, commands=None, indent='')">
+          <variable citdl="self.command_options.keys()" ilk="argument" name="commands" />
+          <variable citdl="str" ilk="argument" name="indent" />
+          <variable citdl="self.command_options.get()" line="316" name="opt_dict" />
+          <variable ilk="argument" name="header" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="pformat()" line="323" name="out" />
+        </scope>
+        <scope doc="Print out a help message listing all available commands with&#10;a description of each." ilk="function" line="714" lineend="745" name="print_commands" signature="print_commands()">
+          <variable citdl="dict" line="724" name="is_std" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="int" line="733" name="max_length" />
+          <variable citdl="distutils.command.__all__" line="723" name="std_commands" />
+          <variable citdl="list" line="728" name="extra_commands" />
+        </scope>
+        <scope doc="Return the command object for 'command'." ilk="function" line="833" lineend="858" name="get_command_obj" returns="klass()" signature="get_command_obj(command, create=1)">
+          <variable citdl="self.command_obj.get()" line="839" name="cmd_obj" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="self.command_options.get()" line="854" name="options" />
+          <variable ilk="argument" name="command" />
+          <variable citdl="get_command_class()" line="845" name="klass" />
+          <variable citdl="int" ilk="argument" name="create" />
+        </scope>
+        <scope doc="Get a list of (command, description) tuples." ilk="function" line="747" lineend="778" name="get_command_list" returns="list" signature="get_command_list()">
+          <variable citdl="list" line="768" name="rv" />
+          <variable citdl="str" line="774" name="description" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="distutils.command.__all__" line="758" name="std_commands" />
+          <variable citdl="dict" line="759" name="is_std" />
+          <variable citdl="self.cmdclass.get()" line="770" name="klass" />
+          <variable citdl="list" line="763" name="extra_commands" />
+        </scope>
+        <scope doc="Show help for the setup script command-line in the form of&#10;several lists of command-line options." ilk="function" line="607" lineend="655" name="_show_help" signature="_show_help(parser, global_options=1, display_options=1, commands=[])">
+          <variable citdl="list" ilk="argument" name="commands" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable ilk="argument" name="parser" />
+          <variable citdl="int" ilk="argument" name="global_options" />
+          <variable citdl="int" ilk="argument" name="display_options" />
+          <variable citdl="self.get_command_class()" line="643" name="klass" />
+          <variable citdl="_get_toplevel_options()" line="627" name="options" />
+        </scope>
+        <scope ilk="function" line="996" lineend="997" name="has_data_files" returns="bool" signature="has_data_files()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="993" lineend="994" name="has_scripts" returns="bool" signature="has_scripts()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Print a subset of the list of all commands -- used by&#10;'print_commands()'." ilk="function" line="697" lineend="712" name="print_command_list" signature="print_command_list(commands, header, max_length)">
+          <variable ilk="argument" name="commands" />
+          <variable citdl="klass.description" line="708" name="description" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable ilk="argument" name="header" />
+          <variable ilk="argument" name="max_length" />
+          <variable citdl="self.get_command_class()" line="704" name="klass" />
+        </scope>
+        <scope ilk="function" line="984" lineend="985" name="has_c_libraries" returns="bool" signature="has_c_libraries()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the class that implements the Distutils command named&#10;by 'command'." ilk="function" line="794" lineend="830" name="get_command_class" returns="getattr()" signature="get_command_class(command)">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable line="816" name="module" />
+          <variable line="812" name="klass_name" />
+          <variable ilk="argument" name="command" />
+          <variable citdl="self.cmdclass.get()" line="806" name="klass" />
+          <variable citdl="str" line="811" name="module_name" />
+        </scope>
+        <scope doc="Set final values for all the options on the Distribution&#10;instance, analogous to the .finalize_options() method of&#10;Command objects." ilk="function" line="594" lineend="605" name="finalize_options" signature="finalize_options()">
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable citdl="list" line="600" name="value" />
+        </scope>
+        <scope doc="Get the option dictionary for a given command." ilk="function" line="289" lineend="298" name="get_option_dict" returns="dict" signature="get_option_dict(command)">
+          <variable citdl="self.command_options.get()" line="295" name="dict" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+        </scope>
+        <scope doc="Do whatever it takes to run a command (including nothing at&#10;all, if the command has already been run)." ilk="function" line="957" lineend="973" name="run_command" signature="run_command(command)">
+          <variable citdl="get_command_obj()" line="970" name="cmd_obj" />
+          <variable citdl="Distribution" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+        </scope>
+        <variable citdl="list" line="75" name="display_options" />
+        <variable attributes="__instancevar__" line="203" name="ext_modules" />
+        <variable attributes="__instancevar__" citdl="int" line="140" name="verbose" />
+        <variable attributes="__instancevar__" citdl="dict" line="181" name="command_options" />
+        <variable citdl="list" line="57" name="global_options" />
+        <variable attributes="__instancevar__" line="173" name="script_name" />
+        <variable attributes="__instancevar__" line="208" name="data_files" />
+        <variable citdl="map()" line="119" name="display_option_names" />
+        <variable attributes="__instancevar__" citdl="dict" line="215" name="command_obj" />
+        <variable attributes="__instancevar__" citdl="int" line="142" name="help" />
+        <variable attributes="__instancevar__" citdl="list" line="192" name="dist_files" />
+        <variable attributes="__instancevar__" citdl="str" line="209" name="password" />
+        <variable attributes="__instancevar__" citdl="int" line="141" name="dry_run" />
+        <variable attributes="__instancevar__" citdl="dict" line="160" name="cmdclass" />
+        <variable attributes="__instancevar__" line="200" name="py_modules" />
+        <variable attributes="__instancevar__" line="206" name="extra_path" />
+        <variable attributes="__instancevar__" line="204" name="ext_package" />
+        <variable attributes="__instancevar__" line="201" name="libraries" />
+        <variable attributes="__instancevar__" citdl="True" line="277" name="want_user_cfg" />
+        <variable citdl="dict" line="123" name="negative_opt" />
+        <variable attributes="__instancevar__" citdl="DistributionMetadata()" line="151" name="metadata" />
+        <variable citdl="str" line="67" name="common_usage" />
+        <variable attributes="__instancevar__" line="207" name="scripts" />
+        <variable attributes="__instancevar__" citdl="list" line="168" name="command_packages" />
+        <variable attributes="__instancevar__" line="197" name="packages" />
+        <variable attributes="__instancevar__" line="205" name="include_dirs" />
+        <variable attributes="__instancevar__" citdl="list" line="455" name="commands" />
+        <variable attributes="__instancevar__" line="199" name="package_dir" />
+        <variable attributes="__instancevar__" citdl="dict" line="227" name="have_run" />
+        <variable attributes="__instancevar__" line="202" name="headers" />
+        <variable attributes="__instancevar__" citdl="dict" line="198" name="package_data" />
+        <variable attributes="__instancevar__" line="174" name="script_args" />
+      </scope>
+      <scope doc="Dummy class to hold the distribution meta-data: name, version,&#10;author, and so forth." ilk="class" line="1011" lineend="1239" name="DistributionMetadata">
+        <scope doc="Reads the metadata values from a file object." ilk="function" line="1049" lineend="1099" name="read_pkg_file" signature="read_pkg_file(file)">
+          <variable line="1065" name="metadata_version" />
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <scope attributes="protected" ilk="function" line="1059" lineend="1063" name="_read_list" returns="msg.get_all()" signature="_read_list(name)">
+            <variable ilk="argument" name="name" />
+            <variable citdl="msg.get_all()" line="1060" name="values" />
+          </scope>
+          <variable ilk="argument" name="file" />
+          <variable citdl="message_from_file()" line="1051" name="msg" />
+          <scope attributes="protected" ilk="function" line="1053" lineend="1057" name="_read_field" signature="_read_field(name)">
+            <variable ilk="argument" name="name" />
+            <variable line="1054" name="value" />
+          </scope>
+        </scope>
+        <scope ilk="function" line="1232" lineend="1233" name="get_obsoletes" returns="read_pkg_file._read_list()" signature="get_obsoletes()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1168" lineend="1169" name="get_author" returns="str" signature="get_author()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1026" lineend="1047" name="__init__" signature="DistributionMetadata(path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1200" lineend="1201" name="get_keywords" returns="list" signature="get_keywords()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1216" lineend="1220" name="set_requires" signature="set_requires(value)">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="1206" lineend="1207" name="get_classifiers" returns="read_pkg_file._read_list()" signature="get_classifiers()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1162" lineend="1163" name="get_version" returns="str" signature="get_version()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1192" name="get_licence" />
+        <scope ilk="function" line="1197" lineend="1198" name="get_long_description" returns="str" signature="get_long_description()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1171" lineend="1172" name="get_author_email" returns="str" signature="get_author_email()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1235" lineend="1239" name="set_obsoletes" signature="set_obsoletes(value)">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="# PEP 314" ilk="function" line="1213" lineend="1214" name="get_requires" returns="read_pkg_file._read_list()" signature="get_requires()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1222" lineend="1223" name="get_provides" returns="read_pkg_file._read_list()" signature="get_provides()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1194" lineend="1195" name="get_description" returns="str" signature="get_description()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1225" lineend="1230" name="set_provides" signature="set_provides(value)">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="1209" lineend="1210" name="get_download_url" returns="str" signature="get_download_url()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1150" lineend="1155" name="_encode_field" returns="value.encode()" signature="_encode_field(value)">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="1177" lineend="1178" name="get_maintainer_email" returns="str" signature="get_maintainer_email()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1184" lineend="1185" name="get_contact_email" returns="str" signature="get_contact_email()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1174" lineend="1175" name="get_maintainer" returns="str" signature="get_maintainer()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write the PKG-INFO format data to a file object." ilk="function" line="1110" lineend="1141" name="write_pkg_file" signature="write_pkg_file(file)">
+          <variable citdl="str.join()" line="1131" name="keywords" />
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable citdl="str" line="1113" name="version" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="rfc822_escape()" line="1128" name="long_desc" />
+        </scope>
+        <scope ilk="function" line="1159" lineend="1160" name="get_name" returns="str" signature="get_name()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write the PKG-INFO file into the release tree." ilk="function" line="1101" lineend="1108" name="write_pkg_info" signature="write_pkg_info(base_dir)">
+          <variable citdl="open()" line="1104" name="pkg_info" />
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="base_dir" />
+        </scope>
+        <scope ilk="function" line="1203" lineend="1204" name="get_platforms" returns="read_pkg_file._read_list()" signature="get_platforms()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1146" lineend="1148" name="_write_list" signature="_write_list(file, name, values)">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="values" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="1143" lineend="1144" name="_write_field" signature="_write_field(file, name, value)">
+          <variable ilk="argument" name="value" />
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="1187" lineend="1188" name="get_url" returns="str" signature="get_url()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1190" lineend="1191" name="get_license" returns="str" signature="get_license()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1165" lineend="1166" name="get_fullname" returns="tuple" signature="get_fullname()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1180" lineend="1182" name="get_contact" returns="str" signature="get_contact()">
+          <variable citdl="DistributionMetadata" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1037" name="license" />
+        <variable attributes="__instancevar__" line="1034" name="maintainer" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1038" name="description" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_list()" line="1042" name="classifiers" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1032" name="author" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1033" name="author_email" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1036" name="url" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1043" name="download_url" />
+        <variable attributes="__instancevar__" line="1035" name="maintainer_email" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_list()" line="1041" name="platforms" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1031" name="version" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_list()" line="1047" name="obsoletes" />
+        <variable attributes="__instancevar__" citdl="list" line="1045" name="provides" />
+        <variable attributes="__instancevar__" line="1040" name="keywords" />
+        <variable attributes="protected" citdl="tuple" line="1016" name="_METHOD_BASENAMES" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_list()" line="1046" name="requires" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1039" name="long_description" />
+        <variable attributes="__instancevar__" citdl="read_pkg_file._read_field()" line="1030" name="name" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Raised by fancy_getopt in response to getopt.error -- ie. an&#10;error in the command line usage." ilk="class" name="DistutilsArgError" />
+      <scope classrefs="DistutilsError" doc="Some command class (or possibly distribution class, if anyone&#10;feels a need to subclass Distribution) is found not to be holding up its end of the bargain, ie. implementing some part of the &quot;command &quot;interface." ilk="class" name="DistutilsClassError" />
+      <scope classrefs="DistutilsError" doc="Unable to load an expected module, or to find an expected class&#10;within some module (in particular, command modules and classes)." ilk="class" name="DistutilsModuleError" />
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <scope doc="Wrapper around the standard 'getopt()' module that provides some&#10;handy extra functionality: * short and long options are tied together * options have help strings, and help text can be assembled from them * options set attributes of a passed-in object * boolean options can have &quot;negative aliases&quot; -- eg. if --quiet is the &quot;negative alias&quot; of --verbose, then &quot;--quiet&quot; on the command line sets 'verbose' to false" ilk="class" name="FancyGetopt">
+        <scope ilk="function" name="print_help" />
+        <scope doc="Populate the various data structures that keep tabs on the&#10;option table." ilk="function" name="_grok_option_table" />
+        <scope doc="Return true if the option table for this parser has an&#10;option with long name 'long_option'." ilk="function" name="has_option" />
+        <scope doc="Generate help text (a list of strings, one per suggested&#10;line of output) from the option table for this FancyGetopt&#10;object." ilk="function" name="generate_help" />
+        <scope doc="Translate long option name 'long_option' to the form it has&#10;as an attribute of some object: ie., translate hyphens to&#10;underscores." ilk="function" name="get_attr_name" />
+        <scope ilk="function" name="_check_alias_dict" />
+        <scope doc="Returns the list of (option, value) tuples processed by the&#10;previous run of 'getopt()'." ilk="function" name="get_option_order" />
+        <scope ilk="function" name="set_option_table" />
+        <scope ilk="function" name="_build_index" />
+        <scope ilk="function" name="add_option" />
+        <scope doc="Set the aliases for this option parser." ilk="function" name="set_aliases" />
+        <scope doc="Parse command-line options in args." ilk="function" name="getopt" />
+        <scope doc="Set the negative aliases for this option parser." ilk="function" name="set_negative_aliases" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" line="25" name="PKG_INFO_ENCODING" />
+      <variable citdl="str" line="7" name="__revision__" />
+      <scope doc="Ensure that 'os.environ' has all the environment variables&#10;we guarantee that users can use in config files, command-&#10;line options, etc." ilk="function" name="check_environ" signature="check_environ()" />
+      <variable citdl="SRE_Pattern" line="31" name="command_re" />
+      <scope doc="Convert a 4-tuple 'help_options' list as found in various&#10;command classes to the 3-tuple form required by FancyGetopt." ilk="function" line="1241" lineend="1248" name="fix_help_options" returns="list" signature="fix_help_options(options)">
+        <variable ilk="argument" name="options" />
+        <variable citdl="list" line="1245" name="new_options" />
+      </scope>
+      <import module="log" />
+      <scope doc="Read a file and parse its contents into a Message object&#10;model." ilk="function" name="message_from_file" signature="message_from_file(fp, *args, **kws)" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Return a version of the string escaped for inclusion in an&#10;RFC-822 header, by ensuring there are 8 spaces space after&#10;each newline." ilk="function" name="rfc822_escape" signature="rfc822_escape(header)" />
+      <scope doc="Convert a string representation of truth to true (1) or&#10;false (0)." ilk="function" name="strtobool" signature="strtobool(val)" />
+      <import module="sys" />
+      <scope doc="Convert a long option name to a valid Python identifier by&#10;changing &quot;-&quot; to &quot;_&quot;." ilk="function" name="translate_longopt" signature="translate_longopt(opt)" />
+      <import module="warnings" />
+      <variable attributes="__hidden__" line="15" name="warnings" />
+    </scope>
+    

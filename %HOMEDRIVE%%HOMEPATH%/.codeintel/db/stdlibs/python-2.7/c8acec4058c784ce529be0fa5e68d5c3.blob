@@ -1,0 +1,50 @@
+<scope doc="# Wrapper module for _elementtree&#10;" ilk="blob" lang="Python" name="xml.etree.cElementTree">
+      <variable citdl="__builtin__.CommentProxy" name="Comment" />
+      <scope doc="&#10;" ilk="class" name="CommentProxy">
+        <scope ilk="function" name="__call__" />
+        <scope ilk="function" name="__cmp__" />
+      </scope>
+      <scope ilk="function" name="Element" />
+      <import module="ElementPath" />
+      <scope classrefs="ElementTree" doc="&#10;" ilk="class" name="ElementTree">
+        <scope ilk="function" name="parse" />
+      </scope>
+      <variable citdl="__builtin__.PIProxy" name="PI" />
+      <scope doc="&#10;" ilk="class" name="PIProxy">
+        <scope ilk="function" name="__call__" />
+        <scope ilk="function" name="__cmp__" />
+      </scope>
+      <scope classrefs="SyntaxError" doc="&#10;" ilk="class" name="ParseError" />
+      <variable citdl="__builtin__.PIProxy" name="ProcessingInstruction" />
+      <scope doc="&#10;" ilk="class" name="PIProxy">
+        <scope ilk="function" name="__call__" />
+        <scope ilk="function" name="__cmp__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="QName">
+        <scope ilk="function" name="__str__" />
+        <scope ilk="function" name="__cmp__" />
+        <scope ilk="function" name="__hash__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" name="SubElement" />
+      <scope ilk="function" name="TreeBuilder" />
+      <variable citdl="str" name="VERSION" />
+      <scope ilk="function" name="XML" signature="XML(text)" />
+      <scope ilk="function" name="XMLID" signature="XMLID(text)" />
+      <scope ilk="function" name="XMLParser" />
+      <scope ilk="function" name="XMLTreeBuilder" />
+      <scope ilk="function" name="dump" signature="dump(elem)" />
+      <scope ilk="function" name="fromstring" signature="fromstring(text)" />
+      <scope ilk="function" name="fromstringlist" signature="fromstringlist(sequence, parser=None)" />
+      <scope ilk="function" name="iselement" signature="iselement(element)" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="iterparse">
+        <scope ilk="function" name="next" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" name="parse" signature="parse(source, parser=None)" />
+      <scope ilk="function" name="register_namespace" signature="register_namespace(prefix, uri)" />
+      <scope ilk="function" name="tostring" signature="tostring(element, encoding=None, method=None)" />
+      <scope ilk="function" name="tostringlist" signature="tostringlist(element, encoding=None, method=None)" />
+    </scope>
+    

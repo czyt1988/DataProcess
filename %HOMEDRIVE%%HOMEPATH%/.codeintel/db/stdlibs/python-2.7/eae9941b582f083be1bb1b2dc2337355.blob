@@ -1,0 +1,97 @@
+<scope doc="This module defines an object type which can efficiently represent&#10;an array of basic values: characters, integers, floating point numbers.  Arrays are sequence types and behave very much like lists, except that the type of objects stored in them is constrained.  The type is specified at object creation time by using a type code, which is a single character.  The following type codes are defined:  Type code   C Type             Minimum size in bytes 'c'         character          1 'b'         signed integer     1 'B'         unsigned integer   1" ilk="blob" lang="Python" name="array">
+      <scope classrefs="object" doc="array(typecode [, initializer]) -&gt; array&#10;Return a new array whose items are restricted by typecode, and initialized from the optional initializer value, which must be a list, string. or iterable over elements of the appropriate type.  Arrays represent basic values and behave very much like lists, except the type of objects stored in them is constrained.  Methods:  append() -- append a new item to the end of the array" ilk="class" name="ArrayType">
+        <scope doc="Append items to array from list." ilk="function" name="fromlist" signature="fromlist(list)" />
+        <scope doc="Convert the array to a unicode string." ilk="function" name="tounicode" returns="unicode" signature="tounicode() -&gt; unicode" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Convert array to an ordinary list with the same items." ilk="function" name="tolist" returns="list" signature="tolist() -&gt; list" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return the i-th element and delete it from the array." ilk="function" name="pop" signature="pop([i])" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="tofile" signature="tofile(f)" />
+        <scope doc="Remove the first occurrence of x in the array." ilk="function" name="remove" signature="remove(x)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Append items to the end of the array." ilk="function" name="extend" signature="extend(array or iterable)" />
+        <scope doc="Append new value x to the end of the array." ilk="function" name="append" signature="append(x)" />
+        <scope doc="Return index of first occurrence of x in the array." ilk="function" name="index" signature="index(x)" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="write" signature="tofile(f)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="fromfile" signature="fromfile(f, n)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Insert a new item x into the array before position i." ilk="function" name="insert" signature="insert(i,x)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="read" signature="fromfile(f, n)" />
+        <scope doc="Return a copy of the array." ilk="function" name="__deepcopy__" signature="copy(array)" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="Convert the array to an array of machine values and return&#10;the string representation." ilk="function" name="tostring" returns="str" signature="tostring() -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Extends this array with data from the unicode string ustr." ilk="function" name="fromunicode" signature="fromunicode(ustr)" />
+        <scope doc="Reverse the order of the items in the array." ilk="function" name="reverse" signature="reverse()" />
+        <scope doc="Return number of occurrences of x in the array." ilk="function" name="count" signature="count(x)" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Return a tuple (address, length) giving the current memory&#10;address and the length in items of the buffer used to hold&#10;array's contents The length should be multiplied by the&#10;itemsize attribute to calculate the buffer length in bytes." ilk="function" name="buffer_info" signature="buffer_info() -&gt; (address, length)" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Appends items from the string, interpreting it as an array&#10;of machine values,as if it had been read from a file using&#10;the fromfile() method)." ilk="function" name="fromstring" signature="fromstring(string)" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Byteswap all items of the array." ilk="function" name="byteswap" signature="byteswap()" />
+        <scope doc="Return a copy of the array." ilk="function" name="__copy__" signature="copy(array)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="object" doc="array(typecode [, initializer]) -&gt; array&#10;Return a new array whose items are restricted by typecode, and initialized from the optional initializer value, which must be a list, string. or iterable over elements of the appropriate type.  Arrays represent basic values and behave very much like lists, except the type of objects stored in them is constrained.  Methods:  append() -- append a new item to the end of the array" ilk="class" name="array">
+        <scope doc="Append items to array from list." ilk="function" name="fromlist" signature="fromlist(list)" />
+        <scope doc="Convert the array to a unicode string." ilk="function" name="tounicode" returns="unicode" signature="tounicode() -&gt; unicode" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Convert array to an ordinary list with the same items." ilk="function" name="tolist" returns="list" signature="tolist() -&gt; list" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return the i-th element and delete it from the array." ilk="function" name="pop" signature="pop([i])" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="tofile" signature="tofile(f)" />
+        <scope doc="Remove the first occurrence of x in the array." ilk="function" name="remove" signature="remove(x)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Append items to the end of the array." ilk="function" name="extend" signature="extend(array or iterable)" />
+        <scope doc="Append new value x to the end of the array." ilk="function" name="append" signature="append(x)" />
+        <scope doc="Return index of first occurrence of x in the array." ilk="function" name="index" signature="index(x)" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Write all items (as machine values) to the file object f." ilk="function" name="write" signature="tofile(f)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="fromfile" signature="fromfile(f, n)" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Insert a new item x into the array before position i." ilk="function" name="insert" signature="insert(i,x)" />
+        <scope doc="Read n objects from the file object f and append them to the&#10;end of the array." ilk="function" name="read" signature="fromfile(f, n)" />
+        <scope doc="Return a copy of the array." ilk="function" name="__deepcopy__" signature="copy(array)" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="Convert the array to an array of machine values and return&#10;the string representation." ilk="function" name="tostring" returns="str" signature="tostring() -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Extends this array with data from the unicode string ustr." ilk="function" name="fromunicode" signature="fromunicode(ustr)" />
+        <scope doc="Reverse the order of the items in the array." ilk="function" name="reverse" signature="reverse()" />
+        <scope doc="Return number of occurrences of x in the array." ilk="function" name="count" signature="count(x)" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Return a tuple (address, length) giving the current memory&#10;address and the length in items of the buffer used to hold&#10;array's contents The length should be multiplied by the&#10;itemsize attribute to calculate the buffer length in bytes." ilk="function" name="buffer_info" signature="buffer_info() -&gt; (address, length)" />
+        <scope doc="x.__imul__(y) &lt;==&gt; x*=y" ilk="function" name="__imul__" signature="x.__imul__(y) &lt;==&gt; x*=y" />
+        <scope doc="Appends items from the string, interpreting it as an array&#10;of machine values,as if it had been read from a file using&#10;the fromfile() method)." ilk="function" name="fromstring" signature="fromstring(string)" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Byteswap all items of the array." ilk="function" name="byteswap" signature="byteswap()" />
+        <scope doc="Return a copy of the array." ilk="function" name="__copy__" signature="copy(array)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+    </scope>
+    

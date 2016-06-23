@@ -1,0 +1,179 @@
+<scope doc="Implements (a subset of) Sun XDR -- eXternal Data Representation.&#10;See: RFC 1014" ilk="blob" lang="Python" name="xdrlib">
+      <scope classrefs="Error" doc="&#10;" ilk="class" line="34" lineend="35" name="ConversionError" />
+      <scope classrefs="Exception" doc="Exception class for this module. Use:&#10;except xdrlib.Error, var: # var has the Error instance for the exception  Public ivars: msg -- contains the message" ilk="class" line="16" lineend="31" name="Error">
+        <scope ilk="function" line="30" lineend="31" name="__str__" returns="str()" signature="__str__()">
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="28" lineend="29" name="__repr__" returns="repr()" signature="__repr__()">
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="26" lineend="27" name="__init__" signature="Error(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="27" name="msg" />
+      </scope>
+      <scope doc="Pack various data representations into a buffer.&#10;" ilk="class" line="39" lineend="114" name="Packer">
+        <scope ilk="function" line="96" name="pack_opaque" />
+        <scope ilk="function" line="53" lineend="54" name="pack_uint" signature="pack_uint(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="71" lineend="74" name="pack_float" signature="pack_float(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="111" lineend="114" name="pack_array" signature="pack_array(list, pack_item)">
+          <variable citdl="Packer" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable ilk="argument" name="pack_item" />
+          <variable citdl="len()" line="112" name="n" />
+        </scope>
+        <scope ilk="function" line="81" lineend="87" name="pack_fstring" signature="pack_fstring(n, s)">
+          <variable citdl="Packer" ilk="argument" name="self" />
+          <variable citdl="list" line="84" name="data" />
+          <variable ilk="argument" name="s" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="42" lineend="43" name="__init__" signature="Packer()">
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="59" name="pack_enum" />
+        <scope ilk="function" line="61" lineend="63" name="pack_bool" signature="pack_bool(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="89" name="pack_fopaque" />
+        <scope ilk="function" line="91" lineend="94" name="pack_string" signature="pack_string(s)">
+          <variable citdl="Packer" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+          <variable citdl="len()" line="92" name="n" />
+        </scope>
+        <scope ilk="function" line="51" name="get_buf" />
+        <scope ilk="function" line="76" lineend="79" name="pack_double" signature="pack_double(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="105" lineend="109" name="pack_farray" signature="pack_farray(n, list, pack_item)">
+          <variable citdl="Packer" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable ilk="argument" name="pack_item" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="99" lineend="103" name="pack_list" signature="pack_list(list, pack_item)">
+          <variable citdl="Packer" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+          <variable ilk="argument" name="pack_item" />
+        </scope>
+        <scope ilk="function" line="69" name="pack_hyper" />
+        <scope ilk="function" line="48" lineend="49" name="get_buffer" returns="self.__buf.getvalue()" signature="get_buffer()">
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="45" lineend="46" name="reset" signature="reset()">
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="56" lineend="57" name="pack_int" signature="pack_int(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="67" name="pack_uhyper" signature="pack_uhyper(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Packer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="97" name="pack_bytes" />
+        <variable attributes="private __instancevar__" citdl="_StringIO()" line="46" name="__buf" />
+      </scope>
+      <scope doc="Unpacks various data representations from the given buffer.&#10;" ilk="class" line="118" lineend="231" name="Unpacker">
+        <scope ilk="function" line="223" lineend="227" name="unpack_farray" returns="list" signature="unpack_farray(n, unpack_item)">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable ilk="argument" name="unpack_item" />
+          <variable citdl="list" line="224" name="list" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="177" lineend="183" name="unpack_float" signature="unpack_float()">
+          <variable citdl="int" line="178" name="i" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="180" name="data" />
+        </scope>
+        <scope ilk="function" line="137" lineend="139" name="done" signature="done()">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="131" lineend="132" name="set_position" signature="set_position(position)">
+          <variable ilk="argument" name="position" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="121" lineend="122" name="__init__" signature="Unpacker(data)">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="161" name="unpack_enum" />
+        <scope ilk="function" line="193" lineend="201" name="unpack_fstring" returns="list" signature="unpack_fstring(n)">
+          <variable citdl="int" line="196" name="i" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="int" line="197" name="j" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="128" lineend="129" name="get_position" returns="int" signature="get_position()">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="185" lineend="191" name="unpack_double" signature="unpack_double()">
+          <variable citdl="int" line="186" name="i" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="188" name="data" />
+        </scope>
+        <scope ilk="function" line="171" lineend="175" name="unpack_hyper" returns="unpack_uhyper()" signature="unpack_hyper()">
+          <variable citdl="unpack_uhyper()" line="172" name="x" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="209" name="unpack_opaque" />
+        <scope ilk="function" line="166" lineend="169" name="unpack_uhyper" returns="int" signature="unpack_uhyper()">
+          <variable citdl="unpack_uint()" line="168" name="lo" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="unpack_uint()" line="167" name="hi" />
+        </scope>
+        <scope ilk="function" line="163" lineend="164" name="unpack_bool" returns="bool()" signature="unpack_bool()">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="153" lineend="159" name="unpack_int" signature="unpack_int()">
+          <variable citdl="int" line="154" name="i" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="156" name="data" />
+        </scope>
+        <scope ilk="function" line="134" lineend="135" name="get_buffer" signature="get_buffer()">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="124" lineend="126" name="reset" signature="reset(data)">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="141" lineend="151" name="unpack_uint" returns="int()" signature="unpack_uint()">
+          <variable citdl="int" line="142" name="i" />
+          <variable line="147" name="x" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="144" name="data" />
+        </scope>
+        <scope ilk="function" line="229" lineend="231" name="unpack_array" returns="Unpacker.unpack_farray()" signature="unpack_array(unpack_item)">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="unpack_uint()" line="230" name="n" />
+          <variable ilk="argument" name="unpack_item" />
+        </scope>
+        <scope ilk="function" line="210" name="unpack_bytes" />
+        <scope ilk="function" line="212" lineend="221" name="unpack_list" returns="list" signature="unpack_list(unpack_item)">
+          <variable citdl="unpack_uint()" line="215" name="x" />
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="213" name="list" />
+          <variable citdl="unpack_item()" line="219" name="item" />
+          <variable ilk="argument" name="unpack_item" />
+        </scope>
+        <scope ilk="function" line="203" name="unpack_fopaque" />
+        <scope ilk="function" line="205" lineend="207" name="unpack_string" returns="Unpacker.unpack_fstring()" signature="unpack_string()">
+          <variable citdl="Unpacker" ilk="argument" name="self" />
+          <variable citdl="unpack_uint()" line="206" name="n" />
+        </scope>
+        <variable attributes="private __instancevar__" line="125" name="__buf" />
+        <variable attributes="private __instancevar__" citdl="int" line="126" name="__pos" />
+      </scope>
+      <variable citdl="list" line="13" name="__all__" />
+      <import module="struct" />
+    </scope>
+    

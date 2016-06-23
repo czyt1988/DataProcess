@@ -1,0 +1,86 @@
+<scope doc="Various utility functions.&#10;" ilk="blob" lang="Python" name="unittest.util">
+      <scope classrefs="dict" doc="Dictionary that remembers insertion order&#10;" ilk="class" name="OrderedDict">
+        <scope doc="od.__ne__(y) &lt;==&gt; od!=y" ilk="function" name="__ne__" signature="od.__ne__(y) &lt;==&gt; od!=y" />
+        <scope doc="od.keys() -&gt; list of keys in od" ilk="function" name="keys" returns="list" signature="od.keys() -&gt; list of keys in od" />
+        <scope doc="od.iteritems -&gt; an iterator over the (key, value) pairs in&#10;od" ilk="function" name="iteritems" />
+        <scope doc="Return state information for pickling" ilk="function" name="__reduce__" />
+        <scope ilk="function" name="update" />
+        <scope doc="value." ilk="function" name="pop" signature="od.pop(k[,d]) -&gt; v, remove specified key and return the corresponding" />
+        <scope doc="od.__iter__() &lt;==&gt; iter(od)" ilk="function" name="__iter__" signature="od.__iter__() &lt;==&gt; iter(od)" />
+        <scope doc="od.viewkeys() -&gt; a set-like object providing a view on od's keys" ilk="function" name="viewkeys" signature="od.viewkeys() -&gt; a set-like object providing a view on od's keys" />
+        <scope doc="Pairs are returned in LIFO order if last is true or FIFO&#10;order if false." ilk="function" name="popitem" signature="od.popitem() -&gt; (k, v), return and remove a (key, value) pair." />
+        <scope doc="od.copy() -&gt; a shallow copy of od" ilk="function" name="copy" signature="od.copy() -&gt; a shallow copy of od" />
+        <scope doc="while comparison to a regular mapping is order-insensitive." ilk="function" name="__eq__" signature="od.__eq__(y) &lt;==&gt; od==y.  Comparison to another OD is order-sensitive" />
+        <scope doc="Initialize an ordered dictionary." ilk="function" name="__init__" />
+        <scope doc="od.viewitems() -&gt; a set-like object providing a view on od's items" ilk="function" name="viewitems" signature="od.viewitems() -&gt; a set-like object providing a view on od's items" />
+        <scope doc="od.__delitem__(y) &lt;==&gt; del od[y]" ilk="function" name="__delitem__" signature="od.__delitem__(y) &lt;==&gt; del od[y]" />
+        <scope doc="If not specified, the value defaults to None." ilk="function" name="fromkeys" signature="OD.fromkeys(S[, v]) -&gt; New ordered dictionary with keys from S." />
+        <scope doc="od.setdefault(k[,d]) -&gt; od.get(k,d), also set od[k]=d if k not in od" ilk="function" name="setdefault" signature="od.setdefault(k[,d]) -&gt; od.get(k,d), also set od[k]=d if k not in od" />
+        <scope doc="od.viewvalues() -&gt; an object providing a view on od's values" ilk="function" name="viewvalues" signature="od.viewvalues() -&gt; an object providing a view on od's values" />
+        <scope doc="od.items() -&gt; list of (key, value) pairs in od" ilk="function" name="items" returns="list" signature="od.items() -&gt; list of (key, value) pairs in od" />
+        <scope doc="od.clear() -&gt; None.  Remove all items from od." ilk="function" name="clear" signature="od.clear() -&gt; None.  Remove all items from od." />
+        <scope doc="od.__setitem__(i, y) &lt;==&gt; od[i]=y" ilk="function" name="__setitem__" signature="od.__setitem__(i, y) &lt;==&gt; od[i]=y" />
+        <scope doc="od.__reversed__() &lt;==&gt; reversed(od)" ilk="function" name="__reversed__" signature="od.__reversed__() &lt;==&gt; reversed(od)" />
+        <scope doc="od.values() -&gt; list of values in od" ilk="function" name="values" returns="list" signature="od.values() -&gt; list of values in od" />
+        <scope doc="od.iterkeys() -&gt; an iterator over the keys in od" ilk="function" name="iterkeys" signature="od.iterkeys() -&gt; an iterator over the keys in od" />
+        <scope doc="od.itervalues -&gt; an iterator over the values in od" ilk="function" name="itervalues" />
+        <scope ilk="function" name="_OrderedDict__update" />
+        <scope doc="od.__repr__() &lt;==&gt; repr(od)" ilk="function" name="__repr__" signature="od.__repr__() &lt;==&gt; repr(od)" />
+      </scope>
+      <scope doc="Returns a new subclass of tuple with named fields." ilk="function" name="namedtuple" signature="namedtuple(typename, field_names, verbose=False, rename=False)" />
+      <scope ilk="function" line="8" lineend="15" name="safe_repr" returns="repr()" signature="safe_repr(obj, short=False)">
+        <variable citdl="False" ilk="argument" name="short" />
+        <variable ilk="argument" name="obj" />
+        <variable citdl="repr()" line="10" name="result" />
+      </scope>
+      <scope doc="Finds elements in only one or the other of two, sorted input&#10;lists." ilk="function" line="21" lineend="59" name="sorted_list_difference" returns="tuple" signature="sorted_list_difference(expected, actual)">
+        <variable line="35" name="a" />
+        <variable citdl="list" line="31" name="unexpected" />
+        <variable ilk="argument" name="actual" />
+        <variable citdl="list" line="30" name="missing" />
+        <variable citdl="int" line="29" name="i" />
+        <variable ilk="argument" name="expected" />
+        <variable line="34" name="e" />
+      </scope>
+      <scope ilk="function" line="18" lineend="19" name="strclass" returns="tuple" signature="strclass(cls)">
+        <variable ilk="argument" name="cls" />
+      </scope>
+      <scope doc="Same behavior as sorted_list_difference but for lists of&#10;unorderable items (like dicts)." ilk="function" line="62" lineend="96" name="unorderable_list_difference" returns="tuple" signature="unorderable_list_difference(expected, actual, ignore_duplicate=False)">
+        <variable citdl="list" line="70" name="unexpected" />
+        <variable ilk="argument" name="actual" />
+        <variable citdl="list" line="69" name="missing" />
+        <variable citdl="False" ilk="argument" name="ignore_duplicate" />
+        <variable citdl="actual.pop()" line="72" name="item" />
+        <variable ilk="argument" name="expected" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="7" name="_MAX_LENGTH" />
+      <variable attributes="private __hidden__" citdl="True" line="5" name="__unittest" />
+      <variable attributes="protected __hidden__" citdl="namedtuple()" line="98" name="_Mismatch" />
+      <scope attributes="protected __hidden__" doc="Return dict of element counts, in the order they were first&#10;seen" ilk="function" line="135" lineend="140" name="_ordered_count" returns="OrderedDict()" signature="_ordered_count(iterable)">
+        <variable ilk="argument" name="iterable" />
+        <variable citdl="OrderedDict()" line="137" name="c" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Returns list of (cnt_act, cnt_exp, elem) triples where the&#10;counts differ" ilk="function" line="142" lineend="156" name="_count_diff_hashable" returns="list" signature="_count_diff_hashable(actual, expected)">
+        <variable ilk="argument" name="actual" />
+        <variable ilk="argument" name="expected" />
+        <variable citdl="_ordered_count()" line="145" name="s" />
+        <variable citdl="_ordered_count()" line="145" name="t" />
+        <variable citdl="list" line="146" name="result" />
+        <variable citdl="t.get()" line="148" name="cnt_t" />
+        <variable citdl="_Mismatch()" line="150" name="diff" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Returns list of (cnt_act, cnt_exp, elem) triples where the&#10;counts differ" ilk="function" line="100" lineend="133" name="_count_diff_all_purpose" returns="list" signature="_count_diff_all_purpose(actual, expected)">
+        <variable ilk="argument" name="actual" />
+        <variable ilk="argument" name="expected" />
+        <variable citdl="list()" line="103" name="s" />
+        <variable citdl="list()" line="103" name="t" />
+        <variable citdl="len()" line="104" name="m" />
+        <variable citdl="len()" line="104" name="n" />
+        <variable citdl="object()" line="105" name="NULL" />
+        <variable citdl="list" line="106" name="result" />
+        <variable citdl="int" line="110" name="cnt_s" />
+        <variable citdl="_Mismatch()" line="120" name="diff" />
+        <variable citdl="int" line="126" name="cnt_t" />
+      </scope>
+    </scope>
+    

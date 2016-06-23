@@ -1,0 +1,23 @@
+<scope doc="Fixer for intern().&#10;intern(s) -&gt; sys.intern(s)" ilk="blob" lang="Python" name="lib2to3.fixes.fix_intern">
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="14" lineend="46" name="FixIntern">
+        <scope ilk="function" line="28" lineend="46" name="transform" returns="pytree.Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="obj.clone()" line="32" name="newarglist" />
+          <variable citdl="FixIntern" ilk="argument" name="self" />
+          <variable citdl="list" line="35" name="after" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="self.syms" line="29" name="syms" />
+          <variable citdl="pytree.Node()" line="38" name="new" />
+          <variable line="30" name="obj" />
+        </scope>
+        <variable citdl="str" line="18" name="PATTERN" />
+        <variable citdl="str" line="16" name="order" />
+        <variable citdl="True" line="15" name="BM_compatible" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <import module="pytree" />
+      <scope doc="Works like `does_tree_import` but adds an import statement&#10;if it was not imported." ilk="function" name="touch_import" signature="touch_import(package, name, node)" />
+    </scope>
+    

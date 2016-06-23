@@ -1,0 +1,59 @@
+<scope doc="This module provides mechanisms to use signal handlers in Python.&#10;Functions:  alarm() -- cause SIGALRM after a specified time [Unix only] setitimer() -- cause a signal (described below) after a specified float time and the timer may restart then [Unix only] getitimer() -- get current value of timer [Unix only] signal() -- set the action for a given signal getsignal() -- get the signal action for a given signal pause() -- wait until a signal arrives [Unix only] default_int_handler() -- default SIGINT handler" ilk="blob" lang="Python" name="signal">
+      <variable citdl="int" name="CTRL_BREAK_EVENT" />
+      <variable citdl="int" name="CTRL_C_EVENT" />
+      <variable citdl="int" name="NSIG" />
+      <variable citdl="int" name="SIGABRT" />
+      <variable citdl="int" name="SIGBREAK" />
+      <variable citdl="int" name="SIGFPE" />
+      <variable citdl="int" name="SIGILL" />
+      <variable citdl="int" name="SIGINT" />
+      <variable citdl="int" name="SIGSEGV" />
+      <variable citdl="int" name="SIGTERM" />
+      <variable citdl="int" name="SIG_DFL" />
+      <variable citdl="int" name="SIG_IGN" />
+      <scope doc="The default handler for SIGINT installed by Python." ilk="function" name="default_int_handler" signature="default_int_handler(...)" />
+      <scope doc="Return the current action for the given signal." ilk="function" name="getsignal" signature="getsignal(sig) -&gt; action" />
+      <scope doc="Sets the fd to be written to (with '\0') when a signal comes&#10;in." ilk="function" name="set_wakeup_fd" signature="set_wakeup_fd(fd) -&gt; fd" />
+      <scope doc="Set the action for the given signal." ilk="function" name="signal" signature="signal(sig, action) -&gt; action" />
+      <variable citdl="int" name="SIGHUP" />
+      <variable citdl="int" name="SIGSYS" />
+      <variable citdl="int" name="SIGQUIT" />
+      <variable citdl="int" name="SIGUSR1" />
+      <scope doc="change system call restart behaviour: if flag is False,&#10;system calls will be restarted when interrupted by signal&#10;sig, else system calls will be interrupted." ilk="function" name="siginterrupt" signature="siginterrupt(sig, flag) -&gt; None" />
+      <variable citdl="int" name="SIGTSTP" />
+      <variable citdl="long" name="ITIMER_REAL" />
+      <variable citdl="int" name="SIGWINCH" />
+      <variable citdl="int" name="SIGCLD" />
+      <scope doc="Returns current value of given itimer." ilk="function" name="getitimer" signature="getitimer(which)" />
+      <variable citdl="int" name="SIGIOT" />
+      <variable citdl="int" name="SIGBUS" />
+      <variable citdl="int" name="SIGXCPU" />
+      <scope classrefs="IOError" doc="&#10;" ilk="class" name="ItimerError" />
+      <variable citdl="int" name="SIGCONT" />
+      <variable citdl="int" name="SIGPROF" />
+      <variable citdl="int" name="SIGPOLL" />
+      <scope doc="Wait until a signal arrives." ilk="function" name="pause" signature="pause()" />
+      <variable citdl="int" name="SIGKILL" />
+      <variable citdl="int" name="SIGURG" />
+      <variable citdl="int" name="SIGIO" />
+      <variable citdl="int" name="SIGTRAP" />
+      <variable citdl="int" name="SIGUSR2" />
+      <variable citdl="int" name="SIGALRM" />
+      <variable citdl="int" name="SIGXFSZ" />
+      <variable citdl="int" name="SIGCHLD" />
+      <variable citdl="int" name="SIGPIPE" />
+      <variable citdl="int" name="SIGVTALRM" />
+      <variable citdl="long" name="ITIMER_PROF" />
+      <variable citdl="int" name="SIGRTMIN" />
+      <variable citdl="int" name="SIGRTMAX" />
+      <variable citdl="long" name="ITIMER_VIRTUAL" />
+      <scope doc="Sets given itimer (one of ITIMER_REAL, ITIMER_VIRTUAL or&#10;ITIMER_PROF) to fire after value seconds and after that&#10;every interval seconds." ilk="function" name="setitimer" signature="setitimer(which, seconds[, interval])" />
+      <scope doc="Arrange for SIGALRM to arrive after the given number of&#10;seconds." ilk="function" name="alarm" signature="alarm(seconds)" />
+      <variable citdl="int" name="SIGPWR" />
+      <variable citdl="int" name="SIGSTOP" />
+      <variable citdl="int" name="SIGTTOU" />
+      <variable citdl="int" name="SIGTTIN" />
+      <variable citdl="int" name="SIGINFO" />
+      <variable citdl="int" name="SIGEMT" />
+    </scope>
+    

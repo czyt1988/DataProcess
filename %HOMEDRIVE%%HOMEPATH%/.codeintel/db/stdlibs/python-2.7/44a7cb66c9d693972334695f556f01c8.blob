@@ -1,0 +1,185 @@
+<scope doc="# Copyright 2004-2005 Elemental Security, Inc. All Rights Reserved.&#10;# Licensed to PSF under a Contributor Agreement." ilk="blob" lang="Python" name="lib2to3.pgen2.pgen">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="347" lineend="382" name="DFAState">
+        <scope ilk="function" line="363" lineend="366" name="unifystate" signature="unifystate(old, new)">
+          <variable ilk="argument" name="new" />
+          <variable citdl="DFAState" ilk="argument" name="self" />
+          <variable ilk="argument" name="old" />
+        </scope>
+        <scope ilk="function" line="357" lineend="361" name="addarc" signature="addarc(next, label)">
+          <variable citdl="DFAState" ilk="argument" name="self" />
+          <variable ilk="argument" name="label" />
+          <variable ilk="argument" name="next" />
+        </scope>
+        <scope ilk="function" line="368" lineend="380" name="__eq__" returns="bool" signature="__eq__(other)">
+          <variable citdl="DFAState" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="349" lineend="355" name="__init__" signature="DFAState(nfaset, final)">
+          <variable ilk="argument" name="nfaset" />
+          <variable citdl="DFAState" ilk="argument" name="self" />
+          <variable ilk="argument" name="final" />
+        </scope>
+        <variable line="382" name="__hash__" />
+        <variable attributes="__instancevar__" line="353" name="nfaset" />
+        <variable attributes="__instancevar__" citdl="dict" line="355" name="arcs" />
+        <variable attributes="__instancevar__" citdl="bool" line="354" name="isfinal" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="337" lineend="345" name="NFAState">
+        <scope ilk="function" line="342" lineend="345" name="addarc" signature="addarc(next, label=None)">
+          <variable citdl="NFAState" ilk="argument" name="self" />
+          <variable ilk="argument" name="label" />
+          <variable ilk="argument" name="next" />
+        </scope>
+        <scope ilk="function" line="339" lineend="340" name="__init__" signature="NFAState()">
+          <variable citdl="NFAState" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="340" name="arcs" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="10" lineend="335" name="ParserGenerator">
+        <scope ilk="function" line="328" lineend="335" name="raise_error" signature="raise_error(msg, *args)">
+          <variable citdl="str.join()" ilk="argument" name="msg" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="27" lineend="50" name="make_grammar" returns="PgenGrammar" signature="make_grammar()">
+          <variable citdl="PgenGrammar" line="28" name="c" />
+          <variable citdl="list" line="41" name="arcs" />
+          <variable citdl="len()" line="34" name="i" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="list" line="39" name="states" />
+          <variable citdl="self.dfas.keys()" line="29" name="names" />
+          <variable line="38" name="dfa" />
+        </scope>
+        <scope ilk="function" line="115" lineend="143" name="calcfirst" signature="calcfirst(name)">
+          <variable line="124" name="fset" />
+          <variable citdl="dict" line="120" name="overlapcheck" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="dict" line="119" name="totalset" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="118" name="state" />
+          <variable citdl="dict" line="135" name="inverse" />
+          <variable line="116" name="dfa" />
+        </scope>
+        <scope ilk="function" line="169" lineend="203" name="make_dfa" returns="list" signature="make_dfa(start, finish)">
+          <scope ilk="function" line="176" lineend="179" name="closure" returns="dict" signature="closure(state)">
+            <variable ilk="argument" name="state" />
+            <variable citdl="dict" line="177" name="base" />
+          </scope>
+          <variable ilk="argument" name="finish" />
+          <variable citdl="dict" line="190" name="arcs" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <scope ilk="function" line="180" lineend="187" name="addclosure" signature="addclosure(state, base)">
+            <variable ilk="argument" name="state" />
+            <variable ilk="argument" name="base" />
+          </scope>
+          <variable citdl="DFAState()" line="200" name="st" />
+          <variable citdl="list" line="188" name="states" />
+          <variable ilk="argument" name="start" />
+        </scope>
+        <scope ilk="function" line="145" lineend="167" name="parse" returns="tuple" signature="parse()">
+          <variable line="155" name="a" />
+          <variable citdl="len()" line="162" name="newlen" />
+          <variable citdl="len()" line="160" name="oldlen" />
+          <variable citdl="self.expect()" line="153" name="name" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="self.expect()" line="147" name="startsymbol" />
+          <variable line="155" name="z" />
+          <variable citdl="self.make_dfa()" line="158" name="dfa" />
+          <variable citdl="dict" line="146" name="dfas" />
+        </scope>
+        <scope ilk="function" line="107" lineend="112" name="addfirstsets" signature="addfirstsets()">
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="self.dfas.keys()" line="108" name="names" />
+        </scope>
+        <scope ilk="function" line="52" lineend="59" name="make_first" returns="dict" signature="make_first(c, name)">
+          <variable ilk="argument" name="c" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.make_label()" line="56" name="ilabel" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="53" name="rawfirst" />
+          <variable citdl="dict" line="54" name="first" />
+        </scope>
+        <scope ilk="function" line="313" lineend="319" name="expect" returns="self.value" signature="expect(type, value=None)">
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable citdl="self.value" ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="12" lineend="25" name="__init__" signature="ParserGenerator(filename, stream=None)">
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="stream.close" line="13" name="close_stream" />
+          <variable citdl="open()" ilk="argument" name="stream" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="276" lineend="294" name="parse_item" returns="tuple" signature="parse_item()">
+          <variable line="280" name="a" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="280" name="z" />
+          <variable citdl="self.value" line="286" name="value" />
+        </scope>
+        <scope ilk="function" line="249" lineend="264" name="parse_rhs" returns="tuple" signature="parse_rhs()">
+          <variable line="251" name="a" />
+          <variable citdl="NFAState()" line="255" name="aa" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="251" name="z" />
+          <variable citdl="NFAState()" line="256" name="zz" />
+        </scope>
+        <scope ilk="function" line="228" lineend="247" name="simplify_dfa" signature="simplify_dfa(dfa)">
+          <variable citdl="True" line="235" name="changes" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="240" name="state_j" />
+          <variable ilk="argument" name="dfa" />
+        </scope>
+        <scope ilk="function" line="221" lineend="226" name="dump_dfa" signature="dump_dfa(name, dfa)">
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="dfa" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="266" lineend="274" name="parse_alt" returns="tuple" signature="parse_alt()">
+          <variable line="268" name="a" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable line="268" name="b" />
+          <variable line="271" name="c" />
+          <variable line="271" name="d" />
+        </scope>
+        <scope ilk="function" line="205" lineend="219" name="dump_nfa" signature="dump_nfa(name, start, finish)">
+          <variable ilk="argument" name="finish" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="todo.index()" line="212" name="j" />
+          <variable ilk="argument" name="start" />
+          <variable citdl="list" line="207" name="todo" />
+        </scope>
+        <scope ilk="function" line="61" lineend="105" name="make_label" returns="len()" signature="make_label(c, label)">
+          <variable ilk="argument" name="c" />
+          <variable citdl="len()" line="63" name="ilabel" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="eval()" line="88" name="value" />
+          <variable ilk="argument" name="label" />
+          <variable citdl="getattr()" line="76" name="itoken" />
+        </scope>
+        <scope ilk="function" line="296" lineend="311" name="parse_atom" returns="tuple" signature="parse_atom()">
+          <variable citdl="NFAState()" line="300" name="a" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+          <variable citdl="NFAState()" line="300" name="z" />
+        </scope>
+        <scope ilk="function" line="321" lineend="325" name="gettoken" signature="gettoken()">
+          <variable citdl="self.generator.next()" line="322" name="tup" />
+          <variable citdl="ParserGenerator" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="open()" line="18" name="stream" />
+        <variable attributes="__instancevar__" citdl="tokenize.generate_tokens()" line="19" name="generator" />
+        <variable attributes="__instancevar__" line="21" name="dfas" />
+        <variable attributes="__instancevar__" line="17" name="filename" />
+        <variable attributes="__instancevar__" line="21" name="startsymbol" />
+        <variable attributes="__instancevar__" citdl="dict" line="24" name="first" />
+      </scope>
+      <scope classrefs="Grammar" doc="&#10;" ilk="class" line="7" lineend="8" name="PgenGrammar" />
+      <scope ilk="function" line="384" lineend="386" name="generate_grammar" returns="p.make_grammar()" signature="generate_grammar(filename='Grammar.txt')">
+        <variable citdl="ParserGenerator" line="385" name="p" />
+        <variable citdl="str" ilk="argument" name="filename" />
+      </scope>
+      <import module="grammar" />
+      <import module="token" />
+      <import module="tokenize" />
+    </scope>
+    

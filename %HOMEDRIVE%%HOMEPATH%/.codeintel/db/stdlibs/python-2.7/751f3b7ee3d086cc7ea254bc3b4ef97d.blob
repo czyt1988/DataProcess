@@ -1,0 +1,76 @@
+<scope doc="Library that exposes various tables found in the StringPrep RFC 3454.&#10;There are two kinds of tables: sets, for which a member test is provided, and mappings, for which a mapping function is provided." ilk="blob" lang="Python" name="stringprep">
+      <variable citdl="set" line="19" name="b1_set" />
+      <variable citdl="dict" line="24" name="b3_exceptions" />
+      <variable citdl="set" line="220" name="c22_specials" />
+      <variable citdl="set" line="247" name="c6_set" />
+      <variable citdl="set" line="252" name="c7_set" />
+      <variable citdl="set" line="257" name="c8_set" />
+      <variable citdl="set" line="262" name="c9_set" />
+      <scope ilk="function" line="12" lineend="16" name="in_table_a1" returns="bool" signature="in_table_a1(code)">
+        <variable citdl="ord()" line="14" name="c" />
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="20" lineend="21" name="in_table_b1" returns="bool" signature="in_table_b1(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="206" lineend="207" name="in_table_c11" returns="bool" signature="in_table_c11(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="213" lineend="214" name="in_table_c11_c12" returns="bool" signature="in_table_c11_c12(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="210" lineend="211" name="in_table_c12" returns="bool" signature="in_table_c12(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="217" lineend="218" name="in_table_c21" returns="bool" signature="in_table_c21(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="227" lineend="229" name="in_table_c21_c22" returns="bool" signature="in_table_c21_c22(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="221" lineend="225" name="in_table_c22" returns="bool" signature="in_table_c22(code)">
+        <variable citdl="ord()" line="222" name="c" />
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="232" lineend="233" name="in_table_c3" returns="bool" signature="in_table_c3(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="236" lineend="240" name="in_table_c4" returns="bool" signature="in_table_c4(code)">
+        <variable citdl="ord()" line="237" name="c" />
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="243" lineend="244" name="in_table_c5" returns="bool" signature="in_table_c5(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="248" lineend="249" name="in_table_c6" returns="bool" signature="in_table_c6(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="253" lineend="254" name="in_table_c7" returns="bool" signature="in_table_c7(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="258" lineend="259" name="in_table_c8" returns="bool" signature="in_table_c8(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="263" lineend="264" name="in_table_c9" returns="bool" signature="in_table_c9(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="267" lineend="268" name="in_table_d1" returns="bool" signature="in_table_d1(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="271" lineend="272" name="in_table_d2" returns="bool" signature="in_table_d2(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="195" lineend="203" name="map_table_b2" returns="map_table_b3()" signature="map_table_b2(a)">
+        <variable ilk="argument" name="a" />
+        <variable citdl="unicode.join()" line="198" name="bl" />
+        <variable citdl="unicodedata.normalize()" line="199" name="c" />
+        <variable citdl="unicodedata.normalize()" line="197" name="b" />
+        <variable citdl="map_table_b3()" line="196" name="al" />
+      </scope>
+      <scope ilk="function" line="189" lineend="192" name="map_table_b3" returns="code.lower()" signature="map_table_b3(code)">
+        <variable citdl="b3_exceptions.get()" line="190" name="r" />
+        <variable ilk="argument" name="code" />
+      </scope>
+      <variable citdl="UCD" name="unicodedata" />
+    </scope>
+    

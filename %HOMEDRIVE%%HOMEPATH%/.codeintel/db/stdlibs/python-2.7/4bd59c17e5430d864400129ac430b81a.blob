@@ -1,0 +1,174 @@
+<scope doc="A POP3 client class.&#10;Based on the J. Myers POP3 draft, Jan. 96" ilk="blob" lang="Python" name="poplib">
+      <variable citdl="str" line="31" name="CR" />
+      <variable citdl="str" line="33" name="CRLF" />
+      <variable citdl="str" line="32" name="LF" />
+      <scope doc="This class supports both the minimal and optional command sets.&#10;Arguments can be strings or integers (where appropriate) (e.g.: retr(1) and retr('1') both work equally well.  Minimal Command Set: USER name               user(name) PASS string             pass_(string) STAT                    stat() LIST [msg]              list(msg = None) RETR msg                retr(msg) DELE msg                dele(msg)" ilk="class" line="36" lineend="309" name="POP3">
+        <scope ilk="function" line="168" lineend="169" name="set_debuglevel" signature="set_debuglevel(level)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="79" lineend="86" name="__init__" signature="POP3(host, port=POP3_PORT, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Signoff: commit changes on server, unlock mailbox, close&#10;connection." ilk="function" line="248" lineend="257" name="quit" returns="val" signature="quit()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable citdl="_shortcmd()" line="251" name="resp" />
+        </scope>
+        <scope ilk="function" line="164" lineend="165" name="getwelcome" returns="self._getresp()" signature="getwelcome()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Send password, return response" ilk="function" line="182" lineend="189" name="pass_" returns="POP3._shortcmd()" signature="pass_(pswd)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="pswd" />
+        </scope>
+        <scope ilk="function" line="123" lineend="129" name="_getresp" signature="_getresp()">
+          <variable citdl="list" line="126" name="c" />
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable line="124" name="o" />
+          <variable line="124" name="resp" />
+        </scope>
+        <scope doc="Retrieve message header of message number 'which' and first&#10;'howmuch' lines of message body." ilk="function" line="291" lineend="297" name="top" returns="POP3._longcmd()" signature="top(which, howmuch)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="howmuch" />
+          <variable ilk="argument" name="which" />
+        </scope>
+        <scope doc="Unmark all messages marked for deletion." ilk="function" line="243" lineend="245" name="rset" returns="POP3._shortcmd()" signature="rset()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Retrieve whole message number 'which'." ilk="function" line="219" lineend="224" name="retr" returns="POP3._longcmd()" signature="retr(which)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="which" />
+        </scope>
+        <scope doc="Does nothing." ilk="function" line="235" lineend="240" name="noop" returns="POP3._shortcmd()" signature="noop()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Authorisation" ilk="function" line="271" lineend="288" name="apop" returns="POP3._shortcmd()" signature="apop(user, secret)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable citdl="self.timestamp.match()" line="282" name="m" />
+          <variable ilk="argument" name="secret" />
+          <variable citdl="str.join()" line="286" name="digest" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope ilk="function" line="105" lineend="117" name="_getline" returns="tuple" signature="_getline()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable citdl="self.file.readline()" line="106" name="line" />
+          <variable citdl="len()" line="109" name="octets" />
+        </scope>
+        <scope doc="Get mailbox status." ilk="function" line="192" lineend="202" name="stat" returns="tuple" signature="stat()">
+          <variable citdl="retval.split()" line="198" name="rets" />
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable citdl="int()" line="201" name="sizeMessages" />
+          <variable citdl="_shortcmd()" line="197" name="retval" />
+          <variable citdl="int()" line="200" name="numMessages" />
+        </scope>
+        <scope ilk="function" line="157" lineend="159" name="_longcmd" returns="POP3._getlongresp()" signature="_longcmd(line)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Delete message number 'which'." ilk="function" line="227" lineend="232" name="dele" returns="POP3._shortcmd()" signature="dele(which)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="which" />
+        </scope>
+        <scope ilk="function" line="96" lineend="98" name="_putcmd" signature="_putcmd(line)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="89" lineend="91" name="_putline" signature="_putline(line)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Send user name, return response" ilk="function" line="174" lineend="179" name="user" returns="POP3._shortcmd()" signature="user(user)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope doc="Not sure what this does." ilk="function" line="264" lineend="266" name="rpop" returns="POP3._shortcmd()" signature="rpop(user)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope doc="Request listing, return result." ilk="function" line="205" lineend="216" name="list" returns="POP3._longcmd()" signature="list(which=None)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="which" />
+        </scope>
+        <scope ilk="function" line="134" lineend="145" name="_getlongresp" returns="tuple" signature="_getlongresp()">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable citdl="list" line="136" name="list" />
+          <variable citdl="int" line="137" name="o" />
+          <variable citdl="int" line="136" name="octets" />
+          <variable citdl="list" line="137" name="line" />
+          <variable citdl="_getresp()" line="135" name="resp" />
+        </scope>
+        <scope ilk="function" line="150" lineend="152" name="_shortcmd" returns="POP3._getresp()" signature="_shortcmd(line)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Return message digest (unique id) list." ilk="function" line="300" lineend="309" name="uidl" returns="POP3._longcmd()" signature="uidl(which=None)">
+          <variable citdl="POP3" ilk="argument" name="self" />
+          <variable ilk="argument" name="which" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="85" name="_debugging" />
+        <variable citdl="re.compile()" line="269" name="timestamp" />
+        <variable attributes="__instancevar__" citdl="self._getresp()" line="86" name="welcome" />
+        <variable attributes="__instancevar__" citdl="socket.create_connection()" line="83" name="sock" />
+        <variable attributes="__instancevar__" line="81" name="host" />
+        <variable attributes="__instancevar__" citdl="self.sock.makefile()" line="84" name="file" />
+        <variable attributes="__instancevar__" citdl="int" line="82" name="port" />
+      </scope>
+      <variable citdl="int" line="25" name="POP3_PORT" />
+      <scope classrefs="POP3" doc="POP3 client class over SSL connection&#10;Instantiate with: POP3_SSL(hostname, port=995, keyfile=None, certfile=None)  hostname - the hostname of the pop3 over ssl server port - port number keyfile - PEM formatted file that countains your private key certfile - PEM formatted certificate chain file  See the methods of the parent class POP3 for more documentation." ilk="class" line="317" lineend="399" name="POP3_SSL">
+        <scope doc="Signoff: commit changes on server, unlock mailbox, close&#10;connection." ilk="function" line="391" lineend="399" name="quit" returns="val" signature="quit()">
+          <variable citdl="POP3_SSL" ilk="argument" name="self" />
+          <variable citdl="self._shortcmd()" line="394" name="resp" />
+        </scope>
+        <scope ilk="function" line="356" lineend="360" name="_fillBuffer" signature="_fillBuffer()">
+          <variable citdl="POP3_SSL" ilk="argument" name="self" />
+          <variable citdl="self.sslobj.read()" line="357" name="localbuf" />
+        </scope>
+        <scope ilk="function" line="380" lineend="389" name="_putline" signature="_putline(line)">
+          <variable citdl="POP3_SSL" ilk="argument" name="self" />
+          <variable citdl="len()" line="383" name="bytes" />
+          <variable citdl="list" ilk="argument" name="line" />
+          <variable citdl="self.sslobj.write()" line="385" name="sent" />
+        </scope>
+        <scope ilk="function" line="362" lineend="378" name="_getline" returns="tuple" signature="_getline()">
+          <variable citdl="POP3_SSL" ilk="argument" name="self" />
+          <variable citdl="len()" line="373" name="octets" />
+          <variable citdl="re.compile()" line="364" name="renewline" />
+          <variable citdl="match.group()" line="363" name="line" />
+          <variable citdl="renewline.match()" line="365" name="match" />
+        </scope>
+        <scope ilk="function" line="330" lineend="354" name="__init__" signature="POP3_SSL(host, port=POP3_SSL_PORT, keyfile=None, certfile=None)">
+          <variable ilk="argument" name="certfile" />
+          <variable citdl="POP3_SSL" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="str" line="336" name="msg" />
+          <variable ilk="argument" name="keyfile" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="353" name="_debugging" />
+        <variable attributes="__instancevar__" line="334" name="certfile" />
+        <variable attributes="__instancevar__" citdl="renewline.sub()" line="335" name="buffer" />
+        <variable attributes="__instancevar__" citdl="self._getresp()" line="354" name="welcome" />
+        <variable attributes="__instancevar__" citdl="socket.socket()" line="337" name="sock" />
+        <variable attributes="__instancevar__" line="331" name="host" />
+        <variable attributes="__instancevar__" citdl="self.sock.makefile()" line="351" name="file" />
+        <variable attributes="__instancevar__" citdl="ssl.wrap_socket()" line="352" name="sslobj" />
+        <variable attributes="__instancevar__" line="333" name="keyfile" />
+        <variable attributes="__instancevar__" citdl="int" line="332" name="port" />
+      </scope>
+      <variable citdl="int" line="28" name="POP3_SSL_PORT" />
+      <variable citdl="list" line="18" name="__all__" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="22" lineend="22" name="error_proto" />
+      <import module="re" />
+      <import module="socket" />
+      <import module="ssl" />
+      <variable attributes="__hidden__" citdl="POP3" line="405" name="a" />
+      <variable attributes="__hidden__" line="410" name="totalSize" />
+      <variable attributes="__hidden__" line="412" name="octets" />
+      <variable attributes="__hidden__" line="412" name="header" />
+      <variable attributes="__hidden__" line="410" name="numMsgs" />
+      <variable attributes="__hidden__" line="412" name="msg" />
+    </scope>
+    

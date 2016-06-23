@@ -1,0 +1,53 @@
+<scope doc="Drop-in replacement for the thread module.&#10;Meant to be used as a brain-dead substitute so that threaded code does not need to be rewritten for when the thread module is not present.  Suggested usage is::  try: import thread except ImportError: import dummy_thread as thread" ilk="blob" lang="Python" name="dummy_thread">
+      <scope classrefs="object" doc="Class implementing dummy implementation of thread.LockType.&#10;Compatibility is maintained by maintaining self.locked_status which is a boolean that stores the state of the lock.  Pickling of the lock, though, should not be done since if the thread module is then used with an unpickled ``lock()`` from here problems could occur from this class not having atomic methods." ilk="class" line="81" lineend="131" name="LockType">
+        <scope doc="Dummy implementation of acquire()." ilk="function" line="116" name="__enter__" />
+        <scope ilk="function" line="118" lineend="119" name="__exit__" signature="__exit__(typ, val, tb)">
+          <variable ilk="argument" name="tb" />
+          <variable citdl="LockType" ilk="argument" name="self" />
+          <variable ilk="argument" name="typ" />
+          <variable ilk="argument" name="val" />
+        </scope>
+        <scope doc="Dummy implementation of acquire()." ilk="function" line="95" lineend="114" name="acquire" returns="bool" signature="acquire(waitflag=None)">
+          <variable ilk="argument" name="waitflag" />
+          <variable citdl="LockType" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Release the dummy lock." ilk="function" line="121" lineend="128" name="release" returns="bool" signature="release()">
+          <variable citdl="LockType" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="130" lineend="131" name="locked" returns="bool" signature="locked()">
+          <variable citdl="LockType" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="92" lineend="93" name="__init__" signature="LockType()">
+          <variable citdl="LockType" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="93" name="locked_status" />
+      </scope>
+      <variable citdl="list" line="16" name="__all__" />
+      <import module="_traceback" />
+      <scope doc="Dummy implementation of thread.allocate_lock()." ilk="function" line="71" lineend="73" name="allocate_lock" returns="LockType()" signature="allocate_lock()" />
+      <scope classrefs="Exception" doc="Dummy implementation of thread.error.&#10;" ilk="class" line="21" lineend="25" name="error">
+        <scope ilk="function" line="24" lineend="25" name="__init__" signature="error(*args)">
+          <variable citdl="error" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <variable attributes="__instancevar__" line="25" name="args" />
+      </scope>
+      <scope doc="Dummy implementation of thread.exit()." ilk="function" line="58" lineend="60" name="exit" signature="exit()" />
+      <scope doc="Dummy implementation of thread.get_ident()." ilk="function" line="62" lineend="69" name="get_ident" returns="int" signature="get_ident()" />
+      <scope doc="Set _interrupt flag to True to have start_new_thread raise&#10;KeyboardInterrupt upon exiting." ilk="function" line="138" lineend="145" name="interrupt_main" signature="interrupt_main()">
+        <variable attributes="protected" citdl="True" line="145" name="_interrupt" />
+      </scope>
+      <scope doc="Dummy implementation of thread.stack_size()." ilk="function" line="75" lineend="79" name="stack_size" returns="int" signature="stack_size(size=None)">
+        <variable ilk="argument" name="size" />
+      </scope>
+      <scope doc="Dummy implementation of thread.start_new_thread()." ilk="function" line="27" lineend="56" name="start_new_thread" signature="start_new_thread(function, args, kwargs={})">
+        <variable ilk="argument" name="function" />
+        <variable attributes="protected" citdl="False" line="55" name="_interrupt" />
+        <variable ilk="argument" name="args" />
+        <variable attributes="protected" citdl="True" line="45" name="_main" />
+        <variable citdl="dict" ilk="argument" name="kwargs" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="False" line="134" name="_interrupt" />
+      <variable attributes="protected __hidden__" citdl="True" line="136" name="_main" />
+    </scope>
+    

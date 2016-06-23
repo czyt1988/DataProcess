@@ -1,0 +1,112 @@
+<scope doc="distutils.emxccompiler&#10;Provides the EMXCCompiler class, a subclass of UnixCCompiler that handles the EMX port of the GNU C compiler to OS/2." ilk="blob" lang="Python" name="distutils.emxccompiler">
+      <variable citdl="str" line="239" name="CONFIG_H_NOTOK" />
+      <variable citdl="str" line="238" name="CONFIG_H_OK" />
+      <variable citdl="str" line="240" name="CONFIG_H_UNCERTAIN" />
+      <scope classrefs="CCompilerError" doc="Failure to compile one or more C/C++ source files.&#10;" ilk="class" name="CompileError" />
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" name="DistutilsExecError" />
+      <scope classrefs="UnixCCompiler" doc="&#10;" ilk="class" line="31" lineend="229" name="EMXCCompiler">
+        <scope doc="# override the find_library_file method from UnixCCompiler #&#10;to deal with file naming/searching differences" ilk="function" line="210" lineend="229" name="find_library_file" returns="os.path.join()" signature="find_library_file(dirs, lib, debug=0)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="list" line="216" name="emx_dirs" />
+          <variable ilk="argument" name="lib" />
+          <variable citdl="os.path.join()" line="221" name="shortlibp" />
+          <variable citdl="EMXCCompiler" ilk="argument" name="self" />
+          <variable citdl="str" line="212" name="longlib" />
+          <variable citdl="str" line="211" name="shortlib" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable citdl="os.path.join()" line="222" name="longlibp" />
+        </scope>
+        <scope doc="# override the object_filenames method from CCompiler to #&#10;support rc and res-files" ilk="function" line="182" lineend="204" name="object_filenames" returns="list" signature="object_filenames(source_filenames, strip_dir=0, output_dir='')">
+          <variable citdl="list" line="187" name="obj_names" />
+          <variable ilk="argument" name="source_filenames" />
+          <variable citdl="EMXCCompiler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="strip_dir" />
+          <variable line="190" name="ext" />
+          <variable citdl="os.path.basename()" line="190" name="base" />
+          <variable citdl="str" ilk="argument" name="output_dir" />
+        </scope>
+        <scope ilk="function" line="42" lineend="73" name="__init__" signature="EMXCCompiler(verbose=0, dry_run=0, force=0)">
+          <variable line="49" name="status" />
+          <variable citdl="int" ilk="argument" name="force" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+          <variable citdl="int" ilk="argument" name="dry_run" />
+          <variable citdl="EMXCCompiler" ilk="argument" name="self" />
+          <variable line="49" name="details" />
+        </scope>
+        <scope ilk="function" line="91" lineend="174" name="link" signature="link(target_desc, objects, output_filename, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, export_symbols=None, debug=0, extra_preargs=None, extra_postargs=None, build_temp=None, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable line="128" name="dll_name" />
+          <variable ilk="argument" name="export_symbols" />
+          <variable citdl="EMXCCompiler" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="132" name="def_file" />
+          <variable citdl="copy.copy()" ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable citdl="copy.copy()" ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable citdl="copy.copy()" ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_filename" />
+          <variable citdl="os.path.dirname()" line="126" name="temp_dir" />
+          <variable line="128" name="dll_extension" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="build_temp" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="target_desc" />
+          <variable citdl="list" line="135" name="contents" />
+          <variable ilk="argument" name="output_dir" />
+        </scope>
+        <scope ilk="function" line="77" lineend="89" name="_compile" signature="_compile(obj, src, ext, cc_args, extra_postargs, pp_opts)">
+          <variable ilk="argument" name="src" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="cc_args" />
+          <variable ilk="argument" name="pp_opts" />
+          <variable citdl="EMXCCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="ext" />
+          <variable ilk="argument" name="extra_postargs" />
+        </scope>
+        <variable citdl="str" line="34" name="obj_extension" />
+        <variable citdl="str" line="37" name="static_lib_format" />
+        <variable attributes="__instancevar__" line="58" name="gcc_version" />
+        <variable attributes="__instancevar__" line="58" name="ld_version" />
+        <variable citdl="str" line="39" name="res_extension" />
+        <variable citdl="str" line="35" name="static_lib_extension" />
+        <variable attributes="__instancevar__" citdl="list" line="73" name="dll_libraries" />
+        <variable citdl="str" line="33" name="compiler_type" />
+        <variable citdl="str" line="36" name="shared_lib_extension" />
+        <variable citdl="str" line="40" name="exe_extension" />
+        <variable citdl="str" line="38" name="shared_lib_format" />
+      </scope>
+      <scope classrefs="CCompiler" doc="&#10;" ilk="class" name="UnixCCompiler">
+        <scope ilk="function" name="link" />
+        <scope ilk="function" name="_is_gcc" />
+        <scope ilk="function" name="library_option" />
+        <scope ilk="function" name="library_dir_option" />
+        <scope ilk="function" name="runtime_library_dir_option" />
+        <scope ilk="function" name="preprocess" />
+        <scope ilk="function" name="_compile" />
+        <scope ilk="function" name="find_library_file" />
+        <scope ilk="function" name="create_static_lib" />
+      </scope>
+      <scope classrefs="CCompilerError" doc="Attempt to process an unknown file type.&#10;" ilk="class" name="UnknownFileError" />
+      <variable citdl="str" line="22" name="__revision__" />
+      <scope doc="Check if the current Python installation (specifically,&#10;pyconfig.h) appears amenable to building extensions with&#10;GCC." ilk="function" line="242" lineend="291" name="check_config_h" returns="tuple" signature="check_config_h()">
+        <variable citdl="f.read()" line="276" name="s" />
+        <variable citdl="sysconfig.get_config_h_filename()" line="270" name="fn" />
+        <variable citdl="open()" line="274" name="f" />
+      </scope>
+      <import module="copy" />
+      <scope doc="Generate linker options for searching library directories&#10;and linking with specific libraries." ilk="function" name="gen_lib_options" signature="gen_lib_options(compiler, library_dirs, runtime_library_dirs, libraries)" />
+      <scope doc="Generate C pre-processor options (-D, -U, -I) as used by at&#10;least two types of compilers: the typical Unix compiler and&#10;Visual C++." ilk="function" name="gen_preprocess_options" signature="gen_preprocess_options(macros, include_dirs)" />
+      <scope doc="Try to find out the versions of gcc and ld." ilk="function" line="294" lineend="319" name="get_versions" returns="tuple" signature="get_versions()">
+        <variable citdl="StrictVersion()" line="311" name="gcc_version" />
+        <variable line="318" name="ld_version" />
+        <variable citdl="find_executable()" line="302" name="gcc_exe" />
+        <variable citdl="re.search()" line="309" name="result" />
+        <variable citdl="out.read()" line="306" name="out_string" />
+        <variable citdl="os.popen()" line="304" name="out" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <import module="sys" />
+      <scope doc="Create a file with the specified name and write 'contents'&#10;(a sequence of strings without line terminators) to it." ilk="function" name="write_file" signature="write_file(filename, contents)" />
+    </scope>
+    

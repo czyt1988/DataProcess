@@ -1,0 +1,121 @@
+<scope doc="Provide access to Python's configuration information.  The specific&#10;configuration variables available depend heavily on the platform and configuration.  The values may be retrieved using get_config_var(name), and the list of variables is available via get_config_vars().keys().  Additional convenience functions are also available.  Written by:   Fred L. Drake, Jr. Email:        &lt;fdrake@acm.org&gt;" ilk="blob" lang="Python" name="distutils.sysconfig">
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <variable citdl="str" line="23" name="EXEC_PREFIX" />
+      <variable citdl="str" line="22" name="PREFIX" />
+      <variable citdl="str" line="12" name="__revision__" />
+      <scope doc="Do any platform-specific customization of a CCompiler&#10;instance." ilk="function" line="145" lineend="185" name="customize_compiler" signature="customize_compiler(compiler)">
+        <variable line="152" name="opt" />
+        <variable citdl="str" line="176" name="cc_cmd" />
+        <variable line="152" name="cxx" />
+        <variable line="152" name="cc" />
+        <variable citdl="str" line="163" name="cpp" />
+        <variable citdl="str" line="152" name="cflags" />
+        <variable citdl="str" line="152" name="ldshared" />
+        <variable line="152" name="so_ext" />
+        <variable line="152" name="ccshared" />
+        <variable ilk="argument" name="compiler" />
+      </scope>
+      <scope doc="Expand Makefile-style variables -- &quot;${foo}&quot; or &quot;$(foo)&quot; --&#10;in 'string' according to 'vars' (a dictionary mapping&#10;variable names to values)." ilk="function" line="331" lineend="353" name="expand_makefile_vars" returns="vars.get()" signature="expand_makefile_vars(s, vars)">
+        <variable line="349" name="end" />
+        <variable citdl="list" ilk="argument" name="s" />
+        <variable citdl="_findvar1_rx.search()" line="347" name="m" />
+        <variable line="349" name="beg" />
+        <variable ilk="argument" name="vars" />
+      </scope>
+      <scope doc="Return full pathname of installed pyconfig.h file." ilk="function" line="188" lineend="202" name="get_config_h_filename" returns="os.path.join()" signature="get_config_h_filename()">
+        <variable citdl="str" line="198" name="config_h" />
+        <variable citdl="get_python_inc()" line="192" name="inc_dir" />
+      </scope>
+      <scope doc="Return the value of a single variable using the dictionary&#10;returned by 'get_config_vars()'." ilk="function" line="566" lineend="571" name="get_config_var" signature="get_config_var(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="With no arguments, return a dictionary of all configuration&#10;variables relevant for the current platform." ilk="function" line="473" lineend="564" name="get_config_vars" returns="list" signature="get_config_vars(*args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable line="498" name="kernel_version" />
+        <variable citdl="int()" line="499" name="major_version" />
+        <variable citdl="re.search()" line="545" name="m" />
+        <variable citdl="re.sub()" line="510" name="flags" />
+        <variable line="485" name="func" />
+        <variable citdl="list" line="559" name="vals" />
+        <variable line="524" name="arch" />
+        <variable attributes="protected" citdl="dict" line="489" name="_config_vars" />
+        <variable citdl="m.group()" line="547" name="sdk" />
+      </scope>
+      <scope doc="Return full pathname of installed Makefile from the Python&#10;build." ilk="function" line="205" lineend="210" name="get_makefile_filename" returns="os.path.join()" signature="get_makefile_filename()">
+        <variable citdl="get_python_lib()" line="209" name="lib_dir" />
+      </scope>
+      <scope doc="Return the directory containing installed Python header&#10;files." ilk="function" line="61" lineend="96" name="get_python_inc" returns="os.path.dirname()" signature="get_python_inc(plat_specific=0, prefix=None)">
+        <variable citdl="os.path.abspath()" line="83" name="srcdir" />
+        <variable citdl="int" ilk="argument" name="prefix" />
+        <variable citdl="int" ilk="argument" name="plat_specific" />
+        <variable citdl="os.path.dirname()" line="77" name="buildir" />
+        <variable citdl="os.path.join()" line="80" name="inc_dir" />
+      </scope>
+      <scope doc="Return the directory containing the Python library (standard&#10;or site additions)." ilk="function" line="99" lineend="142" name="get_python_lib" returns="os.path.join()" signature="get_python_lib(plat_specific=0, standard_lib=0, prefix=None)">
+        <variable citdl="int" ilk="argument" name="prefix" />
+        <variable citdl="int" ilk="argument" name="plat_specific" />
+        <variable citdl="int" ilk="argument" name="standard_lib" />
+        <variable citdl="os.path.join()" line="117" name="libpython" />
+      </scope>
+      <scope doc="Return a string containing the major and minor Python&#10;version, leaving off the patchlevel." ilk="function" line="53" lineend="58" name="get_python_version" returns="list" signature="get_python_version()" />
+      <import module="os" />
+      <scope doc="Parse a config.h-style file." ilk="function" line="213" lineend="239" name="parse_config_h" returns="dict" signature="parse_config_h(fp, g=None)">
+        <variable ilk="argument" name="fp" />
+        <variable citdl="dict" ilk="argument" name="g" />
+        <variable citdl="undef_rx.match()" line="229" name="m" />
+        <variable line="231" name="n" />
+        <variable citdl="re.compile()" line="223" name="undef_rx" />
+        <variable citdl="int()" line="231" name="v" />
+        <variable citdl="fp.readline()" line="226" name="line" />
+        <variable citdl="re.compile()" line="222" name="define_rx" />
+      </scope>
+      <scope doc="Parse a Makefile-style file." ilk="function" line="248" lineend="328" name="parse_makefile" returns="dict" signature="parse_makefile(fn, g=None)">
+        <variable citdl="TextFile()" line="256" name="fp" />
+        <variable citdl="dict" ilk="argument" name="g" />
+        <variable citdl="list" line="304" name="after" />
+        <variable citdl="_variable_rx.match()" line="267" name="m" />
+        <variable citdl="list" line="288" name="value" />
+        <variable citdl="m.group()" line="269" name="n" />
+        <variable citdl="str()" line="294" name="item" />
+        <variable citdl="dict" line="260" name="done" />
+        <variable citdl="v.strip()" line="269" name="v" />
+        <variable citdl="dict" line="261" name="notdone" />
+        <variable citdl="False" line="292" name="found" />
+        <variable citdl="fp.readline()" line="264" name="line" />
+        <variable citdl="v.replace()" line="272" name="tmpv" />
+        <variable ilk="argument" name="fn" />
+      </scope>
+      <variable citdl="str" line="28" name="project_base" />
+      <variable citdl="bool" line="50" name="python_build" />
+      <import module="re" />
+      <import module="string" />
+      <import module="sys" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="245" name="_findvar1_rx" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="246" name="_findvar2_rx" />
+      <variable attributes="protected __hidden__" line="356" name="_config_vars" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="244" name="_variable_rx" />
+      <scope attributes="protected __hidden__" doc="Initialize the module as appropriate for NT" ilk="function" line="437" lineend="453" name="_init_nt" signature="_init_nt()">
+        <variable citdl="dict" line="439" name="g" />
+        <variable attributes="protected" citdl="dict" line="453" name="_config_vars" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="45" lineend="49" name="_python_build" returns="bool" signature="_python_build()" />
+      <scope attributes="protected __hidden__" doc="Initialize the module as appropriate for POSIX systems." ilk="function" line="358" lineend="434" name="_init_posix" signature="_init_posix()">
+        <variable citdl="dict" line="360" name="g" />
+        <variable citdl="get_config_h_filename()" line="363" name="filename" />
+        <variable citdl="str" line="366" name="my_msg" />
+        <variable line="388" name="cfg_target" />
+        <variable citdl="os.getenv()" line="389" name="cur_target" />
+        <variable citdl="get_python_lib()" line="409" name="python_lib" />
+        <variable citdl="os.path.join()" line="410" name="ld_so_aix" />
+        <variable citdl="os.path.join()" line="411" name="python_exp" />
+        <variable line="420" name="linkerscript_path" />
+        <variable citdl="os.path.basename()" line="421" name="linkerscript_name" />
+        <variable citdl="os.path.join()" line="422" name="linkerscript" />
+        <variable attributes="protected" citdl="dict" line="434" name="_config_vars" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Initialize the module as appropriate for OS/2" ilk="function" line="456" lineend="470" name="_init_os2" signature="_init_os2()">
+        <variable citdl="dict" line="458" name="g" />
+        <variable attributes="protected" citdl="dict" line="470" name="_config_vars" />
+      </scope>
+    </scope>
+    

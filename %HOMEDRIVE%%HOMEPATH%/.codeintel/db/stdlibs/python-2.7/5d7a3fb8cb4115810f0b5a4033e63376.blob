@@ -1,0 +1,40 @@
+<scope doc="Parser for future statements&#10;" ilk="blob" lang="Python" name="compiler.future">
+      <scope doc="Check for invalid future statements&#10;" ilk="class" line="47" lineend="55" name="BadFutureParser">
+        <scope ilk="function" line="50" lineend="55" name="visitFrom" signature="visitFrom(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BadFutureParser" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="16" lineend="45" name="FutureParser">
+        <scope ilk="function" line="25" lineend="29" name="visitModule" signature="visitModule(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FutureParser" ilk="argument" name="self" />
+          <variable citdl="node.node" line="26" name="stmt" />
+        </scope>
+        <scope ilk="function" line="31" lineend="41" name="check_stmt" returns="int" signature="check_stmt(stmt)">
+          <variable citdl="FutureParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="stmt" />
+        </scope>
+        <scope ilk="function" line="22" lineend="23" name="__init__" signature="FutureParser()">
+          <variable citdl="FutureParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return list of features enabled by future statements" ilk="function" line="43" lineend="45" name="get_features" returns="self.found.keys()" signature="get_features()">
+          <variable citdl="FutureParser" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="23" name="found" />
+        <variable citdl="tuple" line="18" name="features" />
+      </scope>
+      <import module="ast" />
+      <scope ilk="function" line="57" lineend="62" name="find_futures" returns="p1.get_features()" signature="find_futures(node)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="BadFutureParser" line="59" name="p2" />
+        <variable citdl="FutureParser" line="58" name="p1" />
+      </scope>
+      <scope doc="Return true if statement is a well-formed future statement" ilk="function" line="7" lineend="14" name="is_future" returns="int" signature="is_future(stmt)">
+        <variable ilk="argument" name="stmt" />
+      </scope>
+      <scope ilk="function" name="walk" signature="walk(tree, visitor, walker=None, verbose=None)" />
+      <variable attributes="__hidden__" citdl="parseFile()" line="70" name="tree" />
+      <variable attributes="__hidden__" citdl="FutureParser" line="71" name="v" />
+    </scope>
+    

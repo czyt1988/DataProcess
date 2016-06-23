@@ -1,0 +1,65 @@
+<scope doc="Python version compatibility support for minidom.&#10;" ilk="blob" lang="Python" name="xml.dom.minicompat">
+      <scope classrefs="tuple" doc="&#10;" ilk="class" line="75" lineend="99" name="EmptyNodeList">
+        <scope ilk="function" line="83" lineend="86" name="__radd__" returns="NodeList" signature="__radd__(other)">
+          <variable citdl="EmptyNodeList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="NodeList" line="84" name="NL" />
+        </scope>
+        <scope ilk="function" line="88" lineend="89" name="item" signature="item(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="EmptyNodeList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="78" lineend="81" name="__add__" returns="NodeList" signature="__add__(other)">
+          <variable citdl="EmptyNodeList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="NodeList" line="79" name="NL" />
+        </scope>
+        <scope ilk="function" line="94" lineend="96" name="_set_length" signature="_set_length(value)">
+          <variable citdl="EmptyNodeList" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="91" lineend="92" name="_get_length" returns="int" signature="_get_length()">
+          <variable citdl="EmptyNodeList" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="76" name="__slots__" />
+        <variable citdl="property()" line="98" name="length" />
+      </scope>
+      <scope classrefs="list" doc="&#10;" ilk="class" line="51" lineend="72" name="NodeList">
+        <scope ilk="function" line="61" lineend="63" name="_set_length" signature="_set_length(value)">
+          <variable citdl="NodeList" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="71" lineend="72" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="NodeList" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="54" lineend="56" name="item" signature="item(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="NodeList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="68" lineend="69" name="__getstate__" returns="list()" signature="__getstate__()">
+          <variable citdl="NodeList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="58" lineend="59" name="_get_length" returns="len()" signature="_get_length()">
+          <variable citdl="NodeList" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="tuple" line="52" name="__slots__" />
+        <variable citdl="property()" line="65" name="length" />
+      </scope>
+      <variable citdl="tuple" line="46" name="StringTypes" />
+      <variable citdl="list" line="39" name="__all__" />
+      <scope ilk="function" line="102" lineend="110" name="defproperty" signature="defproperty(klass, name, doc)">
+        <scope ilk="function" line="104" lineend="106" name="set" signature="set(self, value, name=name)">
+          <variable ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable ilk="argument" name="name" />
+        <variable line="103" name="get" />
+        <variable ilk="argument" name="doc" />
+        <variable citdl="property()" line="109" name="prop" />
+        <variable ilk="argument" name="klass" />
+      </scope>
+      <import module="xml" />
+    </scope>
+    

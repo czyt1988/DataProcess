@@ -1,0 +1,28 @@
+<scope doc="Fixer for generator.throw(E, V, T).&#10;g.throw(E)       -&gt; g.throw(E) g.throw(E, V)    -&gt; g.throw(E(V)) g.throw(E, V, T) -&gt; g.throw(E(V).with_traceback(T))  g.throw(&quot;foo&quot;[, V[, T]]) will warn about string exceptions." ilk="blob" lang="Python" name="lib2to3.fixes.fix_throw">
+      <scope doc="A parenthesised argument list, used by Call()" ilk="function" name="ArgList" signature="ArgList(args, lparen=Leaf(7, u'('), rparen=Leaf(8, u')'))" />
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="16" lineend="56" name="FixThrow">
+        <scope ilk="function" line="26" lineend="56" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Call()" line="52" name="e" />
+          <variable line="29" name="exc" />
+          <variable citdl="val.clone()" line="35" name="val" />
+          <variable citdl="FixThrow" ilk="argument" name="self" />
+          <variable citdl="list" line="41" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable line="46" name="throw_args" />
+          <variable citdl="self.syms" line="27" name="syms" />
+          <variable citdl="list" line="53" name="with_tb" />
+          <variable line="49" name="tb" />
+        </scope>
+        <variable citdl="True" line="17" name="BM_compatible" />
+        <variable citdl="str" line="18" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Does the node represent a tuple literal?" ilk="function" name="is_tuple" signature="is_tuple(node)" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

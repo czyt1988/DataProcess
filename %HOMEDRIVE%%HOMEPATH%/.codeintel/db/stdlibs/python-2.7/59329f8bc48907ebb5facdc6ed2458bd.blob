@@ -1,0 +1,235 @@
+<scope doc="######################################################################&#10;#  This file should be kept compatible with Python 2.3, see PEP 291. # ######################################################################" ilk="blob" lang="Python" name="ctypes.wintypes">
+      <scope doc="# XXX Deprecated" ilk="function" name="ARRAY" signature="ARRAY(typ, len)" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="52" name="ATOM" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ArgumentError" />
+      <scope classrefs="_CData" doc="XXX to be provided&#10;" ilk="class" name="Array">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="20" name="BOOL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="19" name="BOOLEAN" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="8" name="BYTE" />
+      <scope classrefs="Structure" doc="Structure with big endian byte order&#10;" ilk="class" name="BigEndianStructure" />
+      <scope classrefs="object" doc="An instance of this class represents a loaded dll/shared&#10;library, exporting functions using the standard C calling convention (named 'cdecl' on Windows).  The exported functions can be accessed as attributes, or by indexing with the function name.  Examples:  &lt;obj&gt;.qsort -&gt; callable object &lt;obj&gt;['qsort'] -&gt; callable object  Calling the functions releases the Python GIL during the call and" ilk="class" name="CDLL">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__getattr__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="CFUNCTYPE(restype, *argtypes, use_errno=False,&#10;use_last_error=False) -&gt; function prototype." ilk="function" name="CFUNCTYPE" signature="CFUNCTYPE(restype, *argtypes, **kw)" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="55" name="COLORREF" />
+      <variable citdl="int" name="DEFAULT_MODE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="16" name="DOUBLE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="10" name="DWORD" />
+      <scope ilk="function" name="DllCanUnloadNow" signature="DllCanUnloadNow()" />
+      <scope ilk="function" name="DllGetClassObject" signature="DllGetClassObject(rclsid, riid, ppv)" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="131" lineend="133" name="FILETIME">
+        <variable attributes="protected" citdl="list" line="132" name="_fields_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="17" name="FLOAT" />
+      <scope doc="Convert a win32 error code into a string." ilk="function" name="FormatError" returns="str" signature="FormatError([integer]) -&gt; string" />
+      <variable citdl="_FuncPtr" name="GetLastError" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="65" name="HACCEL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="63" name="HANDLE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="66" name="HBITMAP" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="67" name="HBRUSH" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="68" name="HCOLORSPACE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="69" name="HDC" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="70" name="HDESK" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="71" name="HDWP" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="72" name="HENHMETAFILE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="73" name="HFONT" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="74" name="HGDIOBJ" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="75" name="HGLOBAL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="76" name="HHOOK" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="77" name="HICON" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="78" name="HINSTANCE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="79" name="HKEY" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="80" name="HKL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="81" name="HLOCAL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="82" name="HMENU" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="83" name="HMETAFILE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="84" name="HMODULE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="85" name="HMONITOR" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="86" name="HPALETTE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="87" name="HPEN" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="HRESULT" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="88" name="HRGN" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="89" name="HRSRC" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="90" name="HSTR" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="91" name="HTASK" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="92" name="HWINSTA" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="93" name="HWND" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="14" name="INT" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="53" name="LANGID" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="LARGE_INTEGER" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="59" name="LCID" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="57" name="LCTYPE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="56" name="LGRPID" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="29" name="LONG" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="47" name="LPARAM" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="38" name="LPCOLESTR" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="40" name="LPCSTR">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="41" name="LPCVOID" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="39" name="LPCWSTR" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="LPOLESTR" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="LPSTR">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="LPVOID" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="LPWSTR" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="LibraryLoader">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__getattr__" />
+        <scope ilk="function" name="LoadLibrary" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="LittleEndianStructure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="int" line="144" name="MAX_PATH" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="136" lineend="142" name="MSG">
+        <variable attributes="protected" citdl="list" line="137" name="_fields_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="OLESTR" />
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention, and returning HRESULT. HRESULT error values are automatically raised as WindowsError exceptions." ilk="class" name="OleDLL" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="118" lineend="120" name="POINT">
+        <variable attributes="protected" citdl="list" line="119" name="_fields_" />
+      </scope>
+      <scope ilk="function" name="POINTER" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" name="POINTL" />
+      <scope ilk="function" name="PYFUNCTYPE" signature="PYFUNCTYPE(restype, *argtypes)" />
+      <scope classrefs="CDLL" doc="This class represents the Python library itself.  It allows to&#10;access Python API functions.  The GIL is not released, and Python exceptions are handled correctly." ilk="class" name="PyDLL" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="100" lineend="104" name="RECT">
+        <variable attributes="protected" citdl="list" line="101" name="_fields_" />
+      </scope>
+      <scope classrefs="Structure" doc="&#10;" ilk="class" name="RECTL" />
+      <scope ilk="function" line="128" lineend="129" name="RGB" returns="int" signature="RGB(red, green, blue)">
+        <variable ilk="argument" name="blue" />
+        <variable ilk="argument" name="green" />
+        <variable ilk="argument" name="red" />
+      </scope>
+      <variable citdl="int" name="RTLD_GLOBAL" />
+      <variable citdl="int" name="RTLD_LOCAL" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="94" name="SC_HANDLE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="95" name="SERVICE_STATUS_HANDLE" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="32" name="SHORT" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="123" lineend="125" name="SIZE">
+        <variable attributes="protected" citdl="list" line="124" name="_fields_" />
+      </scope>
+      <scope classrefs="Structure" doc="&#10;" ilk="class" name="SIZEL" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="112" name="SMALL_RECT" />
+      <scope doc="# XXX Deprecated" ilk="function" name="SetPointerType" signature="SetPointerType(pointer, cls)" />
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="Structure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="13" name="UINT" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="ULARGE_INTEGER" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="28" name="ULONG" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="31" name="USHORT" />
+      <scope classrefs="_CData" doc="Union base class&#10;" ilk="class" name="Union">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="23" lineend="26" name="VARIANT_BOOL">
+        <scope ilk="function" line="25" lineend="26" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="VARIANT_BOOL" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="str" line="24" name="_type_" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="12" name="WCHAR" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="146" lineend="156" name="WIN32_FIND_DATAA">
+        <variable attributes="protected" citdl="list" line="147" name="_fields_" />
+      </scope>
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="158" lineend="168" name="WIN32_FIND_DATAW">
+        <variable attributes="protected" citdl="list" line="159" name="_fields_" />
+      </scope>
+      <scope ilk="function" name="WINFUNCTYPE" signature="WINFUNCTYPE(restype, *argtypes, **kw)" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="9" name="WORD" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" line="46" name="WPARAM" />
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention." ilk="class" name="WinDLL" />
+      <scope ilk="function" name="WinError" signature="WinError(code=None, descr=None)" />
+      <variable citdl="list" line="170" name="__all__" />
+      <scope doc="Return the address of the C instance internal buffer" ilk="function" name="addressof" returns="int" signature="addressof(C instance) -&gt; integer" />
+      <scope doc="Return the alignment requirements of a C instance" ilk="function" name="alignment" signature="alignment(C type) -&gt; integer&#10;alignment(C instance) -&gt; integer" />
+      <scope doc="Return a pointer lookalike to a C instance, only usable as&#10;function argument" ilk="function" name="byref" signature="byref(C instance[, offset=0]) -&gt; byref-object" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_bool" />
+      <scope ilk="function" name="c_buffer" signature="c_buffer(init, size=None)" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_byte" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_char" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_char_p">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_double" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_float" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int16" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int32" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int64" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int8" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_long" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_longdouble" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_longlong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_short" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_size_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ssize_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ubyte" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint16" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint32" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint64" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint8" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ulong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ulonglong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ushort" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_void_p" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_voidp" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_wchar" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_wchar_p" />
+      <scope ilk="function" name="cast" signature="cast(obj, typ)" />
+      <variable citdl="LibraryLoader" name="cdll" />
+      <scope doc="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array" ilk="function" name="create_string_buffer" signature="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array" />
+      <scope doc="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array" ilk="function" name="create_unicode_buffer" signature="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array" />
+      <scope ilk="function" name="get_errno" />
+      <scope ilk="function" name="get_last_error" />
+      <import module="macholib" />
+      <variable citdl="CFunctionType" name="memmove" />
+      <variable citdl="CFunctionType" name="memset" />
+      <variable citdl="LibraryLoader" name="oledll" />
+      <scope ilk="function" name="pointer" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="py_object">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <variable citdl="LibraryLoader" name="pydll" />
+      <variable citdl="PyDLL" name="pythonapi" />
+      <scope doc="Resize the memory buffer of a ctypes instance" ilk="function" name="resize" />
+      <scope doc="Set the encoding and error handling ctypes uses when&#10;converting between unicode and strings." ilk="function" name="set_conversion_mode" signature="set_conversion_mode(encoding, errors) -&gt; (previous-encoding, previous-errors)" />
+      <scope ilk="function" name="set_errno" />
+      <scope ilk="function" name="set_last_error" />
+      <scope doc="Return the size in bytes of a C instance" ilk="function" name="sizeof" signature="sizeof(C type) -&gt; integer&#10;sizeof(C instance) -&gt; integer" />
+      <scope doc="Return the string at addr." ilk="function" name="string_at" returns="str" signature="string_at(addr[, size]) -&gt; string" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="143" name="tagMSG" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="121" name="tagPOINT" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="105" name="tagRECT" />
+      <scope classrefs="Structure" doc="&#10;" ilk="class" line="126" name="tagSIZE" />
+      <import module="util" />
+      <variable citdl="LibraryLoader" name="windll" />
+      <scope doc="Return the string at addr." ilk="function" name="wstring_at" returns="str" signature="wstring_at(addr[, size]) -&gt; string" />
+      <variable attributes="protected __hidden__" citdl="c_ulonglong" line="36" name="_ULARGE_INTEGER" />
+      <scope attributes="protected __hidden__" classrefs="Structure" ilk="class" line="107" lineend="111" name="_SMALL_RECT">
+        <variable attributes="protected" citdl="list" line="108" name="_fields_" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="Structure" ilk="class" line="114" lineend="116" name="_COORD">
+        <variable attributes="protected" citdl="list" line="115" name="_fields_" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="c_longlong" line="35" name="_LARGE_INTEGER" />
+      <variable attributes="protected __hidden__" citdl="FILETIME" line="134" name="_FILETIME" />
+    </scope>
+    

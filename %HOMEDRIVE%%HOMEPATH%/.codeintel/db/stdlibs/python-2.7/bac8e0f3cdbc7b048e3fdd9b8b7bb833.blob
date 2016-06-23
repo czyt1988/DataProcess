@@ -1,0 +1,57 @@
+<scope doc="text_file&#10;provides the TextFile class, which gives an interface to text files that (optionally) takes care of stripping comments, ignoring blank lines, and joining lines with backslashes." ilk="blob" lang="Python" name="distutils.text_file">
+      <scope doc="Provides a file-like object that takes care of all the things you&#10;commonly want to do when processing a text file that has some line-by-line syntax: strip comments (as long as &quot;#&quot; is your comment character), skip blank lines, join adjacent lines by escaping the newline (ie. backslash at end of line), strip leading and/or trailing whitespace.  All of these are optional and independently controllable.  Provides a 'warn()' method so you can generate warning messages that report physical line number, even if the logical line in question spans multiple physical lines.  Also provides 'unreadline()' for" ilk="class" line="12" lineend="304" name="TextFile">
+        <scope ilk="function" line="134" lineend="144" name="gen_error" returns="str.join()" signature="gen_error(msg, line=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="list" line="135" name="outmsg" />
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="147" lineend="148" name="error" signature="error(msg, line=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Read and return the list of all logical lines remaining in&#10;the current file." ilk="function" line="287" lineend="296" name="readlines" returns="list" signature="readlines()">
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable citdl="list" line="291" name="lines" />
+          <variable citdl="readline()" line="293" name="line" />
+        </scope>
+        <scope doc="Push 'line' (a string) onto an internal buffer that will be&#10;checked by future 'readline()' calls." ilk="function" line="299" lineend="304" name="unreadline" signature="unreadline(line)">
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="line in the current file." ilk="function" line="150" lineend="158" name="warn" signature="Print (to stderr) a warning message tied to the current logical">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Close the current file and forget everything we know about&#10;it (filename, current line number)." ilk="function" line="124" lineend="131" name="close" signature="close()">
+          <variable citdl="TextFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read and return a single logical line from the current file&#10;(or from an internal buffer if lines have previously been&#10;&quot;unread&quot; with 'unreadline()')." ilk="function" line="161" lineend="282" name="readline" returns="line.strip()" signature="readline()">
+          <variable citdl="list" line="181" name="buildup_line" />
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable citdl="line.lstrip()" line="177" name="line" />
+          <variable citdl="line.find()" line="198" name="pos" />
+          <variable citdl="bool" line="211" name="eol" />
+        </scope>
+        <scope doc="Open a new file named 'filename'." ilk="function" line="115" lineend="121" name="open" signature="open(filename)">
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Construct a new TextFile object." ilk="function" line="78" lineend="112" name="__init__" signature="TextFile(filename=None, file=None, **options)">
+          <variable citdl="TextFile" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="options" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="107" name="current_line" />
+        <variable attributes="__instancevar__" line="105" name="filename" />
+        <variable attributes="__instancevar__" citdl="open()" line="106" name="file" />
+        <variable attributes="__instancevar__" citdl="list" line="112" name="linebuf" />
+        <variable citdl="dict" line="70" name="default_options" />
+      </scope>
+      <variable citdl="str" line="7" name="__revision__" />
+      <import module="sys" />
+    </scope>
+    

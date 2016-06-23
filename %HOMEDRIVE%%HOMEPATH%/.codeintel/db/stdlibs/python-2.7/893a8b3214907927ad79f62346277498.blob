@@ -1,0 +1,163 @@
+<scope doc="Strptime-related classes and functions.&#10;CLASSES: LocaleTime -- Discovers and stores locale-specific time information TimeRE -- Creates regexes for pattern matching a string of text containing time information  FUNCTIONS: _getlang -- Figure out what language is being used for the locale strptime -- Calculates the time struct represented by the passed-in string" ilk="blob" lang="Python" name="_strptime">
+      <variable citdl="int" name="IGNORECASE" />
+      <scope classrefs="object" doc="Stores and handles locale-specific information related to time.&#10;ATTRIBUTES: f_weekday -- full weekday names (7-item list) a_weekday -- abbreviated weekday names (7-item list) f_month -- full month names (13-item list; dummy value in [0], which is added by code) a_month -- abbreviated month names (13-item list, dummy value in [0], which is added by code) am_pm -- AM/PM representation (2-item list) LC_date_time -- format string for date/time representation (string) LC_date -- format string for date representation (string)" ilk="class" line="31" lineend="173" name="LocaleTime">
+        <scope ilk="function" name="_LocaleTime__calc_am_pm" />
+        <scope ilk="function" name="_LocaleTime__calc_weekday" />
+        <scope ilk="function" name="_LocaleTime__calc_date_time" />
+        <scope ilk="function" name="_LocaleTime__pad" />
+        <scope ilk="function" name="_LocaleTime__calc_timezone" />
+        <scope ilk="function" name="_LocaleTime__calc_month" />
+        <scope doc="Set all attributes." ilk="function" line="50" lineend="77" name="__init__" signature="LocaleTime()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="_getlang()" line="70" name="lang" />
+        <scope attributes="private" ilk="function" line="103" lineend="113" name="__calc_am_pm" signature="__calc_am_pm()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="list" line="109" name="am_pm" />
+          <variable citdl="time.struct_time()" line="111" name="time_tuple" />
+        </scope>
+        <scope attributes="private" ilk="function" line="96" lineend="101" name="__calc_month" signature="__calc_month()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="list" line="98" name="a_month" />
+          <variable citdl="list" line="99" name="f_month" />
+        </scope>
+        <scope attributes="private" ilk="function" line="115" lineend="158" name="__calc_date_time" signature="__calc_date_time()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="time.struct_time()" line="123" name="time_tuple" />
+          <variable citdl="list" line="124" name="date_time" />
+          <variable citdl="list" line="128" name="replacement_pairs" />
+          <variable citdl="current_format.replace()" line="139" name="current_format" />
+          <variable citdl="str" line="152" name="U_W" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="113" name="am_pm" />
+        <variable attributes="__instancevar__" citdl="list" line="101" name="f_month" />
+        <scope attributes="private" ilk="function" line="79" lineend="86" name="__pad" returns="list()" signature="__pad(seq, front)">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="list()" ilk="argument" name="seq" />
+          <variable ilk="argument" name="front" />
+        </scope>
+        <variable attributes="__instancevar__" line="157" name="LC_date" />
+        <scope attributes="private" ilk="function" line="160" lineend="173" name="__calc_timezone" signature="__calc_timezone()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="frozenset()" line="168" name="no_saving" />
+          <variable citdl="frozenset()" line="170" name="has_saving" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="93" name="a_weekday" />
+        <variable attributes="__instancevar__" citdl="list" line="94" name="f_weekday" />
+        <variable attributes="__instancevar__" line="156" name="LC_date_time" />
+        <variable attributes="__instancevar__" citdl="tuple" line="173" name="timezone" />
+        <scope attributes="private" ilk="function" line="88" lineend="94" name="__calc_weekday" signature="__calc_weekday()">
+          <variable citdl="LocaleTime" ilk="argument" name="self" />
+          <variable citdl="list" line="91" name="a_weekday" />
+          <variable citdl="list" line="92" name="f_weekday" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="100" name="a_month" />
+        <variable attributes="__instancevar__" line="158" name="LC_time" />
+      </scope>
+      <scope classrefs="dict" doc="Handle conversion from format directives to regexes.&#10;" ilk="class" line="176" lineend="265" name="TimeRE">
+        <scope doc="Return a compiled re object for the format string." ilk="function" line="263" lineend="265" name="compile" returns="re_compile()" signature="compile(format)">
+          <variable citdl="TimeRE" ilk="argument" name="self" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope doc="Return regex pattern for the format string." ilk="function" line="240" lineend="261" name="pattern" returns="tuple" signature="pattern(format)">
+          <variable citdl="re_compile()" line="253" name="whitespace_replacement" />
+          <variable citdl="format.index()" line="256" name="directive_index" />
+          <variable citdl="regex_chars.sub()" ilk="argument" name="format" />
+          <variable citdl="TimeRE" ilk="argument" name="self" />
+          <variable citdl="re_compile()" line="251" name="regex_chars" />
+          <variable citdl="str" line="247" name="processed_format" />
+        </scope>
+        <scope doc="Convert a list to a regex string for matching a directive." ilk="function" name="_TimeRE__seqToRE" />
+        <scope doc="Create keys/values." ilk="function" line="179" lineend="219" name="__init__" signature="TimeRE(locale_time=None)">
+          <variable ilk="argument" name="locale_time" />
+          <variable citdl="TimeRE" ilk="argument" name="self" />
+          <variable citdl="super()" line="189" name="base" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="LocaleTime" line="186" name="locale_time" />
+        <scope attributes="private" doc="Convert a list to a regex string for matching a directive." ilk="function" line="221" lineend="238" name="__seqToRE" returns="tuple" signature="__seqToRE(to_convert, directive)">
+          <variable citdl="TimeRE" ilk="argument" name="self" />
+          <variable citdl="sorted()" ilk="argument" name="to_convert" />
+          <variable ilk="argument" name="directive" />
+          <variable citdl="str.join()" line="236" name="regex" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="25" name="__all__" />
+      <import module="calendar" />
+      <scope classrefs="object" doc="date(year, month, day) --&gt; date object&#10;" ilk="class" name="datetime_date">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Return proleptic Gregorian ordinal." ilk="function" name="toordinal" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return a 3-tuple containing ISO year, week number, and&#10;weekday." ilk="function" name="isocalendar" />
+        <scope doc="Formats self with strftime." ilk="function" name="__format__" />
+        <scope doc="Return time tuple, compatible with time.localtime()." ilk="function" name="timetuple" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="weekday" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="isoweekday" />
+        <scope doc="Return date with new specified fields." ilk="function" name="replace" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return string in ISO 8601 format, YYYY-MM-DD." ilk="function" name="isoformat" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return ctime() style string." ilk="function" name="ctime" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="format -&gt; strftime() style string." ilk="function" name="strftime" />
+      </scope>
+      <import module="locale" />
+      <scope doc="Compile a regular expression pattern, returning a pattern&#10;object." ilk="function" name="re_compile" signature="re_compile(pattern, flags=0)" />
+      <scope doc="Escape all non-alphanumeric characters in pattern." ilk="function" name="re_escape" signature="re_escape(pattern)" />
+      <import module="time" />
+      <variable attributes="protected __hidden__" citdl="TimeRE" line="270" name="_TimeRE_cache" />
+      <variable attributes="protected __hidden__" citdl="dict" line="272" name="_regex_cache" />
+      <scope attributes="protected __hidden__" doc="Calculate the Julian day based on the year, week of the&#10;year, and day of the week, with week_start_day representing&#10;whether the week of the year assumes the week starts on&#10;Sunday or Monday (6 or 0)." ilk="function" line="274" lineend="292" name="_calc_julian_from_U_or_W" returns="int" signature="_calc_julian_from_U_or_W(year, week_of_year, day_of_week, week_starts_Mon)">
+        <variable ilk="argument" name="year" />
+        <variable ilk="argument" name="week_of_year" />
+        <variable citdl="int" ilk="argument" name="day_of_week" />
+        <variable ilk="argument" name="week_starts_Mon" />
+        <variable citdl="int" line="278" name="first_weekday" />
+        <variable citdl="int" line="287" name="week_0_length" />
+        <variable citdl="int" line="291" name="days_to_week" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="_thread_allocate_lock()" line="267" name="_cache_lock" />
+      <scope attributes="protected __hidden__" doc="Return a time struct based on the input string and the&#10;format string." ilk="function" line="295" lineend="451" name="_strptime" returns="tuple" signature="_strptime(data_string, format='%a %b %d %H:%M:%S %Y')">
+        <variable ilk="argument" name="data_string" />
+        <variable citdl="str" ilk="argument" name="format" />
+        <variable attributes="protected" citdl="TimeRE" line="300" name="_TimeRE_cache" />
+        <variable citdl="_TimeRE_cache.locale_time" line="304" name="locale_time" />
+        <variable citdl="_TimeRE_cache.compile()" line="305" name="format_regex" />
+        <variable citdl="str" line="312" name="bad_directive" />
+        <variable citdl="format_regex.match()" line="322" name="found" />
+        <variable citdl="int()" line="329" name="year" />
+        <variable citdl="int" line="330" name="month" />
+        <variable citdl="int" line="331" name="hour" />
+        <variable citdl="int" line="332" name="tz" />
+        <variable citdl="int" line="335" name="week_of_year" />
+        <variable citdl="int" line="336" name="week_of_year_start" />
+        <variable citdl="int" line="339" name="weekday" />
+        <variable citdl="found.groupdict()" line="340" name="found_dict" />
+        <variable citdl="datetime_result.day" line="365" name="day" />
+        <variable line="370" name="ampm" />
+        <variable citdl="int()" line="385" name="minute" />
+        <variable citdl="int()" line="387" name="second" />
+        <variable line="389" name="s" />
+        <variable citdl="int()" line="392" name="fraction" />
+        <variable citdl="int" line="404" name="julian" />
+        <variable line="416" name="found_zone" />
+        <variable line="431" name="week_starts_Mon" />
+        <variable citdl="datetime_date.fromordinal()" line="443" name="datetime_result" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="453" lineend="454" name="_strptime_time" signature="_strptime_time(data_string, format='%a %b %d %H:%M:%S %Y')">
+        <variable ilk="argument" name="data_string" />
+        <variable citdl="str" ilk="argument" name="format" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="271" name="_CACHE_MAX_SIZE" />
+      <scope attributes="protected __hidden__" ilk="function" line="27" lineend="29" name="_getlang" returns="locale.getlocale()" signature="_getlang()" />
+    </scope>
+    

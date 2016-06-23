@@ -1,0 +1,13 @@
+<scope doc="Constants for interpreting the results of os.statvfs() and os.fstatvfs().&#10;" ilk="blob" lang="Python" name="statvfs">
+      <variable citdl="int" line="13" name="F_BAVAIL" />
+      <variable citdl="int" line="12" name="F_BFREE" />
+      <variable citdl="int" line="11" name="F_BLOCKS" />
+      <variable citdl="int" line="9" name="F_BSIZE" />
+      <variable citdl="int" line="16" name="F_FAVAIL" />
+      <variable citdl="int" line="15" name="F_FFREE" />
+      <variable citdl="int" line="14" name="F_FILES" />
+      <variable citdl="int" line="17" name="F_FLAG" />
+      <variable citdl="int" line="10" name="F_FRSIZE" />
+      <variable citdl="int" line="18" name="F_NAMEMAX" />
+    </scope>
+    

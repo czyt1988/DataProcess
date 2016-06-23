@@ -1,0 +1,90 @@
+<scope doc="distutils.command.register&#10;Implements the Distutils 'register' command (register with the repository)." ilk="blob" lang="Python" name="distutils.command.register">
+      <scope classrefs="Command" doc="Base command that knows how to handle the .pypirc file&#10;" ilk="class" name="PyPIRCCommand">
+        <scope doc="Initialize options." ilk="function" name="initialize_options" />
+        <scope doc="Creates a default .pypirc file." ilk="function" name="_store_pypirc" />
+        <scope doc="Finalizes options." ilk="function" name="finalize_options" />
+        <scope doc="Reads the .pypirc file." ilk="function" name="_read_pypirc" />
+        <scope doc="Returns rc file path." ilk="function" name="_get_rc_file" />
+      </scope>
+      <import module="StringIO" />
+      <variable citdl="str" line="8" name="__revision__" />
+      <import module="getpass" />
+      <import module="log" />
+      <scope classrefs="PyPIRCCommand" doc="&#10;" ilk="class" line="19" lineend="307" name="register">
+        <scope ilk="function" line="45" lineend="58" name="run" signature="run()">
+          <variable citdl="register" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="33" lineend="36" name="initialize_options" signature="initialize_options()">
+          <variable citdl="register" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Deprecated API." ilk="function" line="60" lineend="68" name="check_metadata" signature="check_metadata()">
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="self.distribution.get_command_obj()" line="64" name="check" />
+        </scope>
+        <scope doc="Post a query to the server, and return a string response." ilk="function" line="252" lineend="307" name="post_to_server" returns="tuple" signature="post_to_server(data, auth=None)">
+          <variable citdl="str" line="262" name="end_boundary" />
+          <variable citdl="body.getvalue()" line="263" name="body" />
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="urllib2.Request()" line="284" name="req" />
+          <variable ilk="argument" name="auth" />
+          <variable citdl="dict" line="280" name="headers" />
+          <variable citdl="urllib2.build_opener()" line="287" name="opener" />
+          <variable citdl="str" line="261" name="sep_boundary" />
+          <variable citdl="str" line="260" name="boundary" />
+          <variable citdl="list" line="267" name="value" />
+          <variable citdl="result.read()" ilk="argument" name="data" />
+          <variable citdl="str" line="304" name="dashes" />
+          <variable citdl="tuple" line="292" name="result" />
+        </scope>
+        <scope doc="Send the metadata to the package index server." ilk="function" line="101" lineend="222" name="send_metadata" signature="send_metadata()">
+          <variable citdl="str" line="133" name="username" />
+          <variable line="168" name="code" />
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="urllib2.HTTPPasswordMgr()" line="164" name="auth" />
+          <variable citdl="str.split()" line="140" name="choices" />
+          <variable line="165" name="host" />
+          <variable line="168" name="result" />
+          <variable citdl="getpass.getpass()" line="134" name="password" />
+          <variable citdl="dict" line="193" name="data" />
+          <variable citdl="str" line="132" name="choice" />
+        </scope>
+        <scope ilk="function" line="224" lineend="250" name="build_post_data" returns="dict" signature="build_post_data(action)">
+          <variable ilk="argument" name="action" />
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="self.distribution.metadata" line="227" name="meta" />
+          <variable citdl="dict" line="228" name="data" />
+        </scope>
+        <scope ilk="function" line="38" lineend="43" name="finalize_options" signature="finalize_options()">
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="dict" line="41" name="check_options" />
+        </scope>
+        <scope doc="Fetch the list of classifiers from the server." ilk="function" line="87" lineend="91" name="classifiers" signature="classifiers()">
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="urllib2.urlopen()" line="90" name="response" />
+        </scope>
+        <scope doc="Send the metadata to the package index server to be checked." ilk="function" line="93" lineend="98" name="verify_metadata" signature="verify_metadata()">
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable line="97" name="code" />
+          <variable line="97" name="result" />
+        </scope>
+        <scope doc="Reads the configuration file and set attributes." ilk="function" line="70" lineend="85" name="_set_config" signature="_set_config()">
+          <variable citdl="register" ilk="argument" name="self" />
+          <variable citdl="self._read_pypirc()" line="73" name="config" />
+        </scope>
+        <variable attributes="__instancevar__" line="75" name="username" />
+        <variable citdl="list" line="22" name="user_options" />
+        <variable attributes="__instancevar__" line="78" name="realm" />
+        <variable citdl="str" line="21" name="description" />
+        <variable attributes="__instancevar__" citdl="self.DEFAULT_REPOSITORY" line="77" name="repository" />
+        <variable attributes="__instancevar__" citdl="True" line="79" name="has_config" />
+        <variable citdl="list" line="31" name="sub_commands" />
+        <variable attributes="__instancevar__" citdl="int" line="36" name="strict" />
+        <variable citdl="list" line="28" name="boolean_options" />
+        <variable attributes="__instancevar__" citdl="int" line="35" name="list_classifiers" />
+        <variable attributes="__instancevar__" line="76" name="password" />
+      </scope>
+      <import module="urllib2" />
+      <import module="urlparse" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+    </scope>
+    

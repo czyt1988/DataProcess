@@ -1,0 +1,48 @@
+<scope doc="Word completion for GNU readline 2.0.&#10;This requires the latest extension to the readline module. The completer completes keywords, built-ins and globals in a selectable namespace (which defaults to __main__); when completing NAME.NAME..., it evaluates (!) the expression up to the last dot and completes its attributes.  It's very cool to do &quot;import sys&quot; type &quot;sys.&quot;, hit the completion key (twice), and see the list of names defined by the sys module!  Tip: to use the tab key as the completion key, call" ilk="blob" lang="Python" name="rlcompleter">
+      <scope doc="&#10;" ilk="class" line="47" lineend="156" name="Completer">
+        <scope doc="Return the next possible completion for 'text'." ilk="function" line="75" lineend="93" name="complete" signature="complete(text, state)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="Completer" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope doc="Compute matches when text contains a dot." ilk="function" line="119" lineend="156" name="attr_matches" returns="list" signature="attr_matches(text)">
+          <variable citdl="_callable_postfix()" line="154" name="word" />
+          <variable line="135" name="attr" />
+          <variable citdl="getattr()" line="153" name="val" />
+          <variable citdl="list" line="149" name="matches" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="Completer" ilk="argument" name="self" />
+          <variable citdl="eval()" line="137" name="thisobject" />
+          <variable citdl="re.match()" line="132" name="m" />
+          <variable citdl="len()" line="150" name="n" />
+          <variable citdl="dir()" line="142" name="words" />
+          <variable line="135" name="expr" />
+        </scope>
+        <scope doc="Compute matches when text is a simple name." ilk="function" line="100" lineend="117" name="global_matches" returns="list" signature="global_matches(text)">
+          <variable citdl="list" line="108" name="matches" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="Completer" ilk="argument" name="self" />
+          <variable citdl="len()" line="109" name="n" />
+        </scope>
+        <scope ilk="function" line="95" lineend="98" name="_callable_postfix" returns="str" signature="_callable_postfix(val, word)">
+          <variable citdl="Completer" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="word" />
+          <variable ilk="argument" name="val" />
+        </scope>
+        <scope doc="Create a new completer for the command line." ilk="function" line="48" lineend="73" name="__init__" signature="Completer(namespace=None)">
+          <variable citdl="Completer" ilk="argument" name="self" />
+          <variable ilk="argument" name="namespace" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.attr_matches()" line="87" name="matches" />
+        <variable attributes="__instancevar__" citdl="dict" line="73" name="namespace" />
+        <variable attributes="__instancevar__" citdl="int" line="70" name="use_main_ns" />
+      </scope>
+      <variable citdl="list" line="45" name="__all__" />
+      <import module="__builtin__" />
+      <import module="__main__" />
+      <scope ilk="function" line="158" lineend="163" name="get_class_members" returns="get_class_members()" signature="get_class_members(klass)">
+        <variable ilk="argument" name="klass" />
+        <variable citdl="dir()" line="159" name="ret" />
+      </scope>
+    </scope>
+    

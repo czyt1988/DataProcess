@@ -1,0 +1,78 @@
+<scope doc="Python interface for the 'lsprof' profiler.&#10;Compatible with the 'profile' module." ilk="blob" lang="Python" name="cProfile">
+      <scope classrefs="Profiler" doc="Profile(custom_timer=None, time_unit=None, subcalls=True, builtins=True)&#10;Builds a profiler object using the specified timer function. The default timer is a fast built-in one based on real time. For custom timer functions returning integers, time_unit can be a float specifying a scale (i.e. how long each integer unit is, in seconds)." ilk="class" line="66" lineend="151" name="Profile" signature="Profile(custom_timer=None, time_unit=None, subcalls=True, builtins=True)">
+        <scope ilk="function" line="132" lineend="135" name="run" returns="self.runctx()" signature="run(cmd)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="dict" line="134" name="dict" />
+        </scope>
+        <scope ilk="function" line="90" lineend="92" name="create_stats" signature="create_stats()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="81" name="print_stats" signature="print_stats(sort=-1)">
+          <variable citdl="int" ilk="argument" name="sort" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="83" lineend="88" name="dump_stats" signature="dump_stats(file)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="open()" line="85" name="f" />
+        </scope>
+        <scope doc="# This method is more useful to profile a single function&#10;call." ilk="function" line="146" lineend="151" name="runcall" returns="Profile.runcall.func()" signature="runcall(func, *args, **kw)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope ilk="function" line="137" lineend="143" name="runctx" returns="Profile" signature="runctx(cmd, globals, locals)">
+          <variable ilk="argument" name="globals" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="locals" />
+        </scope>
+        <scope ilk="function" line="94" lineend="127" name="snapshot_stats" signature="snapshot_stats()">
+          <variable citdl="dict" line="97" name="callersdicts" />
+          <variable citdl="entry.callcount" line="102" name="cc" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="entry.callcount" line="101" name="nc" />
+          <variable citdl="dict" line="105" name="callers" />
+          <variable citdl="label()" line="100" name="func" />
+          <variable citdl="self.getstats()" line="95" name="entries" />
+          <variable line="122" name="prev" />
+          <variable citdl="subentry.inlinetime" line="103" name="tt" />
+          <variable citdl="entry.totaltime" line="104" name="ct" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="96" name="stats" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="_lsprof" />
+      <scope doc="# Backwards compatibility." ilk="function" line="60" lineend="62" name="help" signature="help()" />
+      <scope ilk="function" line="155" lineend="159" name="label" returns="tuple" signature="label(code)">
+        <variable ilk="argument" name="code" />
+      </scope>
+      <scope ilk="function" line="163" lineend="195" name="main" returns="OptionParser()" signature="main()">
+        <variable citdl="compile()" line="186" name="code" />
+        <variable line="179" name="args" />
+        <variable citdl="OptionParser()" line="167" name="parser" />
+        <variable line="183" name="progname" />
+        <variable citdl="str" line="166" name="usage" />
+        <variable citdl="dict" line="187" name="globs" />
+        <variable line="179" name="options" />
+      </scope>
+      <scope doc="Run statement under profiler optionally saving results in&#10;filename" ilk="function" line="14" lineend="37" name="run" returns="prof.print_stats()" signature="run(statement, filename=None, sort=-1)">
+        <variable citdl="int" ilk="argument" name="sort" />
+        <variable citdl="Profile()" line="25" name="prof" />
+        <variable citdl="prof.print_stats()" line="26" name="result" />
+        <variable ilk="argument" name="statement" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Run statement under profiler, supplying your own globals and&#10;locals, optionally saving results in filename." ilk="function" line="39" lineend="57" name="runctx" returns="prof.print_stats()" signature="runctx(statement, globals, locals, filename=None, sort=-1)">
+        <variable citdl="int" ilk="argument" name="sort" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="globals" />
+        <variable citdl="prof.print_stats()" line="46" name="result" />
+        <variable ilk="argument" name="statement" />
+        <variable citdl="Profile()" line="45" name="prof" />
+        <variable ilk="argument" name="locals" />
+      </scope>
+    </scope>
+    

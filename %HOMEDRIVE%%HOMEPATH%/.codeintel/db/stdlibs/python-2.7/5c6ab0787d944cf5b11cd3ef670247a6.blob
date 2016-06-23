@@ -1,0 +1,49 @@
+<scope doc="Thread-local objects.&#10;(Note that this module provides a Python version of the threading.local class.  Depending on the version of Python you're using, there may be a faster one available.  You should always import the `local` class from `threading`.)  Thread-local objects support the management of thread-local data. If you have data that you want to be local to a thread, simply create a thread-local object and use its attributes:  &gt;&gt;&gt; mydata = local()" ilk="blob" lang="Python" name="_threading_local">
+      <scope ilk="function" name="RLock" signature="RLock(*args, **kwargs)" />
+      <variable citdl="list" line="136" name="__all__" />
+      <scope ilk="function" name="current_thread" signature="current_thread()" />
+      <scope classrefs="_localbase" doc="&#10;" ilk="class" line="186" lineend="249" name="local">
+        <scope ilk="function" line="223" lineend="249" name="__del__" signature="__del__()">
+          <variable citdl="dict" line="240" name="__dict__" />
+          <variable citdl="local" ilk="argument" name="self" />
+          <variable citdl="threading._enumerate()" line="231" name="threads" />
+          <variable citdl="object.__getattribute__()" line="226" name="key" />
+        </scope>
+        <scope ilk="function" line="188" lineend="195" name="__getattribute__" returns="object.__getattribute__()" signature="__getattribute__(name)">
+          <variable citdl="object.__getattribute__()" line="189" name="lock" />
+          <variable citdl="local" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="197" lineend="208" name="__setattr__" returns="object.__setattr__()" signature="__setattr__(name, value)">
+          <variable citdl="object.__getattribute__()" line="202" name="lock" />
+          <variable citdl="local" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="210" lineend="221" name="__delattr__" returns="object.__delattr__()" signature="__delattr__(name)">
+          <variable citdl="object.__getattribute__()" line="215" name="lock" />
+          <variable citdl="local" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="148" lineend="167" name="_localbase">
+        <variable citdl="tuple" line="149" name="__slots__" />
+        <scope ilk="function" line="151" lineend="167" name="__new__" returns="object.__new__()" signature="__new__(*args, **kw)">
+          <variable citdl="_localbase" ilk="argument" name="cls" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="object.__new__()" line="152" name="self" />
+          <variable citdl="tuple" line="153" name="key" />
+          <variable citdl="object.__getattribute__()" line="164" name="dict" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="169" lineend="184" name="_patch" signature="_patch(self)">
+        <variable ilk="argument" name="self" />
+        <variable citdl="object.__getattribute__()" line="170" name="key" />
+        <variable citdl="dict" line="171" name="d" />
+        <variable citdl="type()" line="179" name="cls" />
+        <variable line="181" name="args" />
+        <variable line="181" name="kw" />
+      </scope>
+    </scope>
+    

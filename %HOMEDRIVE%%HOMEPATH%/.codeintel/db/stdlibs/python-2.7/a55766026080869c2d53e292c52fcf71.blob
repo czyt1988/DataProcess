@@ -1,0 +1,229 @@
+<scope doc="Stuff to parse WAVE files.&#10;Usage.  Reading WAVE files: f = wave.open(file, 'r') where file is either the name of a file or an open file pointer. The open file pointer must have methods read(), seek(), and close(). When the setpos() and rewind() methods are not used, the seek() method is not  necessary.  This returns an instance of a class with the following public methods:" ilk="blob" lang="Python" name="wave">
+      <scope doc="&#10;" ilk="class" name="Chunk">
+        <scope ilk="function" name="isatty" />
+        <scope doc="Read at most size bytes from the chunk." ilk="function" name="read" />
+        <scope doc="Skip the rest of the chunk." ilk="function" name="skip" />
+        <scope doc="Return the name (ID) of the current chunk." ilk="function" name="getname" />
+        <scope doc="Return the size of the current chunk." ilk="function" name="getsize" />
+        <scope ilk="function" name="close" />
+        <scope doc="Seek to specified position into the chunk." ilk="function" name="seek" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="78" lineend="79" name="Error" />
+      <variable citdl="int" line="81" name="WAVE_FORMAT_PCM" />
+      <scope doc="Variables used in this class:&#10;These variables are available to the user though appropriate methods of this class: _file -- the open file with methods read(), close(), and seek() set through the __init__() method _nchannels -- the number of audio channels available through the getnchannels() method _nframes -- the number of audio frames available through the getnframes() method _sampwidth -- the number of bytes per audio sample available through the getsampwidth() method" ilk="class" line="94" lineend="272" name="Wave_read">
+        <scope ilk="function" line="205" lineend="206" name="getcompname" returns="self._compname" signature="getcompname()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="196" lineend="197" name="getsampwidth" returns="self._sampwidth" signature="getsampwidth()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="208" lineend="211" name="getparams" returns="tuple" signature="getparams()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="169" lineend="170" name="__del__" signature="__del__()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# User visible methods." ilk="function" line="174" lineend="175" name="getfp" returns="Chunk()" signature="getfp()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="263" lineend="272" name="_read_fmt_chunk" signature="_read_fmt_chunk(chunk)">
+          <variable line="264" name="dwAvgBytesPerSec" />
+          <variable line="266" name="sampwidth" />
+          <variable line="264" name="wBlockAlign" />
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable line="264" name="wFormatTag" />
+          <variable ilk="argument" name="chunk" />
+        </scope>
+        <scope ilk="function" line="193" lineend="194" name="getnframes" returns="int" signature="getnframes()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="187" lineend="188" name="tell" returns="int" signature="tell()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="216" lineend="217" name="getmark" signature="getmark(id)">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable ilk="argument" name="id" />
+        </scope>
+        <scope ilk="function" line="219" lineend="223" name="setpos" signature="setpos(pos)">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="202" lineend="203" name="getcomptype" returns="self._comptype" signature="getcomptype()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="190" lineend="191" name="getnchannels" returns="self._nchannels" signature="getnchannels()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="177" lineend="179" name="rewind" signature="rewind()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="225" lineend="257" name="readframes" returns="str" signature="readframes(nframes)">
+          <variable citdl="chunk.chunksize" line="241" name="nitems" />
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable citdl="self._framesize" line="228" name="pos" />
+          <variable ilk="argument" name="nframes" />
+          <variable citdl="_convert()" line="240" name="data" />
+          <variable citdl="chunk.file" line="239" name="chunk" />
+        </scope>
+        <scope ilk="function" line="181" lineend="185" name="close" signature="close()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="125" lineend="154" name="initfp" signature="initfp(file)">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable citdl="chunk.getname()" line="141" name="chunkname" />
+          <variable citdl="Chunk()" line="138" name="chunk" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="213" lineend="214" name="getmarkers" signature="getmarkers()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="156" lineend="167" name="__init__" signature="Wave_read(f)">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+          <variable citdl="__builtin__.open()" ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="199" lineend="200" name="getframerate" returns="self._framerate" signature="getframerate()">
+          <variable citdl="Wave_read" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="149" name="_nframes" />
+        <variable attributes="protected __instancevar__" citdl="int" line="267" name="_sampwidth" />
+        <variable attributes="protected __instancevar__" citdl="Chunk()" line="134" name="_data_chunk" />
+        <variable attributes="protected __instancevar__" citdl="int" line="127" name="_soundpos" />
+        <variable attributes="protected __instancevar__" citdl="Chunk()" line="128" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="133" name="_fmt_chunk_read" />
+        <variable attributes="protected __instancevar__" citdl="int" line="270" name="_framesize" />
+        <variable attributes="protected __instancevar__" citdl="__builtin__.open()" line="157" name="_i_opened_the_file" />
+        <variable attributes="protected __instancevar__" line="264" name="_framerate" />
+        <variable attributes="protected __instancevar__" line="126" name="_convert" />
+        <variable attributes="protected __instancevar__" line="264" name="_nchannels" />
+        <variable attributes="protected __instancevar__" citdl="int" line="136" name="_data_seek_needed" />
+        <variable attributes="protected __instancevar__" citdl="str" line="272" name="_compname" />
+        <variable attributes="protected __instancevar__" citdl="str" line="271" name="_comptype" />
+      </scope>
+      <scope doc="Variables used in this class:&#10;These variables are user settable through appropriate methods of this class: _file -- the open file with methods write(), close(), tell(), seek() set through the __init__() method _comptype -- the AIFF-C compression type ('NONE' in AIFF) set through the setcomptype() or setparams() method _compname -- the human-readable AIFF-C compression type set through the setcomptype() or setparams() method _nchannels -- the number of audio channels set through the setnchannels() or setparams() method" ilk="class" line="274" lineend="489" name="Wave_write">
+        <scope ilk="function" line="385" lineend="386" name="getcompname" signature="getcompname()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="398" lineend="402" name="getparams" returns="tuple" signature="getparams()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="462" lineend="477" name="_write_header" signature="_write_header(initlength)">
+          <variable ilk="argument" name="initlength" />
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="437" lineend="446" name="close" signature="close()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="300" lineend="310" name="__init__" signature="Wave_write(f)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable citdl="__builtin__.open()" ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="366" lineend="369" name="setnframes" signature="setnframes(nframes)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="nframes" />
+        </scope>
+        <scope ilk="function" line="349" lineend="352" name="getsampwidth" returns="int" signature="getsampwidth()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="404" lineend="405" name="setmark" signature="setmark(id, pos, name)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="id" />
+        </scope>
+        <scope ilk="function" line="382" lineend="383" name="getcomptype" signature="getcomptype()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="312" lineend="322" name="initfp" signature="initfp(file)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="388" lineend="396" name="setparams" signature="setparams(params)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="params" />
+        </scope>
+        <scope ilk="function" line="413" lineend="414" name="tell" returns="int" signature="tell()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="342" lineend="347" name="setsampwidth" signature="setsampwidth(sampwidth)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="sampwidth" />
+        </scope>
+        <scope doc="# User visible methods." ilk="function" line="330" lineend="335" name="setnchannels" signature="setnchannels(nchannels)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="nchannels" />
+        </scope>
+        <scope ilk="function" line="324" lineend="325" name="__del__" signature="__del__()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="371" lineend="372" name="getnframes" returns="int" signature="getnframes()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="452" lineend="460" name="_ensure_header_written" signature="_ensure_header_written(datasize)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="datasize" />
+        </scope>
+        <scope ilk="function" line="416" lineend="430" name="writeframesraw" signature="writeframesraw(data)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable citdl="_convert()" ilk="argument" name="data" />
+          <variable citdl="int" line="418" name="nframes" />
+        </scope>
+        <scope ilk="function" line="479" lineend="489" name="_patchheader" signature="_patchheader()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable citdl="self._file.tell()" line="483" name="curpos" />
+        </scope>
+        <scope ilk="function" line="361" lineend="364" name="getframerate" returns="int" signature="getframerate()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="354" lineend="359" name="setframerate" signature="setframerate(framerate)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="framerate" />
+        </scope>
+        <scope ilk="function" line="432" lineend="435" name="writeframes" signature="writeframes(data)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="410" lineend="411" name="getmarkers" signature="getmarkers()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="407" lineend="408" name="getmark" signature="getmark(id)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="id" />
+        </scope>
+        <scope ilk="function" line="374" lineend="380" name="setcomptype" signature="setcomptype(comptype, compname)">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="compname" />
+          <variable ilk="argument" name="comptype" />
+        </scope>
+        <scope ilk="function" line="337" lineend="340" name="getnchannels" returns="int" signature="getnchannels()">
+          <variable citdl="Wave_write" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="318" name="_nframes" />
+        <variable attributes="protected __instancevar__" citdl="int" line="316" name="_sampwidth" />
+        <variable attributes="protected __instancevar__" citdl="True" line="322" name="_headerwritten" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="320" name="_datawritten" />
+        <variable attributes="protected __instancevar__" line="313" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="319" name="_nframeswritten" />
+        <variable attributes="protected __instancevar__" citdl="int" line="317" name="_framerate" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="468" name="_form_length_pos" />
+        <variable attributes="protected __instancevar__" citdl="__builtin__.open()" line="301" name="_i_opened_the_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="321" name="_datalength" />
+        <variable attributes="protected __instancevar__" line="314" name="_convert" />
+        <variable attributes="protected __instancevar__" citdl="int" line="315" name="_nchannels" />
+        <variable attributes="protected __instancevar__" line="380" name="_compname" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="475" name="_data_length_pos" />
+        <variable attributes="protected __instancevar__" line="379" name="_comptype" />
+      </scope>
+      <variable citdl="list" line="76" name="__all__" />
+      <import module="__builtin__" />
+      <variable citdl="int" line="88" name="big_endian" />
+      <scope ilk="function" line="491" lineend="502" name="open" returns="Wave_read" signature="open(f, mode=None)">
+        <variable citdl="f.mode" ilk="argument" name="mode" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="504" name="openfp" signature="openfp(f, mode=None)" />
+      <import module="struct" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="83" name="_array_fmts" />
+    </scope>
+    

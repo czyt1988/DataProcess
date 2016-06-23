@@ -1,0 +1,226 @@
+<scope doc="Import utilities&#10;Exported classes: ImportManager   Manage the import process  Importer        Base class for replacing standard import functions BuiltinImporter Emulate the import mechanism for builtin and frozen modules  DynLoadSuffixImporter" ilk="blob" lang="Python" name="imputil">
+      <scope classrefs="Importer" doc="######################################################################&#10;# # Emulate the import mechanism for builtin and frozen modules" ilk="class" line="504" lineend="521" name="BuiltinImporter">
+        <scope ilk="function" line="505" lineend="521" name="get_code" returns="tuple" signature="get_code(parent, modname, fqname)">
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="BuiltinImporter" ilk="argument" name="self" />
+          <variable citdl="imp.load_module()" line="520" name="module" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="imp.C_BUILTIN" line="512" name="type" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="601" lineend="609" name="DynLoadSuffixImporter">
+        <scope ilk="function" line="605" lineend="609" name="import_file" returns="tuple" signature="import_file(filename, finfo, fqname)">
+          <variable citdl="open()" line="606" name="fp" />
+          <variable citdl="DynLoadSuffixImporter" ilk="argument" name="self" />
+          <variable citdl="imp.load_module()" line="607" name="module" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="fqname" />
+          <variable ilk="argument" name="finfo" />
+        </scope>
+        <scope ilk="function" line="602" lineend="603" name="__init__" signature="DynLoadSuffixImporter(desc)">
+          <variable citdl="DynLoadSuffixImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="desc" />
+        </scope>
+        <variable attributes="__instancevar__" line="603" name="desc" />
+      </scope>
+      <scope doc="Manage the import process.&#10;" ilk="class" line="30" lineend="214" name="ImportManager">
+        <scope doc="Python calls this hook to locate and import a module." ilk="function" line="86" lineend="147" name="_import_hook" returns="parent.__importer__._do_import()" signature="_import_hook(fqname, globals=None, locals=None, fromlist=None)">
+          <variable ilk="argument" name="fromlist" />
+          <variable citdl="self._determine_import_context()" line="92" name="parent" />
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable citdl="fqname.split()" line="89" name="parts" />
+          <variable citdl="parent.__importer__._do_import()" line="96" name="module" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="top_module.__dict__.get()" line="133" name="importer" />
+          <variable ilk="argument" name="globals" />
+          <variable citdl="self._import_top_module()" line="102" name="top_module" />
+          <variable ilk="argument" name="locals" />
+        </scope>
+        <scope ilk="function" line="188" lineend="198" name="_import_top_module" returns="self.fs_imp.import_from_dir()" signature="_import_top_module(name)">
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="item.import_top()" line="193" name="module" />
+        </scope>
+        <scope doc="Returns the context in which a module should be imported." ilk="function" line="149" lineend="186" name="_determine_import_context" signature="_determine_import_context(globals)">
+          <variable citdl="parent_fqname.rfind()" line="175" name="i" />
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable ilk="argument" name="globals" />
+          <variable citdl="list" line="166" name="parent_fqname" />
+          <variable line="171" name="parent" />
+        </scope>
+        <scope doc="Python calls this hook to reload a module." ilk="function" line="200" lineend="214" name="_reload_hook" signature="_reload_hook(module)">
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable citdl="module.__dict__.get()" line="205" name="importer" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope doc="Install this ImportManager into the specified namespace." ilk="function" line="33" lineend="44" name="install" signature="install(namespace=vars(__builtin__))">
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable citdl="vars()" ilk="argument" name="namespace" />
+        </scope>
+        <scope ilk="function" line="53" lineend="55" name="add_suffix" signature="add_suffix(suffix, importFunc)">
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable ilk="argument" name="suffix" />
+          <variable ilk="argument" name="importFunc" />
+        </scope>
+        <scope ilk="function" line="64" lineend="84" name="__init__" signature="ImportManager(fs_imp=None)">
+          <variable citdl="cls()" ilk="argument" name="fs_imp" />
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+          <variable citdl="_FilesystemImporter" line="73" name="cls" />
+        </scope>
+        <scope doc="Restore the previous import mechanism." ilk="function" line="49" lineend="51" name="uninstall" signature="uninstall()">
+          <variable citdl="ImportManager" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="cls()" line="75" name="fs_imp" />
+        <variable attributes="__instancevar__" line="42" name="previous_importer" />
+        <variable line="62" name="clsFilesystemImporter" />
+        <variable attributes="__instancevar__" citdl="vars()" line="43" name="namespace" />
+      </scope>
+      <scope doc="Base class for replacing standard import functions.&#10;" ilk="class" line="217" lineend="401" name="Importer">
+        <scope ilk="function" line="284" lineend="319" name="_process_result" returns="imp.new_module()" signature="_process_result(result, fqname)">
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="code" line="291" name="module" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable ilk="argument" name="result" />
+          <variable citdl="isinstance()" line="287" name="is_module" />
+        </scope>
+        <scope doc="Attempt to import the module relative to parent." ilk="function" line="351" lineend="364" name="_do_import" returns="Importer._finish_import()" signature="_do_import(parent, parts, fromlist)">
+          <variable ilk="argument" name="fromlist" />
+          <variable line="357" name="top_name" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable citdl="parent.__name__" line="358" name="top_fqname" />
+          <variable ilk="argument" name="parts" />
+          <variable citdl="_import_one()" line="359" name="top_module" />
+        </scope>
+        <scope doc="Import the rest of the modules, down from the top-level&#10;module." ilk="function" line="321" lineend="331" name="_load_tail" returns="_import_one()" signature="_load_tail(m, parts)">
+          <variable citdl="str" line="327" name="fqname" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable ilk="argument" name="parts" />
+          <variable citdl="_import_one()" ilk="argument" name="m" />
+        </scope>
+        <scope doc="Import a top-level module." ilk="function" line="220" lineend="222" name="import_top" returns="self._import_one()" signature="import_top(name)">
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="############################################################&#10;########## # # PRIVATE METHODS" ilk="function" line="228" lineend="261" name="_finish_import" returns="self._load_tail()" signature="_finish_import(top, parts, fromlist)">
+          <variable ilk="argument" name="fromlist" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable ilk="argument" name="parts" />
+          <variable ilk="argument" name="top" />
+          <variable citdl="self._load_tail()" line="231" name="bottom" />
+        </scope>
+        <scope doc="Find and retrieve the code for the given module." ilk="function" line="370" lineend="401" name="get_code" signature="get_code(parent, modname, fqname)">
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope doc="Import a single module." ilk="function" line="263" lineend="282" name="_import_one" returns="self._process_result()" signature="_import_one(parent, modname, fqname)">
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable citdl="self._process_result()" line="277" name="module" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="self.get_code()" line="273" name="result" />
+        </scope>
+        <scope doc="Import any sub-modules in the &quot;from&quot; list." ilk="function" line="333" lineend="349" name="_import_fromlist" signature="_import_fromlist(package, fromlist)">
+          <variable citdl="list()" ilk="argument" name="fromlist" />
+          <variable citdl="_import_one()" line="347" name="submod" />
+          <variable citdl="Importer" ilk="argument" name="self" />
+          <variable citdl="str" line="346" name="subname" />
+          <variable ilk="argument" name="package" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="25" name="__all__" />
+      <import module="__builtin__" />
+      <import module="imp" />
+      <import module="marshal" />
+      <scope ilk="function" line="582" lineend="599" name="py_suffix_importer" returns="tuple" signature="py_suffix_importer(filename, finfo, fqname)">
+        <variable citdl="_timestamp()" line="585" name="t_pyc" />
+        <variable citdl="_compile()" line="587" name="code" />
+        <variable citdl="__debug__" line="583" name="file" />
+        <variable citdl="open()" line="589" name="f" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="fqname" />
+        <variable line="591" name="t" />
+        <variable citdl="long()" line="584" name="t_py" />
+        <variable ilk="argument" name="finfo" />
+      </scope>
+      <import module="struct" />
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="623" lineend="625" name="_test_revamp" signature="_test_revamp()" />
+      <scope attributes="protected __hidden__" doc="Return the file modification time as a Long." ilk="function" line="491" lineend="497" name="_timestamp" returns="long()" signature="_timestamp(pathname)">
+        <variable ilk="argument" name="pathname" />
+        <variable citdl="_os_stat()" line="494" name="s" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Set up 'os' module replacement functions for use during&#10;import bootstrap." ilk="function" line="447" lineend="481" name="_os_bootstrap" signature="_os_bootstrap()">
+        <import line="455" module="posix" symbol="stat" />
+        <import line="458" module="nt" symbol="stat" />
+        <import line="461" module="dos" symbol="stat" />
+        <import line="464" module="os2" symbol="stat" />
+        <variable citdl="sys.builtin_module_names" line="450" name="names" />
+        <variable citdl="str" line="454" name="sep" />
+        <scope ilk="function" line="469" lineend="475" name="join" returns="str" signature="join(a, b, sep=sep)">
+          <variable ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="str" ilk="argument" name="sep" />
+          <variable citdl="list" line="472" name="lastchar" />
+        </scope>
+        <variable attributes="protected" citdl="stat" line="478" name="_os_stat" />
+        <variable attributes="protected" citdl="_os_bootstrap.join" line="481" name="_os_path_join" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="Importer" ilk="class" line="528" lineend="575" name="_FilesystemImporter">
+        <scope attributes="__ctor__" ilk="function" line="529" lineend="530" name="__init__" signature="_FilesystemImporter()">
+          <variable citdl="_FilesystemImporter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="530" name="suffixes" />
+        <scope ilk="function" line="532" lineend="534" name="add_suffix" signature="add_suffix(suffix, importFunc)">
+          <variable citdl="_FilesystemImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="suffix" />
+          <variable ilk="argument" name="importFunc" />
+        </scope>
+        <scope ilk="function" line="536" lineend="540" name="import_from_dir" returns="self._process_result()" signature="import_from_dir(dir, fqname)">
+          <variable citdl="_FilesystemImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="self._import_pathname()" line="537" name="result" />
+        </scope>
+        <scope ilk="function" line="542" lineend="554" name="get_code" returns="self._import_pathname()" signature="get_code(parent, modname, fqname)">
+          <variable citdl="_FilesystemImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+          <variable ilk="argument" name="modname" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="self._import_pathname()" line="550" name="code" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="556" lineend="575" name="_import_pathname" returns="tuple" signature="_import_pathname(pathname, fqname)">
+          <variable citdl="_FilesystemImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="pathname" />
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="()" line="558" name="result" />
+          <variable line="561" name="values" />
+          <variable citdl="suffix" line="568" name="filename" />
+          <variable citdl="_os_stat()" line="570" name="finfo" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="type()" line="27" name="_StringType" />
+      <variable attributes="protected __hidden__" citdl="type()" line="28" name="_ModuleType" />
+      <scope attributes="protected __hidden__" doc="Local replacement for os.path.isdir()." ilk="function" line="483" lineend="489" name="_os_path_isdir" returns="bool" signature="_os_path_isdir(pathname)">
+        <variable ilk="argument" name="pathname" />
+        <variable citdl="_os_stat()" line="486" name="s" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="614" lineend="621" name="_print_importers" signature="_print_importers()">
+        <variable citdl="sys.modules.items()" line="615" name="items" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="The file specified by &lt;pathname&gt; is compiled to a code&#10;object and returned." ilk="function" line="415" lineend="444" name="_compile" returns="__builtin__.compile()" signature="Compile (and cache) a Python source file.">
+        <variable ilk="argument" name="pathname" />
+        <variable ilk="argument" name="timestamp" />
+        <variable citdl="str" line="425" name="codestring" />
+        <variable citdl="__builtin__.compile()" line="428" name="code" />
+        <variable citdl="open()" line="432" name="f" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="413" name="_suffix" />
+      <variable attributes="protected __hidden__" line="446" name="_os_stat" />
+      <variable attributes="protected __hidden__" citdl="__debug__" line="410" name="_suffix_char" />
+    </scope>
+    

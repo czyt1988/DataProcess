@@ -1,0 +1,84 @@
+<scope doc="Fixer for __metaclass__ = X -&gt; (metaclass=X) methods.&#10;The various forms of classef (inherits nothing, inherits once, inherints many) don't parse the same in the CST so we look at ALL classes for a __metaclass__ and if we find one normalize the inherits to all be an arglist.  For one-liner classes ('class X: pass') there is no indent/dedent so we normalize those into having a suite.  Moving the __metaclass__ into the classdef can also cause the class body to be empty so there is some special casing for that as well." ilk="blob" lang="Python" name="lib2to3.fixes.fix_metaclass">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="145" lineend="228" name="FixMetaclass">
+        <scope ilk="function" line="152" lineend="228" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Node()" line="171" name="arglist" />
+          <variable line="174" name="parent" />
+          <variable line="164" name="text_type" />
+          <variable citdl="FixMetaclass" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="204" name="expr_stmt" />
+          <variable citdl="stmt" line="159" name="last_metaclass" />
+          <variable citdl="Leaf()" line="217" name="pass_leaf" />
+          <variable citdl="meta_txt.prefix" line="195" name="orig_meta_prefix" />
+          <variable line="193" name="meta_txt" />
+        </scope>
+        <variable citdl="True" line="146" name="BM_compatible" />
+        <variable citdl="str" line="148" name="PATTERN" />
+      </scope>
+      <scope classrefs="Base" doc="Concrete implementation for leaf nodes.&#10;" ilk="class" name="Leaf">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="The whitespace and comments preceding this token in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope ilk="function" name="leaves" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <scope ilk="function" line="100" lineend="120" name="find_metas" signature="find_metas(cls_node)">
+        <variable line="114" name="left_node" />
+        <variable ilk="argument" name="cls_node" />
+        <variable line="111" name="expr_node" />
+      </scope>
+      <import module="fixer_base" />
+      <scope doc="If an INDENT is followed by a thing with a prefix then nuke&#10;the prefix Otherwise we get in trouble when removing&#10;__metaclass__ at suite start" ilk="function" line="123" lineend="142" name="fixup_indent" signature="fixup_indent(suite)">
+        <variable citdl="kids.pop()" line="130" name="node" />
+        <variable ilk="argument" name="suite" />
+        <variable line="127" name="kids" />
+      </scope>
+      <scope doc="one-line classes don't get a suite in the parse tree so we&#10;add one to normalize the tree" ilk="function" line="45" lineend="68" name="fixup_parse_tree" signature="fixup_parse_tree(cls_node)">
+        <variable citdl="Node()" line="68" name="node" />
+        <variable citdl="Node()" line="62" name="suite" />
+        <variable ilk="argument" name="cls_node" />
+        <variable line="64" name="move_node" />
+      </scope>
+      <scope doc="if there is a semi-colon all the parts count as part of the&#10;same simple_stmt." ilk="function" line="71" lineend="92" name="fixup_simple_stmt" signature="fixup_simple_stmt(parent, i, stmt_node)">
+        <variable citdl="Node()" line="83" name="new_expr" />
+        <variable ilk="argument" name="parent" />
+        <variable ilk="argument" name="i" />
+        <variable citdl="Node()" line="84" name="new_stmt" />
+        <variable line="91" name="old_leaf1" />
+        <variable ilk="argument" name="stmt_node" />
+        <variable line="90" name="new_leaf1" />
+        <variable line="86" name="move_node" />
+      </scope>
+      <scope doc="we have to check the cls_node without changing it." ilk="function" line="26" lineend="42" name="has_metaclass" returns="has_metaclass()" signature="has_metaclass(parent)">
+        <variable line="38" name="left_side" />
+        <variable line="36" name="expr_node" />
+        <variable ilk="argument" name="parent" />
+      </scope>
+      <scope ilk="function" line="95" lineend="97" name="remove_trailing_newline" signature="remove_trailing_newline(node)">
+        <variable ilk="argument" name="node" />
+      </scope>
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

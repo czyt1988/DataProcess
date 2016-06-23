@@ -1,0 +1,19 @@
+<scope doc="Fixer for removing uses of the types module.&#10;These work for only the known names in the types module.  The forms above can include types. or not.  ie, It is assumed the module is imported either as:  import types from types import ... # either * or specific types  The import statements are not modified.  There should be another fixer that handles at least the following constants: " ilk="blob" lang="Python" name="lib2to3.fixes.fix_types">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="54" lineend="62" name="FixTypes">
+        <scope ilk="function" line="58" lineend="62" name="transform" returns="Name()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="unicode()" line="59" name="new_value" />
+          <variable citdl="FixTypes" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="55" name="BM_compatible" />
+        <variable citdl="str.join()" line="56" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <variable citdl="str" name="t" />
+      <import module="token" />
+      <variable attributes="protected __hidden__" citdl="list" line="52" name="_pats" />
+      <variable attributes="protected __hidden__" citdl="dict" line="27" name="_TYPE_MAPPING" />
+    </scope>
+    

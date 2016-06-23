@@ -1,0 +1,210 @@
+<scope doc="IC wrapper module, based on Internet Config 1.3&#10;" ilk="blob" lang="Python" name="ic">
+      <import module="Carbon" />
+      <scope doc="&#10;" ilk="class" line="163" lineend="230" name="IC">
+        <scope ilk="function" line="207" lineend="216" name="parseurl" returns="tuple" signature="parseurl(data, start=None, end=None, hint='')">
+          <variable ilk="argument" name="end" />
+          <variable citdl="str" ilk="argument" name="hint" />
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable ilk="argument" name="start" />
+          <variable citdl="int" line="209" name="selStart" />
+          <variable citdl="len()" line="210" name="selEnd" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="192" lineend="194" name="__getitem__" returns="_decode()" signature="__getitem__(key)">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="self.ic.ICFindPrefHandle()" line="193" name="attr" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="185" lineend="190" name="__contains__" returns="int" signature="__contains__(key)">
+          <variable citdl="self.ic.ICFindPrefHandle()" line="187" name="dummy" />
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="173" lineend="180" name="keys" returns="list" signature="keys()">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="self.ic.ICCountPref()" line="176" name="num" />
+          <variable citdl="list" line="174" name="rv" />
+        </scope>
+        <scope ilk="function" line="218" lineend="221" name="mapfile" returns="self.ic.ICMapFilename()" signature="mapfile(file)">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="196" lineend="198" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="_code()" ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="182" lineend="183" name="has_key" returns="self.__contains__()" signature="has_key(key)">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="200" lineend="205" name="launchurl" signature="launchurl(url, hint='')">
+          <variable citdl="list" ilk="argument" name="url" />
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="hint" />
+        </scope>
+        <scope ilk="function" line="226" lineend="230" name="settypecreator" signature="settypecreator(file)">
+          <variable citdl="mapfile()" line="228" name="record" />
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="Carbon.File.pathname()" ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="223" lineend="224" name="maptypecreator" returns="self.ic.ICMapTypeCreator()" signature="maptypecreator(type, creator, filename='')">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="filename" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="creator" />
+        </scope>
+        <scope ilk="function" line="164" lineend="171" name="__init__" signature="IC(signature='Pyth', ic=None)">
+          <variable citdl="IC" ilk="argument" name="self" />
+          <variable ilk="argument" name="ic" />
+          <variable citdl="str" ilk="argument" name="signature" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Res.Resource()" line="171" name="h" />
+        <variable attributes="__instancevar__" citdl="icglue.ICStart()" line="166" name="ic" />
+      </scope>
+      <scope doc="An unparseable IC entry&#10;" ilk="class" line="35" lineend="41" name="ICOpaqueData">
+        <scope ilk="function" line="37" lineend="38" name="__init__" signature="ICOpaqueData(data)">
+          <variable citdl="ICOpaqueData" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="40" lineend="41" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="ICOpaqueData" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="38" name="data" />
+      </scope>
+      <variable citdl="int" line="28" name="ICattr_no_change" />
+      <import module="Res" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="14" name="error" />
+      <variable citdl="int" line="26" name="icConfigInappropriateErr" />
+      <variable citdl="int" line="25" name="icConfigNotFoundErr" />
+      <variable citdl="int" line="20" name="icInternalErr" />
+      <variable citdl="int" line="22" name="icNoMoreWritersErr" />
+      <variable citdl="int" line="30" name="icNoPerm" />
+      <variable citdl="int" line="24" name="icNoURLErr" />
+      <variable citdl="int" line="23" name="icNothingToOverrideErr" />
+      <variable citdl="int" line="18" name="icPermErr" />
+      <variable citdl="int" line="19" name="icPrefDataErr" />
+      <variable citdl="int" line="17" name="icPrefNotFoundErr" />
+      <variable citdl="int" line="31" name="icReadOnlyPerm" />
+      <variable citdl="int" line="32" name="icReadWritePerm" />
+      <variable citdl="int" line="21" name="icTruncatedErr" />
+      <import module="icglue" />
+      <scope ilk="function" line="235" lineend="238" name="launchurl" returns="_dft_ic.launchurl()" signature="launchurl(url, hint='')">
+        <variable ilk="argument" name="url" />
+        <variable attributes="protected" citdl="IC" line="237" name="_dft_ic" />
+        <variable citdl="str" ilk="argument" name="hint" />
+      </scope>
+      <import module="macostools" />
+      <scope ilk="function" line="245" lineend="248" name="mapfile" returns="_dft_ic.mapfile()" signature="mapfile(filename)">
+        <variable attributes="protected" citdl="IC" line="247" name="_dft_ic" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope ilk="function" line="250" lineend="253" name="maptypecreator" returns="_dft_ic.maptypecreator()" signature="maptypecreator(type, creator, filename='')">
+        <variable citdl="str" ilk="argument" name="filename" />
+        <variable ilk="argument" name="type" />
+        <variable attributes="protected" citdl="IC" line="252" name="_dft_ic" />
+        <variable ilk="argument" name="creator" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="240" lineend="243" name="parseurl" returns="_dft_ic.parseurl()" signature="parseurl(data, start=None, end=None, hint='')">
+        <variable ilk="argument" name="start" />
+        <variable ilk="argument" name="end" />
+        <variable attributes="protected" citdl="IC" line="242" name="_dft_ic" />
+        <variable ilk="argument" name="data" />
+        <variable citdl="str" ilk="argument" name="hint" />
+      </scope>
+      <scope ilk="function" line="255" lineend="258" name="settypecreator" returns="_dft_ic.settypecreator()" signature="settypecreator(file)">
+        <variable attributes="protected" citdl="IC" line="257" name="_dft_ic" />
+        <variable ilk="argument" name="file" />
+      </scope>
+      <import module="string" />
+      <import module="sys" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope attributes="protected __hidden__" ilk="function" line="80" lineend="82" name="_decode_appspec" returns="tuple" signature="_decode_appspec(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="ord()" line="81" name="namelen" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="94" lineend="97" name="_code_fontrecord" returns="chr()" signature="_code_fontrecord(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="84" lineend="85" name="_code_default" returns="chr()" signature="_code_default(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="type()" line="43" name="_ICOpaqueDataType" />
+      <scope attributes="protected __hidden__" ilk="function" line="45" lineend="51" name="_decode_default" returns="ICOpaqueData" signature="_decode_default(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="99" lineend="101" name="_code_boolean" returns="chr()" signature="_code_boolean(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="260" lineend="268" name="_test" signature="_test()">
+        <variable citdl="IC" line="261" name="ic" />
+        <variable citdl="str" line="264" name="v" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="77" lineend="78" name="_decode_charset" returns="tuple" signature="_decode_charset(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="109" lineend="110" name="_code_appspec" returns="_code_default()" signature="_code_appspec(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="106" lineend="107" name="_code_charset" signature="_code_charset(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="150" lineend="161" name="_code" returns="data.data" signature="_code(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="list" line="154" name="key2" />
+        <variable citdl="_code_default" line="158" name="coder" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="112" name="_decoder_table" />
+      <scope attributes="protected __hidden__" ilk="function" line="71" lineend="72" name="_decode_boolean" returns="ord()" signature="_decode_boolean(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="103" lineend="104" name="_code_text" signature="_code_text(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <variable attributes="protected __hidden__" line="233" name="_dft_ic" />
+      <scope attributes="protected __hidden__" ilk="function" line="65" lineend="69" name="_decode_fontrecord" returns="tuple" signature="_decode_fontrecord(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="int" line="66" name="size" />
+        <variable citdl="ord()" line="67" name="face" />
+        <variable citdl="ord()" line="68" name="namelen" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="54" lineend="63" name="_decode_multistr" returns="list" signature="_decode_multistr(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="int" line="55" name="numstr" />
+        <variable citdl="list" line="56" name="rv" />
+        <variable citdl="int" line="57" name="ptr" />
+        <variable citdl="ord()" line="59" name="strlen" />
+        <variable citdl="list" line="60" name="str" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="74" lineend="75" name="_decode_text" signature="_decode_text(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="139" lineend="148" name="_decode" returns="_decode.decoder()" signature="_decode(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="list" line="141" name="key2" />
+        <variable citdl="_decode_default" line="145" name="decoder" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="87" lineend="92" name="_code_multistr" returns="chr()" signature="_code_multistr(data, key)">
+        <variable ilk="argument" name="data" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="len()" line="88" name="numstr" />
+        <variable citdl="chr()" line="89" name="rv" />
+      </scope>
+    </scope>
+    

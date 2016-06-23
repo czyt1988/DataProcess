@@ -1,0 +1,165 @@
+<scope doc="The io module provides the Python interfaces to stream handling. The&#10;builtin open function is defined in this module.  At the top of the I/O hierarchy is the abstract base class IOBase. It defines the basic interface to a stream. Note, however, that there is no seperation between reading and writing to streams; implementations are allowed to throw an IOError if they do not support a given operation.  Extending IOBase is RawIOBase which deals simply with the reading and writing of raw bytes to a stream. FileIO subclasses RawIOBase to provide an interface to OS files." ilk="blob" lang="Python" name="_io">
+      <scope classrefs="IOError" doc="Exception raised when I/O would block on a non-blocking I/O stream&#10;" ilk="class" name="BlockingIOError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_BufferedIOBase" doc="A buffered reader and writer object together.&#10;A buffered reader object and buffered writer object put together to form a sequential IO object that can read and write. This is typically used with a socket or two-way pipe.  reader and writer are RawIOBase objects that are readable and writeable respectively. If the buffer_size is omitted it defaults to DEFAULT_BUFFER_SIZE." ilk="class" name="BufferedRWPair">
+        <scope ilk="function" name="peek" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="read" />
+        <scope ilk="function" name="readinto" />
+        <scope ilk="function" name="readable" />
+        <scope ilk="function" name="read1" />
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_BufferedIOBase" doc="A buffered interface to random access streams.&#10;The constructor creates a reader and writer for a seekable stream, raw, given in the first argument. If the buffer_size is omitted it defaults to DEFAULT_BUFFER_SIZE. max_buffer_size isn't used anymore." ilk="class" name="BufferedRandom">
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="readinto" />
+        <scope ilk="function" name="readable" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" name="peek" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="truncate" />
+        <scope ilk="function" name="read" />
+        <scope ilk="function" name="read1" />
+        <scope ilk="function" name="seekable" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="detach" />
+        <scope ilk="function" name="fileno" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="_BufferedIOBase" doc="Create a new buffered reader using the given readable raw IO object.&#10;" ilk="class" name="BufferedReader">
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="readable" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" name="peek" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="truncate" />
+        <scope ilk="function" name="read" />
+        <scope ilk="function" name="read1" />
+        <scope ilk="function" name="seekable" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="detach" />
+        <scope ilk="function" name="fileno" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="_BufferedIOBase" doc="A buffer for a writeable sequential RawIO object.&#10;The constructor creates a BufferedWriter for the given writeable raw stream. If the buffer_size is not given, it defaults to DEFAULT_BUFFER_SIZE. max_buffer_size isn't used anymore." ilk="class" name="BufferedWriter">
+        <scope ilk="function" name="fileno" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="truncate" />
+        <scope ilk="function" name="readable" />
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="write" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="seekable" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="detach" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_BufferedIOBase" doc="BytesIO([buffer]) -&gt; object&#10;Create a buffered I/O implementation using an in-memory bytes buffer, ready for reading and writing." ilk="class" name="BytesIO">
+        <scope doc="Call readline() repeatedly and return a list of the lines so&#10;read." ilk="function" name="readlines" returns="list" signature="readlines([size]) -&gt; list of strings, each a line from the file." />
+        <scope doc="Retrieve the entire contents of the BytesIO object." ilk="function" name="getvalue" signature="getvalue() -&gt; bytes." />
+        <scope ilk="function" name="writable" />
+        <scope doc="flush() -&gt; None.  Does nothing." ilk="function" name="flush" signature="flush() -&gt; None.  Does nothing." />
+        <scope doc="close() -&gt; None.  Disable all I/O operations." ilk="function" name="close" signature="close() -&gt; None.  Disable all I/O operations." />
+        <scope doc="Seek to byte offset pos relative to position indicated by&#10;whence: 0  Start of stream (the default)." ilk="function" name="seek" signature="seek(pos, whence=0) -&gt; int.  Change stream position." />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Returns number of bytes read (0 for EOF), or None if the&#10;object is set not to block as has no data to read." ilk="function" name="readinto" signature="readinto(bytearray) -&gt; int.  Read up to len(b) bytes into b." />
+        <scope ilk="function" name="readable" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="Return the number of bytes written." ilk="function" name="write" signature="write(bytes) -&gt; int.  Write bytes to file." />
+        <scope ilk="function" name="__getstate__" />
+        <scope doc="tell() -&gt; current file position, an integer" ilk="function" name="tell" signature="tell() -&gt; current file position, an integer" />
+        <scope doc="Always returns False since BytesIO objects are not connected&#10;to a tty-like device." ilk="function" name="isatty" signature="isatty() -&gt; False." />
+        <scope doc="Size defaults to the current file position, as returned by&#10;tell()." ilk="function" name="truncate" signature="truncate([size]) -&gt; int.  Truncate the file to at most size bytes." />
+        <scope ilk="function" name="__setstate__" />
+        <scope doc="If the size argument is negative, read until EOF is reached." ilk="function" name="read" signature="read([size]) -&gt; read at most size bytes, returned as a string." />
+        <scope doc="If the size argument is negative or omitted, read until EOF&#10;is reached." ilk="function" name="read1" signature="read1(size) -&gt; read at most size bytes, returned as a string." />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope ilk="function" name="seekable" />
+        <scope doc="Retain newline." ilk="function" name="readline" signature="readline([size]) -&gt; next line from the file, as a string." />
+        <scope doc="Note that newlines are not added." ilk="function" name="writelines" signature="writelines(sequence_of_strings) -&gt; None.  Write strings to the file." />
+      </scope>
+      <variable citdl="int" name="DEFAULT_BUFFER_SIZE" />
+      <scope classrefs="_RawIOBase" doc="file(name: str[, mode: str]) -&gt; file IO object&#10;Open a file.  The mode can be 'r', 'w' or 'a' for reading (default), writing or appending.  The file will be created if it doesn't exist when opened for writing or appending; it will be truncated when opened for writing.  Add a '+' to the mode to allow simultaneous reading and writing." ilk="class" name="FileIO">
+        <scope doc="writable() -&gt; bool.  True if file was opened in a write mode." ilk="function" name="writable" signature="writable() -&gt; bool.  True if file was opened in a write mode." />
+        <scope doc="In non-blocking mode, returns as much as is immediately&#10;available, or None if no data is available." ilk="function" name="readall" signature="readall() -&gt; bytes.  read all data from the file, returned as bytes." />
+        <scope doc="isatty() -&gt; bool.  True if the file is connected to a tty device." ilk="function" name="isatty" signature="isatty() -&gt; bool.  True if the file is connected to a tty device." />
+        <scope doc="Size defaults to the current file position, as returned by&#10;tell().The current file position is changed to the value of&#10;size." ilk="function" name="truncate" signature="truncate([size: int]) -&gt; None.  Truncate the file to at most size bytes." />
+        <scope doc="This is needed for lower-level file interfaces, such the&#10;fcntl module." ilk="function" name="fileno" signature="fileno() -&gt; int. &quot;file descriptor&quot;." />
+        <scope doc="Only makes one system call, so less data may be returned&#10;than requested In non-blocking mode, returns None if no data&#10;is available." ilk="function" name="read" signature="read(size: int) -&gt; bytes.  read at most size bytes, returned as bytes." />
+        <scope doc="readable() -&gt; bool.  True if file was opened in a read mode." ilk="function" name="readable" signature="readable() -&gt; bool.  True if file was opened in a read mode." />
+        <scope doc="readinto() -&gt; Same as RawIOBase.readinto()." ilk="function" name="readinto" signature="readinto() -&gt; Same as RawIOBase.readinto()." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Only makes one system call, so not all of the data may be&#10;written." ilk="function" name="write" signature="write(b: bytes) -&gt; int.  Write bytes b to file, return number written." />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="seekable() -&gt; bool.  True if file supports random-access." ilk="function" name="seekable" signature="seekable() -&gt; bool.  True if file supports random-access." />
+        <scope doc="A closed file cannot be used for further I/O operations." ilk="function" name="close" signature="close() -&gt; None.  Close the file." />
+        <scope doc="Argument offset is a byte count." ilk="function" name="seek" signature="seek(offset: int[, whence: int]) -&gt; None.  Move to new file position." />
+        <scope doc="tell() -&gt; int.  Current file position" ilk="function" name="tell" signature="tell() -&gt; int.  Current file position" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="Codec used when reading a file in universal newlines mode.  It wraps&#10;another incremental decoder, translating \r\n and \r into \n.  It also records the types of newlines encountered.  When used with translate=False, it ensures that the newline sequence is returned in one piece. When used with decoder=None, it expects unicode strings as decode input and translates newlines without first invoking an external decoder." ilk="class" name="IncrementalNewlineDecoder">
+        <scope ilk="function" name="reset" />
+        <scope ilk="function" name="getstate" />
+        <scope ilk="function" name="decode" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="setstate" />
+      </scope>
+      <scope classrefs="_TextIOBase" doc="Text I/O implementation using an in-memory buffer.&#10;The initial_value argument sets the value of object.  The newline argument is like the one of TextIOWrapper's constructor." ilk="class" name="StringIO">
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="__getstate__" />
+        <scope doc="Truncate size to pos." ilk="function" name="truncate" />
+        <scope ilk="function" name="__setstate__" />
+        <scope doc="Read at most n characters, returned as a string." ilk="function" name="read" />
+        <scope ilk="function" name="readable" />
+        <scope doc="Retrieve the entire contents of the object." ilk="function" name="getvalue" />
+        <scope doc="Write string to file." ilk="function" name="write" />
+        <scope ilk="function" name="seekable" />
+        <scope doc="Close the IO object." ilk="function" name="close" />
+        <scope doc="Read until newline or EOF." ilk="function" name="readline" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="Change stream position." ilk="function" name="seek" />
+        <scope doc="Tell the current file position." ilk="function" name="tell" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_TextIOBase" doc="Character and line based layer over a BufferedIOBase object, buffer.&#10;encoding gives the name of the encoding that the stream will be decoded or encoded with. It defaults to locale.getpreferredencoding.  errors determines the strictness of encoding and decoding (see the codecs.register) and defaults to &quot;strict&quot;.  newline can be None, '', '\n', '\r', or '\r\n'.  It controls the handling of line endings. If it is None, universal newlines is enabled.  With this enabled, on input, the lines endings '\n', '\r', or '\r\n' are translated to '\n' before being returned to the" ilk="class" name="TextIOWrapper">
+        <scope ilk="function" name="writable" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="readable" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="truncate" />
+        <scope ilk="function" name="read" />
+        <scope ilk="function" name="seekable" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="detach" />
+        <scope ilk="function" name="fileno" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope classrefs="ValueError IOError" doc="&#10;" ilk="class" name="UnsupportedOperation" />
+      <scope doc="Open file and return a stream. Raise IOError upon failure." ilk="function" name="open" />
+    </scope>
+    

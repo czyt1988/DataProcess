@@ -1,0 +1,255 @@
+<scope doc="Classes to represent arbitrary sets (including sets of sets).&#10;This module implements sets using dictionaries whose values are ignored.  The usual operations (union, intersection, deletion, etc.) are provided as both methods and operators.  Important: sets are not sequences!  While they support 'x in s', 'len(s)', and 'for x in s', none of those operations are unique for sequences; for example, mappings support all three as well.  The characteristic operation for sequences is subscripting with small integers: s[i], for i in range(len(s)).  Sets don't support subscripting at all.  Also, sequences allow multiple occurrences and" ilk="blob" lang="Python" name="sets">
+      <scope classrefs="object" doc="Common base class for mutable and immutable sets.&#10;" ilk="class" line="65" lineend="375" name="BaseSet">
+        <scope ilk="function" line="341" lineend="375" name="_update" signature="_update(iterable)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="362" name="transform" />
+          <variable citdl="True" line="350" name="value" />
+          <variable citdl="iter()" line="355" name="it" />
+          <variable citdl="self._data" line="343" name="data" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Report whether another set contains this set." ilk="function" line="289" lineend="296" name="issubset" returns="bool" signature="issubset(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return the symmetric difference of two sets as a new set." ilk="function" line="228" lineend="245" name="symmetric_difference" returns="self.__class__()" signature="symmetric_difference(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="True" line="235" name="value" />
+          <variable citdl="other._data" line="238" name="otherdata" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="self.__class__()" line="233" name="result" />
+          <variable citdl="self._data" line="236" name="selfdata" />
+          <variable citdl="result._data" line="234" name="data" />
+        </scope>
+        <scope doc="Return string representation of a set." ilk="function" line="93" name="__str__" />
+        <scope doc="Return a shallow copy of a set." ilk="function" line="145" lineend="149" name="copy" returns="self.__class__()" signature="copy()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="self.__class__()" line="147" name="result" />
+        </scope>
+        <scope doc="Report whether this set contains another set." ilk="function" line="298" lineend="305" name="issuperset" returns="bool" signature="issuperset(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return the intersection of two sets as a new set." ilk="function" line="196" lineend="203" name="__and__" returns="NotImplemented" signature="__and__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="311" lineend="313" name="__lt__" returns="bool" signature="__lt__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="This is an abstract class." ilk="function" line="72" lineend="76" name="__init__" signature="BaseSet()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the difference of two sets as a new Set." ilk="function" line="256" lineend="270" name="difference" returns="self.__class__()" signature="difference(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="True" line="267" name="value" />
+          <variable citdl="other._data" line="264" name="otherdata" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="self.__class__()" line="261" name="result" />
+          <variable citdl="result._data" line="262" name="data" />
+        </scope>
+        <scope doc="Report whether an element is a member of a set." ilk="function" line="274" lineend="285" name="__contains__" returns="bool" signature="__contains__(element)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="282" name="transform" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope doc="Return the union of two sets as a new set." ilk="function" line="187" lineend="194" name="union" returns="self.__class__()" signature="union(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="self.__class__()" line="192" name="result" />
+        </scope>
+        <scope ilk="function" line="113" lineend="114" name="__cmp__" signature="__cmp__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return the number of elements of a set." ilk="function" line="81" lineend="83" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="330" lineend="339" name="_compute_hash" returns="int" signature="_compute_hash()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="int" line="336" name="result" />
+        </scope>
+        <scope ilk="function" line="137" lineend="141" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="324" lineend="328" name="_binary_sanity_check" signature="_binary_sanity_check(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return a deep copy of a set; used by copy module." ilk="function" line="153" lineend="167" name="__deepcopy__" returns="self.__class__()" signature="__deepcopy__(memo)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="result._data" line="163" name="data" />
+          <variable ilk="argument" name="memo" />
+          <variable citdl="True" line="164" name="value" />
+          <variable citdl="self.__class__()" line="161" name="result" />
+        </scope>
+        <scope doc="Return an iterator over the elements or a set." ilk="function" line="101" lineend="106" name="__iter__" returns="self._data.iterkeys()" signature="__iter__()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the union of two sets as a new set." ilk="function" line="178" lineend="185" name="__or__" returns="NotImplemented" signature="__or__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="315" lineend="317" name="__gt__" returns="BaseSet.issuperset()" signature="__gt__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return the intersection of two sets as a new set." ilk="function" line="205" lineend="217" name="intersection" returns="self.__class__()" signature="intersection(other)">
+          <variable citdl="Set()" line="213" name="big" />
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="Set()" ilk="argument" name="other" />
+          <variable citdl="Set()" line="213" name="little" />
+          <variable citdl="ifilter()" line="216" name="common" />
+        </scope>
+        <scope ilk="function" line="131" lineend="135" name="__eq__" returns="bool" signature="__eq__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="95" lineend="99" name="_repr" returns="tuple" signature="_repr(sorted=False)">
+          <variable citdl="False" ilk="argument" name="sorted" />
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable citdl="self._data.keys()" line="96" name="elements" />
+        </scope>
+        <scope doc="Return the symmetric difference of two sets as a new set." ilk="function" line="219" lineend="226" name="__xor__" returns="NotImplemented" signature="__xor__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Report whether another set contains this set." ilk="function" line="308" name="__le__" />
+        <scope doc="Return string representation of a set." ilk="function" line="85" lineend="90" name="__repr__" returns="self._repr()" signature="__repr__()">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the difference of two sets as a new Set." ilk="function" line="247" lineend="254" name="__sub__" returns="NotImplemented" signature="__sub__(other)">
+          <variable citdl="BaseSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Return a shallow copy of a set." ilk="function" line="151" name="__copy__" />
+        <scope doc="Report whether this set contains another set." ilk="function" line="309" name="__ge__" />
+        <variable line="320" name="__hash__" />
+        <variable citdl="list" line="68" name="__slots__" />
+      </scope>
+      <scope classrefs="BaseSet" doc="Immutable set class.&#10;" ilk="class" line="378" lineend="401" name="ImmutableSet">
+        <scope ilk="function" line="400" lineend="401" name="__setstate__" signature="__setstate__(state)">
+          <variable citdl="ImmutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="392" lineend="395" name="__hash__" returns="self._compute_hash()" signature="__hash__()">
+          <variable citdl="ImmutableSet" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="397" lineend="398" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="ImmutableSet" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct an immutable set from an optional iterable." ilk="function" line="385" lineend="390" name="__init__" signature="ImmutableSet(iterable=None)">
+          <variable citdl="ImmutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self._compute_hash()" line="387" name="_hashcode" />
+        <variable citdl="list" line="381" name="__slots__" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="388" name="_data" />
+      </scope>
+      <scope classrefs="BaseSet" doc="Mutable set class.&#10;" ilk="class" line="403" lineend="545" name="Set">
+        <scope doc="Remove all elements of another set from this set." ilk="function" line="471" lineend="475" name="__isub__" returns="Set" signature="__isub__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Remove all elements of another set from this set." ilk="function" line="477" lineend="485" name="difference_update" signature="difference_update(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="" ilk="argument" name="other" />
+          <variable citdl="dict" line="479" name="data" />
+        </scope>
+        <scope ilk="function" line="420" lineend="421" name="__setstate__" signature="__setstate__(data)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Update a set with the symmetric difference of itself and&#10;another." ilk="function" line="457" lineend="469" name="symmetric_difference_update" signature="symmetric_difference_update(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="" ilk="argument" name="other" />
+          <variable citdl="dict" line="459" name="data" />
+          <variable citdl="True" line="460" name="value" />
+        </scope>
+        <scope doc="Add all values from an iterable (such as a list or file)." ilk="function" line="489" lineend="491" name="update" signature="update(iterable)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Remove and return an arbitrary set element." ilk="function" line="535" lineend="537" name="pop" signature="pop()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Update a set with the union of itself and another." ilk="function" line="434" lineend="436" name="union_update" signature="union_update(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="543" lineend="545" name="__as_temporarily_immutable__" returns="_TemporarilyImmutableSet()" signature="__as_temporarily_immutable__()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Update a set with the intersection of itself and another." ilk="function" line="444" lineend="449" name="intersection_update" signature="intersection_update(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Construct a set from an optional iterable." ilk="function" line="410" lineend="414" name="__init__" signature="Set(iterable=None)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="iterable" />
+        </scope>
+        <scope doc="Update a set with the intersection of itself and another." ilk="function" line="438" lineend="442" name="__iand__" returns="Set" signature="__iand__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Remove all elements from this set." ilk="function" line="493" lineend="495" name="clear" signature="clear()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="539" lineend="541" name="__as_immutable__" returns="ImmutableSet" signature="__as_immutable__()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove an element from a set; it must be a member." ilk="function" line="512" lineend="523" name="remove" signature="remove(element)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="520" name="transform" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope doc="Update a set with the union of itself and another." ilk="function" line="428" lineend="432" name="__ior__" returns="Set" signature="__ior__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="Add an element to a set." ilk="function" line="499" lineend="510" name="add" signature="add(element)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="507" name="transform" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope doc="Remove an element from a set if it is a member." ilk="function" line="525" lineend="533" name="discard" signature="discard(element)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="416" lineend="418" name="__getstate__" returns="tuple" signature="__getstate__()">
+          <variable citdl="Set" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Update a set with the symmetric difference of itself and&#10;another." ilk="function" line="451" lineend="455" name="__ixor__" returns="Set" signature="__ixor__(other)">
+          <variable citdl="Set" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <variable citdl="list" line="406" name="__slots__" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="412" name="_data" />
+      </scope>
+      <variable citdl="list" line="59" name="__all__" />
+      <scope classrefs="object" doc="ifilter(function or None, sequence) --&gt; ifilter object&#10;Return those items of sequence for which function(item) is true. If function is None, return the items that are true." ilk="class" name="ifilter">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="ifilterfalse(function or None, sequence) --&gt; ifilterfalse object&#10;Return those items of sequence for which function(item) is false. If function is None, return the items that are false." ilk="class" name="ifilterfalse">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" classrefs="BaseSet" ilk="class" line="548" lineend="557" name="_TemporarilyImmutableSet">
+        <scope attributes="__ctor__" ilk="function" line="552" lineend="554" name="__init__" signature="_TemporarilyImmutableSet(set)">
+          <variable citdl="_TemporarilyImmutableSet" ilk="argument" name="self" />
+          <variable ilk="argument" name="set" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="553" name="_set" />
+        <variable attributes="protected __instancevar__" citdl="set._data" line="554" name="_data" />
+        <scope ilk="function" line="556" lineend="557" name="__hash__" returns="self._set._compute_hash()" signature="__hash__()">
+          <variable citdl="_TemporarilyImmutableSet" ilk="argument" name="self" />
+        </scope>
+      </scope>
+    </scope>
+    

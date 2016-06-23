@@ -1,0 +1,72 @@
+<scope doc="Bastionification utility.&#10;A bastion (for another object -- the 'original') is an object that has the same methods as the original but does not give access to its instance variables.  Bastions have a number of uses, but the most obvious one is to provide code executing in restricted mode with a safe interface to an object implemented in unrestricted mode.  The bastionification routine has an optional second argument which is a filter function.  Only those methods for which the filter method (called with the method name as argument) returns true are accessible. The default filter method returns true unless the method name begins" ilk="blob" lang="Python" name="Bastion">
+      <scope doc="Create a bastion for an object, using an optional filter." ilk="function" line="87" lineend="131" name="Bastion" returns="Bastion.bastionclass()" signature="Bastion(object, filter=&lt;function &lt;lambda&gt; at 0x02BFD7B0&gt;, name=None, bastionclass=&lt;class Bastion.BastionClass at 0x02C4C768&gt;)">
+        <variable citdl="BastionClass" ilk="argument" name="bastionclass" />
+        <variable citdl="repr()" ilk="argument" name="name" />
+        <variable ilk="argument" name="object" />
+        <variable ilk="argument" name="filter" />
+        <scope doc="Internal function for Bastion(). See source comments." ilk="function" line="117" lineend="123" name="get1" returns="getattr()" signature="get1(name, object=object, filter=filter)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="filter" />
+          <variable citdl="getattr()" line="120" name="attribute" />
+        </scope>
+        <scope doc="Internal function for Bastion(). See source comments." ilk="function" line="125" lineend="127" name="get2" returns="Bastion.get2.get1()" signature="get2(name, get1=get1)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="Bastion.get1" ilk="argument" name="get1" />
+        </scope>
+      </scope>
+      <scope doc="Helper class used by the Bastion() function.&#10;You could subclass this and pass the subclass as the bastionclass argument to the Bastion() function, as long as the constructor has the same signature (a get() function and a name for the object)." ilk="class" line="37" lineend="84" name="BastionClass">
+        <scope doc="Get an as-yet undefined attribute value." ilk="function" line="70" lineend="84" name="__getattr__" returns="_get_()" signature="__getattr__(name)">
+          <variable citdl="_get_()" line="82" name="attribute" />
+          <variable citdl="BastionClass" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="47" lineend="58" name="__init__" signature="BastionClass(get, name)">
+          <variable citdl="BastionClass" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="get" />
+        </scope>
+        <scope doc="Return a representation string." ilk="function" line="60" lineend="68" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="BastionClass" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="57" name="_get_" />
+        <variable attributes="protected __instancevar__" line="58" name="_name_" />
+      </scope>
+      <scope classrefs="object" doc="instancemethod(function, instance, class)&#10;Create an instance method object." ilk="class" name="MethodType">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+      </scope>
+      <variable citdl="list" line="32" name="__all__" />
+      <scope attributes="protected __hidden__" doc="Test the Bastion() function." ilk="function" line="134" lineend="176" name="_test" signature="_test()">
+        <import line="172" module="rexec" />
+        <scope ilk="class" line="136" lineend="144" name="Original">
+          <scope attributes="__ctor__" ilk="function" line="137" lineend="138" name="__init__" signature="Original()">
+            <variable citdl="Original" ilk="argument" name="self" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="int" line="138" name="sum" />
+          <scope ilk="function" line="139" lineend="140" name="add" signature="add(n)">
+            <variable citdl="Original" ilk="argument" name="self" />
+            <variable ilk="argument" name="n" />
+          </scope>
+          <scope attributes="protected" ilk="function" line="141" lineend="142" name="_add" signature="_add(n)">
+            <variable citdl="Original" ilk="argument" name="self" />
+            <variable ilk="argument" name="n" />
+          </scope>
+          <scope ilk="function" line="143" lineend="144" name="total" returns="int" signature="total()">
+            <variable citdl="Original" ilk="argument" name="self" />
+          </scope>
+        </scope>
+        <variable citdl="Original" line="145" name="o" />
+        <variable citdl="Bastion()" line="146" name="b" />
+        <variable citdl="str" line="147" name="testcode" />
+        <variable citdl="rexec.RExec()" line="173" name="r" />
+        <variable citdl="r.add_module()" line="174" name="m" />
+      </scope>
+    </scope>
+    

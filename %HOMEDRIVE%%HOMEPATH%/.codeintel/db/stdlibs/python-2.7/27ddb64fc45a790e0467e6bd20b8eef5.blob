@@ -1,0 +1,24 @@
+<scope doc="This module provides access to the garbage collector for reference cycles.&#10;enable() -- Enable automatic garbage collection. disable() -- Disable automatic garbage collection. isenabled() -- Returns true if automatic collection is enabled. collect() -- Do a full collection right now. get_count() -- Return the current collection counts. set_debug() -- Set debugging flags. get_debug() -- Get debugging flags. set_threshold() -- Set the collection thresholds. get_threshold() -- Return the current the collection thresholds. get_objects() -- Return a list of all objects tracked by the collector." ilk="blob" lang="Python" name="gc">
+      <variable citdl="int" name="DEBUG_COLLECTABLE" />
+      <variable citdl="int" name="DEBUG_INSTANCES" />
+      <variable citdl="int" name="DEBUG_LEAK" />
+      <variable citdl="int" name="DEBUG_OBJECTS" />
+      <variable citdl="int" name="DEBUG_SAVEALL" />
+      <variable citdl="int" name="DEBUG_STATS" />
+      <variable citdl="int" name="DEBUG_UNCOLLECTABLE" />
+      <scope doc="With no arguments, run a full collection." ilk="function" name="collect" signature="collect([generation]) -&gt; n" />
+      <scope doc="Disable automatic garbage collection." ilk="function" name="disable" signature="disable() -&gt; None" />
+      <scope doc="Enable automatic garbage collection." ilk="function" name="enable" signature="enable() -&gt; None" />
+      <variable citdl="list" name="garbage" />
+      <scope doc="Return the current collection counts" ilk="function" name="get_count" signature="get_count() -&gt; (count0, count1, count2)" />
+      <scope doc="Get the garbage collection debugging flags." ilk="function" name="get_debug" signature="get_debug() -&gt; flags" />
+      <scope doc="Return a list of objects tracked by the collector (excluding&#10;the list returned)." ilk="function" name="get_objects" signature="get_objects() -&gt; [...]" />
+      <scope doc="Return the list of objects that are directly referred to by&#10;objs." ilk="function" name="get_referents" returns="list" signature="get_referents(*objs) -&gt; list" />
+      <scope doc="Return the list of objects that directly refer to any of&#10;objs." ilk="function" name="get_referrers" returns="list" signature="get_referrers(*objs) -&gt; list" />
+      <scope doc="Return the current collection thresholds" ilk="function" name="get_threshold" signature="get_threshold() -&gt; (threshold0, threshold1, threshold2)" />
+      <scope doc="Returns true if the object is tracked by the garbage&#10;collector." ilk="function" name="is_tracked" returns="bool" signature="is_tracked(obj) -&gt; bool" />
+      <scope doc="Returns true if automatic garbage collection is enabled." ilk="function" name="isenabled" signature="isenabled() -&gt; status" />
+      <scope doc="Set the garbage collection debugging flags." ilk="function" name="set_debug" signature="set_debug(flags) -&gt; None" />
+      <scope doc="Sets the collection thresholds." ilk="function" name="set_threshold" signature="set_threshold(threshold0, [threshold1, threshold2]) -&gt; None" />
+    </scope>
+    

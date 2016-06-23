@@ -1,0 +1,57 @@
+<scope doc="Mutual exclusion -- for use with module sched&#10;A mutex has two pieces of state -- a 'locked' bit and a queue. When the mutex is not locked, the queue is empty. Otherwise, the queue contains 0 or more (function, argument) pairs representing functions (or methods) waiting to acquire the lock. When the mutex is unlocked while the queue is not empty, the first queue entry is removed and its function(argument) pair called, implying it now has the lock.  Of course, no multi-threading is implied -- hence the funny interface for lock, where a function is called once the lock is aquired." ilk="blob" lang="Python" name="mutex">
+      <scope classrefs="object" doc="deque(iterable[, maxlen]) --&gt; deque object&#10;Build an ordered collection with optimized access from its endpoints." ilk="class" name="deque">
+        <scope doc="Add an element to the left side of the deque." ilk="function" name="appendleft" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return the rightmost element." ilk="function" name="pop" />
+        <scope doc="remove first occurrence of value." ilk="function" name="remove" signature="D.remove(value)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Extend the left side of the deque with elements from the&#10;iterable" ilk="function" name="extendleft" />
+        <scope doc="Add an element to the right side of the deque." ilk="function" name="append" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Remove and return the leftmost element." ilk="function" name="popleft" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="D.count(value) -&gt; integer -- return number of occurrences of value" ilk="function" name="count" returns="int" signature="D.count(value) -&gt; integer -- return number of occurrences of value" />
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Extend the right side of the deque with elements from the&#10;iterable" ilk="function" name="extend" />
+        <scope doc="Rotate the deque n steps to the right (default n=1)." ilk="function" name="rotate" />
+        <scope doc="reverse *IN PLACE*" ilk="function" name="reverse" signature="D.reverse()" />
+        <scope doc="Remove all elements from the deque." ilk="function" name="clear" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__iadd__(y) &lt;==&gt; x+=y" ilk="function" name="__iadd__" signature="x.__iadd__(y) &lt;==&gt; x+=y" />
+        <scope doc="return a reverse iterator over the deque" ilk="function" name="__reversed__" signature="D.__reversed__()" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return a shallow copy of a deque." ilk="function" name="__copy__" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="20" lineend="55" name="mutex">
+        <scope doc="Lock a mutex, call the function with supplied argument when&#10;it is acquired." ilk="function" line="39" lineend="46" name="lock" signature="lock(function, argument)">
+          <variable ilk="argument" name="function" />
+          <variable citdl="mutex" ilk="argument" name="self" />
+          <variable ilk="argument" name="argument" />
+        </scope>
+        <scope doc="Atomic test-and-set -- grab the lock if it is not set,&#10;return True if it succeeded." ilk="function" line="30" lineend="37" name="testandset" returns="bool" signature="testandset()">
+          <variable citdl="mutex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Unlock a mutex." ilk="function" line="48" lineend="55" name="unlock" signature="unlock()">
+          <variable line="52" name="function" />
+          <variable citdl="mutex" ilk="argument" name="self" />
+          <variable line="52" name="argument" />
+        </scope>
+        <scope doc="Test the locked bit of the mutex." ilk="function" line="26" lineend="28" name="test" returns="bool" signature="test()">
+          <variable citdl="mutex" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a new mutex -- initially unlocked." ilk="function" line="21" lineend="24" name="__init__" signature="mutex()">
+          <variable citdl="mutex" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="deque()" line="24" name="queue" />
+        <variable attributes="__instancevar__" citdl="False" line="23" name="locked" />
+      </scope>
+    </scope>
+    

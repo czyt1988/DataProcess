@@ -1,0 +1,17 @@
+<scope doc="Fixer that addes parentheses where they are required&#10;This converts ``[x for x in 1, 2]`` to ``[x for x in (1, 2)]``." ilk="blob" lang="Python" name="lib2to3.fixes.fix_paren">
+      <scope classrefs="BaseFix" doc="# XXX This doesn't support nested for loops like [x for x in 1, 2 for x in 1, 2]&#10;" ilk="class" line="12" lineend="44" name="FixParen">
+        <scope ilk="function" line="37" lineend="44" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixParen" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="LParen()" line="40" name="lparen" />
+          <variable line="38" name="target" />
+        </scope>
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="str" line="15" name="PATTERN" />
+      </scope>
+      <scope ilk="function" name="LParen" signature="LParen()" />
+      <scope ilk="function" name="RParen" signature="RParen()" />
+      <import module="fixer_base" />
+    </scope>
+    

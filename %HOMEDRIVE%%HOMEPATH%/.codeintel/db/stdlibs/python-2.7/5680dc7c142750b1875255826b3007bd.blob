@@ -1,0 +1,294 @@
+<scope doc="Module symbol-table generator&#10;" ilk="blob" lang="Python" name="compiler.symbols">
+      <scope classrefs="Scope" doc="&#10;" ilk="class" line="206" lineend="210" name="ClassScope">
+        <scope doc="# XXX how much information do I need about each name?" ilk="function" name="_ClassScope__super_init" />
+        <scope ilk="function" line="209" lineend="210" name="__init__" signature="ClassScope(name, module)">
+          <variable citdl="ClassScope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <variable attributes="private" citdl="Scope.__init__" line="207" name="__super_init" />
+      </scope>
+      <scope classrefs="Scope" doc="&#10;" ilk="class" line="178" lineend="179" name="FunctionScope" />
+      <scope classrefs="Scope" doc="&#10;" ilk="class" line="181" lineend="194" name="GenExprScope">
+        <scope ilk="function" line="192" lineend="194" name="get_names" returns="Scope.get_names()" signature="get_names()">
+          <variable citdl="Scope.get_names()" line="193" name="keys" />
+          <variable citdl="GenExprScope" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# XXX how much information do I need about each name?" ilk="function" name="_GenExprScope__super_init" />
+        <scope ilk="function" line="186" lineend="190" name="__init__" signature="GenExprScope(module, klass=None)">
+          <variable citdl="int" line="187" name="i" />
+          <variable citdl="GenExprScope" ilk="argument" name="self" />
+          <variable ilk="argument" name="klass" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <variable attributes="private" citdl="Scope.__init__" line="182" name="__super_init" />
+        <variable attributes="private" citdl="int" line="184" name="__counter" />
+      </scope>
+      <scope classrefs="FunctionScope" doc="&#10;" ilk="class" line="196" lineend="204" name="LambdaScope">
+        <scope ilk="function" line="201" lineend="204" name="__init__" signature="LambdaScope(module, klass=None)">
+          <variable citdl="int" line="202" name="i" />
+          <variable citdl="LambdaScope" ilk="argument" name="self" />
+          <variable ilk="argument" name="klass" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope doc="# XXX how much information do I need about each name?" ilk="function" name="_LambdaScope__super_init" />
+        <variable attributes="private" citdl="Scope.__init__" line="197" name="__super_init" />
+        <variable attributes="private" citdl="int" line="199" name="__counter" />
+      </scope>
+      <variable citdl="int" line="12" name="MANGLE_LEN" />
+      <scope classrefs="Scope" doc="&#10;" ilk="class" line="172" lineend="176" name="ModuleScope">
+        <scope doc="# XXX how much information do I need about each name?" ilk="function" name="_ModuleScope__super_init" />
+        <scope ilk="function" line="175" lineend="176" name="__init__" signature="ModuleScope()">
+          <variable citdl="ModuleScope" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="private" citdl="Scope.__init__" line="173" name="__super_init" />
+      </scope>
+      <variable citdl="int" name="SC_CELL" />
+      <variable citdl="int" name="SC_FREE" />
+      <variable citdl="int" name="SC_GLOBAL_EXPLICT" />
+      <variable citdl="int" name="SC_GLOBAL_IMPLICIT" />
+      <variable citdl="int" name="SC_LOCAL" />
+      <variable citdl="int" name="SC_UNKNOWN" />
+      <scope doc="&#10;" ilk="class" line="14" lineend="170" name="Scope">
+        <scope doc="Force name to be global in scope." ilk="function" line="122" lineend="140" name="force_global" signature="force_global(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="105" lineend="113" name="get_free_vars" returns="tuple" signature="get_free_vars()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable citdl="dict" line="108" name="free" />
+        </scope>
+        <scope ilk="function" line="66" lineend="71" name="get_names" returns="d.keys()" signature="get_names()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable citdl="dict" line="67" name="d" />
+        </scope>
+        <scope ilk="function" line="61" lineend="64" name="add_param" signature="add_param(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable citdl="mangle()" ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="48" lineend="49" name="add_use" signature="add_use(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="45" lineend="46" name="add_def" signature="add_def(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="73" lineend="74" name="add_child" signature="add_child(child)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Process list of free vars from nested scope." ilk="function" line="142" lineend="167" name="add_frees" returns="list" signature="add_frees(names)">
+          <variable citdl="check_name()" line="151" name="sc" />
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+          <variable citdl="list" line="149" name="child_globals" />
+        </scope>
+        <scope doc="Return scope of name." ilk="function" line="87" lineend="103" name="check_name" returns="SC_LOCAL" signature="check_name(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="51" lineend="59" name="add_global" signature="add_global(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable citdl="mangle()" ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="115" lineend="120" name="handle_children" signature="handle_children()">
+          <variable citdl="child.get_free_vars()" line="117" name="frees" />
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable citdl="self.add_frees()" line="118" name="globals" />
+        </scope>
+        <scope ilk="function" line="37" lineend="38" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="169" lineend="170" name="get_cell_vars" returns="self.cells.keys()" signature="get_cell_vars()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="85" name="DEBUG" signature="DEBUG()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="76" lineend="77" name="get_children" returns="list" signature="get_children()">
+          <variable citdl="Scope" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="40" lineend="43" name="mangle" returns="Scope.mangle()" signature="mangle(name)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="# XXX how much information do I need about each name?" ilk="function" line="16" lineend="35" name="__init__" signature="Scope(name, module, klass=None)">
+          <variable citdl="Scope" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="module" />
+          <variable ilk="argument" name="klass" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="19" name="defs" />
+        <variable attributes="__instancevar__" line="17" name="name" />
+        <variable attributes="__instancevar__" line="29" name="generator" />
+        <variable attributes="__instancevar__" citdl="dict" line="23" name="frees" />
+        <variable attributes="__instancevar__" citdl="dict" line="24" name="cells" />
+        <variable attributes="__instancevar__" line="18" name="module" />
+        <variable attributes="__instancevar__" line="28" name="nested" />
+        <variable attributes="__instancevar__" citdl="dict" line="21" name="globals" />
+        <variable attributes="__instancevar__" citdl="dict" line="22" name="params" />
+        <variable attributes="__instancevar__" citdl="list" line="30" name="klass" />
+        <variable attributes="__instancevar__" citdl="dict" line="20" name="uses" />
+        <variable attributes="__instancevar__" citdl="list" line="25" name="children" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="212" lineend="409" name="SymbolVisitor">
+        <scope ilk="function" line="364" lineend="365" name="visitAssName" signature="visitAssName(node, scope, assign=1)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+        </scope>
+        <scope ilk="function" line="343" lineend="345" name="visitGlobal" signature="visitGlobal(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="288" lineend="290" name="handle_free_vars" signature="handle_free_vars(scope, parent)">
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="336" lineend="341" name="visitImport" signature="visitImport(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="name.find()" line="338" name="i" />
+          <variable citdl="list" line="340" name="name" />
+        </scope>
+        <scope ilk="function" line="213" lineend="215" name="__init__" signature="SymbolVisitor()">
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="265" lineend="279" name="visitLambda" signature="visitLambda(node, parent, assign=0)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="LambdaScope" line="273" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="223" name="visitExpression" />
+        <scope ilk="function" line="292" lineend="307" name="visitClass" signature="visitClass(node, parent)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ClassScope" line="296" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable line="303" name="prev" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="407" lineend="409" name="visitYield" signature="visitYield(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="394" lineend="403" name="visitIf" signature="visitIf(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="262" lineend="263" name="visitGenExprIf" signature="visitGenExprIf(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="281" lineend="286" name="_do_args" signature="_do_args(scope, args)">
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="330" lineend="334" name="visitFrom" signature="visitFrom(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="370" lineend="373" name="visitSubscript" signature="visitSubscript(node, scope, assign=0)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+        </scope>
+        <scope ilk="function" line="225" lineend="237" name="visitFunction" signature="visitFunction(node, parent)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FunctionScope" line="231" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="256" lineend="260" name="visitGenExprFor" signature="visitGenExprFor(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="382" lineend="388" name="visitAugAssign" signature="visitAugAssign(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Propagate assignment flag down to child nodes." ilk="function" line="347" lineend="362" name="visitAssign" signature="visitAssign(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="375" lineend="380" name="visitSlice" signature="visitSlice(node, scope, assign=0)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+        </scope>
+        <scope ilk="function" line="219" lineend="221" name="visitModule" signature="visitModule(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ModuleScope" line="220" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="315" lineend="319" name="visitName" signature="visitName(node, scope, assign=0)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+        </scope>
+        <scope ilk="function" line="239" lineend="248" name="visitGenExpr" signature="visitGenExpr(node, parent)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="GenExprScope" line="240" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="323" lineend="328" name="visitFor" signature="visitFor(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="367" lineend="368" name="visitAssAttr" signature="visitAssAttr(node, scope, assign=0)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="assign" />
+        </scope>
+        <scope ilk="function" line="250" lineend="254" name="visitGenExprInner" signature="visitGenExprInner(node, scope)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="scope" />
+          <variable citdl="SymbolVisitor" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="214" name="scopes" />
+        <variable attributes="__instancevar__" citdl="node.name" line="215" name="klass" />
+        <variable attributes="protected" citdl="tuple" line="392" name="_const_types" />
+      </scope>
+      <import module="ast" />
+      <scope ilk="function" line="411" lineend="412" name="list_eq" returns="bool" signature="list_eq(l1, l2)">
+        <variable ilk="argument" name="l2" />
+        <variable ilk="argument" name="l1" />
+      </scope>
+      <scope ilk="function" name="mangle" signature="mangle(name, klass)" />
+      <import module="sys" />
+      <import module="types" />
+      <variable attributes="__hidden__" citdl="get_names()" line="429" name="mod_names" />
+      <variable attributes="__hidden__" citdl="d.values()" line="447" name="scopes" />
+      <variable attributes="__hidden__" line="435" name="names2" />
+      <variable attributes="__hidden__" citdl="dict" line="444" name="d" />
+      <variable attributes="__hidden__" citdl="open()" line="425" name="f" />
+      <scope attributes="__hidden__" ilk="function" line="419" lineend="421" name="get_names" returns="list" signature="get_names(syms)">
+        <variable ilk="argument" name="syms" />
+      </scope>
+      <variable attributes="__hidden__" citdl="parseFile()" line="430" name="tree" />
+      <variable attributes="__hidden__" citdl="list" line="452" name="l" />
+      <variable attributes="__hidden__" citdl="symtable.symtable()" line="428" name="syms" />
+      <variable attributes="__hidden__" citdl="SymbolVisitor" line="431" name="s" />
+      <variable attributes="__hidden__" citdl="f.read()" line="426" name="buf" />
+    </scope>
+    

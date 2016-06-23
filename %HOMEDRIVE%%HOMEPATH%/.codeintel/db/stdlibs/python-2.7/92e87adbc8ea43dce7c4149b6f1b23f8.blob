@@ -1,0 +1,90 @@
+<scope doc="Routines to help recognizing sound files.&#10;Function whathdr() recognizes various types of sound file headers. It understands almost all headers that SOX can decode.  The return tuple contains the following items, in this order: - file type (as SOX understands it) - sampling rate (0 if unknown or hard to decode) - number of channels (0 if unknown or hard to decode) - number of frames in the file (-1 if unknown or hard to decode) - number of bits/sample, or 'U' for U-LAW, or 'A' for A-LAW " ilk="blob" lang="Python" name="sndhdr">
+      <variable citdl="list" line="33" name="__all__" />
+      <scope ilk="function" line="174" lineend="175" name="get_long_be" returns="int" signature="get_long_be(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope ilk="function" line="177" lineend="178" name="get_long_le" returns="int" signature="get_long_le(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope ilk="function" line="180" lineend="181" name="get_short_be" returns="int" signature="get_short_be(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope ilk="function" line="183" lineend="184" name="get_short_le" returns="int" signature="get_short_le(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope ilk="function" line="191" lineend="204" name="test" signature="test()">
+        <variable citdl="int" line="193" name="recursive" />
+      </scope>
+      <scope ilk="function" line="143" lineend="147" name="test_8svx" returns="tuple" signature="test_8svx(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="58" lineend="74" name="test_aifc" returns="tuple" signature="test_aifc(h, f)">
+        <variable citdl="aifc.openfp()" line="70" name="a" />
+        <variable ilk="argument" name="h" />
+        <variable citdl="str" line="63" name="fmt" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="79" lineend="103" name="test_au" returns="tuple" signature="test_au(h, f)">
+        <variable citdl="f()" line="87" name="hdr_size" />
+        <variable citdl="f()" line="91" name="nchannels" />
+        <variable citdl="f()" line="89" name="encoding" />
+        <variable ilk="argument" name="h" />
+        <variable citdl="get_long_be" ilk="argument" name="f" />
+        <variable citdl="int" line="92" name="sample_size" />
+        <variable citdl="f()" line="90" name="rate" />
+        <variable citdl="f()" line="102" name="frame_size" />
+        <variable citdl="int" line="94" name="sample_bits" />
+        <variable citdl="str" line="86" name="type" />
+        <variable citdl="f()" line="88" name="data_size" />
+      </scope>
+      <scope ilk="function" line="108" lineend="112" name="test_hcom" returns="tuple" signature="test_hcom(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable citdl="get_long_be()" line="111" name="divisor" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="161" lineend="165" name="test_sndr" returns="tuple" signature="test_sndr(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable citdl="get_short_le()" line="163" name="rate" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="152" lineend="156" name="test_sndt" returns="tuple" signature="test_sndt(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable citdl="get_short_le()" line="155" name="rate" />
+        <variable citdl="get_long_le()" line="154" name="nsamples" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="117" lineend="125" name="test_voc" returns="tuple" signature="test_voc(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable citdl="int" line="121" name="rate" />
+        <variable citdl="get_short_le()" line="120" name="sbseek" />
+        <variable citdl="ord()" line="123" name="ratecode" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="130" lineend="138" name="test_wav" returns="tuple" signature="test_wav(h, f)">
+        <variable citdl="get_short_le()" line="134" name="style" />
+        <variable citdl="get_short_le()" line="135" name="nchannels" />
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+        <variable citdl="get_long_le()" line="136" name="rate" />
+        <variable citdl="get_short_le()" line="137" name="sample_bits" />
+      </scope>
+      <scope ilk="function" line="206" lineend="225" name="testall" signature="testall(list, recursive, toplevel)">
+        <variable ilk="argument" name="toplevel" />
+        <variable ilk="argument" name="list" />
+        <variable ilk="argument" name="recursive" />
+        <variable citdl="glob.glob()" line="215" name="names" />
+      </scope>
+      <variable citdl="list" line="56" name="tests" />
+      <scope doc="Guess the type of a sound file" ilk="function" line="35" lineend="38" name="what" returns="whathdr()" signature="what(filename)">
+        <variable citdl="whathdr()" line="37" name="res" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Recognize sound headers" ilk="function" line="41" lineend="49" name="whathdr" returns="tf()" signature="whathdr(filename)">
+        <variable citdl="f.read()" line="44" name="h" />
+        <variable citdl="open()" line="43" name="f" />
+        <variable citdl="tf()" line="46" name="res" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+    </scope>
+    

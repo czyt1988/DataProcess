@@ -1,0 +1,169 @@
+<scope doc="A parser for HTML and XHTML.&#10;" ilk="blob" lang="Python" name="HTMLParser">
+      <scope classrefs="Exception" doc="Exception raised for all parse errors.&#10;" ilk="class" line="49" lineend="64" name="HTMLParseError">
+        <scope ilk="function" line="58" lineend="64" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="HTMLParseError" ilk="argument" name="self" />
+          <variable citdl="str" line="59" name="result" />
+        </scope>
+        <scope ilk="function" line="52" lineend="56" name="__init__" signature="HTMLParseError(msg, position=(None, None))">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="tuple" ilk="argument" name="position" />
+          <variable citdl="HTMLParseError" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="54" name="msg" />
+        <variable attributes="__instancevar__" line="55" name="lineno" />
+        <variable attributes="__instancevar__" line="56" name="offset" />
+      </scope>
+      <scope classrefs="ParserBase" doc="Find tags and other markup and call handler functions.&#10;Usage: p = HTMLParser() p.feed(data) ... p.close()  Start tags are handled by calling self.handle_starttag() or self.handle_startendtag(); end tags by self.handle_endtag().  The data between tags is passed from the parser to the derived class by calling self.handle_data() with the data as argument (the data" ilk="class" line="67" lineend="393" name="HTMLParser">
+        <scope doc="Feed data to the parser." ilk="function" line="101" lineend="108" name="feed" signature="feed(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Overridable -- finish processing of start+end tag:&#10;&lt;tag.../&gt;" ilk="function" line="324" lineend="326" name="handle_startendtag" signature="handle_startendtag(tag, attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="# Overridable -- handle processing instruction" ilk="function" line="357" lineend="358" name="handle_pi" signature="handle_pi(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Overridable -- handle entity reference" ilk="function" line="341" lineend="342" name="handle_entityref" signature="handle_entityref(name)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Handle any buffered data." ilk="function" line="110" lineend="112" name="close" signature="close()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Overridable -- handle start tag" ilk="function" line="329" lineend="330" name="handle_starttag" signature="handle_starttag(tag, attrs)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope doc="# Overridable -- handle comment" ilk="function" line="349" lineend="350" name="handle_comment" signature="handle_comment(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="# Internal -- handle data as far as reasonable." ilk="function" line="132" lineend="212" name="goahead" signature="goahead(end)">
+          <variable citdl="rawdata.startswith" line="145" name="startswith" />
+          <variable ilk="argument" name="end" />
+          <variable citdl="list" line="170" name="name" />
+          <variable citdl="self.updatepos()" line="134" name="i" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="match.start()" line="139" name="j" />
+          <variable citdl="len()" line="135" name="n" />
+          <variable citdl="str" line="133" name="rawdata" />
+          <variable citdl="match.end()" line="148" name="k" />
+          <variable citdl="charref.match()" line="137" name="match" />
+        </scope>
+        <scope ilk="function" line="123" lineend="124" name="set_cdata_mode" signature="set_cdata_mode()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return full source of start tag: '&lt;...&gt;'." ilk="function" line="119" lineend="121" name="get_starttag_text" signature="get_starttag_text()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Internal -- check to see if we have a complete starttag;&#10;return end # or -1 if incomplete." ilk="function" line="278" lineend="305" name="check_for_whole_start_tag" returns="m.end()" signature="check_for_whole_start_tag(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="m.end()" line="282" name="j" />
+          <variable citdl="locatestarttagend.match()" line="280" name="m" />
+          <variable citdl="list" line="283" name="next" />
+          <variable citdl="list" line="279" name="rawdata" />
+        </scope>
+        <scope doc="# Overridable -- handle declaration" ilk="function" line="353" lineend="354" name="handle_decl" signature="handle_decl(decl)">
+          <variable ilk="argument" name="decl" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="126" lineend="127" name="clear_cdata_mode" signature="clear_cdata_mode()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# Internal -- handle starttag, return end or -1 if not&#10;terminated" ilk="function" line="227" lineend="274" name="parse_starttag" returns="self.check_for_whole_start_tag()" signature="parse_starttag(i)">
+          <variable line="256" name="end" />
+          <variable ilk="argument" name="i" />
+          <variable citdl="self.unescape()" line="246" name="attrvalue" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="attrfind.match()" line="243" name="m" />
+          <variable line="246" name="rest" />
+          <variable line="246" name="attrname" />
+          <variable citdl="self.__starttag_text.count()" line="258" name="lineno" />
+          <variable citdl="self.check_for_whole_start_tag()" line="229" name="endpos" />
+          <variable citdl="len()" line="258" name="offset" />
+          <variable citdl="list" line="236" name="attrs" />
+          <variable citdl="m.end()" line="239" name="k" />
+          <variable citdl="tagfind.match()" line="237" name="match" />
+          <variable citdl="list" line="232" name="rawdata" />
+        </scope>
+        <scope doc="# Overridable -- handle end tag" ilk="function" line="333" lineend="334" name="handle_endtag" signature="handle_endtag(tag)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+        </scope>
+        <scope doc="# Overridable -- handle character reference" ilk="function" line="337" lineend="338" name="handle_charref" signature="handle_charref(name)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="# Internal -- parse processing instr, return end or -1 if&#10;not terminated" ilk="function" line="215" lineend="224" name="parse_pi" returns="match.end()" signature="parse_pi(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="match.start()" line="221" name="j" />
+          <variable citdl="list" line="216" name="rawdata" />
+          <variable citdl="piclose.search()" line="218" name="match" />
+        </scope>
+        <scope ilk="function" line="360" lineend="361" name="unknown_decl" signature="unknown_decl(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Reset this instance. Loses all unprocessed data." ilk="function" line="94" lineend="99" name="reset" signature="reset()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="365" lineend="393" name="unescape" returns="re.sub()" signature="unescape(s)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+          <scope ilk="function" line="368" lineend="391" name="replaceEntities" returns="unichr()" signature="replaceEntities(s)">
+            <import line="383" module="htmlentitydefs" />
+            <variable citdl="list" ilk="argument" name="s" />
+            <variable citdl="int()" line="374" name="c" />
+            <variable citdl="dict" line="385" name="entitydefs" />
+          </scope>
+        </scope>
+        <scope doc="# Internal -- parse endtag, return end or -1 if incomplete" ilk="function" line="308" lineend="321" name="parse_endtag" returns="match.end()" signature="parse_endtag(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable citdl="match.end()" line="314" name="j" />
+          <variable citdl="match.group()" line="318" name="tag" />
+          <variable citdl="list" line="309" name="rawdata" />
+          <variable citdl="endendtag.search()" line="311" name="match" />
+        </scope>
+        <scope doc="Initialize and reset this instance." ilk="function" line="90" lineend="92" name="__init__" signature="HTMLParser()">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="114" lineend="115" name="error" signature="error(message)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="# Overridable -- handle data" ilk="function" line="345" lineend="346" name="handle_data" signature="handle_data(data)">
+          <variable citdl="HTMLParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="re.compile()" line="98" name="interesting" />
+        <variable attributes="private" citdl="list" line="117" name="__starttag_text" />
+        <variable citdl="tuple" line="87" name="CDATA_CONTENT_ELEMENTS" />
+        <variable line="364" name="entitydefs" />
+        <variable attributes="__instancevar__" citdl="str" line="96" name="rawdata" />
+        <variable attributes="__instancevar__" citdl="str" line="97" name="lasttag" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="27" name="attrfind" />
+      <variable citdl="SRE_Pattern" line="21" name="charref" />
+      <variable citdl="SRE_Pattern" line="25" name="commentclose" />
+      <variable citdl="SRE_Pattern" line="45" name="endendtag" />
+      <variable citdl="SRE_Pattern" line="46" name="endtagfind" />
+      <variable citdl="SRE_Pattern" line="20" name="entityref" />
+      <variable citdl="SRE_Pattern" line="18" name="incomplete" />
+      <variable citdl="SRE_Pattern" line="17" name="interesting_cdata" />
+      <variable citdl="SRE_Pattern" line="16" name="interesting_normal" />
+      <variable citdl="SRE_Pattern" line="31" name="locatestarttagend" />
+      <import module="markupbase" />
+      <variable citdl="SRE_Pattern" line="24" name="piclose" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="23" name="starttagopen" />
+      <variable citdl="SRE_Pattern" line="26" name="tagfind" />
+    </scope>
+    

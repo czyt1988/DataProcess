@@ -1,0 +1,48 @@
+<scope doc="Base64 content transfer encoding per RFCs 2045-2047.&#10;This module handles the content transfer encoding method defined in RFC 2045 to encode arbitrary 8-bit data using the three 8-bit bytes in four 7-bit characters encoding known as Base64.  It is used in the MIME standards for email to attach images, audio, and text using some 8-bit character sets to messages.  This module provides an interface to encode and decode both headers and bodies with Base64 encoding. " ilk="blob" lang="Python" name="email.base64mime">
+      <variable citdl="str" line="42" name="CRLF" />
+      <variable citdl="str" line="44" name="EMPTYSTRING" />
+      <variable citdl="int" line="47" name="MISC_LEN" />
+      <variable citdl="str" line="43" name="NL" />
+      <variable citdl="list" line="27" name="__all__" />
+      <scope doc="(ascii) -&gt; bin." ilk="function" name="a2b_base64" />
+      <scope doc="(bin) -&gt; ascii." ilk="function" name="b2a_base64" />
+      <scope doc="Return the length of s when it is encoded with base64." ilk="function" line="52" lineend="60" name="base64_len" returns="int" signature="base64_len(s)">
+        <variable line="54" name="leftover" />
+        <variable ilk="argument" name="s" />
+        <variable line="54" name="groups_of_3" />
+        <variable citdl="int" line="57" name="n" />
+      </scope>
+      <scope doc="Decode a raw base64 string." ilk="function" line="182" name="body_decode" signature="body_decode(s, convert_eols=None)" />
+      <scope doc="Encode a string with base64." ilk="function" line="155" name="body_encode" signature="body_encode(s, binary=True, maxlinelen=76, eol='\n')" />
+      <scope doc="Decode a raw base64 string." ilk="function" line="160" lineend="178" name="decode" returns="dec.replace()" signature="decode(s, convert_eols=None)">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="convert_eols" />
+        <variable citdl="a2b_base64()" line="175" name="dec" />
+      </scope>
+      <scope doc="Decode a raw base64 string." ilk="function" line="183" name="decodestring" signature="decodestring(s, convert_eols=None)" />
+      <scope doc="Encode a string with base64." ilk="function" line="122" lineend="151" name="encode" returns="EMPTYSTRING.join()" signature="encode(s, binary=True, maxlinelen=76, eol='\n')">
+        <variable citdl="True" ilk="argument" name="binary" />
+        <variable citdl="int" ilk="argument" name="maxlinelen" />
+        <variable citdl="int" line="143" name="max_unencoded" />
+        <variable citdl="list" line="142" name="encvec" />
+        <variable citdl="fix_eols()" ilk="argument" name="s" />
+        <variable citdl="b2a_base64()" line="147" name="enc" />
+        <variable citdl="str" ilk="argument" name="eol" />
+      </scope>
+      <scope doc="Encode a string with base64." ilk="function" line="156" name="encodestring" signature="encodestring(s, binary=True, maxlinelen=76, eol='\n')" />
+      <scope doc="Replace all line-ending characters with ." ilk="function" name="fix_eols" signature="fix_eols(s)" />
+      <scope doc="Encode a single header line with Base64 encoding in a given&#10;charset." ilk="function" line="64" lineend="118" name="header_encode" returns="joiner.join()" signature="header_encode(header, charset='iso-8859-1', keep_eols=False, maxlinelen=76, eol='\n')">
+        <variable citdl="int" ilk="argument" name="maxlinelen" />
+        <variable citdl="list" line="100" name="base64ed" />
+        <variable citdl="str" ilk="argument" name="charset" />
+        <variable citdl="list" line="108" name="lines" />
+        <variable citdl="len()" line="101" name="max_encoded" />
+        <variable citdl="int" line="102" name="max_unencoded" />
+        <variable citdl="fix_eols()" ilk="argument" name="header" />
+        <variable citdl="str" line="117" name="joiner" />
+        <variable citdl="False" ilk="argument" name="keep_eols" />
+        <variable citdl="list" line="112" name="line" />
+        <variable citdl="str" ilk="argument" name="eol" />
+      </scope>
+    </scope>
+    

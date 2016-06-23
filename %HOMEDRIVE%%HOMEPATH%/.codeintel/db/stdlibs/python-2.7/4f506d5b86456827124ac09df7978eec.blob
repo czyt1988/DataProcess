@@ -1,0 +1,71 @@
+<scope doc="Utility functions used by the btm_matcher module&#10;" ilk="blob" lang="Python" name="lib2to3.btm_utils">
+      <scope classrefs="object" doc="This class serves as an intermediate representation of the&#10;pattern tree during the conversion to sets of leaf-to-root subpatterns" ilk="class" line="16" lineend="102" name="MinNode">
+        <scope doc="Drives the leaf_to_root method." ilk="function" line="75" lineend="94" name="get_linear_subpattern" returns="l.leaf_to_root()" signature="get_linear_subpattern()">
+          <variable citdl="MinNode" ilk="argument" name="self" />
+          <variable citdl="l.leaf_to_root()" line="92" name="subp" />
+        </scope>
+        <scope ilk="function" line="30" lineend="31" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="MinNode" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal method." ilk="function" line="33" lineend="73" name="leaf_to_root" returns="get_characteristic_subpattern()" signature="leaf_to_root()">
+          <variable citdl="node.parent" line="37" name="node" />
+          <variable citdl="MinNode" ilk="argument" name="self" />
+          <variable citdl="list" line="38" name="subp" />
+        </scope>
+        <scope doc="Generator that returns the leaves of the tree" ilk="function" line="96" lineend="102" name="leaves" signature="leaves()">
+          <variable citdl="MinNode" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="21" lineend="28" name="__init__" signature="MinNode(type=None, name=None)">
+          <variable citdl="MinNode" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="False" line="25" name="leaf" />
+        <variable attributes="__instancevar__" line="23" name="name" />
+        <variable attributes="__instancevar__" line="26" name="parent" />
+        <variable attributes="__instancevar__" citdl="list" line="27" name="alternatives" />
+        <variable attributes="__instancevar__" citdl="list" line="28" name="group" />
+        <variable attributes="__instancevar__" line="22" name="type" />
+        <variable attributes="__instancevar__" citdl="list" line="24" name="children" />
+      </scope>
+      <variable citdl="int" line="13" name="TYPE_ALTERNATIVES" />
+      <variable citdl="int" line="12" name="TYPE_ANY" />
+      <variable citdl="int" line="14" name="TYPE_GROUP" />
+      <scope doc="Picks the most characteristic from a list of linear patterns&#10;Current order used is: names &gt; common_names &gt; common_chars" ilk="function" line="238" lineend="273" name="get_characteristic_subpattern" returns="max()" signature="get_characteristic_subpattern(subpatterns)">
+        <variable citdl="list" line="250" name="subpatterns_with_common_names" />
+        <variable citdl="list" line="251" name="common_names" />
+        <variable citdl="list" ilk="argument" name="subpatterns" />
+        <variable citdl="list" line="249" name="subpatterns_with_names" />
+        <variable citdl="str" line="253" name="common_chars" />
+        <variable citdl="list" line="252" name="subpatterns_with_common_chars" />
+      </scope>
+      <import module="grammar" />
+      <variable citdl="Symbols" name="pattern_symbols" />
+      <variable citdl="Symbols" line="8" name="pysyms" />
+      <variable citdl="Symbols" name="python_symbols" />
+      <import module="pytree" />
+      <scope doc="Tests test_func on all items of sequence and items of&#10;included sub-iterables" ilk="function" line="275" lineend="283" name="rec_test" signature="rec_test(sequence, test_func)">
+        <variable ilk="argument" name="test_func" />
+        <variable ilk="argument" name="sequence" />
+      </scope>
+      <scope doc="Internal function." ilk="function" line="104" lineend="235" name="reduce_tree" returns="MinNode" signature="reduce_tree(node, parent=None)">
+        <variable ilk="argument" name="node" />
+        <variable citdl="True" line="162" name="leaf" />
+        <variable citdl="child" line="164" name="alternatives_node" />
+        <variable ilk="argument" name="parent" />
+        <variable citdl="MinNode" line="112" name="new_node" />
+        <variable citdl="False" line="167" name="has_variable_name" />
+        <variable line="184" name="name_leaf" />
+        <variable citdl="False" line="165" name="has_repeater" />
+        <variable citdl="child" line="163" name="details_node" />
+        <variable citdl="()" line="130" name="reduced" />
+        <variable citdl="child" line="166" name="repeater_node" />
+        <variable citdl="name_leaf.value.strip()" line="205" name="name" />
+      </scope>
+      <variable citdl="Symbols" line="7" name="syms" />
+      <import module="token" />
+      <import module="token_labels" />
+      <variable citdl="dict" line="9" name="tokens" />
+      <variable attributes="__hidden__" citdl="token" line="10" name="token_labels" />
+    </scope>
+    

@@ -1,0 +1,6 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="distutils.debug">
+      <variable citdl="NoneType" line="7" name="DEBUG" />
+      <variable citdl="str" line="3" name="__revision__" />
+      <import module="os" />
+    </scope>
+    

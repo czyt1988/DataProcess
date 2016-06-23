@@ -1,0 +1,254 @@
+<scope doc="Implementation of the DOM Level 3 'LS-Load' feature.&#10;" ilk="blob" lang="Python" name="xml.dom.xmlbuilder">
+      <scope doc="&#10;" ilk="class" line="44" lineend="205" name="DOMBuilder">
+        <scope ilk="function" line="62" lineend="63" name="_set_entityResolver" signature="_set_entityResolver(entityResolver)">
+          <variable ilk="argument" name="entityResolver" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="67" lineend="68" name="_set_errorHandler" signature="_set_errorHandler(errorHandler)">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="errorHandler" />
+        </scope>
+        <scope ilk="function" line="197" lineend="200" name="parseWithContext" signature="parseWithContext(input, cnode, action)">
+          <variable ilk="argument" name="action" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="cnode" />
+        </scope>
+        <scope ilk="function" line="187" lineend="195" name="parse" returns="self._parse_bytestream()" signature="parse(input)">
+          <variable citdl="urllib2.urlopen()" line="191" name="fp" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable citdl="copy.copy()" line="188" name="options" />
+        </scope>
+        <scope ilk="function" line="57" lineend="58" name="__init__" signature="DOMBuilder()">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="202" lineend="205" name="_parse_bytestream" returns="builder.parseFile()" signature="_parse_bytestream(stream, options)">
+          <variable citdl="xml.dom.expatbuilder.makeBuilder()" line="204" name="builder" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="stream" />
+          <variable ilk="argument" name="options" />
+        </scope>
+        <scope ilk="function" line="162" lineend="178" name="getFeature" returns="options.whitespace_in_element_content" signature="getFeature(name)">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable citdl="_name_xform()" line="163" name="xname" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="Options" line="168" name="options" />
+        </scope>
+        <scope ilk="function" line="92" lineend="94" name="canSetFeature" returns="bool" signature="canSetFeature(name, state)">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="tuple" line="93" name="key" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="60" lineend="61" name="_get_entityResolver" signature="_get_entityResolver()">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="180" lineend="185" name="parseURI" returns="self.parse()" signature="parseURI(uri)">
+          <variable citdl="self.entityResolver.resolveEntity()" line="182" name="input" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="72" lineend="73" name="_set_filter" signature="_set_filter(filter)">
+          <variable ilk="argument" name="filter" />
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="_get_errorHandler" signature="_get_errorHandler()">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="75" lineend="87" name="setFeature" signature="setFeature(name, state)">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable line="79" name="settings" />
+          <variable citdl="int" ilk="argument" name="state" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="70" lineend="71" name="_get_filter" signature="_get_filter()">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="89" lineend="90" name="supportsFeature" returns="hasattr()" signature="supportsFeature(name)">
+          <variable citdl="DOMBuilder" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="protected" citdl="tuple" line="54" name="_legal_actions" />
+        <variable citdl="int" line="51" name="ACTION_INSERT_AFTER" />
+        <variable attributes="protected __instancevar__" citdl="Options" line="58" name="_options" />
+        <variable citdl="int" line="52" name="ACTION_INSERT_BEFORE" />
+        <variable attributes="protected" citdl="dict" line="101" name="_settings" />
+        <variable line="46" name="errorHandler" />
+        <variable line="47" name="filter" />
+        <variable line="45" name="entityResolver" />
+        <variable citdl="int" line="49" name="ACTION_REPLACE" />
+        <variable citdl="int" line="50" name="ACTION_APPEND_AS_CHILDREN" />
+      </scope>
+      <scope doc="Element filter which can be used to tailor construction of&#10;a DOM instance." ilk="class" line="305" lineend="329" name="DOMBuilderFilter">
+        <scope ilk="function" line="325" lineend="326" name="acceptNode" returns="int" signature="acceptNode(element)">
+          <variable citdl="DOMBuilderFilter" ilk="argument" name="self" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="322" lineend="323" name="_get_whatToShow" returns="NodeFilter.SHOW_ALL" signature="_get_whatToShow()">
+          <variable citdl="DOMBuilderFilter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="328" lineend="329" name="startContainer" returns="int" signature="startContainer(element)">
+          <variable citdl="DOMBuilderFilter" ilk="argument" name="self" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <variable citdl="int" line="316" name="FILTER_REJECT" />
+        <variable citdl="NodeFilter.SHOW_ALL" line="320" name="whatToShow" />
+        <variable citdl="int" line="315" name="FILTER_ACCEPT" />
+        <variable citdl="int" line="318" name="FILTER_INTERRUPT" />
+        <variable citdl="int" line="317" name="FILTER_SKIP" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="212" lineend="253" name="DOMEntityResolver">
+        <scope ilk="function" line="215" lineend="235" name="resolveEntity" returns="DOMInputSource()" signature="resolveEntity(publicId, systemId)">
+          <variable ilk="argument" name="publicId" />
+          <variable citdl="DOMEntityResolver" ilk="argument" name="self" />
+          <variable citdl="DOMInputSource()" line="217" name="source" />
+          <variable citdl="urlparse.urlparse()" line="227" name="parts" />
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="posixpath.dirname()" line="231" name="path" />
+        </scope>
+        <scope ilk="function" line="248" lineend="253" name="_guess_media_encoding" signature="_guess_media_encoding(source)">
+          <variable citdl="source.byteStream.info()" line="249" name="info" />
+          <variable ilk="argument" name="source" />
+          <variable citdl="DOMEntityResolver" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="244" lineend="246" name="_create_opener" returns="urllib2.build_opener()" signature="_create_opener()">
+          <variable citdl="DOMEntityResolver" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="237" lineend="242" name="_get_opener" returns="self._opener" signature="_get_opener()">
+          <variable citdl="DOMEntityResolver" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self._create_opener()" line="241" name="_opener" />
+        <variable citdl="tuple" line="213" name="__slots__" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="366" lineend="386" name="DOMImplementationLS">
+        <scope ilk="function" line="381" lineend="383" name="createDOMWriter" signature="createDOMWriter()">
+          <variable citdl="DOMImplementationLS" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="370" lineend="379" name="createDOMBuilder" returns="DOMBuilder" signature="createDOMBuilder(mode, schemaType)">
+          <variable citdl="DOMImplementationLS" ilk="argument" name="self" />
+          <variable ilk="argument" name="schemaType" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="385" lineend="386" name="createDOMInputSource" returns="DOMInputSource" signature="createDOMInputSource()">
+          <variable citdl="DOMImplementationLS" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="367" name="MODE_SYNCHRONOUS" />
+        <variable citdl="int" line="368" name="MODE_ASYNCHRONOUS" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="256" lineend="302" name="DOMInputSource">
+        <scope ilk="function" line="299" lineend="300" name="_get_baseURI" signature="_get_baseURI()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="281" lineend="282" name="_set_stringData" signature="_set_stringData(data)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="294" lineend="295" name="_get_systemId" signature="_get_systemId()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="291" lineend="292" name="_set_publicId" signature="_set_publicId(publicId)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="publicId" />
+        </scope>
+        <scope ilk="function" line="301" lineend="302" name="_set_baseURI" signature="_set_baseURI(uri)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="286" lineend="287" name="_set_encoding" signature="_set_encoding(encoding)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope ilk="function" line="289" lineend="290" name="_get_publicId" signature="_get_publicId()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="284" lineend="285" name="_get_encoding" signature="_get_encoding()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="271" lineend="272" name="_set_byteStream" signature="_set_byteStream(byteStream)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="byteStream" />
+        </scope>
+        <scope ilk="function" line="276" lineend="277" name="_set_characterStream" signature="_set_characterStream(characterStream)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="characterStream" />
+        </scope>
+        <scope ilk="function" line="274" lineend="275" name="_get_characterStream" signature="_get_characterStream()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="260" lineend="267" name="__init__" signature="DOMInputSource()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="269" lineend="270" name="_get_byteStream" signature="_get_byteStream()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="279" lineend="280" name="_get_stringData" signature="_get_stringData()">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="296" lineend="297" name="_set_systemId" signature="_set_systemId(systemId)">
+          <variable citdl="DOMInputSource" ilk="argument" name="self" />
+          <variable ilk="argument" name="systemId" />
+        </scope>
+        <variable attributes="__instancevar__" line="265" name="publicId" />
+        <variable attributes="__instancevar__" line="264" name="encoding" />
+        <variable attributes="__instancevar__" line="267" name="baseURI" />
+        <variable attributes="__instancevar__" line="262" name="characterStream" />
+        <variable citdl="tuple" line="257" name="__slots__" />
+        <variable attributes="__instancevar__" line="266" name="systemId" />
+        <variable attributes="__instancevar__" line="263" name="stringData" />
+        <variable attributes="__instancevar__" line="261" name="byteStream" />
+      </scope>
+      <scope doc="Mixin to create documents that conform to the load/save spec.&#10;" ilk="class" line="334" lineend="363" name="DocumentLS">
+        <scope ilk="function" line="352" lineend="353" name="load" signature="load(uri)">
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="358" lineend="363" name="saveXML" returns="snode.toxml()" signature="saveXML(snode)">
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+          <variable citdl="DocumentLS" ilk="argument" name="snode" />
+        </scope>
+        <scope ilk="function" line="346" lineend="350" name="abort" signature="abort()">
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="339" lineend="340" name="_get_async" returns="bool" signature="_get_async()">
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="355" lineend="356" name="loadXML" signature="loadXML(source)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="341" lineend="344" name="_set_async" signature="_set_async(async)">
+          <variable ilk="argument" name="async" />
+          <variable citdl="DocumentLS" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="False" line="337" name="async" />
+      </scope>
+      <scope doc="Features object that has variables set for each DOMBuilder feature.&#10;The DOMBuilder class uses an instance of this class to pass settings to the ExpatBuilder class." ilk="class" line="12" lineend="41" name="Options">
+        <variable citdl="True" line="34" name="cdata_sections" />
+        <variable citdl="True" line="23" name="namespace_declarations" />
+        <variable citdl="False" line="37" name="infoset" />
+        <variable citdl="True" line="33" name="whitespace_in_element_content" />
+        <variable citdl="True" line="27" name="external_dtd_subset" />
+        <variable citdl="False" line="28" name="validate_if_schema" />
+        <variable citdl="False" line="38" name="supported_mediatypes_only" />
+        <variable citdl="True" line="31" name="create_entity_ref_nodes" />
+        <variable citdl="True" line="35" name="comments" />
+        <variable citdl="True" line="26" name="external_general_entities" />
+        <variable citdl="False" line="30" name="datatype_normalization" />
+        <variable citdl="True" line="32" name="entities" />
+        <variable line="40" name="errorHandler" />
+        <variable citdl="int" line="22" name="namespaces" />
+        <variable line="41" name="filter" />
+        <variable citdl="True" line="36" name="charset_overrides_xml_encoding" />
+        <variable citdl="False" line="29" name="validate" />
+        <variable citdl="False" line="24" name="validation" />
+        <variable citdl="True" line="25" name="external_parameter_entities" />
+      </scope>
+      <variable citdl="list" line="9" name="__all__" />
+      <import module="copy" />
+      <import module="xml" />
+      <scope attributes="protected __hidden__" ilk="function" line="208" lineend="209" name="_name_xform" signature="_name_xform(name)">
+        <variable ilk="argument" name="name" />
+      </scope>
+    </scope>
+    

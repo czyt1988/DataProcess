@@ -1,0 +1,108 @@
+<scope doc="# Module to allow connection and socket objects to be transferred&#10;# between processes # # multiprocessing/reduction.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met:" ilk="blob" lang="Python" name="multiprocessing.reduction">
+      <scope doc="Returns a connection to the address of a `Listener`" ilk="function" name="Client" signature="Client(address, family=None, authkey=None)" />
+      <scope classrefs="Pickler" doc="&#10;" ilk="class" name="ForkingPickler">
+        <scope ilk="function" name="register" />
+      </scope>
+      <scope classrefs="object" doc="Returns a listener object.&#10;This is a wrapper for a bound socket which is 'listening' for connections, or for a Windows named pipe." ilk="class" name="Listener">
+        <scope ilk="function" name="__init__" />
+        <scope doc="Close the bound socket or named pipe of `self`." ilk="function" name="close" />
+        <scope doc="Accept a connection on the bound socket or named pipe of&#10;`self`." ilk="function" name="accept" />
+      </scope>
+      <scope classrefs="object" doc="Start a subprocess to run the code of a process object&#10;" ilk="class" name="Popen">
+        <scope ilk="function" name="poll" />
+        <scope ilk="function" name="duplicate_for_child" signature="duplicate_for_child(handle)" />
+        <scope ilk="function" name="terminate" />
+        <scope ilk="function" name="thread_is_spawning" signature="thread_is_spawning()" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="wait" />
+      </scope>
+      <variable citdl="list" line="36" name="__all__" />
+      <import module="_multiprocessing" />
+      <import module="_subprocess" />
+      <scope doc="Close a file descriptor (for low level IO)." ilk="function" name="close" signature="close(fd)" />
+      <scope doc="Return process object representing the current process" ilk="function" name="current_process" signature="current_process()" />
+      <scope ilk="function" name="debug" signature="debug(msg, *args)" />
+      <scope doc="Return a duplicate of a file descriptor." ilk="function" name="duplicate" signature="duplicate(handle, target_process=None, inheritable=False)" />
+      <scope ilk="function" line="181" lineend="185" name="fromfd" returns="socket.fromfd()" signature="fromfd(fd, family, type_, proto=0)">
+        <variable ilk="argument" name="type_" />
+        <variable ilk="argument" name="fd" />
+        <variable citdl="socket.socket()" line="182" name="s" />
+        <variable ilk="argument" name="family" />
+        <variable citdl="int" ilk="argument" name="proto" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="169" lineend="172" name="rebuild_connection" returns="_multiprocessing.Connection()" signature="rebuild_connection(reduced_handle, readable, writable)">
+        <variable ilk="argument" name="writable" />
+        <variable ilk="argument" name="reduced_handle" />
+        <variable ilk="argument" name="readable" />
+        <variable citdl="rebuild_handle()" line="170" name="handle" />
+      </scope>
+      <scope ilk="function" line="150" lineend="159" name="rebuild_handle" returns="recv_handle()" signature="rebuild_handle(pickled_data)">
+        <variable ilk="argument" name="pickled_data" />
+        <variable citdl="Client()" line="155" name="conn" />
+        <variable citdl="recv_handle()" line="157" name="new_handle" />
+      </scope>
+      <scope ilk="function" line="209" lineend="212" name="rebuild_pipe_connection" returns="_multiprocessing.PipeConnection()" signature="rebuild_pipe_connection(reduced_handle, readable, writable)">
+        <variable ilk="argument" name="writable" />
+        <variable ilk="argument" name="reduced_handle" />
+        <variable ilk="argument" name="readable" />
+        <variable citdl="rebuild_handle()" line="210" name="handle" />
+      </scope>
+      <scope ilk="function" line="191" lineend="195" name="rebuild_socket" returns="fromfd()" signature="rebuild_socket(reduced_handle, family, type_, proto)">
+        <variable ilk="argument" name="family" />
+        <variable ilk="argument" name="proto" />
+        <variable ilk="argument" name="reduced_handle" />
+        <variable attributes="protected" citdl="fromfd()" line="193" name="_sock" />
+        <variable ilk="argument" name="type_" />
+        <variable citdl="rebuild_handle()" line="192" name="fd" />
+      </scope>
+      <scope ilk="function" line="82" lineend="83" name="recv_handle" returns="_multiprocessing.recvfd()" signature="recv_handle(conn)">
+        <variable ilk="argument" name="conn" />
+      </scope>
+      <scope ilk="function" line="165" lineend="167" name="reduce_connection" returns="tuple" signature="reduce_connection(conn)">
+        <variable citdl="reduce_handle()" line="166" name="rh" />
+        <variable ilk="argument" name="conn" />
+      </scope>
+      <scope ilk="function" line="142" lineend="148" name="reduce_handle" returns="tuple" signature="reduce_handle(handle)">
+        <variable ilk="argument" name="handle" />
+        <variable citdl="duplicate()" line="145" name="dup_handle" />
+      </scope>
+      <scope ilk="function" line="205" lineend="207" name="reduce_pipe_connection" returns="tuple" signature="reduce_pipe_connection(conn)">
+        <variable citdl="reduce_handle()" line="206" name="rh" />
+        <variable ilk="argument" name="conn" />
+      </scope>
+      <scope ilk="function" line="187" lineend="189" name="reduce_socket" returns="tuple" signature="reduce_socket(s)">
+        <variable citdl="reduce_handle()" line="188" name="reduced_handle" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope ilk="function" name="register_after_fork" signature="register_after_fork(obj, func)" />
+      <scope ilk="function" line="79" lineend="80" name="send_handle" signature="send_handle(conn, handle, destination_pid)">
+        <variable ilk="argument" name="destination_pid" />
+        <variable ilk="argument" name="handle" />
+        <variable ilk="argument" name="conn" />
+      </scope>
+      <import module="socket" />
+      <scope ilk="function" name="sub_debug" signature="sub_debug(msg, *args)" />
+      <import module="sys" />
+      <import module="threading" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="win32" />
+      <variable attributes="protected __hidden__" citdl="set()" line="89" name="_cache" />
+      <scope attributes="protected __hidden__" ilk="function" line="119" lineend="135" name="_serve" signature="_serve()">
+        <import line="120" module=".util" symbol="is_exiting" />
+        <import line="120" module=".util" symbol="sub_warning" />
+        <import line="132" module="traceback" />
+        <variable citdl="_listener.accept()" line="124" name="conn" />
+        <variable line="125" name="handle_wanted" />
+        <variable line="125" name="destination_pid" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="102" lineend="117" name="_get_listener" returns="Listener()" signature="_get_listener()">
+        <variable attributes="protected" citdl="Listener()" line="110" name="_listener" />
+        <variable citdl="threading.Thread()" line="111" name="t" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="91" lineend="97" name="_reset" signature="_reset(obj)">
+        <variable ilk="argument" name="obj" />
+        <variable attributes="protected" citdl="threading.Lock()" line="96" name="_lock" />
+        <variable attributes="protected" line="97" name="_listener" />
+      </scope>
+    </scope>
+    

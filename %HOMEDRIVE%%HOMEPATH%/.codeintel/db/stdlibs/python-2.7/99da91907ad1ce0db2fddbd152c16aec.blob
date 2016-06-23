@@ -1,0 +1,19 @@
+<scope doc="Convert a NT pathname to a file URL and vice versa.&#10;" ilk="blob" lang="Python" name="nturl2path">
+      <scope doc="OS-specific conversion from a file system path to a relative&#10;URL of the 'file' scheme; not recommended for general use." ilk="function" line="38" lineend="66" name="pathname2url" returns="str" signature="pathname2url(p)">
+        <variable citdl="p.split()" line="55" name="comp" />
+        <variable citdl="urllib.quote()" line="60" name="drive" />
+        <variable citdl="str" ilk="argument" name="p" />
+        <variable citdl="p.split()" line="53" name="components" />
+        <variable citdl="str" line="57" name="error" />
+        <variable citdl="str" line="62" name="path" />
+      </scope>
+      <scope doc="OS-specific conversion from a relative URL of the 'file'&#10;scheme to a file system path; not recommended for general&#10;use." ilk="function" line="3" lineend="36" name="url2pathname" returns="str" signature="url2pathname(url)">
+        <variable citdl="url.replace()" ilk="argument" name="url" />
+        <variable citdl="url.split()" line="23" name="comp" />
+        <variable line="27" name="drive" />
+        <variable citdl="url.split()" line="20" name="components" />
+        <variable citdl="url.replace()" line="25" name="error" />
+        <variable citdl="str" line="28" name="path" />
+      </scope>
+    </scope>
+    

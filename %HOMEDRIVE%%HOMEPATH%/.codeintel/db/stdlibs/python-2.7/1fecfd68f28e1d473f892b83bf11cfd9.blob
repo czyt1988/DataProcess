@@ -1,0 +1,79 @@
+<scope doc="distutils.pypirc&#10;Provides the PyPIRCCommand class, the base class for the command classes that uses .pypirc in the distutils.command package." ilk="blob" lang="Python" name="distutils.config">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="RawConfigParser" doc="&#10;" ilk="class" name="ConfigParser">
+        <scope doc="Get an option value for a given section." ilk="function" name="get" />
+        <scope ilk="function" name="_interpolation_replace" />
+        <scope doc="Return a list of tuples with (name, value) for each option&#10;in the section." ilk="function" name="items" />
+        <scope ilk="function" name="_interpolate" />
+      </scope>
+      <variable citdl="str" line="11" name="DEFAULT_PYPIRC" />
+      <scope classrefs="Command" doc="Base command that knows how to handle the .pypirc file&#10;" ilk="class" line="21" lineend="121" name="PyPIRCCommand">
+        <scope doc="Initialize options." ilk="function" line="110" lineend="114" name="initialize_options" signature="initialize_options()">
+          <variable citdl="PyPIRCCommand" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Creates a default .pypirc file." ilk="function" line="42" lineend="54" name="_store_pypirc" signature="_store_pypirc(username, password)">
+          <variable ilk="argument" name="username" />
+          <variable citdl="PyPIRCCommand" ilk="argument" name="self" />
+          <variable ilk="argument" name="password" />
+          <variable citdl="open()" line="45" name="f" />
+          <variable citdl="_get_rc_file()" line="44" name="rc" />
+        </scope>
+        <scope doc="Finalizes options." ilk="function" line="116" lineend="121" name="finalize_options" signature="finalize_options()">
+          <variable citdl="PyPIRCCommand" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Reads the .pypirc file." ilk="function" line="56" lineend="108" name="_read_pypirc" returns="dict" signature="_read_pypirc()">
+          <variable attributes="protected" citdl="list" line="68" name="_servers" />
+          <variable citdl="str" line="61" name="repository" />
+          <variable citdl="ConfigParser()" line="62" name="config" />
+          <variable citdl="PyPIRCCommand" ilk="argument" name="self" />
+          <variable citdl="str" line="97" name="server" />
+          <variable citdl="dict" line="80" name="current" />
+          <variable citdl="_get_rc_file()" line="58" name="rc" />
+          <variable citdl="config.sections()" line="64" name="sections" />
+          <variable citdl="config.get()" line="67" name="index_servers" />
+        </scope>
+        <scope doc="Returns rc file path." ilk="function" line="38" lineend="40" name="_get_rc_file" returns="os.path.join()" signature="_get_rc_file()">
+          <variable citdl="PyPIRCCommand" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="str" line="24" name="DEFAULT_REPOSITORY" />
+        <variable citdl="list" line="29" name="user_options" />
+        <variable citdl="str" line="27" name="realm" />
+        <variable citdl="str" line="25" name="DEFAULT_REALM" />
+        <variable citdl="str" line="26" name="repository" />
+        <variable attributes="__instancevar__" citdl="int" line="114" name="show_response" />
+        <variable citdl="list" line="36" name="boolean_options" />
+      </scope>
+      <import module="os" />
+    </scope>
+    

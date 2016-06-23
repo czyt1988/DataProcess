@@ -1,0 +1,284 @@
+<scope doc="Basic infrastructure for asynchronous socket service clients and servers.&#10;There are only two ways to have a program on a single processor do &quot;more than one thing at a time&quot;.  Multi-threaded programming is the simplest and most popular way to do it, but there is another very different technique, that lets you have nearly all the advantages of multi-threading, without actually using multiple threads. it's really only practical if your program is largely I/O bound. If your program is CPU bound, then pre-emptive scheduled threads are probably what you really need. Network servers are rarely CPU-bound, however.  If your operating system supports the select() system call in its I/O" ilk="blob" lang="Python" name="asyncore">
+      <variable citdl="int" name="EAGAIN" />
+      <variable citdl="int" name="EALREADY" />
+      <variable citdl="int" name="EBADF" />
+      <variable citdl="int" name="ECONNABORTED" />
+      <variable citdl="int" name="ECONNRESET" />
+      <variable citdl="int" name="EINPROGRESS" />
+      <variable citdl="int" name="EINTR" />
+      <variable citdl="int" name="EINVAL" />
+      <variable citdl="int" name="EISCONN" />
+      <variable citdl="int" name="ENOTCONN" />
+      <variable citdl="int" name="EPIPE" />
+      <variable citdl="int" name="ESHUTDOWN" />
+      <variable citdl="int" name="EWOULDBLOCK" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="76" lineend="77" name="ExitNow" />
+      <scope ilk="function" line="572" lineend="588" name="close_all" signature="close_all(map=None, ignore_all=False)">
+        <variable citdl="dict" ilk="argument" name="map" />
+        <variable citdl="False" ilk="argument" name="ignore_all" />
+      </scope>
+      <scope ilk="function" line="552" lineend="570" name="compact_traceback" returns="tuple" signature="compact_traceback()">
+        <variable citdl="list" line="554" name="tbinfo" />
+        <variable citdl="str.join()" line="569" name="info" />
+        <variable citdl="tb.tb_next" line="553" name="tb" />
+        <variable line="553" name="t" />
+        <variable line="553" name="v" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="221" lineend="518" name="dispatcher">
+        <scope ilk="function" line="275" name="__str__" />
+        <scope ilk="function" line="304" lineend="313" name="set_reuse_addr" signature="set_reuse_addr()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="353" lineend="365" name="accept" returns="tuple" signature="accept()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable line="356" name="addr" />
+          <variable line="356" name="conn" />
+        </scope>
+        <scope ilk="function" line="324" lineend="325" name="writable" returns="bool" signature="writable()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="341" lineend="351" name="connect" signature="connect(address)">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="self.socket.connect_ex()" line="343" name="err" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope ilk="function" line="433" lineend="442" name="handle_read_event" signature="handle_read_event()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="398" lineend="406" name="close" signature="close()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="481" lineend="499" name="handle_error" signature="handle_error()">
+          <variable line="482" name="tbinfo" />
+          <variable line="482" name="nil" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable line="482" name="t" />
+          <variable line="482" name="v" />
+          <variable citdl="id()" line="486" name="self_repr" />
+        </scope>
+        <scope ilk="function" line="230" lineend="260" name="__init__" signature="dispatcher(sock=None, map=None)">
+          <variable ilk="argument" name="map" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+        </scope>
+        <scope ilk="function" line="298" lineend="302" name="set_socket" signature="set_socket(sock, map=None)">
+          <variable ilk="argument" name="map" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+        </scope>
+        <scope ilk="function" line="513" lineend="514" name="handle_accept" signature="handle_accept()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="321" lineend="322" name="readable" returns="bool" signature="readable()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="367" lineend="378" name="send" returns="self.socket.send()" signature="send(data)">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="self.socket.send()" line="369" name="result" />
+        </scope>
+        <scope ilk="function" line="466" lineend="479" name="handle_expt_event" signature="handle_expt_event()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="self.socket.getsockopt()" line="470" name="err" />
+        </scope>
+        <scope ilk="function" line="429" lineend="431" name="log_info" signature="log_info(message, type='info')">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="type" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope ilk="function" line="292" lineend="296" name="create_socket" signature="create_socket(family, type)">
+          <variable citdl="socket.socket()" line="294" name="sock" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="family" />
+        </scope>
+        <scope ilk="function" line="331" lineend="335" name="listen" returns="self.socket.listen()" signature="listen(num)">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="num" />
+        </scope>
+        <scope ilk="function" line="501" lineend="502" name="handle_expt" signature="handle_expt()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="504" lineend="505" name="handle_read" signature="handle_read()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="426" lineend="427" name="log" signature="log(message)">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope ilk="function" line="380" lineend="396" name="recv" returns="str" signature="recv(buffer_size)">
+          <variable ilk="argument" name="buffer_size" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="self.socket.recv()" line="382" name="data" />
+        </scope>
+        <scope doc="# cheap inheritance, used to pass all other attribute #&#10;references to the underlying socket object." ilk="function" line="410" lineend="420" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="dict" line="417" name="msg" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+          <variable citdl="getattr()" line="412" name="retattr" />
+        </scope>
+        <scope ilk="function" line="507" lineend="508" name="handle_write" signature="handle_write()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="337" lineend="339" name="bind" returns="self.socket.bind()" signature="bind(addr)">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="addr" />
+        </scope>
+        <scope ilk="function" line="510" lineend="511" name="handle_connect" signature="handle_connect()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="262" lineend="273" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="list" line="263" name="status" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="277" lineend="281" name="add_channel" signature="add_channel(map=None)">
+          <variable citdl="dict" ilk="argument" name="map" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="516" lineend="518" name="handle_close" signature="handle_close()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="283" lineend="290" name="del_channel" signature="del_channel(map=None)">
+          <variable citdl="dict" ilk="argument" name="map" />
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable line="284" name="fd" />
+        </scope>
+        <scope ilk="function" line="451" lineend="464" name="handle_write_event" signature="handle_write_event()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="self.socket.getsockopt()" line="459" name="err" />
+        </scope>
+        <scope ilk="function" line="444" lineend="449" name="handle_connect_event" signature="handle_connect_event()">
+          <variable citdl="dispatcher" ilk="argument" name="self" />
+          <variable citdl="self.socket.getsockopt()" line="445" name="err" />
+        </scope>
+        <variable citdl="sock.getpeername()" line="227" name="addr" />
+        <variable attributes="__instancevar__" citdl="tuple" line="293" name="family_and_type" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="232" name="_map" />
+        <variable citdl="frozenset()" line="228" name="ignore_log_types" />
+        <variable citdl="False" line="224" name="connected" />
+        <variable attributes="protected __instancevar__" citdl="sock.fileno()" line="236" name="_fileno" />
+        <variable citdl="False" line="223" name="debug" />
+        <variable citdl="True" line="225" name="accepting" />
+        <variable citdl="False" line="226" name="closing" />
+        <variable attributes="__instancevar__" line="260" name="socket" />
+      </scope>
+      <scope classrefs="dispatcher" doc="&#10;" ilk="class" line="525" lineend="546" name="dispatcher_with_send">
+        <scope ilk="function" line="536" lineend="537" name="handle_write" signature="handle_write()">
+          <variable citdl="dispatcher_with_send" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="531" lineend="534" name="initiate_send" signature="initiate_send()">
+          <variable citdl="dispatcher_with_send" ilk="argument" name="self" />
+          <variable citdl="int" line="532" name="num_sent" />
+        </scope>
+        <scope ilk="function" line="542" lineend="546" name="send" signature="send(data)">
+          <variable citdl="dispatcher_with_send" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="539" lineend="540" name="writable" returns="bool" signature="writable()">
+          <variable citdl="dispatcher_with_send" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="527" lineend="529" name="__init__" signature="dispatcher_with_send(sock=None, map=None)">
+          <variable ilk="argument" name="map" />
+          <variable citdl="dispatcher_with_send" ilk="argument" name="self" />
+          <variable ilk="argument" name="sock" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="529" name="out_buffer" />
+      </scope>
+      <variable citdl="dict" name="errorcode" />
+      <scope ilk="function" line="203" lineend="219" name="loop" signature="loop(timeout=30.0, use_poll=False, map=None, count=None)">
+        <variable ilk="argument" name="count" />
+        <variable citdl="dict" ilk="argument" name="map" />
+        <variable citdl="False" ilk="argument" name="use_poll" />
+        <variable citdl="float" ilk="argument" name="timeout" />
+        <variable citdl="poll2" line="208" name="poll_fun" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="125" lineend="167" name="poll" signature="poll(timeout=0.0, map=None)">
+        <variable citdl="dict" ilk="argument" name="map" />
+        <variable citdl="obj.readable()" line="131" name="is_r" />
+        <variable citdl="list" line="129" name="e" />
+        <variable citdl="float" ilk="argument" name="timeout" />
+        <variable citdl="obj.writable()" line="132" name="is_w" />
+        <variable citdl="list" line="129" name="r" />
+        <variable citdl="list" line="129" name="w" />
+        <variable citdl="map.get()" line="152" name="obj" />
+      </scope>
+      <scope ilk="function" line="169" lineend="199" name="poll2" signature="poll2(timeout=0.0, map=None)">
+        <variable citdl="dict" ilk="argument" name="map" />
+        <variable citdl="map.get()" line="196" name="obj" />
+        <variable citdl="select.poll()" line="176" name="pollster" />
+        <variable citdl="list" line="190" name="r" />
+        <variable citdl="int" line="179" name="flags" />
+        <variable citdl="int()" ilk="argument" name="timeout" />
+      </scope>
+      <scope ilk="function" line="201" name="poll3" signature="poll3(timeout=0.0, map=None)" />
+      <scope ilk="function" line="81" lineend="87" name="read" signature="read(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope ilk="function" line="105" lineend="123" name="readwrite" signature="readwrite(obj, flags)">
+        <variable ilk="argument" name="flags" />
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <import module="select" />
+      <import module="socket" />
+      <variable citdl="dict" line="66" name="socket_map" />
+      <import module="sys" />
+      <import module="time" />
+      <import module="warnings" />
+      <scope ilk="function" line="89" lineend="95" name="write" signature="write(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="97" lineend="103" name="_exception" signature="_exception(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope attributes="__hidden__" doc="&#10;" ilk="class" line="606" lineend="635" name="file_wrapper">
+        <scope attributes="__ctor__" ilk="function" line="611" lineend="612" name="__init__" signature="file_wrapper(fd)">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="fd" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.dup()" line="612" name="fd" />
+        <scope ilk="function" line="614" lineend="615" name="recv" returns="os.read()" signature="recv(*args)">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="617" lineend="618" name="send" returns="os.write()" signature="send(*args)">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="620" lineend="625" name="getsockopt" returns="int" signature="getsockopt(level, optname, buflen=None)">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+          <variable ilk="argument" name="optname" />
+          <variable ilk="argument" name="buflen" />
+        </scope>
+        <variable citdl="file_wrapper.recv" line="628" name="read" />
+        <variable citdl="file_wrapper.send" line="629" name="write" />
+        <scope ilk="function" line="631" lineend="632" name="close" signature="close()">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="634" lineend="635" name="fileno" returns="os.dup()" signature="fileno()">
+          <variable citdl="file_wrapper" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="frozenset()" line="60" name="_DISCONNECTED" />
+      <scope attributes="__hidden__" classrefs="dispatcher" doc="&#10;" ilk="class" line="637" lineend="655" name="file_dispatcher">
+        <scope attributes="__ctor__" ilk="function" line="639" lineend="650" name="__init__" signature="file_dispatcher(fd, map=None)">
+          <variable citdl="file_dispatcher" ilk="argument" name="self" />
+          <variable citdl="fd.fileno()" ilk="argument" name="fd" />
+          <variable ilk="argument" name="map" />
+          <variable citdl="int" line="648" name="flags" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="641" name="connected" />
+        <scope ilk="function" line="652" lineend="655" name="set_file" signature="set_file(fd)">
+          <variable citdl="file_dispatcher" ilk="argument" name="self" />
+          <variable ilk="argument" name="fd" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="file_wrapper" line="653" name="socket" />
+        <variable attributes="protected __instancevar__" citdl="self.socket.fileno()" line="654" name="_fileno" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="68" lineend="74" name="_strerror" returns="str" signature="_strerror(err)">
+        <variable ilk="argument" name="err" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="tuple" line="79" name="_reraised_exceptions" />
+    </scope>
+    

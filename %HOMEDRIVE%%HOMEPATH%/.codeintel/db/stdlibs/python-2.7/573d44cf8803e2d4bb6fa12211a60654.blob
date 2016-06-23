@@ -1,0 +1,13 @@
+<scope doc="Provide a (g)dbm-compatible interface to bsddb.hashopen.&#10;" ilk="blob" lang="Python" name="dbhash">
+      <variable citdl="list" line="13" name="__all__" />
+      <import module="bsddb" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="15" name="error" />
+      <scope ilk="function" line="17" lineend="18" name="open" returns="bsddb.hashopen()" signature="open(file, flag='r', mode=438)">
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable ilk="argument" name="file" />
+      </scope>
+      <import module="sys" />
+      <import module="warnings" />
+    </scope>
+    

@@ -1,0 +1,22 @@
+<scope doc="email package exception classes.&#10;" ilk="blob" lang="Python" name="email.errors">
+      <scope classrefs="MessageParseError" doc="Couldn't find terminating boundary.&#10;" ilk="class" line="21" name="BoundaryError" />
+      <scope classrefs="MessageError" doc="An illegal charset was given.&#10;" ilk="class" line="29" name="CharsetError" />
+      <scope classrefs="MessageDefect" doc="A message had a continuation line as its first header line.&#10;" ilk="class" line="47" name="FirstHeaderLineIsContinuationDefect" />
+      <scope classrefs="MessageParseError" doc="Error while parsing headers.&#10;" ilk="class" line="17" name="HeaderParseError" />
+      <scope classrefs="MessageDefect" doc="Found a header that was missing a colon, or was otherwise malformed.&#10;" ilk="class" line="53" name="MalformedHeaderDefect" />
+      <scope doc="Base class for a message defect.&#10;" ilk="class" line="35" lineend="39" name="MessageDefect">
+        <scope ilk="function" line="38" lineend="39" name="__init__" signature="MessageDefect(line=None)">
+          <variable citdl="MessageDefect" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <variable attributes="__instancevar__" line="39" name="line" />
+      </scope>
+      <scope classrefs="Exception" doc="Base class for errors in the email package.&#10;" ilk="class" line="9" name="MessageError" />
+      <scope classrefs="MessageError" doc="Base class for message parsing errors.&#10;" ilk="class" line="13" name="MessageParseError" />
+      <scope classrefs="MessageDefect" doc="A 'Unix-from' header was found in the middle of a header block.&#10;" ilk="class" line="50" name="MisplacedEnvelopeHeaderDefect" />
+      <scope classrefs="MessageError TypeError" doc="Conversion to a multipart is prohibited.&#10;" ilk="class" line="25" name="MultipartConversionError" />
+      <scope classrefs="MessageDefect" doc="A message claimed to be a multipart but no subparts were found.&#10;" ilk="class" line="56" name="MultipartInvariantViolationDefect" />
+      <scope classrefs="MessageDefect" doc="A message claimed to be a multipart but had no boundary parameter.&#10;" ilk="class" line="41" name="NoBoundaryInMultipartDefect" />
+      <scope classrefs="MessageDefect" doc="The claimed start boundary was never found.&#10;" ilk="class" line="44" name="StartBoundaryNotFoundDefect" />
+    </scope>
+    

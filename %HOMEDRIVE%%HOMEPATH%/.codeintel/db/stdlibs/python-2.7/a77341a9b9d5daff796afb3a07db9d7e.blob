@@ -1,0 +1,1563 @@
+<scope doc="Turtle graphics is a popular way for introducing programming to&#10;kids. It was part of the original Logo programming language developed by Wally Feurzig and Seymour Papert in 1966.  Imagine a robotic turtle starting at (0, 0) in the x-y plane. Give it the command turtle.forward(15), and it moves (on-screen!) 15 pixels in the direction it is facing, drawing a line as it moves. Give it the command turtle.left(25), and it rotates in-place 25 degrees clockwise.  By combining together these and similar commands, intricate shapes and pictures can easily be drawn." ilk="blob" lang="Python" name="turtle">
+      <scope classrefs="Widget XView YView" doc="Canvas widget to display graphical elements like lines or text.&#10;" ilk="class" line="479" name="Canvas">
+        <scope doc="Return tags associated with the first item specified in&#10;ARGS." ilk="function" name="gettags" />
+        <scope doc="Add tag NEWTAG to all items." ilk="function" name="addtag_all" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="tkraise" />
+        <scope doc="Configure resources of an item TAGORID." ilk="function" name="itemconfigure" />
+        <scope doc="Create polygon with coordinates x1,y1,...,xn,yn." ilk="function" name="create_polygon" />
+        <scope doc="Move an item TAGORID given in ARGS." ilk="function" name="move" />
+        <scope doc="Adjust the view of the canvas to GAIN times the difference&#10;between X and Y and the coordinates given in scan_mark." ilk="function" name="scan_dragto" />
+        <scope doc="Create text with coordinates x1,y1." ilk="function" name="create_text" />
+        <scope doc="Add tag NEWTAG to all items which overlap the rectangle&#10;defined by X1,Y1,X2,Y2." ilk="function" name="addtag_overlapping" />
+        <scope doc="Return the canvas y coordinate of pixel position SCREENY&#10;rounded to nearest multiple of GRIDSPACING units." ilk="function" name="canvasy" />
+        <scope doc="Return the canvas x coordinate of pixel position SCREENX&#10;rounded to nearest multiple of GRIDSPACING units." ilk="function" name="canvasx" />
+        <scope doc="Create window with coordinates x1,y1,x2,y2." ilk="function" name="create_window" />
+        <scope doc="Delete tag or id given as last arguments in ARGS from items&#10;identified by first argument in ARGS." ilk="function" name="dtag" />
+        <scope doc="Remember the current X, Y coordinates." ilk="function" name="scan_mark" />
+        <scope doc="Set the fixed end of a selection in item TAGORID to INDEX." ilk="function" name="select_from" />
+        <scope doc="Internal function." ilk="function" name="addtag" />
+        <scope doc="Construct a canvas widget with the parent MASTER." ilk="function" name="__init__" />
+        <scope doc="Configure resources of an item TAGORID." ilk="function" name="itemconfig" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="tag_raise" />
+        <scope doc="Unbind for all items with TAGORID for event SEQUENCE  the&#10;function identified with FUNCID." ilk="function" name="tag_unbind" />
+        <scope doc="Scale item TAGORID with XORIGIN, YORIGIN, XSCALE, YSCALE." ilk="function" name="scale" />
+        <scope doc="Set cursor at position POS in the item identified by&#10;TAGORID." ilk="function" name="icursor" />
+        <scope doc="Create oval with coordinates x1,y1,x2,y2." ilk="function" name="create_oval" />
+        <scope doc="Return all items below TAGORID." ilk="function" name="find_below" />
+        <scope doc="Bind to all items with TAGORID at event SEQUENCE a call to&#10;function FUNC." ilk="function" name="tag_bind" />
+        <scope doc="Create image item with coordinates x1,y1." ilk="function" name="create_image" />
+        <scope doc="Internal function." ilk="function" name="find" />
+        <scope doc="Return all items which overlap the rectangle defined by&#10;X1,Y1,X2,Y2." ilk="function" name="find_overlapping" />
+        <scope doc="Adjust the end of the selection near the cursor of an item&#10;TAGORID to index." ilk="function" name="select_adjust" />
+        <scope doc="Return all items with TAGORID." ilk="function" name="find_withtag" />
+        <scope doc="Return the type of the item TAGORID." ilk="function" name="type" />
+        <scope doc="Internal function." ilk="function" name="_create" />
+        <scope doc="Add tag NEWTAG to all items below TAGORID." ilk="function" name="addtag_below" />
+        <scope doc="Add tag NEWTAG to item which is closest to pixel at X, Y." ilk="function" name="addtag_closest" />
+        <scope doc="Return position of cursor as integer in item specified in&#10;ARGS." ilk="function" name="index" />
+        <scope doc="Add tag NEWTAG to all items in the rectangle defined by&#10;X1,Y1,X2,Y2." ilk="function" name="addtag_enclosed" />
+        <scope doc="Print the contents of the canvas to a postscript file." ilk="function" name="postscript" />
+        <scope doc="Add tag NEWTAG to all items with TAGORID." ilk="function" name="addtag_withtag" />
+        <scope doc="Create arc shaped region with coordinates x1,y1,x2,y2." ilk="function" name="create_arc" />
+        <scope doc="Return items above TAGORID." ilk="function" name="find_above" />
+        <scope doc="Raise an item TAGORID given in ARGS (optional above another&#10;item)." ilk="function" name="lift" />
+        <scope doc="Return a tuple of X1,Y1,X2,Y2 coordinates for a rectangle&#10;which encloses all items with tags specified as arguments." ilk="function" name="bbox" />
+        <scope doc="Set focus to the first item specified in ARGS." ilk="function" name="focus" />
+        <scope doc="Create bitmap with coordinates x1,y1." ilk="function" name="create_bitmap" />
+        <scope doc="Return all items in rectangle defined by X1,Y1,X2,Y2." ilk="function" name="find_enclosed" />
+        <scope doc="Delete characters of text items identified by tag or id in&#10;ARGS (possibly several times) from FIRST to LAST character&#10;(including)." ilk="function" name="dchars" />
+        <scope doc="Insert TEXT in item TAGORID at position POS." ilk="function" name="insert" />
+        <scope doc="Lower an item TAGORID given in ARGS (optional below another&#10;item)." ilk="function" name="lower" />
+        <scope doc="Add tag NEWTAG to all items above TAGORID." ilk="function" name="addtag_above" />
+        <scope doc="Create rectangle with coordinates x1,y1,x2,y2." ilk="function" name="create_rectangle" />
+        <scope doc="Return item which is closest to pixel at X, Y." ilk="function" name="find_closest" />
+        <scope doc="Return all items." ilk="function" name="find_all" />
+        <scope doc="Lower an item TAGORID given in ARGS (optional below another&#10;item)." ilk="function" name="tag_lower" />
+        <scope doc="Return the resource value for an OPTION for item TAGORID." ilk="function" name="itemcget" />
+        <scope doc="Create line with coordinates x1,y1,...,xn,yn." ilk="function" name="create_line" />
+        <scope doc="Return a list of coordinates for the item given in ARGS." ilk="function" name="coords" />
+        <scope doc="Set the variable end of a selection in item TAGORID to&#10;INDEX." ilk="function" name="select_to" />
+        <scope doc="Return the item which has the selection." ilk="function" name="select_item" />
+        <scope doc="Clear the selection if it is in this widget." ilk="function" name="select_clear" />
+        <scope doc="Delete items identified by all tag or ids contained in ARGS." ilk="function" name="delete" />
+      </scope>
+      <scope classrefs="RawTurtle" doc="RawTurtle auto-creating (scrolled) canvas.&#10;When a Turtle object is created or a function derived from some Turtle method is called a TurtleScreen object is automatically created." ilk="class" line="3713" name="Pen">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="TPen TNavigator" doc="Animation part of the RawTurtle.&#10;Puts RawTurtle upon a TurtleScreen and provides tools for its animation." ilk="class" line="3547" name="RawPen">
+        <scope doc="Perform a Turtle-data update." ilk="function" name="_update" />
+        <scope doc="Fill the shape drawn after the call begin_fill()." ilk="function" name="end_fill" />
+        <scope doc="Returns the width of the turtle window." ilk="function" name="window_width" />
+        <scope doc="Set turtle shape to shape with given name / return current&#10;shapename." ilk="function" name="shape" />
+        <scope doc="Does the main part of the work for undo()" ilk="function" name="_undo" />
+        <scope doc="Return the Turtleobject itself." ilk="function" name="getturtle" />
+        <scope doc="Convert colortriples to hexstrings." ilk="function" name="_cc" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Call fill(True) before drawing a shape to fill, fill(False)&#10;when done." ilk="function" name="fill" />
+        <scope doc="Return the lastly recorded polygon." ilk="function" name="get_poly" />
+        <scope doc="Set delay value which determines speed of turtle animation." ilk="function" name="_delay" />
+        <scope doc="Turns pen clockwise by angle." ilk="function" name="_rotate" />
+        <scope doc="Manages the correct rendering of the turtle with respect to&#10;its shape, resizemode, stretch and tilt etc." ilk="function" name="_drawturtle" />
+        <scope doc="Rotate the turtleshape by angle." ilk="function" name="tilt" />
+        <scope ilk="function" name="_colorstr" />
+        <scope doc="Set or disable undobuffer." ilk="function" name="setundobuffer" />
+        <scope ilk="function" name="_update_data" />
+        <scope doc="Write text at the current turtle position." ilk="function" name="write" />
+        <scope doc="Return the TurtleScreen object, the turtle is drawing  on." ilk="function" name="getscreen" />
+        <scope doc="Return the current tilt-angle." ilk="function" name="tiltangle" />
+        <scope doc="Delete stamp with given stampid" ilk="function" name="clearstamp" />
+        <scope doc="Bind fun to mouse-click event on this turtle on canvas." ilk="function" name="onclick" />
+        <scope doc="Bind fun to mouse-button-release event on this turtle on&#10;canvas." ilk="function" name="onrelease" />
+        <scope doc="Start recording the vertices of a polygon." ilk="function" name="begin_poly" />
+        <scope doc="Bind fun to mouse-move event on this turtle on canvas." ilk="function" name="ondrag" />
+        <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" name="turtlesize" />
+        <scope doc="Delete all or first/last n of turtle's stamps." ilk="function" name="clearstamps" />
+        <scope doc="Rotate the turtleshape to point in the specified direction" ilk="function" name="settiltangle" />
+        <scope doc="Return the height of the turtle window." ilk="function" name="window_height" />
+        <scope doc="Delete all of pen's drawings" ilk="function" name="_clear" />
+        <scope doc="Create and return a clone of the turtle." ilk="function" name="clone" />
+        <scope doc="No argument." ilk="function" name="undo" signature="undo (repeatedly) the last turtle action." />
+        <scope doc="Move the pen to the point end, thereby drawing a line if pen&#10;is down." ilk="function" name="_goto" />
+        <scope doc="does the work for clearstamp() and clearstamps()" ilk="function" name="_clearstamp" />
+        <scope doc="Stop recording the vertices of a polygon." ilk="function" name="end_poly" />
+        <scope doc="Return count of entries in the undobuffer." ilk="function" name="undobufferentries" />
+        <scope doc="Performs the writing for write()" ilk="function" name="_write" />
+        <scope doc="Return the Turtleobject itself." ilk="function" name="getpen" />
+        <scope doc="Delete the turtle's drawings and restore its default values." ilk="function" name="reset" />
+        <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" name="shapesize" />
+        <scope doc="Delete the turtle's drawings from the screen." ilk="function" name="clear" />
+        <scope doc="Called just before drawing a shape to be filled." ilk="function" name="begin_fill" />
+        <scope doc="Reverse a _goto." ilk="function" name="_undogoto" />
+        <scope doc="Stamp a copy of the turtleshape onto the canvas and return&#10;its id." ilk="function" name="stamp" />
+        <scope ilk="function" name="_color" />
+        <scope doc="Closes current line item and starts a new one." ilk="function" name="_newLine" />
+        <scope doc="Turns turtle animation on/off and set delay for update&#10;drawings." ilk="function" name="tracer" />
+        <scope doc="Draw a dot with diameter size, using color." ilk="function" name="dot" />
+        <scope doc="Computes transformed polygon shapes from a shape according&#10;to current position and heading." ilk="function" name="_polytrafo" />
+      </scope>
+      <scope classrefs="TPen TNavigator" doc="Animation part of the RawTurtle.&#10;Puts RawTurtle upon a TurtleScreen and provides tools for its animation." ilk="class" line="2421" lineend="3545" name="RawTurtle">
+        <scope doc="Perform a Turtle-data update." ilk="function" line="2562" lineend="2578" name="_update" signature="_update()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="TurtleScreen" line="2565" name="screen" />
+        </scope>
+        <scope doc="Fill the shape drawn after the call begin_fill()." ilk="function" line="3203" lineend="3219" name="end_fill" signature="end_fill()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the width of the turtle window." ilk="function" line="3391" lineend="3400" name="window_width" signature="window_width()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set turtle shape to shape with given name / return current&#10;shapename." ilk="function" line="2662" lineend="2687" name="shape" returns="self.turtle.shapeIndex" signature="shape(name=None)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Does the main part of the work for undo()" ilk="function" line="3486" lineend="3515" name="_undo" signature="_undo(action, data)">
+          <variable citdl="self.undobuffer.pop()" line="3494" name="dummy" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable line="3501" name="item" />
+          <variable line="3496" name="stitem" />
+          <variable ilk="argument" name="action" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Return the Turtleobject itself." ilk="function" line="3367" lineend="3382" name="getturtle" returns="RawTurtle" signature="getturtle()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Convert colortriples to hexstrings." ilk="function" line="2607" lineend="2620" name="_cc" returns="tuple" signature="_cc(args)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="2428" lineend="2466" name="__init__" signature="RawTurtle(canvas=None, shape=[_CFG], undobuffersize=[_CFG], visible=[_CFG])">
+          <variable ilk="argument" name="canvas" />
+          <variable citdl="TurtleScreen" line="2449" name="screen" />
+          <variable ilk="argument" name="undobuffersize" />
+          <variable ilk="argument" name="visible" />
+          <variable ilk="argument" name="shape" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Call fill(True) before drawing a shape to fill, fill(False)&#10;when done." ilk="function" line="3134" lineend="3183" name="fill" returns="isinstance()" signature="fill(flag=None)">
+          <variable citdl="tuple" line="3170" name="entry2" />
+          <variable citdl="tuple" line="3160" name="entry1" />
+          <variable citdl="TurtleScreen" line="3159" name="screen" />
+          <variable ilk="argument" name="flag" />
+          <variable citdl="isinstance()" line="3156" name="filling" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the lastly recorded polygon." ilk="function" line="3338" lineend="3349" name="get_poly" returns="tuple()" signature="get_poly()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set delay value which determines speed of turtle animation." ilk="function" line="3413" lineend="3416" name="_delay" returns="self.screen.delay()" signature="_delay(delay=None)">
+          <variable ilk="argument" name="delay" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Turns pen clockwise by angle." ilk="function" line="3100" lineend="3116" name="_rotate" signature="_rotate(angle)">
+          <variable ilk="argument" name="angle" />
+          <variable citdl="self.screen._tracing" line="3107" name="tracing" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="self._orient.rotate()" line="3106" name="neworient" />
+          <variable citdl="int()" line="3110" name="steps" />
+          <variable citdl="int()" line="3111" name="delta" />
+          <variable citdl="self._speed" line="3109" name="anglevel" />
+        </scope>
+        <scope doc="Manages the correct rendering of the turtle with respect to&#10;its shape, resizemode, stretch and tilt etc." ilk="function" line="2802" lineend="2853" name="_drawturtle" signature="_drawturtle()">
+          <variable citdl="self.turtle._item" line="2808" name="titem" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="self._pencolor" line="2829" name="oc" />
+          <variable citdl="shape._data" line="2811" name="tshape" />
+          <variable citdl="math.sin()" line="2826" name="t0" />
+          <variable citdl="math.cos()" line="2826" name="t1" />
+          <variable citdl="list" line="2806" name="shape" />
+          <variable citdl="int" line="2820" name="tiltangle" />
+          <variable citdl="_polytrafo()" line="2838" name="poly" />
+          <variable citdl="self._outlinewidth" line="2814" name="w" />
+          <variable citdl="shape._type" line="2807" name="ttype" />
+          <variable citdl="self._fillcolor" line="2829" name="fc" />
+          <variable citdl="TurtleScreen" line="2805" name="screen" />
+          <variable citdl="max()" line="2818" name="lx" />
+        </scope>
+        <scope doc="Rotate the turtleshape by angle." ilk="function" line="2771" lineend="2788" name="tilt" signature="tilt(angle)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="angle" />
+        </scope>
+        <scope ilk="function" line="2604" lineend="2605" name="_colorstr" returns="self.screen._colorstr()" signature="_colorstr(args)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope doc="Set or disable undobuffer." ilk="function" line="2493" lineend="2510" name="setundobuffer" signature="setundobuffer(size)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="2554" lineend="2560" name="_update_data" signature="_update_data()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write text at the current turtle position." ilk="function" line="3282" lineend="3309" name="write" signature="write(arg, move=False, align='left', font=('Arial', 8, 'normal'))">
+          <variable citdl="_write()" line="3304" name="end" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="move" />
+          <variable ilk="argument" name="arg" />
+          <variable line="3306" name="y" />
+          <variable line="3306" name="x" />
+          <variable citdl="tuple" ilk="argument" name="font" />
+          <variable citdl="str" ilk="argument" name="align" />
+        </scope>
+        <scope doc="Return the TurtleScreen object, the turtle is drawing  on." ilk="function" line="3351" lineend="3365" name="getscreen" returns="TurtleScreen" signature="getscreen()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the current tilt-angle." ilk="function" line="2752" lineend="2769" name="tiltangle" returns="self._degreesPerAU" signature="tiltangle()">
+          <variable citdl="self._tilt" line="2768" name="tilt" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete stamp with given stampid" ilk="function" line="2939" lineend="2952" name="clearstamp" signature="clearstamp(stampid)">
+          <variable ilk="argument" name="stampid" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to mouse-click event on this turtle on canvas." ilk="function" line="3420" lineend="3439" name="onclick" signature="onclick(fun, btn=1, add=None)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="btn" />
+          <variable ilk="argument" name="add" />
+        </scope>
+        <scope doc="Bind fun to mouse-button-release event on this turtle on&#10;canvas." ilk="function" line="3441" lineend="3463" name="onrelease" signature="onrelease(fun, btn=1, add=None)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="btn" />
+          <variable ilk="argument" name="add" />
+        </scope>
+        <scope doc="Start recording the vertices of a polygon." ilk="function" line="3311" lineend="3323" name="begin_poly" signature="begin_poly()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to mouse-move event on this turtle on canvas." ilk="function" line="3465" lineend="3483" name="ondrag" signature="ondrag(fun, btn=1, add=None)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="btn" />
+          <variable ilk="argument" name="add" />
+        </scope>
+        <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" line="3545" name="turtlesize" />
+        <scope doc="Delete all or first/last n of turtle's stamps." ilk="function" line="2954" lineend="2980" name="clearstamps" signature="clearstamps(n=None)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="list" line="2973" name="toDelete" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Rotate the turtleshape to point in the specified direction" ilk="function" line="2727" lineend="2750" name="settiltangle" signature="settiltangle(angle)">
+          <variable citdl="self._angleOrient" line="2748" name="tilt" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="angle" />
+        </scope>
+        <scope doc="Return the height of the turtle window." ilk="function" line="3402" lineend="3411" name="window_height" signature="window_height()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete all of pen's drawings" ilk="function" line="2525" lineend="2536" name="_clear" signature="_clear()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create and return a clone of the turtle." ilk="function" line="2622" lineend="2660" name="clone" returns="deepcopy()" signature="clone()">
+          <variable citdl="_TurtleImage" line="2637" name="turtle" />
+          <variable citdl="deepcopy()" line="2641" name="q" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="TurtleScreen" line="2634" name="screen" />
+          <variable line="2650" name="ttype" />
+        </scope>
+        <scope doc="No argument." ilk="function" line="3517" lineend="3543" name="undo" signature="undo (repeatedly) the last turtle action.">
+          <variable line="3536" name="action" />
+          <variable citdl="self.undobuffer.pop()" line="3535" name="item" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="list" line="3537" name="data" />
+        </scope>
+        <scope doc="Move the pen to the point end, thereby drawing a line if pen&#10;is down." ilk="function" line="2982" lineend="3033" name="_goto" signature="_goto(end)">
+          <variable ilk="argument" name="end" />
+          <variable citdl="tuple" line="2993" name="undo_entry" />
+          <variable citdl="tuple" line="2988" name="go_modes" />
+          <variable citdl="False" line="3009" name="top" />
+          <variable citdl="self._position" line="3006" name="delta" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="self._position" line="3001" name="start" />
+          <variable citdl="int()" line="3005" name="nhops" />
+          <variable citdl="self._position" line="3003" name="diff" />
+          <variable citdl="screen.yscale" line="3004" name="diffsq" />
+          <variable citdl="TurtleScreen" line="2992" name="screen" />
+        </scope>
+        <scope doc="does the work for clearstamp() and clearstamps()" ilk="function" line="2917" lineend="2937" name="_clearstamp" signature="_clearstamp(stampid)">
+          <variable ilk="argument" name="stampid" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="Tbuffer" line="2930" name="buf" />
+          <variable citdl="buf.buffer.index()" line="2933" name="index" />
+          <variable citdl="tuple" line="2929" name="item" />
+        </scope>
+        <scope doc="Stop recording the vertices of a polygon." ilk="function" line="3325" lineend="3336" name="end_poly" signature="end_poly()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return count of entries in the undobuffer." ilk="function" line="2512" lineend="2523" name="undobufferentries" returns="self.undobuffer.nr_of_items()" signature="undobufferentries()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Performs the writing for write()" ilk="function" line="3272" lineend="3280" name="_write" signature="_write(txt, align, font)">
+          <variable ilk="argument" name="txt" />
+          <variable line="3275" name="end" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable line="3275" name="item" />
+          <variable ilk="argument" name="font" />
+          <variable ilk="argument" name="align" />
+        </scope>
+        <scope doc="Return the Turtleobject itself." ilk="function" line="3384" name="getpen" />
+        <scope doc="Delete the turtle's drawings and restore its default values." ilk="function" line="2468" lineend="2491" name="reset" signature="reset()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" line="2689" lineend="2725" name="shapesize" returns="tuple" signature="shapesize(stretch_wid=None, stretch_len=None, outline=None)">
+          <variable ilk="argument" name="stretch_wid" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="stretch_len" />
+          <variable citdl="self._outlinewidth" ilk="argument" name="outline" />
+          <variable citdl="tuple" line="2715" name="stretchfactor" />
+        </scope>
+        <scope doc="Delete the turtle's drawings from the screen." ilk="function" line="2539" lineend="2552" name="clear" signature="clear()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called just before drawing a shape to be filled." ilk="function" line="3185" lineend="3201" name="begin_fill" signature="begin_fill()">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Reverse a _goto." ilk="function" line="3035" lineend="3098" name="_undogoto" signature="_undogoto(entry)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="new" line="3065" name="delta" />
+          <variable citdl="True" line="3068" name="top" />
+          <variable citdl="old" line="3060" name="start" />
+          <variable citdl="list" line="3054" name="todelete" />
+          <variable citdl="int()" line="3064" name="nhops" />
+          <variable ilk="argument" name="entry" />
+          <variable citdl="screen.xscale" line="3063" name="diffsq" />
+          <variable citdl="new" line="3062" name="diff" />
+          <variable citdl="TurtleScreen" line="3041" name="screen" />
+          <variable citdl="pc" line="3049" name="usepc" />
+        </scope>
+        <scope doc="Stamp a copy of the turtleshape onto the canvas and return&#10;its id." ilk="function" line="2857" lineend="2915" name="stamp" returns="screen._createpoly()" signature="stamp()">
+          <variable citdl="self._outlinewidth" line="2879" name="w" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="self._pencolor" line="2894" name="oc" />
+          <variable citdl="shape._data" line="2875" name="tshape" />
+          <variable citdl="math.sin()" line="2891" name="t0" />
+          <variable citdl="math.cos()" line="2891" name="t1" />
+          <variable citdl="screen._createpoly()" line="2903" name="item" />
+          <variable citdl="list" line="2873" name="shape" />
+          <variable citdl="self._fillcolor" line="2894" name="fc" />
+          <variable citdl="_polytrafo()" line="2909" name="poly" />
+          <variable citdl="screen._createpoly()" line="2877" name="stitem" />
+          <variable citdl="shape._type" line="2874" name="ttype" />
+          <variable citdl="TurtleScreen" line="2872" name="screen" />
+          <variable citdl="max()" line="2883" name="lx" />
+          <variable citdl="int" line="2885" name="tiltangle" />
+        </scope>
+        <scope ilk="function" line="2601" lineend="2602" name="_color" returns="self.screen._color()" signature="_color(args)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope doc="Closes current line item and starts a new one." ilk="function" line="3118" lineend="3132" name="_newLine" signature="_newLine(usePos=True)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="usePos" />
+        </scope>
+        <scope doc="Turns turtle animation on/off and set delay for update&#10;drawings." ilk="function" line="2580" lineend="2599" name="tracer" returns="self.screen.tracer()" signature="tracer(flag=None, delay=None)">
+          <variable ilk="argument" name="delay" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope doc="Draw a dot with diameter size, using color." ilk="function" line="3221" lineend="3270" name="dot" signature="dot(size=None, *color)">
+          <variable attributes="varargs" citdl="_colorstr()" ilk="argument" name="color" />
+          <variable citdl="self.screen._dot()" line="3250" name="item" />
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="self.pen()" line="3256" name="pen" />
+          <variable citdl="max()" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Computes transformed polygon shapes from a shape according&#10;to current position and heading." ilk="function" line="2790" lineend="2800" name="_polytrafo" returns="list" signature="_polytrafo(poly)">
+          <variable citdl="RawTurtle" ilk="argument" name="self" />
+          <variable citdl="Vec2D" line="2797" name="e" />
+          <variable citdl="TurtleScreen" line="2794" name="screen" />
+          <variable ilk="argument" name="poly" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="_TurtleImage" line="2454" name="turtle" />
+        <variable attributes="protected __instancevar__" citdl="list" line="2455" name="_poly" />
+        <variable attributes="__instancevar__" citdl="Tbuffer" line="2465" name="undobuffer" />
+        <variable attributes="protected __instancevar__" citdl="self._orient.rotate()" line="3113" name="_orient" />
+        <variable attributes="protected __instancevar__" citdl="False" line="2459" name="_hidden_from_screen" />
+        <variable attributes="__instancevar__" citdl="list" line="2461" name="currentLine" />
+        <variable attributes="__instancevar__" citdl="list" line="2463" name="stampItems" />
+        <variable attributes="__instancevar__" citdl="TurtleScreen" line="2433" name="screen" />
+        <variable attributes="protected __instancevar__" line="2458" name="_shown" />
+        <variable citdl="list" line="2426" name="screens" />
+        <variable attributes="protected __instancevar__" line="2464" name="_undobuffersize" />
+        <variable attributes="protected __instancevar__" citdl="list" line="3094" name="_fillpath" />
+        <variable attributes="__instancevar__" citdl="screen._createline()" line="2453" name="drawingLineItem" />
+        <variable attributes="__instancevar__" citdl="list" line="2462" name="items" />
+        <variable attributes="__instancevar__" citdl="self.screen._createline()" line="2460" name="currentLineItem" />
+        <variable attributes="protected __instancevar__" citdl="self.screen._createpoly()" line="2457" name="_fillitem" />
+        <variable attributes="protected __instancevar__" citdl="False" line="2456" name="_creatingPoly" />
+        <variable attributes="protected __instancevar__" citdl="new" line="3012" name="_position" />
+      </scope>
+      <scope doc="Return the singleton screen object." ilk="function" line="3551" lineend="3557" name="Screen" returns="Turtle._screen" signature="Screen()" />
+      <scope classrefs="Frame" doc="Modeled after the scrolled canvas class from Grayons's Tkinter book.&#10;Used as the default canvas, which pops up automatically when using turtle graphics functions or the Turtle class." ilk="class" line="353" lineend="450" name="ScrolledCanvas">
+        <scope ilk="function" name="gettags" />
+        <scope ilk="function" name="scan_mark" />
+        <scope ilk="function" name="xview_scroll" />
+        <scope ilk="function" name="itemconfigure" />
+        <scope ilk="function" name="addtag_all" />
+        <scope ilk="function" name="create_polygon" />
+        <scope ilk="function" name="move" />
+        <scope ilk="function" name="scan_dragto" />
+        <scope ilk="function" name="create_text" />
+        <scope ilk="function" name="addtag_overlapping" />
+        <scope ilk="function" name="canvasy" />
+        <scope ilk="function" name="canvasx" />
+        <scope ilk="function" name="create_window" />
+        <scope ilk="function" name="type" />
+        <scope ilk="function" name="dtag" />
+        <scope ilk="function" name="find_all" />
+        <scope ilk="function" name="select_from" />
+        <scope ilk="function" name="addtag" />
+        <scope ilk="function" line="359" lineend="382" name="__init__" signature="ScrolledCanvas(master, width=500, height=350, canvwidth=600, canvheight=500)">
+          <variable citdl="int" ilk="argument" name="canvwidth" />
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="height" />
+          <variable citdl="int" ilk="argument" name="width" />
+          <variable ilk="argument" name="master" />
+          <variable citdl="int" ilk="argument" name="canvheight" />
+        </scope>
+        <scope ilk="function" name="itemconfig" />
+        <scope doc="Adjust scrollbars according to window- and canvas-size." ilk="function" line="402" lineend="416" name="adjustScrolls" signature="adjustScrolls()">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable citdl="self._canvas.winfo_height()" line="406" name="cheight" />
+          <variable citdl="self._canvas.winfo_width()" line="405" name="cwidth" />
+        </scope>
+        <scope ilk="function" name="tag_unbind" />
+        <scope ilk="function" name="scale" />
+        <scope ilk="function" name="icursor" />
+        <scope ilk="function" name="itemcget" />
+        <scope ilk="function" name="find_below" />
+        <scope ilk="function" name="tag_bind" />
+        <scope ilk="function" name="create_image" />
+        <scope ilk="function" name="yview" />
+        <scope ilk="function" name="find_overlapping" />
+        <scope ilk="function" name="yview_scroll" />
+        <scope ilk="function" name="addtag_below" />
+        <scope ilk="function" name="select_adjust" />
+        <scope ilk="function" name="find_withtag" />
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="432" lineend="435" name="config" signature="config(*args, **kwargs)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" name="postscript" />
+        <scope ilk="function" name="tag_raise" />
+        <scope ilk="function" name="addtag_closest" />
+        <scope ilk="function" name="xview" />
+        <scope ilk="function" name="select_item" />
+        <scope ilk="function" name="addtag_withtag" />
+        <scope ilk="function" name="create_arc" />
+        <scope ilk="function" name="addtag_enclosed" />
+        <scope doc="self-explanatory" ilk="function" line="418" lineend="420" name="onResize" signature="onResize(event)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" name="find_above" />
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="422" lineend="425" name="bbox" returns="self._canvas.bbox()" signature="bbox(*args)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="447" lineend="450" name="focus_force" signature="focus_force()">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" name="dchars" />
+        <scope ilk="function" name="create_bitmap" />
+        <scope ilk="function" name="find_enclosed" />
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="427" lineend="430" name="cget" returns="self._canvas.cget()" signature="cget(*args, **kwargs)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" name="xview_moveto" />
+        <scope doc="Adjust canvas and scrollbars according to given canvas size." ilk="function" line="384" lineend="399" name="reset" signature="reset(canvwidth=None, canvheight=None, bg=None)">
+          <variable ilk="argument" name="canvwidth" />
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable ilk="argument" name="bg" />
+          <variable ilk="argument" name="canvheight" />
+        </scope>
+        <scope ilk="function" name="insert" />
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="442" lineend="445" name="unbind" signature="unbind(*args, **kwargs)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" name="addtag_above" />
+        <scope ilk="function" name="create_rectangle" />
+        <scope ilk="function" name="find_closest" />
+        <scope doc="'forward' method, which canvas itself has inherited..." ilk="function" line="437" lineend="440" name="bind" signature="bind(*args, **kwargs)">
+          <variable citdl="ScrolledCanvas" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" name="select_clear" />
+        <scope ilk="function" name="tag_lower" />
+        <scope ilk="function" name="create_oval" />
+        <scope ilk="function" name="create_line" />
+        <scope ilk="function" name="coords" />
+        <scope ilk="function" name="select_to" />
+        <scope ilk="function" name="find" />
+        <scope ilk="function" name="yview_moveto" />
+        <scope ilk="function" name="index" />
+        <scope ilk="function" name="delete" />
+        <variable attributes="__instancevar__" citdl="int" line="364" name="canvwidth" />
+        <variable attributes="__instancevar__" citdl="str" line="365" name="bg" />
+        <variable attributes="protected __instancevar__" citdl="self.winfo_toplevel()" line="362" name="_rootwindow" />
+        <variable attributes="__instancevar__" citdl="TK.Scrollbar()" line="370" name="vscroll" />
+        <variable attributes="__instancevar__" citdl="int" line="363" name="height" />
+        <variable attributes="__instancevar__" citdl="int" line="363" name="width" />
+        <variable attributes="protected __instancevar__" citdl="TK.Canvas()" line="366" name="_canvas" />
+        <variable attributes="__instancevar__" citdl="TK.Scrollbar()" line="368" name="hscroll" />
+        <variable attributes="__instancevar__" citdl="int" line="364" name="canvheight" />
+      </scope>
+      <scope classrefs="object" doc="Data structure modeling shapes.&#10;attribute _type is one of &quot;polygon&quot;, &quot;image&quot;, &quot;compound&quot; attribute _data is - depending on _type a poygon-tuple, an image or a list constructed using the addcomponent method." ilk="class" line="825" lineend="869" name="Shape">
+        <scope doc="Add component to a shape of type compound." ilk="function" line="848" lineend="869" name="addcomponent" signature="addcomponent(poly, fill, outline=None)">
+          <variable citdl="Shape" ilk="argument" name="self" />
+          <variable ilk="argument" name="outline" />
+          <variable ilk="argument" name="poly" />
+          <variable ilk="argument" name="fill" />
+        </scope>
+        <scope ilk="function" line="832" lineend="846" name="__init__" signature="Shape(type_, data=None)">
+          <variable citdl="Shape" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="data" />
+          <variable ilk="argument" name="type_" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="833" name="_type" />
+        <variable attributes="protected __instancevar__" citdl="TurtleScreen._image()" line="846" name="_data" />
+      </scope>
+      <import module="TK" />
+      <scope classrefs="object" doc="Navigation part of the RawTurtle.&#10;Implements methods for turtle movement." ilk="class" line="1430" lineend="1938" name="TNavigator">
+        <scope doc="Turn turtle right by angle units." ilk="function" line="1579" lineend="1598" name="right" signature="right(angle)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="angle" />
+        </scope>
+        <scope doc="Move turtle to an absolute position." ilk="function" line="1936" name="setpos" />
+        <scope doc="Return the turtle's current location (x,y), as a Vec2D-&#10;vector." ilk="function" line="1621" lineend="1632" name="pos" returns="Vec2D" signature="pos()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the turtle's y coordinate --- No arguments." ilk="function" line="1648" lineend="1660" name="ycor" signature="ycor()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set turtle-mode to 'standard', 'world' or 'logo'." ilk="function" line="1460" lineend="1473" name="_setmode" returns="str" signature="_setmode(mode=None)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Move turtle to the origin - coordinates (0,0)." ilk="function" line="1698" lineend="1710" name="home" signature="home()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the turtle's second coordinate to y" ilk="function" line="1730" lineend="1746" name="sety" signature="sety(y)">
+          <variable ilk="argument" name="y" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="1923" name="speed" signature="speed(s=0)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="s" />
+        </scope>
+        <scope ilk="function" line="1442" lineend="1450" name="__init__" signature="TNavigator(mode=DEFAULT_MODE)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Turn turtle right by angle units." ilk="function" line="1933" name="rt" />
+        <scope doc="Return the angle of the line from the turtle's position to&#10;(x, y)." ilk="function" line="1780" lineend="1813" name="towards" returns="round()" signature="towards(x, y=None)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="Vec2D" line="1803" name="pos" />
+          <variable citdl="round()" line="1811" name="result" />
+        </scope>
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="1927" name="_delay" signature="_delay(n=None)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Turn turtle counterclockwise by specified angle if angle &gt;&#10;0." ilk="function" line="1527" lineend="1530" name="_rotate" signature="_rotate(angle)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="angle" />
+        </scope>
+        <scope doc="Turn turtle left by angle units." ilk="function" line="1934" name="lt" />
+        <scope doc="Set angle measurement units to degrees." ilk="function" line="1484" lineend="1506" name="degrees" signature="degrees(fullcircle=360.0)">
+          <variable citdl="float" ilk="argument" name="fullcircle" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Move the turtle forward by the specified distance." ilk="function" line="1536" lineend="1557" name="forward" signature="forward(distance)">
+          <variable ilk="argument" name="distance" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Draw a circle with given radius." ilk="function" line="1858" lineend="1919" name="circle" signature="circle(radius, extent=None, steps=None)">
+          <variable citdl="self._delay()" line="1903" name="dl" />
+          <variable citdl="abs()" line="1895" name="frac" />
+          <variable citdl="int()" line="1897" name="w" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="self.tracer()" line="1902" name="tr" />
+          <variable citdl="math.sin()" line="1899" name="l" />
+          <variable citdl="int()" ilk="argument" name="steps" />
+          <variable citdl="int()" line="1898" name="w2" />
+          <variable ilk="argument" name="extent" />
+          <variable ilk="argument" name="radius" />
+          <variable citdl="self.speed()" line="1891" name="speed" />
+        </scope>
+        <scope doc="move turtle forward by specified distance" ilk="function" line="1522" lineend="1525" name="_go" signature="_go(distance)">
+          <variable ilk="argument" name="distance" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="Vec2D" line="1524" name="ende" />
+        </scope>
+        <scope doc="Helper function for degrees() and radians()" ilk="function" line="1475" lineend="1482" name="_setDegreesPerAU" signature="_setDegreesPerAU(fullcircle)">
+          <variable ilk="argument" name="fullcircle" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Move turtle to an absolute position." ilk="function" line="1663" lineend="1696" name="goto" signature="goto(x, y=None)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Move the turtle backward by distance." ilk="function" line="1559" lineend="1577" name="back" signature="back(distance)">
+          <variable ilk="argument" name="distance" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Move the turtle forward by the specified distance." ilk="function" line="1930" name="fd" />
+        <scope doc="move turtle to position end." ilk="function" line="1532" lineend="1534" name="_goto" signature="_goto(end)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="end" />
+        </scope>
+        <scope doc="Return the turtle's x coordinate." ilk="function" line="1634" lineend="1646" name="xcor" signature="xcor()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="reset turtle to its initial values" ilk="function" line="1452" lineend="1458" name="reset" signature="reset()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the distance from the turtle to (x,y) in turtle step&#10;units." ilk="function" line="1748" lineend="1778" name="distance" returns="abs()" signature="distance(x, y=None)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="Vec2D" line="1771" name="pos" />
+        </scope>
+        <scope doc="Set the orientation of the turtle to to_angle." ilk="function" line="1938" name="seth" />
+        <scope doc="Set the angle measurement units to radians." ilk="function" line="1508" lineend="1520" name="radians" signature="radians()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the turtle's current heading." ilk="function" line="1815" lineend="1828" name="heading" returns="round()" signature="heading()">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable citdl="round()" line="1826" name="result" />
+        </scope>
+        <scope doc="Set the orientation of the turtle to to_angle." ilk="function" line="1830" lineend="1856" name="setheading" signature="setheading(to_angle)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="to_angle" />
+          <variable citdl="TNavigator.heading()" line="1853" name="angle" />
+          <variable line="1854" name="full" />
+        </scope>
+        <scope doc="Return the turtle's current location (x,y), as a Vec2D-&#10;vector." ilk="function" line="1935" name="position" />
+        <scope doc="Move turtle to an absolute position." ilk="function" line="1937" name="setposition" />
+        <scope doc="Move the turtle backward by distance." ilk="function" line="1932" name="backward" />
+        <scope doc="Set the turtle's first coordinate to x" ilk="function" line="1712" lineend="1728" name="setx" signature="setx(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="1925" name="tracer" signature="tracer(a=None, b=None)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Move the turtle backward by distance." ilk="function" line="1931" name="bk" />
+        <scope doc="Turn turtle left by angle units." ilk="function" line="1600" lineend="1619" name="left" signature="left(angle)">
+          <variable citdl="TNavigator" ilk="argument" name="self" />
+          <variable ilk="argument" name="angle" />
+        </scope>
+        <variable attributes="__instancevar__" line="1446" name="undobuffer" />
+        <variable attributes="protected __instancevar__" citdl="self._orient.rotate()" line="1458" name="_orient" />
+        <variable citdl="int" line="1439" name="DEFAULT_ANGLEOFFSET" />
+        <variable citdl="dict" line="1434" name="START_ORIENTATION" />
+        <variable citdl="int" line="1440" name="DEFAULT_ANGLEORIENT" />
+        <variable attributes="protected __instancevar__" citdl="str" line="1445" name="_mode" />
+        <variable citdl="str" line="1438" name="DEFAULT_MODE" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1478" name="_degreesPerAU" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1444" name="_angleOrient" />
+        <variable attributes="protected __instancevar__" line="1477" name="_fullcircle" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1443" name="_angleOffset" />
+        <variable attributes="protected __instancevar__" citdl="Vec2D" line="1457" name="_position" />
+      </scope>
+      <scope classrefs="object" doc="Drawing part of the RawTurtle.&#10;Implements drawing properties." ilk="class" line="1941" lineend="2387" name="TPen">
+        <scope doc="Set or return the line thickness." ilk="function" line="1991" lineend="2011" name="pensize" returns="int" signature="pensize(width=None)">
+          <variable ilk="argument" name="width" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="2374" name="_update" signature="_update(count=True, forced=False)">
+          <variable citdl="True" ilk="argument" name="count" />
+          <variable citdl="False" ilk="argument" name="forced" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="2376" name="_color" signature="_color(args)">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope doc="Pull the pen up -- no drawing when moving." ilk="function" line="2014" lineend="2026" name="penup" signature="penup()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return or set the pencolor and fillcolor." ilk="function" line="2095" lineend="2139" name="color" returns="tuple" signature="color(*args)">
+          <variable citdl="self._colorstr()" line="2136" name="fcolor" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable citdl="self._colorstr()" line="2130" name="pcolor" />
+          <variable citdl="len()" line="2128" name="l" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Makes the turtle invisible." ilk="function" line="2227" lineend="2241" name="hideturtle" signature="hideturtle()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Makes the turtle invisible." ilk="function" line="2387" name="ht" />
+        <scope doc="Pull the pen down -- drawing when moving." ilk="function" line="2385" name="down" />
+        <scope doc="Pull the pen down -- drawing when moving." ilk="function" line="2028" lineend="2040" name="pendown" signature="pendown()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set resizemode to one of the values: &quot;auto&quot;, &quot;user&quot;,&#10;&quot;noresize&quot;." ilk="function" line="1963" lineend="1989" name="resizemode" signature="resizemode(rmode=None)">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable citdl="rmode.lower()" ilk="argument" name="rmode" />
+        </scope>
+        <scope doc="Return or set the fillcolor." ilk="function" line="2178" lineend="2212" name="fillcolor" returns="self._color()" signature="fillcolor(*args)">
+          <variable citdl="self._colorstr()" line="2207" name="color" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Return True if the Turtle is shown, False if it's hidden." ilk="function" line="2243" lineend="2253" name="isvisible" returns="bool" signature="isvisible()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if pen is down, False if it's up." ilk="function" line="2042" lineend="2055" name="isdown" returns="bool" signature="isdown()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return or set the turtle's speed." ilk="function" line="2057" lineend="2093" name="speed" returns="int" signature="speed(speed=None)">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="speed" />
+          <variable citdl="dict" line="2084" name="speeds" />
+        </scope>
+        <scope ilk="function" line="1945" lineend="1948" name="__init__" signature="TPen(resizemode=[_CFG])">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable ilk="argument" name="resizemode" />
+        </scope>
+        <scope doc="Pull the pen up -- no drawing when moving." ilk="function" line="2383" name="pu" />
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="2378" name="_colorstr" signature="_colorstr(args)">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+        </scope>
+        <scope doc="Pull the pen up -- no drawing when moving." ilk="function" line="2382" name="up" />
+        <scope doc="Return or set the pencolor." ilk="function" line="2141" lineend="2176" name="pencolor" returns="self._color()" signature="pencolor(*args)">
+          <variable citdl="self._colorstr()" line="2171" name="color" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Set or return the line thickness." ilk="function" line="2381" name="width" />
+        <scope doc="Return or set the pen's attributes." ilk="function" line="2255" lineend="2368" name="pen" returns="dict" signature="pen(pen=None, **pendict)">
+          <variable attributes="protected" citdl="dict" line="2301" name="_pd" />
+          <variable attributes="protected" citdl="dict" line="2322" name="_p_buf" />
+          <variable attributes="kwargs" ilk="argument" name="pendict" />
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable citdl="True" line="2329" name="newLine" />
+          <variable citdl="dict" line="2317" name="p" />
+          <variable ilk="argument" name="pen" />
+          <variable citdl="tuple" line="2358" name="sf" />
+        </scope>
+        <scope doc="Makes the turtle visible." ilk="function" line="2214" lineend="2225" name="showturtle" signature="showturtle()">
+          <variable citdl="TPen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Pull the pen down -- drawing when moving." ilk="function" line="2384" name="pd" />
+        <scope doc="dummy method - to be overwritten by child class" ilk="function" line="2372" name="_newLine" signature="_newLine(usePos=True)">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="usePos" />
+        </scope>
+        <scope ilk="function" line="1950" lineend="1960" name="_reset" signature="_reset(pencolor=[_CFG], fillcolor=[_CFG])">
+          <variable citdl="TPen" ilk="argument" name="self" />
+          <variable ilk="argument" name="fillcolor" />
+          <variable ilk="argument" name="pencolor" />
+        </scope>
+        <variable attributes="__instancevar__" line="1947" name="undobuffer" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1952" name="_pensize" />
+        <variable attributes="protected __instancevar__" line="1955" name="_fillcolor" />
+        <variable attributes="protected __instancevar__" line="1946" name="_resizemode" />
+        <variable attributes="protected __instancevar__" citdl="True" line="1956" name="_drawing" />
+        <variable attributes="protected __instancevar__" citdl="True" line="1953" name="_shown" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1957" name="_speed" />
+        <variable citdl="TPen.showturtle" line="2386" name="st" />
+        <variable attributes="protected __instancevar__" citdl="tuple" line="1958" name="_stretchfactor" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1960" name="_outlinewidth" />
+        <variable attributes="protected __instancevar__" line="1954" name="_pencolor" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1959" name="_tilt" />
+      </scope>
+      <scope classrefs="object" doc="Ring buffer used as undobuffer for RawTurtle objects.&#10;" ilk="class" line="872" lineend="906" name="Tbuffer">
+        <scope ilk="function" line="879" lineend="886" name="reset" signature="reset(bufsize=None)">
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+          <variable ilk="argument" name="bufsize" />
+        </scope>
+        <scope ilk="function" line="894" lineend="902" name="pop" signature="pop()">
+          <variable line="896" name="item" />
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="903" lineend="904" name="nr_of_items" returns="self.buffer.count()" signature="nr_of_items()">
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="887" lineend="893" name="push" signature="push(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="874" lineend="878" name="__init__" signature="Tbuffer(bufsize=10)">
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+        </scope>
+        <scope ilk="function" line="905" lineend="906" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Tbuffer" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="876" name="buffer" />
+        <variable attributes="__instancevar__" citdl="False" line="878" name="cumulate" />
+        <variable attributes="__instancevar__" citdl="int" line="875" name="bufsize" />
+        <variable attributes="__instancevar__" citdl="int" line="877" name="ptr" />
+      </scope>
+      <scope classrefs="Exception" doc="Will be raised in TurtleScreen.update, if _RUNNING becomes False.&#10;Thus stops execution of turtle graphics script. Main purpose: use in in the Demo-Viewer turtle.Demo.py." ilk="class" line="811" lineend="817" name="Terminator" />
+      <scope classrefs="RawTurtle" doc="RawTurtle auto-creating (scrolled) canvas.&#10;When a Turtle object is created or a function derived from some Turtle method is called a TurtleScreen object is automatically created." ilk="class" line="3693" lineend="3711" name="Turtle">
+        <scope ilk="function" line="3702" lineend="3711" name="__init__" signature="Turtle(shape=[_CFG], undobuffersize=[_CFG], visible=[_CFG])">
+          <variable ilk="argument" name="visible" />
+          <variable citdl="Turtle" ilk="argument" name="self" />
+          <variable ilk="argument" name="shape" />
+          <variable ilk="argument" name="undobuffersize" />
+        </scope>
+        <variable attributes="protected" citdl="Screen()" line="3700" name="_screen" />
+        <variable attributes="protected" citdl="" line="3699" name="_pen" />
+      </scope>
+      <scope classrefs="Exception" doc="Some TurtleGraphics Error&#10;" ilk="class" line="820" name="TurtleGraphicsError" />
+      <scope classrefs="TurtleScreenBase" doc="Provides screen oriented methods like setbg etc.&#10;Only relies upon the methods of TurtleScreenBase and NOT upon components of the underlying graphics toolkit - which is Tkinter in this case." ilk="class" line="910" lineend="1428" name="TurtleScreen">
+        <scope doc="Delete all drawings and all turtles from the TurtleScreen." ilk="function" line="1427" name="clearscreen" />
+        <scope doc="Return the width of the turtle window." ilk="function" line="1255" lineend="1262" name="window_width" signature="window_width()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to mouse-click event on canvas." ilk="function" line="1425" name="onscreenclick" />
+        <scope doc="Return the Canvas of this TurtleScreen." ilk="function" line="1273" lineend="1283" name="getcanvas" returns="self.cv" signature="getcanvas()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to key-release event of key." ilk="function" line="1317" lineend="1347" name="onkey" signature="onkey(fun, key)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="920" lineend="950" name="__init__" signature="TurtleScreen(cv, mode=[_CFG], colormode=[_CFG], delay=[_CFG])">
+          <variable ilk="argument" name="delay" />
+          <variable ilk="argument" name="colormode" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="cv" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Increment upadate counter." ilk="function" line="1235" lineend="1242" name="_incrementudc" signature="_incrementudc()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return color string corresponding to args." ilk="function" line="1089" lineend="1114" name="_colorstr" returns="tuple" signature="_colorstr(color)">
+          <variable ilk="argument" name="color" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return or set the drawing delay in milliseconds." ilk="function" line="1220" lineend="1233" name="delay" returns="int()" signature="delay(delay=None)">
+          <variable ilk="argument" name="delay" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set or return backgroundcolor of the TurtleScreen." ilk="function" line="1169" lineend="1190" name="bgcolor" returns="_color()" signature="bgcolor(*args)">
+          <variable citdl="self._bgcolor()" line="1184" name="color" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Bind fun to mouse-click event on canvas." ilk="function" line="1296" lineend="1315" name="onclick" signature="onclick(fun, btn=1, add=None)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="btn" />
+          <variable ilk="argument" name="add" />
+        </scope>
+        <scope doc="Adds a turtle shape to TurtleScreen's shapelist." ilk="function" line="1428" name="addshape" />
+        <scope doc="Set focus on TurtleScreen (in order to collect key-events)" ilk="function" line="1349" lineend="1359" name="listen" signature="listen(xdummy=None, ydummy=None)">
+          <variable ilk="argument" name="ydummy" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="xdummy" />
+        </scope>
+        <scope doc="Set background image or return name of current&#10;backgroundimage." ilk="function" line="1382" lineend="1404" name="bgpic" returns="str" signature="bgpic(picname=None)">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="picname" />
+        </scope>
+        <scope doc="Return the height of the turtle window." ilk="function" line="1264" lineend="1271" name="window_height" signature="window_height()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the colormode or set it to 1.0 or 255." ilk="function" line="1127" lineend="1146" name="colormode" signature="colormode(cmode=None)">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmode" />
+        </scope>
+        <scope doc="Set up a user defined coordinate-system." ilk="function" line="1014" lineend="1051" name="setworldcoordinates" signature="setworldcoordinates(llx, lly, urx, ury)">
+          <variable citdl="self.canvheight" line="1048" name="sry2" />
+          <variable ilk="argument" name="lly" />
+          <variable ilk="argument" name="llx" />
+          <variable citdl="float" line="1042" name="oldxscale" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable citdl="float()" line="1038" name="xspan" />
+          <variable citdl="self.canvwidth" line="1047" name="srx2" />
+          <variable citdl="float()" line="1039" name="yspan" />
+          <variable citdl="self.yscale" line="1042" name="oldyscale" />
+          <variable line="1040" name="wy" />
+          <variable citdl="self.canvheight" line="1046" name="sry1" />
+          <variable ilk="argument" name="urx" />
+          <variable ilk="argument" name="ury" />
+          <variable citdl="self.canvwidth" line="1045" name="srx1" />
+          <variable line="1040" name="wx" />
+        </scope>
+        <scope doc="Adds a turtle shape to TurtleScreen's shapelist." ilk="function" line="1053" lineend="1086" name="register_shape" signature="register_shape(name, shape=None)">
+          <variable citdl="Shape" ilk="argument" name="shape" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Perform a TurtleScreen update." ilk="function" line="1244" lineend="1253" name="update" signature="update()">
+          <variable citdl="int" line="1247" name="tracing" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Install a timer, which calls fun after t milliseconds." ilk="function" line="1361" lineend="1380" name="ontimer" signature="ontimer(fun, t=0)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="t" />
+        </scope>
+        <scope doc="Reset all Turtles on the Screen to their initial state." ilk="function" line="1148" lineend="1158" name="reset" signature="reset()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the list of turtles on the screen." ilk="function" line="1160" lineend="1167" name="turtles" returns="list" signature="turtles()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Reset all Turtles on the Screen to their initial state." ilk="function" line="1426" name="resetscreen" />
+        <scope doc="Return a list of names of all currently available turtle&#10;shapes." ilk="function" line="1285" lineend="1294" name="getshapes" returns="sorted()" signature="getshapes()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Turns turtle animation on/off and set delay for update&#10;drawings." ilk="function" line="1192" lineend="1218" name="tracer" returns="int" signature="tracer(n=None, delay=None)">
+          <variable ilk="argument" name="delay" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Set turtle-mode ('standard', 'logo' or 'world') and perform&#10;reset." ilk="function" line="980" lineend="1012" name="mode" signature="mode(mode=None)">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable citdl="mode.lower()" ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="1116" lineend="1125" name="_color" returns="tuple()" signature="_color(cstr)">
+          <variable ilk="argument" name="cstr" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable citdl="list" line="1120" name="cl" />
+        </scope>
+        <scope doc="Delete all drawings and all turtles from the TurtleScreen." ilk="function" line="952" lineend="978" name="clear" signature="clear()">
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Resize the canvas the turtles are drawing on." ilk="function" line="1406" lineend="1423" name="screensize" returns="self._resize()" signature="screensize(canvwidth=None, canvheight=None, bg=None)">
+          <variable ilk="argument" name="canvwidth" />
+          <variable citdl="TurtleScreen" ilk="argument" name="self" />
+          <variable ilk="argument" name="bg" />
+          <variable ilk="argument" name="canvheight" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int()" line="947" name="_delayvalue" />
+        <variable attributes="protected __instancevar__" citdl="int" line="970" name="_tracing" />
+        <variable attributes="protected" citdl="True" line="918" name="_RUNNING" />
+        <variable attributes="protected __instancevar__" citdl="str" line="969" name="_bgpicname" />
+        <variable attributes="__instancevar__" citdl="self.canvheight" line="1044" name="yscale" />
+        <variable attributes="protected __instancevar__" citdl="list" line="972" name="_turtles" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="922" name="_shapes" />
+        <variable attributes="protected __instancevar__" citdl="int()" line="948" name="_colormode" />
+        <variable attributes="protected __instancevar__" citdl="list" line="949" name="_keys" />
+        <variable attributes="protected __instancevar__" citdl="mode.lower()" line="946" name="_mode" />
+        <variable attributes="__instancevar__" citdl="self.canvwidth" line="1011" name="xscale" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="943" name="_bgpics" />
+        <variable attributes="protected __instancevar__" citdl="self._createimage()" line="968" name="_bgpic" />
+        <variable attributes="protected __instancevar__" citdl="int" line="971" name="_updatecounter" />
+        <variable attributes="protected __instancevar__" citdl="True" line="1238" name="_RUNNNING" />
+      </scope>
+      <scope classrefs="object" doc="Provide the basic graphics functionality.&#10;Interface between Tkinter and turtle.py.  To port turtle.py to some different graphics toolkit a corresponding TurtleScreenBase class has to be implemented." ilk="class" line="482" lineend="803" name="TurtleScreenBase">
+        <scope doc="Return 'line' or 'polygon' or 'image' depending on type of&#10;item." ilk="function" line="746" lineend="750" name="_type" returns="self.cv.type()" signature="_type(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Redraw graphics items on canvas" ilk="function" line="583" lineend="586" name="_update" signature="_update()">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Resize the canvas the turtles are drawing on." ilk="function" line="779" lineend="792" name="_resize" returns="tuple" signature="_resize(canvwidth=None, canvheight=None, bg=None)">
+          <variable ilk="argument" name="canvwidth" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="bg" />
+          <variable ilk="argument" name="canvheight" />
+        </scope>
+        <scope doc="Configure image item as to draw image object at center of&#10;canvas." ilk="function" line="738" lineend="744" name="_setbgpic" signature="_setbgpic(item, image)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="image" />
+        </scope>
+        <scope doc="Bind fun to mouse-move-event (with pressed mouse button) on&#10;turtle." ilk="function" line="663" lineend="682" name="_ondrag" signature="_ondrag(item, fun, num=1, add=None)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="item" />
+          <variable ilk="argument" name="add" />
+          <variable citdl="int" ilk="argument" name="num" />
+          <variable ilk="argument" name="fun" />
+          <scope ilk="function" line="675" lineend="681" name="eventfun" signature="eventfun(event)">
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.cv.canvasy()" line="677" name="y" />
+            <variable citdl="self.cv.canvasx()" line="677" name="x" />
+          </scope>
+        </scope>
+        <scope doc="Configure polygonitem polyitem according to provided&#10;arguments: coordlist is sequence of coordinates fill is&#10;filling color" ilk="function" line="523" lineend="546" name="_drawpoly" signature="_drawpoly(polyitem, coordlist, fill=None, outline=None, width=None, top=False)">
+          <variable ilk="argument" name="outline" />
+          <variable ilk="argument" name="polyitem" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="list" line="534" name="cl" />
+          <variable ilk="argument" name="width" />
+          <variable ilk="argument" name="coordlist" />
+          <variable citdl="False" ilk="argument" name="top" />
+          <variable ilk="argument" name="fill" />
+        </scope>
+        <scope doc="Set focus on canvas (in order to collect key-events)" ilk="function" line="713" lineend="716" name="_listen" signature="_listen()">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Check if the string color is a legal Tkinter color string." ilk="function" line="592" lineend="600" name="_iscolorstring" returns="bool" signature="_iscolorstring(color)">
+          <variable ilk="argument" name="color" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="True" line="597" name="ok" />
+          <variable citdl="self.cv.winfo_rgb()" line="596" name="rgb" />
+        </scope>
+        <scope doc="Delete graphics item from canvas." ilk="function" line="577" lineend="581" name="_delete" signature="_delete(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to mouse-click event on canvas." ilk="function" line="684" lineend="700" name="_onscreenclick" signature="_onscreenclick(fun, num=1, add=None)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="num" />
+          <variable ilk="argument" name="add" />
+          <scope ilk="function" line="696" lineend="699" name="eventfun" signature="eventfun(event)">
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.yscale" line="697" name="y" />
+            <variable citdl="self.cv.canvasx()" line="697" name="x" />
+          </scope>
+        </scope>
+        <scope doc="Set canvas' backgroundcolor if color is not None, else&#10;return backgroundcolor." ilk="function" line="602" lineend="609" name="_bgcolor" returns="self.cv.cget()" signature="_bgcolor(color=None)">
+          <variable ilk="argument" name="color" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create an invisible line item on canvas self.cv)" ilk="function" line="548" lineend="552" name="_createline" returns="self.cv.create_line()" signature="_createline()">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write txt at pos in canvas with specified font and color." ilk="function" line="611" lineend="624" name="_write" returns="tuple" signature="_write(pos, txt, align, font, pencolor)">
+          <variable ilk="argument" name="txt" />
+          <variable line="622" name="y1" />
+          <variable ilk="argument" name="align" />
+          <variable ilk="argument" name="pos" />
+          <variable ilk="argument" name="pencolor" />
+          <variable citdl="dict" line="619" name="anchor" />
+          <variable citdl="self.cv.create_text()" line="620" name="item" />
+          <variable line="622" name="y0" />
+          <variable citdl="self.yscale" line="618" name="y" />
+          <variable citdl="float" line="617" name="x" />
+          <variable line="622" name="x0" />
+          <variable ilk="argument" name="font" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable line="622" name="x1" />
+        </scope>
+        <scope ilk="function" line="764" lineend="765" name="_setscrollregion" signature="_setscrollregion(srx1, sry1, srx2, sry2)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="srx1" />
+          <variable ilk="argument" name="srx2" />
+          <variable ilk="argument" name="sry2" />
+          <variable ilk="argument" name="sry1" />
+        </scope>
+        <scope doc="Bind fun to mouse-button-release event on turtle." ilk="function" line="644" lineend="661" name="_onrelease" signature="_onrelease(item, fun, num=1, add=None)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="item" />
+          <variable ilk="argument" name="add" />
+          <variable citdl="int" ilk="argument" name="num" />
+          <variable ilk="argument" name="fun" />
+          <scope ilk="function" line="656" lineend="659" name="eventfun" signature="eventfun(event)">
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.yscale" line="657" name="y" />
+            <variable citdl="self.cv.canvasx()" line="657" name="x" />
+          </scope>
+        </scope>
+        <scope ilk="function" line="505" lineend="516" name="__init__" signature="TurtleScreenBase(cv)">
+          <variable citdl="self.cv.canvheight" line="509" name="h" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="cv" />
+          <variable citdl="self.cv.canvwidth" line="508" name="w" />
+        </scope>
+        <scope doc="Create and return image item on canvas." ilk="function" line="726" lineend="729" name="_createimage" returns="self.cv.create_image()" signature="_createimage(image)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="image" />
+        </scope>
+        <scope doc="Bind fun to key-release event of key." ilk="function" line="702" lineend="711" name="_onkey" signature="_onkey(fun, key)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <scope ilk="function" line="709" lineend="710" name="eventfun" signature="eventfun(event)">
+            <variable ilk="argument" name="event" />
+          </scope>
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="767" lineend="777" name="_rescale" signature="_rescale(xscalefactor, yscalefactor)">
+          <variable citdl="list" line="771" name="newcoordlist" />
+          <variable citdl="self.cv.find_all()" line="768" name="items" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="self.cv.coords()" line="770" name="coordinates" />
+          <variable ilk="argument" name="xscalefactor" />
+          <variable ilk="argument" name="yscalefactor" />
+        </scope>
+        <scope doc="Delay subsequent canvas actions for delay ms." ilk="function" line="588" lineend="590" name="_delay" signature="_delay(delay)">
+          <variable ilk="argument" name="delay" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="return a blank image object" ilk="function" line="491" lineend="496" name="_blankimage" returns="TK.PhotoImage()" signature="_blankimage()">
+          <variable citdl="TK.PhotoImage()" line="494" name="img" />
+        </scope>
+        <scope doc="Return the width and height of the turtle window." ilk="function" line="794" lineend="803" name="_window_size" returns="tuple" signature="_window_size()">
+          <variable citdl="self.cv.winfo_width()" line="797" name="width" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="self.cv.winfo_height()" line="800" name="height" />
+        </scope>
+        <scope doc="Configure image item as to draw image object at position&#10;(x,y) on canvas)" ilk="function" line="731" lineend="736" name="_drawimage" signature="_drawimage(item, ('x', 'y'), image)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="image" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope doc="returns list of coordinate-pairs of points of item Example&#10;(for insiders): &gt;&gt;&gt; from turtle import * &gt;&gt;&gt;&#10;getscreen()._pointlist(getturtle().turtle._item)" ilk="function" line="752" lineend="762" name="_pointlist" returns="list" signature="_pointlist(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable citdl="list" line="761" name="pl" />
+          <variable citdl="self.cv.coords()" line="760" name="cl" />
+        </scope>
+        <scope doc="return an image object containing the imagedata from a gif-&#10;file named filename." ilk="function" line="499" lineend="503" name="_image" returns="TK.PhotoImage()" signature="_image(filename)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Configure lineitem according to provided arguments:&#10;coordlist is sequence of coordinates fill is drawing color&#10;width is width of drawn line." ilk="function" line="554" lineend="575" name="_drawline" signature="_drawline(lineitem, coordlist=None, fill=None, width=None, top=False)">
+          <variable ilk="argument" name="lineitem" />
+          <variable citdl="list" line="565" name="cl" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="width" />
+          <variable ilk="argument" name="coordlist" />
+          <variable citdl="False" ilk="argument" name="top" />
+          <variable ilk="argument" name="fill" />
+        </scope>
+        <scope doc="Create an invisible polygon item on canvas self.cv)" ilk="function" line="518" lineend="521" name="_createpoly" returns="self.cv.create_polygon()" signature="_createpoly()">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind fun to mouse-click event on turtle." ilk="function" line="629" lineend="642" name="_onclick" signature="_onclick(item, fun, num=1, add=None)">
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="item" />
+          <variable ilk="argument" name="add" />
+          <variable citdl="int" ilk="argument" name="num" />
+          <variable ilk="argument" name="fun" />
+          <scope ilk="function" line="638" lineend="641" name="eventfun" signature="eventfun(event)">
+            <variable ilk="argument" name="event" />
+            <variable citdl="self.cv.canvasy()" line="639" name="y" />
+            <variable citdl="self.cv.canvasx()" line="639" name="x" />
+          </scope>
+        </scope>
+        <scope doc="Install a timer, which calls fun after t milliseconds." ilk="function" line="718" lineend="724" name="_ontimer" signature="_ontimer(fun, t)">
+          <variable ilk="argument" name="fun" />
+          <variable citdl="TurtleScreenBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="t" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="float" line="516" name="xscale" />
+        <variable attributes="__instancevar__" citdl="self.cv.canvwidth" line="514" name="canvwidth" />
+        <variable attributes="__instancevar__" line="506" name="cv" />
+        <variable attributes="__instancevar__" citdl="self.cv.canvheight" line="515" name="canvheight" />
+      </scope>
+      <scope classrefs="tuple" doc="A 2 dimensional vector class, used as a helper class&#10;for implementing turtle graphics. May be useful for turtle graphics programs also. Derived from tuple, so a vector is a tuple!  Provides (for a, b vectors, k number): a+b vector addition a-b vector subtraction a*b inner product k*a and a*k multiplication with scalar |a| absolute value of a" ilk="class" line="256" lineend="297" name="Vec2D">
+        <scope doc="rotate self counterclockwise by angle" ilk="function" line="287" lineend="293" name="rotate" returns="Vec2D" signature="rotate(angle)">
+          <variable citdl="math.sin()" line="292" name="s" />
+          <variable citdl="" line="290" name="perp" />
+          <variable citdl="math.pi" ilk="argument" name="angle" />
+          <variable citdl="math.cos()" line="292" name="c" />
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="270" lineend="271" name="__new__" returns="tuple.__new__()" signature="__new__(cls, x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Vec2D" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="283" lineend="284" name="__neg__" returns="Vec2D" signature="__neg__()">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="285" lineend="286" name="__abs__" returns="float" signature="__abs__()">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="296" lineend="297" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="272" lineend="273" name="__add__" returns="Vec2D" signature="__add__(other)">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="278" lineend="280" name="__rmul__" returns="Vec2D" signature="__rmul__(other)">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="281" lineend="282" name="__sub__" returns="Vec2D" signature="__sub__(other)">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="294" lineend="295" name="__getnewargs__" returns="tuple" signature="__getnewargs__()">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="274" lineend="277" name="__mul__" returns="Vec2D" signature="__mul__(other)">
+          <variable citdl="Vec2D" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="144" name="__all__" />
+      <scope doc="Return the arc cosine (measured in radians) of x." ilk="function" name="acos" signature="acos(x)" />
+      <scope doc="Return the hyperbolic arc cosine (measured in radians) of x." ilk="function" name="acosh" signature="acosh(x)" />
+      <scope doc="Adds a turtle shape to TurtleScreen's shapelist." ilk="function" name="addshape" signature="addshape(name, shape=None)" />
+      <scope doc="Return the arc sine (measured in radians) of x." ilk="function" name="asin" signature="asin(x)" />
+      <scope doc="Return the hyperbolic arc sine (measured in radians) of x." ilk="function" name="asinh" signature="asinh(x)" />
+      <scope doc="Return the arc tangent (measured in radians) of x." ilk="function" name="atan" signature="atan(x)" />
+      <scope doc="Return the arc tangent (measured in radians) of y/x." ilk="function" name="atan2" signature="atan2(y, x)" />
+      <scope doc="Return the hyperbolic arc tangent (measured in radians) of&#10;x." ilk="function" name="atanh" signature="atanh(x)" />
+      <scope doc="Move the turtle backward by distance." ilk="function" name="back" signature="back(distance)" />
+      <scope doc="Move the turtle backward by distance." ilk="function" name="backward" signature="backward(distance)" />
+      <scope doc="Called just before drawing a shape to be filled." ilk="function" name="begin_fill" signature="begin_fill()" />
+      <scope doc="Start recording the vertices of a polygon." ilk="function" name="begin_poly" signature="begin_poly()" />
+      <scope doc="Set or return backgroundcolor of the TurtleScreen." ilk="function" name="bgcolor" signature="bgcolor(*args)" />
+      <scope doc="Set background image or return name of current&#10;backgroundimage." ilk="function" name="bgpic" signature="bgpic(picname=None)" />
+      <scope doc="Move the turtle backward by distance." ilk="function" name="bk" signature="bk(distance)" />
+      <scope doc="Shut the turtlegraphics window." ilk="function" name="bye" signature="bye()" />
+      <scope doc="Return the ceiling of x as a float." ilk="function" name="ceil" signature="ceil(x)" />
+      <scope doc="Draw a circle with given radius." ilk="function" name="circle" signature="circle(radius, extent=None, steps=None)" />
+      <scope doc="Delete the turtle's drawings from the screen." ilk="function" name="clear" signature="clear()" />
+      <scope doc="Delete all drawings and all turtles from the TurtleScreen." ilk="function" name="clearscreen" signature="clearscreen()" />
+      <scope doc="Delete stamp with given stampid" ilk="function" name="clearstamp" signature="clearstamp(stampid)" />
+      <scope doc="Delete all or first/last n of turtle's stamps." ilk="function" name="clearstamps" signature="clearstamps(n=None)" />
+      <scope doc="Create and return a clone of the" ilk="function" name="clone" signature="clone()" />
+      <scope doc="Return or set the pencolor and fillcolor." ilk="function" name="color" signature="color(*args)" />
+      <scope doc="Return the colormode or set it to 1.0 or 255." ilk="function" name="colormode" signature="colormode(cmode=None)" />
+      <scope doc="Convert content of config-file into dictionary." ilk="function" line="183" lineend="211" name="config_dict" returns="dict" signature="config_dict(filename)">
+        <variable citdl="open()" line="185" name="f" />
+        <variable citdl="eval()" line="194" name="value" />
+        <variable citdl="f.readlines()" line="186" name="cfglines" />
+        <variable citdl="dict" line="188" name="cfgdict" />
+        <variable citdl="key.strip()" line="194" name="key" />
+        <variable citdl="line.strip()" line="190" name="line" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return x with the sign of y." ilk="function" name="copysign" signature="copysign(x, y)" />
+      <scope doc="Return the cosine of x (measured in radians)." ilk="function" name="cos" signature="cos(x)" />
+      <scope doc="Return the hyperbolic cosine of x." ilk="function" name="cosh" signature="cosh(x)" />
+      <scope doc="Deep copy operation on arbitrary Python objects." ilk="function" name="deepcopy" signature="deepcopy(x, memo=None, _nil=[])" />
+      <scope doc="Set angle measurement units to degrees." ilk="function" name="degrees" signature="degrees(fullcircle=360.0)" />
+      <scope doc="Return or set the drawing delay in milliseconds." ilk="function" name="delay" signature="delay(delay=None)" />
+      <scope doc="Return the distance from the turtle to (x,y) in turtle step&#10;units." ilk="function" name="distance" signature="distance(x, y=None)" />
+      <scope doc="Run the main loop of Tcl." ilk="function" line="3876" name="done" signature="done(n=0)" />
+      <scope doc="Draw a dot with diameter size, using color." ilk="function" name="dot" signature="dot(size=None, *color)" />
+      <scope doc="Pull the pen down -- drawing when moving." ilk="function" name="down" signature="down()" />
+      <variable citdl="float" name="e" />
+      <scope doc="Fill the shape drawn after the call begin_fill()." ilk="function" name="end_fill" signature="end_fill()" />
+      <scope doc="Stop recording the vertices of a polygon." ilk="function" name="end_poly" signature="end_poly()" />
+      <scope doc="Error function at x." ilk="function" name="erf" signature="erf(x)" />
+      <scope doc="Complementary error function at x." ilk="function" name="erfc" signature="erfc(x)" />
+      <scope doc="Go into mainloop until the mouse is clicked." ilk="function" name="exitonclick" signature="exitonclick()" />
+      <scope doc="Return e raised to the power of x." ilk="function" name="exp" signature="exp(x)" />
+      <scope doc="Return exp(x)-1." ilk="function" name="expm1" signature="expm1(x)" />
+      <scope doc="Return the absolute value of the float x." ilk="function" name="fabs" signature="fabs(x)" />
+      <scope doc="Find x!." ilk="function" name="factorial" signature="factorial(x) -&gt; Integral" />
+      <scope doc="Move the turtle forward by the specified distance." ilk="function" name="fd" signature="fd(distance)" />
+      <scope doc="Call fill(True) before drawing a shape to fill, fill(False)&#10;when done." ilk="function" name="fill" signature="fill(flag=None)" />
+      <scope doc="Return or set the fillcolor." ilk="function" name="fillcolor" signature="fillcolor(*args)" />
+      <scope doc="Return the floor of x as a float." ilk="function" name="floor" signature="floor(x)" />
+      <scope doc="Return fmod(x, y), according to platform C." ilk="function" name="fmod" signature="fmod(x, y)" />
+      <scope doc="Move the turtle forward by the specified distance." ilk="function" name="forward" signature="forward(distance)" />
+      <scope doc="Return the mantissa and exponent of x, as pair (m, e)." ilk="function" name="frexp" signature="frexp(x)" />
+      <scope doc="Return an accurate floating point sum of values in the&#10;iterable." ilk="function" name="fsum" signature="fsum(iterable)" />
+      <scope doc="Gamma function at x." ilk="function" name="gamma" signature="gamma(x)" />
+      <scope doc="Return the lastly recorded polygon." ilk="function" name="get_poly" signature="get_poly()" />
+      <scope doc="Return the Canvas of this TurtleScreen." ilk="function" name="getcanvas" signature="getcanvas()" />
+      <scope doc="Get strings describing the arguments for the given object" ilk="function" line="3790" lineend="3824" name="getmethparlist" returns="tuple" signature="getmethparlist(ob)">
+        <variable citdl="list" line="3807" name="defaults" />
+        <variable citdl="fob.func_code.co_argcount" line="3804" name="counter" />
+        <variable ilk="argument" name="ob" />
+        <variable citdl="list()" line="3805" name="items2" />
+        <variable citdl="str.join()" line="3820" name="argText2" />
+        <variable citdl="str" line="3792" name="argText1" />
+        <variable citdl="map()" line="3810" name="items1" />
+        <variable citdl="int" line="3797" name="argOffset" />
+        <variable citdl="list" line="3806" name="realArgs" />
+        <variable citdl="ob.im_func" line="3796" name="fob" />
+      </scope>
+      <scope doc="Return the Turtleobject itself." ilk="function" name="getpen" signature="getpen()" />
+      <scope doc="Return the TurtleScreen object, the turtle is drawing  on." ilk="function" name="getscreen" signature="getscreen()" />
+      <scope doc="Return a list of names of all currently available turtle&#10;shapes." ilk="function" name="getshapes" signature="getshapes()" />
+      <scope doc="Return the Turtleobject itself." ilk="function" name="getturtle" signature="getturtle()" />
+      <scope doc="Move turtle to an absolute position." ilk="function" name="goto" signature="goto(x, y=None)" />
+      <scope doc="Return the turtle's current heading." ilk="function" name="heading" signature="heading()" />
+      <scope doc="Makes the turtle invisible." ilk="function" name="hideturtle" signature="hideturtle()" />
+      <scope doc="Move turtle to the origin - coordinates (0,0)." ilk="function" name="home" signature="home()" />
+      <scope doc="Makes the turtle invisible." ilk="function" name="ht" signature="ht()" />
+      <scope doc="Return the Euclidean distance, sqrt(x*x + y*y)." ilk="function" name="hypot" signature="hypot(x, y)" />
+      <scope doc="Return True if pen is down, False if it's up." ilk="function" name="isdown" signature="isdown()" />
+      <scope doc="Test whether a path is a regular file" ilk="function" name="isfile" signature="isfile(path)" />
+      <scope doc="Check if float x is infinite (positive or negative)." ilk="function" name="isinf" returns="bool" signature="isinf(x) -&gt; bool" />
+      <scope doc="Check if float x is not a number (NaN)." ilk="function" name="isnan" returns="bool" signature="isnan(x) -&gt; bool" />
+      <scope doc="Return True if the Turtle is shown, False if it's hidden." ilk="function" name="isvisible" signature="isvisible()" />
+      <scope doc="Join two or more pathname components, inserting &quot;\&quot; as&#10;needed." ilk="function" name="join" signature="join(a, *p)" />
+      <scope doc="Return x * (2**i)." ilk="function" name="ldexp" signature="ldexp(x, i)" />
+      <scope doc="Turn turtle left by angle units." ilk="function" name="left" signature="left(angle)" />
+      <scope doc="Natural logarithm of absolute value of Gamma function at x." ilk="function" name="lgamma" signature="lgamma(x)" />
+      <scope doc="Set focus on TurtleScreen (in order to collect key-events)" ilk="function" name="listen" signature="listen(xdummy=None, ydummy=None)" />
+      <scope doc="Return the logarithm of x to the given base." ilk="function" name="log" signature="log(x[, base])" />
+      <scope doc="Return the base 10 logarithm of x." ilk="function" name="log10" signature="log10(x)" />
+      <scope doc="Return the natural logarithm of 1+x (base e)." ilk="function" name="log1p" signature="log1p(x)" />
+      <scope doc="Turn turtle left by angle units." ilk="function" name="lt" signature="lt(angle)" />
+      <scope doc="Run the main loop of Tcl." ilk="function" name="mainloop" signature="mainloop(n=0)" />
+      <import module="math" />
+      <variable citdl="str" name="methodname" />
+      <scope doc="Set turtle-mode ('standard', 'logo' or 'world') and perform&#10;reset." ilk="function" name="mode" signature="mode(mode=None)" />
+      <scope doc="Return the fractional and integer parts of x." ilk="function" name="modf" signature="modf(x)" />
+      <scope doc="Bind fun to mouse-click event on this turtle on canvas." ilk="function" name="onclick" signature="onclick(fun, btn=1, add=None)" />
+      <scope doc="Bind fun to mouse-move event on this turtle on canvas." ilk="function" name="ondrag" signature="ondrag(fun, btn=1, add=None)" />
+      <scope doc="Bind fun to key-release event of key." ilk="function" name="onkey" signature="onkey(fun, key)" />
+      <scope doc="Bind fun to mouse-button-release event on this turtle on&#10;canvas." ilk="function" name="onrelease" signature="onrelease(fun, btn=1, add=None)" />
+      <scope doc="Bind fun to mouse-click event on canvas." ilk="function" name="onscreenclick" signature="onscreenclick(fun, btn=1, add=None)" />
+      <scope doc="Install a timer, which calls fun after t milliseconds." ilk="function" name="ontimer" signature="ontimer(fun, t=0)" />
+      <import module="os" />
+      <scope doc="Pull the pen down -- drawing when moving." ilk="function" name="pd" signature="pd()" />
+      <scope doc="Return or set the pen's attributes." ilk="function" name="pen" signature="pen(pen=None, **pendict)" />
+      <scope doc="Return or set the pencolor." ilk="function" name="pencolor" signature="pencolor(*args)" />
+      <scope doc="Pull the pen down -- drawing when moving." ilk="function" name="pendown" signature="pendown()" />
+      <scope doc="Set or return the line thickness." ilk="function" name="pensize" signature="pensize(width=None)" />
+      <scope doc="Pull the pen up -- no drawing when moving." ilk="function" name="penup" signature="penup()" />
+      <variable citdl="float" name="pi" />
+      <scope doc="Return the turtle's current location (x,y), as a Vec2D-&#10;vector." ilk="function" name="pos" signature="pos()" />
+      <scope doc="Return the turtle's current location (x,y), as a Vec2D-&#10;vector." ilk="function" name="position" signature="position()" />
+      <scope doc="Return x**y (x to the power of y)." ilk="function" name="pow" signature="pow(x, y)" />
+      <scope doc="Pull the pen up -- no drawing when moving." ilk="function" name="pu" signature="pu()" />
+      <scope doc="Set the angle measurement units to radians." ilk="function" name="radians" signature="radians()" />
+      <scope doc="Read in docstrings from lang-specific docstring dictionary." ilk="function" line="3761" lineend="3776" name="read_docstrings" signature="read_docstrings(lang)">
+        <variable ilk="argument" name="lang" />
+        <variable citdl="dict" line="3768" name="modname" />
+        <variable citdl="module.docsdict" line="3770" name="docsdict" />
+        <variable citdl="__import__()" line="3769" name="module" />
+      </scope>
+      <scope doc="Read config-files, change configuration-dict accordingly." ilk="function" line="213" lineend="247" name="readconfig" signature="readconfig(cfgdict)">
+        <variable line="235" name="head" />
+        <variable citdl="join()" line="236" name="cfg_file2" />
+        <variable citdl="str" line="226" name="default_cfg" />
+        <variable ilk="argument" name="cfgdict" />
+        <variable line="235" name="tail" />
+        <variable citdl="dict" line="228" name="cfgdict2" />
+        <variable citdl="dict" line="227" name="cfgdict1" />
+      </scope>
+      <scope doc="Adds a turtle shape to TurtleScreen's shapelist." ilk="function" name="register_shape" signature="register_shape(name, shape=None)" />
+      <scope doc="Delete the turtle's drawings and restore its default values." ilk="function" name="reset" signature="reset()" />
+      <scope doc="Reset all Turtles on the Screen to their initial state." ilk="function" name="resetscreen" signature="resetscreen()" />
+      <scope doc="Set resizemode to one of the values: &quot;auto&quot;, &quot;user&quot;,&#10;&quot;noresize&quot;." ilk="function" name="resizemode" signature="resizemode(rmode=None)" />
+      <scope doc="Turn turtle right by angle units." ilk="function" name="right" signature="right(angle)" />
+      <scope doc="Turn turtle right by angle units." ilk="function" name="rt" signature="rt(angle)" />
+      <scope doc="Resize the canvas the turtles are drawing on." ilk="function" name="screensize" signature="screensize(canvwidth=None, canvheight=None, bg=None)" />
+      <scope doc="Set the orientation of the turtle to to_angle." ilk="function" name="seth" signature="seth(to_angle)" />
+      <scope doc="Set the orientation of the turtle to to_angle." ilk="function" name="setheading" signature="setheading(to_angle)" />
+      <scope doc="Move turtle to an absolute position." ilk="function" name="setpos" signature="setpos(x, y=None)" />
+      <scope doc="Move turtle to an absolute position." ilk="function" name="setposition" signature="setposition(x, y=None)" />
+      <scope doc="Rotate the turtleshape to point in the specified direction" ilk="function" name="settiltangle" signature="settiltangle(angle)" />
+      <scope doc="Set or disable undobuffer." ilk="function" name="setundobuffer" signature="setundobuffer(size)" />
+      <scope doc="Set the size and position of the main window." ilk="function" name="setup" signature="setup(width=0.5, height=0.75, startx=None, starty=None)" />
+      <scope doc="Set up a user defined coordinate-system." ilk="function" name="setworldcoordinates" signature="setworldcoordinates(llx, lly, urx, ury)" />
+      <scope doc="Set the turtle's first coordinate to x" ilk="function" name="setx" signature="setx(x)" />
+      <scope doc="Set the turtle's second coordinate to y" ilk="function" name="sety" signature="sety(y)" />
+      <scope doc="Set turtle shape to shape with given name / return current&#10;shapename." ilk="function" name="shape" signature="shape(name=None)" />
+      <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" name="shapesize" signature="shapesize(stretch_wid=None, stretch_len=None, outline=None)" />
+      <scope doc="Makes the turtle visible." ilk="function" name="showturtle" signature="showturtle()" />
+      <scope doc="Return the sine of x (measured in radians)." ilk="function" name="sin" signature="sin(x)" />
+      <scope doc="Return the hyperbolic sine of x." ilk="function" name="sinh" signature="sinh(x)" />
+      <scope doc="Return or set the turtle's speed." ilk="function" name="speed" signature="speed(speed=None)" />
+      <scope doc="Split a pathname." ilk="function" name="split" signature="split(p)" />
+      <scope doc="Return the square root of x." ilk="function" name="sqrt" signature="sqrt(x)" />
+      <scope doc="Makes the turtle visible." ilk="function" name="st" signature="st()" />
+      <scope doc="Stamp a copy of the turtleshape onto the canvas and return&#10;its id." ilk="function" name="stamp" signature="stamp()" />
+      <scope doc="Return the tangent of x (measured in radians)." ilk="function" name="tan" signature="tan(x)" />
+      <scope doc="Return the hyperbolic tangent of x." ilk="function" name="tanh" signature="tanh(x)" />
+      <scope doc="Rotate the turtleshape by angle." ilk="function" name="tilt" signature="tilt(angle)" />
+      <scope doc="Return the current tilt-angle." ilk="function" name="tiltangle" signature="tiltangle()" />
+      <import module="time" />
+      <scope doc="Set title of turtle-window" ilk="function" name="title" signature="title(titlestring)" />
+      <scope doc="Return the angle of the line from the turtle's position to&#10;(x, y)." ilk="function" name="towards" signature="towards(x, y=None)" />
+      <scope doc="Turns turtle animation on/off and set delay for update&#10;drawings." ilk="function" name="tracer" signature="tracer(flag=None, delay=None)" />
+      <scope doc="Truncates x to the nearest Integral toward 0." ilk="function" name="trunc" signature="trunc(x:Real) -&gt; Integral" />
+      <scope doc="Return the list of turtles on the" ilk="function" name="turtles" signature="turtles()" />
+      <scope doc="Set/return turtle's stretchfactors/outline." ilk="function" name="turtlesize" signature="turtlesize(stretch_wid=None, stretch_len=None, outline=None)" />
+      <import module="types" />
+      <scope doc="No argument." ilk="function" name="undo" signature="undo (repeatedly) the last turtle action." />
+      <scope doc="Return count of entries in the undobuffer." ilk="function" name="undobufferentries" signature="undobufferentries()" />
+      <scope doc="Pull the pen up -- no drawing when moving." ilk="function" name="up" signature="up()" />
+      <scope doc="Perform a TurtleScreen update." ilk="function" name="update" signature="update()" />
+      <scope doc="Set or return the line thickness." ilk="function" name="width" signature="width(width=None)" />
+      <scope doc="Return the height of the turtle window." ilk="function" name="window_height" signature="window_height()" />
+      <scope doc="Returns the width of the turtle window." ilk="function" name="window_width" signature="window_width()" />
+      <scope doc="Write text at the current turtle position." ilk="function" name="write" signature="write(arg, move=False, align='left', font=('Arial', 8, 'normal'))" />
+      <scope doc="Create and write docstring-dictionary to file." ilk="function" line="3727" lineend="3759" name="write_docstringdict" signature="write_docstringdict(filename='turtle_docstringdict')">
+        <variable citdl="sorted()" line="3749" name="keys" />
+        <variable citdl="open()" line="3748" name="f" />
+        <variable citdl="dict" line="3739" name="docsdict" />
+        <variable citdl="methodname" line="3742" name="key" />
+        <variable citdl="str" ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return the turtle's x coordinate." ilk="function" name="xcor" signature="xcor()" />
+      <scope doc="Return the turtle's y coordinate --- No arguments." ilk="function" name="ycor" signature="ycor()" />
+      <scope attributes="__hidden__" ilk="function" line="3880" lineend="3884" name="switchpen" signature="switchpen()" />
+      <variable attributes="__hidden__" line="3856" name="pl2" />
+      <variable attributes="__hidden__" line="3856" name="pl1" />
+      <variable attributes="private __hidden__" citdl="str" line="324" name="__stringBody" />
+      <scope attributes="protected __hidden__" classrefs="TK.Tk" doc="Root class for Screen based on Tkinter." ilk="class" line="455" lineend="477" name="_Root">
+        <scope attributes="__ctor__" ilk="function" line="457" lineend="458" name="__init__" signature="_Root()">
+          <variable citdl="_Root" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="460" lineend="462" name="setupcanvas" signature="setupcanvas(width, height, cwidth, cheight)">
+          <variable citdl="_Root" ilk="argument" name="self" />
+          <variable ilk="argument" name="width" />
+          <variable ilk="argument" name="height" />
+          <variable ilk="argument" name="cwidth" />
+          <variable ilk="argument" name="cheight" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="ScrolledCanvas" line="461" name="_canvas" />
+        <scope attributes="protected" ilk="function" line="464" lineend="465" name="_getcanvas" returns="ScrolledCanvas" signature="_getcanvas()">
+          <variable citdl="_Root" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="467" lineend="468" name="set_geometry" signature="set_geometry(width, height, startx, starty)">
+          <variable citdl="_Root" ilk="argument" name="self" />
+          <variable ilk="argument" name="width" />
+          <variable ilk="argument" name="height" />
+          <variable ilk="argument" name="startx" />
+          <variable ilk="argument" name="starty" />
+        </scope>
+        <scope ilk="function" line="470" lineend="471" name="ondestroy" signature="ondestroy(destroy)">
+          <variable citdl="_Root" ilk="argument" name="self" />
+          <variable ilk="argument" name="destroy" />
+        </scope>
+        <scope ilk="function" line="473" lineend="474" name="win_width" returns="self.winfo_screenwidth()" signature="win_width()">
+          <variable citdl="_Root" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="476" lineend="477" name="win_height" returns="self.winfo_screenheight()" signature="win_height()">
+          <variable citdl="_Root" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="TurtleScreen" ilk="class" line="3559" lineend="3690" name="_Screen">
+        <variable attributes="protected" citdl="_Root" line="3561" name="_root" />
+        <variable attributes="protected" citdl="self._root._getcanvas()" line="3562" name="_canvas" />
+        <variable attributes="protected" line="3563" name="_title" />
+        <scope attributes="__ctor__" ilk="function" line="3565" lineend="3585" name="__init__" signature="_Screen()">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+          <variable line="3576" name="width" />
+          <variable line="3577" name="height" />
+          <variable line="3578" name="canvwidth" />
+          <variable line="3579" name="canvheight" />
+          <variable line="3580" name="leftright" />
+          <variable line="3581" name="topbottom" />
+        </scope>
+        <scope doc="Set the size and position of the main window." ilk="function" line="3587" lineend="3625" name="setup" signature="setup(width=[_CFG], height=[_CFG], startx=[_CFG], starty=[_CFG])">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+          <variable citdl="self._root.win_width()" ilk="argument" name="width" />
+          <variable citdl="self._root.win_height()" ilk="argument" name="height" />
+          <variable citdl="self._root.win_width()" ilk="argument" name="startx" />
+          <variable citdl="self._root.win_height()" ilk="argument" name="starty" />
+          <variable citdl="self._root.win_width()" line="3614" name="sw" />
+          <variable citdl="self._root.win_height()" line="3615" name="sh" />
+        </scope>
+        <scope doc="Set title of turtle-window" ilk="function" line="3627" lineend="3642" name="title" signature="title(titlestring)">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+          <variable ilk="argument" name="titlestring" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="3644" lineend="3652" name="_destroy" signature="_destroy()">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+          <variable citdl="_Root" line="3645" name="root" />
+        </scope>
+        <scope doc="Shut the turtlegraphics window." ilk="function" line="3654" lineend="3660" name="bye" signature="bye()">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Go into mainloop until the mouse is clicked." ilk="function" line="3662" lineend="3690" name="exitonclick" signature="exitonclick()">
+          <variable citdl="_Screen" ilk="argument" name="self" />
+          <scope ilk="function" line="3681" lineend="3683" name="exitGracefully" signature="Screen.bye() with two dummy-parameters">
+            <variable ilk="argument" name="x" />
+            <variable ilk="argument" name="y" />
+          </scope>
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="151" name="_CFG" />
+      <variable attributes="protected __hidden__" citdl="str" line="103" name="_ver" />
+      <scope attributes="protected __hidden__" doc="Create a TurtleScreen if not already present." ilk="function" line="3721" lineend="3725" name="_getscreen" returns="Screen()" signature="_getscreen()" />
+      <variable attributes="protected __hidden__" citdl="list" line="139" name="_tg_utilities" />
+      <variable attributes="protected __hidden__" citdl="list" line="147" name="_alias_list" />
+      <variable attributes="protected __hidden__" citdl="list" line="140" name="_math_functions" />
+      <scope attributes="protected __hidden__" doc="Create the 'anonymous' turtle if not already present." ilk="function" line="3715" lineend="3719" name="_getpen" signature="_getpen()" />
+      <variable attributes="protected __hidden__" line="3778" name="_LANGUAGE" />
+      <scope attributes="private __hidden__" doc="helper function for Scrolled Canvas" ilk="function" line="308" lineend="316" name="__methodDict" signature="__methodDict(cls, _dict)">
+        <variable ilk="argument" name="cls" />
+        <variable ilk="argument" name="_dict" />
+        <variable citdl="list()" line="310" name="baseList" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="To reduce docstrings from RawTurtle class for functions" ilk="function" line="3826" lineend="3836" name="_turtle_docrevise" returns="parexp.sub()" signature="_turtle_docrevise(docstr)">
+        <import line="3829" module="re" />
+        <variable ilk="argument" name="docstr" />
+        <variable line="3832" name="turtlename" />
+        <variable citdl="parexp.sub()" line="3833" name="newdocstr" />
+        <variable citdl="re.compile()" line="3834" name="parexp" />
+      </scope>
+      <scope attributes="__hidden__" doc="Demo of some new features." ilk="function" line="3939" lineend="4035" name="demo2" signature="demo2()">
+        <variable citdl="distance()" line="3945" name="radius" />
+        <variable citdl="int" line="3956" name="laenge" />
+        <variable citdl="getturtle()" line="3992" name="tri" />
+        <variable citdl="Turtle" line="3994" name="turtle" />
+        <variable citdl="int" line="4009" name="count" />
+        <scope ilk="function" line="4024" lineend="4026" name="baba" signature="baba(xdummy, ydummy)">
+          <variable ilk="argument" name="xdummy" />
+          <variable ilk="argument" name="ydummy" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="118" name="_tg_classes" />
+      <scope attributes="__hidden__" doc="Demo of old turtle.py - module" ilk="function" line="3886" lineend="3936" name="demo1" signature="demo1()" />
+      <scope attributes="protected __hidden__" doc="To reduce docstrings from TurtleScreen class for functions" ilk="function" line="3838" lineend="3848" name="_screen_docrevise" returns="parexp.sub()" signature="_screen_docrevise(docstr)">
+        <import line="3841" module="re" />
+        <variable ilk="argument" name="docstr" />
+        <variable line="3844" name="screenname" />
+        <variable citdl="parexp.sub()" line="3845" name="newdocstr" />
+        <variable citdl="re.compile()" line="3846" name="parexp" />
+      </scope>
+      <variable attributes="__hidden__" citdl="dict" line="3860" name="defstr" />
+      <scope attributes="private __hidden__" doc="helper function for Scrolled Canvas" ilk="function" line="318" lineend="322" name="__methods" returns="_dict.keys()" signature="__methods(cls)">
+        <variable ilk="argument" name="cls" />
+        <variable attributes="protected" citdl="dict" line="320" name="_dict" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="120" name="_tg_screen_functions" />
+      <scope attributes="private __hidden__" doc="Helper functions for Scrolled Canvas, used to forward&#10;ScrolledCanvas-methods to Tkinter.Canvas class." ilk="function" line="328" lineend="350" name="__forwardmethods" signature="__forwardmethods(fromClass, toClass, toPart, exclude=())">
+        <variable ilk="argument" name="fromClass" />
+        <variable ilk="argument" name="toClass" />
+        <variable ilk="argument" name="toPart" />
+        <variable citdl="tuple" ilk="argument" name="exclude" />
+        <variable attributes="protected" citdl="dict" line="332" name="_dict" />
+        <variable citdl="dict" line="345" name="d" />
+        <variable citdl="dict" line="347" name="execString" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" doc="Helper class: Datatype to store Turtle attributes" ilk="class" line="2390" lineend="2418" name="_TurtleImage">
+        <scope attributes="__ctor__" ilk="function" line="2394" lineend="2397" name="__init__" signature="_TurtleImage(screen, shapeIndex)">
+          <variable citdl="_TurtleImage" ilk="argument" name="self" />
+          <variable ilk="argument" name="screen" />
+          <variable ilk="argument" name="shapeIndex" />
+        </scope>
+        <variable attributes="__instancevar__" line="2395" name="screen" />
+        <variable attributes="protected __instancevar__" line="2396" name="_type" />
+        <scope attributes="protected" ilk="function" line="2399" lineend="2418" name="_setshape" signature="_setshape(shapeIndex)">
+          <variable citdl="_TurtleImage" ilk="argument" name="self" />
+          <variable ilk="argument" name="shapeIndex" />
+          <variable line="2400" name="screen" />
+        </scope>
+        <variable attributes="__instancevar__" line="2401" name="shapeIndex" />
+        <variable attributes="protected __instancevar__" citdl="screen._createimage()" line="2413" name="_item" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="126" name="_tg_turtle_functions" />
+    </scope>
+    

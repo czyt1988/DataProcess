@@ -1,0 +1,206 @@
+<scope doc="Stuff to parse Sun and NeXT audio files.&#10;An audio file consists of a header followed by the data.  The structure of the header is as follows.  +---------------+ | magic word    | +---------------+ | header size   | +---------------+ | data size     | +---------------+" ilk="blob" lang="Python" name="sunau">
+      <variable citdl="int" line="115" name="AUDIO_FILE_ENCODING_ADPCM_G721" />
+      <variable citdl="int" line="116" name="AUDIO_FILE_ENCODING_ADPCM_G722" />
+      <variable citdl="int" line="117" name="AUDIO_FILE_ENCODING_ADPCM_G723_3" />
+      <variable citdl="int" line="118" name="AUDIO_FILE_ENCODING_ADPCM_G723_5" />
+      <variable citdl="int" line="119" name="AUDIO_FILE_ENCODING_ALAW_8" />
+      <variable citdl="int" line="114" name="AUDIO_FILE_ENCODING_DOUBLE" />
+      <variable citdl="int" line="113" name="AUDIO_FILE_ENCODING_FLOAT" />
+      <variable citdl="int" line="110" name="AUDIO_FILE_ENCODING_LINEAR_16" />
+      <variable citdl="int" line="111" name="AUDIO_FILE_ENCODING_LINEAR_24" />
+      <variable citdl="int" line="112" name="AUDIO_FILE_ENCODING_LINEAR_32" />
+      <variable citdl="int" line="109" name="AUDIO_FILE_ENCODING_LINEAR_8" />
+      <variable citdl="int" line="108" name="AUDIO_FILE_ENCODING_MULAW_8" />
+      <variable citdl="int" line="107" name="AUDIO_FILE_MAGIC" />
+      <variable citdl="long" line="122" name="AUDIO_UNKNOWN_SIZE" />
+      <scope doc="&#10;" ilk="class" line="152" lineend="279" name="Au_read">
+        <scope ilk="function" line="234" lineend="240" name="getcompname" returns="str" signature="getcompname()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="213" lineend="214" name="getsampwidth" returns="int" signature="getsampwidth()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="242" lineend="245" name="getparams" returns="tuple" signature="getparams()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="160" lineend="162" name="__del__" signature="__del__()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="207" lineend="208" name="getfp" signature="getfp()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="219" lineend="224" name="getnframes" returns="int()" signature="getnframes()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="247" lineend="248" name="getmarkers" signature="getmarkers()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="250" lineend="251" name="getmark" signature="getmark(id)">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+          <variable ilk="argument" name="id" />
+        </scope>
+        <scope ilk="function" line="272" lineend="276" name="setpos" signature="setpos(pos)">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="226" lineend="232" name="getcomptype" returns="str" signature="getcomptype()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="154" lineend="158" name="__init__" signature="Au_read(f)">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+          <variable citdl="__builtin__.open()" ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="265" lineend="267" name="rewind" signature="rewind()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="253" lineend="263" name="readframes" returns="self._file.read()" signature="readframes(nframes)">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+          <variable citdl="self._file.read()" line="256" name="data" />
+          <variable ilk="argument" name="nframes" />
+        </scope>
+        <scope ilk="function" line="278" lineend="279" name="close" signature="close()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="164" lineend="205" name="initfp" signature="initfp(file)">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+          <variable citdl="int()" line="167" name="magic" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="269" lineend="270" name="tell" returns="int" signature="tell()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="210" lineend="211" name="getnchannels" returns="int()" signature="getnchannels()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="216" lineend="217" name="getframerate" returns="int()" signature="getframerate()">
+          <variable citdl="Au_read" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int()" line="178" name="_encoding" />
+        <variable attributes="protected __instancevar__" citdl="int" line="183" name="_sampwidth" />
+        <variable attributes="protected __instancevar__" citdl="int()" line="175" name="_data_size" />
+        <variable attributes="protected __instancevar__" citdl="int" line="166" name="_soundpos" />
+        <variable attributes="protected __instancevar__" line="165" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int()" line="195" name="_framerate" />
+        <variable attributes="protected __instancevar__" citdl="int" line="184" name="_framesize" />
+        <variable attributes="protected __instancevar__" citdl="int()" line="170" name="_hdr_size" />
+        <variable attributes="protected __instancevar__" citdl="int()" line="196" name="_nchannels" />
+        <variable attributes="protected __instancevar__" citdl="file.read()" line="199" name="_info" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="281" lineend="460" name="Au_write">
+        <scope ilk="function" line="359" lineend="365" name="getcompname" returns="str" signature="getcompname()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="375" lineend="378" name="getparams" returns="tuple" signature="getparams()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="421" lineend="454" name="_write_header" signature="_write_header()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable citdl="long" line="445" name="length" />
+          <variable citdl="len()" line="441" name="header_size" />
+          <variable citdl="int" line="424" name="encoding" />
+        </scope>
+        <scope ilk="function" line="399" lineend="405" name="close" signature="close()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="283" lineend="287" name="__init__" signature="Au_write(f)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable citdl="__builtin__.open()" ilk="argument" name="f" />
+        </scope>
+        <scope ilk="function" line="340" lineend="345" name="setnframes" signature="setnframes(nframes)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="nframes" />
+        </scope>
+        <scope ilk="function" line="325" lineend="328" name="getsampwidth" returns="int" signature="getsampwidth()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="356" lineend="357" name="getcomptype" returns="str" signature="getcomptype()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="293" lineend="304" name="initfp" signature="initfp(file)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="367" lineend="373" name="setparams" signature="setparams(params)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="params" />
+        </scope>
+        <scope ilk="function" line="380" lineend="381" name="tell" returns="int" signature="tell()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="318" lineend="323" name="setsampwidth" signature="setsampwidth(sampwidth)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="sampwidth" />
+        </scope>
+        <scope ilk="function" line="306" lineend="311" name="setnchannels" signature="setnchannels(nchannels)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="nchannels" />
+        </scope>
+        <scope ilk="function" line="289" lineend="291" name="__del__" signature="__del__()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="347" lineend="348" name="getnframes" returns="int" signature="getnframes()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="411" lineend="419" name="_ensure_header_written" signature="_ensure_header_written()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="335" lineend="338" name="getframerate" returns="int" signature="getframerate()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="456" lineend="460" name="_patchheader" signature="_patchheader()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="383" lineend="391" name="writeframesraw" signature="writeframesraw(data)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable citdl="audioop.lin2ulaw()" ilk="argument" name="data" />
+          <variable citdl="len()" line="385" name="nframes" />
+        </scope>
+        <scope ilk="function" line="330" lineend="333" name="setframerate" signature="setframerate(framerate)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="framerate" />
+        </scope>
+        <scope ilk="function" line="393" lineend="397" name="writeframes" signature="writeframes(data)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="313" lineend="316" name="getnchannels" returns="int" signature="getnchannels()">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="350" lineend="354" name="setcomptype" signature="setcomptype(type, name)">
+          <variable citdl="Au_write" ilk="argument" name="self" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="long" line="299" name="_nframes" />
+        <variable attributes="protected __instancevar__" citdl="int" line="297" name="_sampwidth" />
+        <variable attributes="protected __instancevar__" citdl="int" line="301" name="_datawritten" />
+        <variable attributes="protected __instancevar__" line="294" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="300" name="_nframeswritten" />
+        <variable attributes="protected __instancevar__" citdl="int" line="295" name="_framerate" />
+        <variable attributes="protected __instancevar__" citdl="int" line="298" name="_framesize" />
+        <variable attributes="protected __instancevar__" citdl="int" line="302" name="_datalength" />
+        <variable attributes="protected __instancevar__" citdl="int" line="296" name="_nchannels" />
+        <variable attributes="protected __instancevar__" citdl="str" line="303" name="_info" />
+        <variable attributes="protected __instancevar__" citdl="str" line="304" name="_comptype" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="131" lineend="132" name="Error" />
+      <scope ilk="function" line="462" lineend="473" name="open" returns="Au_read" signature="open(f, mode=None)">
+        <variable citdl="f.mode" ilk="argument" name="mode" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="475" name="openfp" signature="openfp(f, mode=None)" />
+      <scope attributes="protected __hidden__" ilk="function" line="143" lineend="150" name="_write_u32" signature="_write_u32(file, x)">
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="list" line="144" name="data" />
+        <variable line="146" name="m" />
+        <variable line="146" name="d" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="134" lineend="141" name="_read_u32" returns="long" signature="_read_u32(file)">
+        <variable ilk="argument" name="file" />
+        <variable citdl="ord()" line="135" name="x" />
+        <variable citdl="file.read()" line="137" name="byte" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="124" name="_simple_encodings" />
+    </scope>
+    

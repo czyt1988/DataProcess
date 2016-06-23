@@ -1,0 +1,22 @@
+<scope doc="Fixer that changes map(F, ...) into list(map(F, ...)) unless there&#10;exists a 'from future_builtins import map' statement in the top-level namespace.  As a special case, map(None, X) is changed into list(X).  (This is necessary because the semantics are changed in this case -- the new map(None, X) is equivalent to [(x,) for x in X].)  We avoid the transformation (except for the special case mentioned above) if the map() call is directly contained in iter(&lt;&gt;), list(&lt;&gt;), tuple(&lt;&gt;), sorted(&lt;&gt;), ...join(&lt;&gt;), or for V in &lt;&gt;:." ilk="blob" lang="Python" name="lib2to3.fixes.fix_map">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="ConditionalFix" doc="&#10;" ilk="class" line="28" lineend="91" name="FixMap">
+        <scope ilk="function" line="59" lineend="91" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="node.clone()" line="65" name="new" />
+          <variable citdl="FixMap" ilk="argument" name="self" />
+          <variable line="77" name="args" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="29" name="BM_compatible" />
+        <variable citdl="str" line="57" name="skip_on" />
+        <variable citdl="str" line="31" name="PATTERN" />
+      </scope>
+      <scope doc="A list comprehension of the form [xp for fp in it if test]." ilk="function" name="ListComp" signature="ListComp(xp, fp, it, test=None)" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Returns true if node is in an environment where all that is&#10;required of it is being itterable (ie, it doesn't matter if&#10;it returns a list or an itterator)." ilk="function" name="in_special_context" signature="in_special_context(node)" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

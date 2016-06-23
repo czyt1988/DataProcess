@@ -1,0 +1,71 @@
+<scope doc="distutils.archive_util&#10;Utility functions for creating archive files (tarballs, zip files, that sort of thing)." ilk="blob" lang="Python" name="distutils.archive_util">
+      <variable citdl="dict" line="175" name="ARCHIVE_FORMATS" />
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" name="DistutilsExecError" />
+      <variable citdl="str" line="6" name="__revision__" />
+      <scope doc="Returns the first format from the 'format' list that is&#10;unknown." ilk="function" line="183" lineend="191" name="check_archive_formats" returns="format" signature="check_archive_formats(formats)">
+        <variable ilk="argument" name="formats" />
+      </scope>
+      <variable citdl="NoneType" doc="Return the group database entry for the given group name." line="25" name="getgrnam" returns="tuple" signature="getgrnam(name) -&gt; tuple" />
+      <variable citdl="NoneType" doc="pw_gid,pw_gecos,pw_dir,pw_shell) Return the password&#10;database entry for the given user name." line="20" name="getpwnam" signature="getpwnam(name) -&gt; (pw_name,pw_passwd,pw_uid," />
+      <import module="log" />
+      <scope doc="Create an archive file (eg. zip or tar)." ilk="function" line="193" lineend="243" name="make_archive" returns="func()" signature="make_archive(base_name, format, root_dir=None, base_dir=None, verbose=0, dry_run=0, owner=None, group=None)">
+        <variable line="224" name="format_info" />
+        <variable ilk="argument" name="root_dir" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="os.path.abspath()" ilk="argument" name="base_name" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable ilk="argument" name="format" />
+        <variable citdl="func()" line="237" name="filename" />
+        <variable line="228" name="func" />
+        <variable citdl="dict" line="221" name="kwargs" />
+        <variable ilk="argument" name="owner" />
+        <variable citdl="os.getcwd()" line="211" name="save_cwd" />
+        <variable ilk="argument" name="group" />
+        <variable citdl="os.curdir" ilk="argument" name="base_dir" />
+      </scope>
+      <scope doc="Create a (possibly compressed) tar file from all the files&#10;under 'base_dir'." ilk="function" line="51" lineend="119" name="make_tarball" returns="str" signature="make_tarball(base_name, base_dir, compress='gzip', verbose=0, dry_run=0, owner=None, group=None)">
+        <variable ilk="argument" name="group" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable ilk="argument" name="base_name" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="list" line="113" name="cmd" />
+        <variable citdl="str" ilk="argument" name="compress" />
+        <variable citdl="dict" line="68" name="tar_compression" />
+        <variable citdl="_get_gid()" line="89" name="gid" />
+        <variable ilk="argument" name="owner" />
+        <variable citdl="str" line="77" name="archive_name" />
+        <variable citdl="_get_uid()" line="88" name="uid" />
+        <scope attributes="protected" ilk="function" line="91" lineend="98" name="_set_uid_gid" signature="_set_uid_gid(tarinfo)">
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <variable citdl="dict" line="69" name="compress_ext" />
+        <variable citdl="tarfile.open()" line="101" name="tar" />
+        <variable citdl="str" line="111" name="compressed_name" />
+        <variable ilk="argument" name="base_dir" />
+      </scope>
+      <scope doc="Create a zip file from all the files under 'base_dir'." ilk="function" line="121" lineend="173" name="make_zipfile" returns="str" signature="make_zipfile(base_name, base_dir, verbose=0, dry_run=0)">
+        <variable citdl="zipfile.ZipFile()" line="162" name="zip" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable ilk="argument" name="base_name" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable line="133" name="zipfile" />
+        <variable citdl="str" line="142" name="zipoptions" />
+        <variable citdl="os.path.normpath()" line="167" name="path" />
+        <variable citdl="str" line="135" name="zip_filename" />
+        <variable ilk="argument" name="base_dir" />
+      </scope>
+      <scope doc="Create a directory and any missing ancestor directories." ilk="function" name="mkpath" signature="mkpath(name, mode=511, verbose=1, dry_run=0)" />
+      <import module="os" />
+      <scope doc="Run another program, specified as a command list 'cmd', in a&#10;new process." ilk="function" name="spawn" signature="spawn(cmd, search_path=1, verbose=0, dry_run=0)" />
+      <import module="sys" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+      <scope attributes="protected __hidden__" doc="Returns a gid, given a group name." ilk="function" line="27" lineend="37" name="_get_gid" signature="_get_gid(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="getgrnam()" line="32" name="result" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Returns an uid, given a user name." ilk="function" line="39" lineend="49" name="_get_uid" signature="_get_uid(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="getpwnam()" line="44" name="result" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,258 @@
+<scope doc="Interfaces for launching and remotely controlling Web browsers.&#10;" ilk="blob" lang="Python" name="webbrowser">
+      <scope classrefs="GenericBrowser" doc="Class for all browsers which are to be started in the&#10;background." ilk="class" line="184" lineend="201" name="BackgroundBrowser">
+        <scope ilk="function" line="188" lineend="201" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable citdl="list" line="189" name="cmdline" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="BackgroundBrowser" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="195" name="setsid" />
+          <variable citdl="subprocess.Popen()" line="193" name="p" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable citdl="int" ilk="argument" name="new" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="Parent class for all browsers. Do not use directly.&#10;" ilk="class" line="138" lineend="154" name="BaseBrowser">
+        <scope ilk="function" line="150" lineend="151" name="open_new" returns="BaseBrowser.open()" signature="open_new(url)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="BaseBrowser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="147" lineend="148" name="open" signature="open(url, new=0, autoraise=True)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="int" ilk="argument" name="new" />
+          <variable citdl="BaseBrowser" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+        </scope>
+        <scope ilk="function" line="143" lineend="145" name="__init__" signature="BaseBrowser(name='')">
+          <variable citdl="BaseBrowser" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="153" lineend="154" name="open_new_tab" returns="BaseBrowser.open()" signature="open_new_tab(url)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="BaseBrowser" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="145" name="basename" />
+        <variable citdl="list" line="141" name="args" />
+        <variable attributes="__instancevar__" citdl="str" line="144" name="name" />
+      </scope>
+      <scope classrefs="UnixBrowser" doc="Launcher class for Elinks browsers.&#10;" ilk="class" line="318" lineend="329" name="Elinks">
+        <variable citdl="str" line="323" name="remote_action_newwin" />
+        <variable citdl="False" line="329" name="redirect_stdout" />
+        <variable citdl="str" line="322" name="remote_action" />
+        <variable citdl="list" line="321" name="remote_args" />
+        <variable citdl="False" line="325" name="background" />
+        <variable citdl="str" line="324" name="remote_action_newtab" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="14" lineend="15" name="Error" />
+      <scope classrefs="UnixBrowser" doc="Launcher class for Galeon/Epiphany browsers.&#10;" ilk="class" line="297" lineend="304" name="Galeon">
+        <variable citdl="list" line="301" name="remote_args" />
+        <variable citdl="str" line="303" name="remote_action_newwin" />
+        <variable citdl="list" line="300" name="raise_opts" />
+        <variable citdl="True" line="304" name="background" />
+        <variable citdl="str" line="302" name="remote_action" />
+      </scope>
+      <scope classrefs="BaseBrowser" doc="Class for all browsers started with a command&#10;and without remote functionality." ilk="class" line="157" lineend="181" name="GenericBrowser">
+        <scope ilk="function" line="171" lineend="181" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable citdl="list" line="172" name="cmdline" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="GenericBrowser" ilk="argument" name="self" />
+          <variable citdl="subprocess.Popen()" line="176" name="p" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable citdl="int" ilk="argument" name="new" />
+        </scope>
+        <scope ilk="function" line="161" lineend="169" name="__init__" signature="GenericBrowser(name)">
+          <variable citdl="GenericBrowser" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.path.basename()" line="169" name="basename" />
+        <variable attributes="__instancevar__" citdl="list" line="164" name="args" />
+        <variable attributes="__instancevar__" line="163" name="name" />
+      </scope>
+      <scope classrefs="BaseBrowser" doc="&#10;" ilk="class" line="389" lineend="432" name="Grail">
+        <scope doc="# There should be a way to maintain a connection to Grail,&#10;but the # Grail remote control protocol doesn't really allow&#10;that at this # point." ilk="function" line="393" lineend="417" name="_find_grail_rc" returns="socket.socket()" signature="_find_grail_rc()">
+          <variable citdl="Grail" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="401" name="filename" />
+          <variable citdl="glob.glob()" line="402" name="maybes" />
+          <variable citdl="socket.socket()" line="405" name="s" />
+          <variable line="400" name="user" />
+          <variable citdl="os.path.join()" line="398" name="tempdir" />
+        </scope>
+        <scope ilk="function" line="427" lineend="432" name="open" returns="_remote()" signature="open(url, new=0, autoraise=True)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="int" ilk="argument" name="new" />
+          <variable citdl="Grail" ilk="argument" name="self" />
+          <variable citdl="_remote()" line="429" name="ok" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+        </scope>
+        <scope ilk="function" line="419" lineend="425" name="_remote" returns="int" signature="_remote(action)">
+          <variable ilk="argument" name="action" />
+          <variable citdl="Grail" ilk="argument" name="self" />
+          <variable citdl="_find_grail_rc()" line="420" name="s" />
+        </scope>
+      </scope>
+      <scope classrefs="BaseBrowser" doc="Controller for the KDE File Manager (kfm, or Konqueror).&#10;See the output of ``kfmclient --commands`` for more information on the Konqueror remote-control interface." ilk="class" line="332" lineend="386" name="Konqueror">
+        <scope ilk="function" line="339" lineend="386" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="Konqueror" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="349" name="setsid" />
+          <variable citdl="subprocess.Popen()" line="354" name="p" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable citdl="file()" line="346" name="devnull" />
+          <variable citdl="str" line="342" name="action" />
+          <variable citdl="int" ilk="argument" name="new" />
+        </scope>
+      </scope>
+      <scope classrefs="UnixBrowser" doc="Launcher class for Mozilla/Netscape browsers.&#10;" ilk="class" line="284" lineend="292" name="Mozilla">
+        <variable citdl="str" line="290" name="remote_action_newwin" />
+        <variable citdl="list" line="287" name="raise_opts" />
+        <variable citdl="str" line="289" name="remote_action" />
+        <variable citdl="list" line="288" name="remote_args" />
+        <variable citdl="True" line="292" name="background" />
+        <variable citdl="str" line="291" name="remote_action_newtab" />
+      </scope>
+      <scope classrefs="UnixBrowser" doc="Launcher class for Mozilla/Netscape browsers.&#10;" ilk="class" line="294" name="Netscape" />
+      <scope classrefs="UnixBrowser" doc="Launcher class for Opera browser.&#10;" ilk="class" line="307" lineend="315" name="Opera">
+        <variable citdl="str" line="313" name="remote_action_newwin" />
+        <variable citdl="list" line="310" name="raise_opts" />
+        <variable citdl="str" line="312" name="remote_action" />
+        <variable citdl="list" line="311" name="remote_args" />
+        <variable citdl="True" line="315" name="background" />
+        <variable citdl="str" line="314" name="remote_action_newtab" />
+      </scope>
+      <scope classrefs="BaseBrowser" doc="Parent class for all Unix browsers with remote functionality.&#10;" ilk="class" line="204" lineend="281" name="UnixBrowser">
+        <scope ilk="function" line="215" lineend="257" name="_invoke" returns="bool" signature="_invoke(args, remote, autoraise)">
+          <variable line="220" name="opt" />
+          <variable ilk="argument" name="remote" />
+          <variable citdl="subprocess.Popen()" line="236" name="p" />
+          <variable citdl="UnixBrowser" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="getattr()" line="232" name="setsid" />
+          <variable citdl="list" line="216" name="raise_opt" />
+          <variable citdl="list" line="223" name="cmdline" />
+          <variable citdl="int()" ilk="argument" name="autoraise" />
+          <variable citdl="p.poll()" line="243" name="rc" />
+          <variable citdl="file()" line="226" name="inout" />
+        </scope>
+        <scope ilk="function" line="259" lineend="281" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable citdl="_invoke()" line="275" name="success" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="UnixBrowser" ilk="argument" name="self" />
+          <variable citdl="list" line="273" name="args" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable line="261" name="action" />
+          <variable citdl="int" ilk="argument" name="new" />
+        </scope>
+        <variable line="210" name="remote_action_newwin" />
+        <variable line="207" name="raise_opts" />
+        <variable citdl="True" line="213" name="redirect_stdout" />
+        <variable line="209" name="remote_action" />
+        <variable citdl="list" line="208" name="remote_args" />
+        <variable citdl="False" line="212" name="background" />
+        <variable line="211" name="remote_action_newtab" />
+      </scope>
+      <scope classrefs="BaseBrowser" doc="&#10;" ilk="class" line="509" lineend="518" name="WindowsDefault">
+        <scope ilk="function" line="510" lineend="518" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="int" ilk="argument" name="new" />
+          <variable citdl="WindowsDefault" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="12" name="__all__" />
+      <variable citdl="str" name="browser" />
+      <scope doc="Return a browser launcher instance appropriate for the&#10;environment." ilk="function" line="28" lineend="52" name="get" returns="BackgroundBrowser()" signature="get(using=None)">
+        <variable ilk="argument" name="using" />
+        <variable citdl="list" line="31" name="alternatives" />
+        <variable citdl="_synthesize()" line="45" name="command" />
+        <variable citdl="shlex.split()" line="37" name="browser" />
+      </scope>
+      <variable citdl="str" line="527" name="iexplore" />
+      <scope ilk="function" line="648" lineend="670" name="main" signature="main()">
+        <variable citdl="str" line="650" name="usage" />
+        <variable line="667" name="url" />
+        <variable line="654" name="args" />
+        <variable citdl="int" line="659" name="new_win" />
+        <variable line="654" name="opts" />
+      </scope>
+      <scope ilk="function" line="58" lineend="63" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+        <variable ilk="argument" name="url" />
+        <variable citdl="int" ilk="argument" name="new" />
+        <variable citdl="True" ilk="argument" name="autoraise" />
+        <variable citdl="get()" line="60" name="browser" />
+      </scope>
+      <scope ilk="function" line="65" lineend="66" name="open_new" returns="open()" signature="open_new(url)">
+        <variable ilk="argument" name="url" />
+      </scope>
+      <scope ilk="function" line="68" lineend="69" name="open_new_tab" returns="open()" signature="open_new_tab(url)">
+        <variable ilk="argument" name="url" />
+      </scope>
+      <import module="os" />
+      <scope doc="Register a browser connector and, optionally, connection." ilk="function" line="20" lineend="26" name="register" signature="register(name, klass, instance=None, update_tryorder=1)">
+        <variable citdl="int" ilk="argument" name="update_tryorder" />
+        <variable ilk="argument" name="instance" />
+        <variable ilk="argument" name="name" />
+        <variable ilk="argument" name="klass" />
+      </scope>
+      <scope ilk="function" line="442" lineend="484" name="register_X_browsers" signature="register_X_browsers()" />
+      <import module="shlex" />
+      <import module="stat" />
+      <import module="subprocess" />
+      <import module="sys" />
+      <import module="time" />
+      <variable attributes="__hidden__" citdl="_synthesize()" line="638" name="cmd" />
+      <scope attributes="protected __hidden__" doc="Return True if cmd is executable or can be found on the&#10;executable search path." ilk="function" line="121" lineend="133" name="_iscommand" returns="bool" signature="_iscommand(cmd)">
+        <variable ilk="argument" name="cmd" />
+        <variable citdl="os.environ.get()" line="126" name="path" />
+        <variable citdl="os.path.join()" line="130" name="exe" />
+      </scope>
+      <variable attributes="protected __hidden__" line="631" name="_userchoices" />
+      <scope attributes="protected __hidden__" ilk="function" line="114" lineend="119" name="_isexecutable" returns="bool" signature="_isexecutable(cmd)">
+        <variable ilk="argument" name="cmd" />
+        <variable line="116" name="mode" />
+      </scope>
+      <scope attributes="__hidden__" classrefs="BaseBrowser" doc="Launcher class for Aqua browsers on Mac OS X" ilk="class" line="540" lineend="584" name="MacOSX">
+        <scope attributes="__ctor__" ilk="function" line="550" lineend="551" name="__init__" signature="MacOSX(name)">
+          <variable citdl="MacOSX" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="__instancevar__" line="551" name="name" />
+        <scope ilk="function" line="553" lineend="584" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable citdl="MacOSX" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="url" />
+          <variable citdl="int" ilk="argument" name="new" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable citdl="str" line="563" name="script" />
+          <variable citdl="str" line="567" name="toWindow" />
+          <variable citdl="url.replace()" line="572" name="cmd" />
+          <variable citdl="os.popen()" line="578" name="osapipe" />
+          <variable citdl="osapipe.close()" line="583" name="rc" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Attempt to synthesize a controller base on existing&#10;controllers." ilk="function" line="72" lineend="101" name="_synthesize" returns="list" signature="_synthesize(browser, update_tryorder=1)">
+        <import line="95" module="copy" />
+        <variable ilk="argument" name="browser" />
+        <variable citdl="int" ilk="argument" name="update_tryorder" />
+        <variable line="84" name="cmd" />
+        <variable citdl="os.path.basename()" line="87" name="name" />
+        <variable line="89" name="command" />
+        <variable citdl="copy.copy()" line="93" name="controller" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="17" name="_browsers" />
+      <scope attributes="__hidden__" classrefs="BaseBrowser" doc="&#10;" ilk="class" line="586" lineend="607" name="MacOSXOSAScript">
+        <scope attributes="__ctor__" ilk="function" line="587" lineend="588" name="__init__" signature="MacOSXOSAScript(name)">
+          <variable citdl="MacOSXOSAScript" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="588" name="_name" />
+        <scope ilk="function" line="590" lineend="607" name="open" returns="bool" signature="open(url, new=0, autoraise=True)">
+          <variable citdl="MacOSXOSAScript" ilk="argument" name="self" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="int" ilk="argument" name="new" />
+          <variable citdl="True" ilk="argument" name="autoraise" />
+          <variable citdl="str" line="592" name="script" />
+          <variable citdl="os.popen()" line="601" name="osapipe" />
+          <variable citdl="osapipe.close()" line="606" name="rc" />
+        </scope>
+      </scope>
+      <variable attributes="__hidden__" line="641" name="cmdline" />
+      <variable attributes="protected __hidden__" citdl="list" line="18" name="_tryorder" />
+    </scope>
+    

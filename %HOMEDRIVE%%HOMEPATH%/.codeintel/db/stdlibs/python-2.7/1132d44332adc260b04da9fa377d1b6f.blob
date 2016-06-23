@@ -1,0 +1,10 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_hashlib">
+      <scope doc="Return a new hash object using the named algorithm." ilk="function" name="new" />
+      <scope doc="Returns a md5 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_md5" />
+      <scope doc="Returns a sha1 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_sha1" />
+      <scope doc="Returns a sha224 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_sha224" />
+      <scope doc="Returns a sha256 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_sha256" />
+      <scope doc="Returns a sha384 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_sha384" />
+      <scope doc="Returns a sha512 hash object; optionally initialized with a&#10;string" ilk="function" name="openssl_sha512" />
+    </scope>
+    

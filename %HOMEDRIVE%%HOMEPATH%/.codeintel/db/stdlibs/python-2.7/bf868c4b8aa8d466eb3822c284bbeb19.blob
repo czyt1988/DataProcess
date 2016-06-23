@@ -1,0 +1,673 @@
+<scope doc="Ttk wrapper.&#10;This module provides classes to allow using Tk themed widget set.  Ttk is based on a revised and enhanced version of TIP #48 (http://tip.tcl.tk/48) specified style engine.  Its basic idea is to separate, to the extent possible, the code implementing a widget's behavior from the code implementing its appearance. Widget class bindings are primarily responsible for maintaining the widget state and invoking callbacks, all aspects of the widgets appearance lies at Themes." ilk="blob" lang="Python" name="ttk">
+      <scope classrefs="Widget" doc="Ttk Button widget, displays a textual label and/or image, and&#10;evaluates a command when pressed." ilk="class" line="598" lineend="619" name="Button">
+        <scope doc="Invokes the command associated with the button." ilk="function" line="617" lineend="619" name="invoke" returns="self.tk.call()" signature="invoke()">
+          <variable citdl="Button" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a Ttk Button widget with the parent master." ilk="function" line="602" lineend="614" name="__init__" signature="Button(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Button" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Checkbutton widget which is either in on- or off-state.&#10;" ilk="class" line="622" lineend="648" name="Checkbutton">
+        <scope doc="Toggles between the selected and deselected states and&#10;invokes the associated command." ilk="function" line="640" lineend="648" name="invoke" returns="self.tk.call()" signature="invoke()">
+          <variable citdl="Checkbutton" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a Ttk Checkbutton widget with the parent master." ilk="function" line="625" lineend="637" name="__init__" signature="Checkbutton(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Checkbutton" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Entry" doc="Ttk Combobox widget combines a text field with a pop-down list of&#10;values." ilk="class" line="693" lineend="743" name="Combobox">
+        <scope doc="Sets the value of the combobox to value." ilk="function" line="741" lineend="743" name="set" signature="set(value)">
+          <variable citdl="Combobox" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Custom Combobox configure, created to properly format the&#10;values option." ilk="function" line="724" lineend="730" name="configure" returns="Entry.configure()" signature="configure(cnf=None, **kw)">
+          <variable ilk="argument" name="cnf" />
+          <variable citdl="Combobox" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope doc="If newindex is supplied, sets the combobox value to the&#10;element at position newindex in the list of values." ilk="function" line="733" lineend="738" name="current" returns="self.tk.call()" signature="current(newindex=None)">
+          <variable citdl="Combobox" ilk="argument" name="self" />
+          <variable ilk="argument" name="newindex" />
+        </scope>
+        <scope ilk="function" line="717" lineend="721" name="__setitem__" signature="__setitem__(item, value)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Combobox" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Construct a Ttk Combobox widget with the parent master." ilk="function" line="697" lineend="714" name="__init__" signature="Combobox(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Combobox" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget Entry" doc="Ttk Entry widget displays a one-line text string and allows that&#10;string to be edited by the user." ilk="class" line="651" lineend="690" name="Entry">
+        <scope doc="Returns the name of the element at position x, y, or the&#10;empty string if the coordinates are outside the window." ilk="function" line="680" lineend="683" name="identify" returns="self.tk.call()" signature="identify(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Entry" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a tuple of (x, y, width, height) which describes the&#10;bounding box of the character given by index." ilk="function" line="674" lineend="677" name="bbox" returns="self.tk.call()" signature="bbox(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Entry" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Force revalidation, independent of the conditions specified&#10;by the validate option." ilk="function" line="686" lineend="690" name="validate" returns="bool()" signature="validate()">
+          <variable citdl="Entry" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructs a Ttk Entry widget with the parent master." ilk="function" line="655" lineend="671" name="__init__" signature="Entry(master=None, widget=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Entry" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+          <variable ilk="argument" name="widget" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Frame widget is a container, used to group other widgets&#10;together." ilk="class" line="746" lineend="761" name="Frame">
+        <scope doc="Construct a Ttk Frame with parent master." ilk="function" line="750" lineend="761" name="__init__" signature="Frame(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Frame" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Label widget displays a textual label and/or image.&#10;" ilk="class" line="764" lineend="780" name="Label">
+        <scope doc="Construct a Ttk Label with parent master." ilk="function" line="767" lineend="780" name="__init__" signature="Label(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Label" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Labelframe widget is a container used to group other widgets&#10;together. It has an optional label, which may be a plain text string or another widget." ilk="class" line="801" name="LabelFrame">
+        <scope doc="Construct a Ttk Labelframe with parent master." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Frame object" doc="A Ttk Scale widget with a Ttk Label widget indicating its&#10;current value.  The Ttk Scale can be accessed through instance.scale, and Ttk Label can be accessed through instance.label" ilk="class" line="1485" lineend="1576" name="LabeledScale">
+        <scope doc="Return current scale value." ilk="function" line="1566" lineend="1568" name="_get_value" returns="self._variable.get()" signature="_get_value()">
+          <variable citdl="LabeledScale" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Adjust the label position according to the scale." ilk="function" line="1539" lineend="1563" name="_adjust" signature="_adjust(*args)">
+          <scope ilk="function" line="1541" lineend="1550" name="adjust_label" signature="adjust_label()">
+            <variable citdl="self.label.winfo_reqheight()" line="1544" name="y" />
+            <variable line="1544" name="x" />
+          </scope>
+          <variable citdl="self._variable.get()" line="1555" name="newval" />
+          <variable citdl="LabeledScale" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="1552" name="to" />
+          <variable line="1552" name="from_" />
+        </scope>
+        <scope doc="Destroy this widget and possibly its associated variable." ilk="function" line="1527" lineend="1536" name="destroy" signature="destroy()">
+          <variable citdl="LabeledScale" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set new scale value." ilk="function" line="1571" lineend="1573" name="_set_value" signature="_set_value(val)">
+          <variable citdl="LabeledScale" ilk="argument" name="self" />
+          <variable ilk="argument" name="val" />
+        </scope>
+        <scope doc="Construct an horizontal LabeledScale with parent master, a&#10;variable to be associated with the Ttk Scale widget and its&#10;range." ilk="function" line="1492" lineend="1524" name="__init__" signature="LabeledScale(master=None, variable=None, from_=0, to=10, **kw)">
+          <variable line="1518" name="tmp" />
+          <variable line="1516" name="label_side" />
+          <variable citdl="LabeledScale" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="to" />
+          <variable ilk="argument" name="master" />
+          <variable ilk="argument" name="variable" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="int" ilk="argument" name="from_" />
+          <variable line="1515" name="scale_side" />
+        </scope>
+        <variable attributes="private __instancevar__" citdl="self._variable.trace_variable()" line="1522" name="__tracecb" />
+        <variable attributes="protected __instancevar__" citdl="Tkinter.IntVar()" line="1506" name="_variable" />
+        <variable attributes="protected __instancevar__" citdl="bool" line="1503" name="_label_top" />
+        <variable citdl="int" line="1576" name="value" />
+        <variable attributes="__instancevar__" citdl="Label" line="1510" name="label" />
+        <variable attributes="__instancevar__" citdl="Scale" line="1511" name="scale" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1508" name="_last_valid" />
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Labelframe widget is a container used to group other widgets&#10;together. It has an optional label, which may be a plain text string or another widget." ilk="class" line="783" lineend="799" name="Labelframe">
+        <scope doc="Construct a Ttk Labelframe with parent master." ilk="function" line="788" lineend="799" name="__init__" signature="Labelframe(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Labelframe" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Menubutton widget displays a textual label and/or image, and&#10;displays a menu when pressed." ilk="class" line="804" lineend="820" name="Menubutton">
+        <scope doc="Construct a Ttk Menubutton with parent master." ilk="function" line="808" lineend="820" name="__init__" signature="Menubutton(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Menubutton" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Notebook widget manages a collection of windows and displays&#10;a single one at a time. Each child window is associated with a tab, which the user may select to change the currently-displayed window." ilk="class" line="823" lineend="953" name="Notebook">
+        <scope doc="Returns the numeric index of the tab specified by tab_id, or&#10;the total number of tabs if tab_id is the string &quot;end&quot;." ilk="function" line="889" lineend="892" name="index" returns="self.tk.call()" signature="index(tab_id)">
+          <variable ilk="argument" name="tab_id" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Hides the tab specified by tab_id." ilk="function" line="874" lineend="880" name="hide" signature="hide(tab_id)">
+          <variable ilk="argument" name="tab_id" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Removes the tab specified by tab_id, unmaps and unmanages&#10;the associated window." ilk="function" line="868" lineend="871" name="forget" signature="forget(tab_id)">
+          <variable ilk="argument" name="tab_id" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Enable keyboard traversal for a toplevel window containing&#10;this notebook." ilk="function" line="930" lineend="953" name="enable_traversal" signature="enable_traversal()">
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Inserts a pane at the specified position." ilk="function" line="895" lineend="901" name="insert" signature="insert(pos, child, **kw)">
+          <variable citdl="Notebook" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="pos" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Returns a list of windows managed by the notebook." ilk="function" line="925" lineend="927" name="tabs" returns="tuple" signature="tabs()">
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Adds a new tab to the notebook." ilk="function" line="860" lineend="865" name="add" signature="add(child, **kw)">
+          <variable citdl="Notebook" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Returns the name of the tab element at position x, y, or the&#10;empty string if none." ilk="function" line="883" lineend="886" name="identify" returns="self.tk.call()" signature="identify(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Selects the specified tab." ilk="function" line="904" lineend="911" name="select" returns="self.tk.call()" signature="select(tab_id=None)">
+          <variable ilk="argument" name="tab_id" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Query or modify the options of the specific tab_id." ilk="function" line="914" lineend="922" name="tab" returns="_val_or_dict()" signature="tab(tab_id, option=None, **kw)">
+          <variable ilk="argument" name="tab_id" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Construct a Ttk Notebook with parent master." ilk="function" line="828" lineend="857" name="__init__" signature="Notebook(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Notebook" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Menubutton" doc="Themed OptionMenu, based after Tkinter's OptionMenu, which allows&#10;the user to select a value from a menu." ilk="class" line="1579" lineend="1635" name="OptionMenu">
+        <scope ilk="function" line="1612" lineend="1616" name="__getitem__" returns="Menubutton.__getitem__()" signature="__getitem__(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="OptionMenu" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Build a new menu of radiobuttons with *values and optionally&#10;a default value." ilk="function" line="1619" lineend="1629" name="set_menu" signature="set_menu(default=None, *values)">
+          <variable ilk="argument" name="default" />
+          <variable line="1622" name="menu" />
+          <variable citdl="OptionMenu" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="values" />
+        </scope>
+        <scope doc="Destroy this widget and its associated variable." ilk="function" line="1632" lineend="1635" name="destroy" signature="destroy()">
+          <variable citdl="OptionMenu" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a themed OptionMenu widget with master as the&#10;parent, the resource textvariable set to variable, the&#10;initially selected value specified by the default parameter,&#10;the menu values given by *values and additional keywords." ilk="function" line="1583" lineend="1609" name="__init__" signature="OptionMenu(master, variable, default=None, *values, **kwargs)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="OptionMenu" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="variable" />
+          <variable attributes="varargs" ilk="argument" name="values" />
+          <variable citdl="dict" line="1598" name="kw" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="kwargs.pop()" line="1604" name="_callback" />
+        <variable attributes="protected __instancevar__" line="1603" name="_variable" />
+      </scope>
+      <scope classrefs="Widget PanedWindow" doc="Ttk Panedwindow widget displays a number of subwindows, stacked&#10;either vertically or horizontally." ilk="class" line="1012" name="PanedWindow">
+        <scope doc="Inserts a pane at the specified positions." ilk="function" name="insert" />
+        <scope doc="Remove the pane containing child from the panedwindow" ilk="function" name="forget" />
+        <scope doc="If newpos is specified, sets the position of sash number&#10;index." ilk="function" name="sashpos" />
+        <scope doc="Query or modify the options of the specified pane." ilk="function" name="pane" />
+        <scope doc="Construct a Ttk Panedwindow with parent master." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Widget PanedWindow" doc="Ttk Panedwindow widget displays a number of subwindows, stacked&#10;either vertically or horizontally." ilk="class" line="956" lineend="1010" name="Panedwindow">
+        <scope doc="Inserts a pane at the specified positions." ilk="function" line="981" lineend="987" name="insert" signature="insert(pos, child, **kw)">
+          <variable citdl="Panedwindow" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="pos" />
+          <variable ilk="argument" name="child" />
+        </scope>
+        <scope doc="Remove the pane containing child from the panedwindow" ilk="function" line="978" name="forget" />
+        <scope doc="If newpos is specified, sets the position of sash number&#10;index." ilk="function" line="1002" lineend="1010" name="sashpos" returns="self.tk.call()" signature="sashpos(index, newpos=None)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="Panedwindow" ilk="argument" name="self" />
+          <variable ilk="argument" name="newpos" />
+        </scope>
+        <scope doc="Query or modify the options of the specified pane." ilk="function" line="990" lineend="999" name="pane" returns="_val_or_dict()" signature="pane(pane, option=None, **kw)">
+          <variable citdl="Panedwindow" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="pane" />
+        </scope>
+        <scope doc="Construct a Ttk Panedwindow with parent master." ilk="function" line="960" lineend="975" name="__init__" signature="Panedwindow(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Panedwindow" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Progressbar widget shows the status of a long-running&#10;operation. They can operate in two modes: determinate mode shows the amount completed relative to the total amount of work to be done, and indeterminate mode provides an animated display to let the user know that something is happening." ilk="class" line="1015" lineend="1054" name="Progressbar">
+        <scope doc="Stop autoincrement mode: cancels any recurring timer event&#10;initiated by start." ilk="function" line="1051" lineend="1054" name="stop" signature="stop()">
+          <variable citdl="Progressbar" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Begin autoincrement mode: schedules a recurring timer event&#10;that calls method step every interval milliseconds." ilk="function" line="1036" lineend="1041" name="start" signature="start(interval=None)">
+          <variable citdl="Progressbar" ilk="argument" name="self" />
+          <variable ilk="argument" name="interval" />
+        </scope>
+        <scope doc="Increments the value option by amount." ilk="function" line="1044" lineend="1048" name="step" signature="step(amount=None)">
+          <variable citdl="Progressbar" ilk="argument" name="self" />
+          <variable ilk="argument" name="amount" />
+        </scope>
+        <scope doc="Construct a Ttk Progressbar with parent master." ilk="function" line="1022" lineend="1033" name="__init__" signature="Progressbar(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Progressbar" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Radiobutton widgets are used in groups to show or change a&#10;set of mutually-exclusive options." ilk="class" line="1057" lineend="1082" name="Radiobutton">
+        <scope doc="Sets the option variable to the option value, selects the&#10;widget, and invokes the associated command." ilk="function" line="1076" lineend="1082" name="invoke" returns="self.tk.call()" signature="invoke()">
+          <variable citdl="Radiobutton" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a Ttk Radiobutton with parent master." ilk="function" line="1061" lineend="1073" name="__init__" signature="Radiobutton(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Radiobutton" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget Scale" doc="Ttk Scale widget is typically used to control the numeric value of&#10;a linked variable that varies uniformly over some range." ilk="class" line="1085" lineend="1121" name="Scale">
+        <scope doc="Get the current value of the value option, or the value&#10;corresponding to the coordinates x, y if they are specified." ilk="function" line="1115" lineend="1121" name="get" returns="self.tk.call()" signature="get(x=None, y=None)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Scale" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a Ttk Scale with parent master." ilk="function" line="1089" lineend="1100" name="__init__" signature="Scale(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Scale" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+        <scope doc="Modify or query scale options." ilk="function" line="1103" lineend="1112" name="configure" signature="configure(cnf=None, **kw)">
+          <variable ilk="argument" name="cnf" />
+          <variable citdl="Scale" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget Scrollbar" doc="Ttk Scrollbar controls the viewport of a scrollable widget.&#10;" ilk="class" line="1124" lineend="1138" name="Scrollbar">
+        <scope doc="Construct a Ttk Scrollbar with parent master." ilk="function" line="1127" lineend="1138" name="__init__" signature="Scrollbar(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Scrollbar" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Separator widget displays a horizontal or vertical separator&#10;bar." ilk="class" line="1141" lineend="1156" name="Separator">
+        <scope doc="Construct a Ttk Separator with parent master." ilk="function" line="1145" lineend="1156" name="__init__" signature="Separator(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Separator" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Ttk Sizegrip allows the user to resize the containing toplevel&#10;window by pressing and dragging the grip." ilk="class" line="1159" lineend="1170" name="Sizegrip">
+        <scope doc="Construct a Ttk Sizegrip with parent master." ilk="function" line="1163" lineend="1170" name="__init__" signature="Sizegrip(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Sizegrip" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="Manipulate style database.&#10;" ilk="class" line="369" lineend="530" name="Style">
+        <scope doc="Query or sets dynamic values of the specified option(s) in&#10;style." ilk="function" line="396" lineend="409" name="map" returns="_list_from_statespec()" signature="map(style, query_opt=None, **kw)">
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="query_opt" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="style" />
+        </scope>
+        <scope doc="Define the widget layout for given style." ilk="function" line="424" lineend="464" name="layout" returns="_list_from_layouttuple()" signature="layout(style, layoutspec=None)">
+          <variable citdl="str" line="456" name="lspec" />
+          <variable ilk="argument" name="layoutspec" />
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="style" />
+        </scope>
+        <scope doc="Query or sets the default value of the specified option(s)&#10;in style." ilk="function" line="385" lineend="393" name="configure" returns="_val_or_dict()" signature="configure(style, query_opt=None, **kw)">
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="query_opt" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="style" />
+        </scope>
+        <scope doc="Create a new element in the current theme of given etype." ilk="function" line="467" lineend="471" name="element_create" signature="element_create(elementname, etype, *args, **kw)">
+          <variable ilk="argument" name="elementname" />
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="etype" />
+          <variable line="469" name="spec" />
+          <variable line="469" name="opts" />
+        </scope>
+        <scope doc="Returns the list of elements defined in the current theme." ilk="function" line="474" lineend="476" name="element_names" returns="self.tk.call()" signature="element_names()">
+          <variable citdl="Style" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If themename is None, returns the theme in use, otherwise,&#10;set the current theme to themename, refreshes all widgets&#10;and emits a &lt;&lt;ThemeChanged&gt;&gt; event." ilk="function" line="518" lineend="530" name="theme_use" returns="self.tk.eval()" signature="theme_use(themename=None)">
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="themename" />
+        </scope>
+        <scope doc="Temporarily sets the current theme to themename, apply&#10;specified settings and then restore the previous theme." ilk="function" line="501" lineend="510" name="theme_settings" signature="theme_settings(themename, settings)">
+          <variable citdl="_script_from_settings()" line="509" name="script" />
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="themename" />
+          <variable ilk="argument" name="settings" />
+        </scope>
+        <scope doc="Creates a new theme." ilk="function" line="484" lineend="498" name="theme_create" signature="theme_create(themename, parent=None, settings=None)">
+          <variable line="491" name="script" />
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="themename" />
+          <variable ilk="argument" name="parent" />
+          <variable ilk="argument" name="settings" />
+        </scope>
+        <scope doc="Return the list of elementname's options." ilk="function" line="479" lineend="481" name="element_options" returns="self.tk.call()" signature="element_options(elementname)">
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="elementname" />
+        </scope>
+        <scope doc="Returns the value specified for option in style." ilk="function" line="412" lineend="421" name="lookup" returns="self.tk.call()" signature="lookup(style, option, state=None, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable ilk="argument" name="style" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope doc="Returns a list of all known themes." ilk="function" line="513" lineend="515" name="theme_names" returns="self.tk.call()" signature="theme_names()">
+          <variable citdl="Style" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="374" lineend="382" name="__init__" signature="Style(master=None)">
+          <variable citdl="Style" ilk="argument" name="self" />
+          <variable citdl="setup_master()" ilk="argument" name="master" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="setup_master()" line="381" name="master" />
+        <variable attributes="__instancevar__" citdl="self.master.tk" line="382" name="tk" />
+        <variable attributes="protected" citdl="str" line="372" name="_name" />
+      </scope>
+      <import module="Tkinter" />
+      <scope classrefs="Widget XView YView" doc="Ttk Treeview widget displays a hierarchical collection of items.&#10;Each item has a textual label, an optional image, and an optional list of data values. The data values are displayed in successive columns after the tree label." ilk="class" line="1173" lineend="1480" name="Treeview">
+        <scope doc="Replaces item's child with newchildren." ilk="function" line="1220" lineend="1226" name="set_children" signature="set_children(item, *newchildren)">
+          <variable attributes="varargs" ilk="argument" name="newchildren" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If selop is not specified, returns selected items." ilk="function" line="1417" lineend="1419" name="selection" returns="self.tk.call()" signature="selection(selop=None, items=None)">
+          <variable ilk="argument" name="selop" />
+          <variable ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns True if the specified item is present in the three,&#10;False otherwise." ilk="function" line="1255" lineend="1258" name="exists" returns="bool()" signature="exists(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Moves item to position index in parent's list of children." ilk="function" line="1378" lineend="1385" name="move" signature="move(item, parent, index)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+          <variable ilk="argument" name="index" />
+        </scope>
+        <scope doc="Query or modify the options for the specified tagname." ilk="function" line="1461" lineend="1471" name="tag_configure" returns="_val_or_dict()" signature="tag_configure(tagname, option=None, **kw)">
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="tagname" />
+        </scope>
+        <scope doc="Returns the element at position x, y." ilk="function" line="1330" lineend="1334" name="identify_element" returns="Treeview.identify()" signature="identify_element(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Ensure that item is visible." ilk="function" line="1408" lineend="1414" name="see" signature="see(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="With one argument, returns a dictionary of column/value&#10;pairs for the specified item." ilk="function" line="1442" lineend="1451" name="set" returns="self.tk.call()" signature="set(item, column=None, value=None)">
+          <variable ilk="argument" name="column" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="self.tk.call()" line="1447" name="res" />
+        </scope>
+        <scope doc="Returns a description of the specified component under the&#10;point given by x and y, or the empty string if no such&#10;component is present at that position." ilk="function" line="1299" lineend="1303" name="identify" returns="self.tk.call()" signature="identify(component, x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="component" />
+        </scope>
+        <scope doc="Returns the data column identifier of the cell at position&#10;x." ilk="function" line="1311" lineend="1315" name="identify_column" returns="Treeview.identify()" signature="identify_column(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add items to the selection." ilk="function" line="1427" lineend="1429" name="selection_add" signature="selection_add(items)">
+          <variable ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a Ttk Treeview with parent master." ilk="function" line="1180" lineend="1200" name="__init__" signature="Treeview(master=None, **kw)">
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="master" />
+        </scope>
+        <scope doc="Returns the integer index of item within its parent's list&#10;of children." ilk="function" line="1337" lineend="1340" name="index" returns="self.tk.call()" signature="index(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove items from the selection." ilk="function" line="1432" lineend="1434" name="selection_remove" signature="selection_remove(items)">
+          <variable ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="items becomes the new selection." ilk="function" line="1422" lineend="1424" name="selection_set" signature="selection_set(items)">
+          <variable ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bind a callback for the given event sequence to the tag&#10;tagname." ilk="function" line="1454" lineend="1458" name="tag_bind" signature="tag_bind(tagname, sequence=None, callback=None)">
+          <variable ilk="argument" name="callback" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="tagname" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope doc="Toggle the selection state of each item in items." ilk="function" line="1437" lineend="1439" name="selection_toggle" signature="selection_toggle(items)">
+          <variable ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns a tuple of children belonging to item." ilk="function" line="1213" lineend="1217" name="get_children" returns="tuple" signature="get_children(item=None)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the identifier of item's next sibling, or '' if item&#10;is the last child of its parent." ilk="function" line="1390" lineend="1393" name="next" returns="self.tk.call()" signature="next(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the item ID of the item at position y." ilk="function" line="1306" lineend="1308" name="identify_row" returns="Treeview.identify()" signature="identify_row(y)">
+          <variable ilk="argument" name="y" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the identifier of item's previous sibling, or '' if&#10;item is the first child of its parent." ilk="function" line="1402" lineend="1405" name="prev" returns="self.tk.call()" signature="prev(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Moves item to position index in parent's list of children." ilk="function" line="1387" name="reattach" />
+        <scope doc="Returns the ID of the parent of item, or '' if item is at&#10;the top level of the hierarchy." ilk="function" line="1396" lineend="1399" name="parent" returns="self.tk.call()" signature="parent(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If item is specified, sets the focus item to item." ilk="function" line="1261" lineend="1264" name="focus" returns="self.tk.call()" signature="focus(item=None)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns the bounding box (relative to the treeview widget's&#10;window) of the specified item in the form x y width height." ilk="function" line="1203" lineend="1210" name="bbox" returns="self.tk.call()" signature="bbox(item, column=None)">
+          <variable ilk="argument" name="column" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Unlinks all of the specified items from the tree." ilk="function" line="1246" lineend="1252" name="detach" signature="detach(*items)">
+          <variable attributes="varargs" ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns one of:" ilk="function" line="1318" lineend="1327" name="identify_region" returns="Treeview.identify()" signature="identify_region(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If item is specified, returns 1 or 0 depending on whether&#10;the specified item has the given tagname." ilk="function" line="1474" lineend="1480" name="tag_has" returns="self.tk.call()" signature="tag_has(tagname, item=None)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="tagname" />
+        </scope>
+        <scope doc="Creates a new item and return the item identifier of the&#10;newly created item." ilk="function" line="1343" lineend="1363" name="insert" returns="self.tk.call()" signature="insert(parent, index, iid=None, **kw)">
+          <variable ilk="argument" name="index" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="self.tk.call()" line="1358" name="res" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable ilk="argument" name="iid" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="_format_optdict()" line="1356" name="opts" />
+        </scope>
+        <scope doc="Query or modify the options for the specified column." ilk="function" line="1229" lineend="1237" name="column" returns="_val_or_dict()" signature="column(column, option=None, **kw)">
+          <variable ilk="argument" name="column" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Query or modify the options for the specified item." ilk="function" line="1366" lineend="1375" name="item" returns="_val_or_dict()" signature="item(item, option=None, **kw)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Query or modify the heading options for the specified&#10;column." ilk="function" line="1267" lineend="1296" name="heading" returns="_val_or_dict()" signature="heading(column, option=None, **kw)">
+          <variable ilk="argument" name="column" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+          <variable citdl="kw.get()" line="1288" name="cmd" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Delete all specified items and all their descendants." ilk="function" line="1240" lineend="1243" name="delete" signature="delete(*items)">
+          <variable attributes="varargs" ilk="argument" name="items" />
+          <variable citdl="Treeview" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="Widget" doc="Base class for Tk themed widgets.&#10;" ilk="class" line="533" lineend="595" name="Widget">
+        <scope doc="Modify or inquire widget state." ilk="function" line="585" lineend="595" name="state" returns="self.tk.splitlist()" signature="state(statespec=None)">
+          <variable citdl="Widget" ilk="argument" name="self" />
+          <variable citdl="str.join()" ilk="argument" name="statespec" />
+        </scope>
+        <scope doc="Returns the name of the element at position x, y, or the&#10;empty string if the point does not lie within any element." ilk="function" line="563" lineend="568" name="identify" returns="self.tk.call()" signature="identify(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Widget" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Test the widget's state." ilk="function" line="571" lineend="582" name="instate" returns="bool()" signature="instate(statespec, callback=None, *args, **kw)">
+          <variable citdl="Widget" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="self.tk.call()" line="578" name="ret" />
+          <variable ilk="argument" name="callback" />
+          <variable ilk="argument" name="statespec" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope doc="Constructs a Ttk Widget with the parent master." ilk="function" line="536" lineend="560" name="__init__" signature="Widget(master, widgetname, kw=None)">
+          <variable ilk="argument" name="kw" />
+          <variable citdl="Widget" ilk="argument" name="self" />
+          <variable citdl="setup_master()" ilk="argument" name="master" />
+          <variable ilk="argument" name="widgetname" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="19" name="__all__" />
+      <variable citdl="str" line="17" name="__author__" />
+      <variable citdl="str" line="15" name="__version__" />
+      <scope doc="If master is not None, itself is returned." ilk="function" line="352" lineend="366" name="setup_master" returns="Tkinter.Tk()" signature="setup_master(master=None)">
+        <variable citdl="Tkinter._default_root" ilk="argument" name="master" />
+      </scope>
+      <scope doc="Returns adict with its values converted from Tcl objects to&#10;Python objects." ilk="function" line="335" lineend="350" name="tclobjs_to_py" signature="tclobjs_to_py(adict)">
+        <variable ilk="argument" name="adict" />
+        <variable citdl="_convert_stringval()" line="341" name="val" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Construct a list from the given statespec tuple according to&#10;the accepted statespec accepted by _format_mapdict." ilk="function" line="265" lineend="280" name="_list_from_statespec" returns="list" signature="_list_from_statespec(stuple)">
+        <variable ilk="argument" name="stuple" />
+        <variable citdl="list" line="268" name="nval" />
+        <variable citdl="getattr()" line="270" name="typename" />
+        <variable citdl="str()" line="274" name="val" />
+        <variable citdl="iter()" line="279" name="it" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Formats a layout list so we can pass the result to&#10;ttk::style layout and ttk::style settings." ilk="function" line="159" lineend="206" name="_format_layoutlist" returns="tuple" signature="_format_layoutlist(layout, indent=0, indent_size=2)">
+        <variable ilk="argument" name="layout" />
+        <variable citdl="int" ilk="argument" name="indent" />
+        <variable citdl="int" ilk="argument" name="indent_size" />
+        <variable citdl="list" line="187" name="script" />
+        <variable citdl="dict" line="191" name="opts" />
+        <variable citdl="str.join()" line="192" name="fopts" />
+        <variable citdl="str" line="193" name="head" />
+        <variable line="198" name="newscript" />
+      </scope>
+      <variable attributes="protected __hidden__" line="33" name="_REQUIRE_TILE" />
+      <scope attributes="protected __hidden__" doc="Converts a value to, hopefully, a more appropriate Python&#10;object." ilk="function" line="325" lineend="333" name="_convert_stringval" returns="int()" signature="_convert_stringval(value)">
+        <variable citdl="unicode()" ilk="argument" name="value" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="35" lineend="48" name="_load_tile" signature="_load_tile(master)">
+        <import line="37" module="os" />
+        <variable ilk="argument" name="master" />
+        <variable citdl="os.environ.get()" line="38" name="tilelib" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Construct a list from the tuple returned by ttk::layout,&#10;this is somewhat the reverse of _format_layoutlist." ilk="function" line="282" lineend="307" name="_list_from_layouttuple" returns="list" signature="_list_from_layouttuple(ltuple)">
+        <variable ilk="argument" name="ltuple" />
+        <variable citdl="list" line="285" name="res" />
+        <variable citdl="int" line="287" name="indx" />
+        <variable line="289" name="name" />
+        <variable citdl="dict" line="290" name="opts" />
+        <variable citdl="list" line="299" name="opt" />
+        <variable citdl="()" line="303" name="val" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="Tkinter._flatten" line="30" name="_flatten" />
+      <scope attributes="protected __hidden__" doc="Break tuple in pairs, format it properly, then build the&#10;return dict." ilk="function" line="250" lineend="263" name="_dict_from_tcltuple" returns="tclobjs_to_py()" signature="_dict_from_tcltuple(ttuple, cut_minus=True)">
+        <variable ilk="argument" name="ttuple" />
+        <variable citdl="True" ilk="argument" name="cut_minus" />
+        <variable line="256" name="opt_start" />
+        <variable citdl="dict" line="258" name="retdict" />
+        <variable citdl="iter()" line="259" name="it" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Formats mapdict to pass it to tk.call." ilk="function" line="84" lineend="120" name="_format_mapdict" returns="_flatten()" signature="_format_mapdict(mapdict, script=False)">
+        <variable ilk="argument" name="mapdict" />
+        <variable citdl="False" ilk="argument" name="script" />
+        <variable line="95" name="format" />
+        <variable citdl="list" line="97" name="opts" />
+        <variable citdl="list" line="100" name="opt_val" />
+        <variable citdl="str" line="104" name="state" />
+        <variable citdl="str.join()" line="104" name="val" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Formats optdict to a tuple to pass it to tk.call." ilk="function" line="50" lineend="82" name="_format_optdict" returns="_flatten()" signature="_format_optdict(optdict, script=False, ignore=None)">
+        <variable ilk="argument" name="optdict" />
+        <variable citdl="False" ilk="argument" name="script" />
+        <variable ilk="argument" name="ignore" />
+        <variable line="56" name="format" />
+        <variable citdl="list" line="58" name="opts" />
+        <variable citdl="list" line="64" name="v" />
+        <variable citdl="str.join()" line="73" name="value" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Formats args and kw according to the given element factory&#10;etype." ilk="function" line="122" lineend="157" name="_format_elemcreate" returns="tuple" signature="_format_elemcreate(etype, script=False, *args, **kw)">
+        <variable ilk="argument" name="etype" />
+        <variable citdl="False" ilk="argument" name="script" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable citdl="str" line="124" name="spec" />
+        <variable citdl="tuple" line="125" name="opts" />
+        <variable line="129" name="iname" />
+        <variable line="132" name="imagespec" />
+        <variable line="141" name="statemap" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Returns an appropriate script, based on settings, according&#10;to theme_settings definition to be used by theme_settings&#10;and theme_create." ilk="function" line="208" lineend="248" name="_script_from_settings" returns="str.join()" signature="_script_from_settings(settings)">
+        <variable ilk="argument" name="settings" />
+        <variable citdl="list" line="212" name="script" />
+        <variable citdl="str.join()" line="218" name="s" />
+        <variable attributes="protected" line="229" name="_" />
+        <variable line="233" name="eopts" />
+        <variable line="234" name="etype" />
+        <variable citdl="int" line="237" name="argc" />
+        <variable citdl="list" line="241" name="elemargs" />
+        <variable line="242" name="elemkw" />
+        <variable line="243" name="spec" />
+        <variable line="243" name="opts" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Format options then call func with args and options and&#10;return the appropriate result." ilk="function" line="309" lineend="323" name="_val_or_dict" returns="func()" signature="_val_or_dict(options, func, *args)">
+        <variable citdl="_format_optdict()" ilk="argument" name="options" />
+        <variable ilk="argument" name="func" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable citdl="func()" line="318" name="res" />
+      </scope>
+    </scope>
+    

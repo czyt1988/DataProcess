@@ -1,0 +1,9 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="msilib.sequence">
+      <variable citdl="list" line="1" name="AdminExecuteSequence" />
+      <variable citdl="list" line="12" name="AdminUISequence" />
+      <variable citdl="list" line="22" name="AdvtExecuteSequence" />
+      <variable citdl="list" line="39" name="InstallExecuteSequence" />
+      <variable citdl="list" line="108" name="InstallUISequence" />
+      <variable citdl="list" line="126" name="tables" />
+    </scope>
+    

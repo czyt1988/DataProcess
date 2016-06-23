@@ -1,0 +1,117 @@
+<scope doc="This module provides access to operating system functionality that is&#10;standardized by the C Standard and the POSIX standard (a thinly disguised Unix interface).  Refer to the library manual and corresponding Unix manual entries for more information on calls." ilk="blob" lang="Python" name="nt">
+      <variable citdl="int" name="F_OK" />
+      <variable citdl="int" name="O_APPEND" />
+      <variable citdl="int" name="O_BINARY" />
+      <variable citdl="int" name="O_CREAT" />
+      <variable citdl="int" name="O_EXCL" />
+      <variable citdl="int" name="O_NOINHERIT" />
+      <variable citdl="int" name="O_RANDOM" />
+      <variable citdl="int" name="O_RDONLY" />
+      <variable citdl="int" name="O_RDWR" />
+      <variable citdl="int" name="O_SEQUENTIAL" />
+      <variable citdl="int" name="O_SHORT_LIVED" />
+      <variable citdl="int" name="O_TEMPORARY" />
+      <variable citdl="int" name="O_TEXT" />
+      <variable citdl="int" name="O_TRUNC" />
+      <variable citdl="int" name="O_WRONLY" />
+      <variable citdl="int" name="P_DETACH" />
+      <variable citdl="int" name="P_NOWAIT" />
+      <variable citdl="int" name="P_NOWAITO" />
+      <variable citdl="int" name="P_OVERLAY" />
+      <variable citdl="int" name="P_WAIT" />
+      <variable citdl="int" name="R_OK" />
+      <variable citdl="int" name="TMP_MAX" />
+      <variable citdl="int" name="W_OK" />
+      <variable citdl="int" name="X_OK" />
+      <scope doc="Abort the interpreter immediately." ilk="function" name="abort" signature="abort() -&gt; does not return!" />
+      <scope doc="Use the real uid/gid to test for access to a path." ilk="function" name="access" returns="bool" signature="access(path, mode) -&gt; True if granted, False otherwise" />
+      <scope doc="Change the current working directory to the specified path." ilk="function" name="chdir" signature="chdir(path)" />
+      <scope doc="Change the access permissions of a file." ilk="function" name="chmod" signature="chmod(path, mode)" />
+      <scope doc="Close a file descriptor (for low level IO)." ilk="function" name="close" signature="close(fd)" />
+      <scope doc="Closes all file descriptors in [fd_low, fd_high), ignoring&#10;errors." ilk="function" name="closerange" signature="closerange(fd_low, fd_high)" />
+      <scope doc="Return a duplicate of a file descriptor." ilk="function" name="dup" signature="dup(fd) -&gt; fd2" />
+      <scope doc="Duplicate file descriptor." ilk="function" name="dup2" signature="dup2(old_fd, new_fd)" />
+      <variable citdl="dict" name="environ" />
+      <scope classrefs="EnvironmentError" doc="OS system call failed.&#10;" ilk="class" name="error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Execute an executable path with arguments, replacing current&#10;process." ilk="function" name="execv" signature="execv(path, args)" />
+      <scope doc="Execute a path with arguments and environment, replacing&#10;current process." ilk="function" name="execve" signature="execve(path, args, env)" />
+      <scope doc="Return an open file object connected to a file descriptor." ilk="function" name="fdopen" signature="fdopen(fd [, mode='r' [, bufsize]]) -&gt; file_object" />
+      <scope doc="Like stat(), but for an open file descriptor." ilk="function" name="fstat" signature="fstat(fd) -&gt; stat result" />
+      <scope doc="force write of file with filedescriptor to disk." ilk="function" name="fsync" signature="fsync(fildes)" />
+      <scope doc="Return a string representing the current working directory." ilk="function" name="getcwd" signature="getcwd() -&gt; path" />
+      <scope doc="Return a unicode string representing the current working&#10;directory." ilk="function" name="getcwdu" signature="getcwdu() -&gt; path" />
+      <scope doc="Return the current process id" ilk="function" name="getpid" signature="getpid() -&gt; pid" />
+      <scope doc="Return True if the file descriptor 'fd' is an open file&#10;descriptor connected to the slave end of a terminal." ilk="function" name="isatty" returns="bool" signature="isatty(fd) -&gt; bool" />
+      <scope doc="Kill a process with a signal." ilk="function" name="kill" signature="kill(pid, sig)" />
+      <scope doc="Return a list containing the names of the entries in the&#10;directory." ilk="function" name="listdir" signature="listdir(path) -&gt; list_of_strings" />
+      <scope doc="Set the current position of a file descriptor." ilk="function" name="lseek" signature="lseek(fd, pos, how) -&gt; newpos" />
+      <scope doc="Like stat(path), but do not follow symbolic links." ilk="function" name="lstat" signature="lstat(path) -&gt; stat result" />
+      <scope doc="Create a directory." ilk="function" name="mkdir" signature="mkdir(path [, mode=0777])" />
+      <scope doc="Open a file (for low level IO)." ilk="function" name="open" signature="open(filename, flag [, mode=0777]) -&gt; fd" />
+      <scope doc="Create a pipe." ilk="function" name="pipe" signature="pipe() -&gt; (read_end, write_end)" />
+      <scope doc="Open a pipe to/from a command returning a file object." ilk="function" name="popen" signature="popen(command [, mode='r' [, bufsize]]) -&gt; pipe" />
+      <scope ilk="function" name="popen2" />
+      <scope ilk="function" name="popen3" />
+      <scope ilk="function" name="popen4" />
+      <scope doc="Change or add an environment variable." ilk="function" name="putenv" signature="putenv(key, value)" />
+      <scope doc="Read a file descriptor." ilk="function" name="read" returns="str" signature="read(fd, buffersize) -&gt; string" />
+      <scope doc="Remove a file (same as unlink(path))." ilk="function" name="remove" signature="remove(path)" />
+      <scope doc="Rename a file or directory." ilk="function" name="rename" signature="rename(old, new)" />
+      <scope doc="Remove a directory." ilk="function" name="rmdir" signature="rmdir(path)" />
+      <scope doc="Execute the program 'path' in a new process." ilk="function" name="spawnv" signature="spawnv(mode, path, args)" />
+      <scope doc="Execute the program 'path' in a new process." ilk="function" name="spawnve" signature="spawnve(mode, path, args, env)" />
+      <scope doc="Start a file with its associated" ilk="function" name="startfile" signature="startfile(filepath [, operation])" />
+      <scope doc="Perform a stat system call on the given path." ilk="function" name="stat" signature="stat(path) -&gt; stat result" />
+      <scope doc="Determine whether os.[lf]stat represents time stamps as&#10;float objects." ilk="function" name="stat_float_times" signature="stat_float_times([newval]) -&gt; oldval" />
+      <scope classrefs="object" doc="stat_result: Result from stat or lstat.&#10;This object may be accessed either as a tuple of (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) or via the attributes st_mode, st_ino, st_dev, st_nlink, st_uid, and so on.  Posix/windows: If your platform supports st_blksize, st_blocks, st_rdev, or st_flags, they are available as attributes only.  See os.stat for more information." ilk="class" name="stat_result">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope classrefs="object" doc="statvfs_result: Result from statvfs or fstatvfs.&#10;This object may be accessed either as a tuple of (bsize, frsize, blocks, bfree, bavail, files, ffree, favail, flag, namemax), or via the attributes f_bsize, f_frsize, f_blocks, f_bfree, and so on.  See os.statvfs for more information." ilk="class" name="statvfs_result">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Translate an error code to a message string." ilk="function" name="strerror" returns="str" signature="strerror(code) -&gt; string" />
+      <scope doc="Execute the command (a string) in a subshell." ilk="function" name="system" signature="system(command) -&gt; exit_status" />
+      <scope doc="Return a unique name for a temporary file." ilk="function" name="tempnam" returns="str" signature="tempnam([dir[, prefix]]) -&gt; string" />
+      <scope doc="Return a tuple of floating point numbers indicating process&#10;times." ilk="function" name="times" signature="times() -&gt; (utime, stime, cutime, cstime, elapsed_time)" />
+      <scope doc="Create a temporary file with no directory entries." ilk="function" name="tmpfile" returns="file" signature="tmpfile() -&gt; file object" />
+      <scope doc="Return a unique name for a temporary file." ilk="function" name="tmpnam" returns="str" signature="tmpnam() -&gt; string" />
+      <scope doc="Set the current numeric umask and return the previous umask." ilk="function" name="umask" signature="umask(new_mask) -&gt; old_mask" />
+      <scope doc="Remove a file (same as remove(path))." ilk="function" name="unlink" signature="unlink(path)" />
+      <scope doc="Return a string of n random bytes suitable for cryptographic&#10;use." ilk="function" name="urandom" returns="str" signature="urandom(n) -&gt; str" />
+      <scope doc="Set the access and modified time of the file to the given&#10;values." ilk="function" name="utime" signature="utime(path, (atime, mtime))&#10;utime(path, None)" />
+      <scope doc="Wait for completion of a given process." ilk="function" name="waitpid" signature="waitpid(pid, options) -&gt; (pid, status &lt;&lt; 8)" />
+      <scope doc="Write a string to a file descriptor." ilk="function" name="write" signature="write(fd, string) -&gt; byteswritten" />
+    </scope>
+    

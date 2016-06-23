@@ -1,0 +1,61 @@
+<scope doc="distutils.dir_util&#10;Utility functions for manipulating directories and directory trees." ilk="blob" lang="Python" name="distutils.dir_util">
+      <scope classrefs="DistutilsError" doc="Any problems in the filesystem: expected file not found, etc.&#10;Typically this is for problems that we detect before IOError or OSError could be raised." ilk="class" name="DistutilsFileError" />
+      <scope classrefs="DistutilsError" doc="Internal inconsistencies or impossibilities (obviously, this&#10;should never be seen if the code is working!)." ilk="class" name="DistutilsInternalError" />
+      <variable citdl="str" line="5" name="__revision__" />
+      <scope doc="Copy an entire directory tree 'src' to a new location 'dst'." ilk="function" line="103" lineend="166" name="copy_tree" returns="list" signature="copy_tree(src, dst, preserve_mode=1, preserve_times=1, preserve_symlinks=0, update=0, verbose=1, dry_run=0)">
+        <variable ilk="argument" name="src" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="int" ilk="argument" name="preserve_times" />
+        <variable ilk="argument" name="dst" />
+        <variable citdl="int" ilk="argument" name="update" />
+        <variable citdl="os.readlink()" line="148" name="link_dest" />
+        <variable citdl="os.listdir()" line="130" name="names" />
+        <variable citdl="int" ilk="argument" name="preserve_symlinks" />
+        <variable citdl="list" line="141" name="outputs" />
+        <variable citdl="os.path.join()" line="144" name="src_name" />
+        <variable citdl="int" ilk="argument" name="preserve_mode" />
+        <variable citdl="os.path.join()" line="145" name="dst_name" />
+      </scope>
+      <scope doc="Create all the empty directories under 'base_dir' needed to&#10;put 'files' there." ilk="function" line="82" lineend="101" name="create_tree" signature="create_tree(base_dir, files, mode=511, verbose=1, dry_run=0)">
+        <variable ilk="argument" name="files" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="dict" line="93" name="need_dir" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable citdl="need_dir.keys()" line="96" name="need_dirs" />
+        <variable ilk="argument" name="base_dir" />
+      </scope>
+      <scope doc="Take the full path 'path', and make it a relative path." ilk="function" line="204" lineend="212" name="ensure_relative" returns="list" signature="ensure_relative(path)">
+        <variable citdl="list" ilk="argument" name="path" />
+        <variable line="209" name="drive" />
+      </scope>
+      <import module="errno" />
+      <import module="log" />
+      <scope doc="Create a directory and any missing ancestor directories." ilk="function" line="19" lineend="80" name="mkpath" returns="list" signature="mkpath(name, mode=511, verbose=1, dry_run=0)">
+        <variable citdl="os.path.join()" line="49" name="head" />
+        <variable citdl="list" line="43" name="created_dirs" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="os.path.abspath()" line="62" name="abs_head" />
+        <variable line="49" name="tail" />
+        <variable citdl="list" line="50" name="tails" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable citdl="os.path.normpath()" ilk="argument" name="name" />
+      </scope>
+      <import module="os" />
+      <scope doc="Recursively remove an entire directory tree." ilk="function" line="178" lineend="202" name="remove_tree" signature="remove_tree(directory, verbose=1, dry_run=0)">
+        <variable ilk="argument" name="directory" />
+        <variable citdl="os.path.abspath()" line="197" name="abspath" />
+        <variable citdl="list" line="191" name="cmdtuples" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Helper for remove_tree()." ilk="function" line="168" lineend="176" name="_build_cmdtuple" signature="_build_cmdtuple(path, cmdtuples)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="cmdtuples" />
+        <variable citdl="os.path.join()" line="171" name="real_f" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="14" name="_path_created" />
+    </scope>
+    

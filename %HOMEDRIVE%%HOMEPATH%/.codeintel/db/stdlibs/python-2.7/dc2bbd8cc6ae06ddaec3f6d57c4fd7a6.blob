@@ -1,0 +1,80 @@
+<scope doc="# tk common message boxes&#10;# # this module provides an interface to the native message boxes # available in Tk 4.2 and newer. # # written by Fredrik Lundh, May 1997 #" ilk="blob" lang="Python" name="tkMessageBox">
+      <variable citdl="str" line="45" name="ABORT" />
+      <variable citdl="str" line="37" name="ABORTRETRYIGNORE" />
+      <variable citdl="str" line="49" name="CANCEL" />
+      <scope doc="&#10;" ilk="class" name="Dialog">
+        <scope ilk="function" name="_fixoptions" />
+        <scope ilk="function" name="show" />
+        <scope ilk="function" name="_fixresult" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" line="31" name="ERROR" />
+      <variable citdl="str" line="47" name="IGNORE" />
+      <variable citdl="str" line="32" name="INFO" />
+      <scope classrefs="Dialog" doc="A message box&#10;" ilk="class" line="57" lineend="60" name="Message">
+        <variable citdl="str" line="60" name="command" />
+      </scope>
+      <variable citdl="str" line="51" name="NO" />
+      <variable citdl="str" line="38" name="OK" />
+      <variable citdl="str" line="39" name="OKCANCEL" />
+      <variable citdl="str" line="33" name="QUESTION" />
+      <variable citdl="str" line="46" name="RETRY" />
+      <variable citdl="str" line="40" name="RETRYCANCEL" />
+      <variable citdl="str" line="34" name="WARNING" />
+      <variable citdl="str" line="50" name="YES" />
+      <variable citdl="str" line="41" name="YESNO" />
+      <variable citdl="str" line="42" name="YESNOCANCEL" />
+      <scope doc="Ask if operation should proceed; return true if the answer&#10;is ok" ilk="function" line="97" lineend="100" name="askokcancel" returns="bool" signature="askokcancel(title=None, message=None, **options)">
+        <variable citdl="_show()" line="99" name="s" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Ask a question" ilk="function" line="93" lineend="95" name="askquestion" returns="_show()" signature="askquestion(title=None, message=None, **options)">
+        <variable ilk="argument" name="message" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Ask if operation should be retried; return true if the&#10;answer is yes" ilk="function" line="116" lineend="119" name="askretrycancel" returns="bool" signature="askretrycancel(title=None, message=None, **options)">
+        <variable citdl="_show()" line="118" name="s" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Ask a question; return true if the answer is yes" ilk="function" line="102" lineend="105" name="askyesno" returns="bool" signature="askyesno(title=None, message=None, **options)">
+        <variable citdl="_show()" line="104" name="s" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Ask a question; return true if the answer is yes, None if&#10;cancelled." ilk="function" line="107" lineend="114" name="askyesnocancel" returns="bool" signature="askyesnocancel(title=None, message=None, **options)">
+        <variable citdl="_show()" line="109" name="s" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Show an error message" ilk="function" line="89" lineend="91" name="showerror" returns="_show()" signature="showerror(title=None, message=None, **options)">
+        <variable ilk="argument" name="message" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Show an info message" ilk="function" line="81" lineend="83" name="showinfo" returns="_show()" signature="showinfo(title=None, message=None, **options)">
+        <variable ilk="argument" name="message" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope doc="Show a warning message" ilk="function" line="85" lineend="87" name="showwarning" returns="_show()" signature="showwarning(title=None, message=None, **options)">
+        <variable ilk="argument" name="message" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable ilk="argument" name="title" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="67" lineend="79" name="_show" returns="str" signature="_show(title=None, message=None, _icon=None, _type=None, **options)">
+        <variable ilk="argument" name="title" />
+        <variable ilk="argument" name="message" />
+        <variable ilk="argument" name="_icon" />
+        <variable ilk="argument" name="_type" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable line="72" name="res" />
+      </scope>
+    </scope>
+    

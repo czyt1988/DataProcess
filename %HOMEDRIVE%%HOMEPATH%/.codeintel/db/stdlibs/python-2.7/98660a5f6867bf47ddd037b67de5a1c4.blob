@@ -1,0 +1,106 @@
+<scope doc="W3C Document Object Model implementation for Python.&#10;The Python mapping of the Document Object Model is documented in the Python Library Reference in the section on the xml.dom package.  This package contains the following modules:  minidom -- A simple implementation of the Level 1 DOM with namespace support added (based on the Level 2 specification) and other minor Level 2 functionality.  pulldom -- DOM builder supporting on-demand tree-building for selected" ilk="blob" lang="Python" name="xml.dom">
+      <scope classrefs="Exception" doc="Abstract base class for DOM exceptions.&#10;Exceptions with specific codes are specializations of this class." ilk="class" line="61" lineend="72" name="DOMException">
+        <scope ilk="function" line="65" lineend="69" name="__init__" signature="DOMException(*args, **kw)">
+          <variable citdl="DOMException" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+        </scope>
+        <scope ilk="function" line="71" lineend="72" name="_get_code" returns="self.code" signature="_get_code()">
+          <variable citdl="DOMException" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <variable citdl="int" line="44" name="DOMSTRING_SIZE_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="78" lineend="79" name="DomstringSizeErr">
+        <variable citdl="int" line="79" name="code" />
+      </scope>
+      <variable citdl="NoneType" line="136" name="EMPTY_NAMESPACE" />
+      <variable citdl="NoneType" line="137" name="EMPTY_PREFIX" />
+      <variable citdl="int" line="45" name="HIERARCHY_REQUEST_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="81" lineend="82" name="HierarchyRequestErr">
+        <variable citdl="int" line="82" name="code" />
+      </scope>
+      <variable citdl="int" line="43" name="INDEX_SIZE_ERR" />
+      <variable citdl="int" line="52" name="INUSE_ATTRIBUTE_ERR" />
+      <variable citdl="int" line="57" name="INVALID_ACCESS_ERR" />
+      <variable citdl="int" line="47" name="INVALID_CHARACTER_ERR" />
+      <variable citdl="int" line="55" name="INVALID_MODIFICATION_ERR" />
+      <variable citdl="int" line="53" name="INVALID_STATE_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="75" lineend="76" name="IndexSizeErr">
+        <variable citdl="int" line="76" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="102" lineend="103" name="InuseAttributeErr">
+        <variable citdl="int" line="103" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="117" lineend="118" name="InvalidAccessErr">
+        <variable citdl="int" line="118" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="87" lineend="88" name="InvalidCharacterErr">
+        <variable citdl="int" line="88" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="111" lineend="112" name="InvalidModificationErr">
+        <variable citdl="int" line="112" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="105" lineend="106" name="InvalidStateErr">
+        <variable citdl="int" line="106" name="code" />
+      </scope>
+      <variable citdl="int" line="56" name="NAMESPACE_ERR" />
+      <variable citdl="int" line="50" name="NOT_FOUND_ERR" />
+      <variable citdl="int" line="51" name="NOT_SUPPORTED_ERR" />
+      <variable citdl="int" line="48" name="NO_DATA_ALLOWED_ERR" />
+      <variable citdl="int" line="49" name="NO_MODIFICATION_ALLOWED_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="114" lineend="115" name="NamespaceErr">
+        <variable citdl="int" line="115" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="90" lineend="91" name="NoDataAllowedErr">
+        <variable citdl="int" line="91" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="93" lineend="94" name="NoModificationAllowedErr">
+        <variable citdl="int" line="94" name="code" />
+      </scope>
+      <scope doc="Class giving the NodeType constants.&#10;" ilk="class" line="18" lineend="39" name="Node">
+        <variable citdl="int" line="35" name="COMMENT_NODE" />
+        <variable citdl="int" line="36" name="DOCUMENT_NODE" />
+        <variable citdl="int" line="37" name="DOCUMENT_TYPE_NODE" />
+        <variable citdl="int" line="34" name="PROCESSING_INSTRUCTION_NODE" />
+        <variable citdl="int" line="33" name="ENTITY_NODE" />
+        <variable citdl="int" line="31" name="CDATA_SECTION_NODE" />
+        <variable citdl="int" line="30" name="TEXT_NODE" />
+        <variable citdl="int" line="32" name="ENTITY_REFERENCE_NODE" />
+        <variable citdl="int" line="39" name="NOTATION_NODE" />
+        <variable citdl="int" line="29" name="ATTRIBUTE_NODE" />
+        <variable citdl="int" line="28" name="ELEMENT_NODE" />
+        <variable citdl="int" line="38" name="DOCUMENT_FRAGMENT_NODE" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="96" lineend="97" name="NotFoundErr">
+        <variable citdl="int" line="97" name="code" />
+      </scope>
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="99" lineend="100" name="NotSupportedErr">
+        <variable citdl="int" line="100" name="code" />
+      </scope>
+      <variable citdl="int" line="54" name="SYNTAX_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="108" lineend="109" name="SyntaxErr">
+        <variable citdl="int" line="109" name="code" />
+      </scope>
+      <scope doc="Class giving the operation constants for UserDataHandler.handle().&#10;" ilk="class" line="123" lineend="131" name="UserDataHandler">
+        <variable citdl="int" line="128" name="NODE_CLONED" />
+        <variable citdl="int" line="130" name="NODE_DELETED" />
+        <variable citdl="int" line="129" name="NODE_IMPORTED" />
+        <variable citdl="int" line="131" name="NODE_RENAMED" />
+      </scope>
+      <variable citdl="int" line="58" name="VALIDATION_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="120" lineend="121" name="ValidationErr">
+        <variable citdl="int" line="121" name="code" />
+      </scope>
+      <variable citdl="int" line="46" name="WRONG_DOCUMENT_ERR" />
+      <scope classrefs="DOMException" doc="&#10;" ilk="class" line="84" lineend="85" name="WrongDocumentErr">
+        <variable citdl="int" line="85" name="code" />
+      </scope>
+      <variable citdl="str" line="135" name="XHTML_NAMESPACE" />
+      <variable citdl="str" line="134" name="XMLNS_NAMESPACE" />
+      <variable citdl="str" line="133" name="XML_NAMESPACE" />
+      <import module="domreg" />
+      <scope doc="Return a suitable DOM implementation." ilk="function" name="getDOMImplementation" signature="getDOMImplementation(name = None, features = ()) -&gt; DOM implementation." />
+      <import module="minicompat" />
+      <scope doc="Register the factory function with the name." ilk="function" name="registerDOMImplementation" signature="registerDOMImplementation(name, factory)" />
+    </scope>
+    

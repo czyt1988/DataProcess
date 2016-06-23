@@ -1,0 +1,22 @@
+<scope doc="Safely evaluate Python string literals without using eval().&#10;" ilk="blob" lang="Python" name="lib2to3.pgen2.literals">
+      <scope ilk="function" line="19" lineend="38" name="escape" returns="chr()" signature="escape(m)">
+        <variable line="20" name="all" />
+        <variable citdl="int()" line="30" name="i" />
+        <variable ilk="argument" name="m" />
+        <variable citdl="list" line="26" name="hexes" />
+        <variable line="20" name="tail" />
+        <variable citdl="simple_escapes.get()" line="22" name="esc" />
+      </scope>
+      <scope ilk="function" line="40" lineend="48" name="evalString" returns="re.sub()" signature="evalString(s)">
+        <variable citdl="int" line="42" name="q" />
+        <variable citdl="list" ilk="argument" name="s" />
+      </scope>
+      <import module="re" />
+      <variable citdl="dict" line="8" name="simple_escapes" />
+      <scope ilk="function" line="50" lineend="56" name="test" signature="test()">
+        <variable citdl="chr()" line="52" name="c" />
+        <variable citdl="evalString()" line="54" name="e" />
+        <variable citdl="repr()" line="53" name="s" />
+      </scope>
+    </scope>
+    

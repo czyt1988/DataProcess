@@ -1,0 +1,66 @@
+<scope doc="Python wrapper for Expat parser.&#10;" ilk="blob" lang="Python" name="pyexpat">
+      <variable citdl="str" name="EXPAT_VERSION" />
+      <scope doc="Returns string error for given number." ilk="function" name="ErrorString" returns="str" signature="ErrorString(errno) -&gt; string" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ExpatError" />
+      <scope doc="Return a new XML parser object." ilk="function" name="ParserCreate" returns="xmlparser" signature="ParserCreate([encoding[, namespace_separator]]) -&gt; parser" />
+      <scope classrefs="object" doc="XML parser&#10;" ilk="class" name="XMLParserType" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_ALWAYS" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_NEVER" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_UNLESS_STANDALONE" />
+      <variable citdl="str" name="__version__" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <import module="errors" />
+      <variable citdl="PyCapsule" name="expat_CAPI" />
+      <variable citdl="list" name="features" />
+      <import module="model" />
+      <variable citdl="str" name="native_encoding" />
+      <variable citdl="tuple" name="version_info" />
+      <scope attributes="__hidden__" doc="XML parser&#10;" ilk="class" name="xmlparser">
+        <variable citdl="NoneType" name="AttlistDeclHandler" />
+        <variable citdl="NoneType" name="CharacterDataHandler" />
+        <variable citdl="NoneType" name="CommentHandler" />
+        <variable citdl="int" name="CurrentByteIndex" />
+        <variable citdl="int" name="CurrentColumnNumber" />
+        <variable citdl="int" name="CurrentLineNumber" />
+        <variable citdl="NoneType" name="DefaultHandler" />
+        <variable citdl="NoneType" name="DefaultHandlerExpand" />
+        <variable citdl="NoneType" name="ElementDeclHandler" />
+        <variable citdl="NoneType" name="EndCdataSectionHandler" />
+        <variable citdl="NoneType" name="EndDoctypeDeclHandler" />
+        <variable citdl="NoneType" name="EndElementHandler" />
+        <variable citdl="NoneType" name="EndNamespaceDeclHandler" />
+        <variable citdl="NoneType" name="EntityDeclHandler" />
+        <variable citdl="int" name="ErrorByteIndex" />
+        <variable citdl="int" name="ErrorCode" />
+        <variable citdl="int" name="ErrorColumnNumber" />
+        <variable citdl="int" name="ErrorLineNumber" />
+        <scope doc="Create a parser for parsing an external entity based on the&#10;information passed to the ExternalEntityRefHandler." ilk="function" name="ExternalEntityParserCreate" signature="ExternalEntityParserCreate(context[, encoding])" />
+        <variable citdl="NoneType" name="ExternalEntityRefHandler" />
+        <scope doc="Return base URL string for the parser." ilk="function" name="GetBase" signature="GetBase() -&gt; url" />
+        <scope doc="Return the untranslated text of the input that caused the&#10;current event." ilk="function" name="GetInputContext" returns="str" signature="GetInputContext() -&gt; string" />
+        <variable citdl="NoneType" name="NotStandaloneHandler" />
+        <variable citdl="NoneType" name="NotationDeclHandler" />
+        <scope doc="Parse XML data. `isfinal' should be true at end of input." ilk="function" name="Parse" signature="Parse(data[, isfinal])" />
+        <scope doc="Parse XML data from file-like object." ilk="function" name="ParseFile" signature="ParseFile(file)" />
+        <variable citdl="NoneType" name="ProcessingInstructionHandler" />
+        <scope doc="Set the base URL for the parser." ilk="function" name="SetBase" signature="SetBase(base_url)" />
+        <scope doc="Controls parsing of parameter entities (including the&#10;external DTD subset)." ilk="function" name="SetParamEntityParsing" signature="SetParamEntityParsing(flag) -&gt; success" />
+        <variable citdl="NoneType" name="SkippedEntityHandler" />
+        <variable citdl="NoneType" name="StartCdataSectionHandler" />
+        <variable citdl="NoneType" name="StartDoctypeDeclHandler" />
+        <variable citdl="NoneType" name="StartElementHandler" />
+        <variable citdl="NoneType" name="StartNamespaceDeclHandler" />
+        <variable citdl="NoneType" name="UnparsedEntityDeclHandler" />
+        <scope doc="Allows the application to provide an artificial external&#10;subset if one is not specified as part of the document&#10;instance." ilk="function" name="UseForeignDTD" signature="UseForeignDTD([flag])" />
+        <variable citdl="NoneType" name="XmlDeclHandler" />
+        <variable citdl="int" name="buffer_size" />
+        <variable citdl="bool" name="buffer_text" />
+        <variable citdl="int" name="buffer_used" />
+        <variable citdl="dict" name="intern" />
+        <variable citdl="bool" name="namespace_prefixes" />
+        <variable citdl="bool" name="ordered_attributes" />
+        <variable citdl="bool" name="returns_unicode" />
+        <variable citdl="bool" name="specified_attributes" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,22 @@
+<scope doc="distutils.dep_util&#10;Utility functions for simple, timestamp-based dependency of files and groups of files; also, function based entirely on such timestamp dependency analysis." ilk="blob" lang="Python" name="distutils.dep_util">
+      <scope classrefs="DistutilsError" doc="Any problems in the filesystem: expected file not found, etc.&#10;Typically this is for problems that we detect before IOError or OSError could be raised." ilk="class" name="DistutilsFileError" />
+      <variable citdl="str" line="7" name="__revision__" />
+      <scope doc="Tells if the target is newer than the source." ilk="function" line="12" lineend="30" name="newer" returns="bool" signature="newer(source, target)">
+        <variable ilk="argument" name="source" />
+        <variable ilk="argument" name="target" />
+      </scope>
+      <scope doc="Return true if 'target' is out-of-date with respect to any&#10;file listed in 'sources'." ilk="function" line="51" lineend="88" name="newer_group" returns="bool" signature="newer_group(sources, target, missing='error')">
+        <variable line="74" name="target_mtime" />
+        <variable ilk="argument" name="sources" />
+        <variable ilk="argument" name="target" />
+        <variable citdl="str" ilk="argument" name="missing" />
+      </scope>
+      <scope doc="Walk two filename lists in parallel, testing if each source&#10;is newer than its corresponding target." ilk="function" line="32" lineend="49" name="newer_pairwise" returns="tuple" signature="newer_pairwise(sources, targets)">
+        <variable citdl="list" line="42" name="n_sources" />
+        <variable ilk="argument" name="sources" />
+        <variable citdl="list" line="43" name="n_targets" />
+        <variable ilk="argument" name="targets" />
+      </scope>
+      <import module="os" />
+    </scope>
+    

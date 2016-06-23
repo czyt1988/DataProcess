@@ -1,0 +1,26 @@
+<scope doc="This is an interface to Python's internal parser.&#10;" ilk="blob" lang="Python" name="parser">
+      <scope classrefs="object" doc="Intermediate representation of a Python parse tree.&#10;" ilk="class" name="ASTType">
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ParserError" />
+      <scope classrefs="object" doc="Intermediate representation of a Python parse tree.&#10;" ilk="class" name="STType">
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+      </scope>
+      <variable citdl="str" name="__copyright__" />
+      <variable citdl="str" name="__version__" />
+      <scope doc="Creates a list-tree representation of an ST." ilk="function" name="ast2list" />
+      <scope doc="Creates a tuple-tree representation of an ST." ilk="function" name="ast2tuple" />
+      <scope doc="Compiles an ST object into a code object." ilk="function" name="compileast" />
+      <scope doc="Compiles an ST object into a code object." ilk="function" name="compilest" />
+      <scope doc="Creates an ST object from an expression." ilk="function" name="expr" />
+      <scope doc="Determines if an ST object was created from an expression." ilk="function" name="isexpr" />
+      <scope doc="Determines if an ST object was created from a suite." ilk="function" name="issuite" />
+      <scope doc="Creates an ST object from a tree representation." ilk="function" name="sequence2ast" />
+      <scope doc="Creates an ST object from a tree representation." ilk="function" name="sequence2st" />
+      <scope doc="Creates a list-tree representation of an ST." ilk="function" name="st2list" />
+      <scope doc="Creates a tuple-tree representation of an ST." ilk="function" name="st2tuple" />
+      <scope doc="Creates an ST object from a suite." ilk="function" name="suite" />
+      <scope doc="Creates an ST object from a tree representation." ilk="function" name="tuple2ast" />
+      <scope doc="Creates an ST object from a tree representation." ilk="function" name="tuple2st" />
+    </scope>
+    

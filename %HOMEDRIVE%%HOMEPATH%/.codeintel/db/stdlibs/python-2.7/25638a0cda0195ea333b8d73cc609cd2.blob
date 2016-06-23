@@ -1,0 +1,77 @@
+<scope doc="# Instant Python&#10;# $Id: tkFileDialog.py 36560 2004-07-18 06:16:08Z tim_one $ # # tk common file dialogues # # this module provides interfaces to the native file dialogues # available in Tk 4.2 and newer, and the directory dialogue available # in Tk 8.3 and newer. # # written by Fredrik Lundh, May 1997. #" ilk="blob" lang="Python" name="tkFileDialog">
+      <scope doc="&#10;" ilk="class" name="Dialog">
+        <scope ilk="function" name="_fixoptions" />
+        <scope ilk="function" name="show" />
+        <scope ilk="function" name="_fixresult" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="Dialog" doc="Ask for a directory&#10;" ilk="class" line="101" lineend="117" name="Directory">
+        <scope ilk="function" line="106" lineend="117" name="_fixresult" returns="result.string" signature="_fixresult(widget, result)">
+          <variable citdl="Directory" ilk="argument" name="self" />
+          <variable ilk="argument" name="widget" />
+          <variable citdl="result.string" ilk="argument" name="result" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="result.string" line="116" name="directory" />
+        <variable citdl="str" line="104" name="command" />
+      </scope>
+      <scope classrefs="_Dialog" doc="Ask for a filename to open&#10;" ilk="class" line="74" lineend="92" name="Open">
+        <scope ilk="function" line="79" lineend="92" name="_fixresult" returns="_Dialog._fixresult()" signature="_fixresult(widget, result)">
+          <variable line="85" name="path" />
+          <variable citdl="Open" ilk="argument" name="self" />
+          <variable ilk="argument" name="widget" />
+          <variable line="85" name="file" />
+          <variable citdl="tuple()" ilk="argument" name="result" />
+        </scope>
+        <variable citdl="str" line="77" name="command" />
+      </scope>
+      <scope classrefs="_Dialog" doc="Ask for a filename to save as&#10;" ilk="class" line="94" lineend="97" name="SaveAs">
+        <variable citdl="str" line="97" name="command" />
+      </scope>
+      <scope doc="Ask for a directory, and return the file name" ilk="function" line="176" lineend="178" name="askdirectory" signature="askdirectory(**options)">
+        <variable attributes="kwargs" ilk="argument" name="options" />
+      </scope>
+      <scope doc="Ask for a filename to open, and returned the opened file" ilk="function" line="143" lineend="149" name="askopenfile" returns="open()" signature="askopenfile(mode='r', **options)">
+        <variable line="146" name="filename" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <scope doc="Ask for a filename to open" ilk="function" line="122" lineend="125" name="askopenfilename" signature="askopenfilename(**options)">
+        <variable attributes="kwargs" ilk="argument" name="options" />
+      </scope>
+      <scope doc="Ask for multiple filenames to open" ilk="function" line="132" lineend="139" name="askopenfilenames" signature="askopenfilenames(**options)">
+        <variable attributes="kwargs" ilk="argument" name="options" />
+      </scope>
+      <scope doc="Ask for multiple filenames and return the open file objects" ilk="function" line="151" lineend="165" name="askopenfiles" returns="list" signature="askopenfiles(mode='r', **options)">
+        <variable citdl="askopenfilenames()" line="159" name="files" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable citdl="list" line="161" name="ofiles" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+      </scope>
+      <scope doc="Ask for a filename to save as, and returned the opened file" ilk="function" line="168" lineend="174" name="asksaveasfile" returns="open()" signature="asksaveasfile(mode='w', **options)">
+        <variable line="171" name="filename" />
+        <variable attributes="kwargs" ilk="argument" name="options" />
+        <variable citdl="str" ilk="argument" name="mode" />
+      </scope>
+      <scope doc="Ask for a filename to save as" ilk="function" line="127" lineend="130" name="asksaveasfilename" signature="asksaveasfilename(**options)">
+        <variable attributes="kwargs" ilk="argument" name="options" />
+      </scope>
+      <variable attributes="__hidden__" citdl="open()" line="204" name="fp" />
+      <variable attributes="__hidden__" citdl="locale.nl_langinfo()" line="189" name="enc" />
+      <scope attributes="protected __hidden__" classrefs="Dialog" ilk="class" line="45" lineend="68" name="_Dialog">
+        <scope attributes="protected" ilk="function" line="47" lineend="52" name="_fixoptions" signature="_fixoptions()">
+          <variable citdl="_Dialog" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="54" lineend="68" name="_fixresult" returns="result.string" signature="_fixresult(widget, result)">
+          <import line="57" module="os" />
+          <variable citdl="_Dialog" ilk="argument" name="self" />
+          <variable ilk="argument" name="widget" />
+          <variable citdl="result.string" ilk="argument" name="result" />
+          <variable line="64" name="path" />
+          <variable line="64" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="result.string" line="67" name="filename" />
+      </scope>
+      <variable attributes="__hidden__" citdl="asksaveasfilename()" line="214" name="saveasfilename" />
+      <variable attributes="__hidden__" citdl="askopenfilename()" line="202" name="openfilename" />
+    </scope>
+    

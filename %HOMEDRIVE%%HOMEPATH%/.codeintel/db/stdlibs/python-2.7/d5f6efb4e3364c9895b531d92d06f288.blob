@@ -1,0 +1,324 @@
+<scope doc="Rational, infinite-precision, real numbers.&#10;" ilk="blob" lang="Python" name="fractions">
+      <scope classrefs="object" doc="Floating point class for decimal arithmetic.&#10;" ilk="class" name="Decimal">
+        <scope doc="Converts self to an int, truncating if necessary." ilk="function" name="__int__" />
+        <scope doc="Return the adjusted exponent of self" ilk="function" name="adjusted" />
+        <scope doc="Just returns 10, as this is Decimal, :)" ilk="function" name="radix" />
+        <scope doc="Returns True if self is even. Assumes self is an integer." ilk="function" name="_iseven" />
+        <scope doc="Returns whether the number is not actually one." ilk="function" name="_check_nans" />
+        <scope doc="Version of _check_nans used for the signaling comparisons&#10;compare_signal, __le__, __lt__, __ge__, __gt__." ilk="function" name="_compare_check_nans" />
+        <scope doc="Return string representation of the number in scientific&#10;notation." ilk="function" name="__str__" />
+        <scope doc="Compares one to another." ilk="function" name="compare" />
+        <scope doc="Assumes that neither self nor other is a NaN, that self is&#10;not infinite and that other is nonzero." ilk="function" name="_divide" signature="Return (self // other, self % other), to context.prec precision." />
+        <scope doc="Compares self to the other operand numerically." ilk="function" name="compare_signal" />
+        <scope doc="Swaps self/other and returns __truediv__." ilk="function" name="__rtruediv__" />
+        <scope doc="Return other - self" ilk="function" name="__rsub__" />
+        <scope doc="Return the square root of self." ilk="function" name="sqrt" />
+        <scope doc="Returns self operand after adding the second value to its&#10;exp." ilk="function" name="scaleb" />
+        <scope doc="Swaps self/other and returns __truediv__." ilk="function" name="__rdiv__" />
+        <scope doc="Return self * other." ilk="function" name="__rmul__" />
+        <scope doc="Returns a copy with the sign switched." ilk="function" name="__neg__" />
+        <scope ilk="function" name="__lt__" />
+        <scope doc="Represents the number as a triple tuple." ilk="function" name="as_tuple" />
+        <scope doc="Float representation." ilk="function" name="__float__" />
+        <scope doc="Applies an 'xor' operation between self and other's digits." ilk="function" name="logical_xor" />
+        <scope doc="Return True if self and other have the same exponent;&#10;otherwise return False." ilk="function" name="same_quantum" />
+        <scope doc="Returns a copy, unless it is a sNaN." ilk="function" name="__pos__" />
+        <scope doc="Returns self with the sign of other." ilk="function" name="copy_sign" />
+        <scope ilk="function" name="_fill_logical" />
+        <scope doc="Rounds to the nearest integer, without raising inexact,&#10;rounded." ilk="function" name="to_integral" />
+        <scope doc="Returns the absolute value of self." ilk="function" name="__abs__" />
+        <scope doc="Swaps self/other and returns __floordiv__." ilk="function" name="__rfloordiv__" />
+        <scope doc="Return True if self is a logical operand." ilk="function" name="_islogical" />
+        <scope doc="Return True if self is a zero; otherwise return False." ilk="function" name="is_zero" />
+        <scope doc="Rounds up (not away from 0 if negative.)" ilk="function" name="_round_ceiling" />
+        <scope ilk="function" name="__eq__" />
+        <scope doc="Round if it is necessary to keep self within prec precision." ilk="function" name="_fix" />
+        <scope doc="Returns the base 10 logarithm of self." ilk="function" name="log10" />
+        <scope doc="Return True if self is subnormal; otherwise return False." ilk="function" name="is_subnormal" />
+        <scope doc="Fused multiply-add." ilk="function" name="fma" />
+        <scope doc="Attempt to compute self**other exactly." ilk="function" name="_power_exact" />
+        <scope doc="Compares self to other using the abstract representations." ilk="function" name="compare_total" />
+        <scope doc="Return True if self is infinite; otherwise return False." ilk="function" name="is_infinite" />
+        <scope doc="Rounds 5 up (away from 0)" ilk="function" name="_round_half_up" />
+        <scope ilk="function" name="__deepcopy__" />
+        <scope doc="Return self / other." ilk="function" name="__div__" />
+        <scope doc="Return self ** other [ % modulo]." ilk="function" name="__pow__" />
+        <scope ilk="function" name="__gt__" />
+        <scope doc="Remainder nearest to 0-  abs(remainder-near) &lt;= other/2" ilk="function" name="remainder_near" />
+        <scope doc="Compute a lower bound for the adjusted exponent of&#10;self.log10()." ilk="function" name="_log10_exp_bound" />
+        <scope doc="Return True if self is a quiet NaN; otherwise return False." ilk="function" name="is_qnan" />
+        <scope doc="Returns whether self is an integer" ilk="function" name="_isinteger" />
+        <scope doc="Represents the number as an instance of Decimal." ilk="function" name="__repr__" />
+        <scope doc="Returns a rotated copy of self, value-of-other times." ilk="function" name="rotate" />
+        <scope doc="Return True if self is nonzero; otherwise return False." ilk="function" name="__nonzero__" />
+        <scope doc="Rounds to the nearest integer, without raising inexact,&#10;rounded." ilk="function" name="to_integral_value" />
+        <scope doc="Rescale self so that the exponent is exp, either by padding&#10;with zeros or by truncating digits, using the given rounding&#10;mode." ilk="function" name="_rescale" />
+        <scope doc="Round a nonzero, nonspecial Decimal to a fixed number of&#10;significant figures, using the given rounding mode." ilk="function" name="_round" />
+        <scope doc="self % other" ilk="function" name="__mod__" />
+        <scope doc="Returns an indication of the class of self." ilk="function" name="number_class" />
+        <scope doc="Returns whether the number is not actually one." ilk="function" name="_isnan" />
+        <scope doc="Returns the smallest representable number larger than&#10;itself." ilk="function" name="next_plus" />
+        <scope doc="Returns the number closest to self, in the direction towards&#10;other." ilk="function" name="next_toward" />
+        <scope doc="Round 5 to even, rest to nearest." ilk="function" name="_round_half_even" />
+        <scope doc="self // other" ilk="function" name="__floordiv__" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return self - other" ilk="function" name="__sub__" />
+        <scope doc="Converts to a long." ilk="function" name="__long__" />
+        <scope ilk="function" name="__copy__" />
+        <scope ilk="function" name="__ge__" />
+        <scope doc="Return True if self is a normal number; otherwise return&#10;False." ilk="function" name="is_normal" />
+        <scope doc="Convert to engineering-type string." ilk="function" name="to_eng_string" />
+        <scope doc="Converts a float to a decimal number, exactly." ilk="function" name="from_float" />
+        <scope doc="# Support for pickling, copy, and deepcopy" ilk="function" name="__reduce__" />
+        <scope doc="Swaps self/other and returns __divmod__." ilk="function" name="__rdivmod__" />
+        <scope doc="Returns self + other." ilk="function" name="__radd__" />
+        <scope ilk="function" name="__complex__" />
+        <scope doc="Applies an 'or' operation between self and other's digits." ilk="function" name="logical_or" />
+        <scope doc="Return self / other." ilk="function" name="__truediv__" />
+        <scope doc="Returns the exponent of the magnitude of self's MSD." ilk="function" name="logb" />
+        <scope ilk="function" name="conjugate" />
+        <scope doc="Return True if self is a qNaN or sNaN; otherwise return&#10;False." ilk="function" name="is_nan" />
+        <scope doc="Round 5 down" ilk="function" name="_round_half_down" />
+        <scope doc="Returns a copy with the sign inverted." ilk="function" name="copy_negate" />
+        <scope doc="Swaps self/other and returns __mod__." ilk="function" name="__rmod__" />
+        <scope doc="Returns the same Decimal object." ilk="function" name="canonical" />
+        <scope doc="Normalize- strip trailing 0s, change anything equal to 0 to&#10;0e0" ilk="function" name="normalize" />
+        <scope doc="Round down unless digit prec-1 is 0 or 5." ilk="function" name="_round_05up" />
+        <scope doc="Create a decimal point instance." ilk="function" name="__new__" signature="__new__(cls, value='0', context=None)" />
+        <scope doc="Returns the smaller value." ilk="function" name="min" />
+        <scope doc="Format a Decimal instance according to the given specifier." ilk="function" name="__format__" />
+        <scope doc="Three argument version of __pow__" ilk="function" name="_power_modulo" />
+        <scope doc="Return True if self is negative; otherwise return False." ilk="function" name="is_signed" />
+        <scope doc="Compare the two non-NaN decimal instances self and other." ilk="function" name="_cmp" />
+        <scope ilk="function" name="__le__" />
+        <scope doc="Returns the largest representable number smaller than&#10;itself." ilk="function" name="next_minus" />
+        <scope doc="Return True if self is canonical; otherwise return False." ilk="function" name="is_canonical" />
+        <scope doc="Rounds down (not towards 0 if negative)" ilk="function" name="_round_floor" />
+        <scope ilk="function" name="__ne__" />
+        <scope doc="Return True if self is a signaling NaN; otherwise return&#10;False." ilk="function" name="is_snan" />
+        <scope doc="Returns the larger value." ilk="function" name="max" />
+        <scope doc="Return True if self is finite; otherwise return False." ilk="function" name="is_finite" />
+        <scope doc="Applies an 'and' operation between self and other's digits." ilk="function" name="logical_and" />
+        <scope doc="Rounds to a nearby integer." ilk="function" name="to_integral_exact" />
+        <scope doc="Return (self // other, self % other)" ilk="function" name="__divmod__" signature="Return (self // other, self % other)" />
+        <scope doc="Returns self + other." ilk="function" name="__add__" />
+        <scope doc="Compares the values numerically with their sign ignored." ilk="function" name="min_mag" />
+        <scope doc="Also known as round-towards-0, truncate." ilk="function" name="_round_down" />
+        <scope doc="Decapitate the payload of a NaN to fit the context" ilk="function" name="_fix_nan" />
+        <scope doc="Compares the values numerically with their sign ignored." ilk="function" name="max_mag" />
+        <scope doc="Converts self to an int, truncating if necessary." ilk="function" name="__trunc__" />
+        <scope doc="Returns a shifted copy of self, value-of-other times." ilk="function" name="shift" />
+        <scope doc="Compute a lower bound for the adjusted exponent of&#10;self.ln()." ilk="function" name="_ln_exp_bound" />
+        <scope doc="Invert all its digits." ilk="function" name="logical_invert" />
+        <scope doc="Quantize self so its exponent is the same as that of exp." ilk="function" name="quantize" />
+        <scope doc="Returns the natural (base e) logarithm of self." ilk="function" name="ln" />
+        <scope doc="Compares self to other using abstract repr., ignoring sign." ilk="function" name="compare_total_mag" />
+        <scope doc="Return self * other." ilk="function" name="__mul__" />
+        <scope doc="Returns e ** self." ilk="function" name="exp" />
+        <scope doc="Rounds away from 0." ilk="function" name="_round_up" />
+        <scope doc="Returns whether the number is infinite" ilk="function" name="_isinfinity" />
+        <scope doc="Returns a copy with the sign set to 0." ilk="function" name="copy_abs" />
+        <scope doc="Swaps self/other and returns __pow__." ilk="function" name="__rpow__" />
+      </scope>
+      <scope classrefs="Rational" doc="This class implements rational numbers.&#10;In the two-argument form of the constructor, Fraction(8, 6) will produce a rational number equivalent to 4/3. Both arguments must be Rational. The numerator defaults to 0 and the denominator defaults to 1 so that Fraction(3) == 3 and Fraction() == 0.  Fractions can also be constructed from:  - numeric strings similar to those accepted by the float constructor (for example, '-2.3' or '1e10') " ilk="class" line="44" lineend="605" name="Fraction">
+        <scope doc="a / b" ilk="function" line="414" name="__rtruediv__" />
+        <scope doc="Converts a finite float to a rational number, exactly." ilk="function" line="169" lineend="182" name="from_float" returns="Fraction.from_float.cls()" signature="from_float(f)">
+          <variable ilk="argument" name="f" />
+          <variable citdl="Fraction" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="a * b" ilk="function" line="403" lineend="405" name="_mul" returns="Fraction" signature="_mul(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="str(self)" ilk="function" line="273" lineend="278" name="__str__" returns="tuple" signature="str(self)">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="594" lineend="595" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+        </scope>
+        <scope doc="a + b" ilk="function" line="393" name="__radd__" />
+        <scope doc="a + b" ilk="function" line="387" lineend="391" name="_add" returns="Fraction" signature="_add(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a / b" ilk="function" line="414" name="__truediv__" />
+        <scope doc="Helper for comparison operators, for internal use only." ilk="function" line="546" lineend="570" name="_richcmp" returns="NotImplemented" signature="_richcmp(other, op)">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable ilk="argument" name="op" />
+        </scope>
+        <scope doc="a - b" ilk="function" line="401" name="__rsub__" />
+        <scope doc="a / b" ilk="function" line="415" name="__rdiv__" />
+        <scope doc="a * b" ilk="function" line="407" name="__rmul__" />
+        <scope doc="a % b" ilk="function" line="446" lineend="449" name="__rmod__" returns="Fraction" signature="__rmod__(a)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="int" line="448" name="div" />
+          <variable citdl="Fraction" ilk="argument" name="b" />
+        </scope>
+        <scope doc="a &lt; b" ilk="function" line="572" lineend="574" name="__lt__" returns="Fraction._richcmp()" signature="__lt__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a ** b" ilk="function" line="475" lineend="487" name="__rpow__" returns="Fraction" signature="__rpow__(a)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="Fraction" ilk="argument" name="b" />
+        </scope>
+        <scope doc="Constructs a Fraction." ilk="function" line="68" lineend="166" name="__new__" signature="__new__(cls, numerator=0, denominator=None)">
+          <variable citdl="len()" line="134" name="scale" />
+          <variable citdl="gcd()" line="163" name="g" />
+          <variable citdl="int()" ilk="argument" name="numerator" />
+          <variable line="99" name="self" />
+          <variable citdl="int" ilk="argument" name="denominator" />
+          <variable citdl="_RATIONAL_FORMAT.match()" line="122" name="m" />
+          <variable citdl="Fraction.from_decimal()" line="109" name="value" />
+          <variable citdl="m.group()" line="137" name="exp" />
+          <variable citdl="m.group()" line="127" name="denom" />
+          <variable citdl="m.group()" line="132" name="decimal" />
+          <variable citdl="Fraction" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="a * b" ilk="function" line="407" name="__mul__" />
+        <scope doc="abs(a)" ilk="function" line="497" lineend="499" name="__abs__" returns="Fraction" signature="abs(a)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope doc="Converts a finite Decimal instance to a rational number,&#10;exactly." ilk="function" line="185" lineend="204" name="from_decimal" returns="Fraction.from_decimal.cls()" signature="from_decimal(dec)">
+          <variable citdl="int()" line="197" name="digits" />
+          <variable citdl="Decimal()" ilk="argument" name="dec" />
+          <variable line="197" name="sign" />
+          <variable line="197" name="exp" />
+          <variable citdl="Fraction" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="+a: Coerces a subclass instance to Fraction" ilk="function" line="489" lineend="491" name="__pos__" returns="Fraction" signature="__pos__()">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope doc="a // b" ilk="function" line="429" lineend="439" name="__rfloordiv__" returns="math.floor()" signature="__rfloordiv__(a)">
+          <variable ilk="argument" name="a" />
+          <variable citdl="Fraction" line="432" name="div" />
+          <variable citdl="Fraction" ilk="argument" name="b" />
+        </scope>
+        <scope doc="-a" ilk="function" line="493" lineend="495" name="__neg__" returns="Fraction" signature="__neg__()">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope ilk="function" line="602" lineend="605" name="__deepcopy__" returns="Fraction" signature="__deepcopy__(memo)">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+          <variable ilk="argument" name="memo" />
+        </scope>
+        <scope doc="Generates forward and reverse operators given a purely-&#10;rational operator and a function from the operator module." ilk="function" line="280" lineend="385" name="_operator_fallbacks" returns="tuple" signature="_operator_fallbacks(fallback_operator)">
+          <variable ilk="argument" name="fallback_operator" />
+          <scope ilk="function" line="360" lineend="368" name="forward" returns="NotImplemented" signature="forward(a, b)">
+            <variable ilk="argument" name="a" />
+            <variable ilk="argument" name="b" />
+            <variable citdl="str" line="369" name="__name__" />
+            <variable citdl="monomorphic_operator.__doc__" line="370" name="__doc__" />
+          </scope>
+          <variable citdl="Fraction" ilk="argument" name="monomorphic_operator" />
+          <scope ilk="function" line="372" lineend="381" name="reverse" returns="NotImplemented" signature="reverse(b, a)">
+            <variable ilk="argument" name="b" />
+            <variable ilk="argument" name="a" />
+            <variable citdl="str" line="382" name="__name__" />
+            <variable citdl="monomorphic_operator.__doc__" line="383" name="__doc__" />
+          </scope>
+        </scope>
+        <scope doc="a ** b" ilk="function" line="451" lineend="473" name="__pow__" returns="Fraction" signature="__pow__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="b.numerator" line="461" name="power" />
+        </scope>
+        <scope doc="a + b" ilk="function" line="393" name="__add__" />
+        <scope doc="a &gt; b" ilk="function" line="576" lineend="578" name="__gt__" returns="Fraction._richcmp()" signature="__gt__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a - b" ilk="function" line="395" lineend="399" name="_sub" returns="Fraction" signature="_sub(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a == b" ilk="function" line="527" lineend="544" name="__eq__" returns="NotImplemented" signature="__eq__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable citdl="b.real" ilk="argument" name="b" />
+        </scope>
+        <scope doc="a != 0" ilk="function" line="588" lineend="590" name="__nonzero__" returns="bool" signature="__nonzero__()">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope doc="Closest Fraction to self with denominator at most&#10;max_denominator." ilk="function" line="206" lineend="259" name="limit_denominator" returns="Fraction" signature="limit_denominator(max_denominator=1000000)">
+          <variable citdl="int" line="243" name="q1" />
+          <variable citdl="int" line="243" name="q0" />
+          <variable citdl="int" line="243" name="p0" />
+          <variable citdl="int" line="243" name="p1" />
+          <variable citdl="self._denominator" line="244" name="d" />
+          <variable citdl="" line="255" name="bound2" />
+          <variable citdl="Fraction" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="max_denominator" />
+          <variable citdl="self._numerator" line="244" name="n" />
+          <variable citdl="int" line="247" name="q2" />
+          <variable citdl="int" line="246" name="a" />
+          <variable citdl="" line="254" name="bound1" />
+          <variable citdl="int" line="253" name="k" />
+        </scope>
+        <scope doc="trunc(a)" ilk="function" line="501" lineend="506" name="__trunc__" returns="int" signature="trunc(a)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope doc="a % b" ilk="function" line="441" lineend="444" name="__mod__" returns="Fraction" signature="__mod__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable citdl="int" line="443" name="div" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a / b" ilk="function" line="415" name="__div__" />
+        <scope doc="a &lt;= b" ilk="function" line="580" lineend="582" name="__le__" returns="Fraction._richcmp()" signature="__le__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="a / b" ilk="function" line="409" lineend="412" name="_div" returns="Fraction" signature="_div(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="repr(self)" ilk="function" line="269" lineend="271" name="__repr__" returns="tuple" signature="repr(self)">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+        </scope>
+        <scope doc="a // b" ilk="function" line="417" lineend="427" name="__floordiv__" returns="math.floor()" signature="__floordiv__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable citdl="Fraction" line="420" name="div" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Tricky because values that are exactly representable as a&#10;float must have the same hash as that float." ilk="function" line="508" lineend="525" name="__hash__" returns="hash()" signature="hash(self)">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+        </scope>
+        <scope doc="a - b" ilk="function" line="401" name="__sub__" />
+        <scope ilk="function" line="597" lineend="600" name="__copy__" returns="Fraction" signature="__copy__()">
+          <variable citdl="Fraction" ilk="argument" name="self" />
+        </scope>
+        <scope doc="a &gt;= b" ilk="function" line="584" lineend="586" name="__ge__" returns="Fraction._richcmp()" signature="__ge__(b)">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <variable attributes="property" citdl="a._numerator" line="262" name="numerator" />
+        <variable citdl="tuple" line="65" name="__slots__" />
+        <scope attributes="__hidden__" ilk="function" line="262" lineend="263" name="numerator (property getter)" returns="a._numerator" signature="numerator (property getter)()">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="266" lineend="267" name="denominator (property getter)" returns="a._denominator" signature="denominator (property getter)()">
+          <variable citdl="Fraction" ilk="argument" name="a" />
+        </scope>
+        <variable attributes="property" citdl="a._denominator" line="266" name="denominator" />
+      </scope>
+      <scope classrefs="Real" doc=".numerator and .denominator should be in lowest terms.&#10;" ilk="class" line="15" name="Rational">
+        <scope doc="It's important that this conversion use the integer's &quot;true&quot;&#10;division rather than casting one side to float before&#10;dividing so that ratios of huge integers convert without&#10;overflowing." ilk="function" name="__float__" signature="float(self) = self.numerator / self.denominator" />
+      </scope>
+      <variable citdl="list" line="13" name="__all__" />
+      <variable citdl="__future__._Feature" name="division" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Calculate the Greatest Common Divisor of a and b." ilk="function" line="18" lineend="26" name="gcd" signature="gcd(a, b)">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="b" />
+      </scope>
+      <import module="math" />
+      <import module="numbers" />
+      <import module="operator" />
+      <import module="re" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="29" name="_RATIONAL_FORMAT" />
+    </scope>
+    

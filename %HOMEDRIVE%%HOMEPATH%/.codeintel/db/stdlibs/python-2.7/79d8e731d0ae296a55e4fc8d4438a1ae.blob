@@ -1,0 +1,103 @@
+<scope doc="Base class for fixers (optional, but recommended).&#10;" ilk="blob" lang="Python" name="lib2to3.fixer_base">
+      <scope classrefs="object" doc="Optional base class for fixers.&#10;The subclass name must be FixFooBar where FooBar is the result of removing underscores and capitalizing the words of the fix name. For example, the class name for a fixer named 'has_key' should be FixHasKey." ilk="class" line="15" lineend="169" name="BaseFix">
+        <scope doc="Warn the user that a given chunk of code is not valid Python&#10;3, but that it cannot be converted automatically." ilk="function" line="125" lineend="138" name="cannot_convert" signature="cannot_convert(node, reason=None)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="node.clone()" line="133" name="for_output" />
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="reason" />
+          <variable citdl="node.get_lineno()" line="132" name="lineno" />
+          <variable citdl="str" line="135" name="msg" />
+        </scope>
+        <scope doc="Compiles self.PATTERN into self.pattern." ilk="function" line="61" lineend="70" name="compile_pattern" signature="compile_pattern()">
+          <variable citdl="PatternCompiler()" line="68" name="PC" />
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Used for warning the user about possible uncertainty in the&#10;translation." ilk="function" line="140" lineend="148" name="warning" signature="warning(node, reason)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="reason" />
+          <variable citdl="node.get_lineno()" line="147" name="lineno" />
+        </scope>
+        <scope ilk="function" line="119" lineend="123" name="log_message" signature="log_message(message)">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Initializer. Subclass may override." ilk="function" line="49" lineend="59" name="__init__" signature="BaseFix(options, log)">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="options" />
+          <variable ilk="argument" name="log" />
+        </scope>
+        <scope doc="Return a string suitable for use as an identifier" ilk="function" line="108" lineend="117" name="new_name" returns="unicode" signature="new_name(template=u'xxx_todo_changeme')">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable citdl="unicode()" line="113" name="name" />
+          <variable citdl="unicode" ilk="argument" name="template" />
+        </scope>
+        <scope doc="Some fixers need to maintain tree-wide state." ilk="function" line="150" lineend="160" name="start_tree" signature="start_tree(tree, filename)">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Set the filename, and a logger derived from it." ilk="function" line="72" lineend="78" name="set_filename" signature="set_filename(filename)">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Returns the transformation for a given parse tree node." ilk="function" line="92" lineend="106" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope doc="Some fixers need to maintain tree-wide state." ilk="function" line="162" lineend="169" name="finish_tree" signature="finish_tree(tree, filename)">
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Returns match for a given parse tree node." ilk="function" line="80" lineend="90" name="match" returns="self.pattern.match()" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BaseFix" ilk="argument" name="self" />
+          <variable citdl="dict" line="89" name="results" />
+        </scope>
+        <variable citdl="False" line="40" name="keep_line_order" />
+        <variable citdl="set()" line="32" name="used_names" />
+        <variable attributes="__instancevar__" line="58" name="log" />
+        <variable line="25" name="PATTERN" />
+        <variable citdl="int" line="35" name="run_order" />
+        <variable citdl="False" line="34" name="explicit" />
+        <variable line="29" name="filename" />
+        <variable citdl="pygram.python_symbols" line="47" name="syms" />
+        <variable citdl="False" line="42" name="BM_compatible" />
+        <variable attributes="protected" line="37" name="_accept_type" />
+        <variable line="28" name="options" />
+        <variable citdl="itertools.count()" line="31" name="numbers" />
+        <variable line="26" name="pattern" />
+        <variable attributes="__instancevar__" citdl="False" line="121" name="first_log" />
+        <variable citdl="logging.getLogger()" line="30" name="logger" />
+        <variable line="27" name="pattern_tree" />
+        <variable citdl="str" line="33" name="order" />
+      </scope>
+      <scope classrefs="BaseFix" doc="Base class for fixers which not execute if an import is found.&#10;" ilk="class" line="172" lineend="189" name="ConditionalFix">
+        <scope ilk="function" line="178" lineend="180" name="start_tree" signature="start_tree(*args)">
+          <variable citdl="ConditionalFix" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="182" lineend="189" name="should_skip" returns="does_tree_import()" signature="should_skip(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ConditionalFix" ilk="argument" name="self" />
+          <variable citdl="self.skip_on.split()" line="185" name="pkg" />
+          <variable line="186" name="name" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="does_tree_import()" line="180" name="_should_skip" />
+        <variable line="176" name="skip_on" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="PatternCompiler">
+        <scope ilk="function" name="compile_basic" />
+        <scope ilk="function" name="get_int" />
+        <scope doc="Compiles a pattern string to a nested pytree.*Pattern&#10;object." ilk="function" name="compile_pattern" />
+        <scope doc="Compiles a node, recursively." ilk="function" name="compile_node" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Returns true if name is imported from package at the top&#10;level of the tree which node belongs to." ilk="function" name="does_tree_import" signature="does_tree_import(package, name, node)" />
+      <import module="itertools" />
+      <import module="logging" />
+      <import module="pygram" />
+    </scope>
+    

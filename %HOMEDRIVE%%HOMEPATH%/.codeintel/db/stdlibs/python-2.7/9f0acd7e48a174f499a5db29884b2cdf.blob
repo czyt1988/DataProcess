@@ -1,0 +1,16 @@
+<scope doc="zipimport provides support for importing Python modules from Zip archives.&#10;This module exports three objects: - zipimporter: a class; its constructor takes a path to a Zip archive. - ZipImportError: exception raised by zipimporter objects. It's a subclass of ImportError, so it can be caught as ImportError, too. - _zip_directory_cache: a dict, mapping archive paths to zip directory info dicts, as used in zipimporter._files.  It is usually not needed to use the zipimport module explicitly; it is used by the builtin import mechanism for sys.path items that are paths to Zip archives." ilk="blob" lang="Python" name="zipimport">
+      <scope classrefs="ImportError" doc="&#10;" ilk="class" name="ZipImportError" />
+      <scope classrefs="object" doc="zipimporter(archivepath) -&gt; zipimporter object&#10;Create a new zipimporter instance. 'archivepath' must be a path to a zipfile, or to a specific path inside a zipfile. For example, it can be '/tmp/myimport.zip', or '/tmp/myimport.zip/mydirectory', if mydirectory is a valid directory inside the archive.  'ZipImportError is raised if 'archivepath' doesn't point to a valid Zip archive.  The 'archive' attribute of zipimporter objects contains the name of the zipfile targeted." ilk="class" name="zipimporter">
+        <scope doc="Return the source code for the specified module." ilk="function" name="get_source" signature="get_source(fullname) -&gt; source string." />
+        <scope doc="Search for a module specified by 'fullname'." ilk="function" name="find_module" signature="find_module(fullname, path=None) -&gt; self or None." />
+        <scope doc="Return the data associated with 'pathname'." ilk="function" name="get_data" returns="str" signature="get_data(pathname) -&gt; string with file data." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Load the module specified by 'fullname'." ilk="function" name="load_module" signature="load_module(fullname) -&gt; module." />
+        <scope doc="Return the filename for the specified module." ilk="function" name="get_filename" signature="get_filename(fullname) -&gt; filename string." />
+        <scope doc="Return True if the module specified by fullname is a&#10;package." ilk="function" name="is_package" signature="is_package(fullname) -&gt; bool." />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return the code object for the specified module." ilk="function" name="get_code" returns="code" signature="get_code(fullname) -&gt; code object." />
+        <scope ilk="function" name="__init__" />
+      </scope>
+    </scope>
+    

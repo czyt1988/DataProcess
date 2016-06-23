@@ -1,0 +1,196 @@
+<scope doc="Support for Berkeley DB 4.1 through 4.8 with a simple interface.&#10;For the full featured object oriented interface use the bsddb.db module instead.  It mirrors the Oracle Berkeley DB C API." ilk="blob" lang="Python" name="bsddb">
+      <scope classrefs="Mapping" doc="&#10;" ilk="class" line="89" name="MutableMapping">
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="popitem" />
+      </scope>
+      <variable citdl="str" line="77" name="__version__" />
+      <import module="_bsddb" />
+      <import module="_db" />
+      <variable citdl="bool" line="43" name="absolute_import" />
+      <scope ilk="function" line="369" lineend="382" name="btopen" returns="_DBWithCursor" signature="btopen(file, flag='c', mode=438, btflags=0, cachesize=None, maxkeypage=None, minkeypage=None, pgsize=None, lorder=None)">
+        <variable ilk="argument" name="lorder" />
+        <variable citdl="_openDBEnv()" line="374" name="e" />
+        <variable citdl="db.DB()" line="375" name="d" />
+        <variable ilk="argument" name="pgsize" />
+        <variable ilk="argument" name="maxkeypage" />
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable citdl="_checkflag()" line="373" name="flags" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="cachesize" />
+        <variable ilk="argument" name="minkeypage" />
+        <variable citdl="int" ilk="argument" name="btflags" />
+      </scope>
+      <import module="collections" />
+      <import module="db" />
+      <import module="dbutils" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="79" name="error" />
+      <scope ilk="function" line="353" lineend="365" name="hashopen" returns="_DBWithCursor" signature="hashopen(file, flag='c', mode=438, pgsize=None, ffactor=None, nelem=None, cachesize=None, lorder=None, hflags=0)">
+        <variable ilk="argument" name="lorder" />
+        <variable citdl="_openDBEnv()" line="357" name="e" />
+        <variable citdl="db.DB()" line="358" name="d" />
+        <variable ilk="argument" name="pgsize" />
+        <variable ilk="argument" name="ffactor" />
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable citdl="_checkflag()" line="356" name="flags" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="cachesize" />
+        <variable ilk="argument" name="nelem" />
+        <variable citdl="int" ilk="argument" name="hflags" />
+      </scope>
+      <import module="os" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="ref">
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope ilk="function" line="387" lineend="402" name="rnopen" returns="_DBWithCursor" signature="rnopen(file, flag='c', mode=438, rnflags=0, cachesize=None, pgsize=None, lorder=None, rlen=None, delim=None, source=None, pad=None)">
+        <variable ilk="argument" name="lorder" />
+        <variable citdl="_openDBEnv()" line="392" name="e" />
+        <variable citdl="db.DB()" line="393" name="d" />
+        <variable ilk="argument" name="rlen" />
+        <variable ilk="argument" name="delim" />
+        <variable ilk="argument" name="pgsize" />
+        <variable citdl="int" ilk="argument" name="rnflags" />
+        <variable ilk="argument" name="source" />
+        <variable citdl="str" ilk="argument" name="flag" />
+        <variable ilk="argument" name="pad" />
+        <variable citdl="int" ilk="argument" name="mode" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="cachesize" />
+        <variable citdl="_checkflag()" line="391" name="flags" />
+      </scope>
+      <import module="sys" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="417" lineend="435" name="_checkflag" returns="int" signature="_checkflag(flag, file)">
+        <variable ilk="argument" name="flag" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="db.DB_CREATE" line="419" name="flags" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="406" lineend="415" name="_openDBEnv" returns="db.DBEnv()" signature="_openDBEnv(cachesize)">
+        <variable ilk="argument" name="cachesize" />
+        <variable citdl="db.DBEnv()" line="407" name="e" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="collections.MutableMapping" ilk="class" line="94" lineend="189" name="_iter_mixin">
+        <scope attributes="protected" ilk="function" line="95" lineend="99" name="_make_iter_cursor" returns="_DeadlockWrap()" signature="_make_iter_cursor()">
+          <variable citdl="_iter_mixin" ilk="argument" name="self" />
+          <variable citdl="_DeadlockWrap()" line="96" name="cur" />
+          <variable citdl="id()" line="97" name="key" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="101" lineend="105" name="_gen_cref_cleaner" signature="_gen_cref_cleaner(key)">
+          <variable citdl="_iter_mixin" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="107" lineend="146" name="__iter__" signature="__iter__()">
+          <variable citdl="_iter_mixin" ilk="argument" name="self" />
+          <variable citdl="_make_iter_cursor()" line="112" name="cur" />
+          <variable line="119" name="key" />
+          <variable citdl="getattr()" line="122" name="next" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="False" line="108" name="_kill_iteration" />
+        <scope ilk="function" line="148" lineend="189" name="iteritems" signature="iteritems()">
+          <variable citdl="_iter_mixin" ilk="argument" name="self" />
+          <variable citdl="_make_iter_cursor()" line="155" name="cur" />
+          <variable citdl="_DeadlockWrap()" line="160" name="kv" />
+          <variable line="161" name="key" />
+          <variable citdl="getattr()" line="164" name="next" />
+        </scope>
+      </scope>
+      <variable attributes="__hidden__" citdl="_pybsddb" line="76" name="db" />
+      <variable attributes="protected __hidden__" citdl="_pybsddb" line="64" name="_bsddb" />
+      <scope attributes="protected __hidden__" classrefs="_iter_mixin" doc="A simple wrapper around DB that makes it look like the&#10;bsddbobject in the old module." ilk="class" line="192" lineend="347" name="_DBWithCursor">
+        <scope attributes="__ctor__" ilk="function" line="197" lineend="219" name="__init__" signature="_DBWithCursor(db)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+        </scope>
+        <variable attributes="__instancevar__" line="198" name="db" />
+        <variable attributes="__instancevar__" citdl="_DeadlockWrap()" line="212" name="dbc" />
+        <variable attributes="__instancevar__" line="213" name="saved_dbc_key" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="217" name="_cursor_refs" />
+        <variable attributes="protected __instancevar__" citdl="int" line="218" name="_in_iter" />
+        <variable attributes="protected __instancevar__" citdl="True" line="219" name="_kill_iteration" />
+        <scope ilk="function" line="221" lineend="222" name="__del__" signature="__del__()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="224" lineend="229" name="_checkCursor" signature="_checkCursor()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="235" lineend="249" name="_closeCursors" signature="_closeCursors(save=1)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="save" />
+          <variable citdl="_DeadlockWrap()" line="237" name="c" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="251" lineend="253" name="_checkOpen" signature="_checkOpen()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="255" lineend="256" name="isOpen" returns="bool" signature="isOpen()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="258" lineend="260" name="__len__" returns="_DeadlockWrap()" signature="__len__()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="263" lineend="266" name="__repr__" returns="repr()" signature="__repr__()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="268" lineend="270" name="__getitem__" returns="_DeadlockWrap()" signature="__getitem__(key)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="272" lineend="279" name="__setitem__" signature="__setitem__(key, value)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable ilk="argument" name="value" />
+          <scope ilk="function" line="277" lineend="278" name="wrapF" signature="wrapF()" />
+        </scope>
+        <scope ilk="function" line="281" lineend="288" name="__delitem__" signature="__delitem__(key)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <scope ilk="function" line="286" lineend="287" name="wrapF" signature="wrapF()" />
+        </scope>
+        <scope ilk="function" line="290" lineend="299" name="close" returns="_DeadlockWrap()" signature="close()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable citdl="int" line="294" name="v" />
+        </scope>
+        <scope ilk="function" line="301" lineend="303" name="keys" returns="_DeadlockWrap()" signature="keys()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="305" lineend="307" name="has_key" returns="_DeadlockWrap()" signature="has_key(key)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="309" lineend="312" name="set_location" returns="_DeadlockWrap()" signature="set_location(key)">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <variable citdl="function" line="321" name="next" />
+        <scope ilk="function" line="323" lineend="327" name="previous" returns="_DeadlockWrap()" signature="previous()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable citdl="_DeadlockWrap()" line="326" name="rv" />
+        </scope>
+        <scope ilk="function" line="329" lineend="335" name="first" returns="_DeadlockWrap()" signature="first()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable citdl="_DeadlockWrap()" line="334" name="rv" />
+        </scope>
+        <scope ilk="function" line="337" lineend="343" name="last" returns="_DeadlockWrap()" signature="last()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+          <variable citdl="_DeadlockWrap()" line="342" name="rv" />
+        </scope>
+        <scope ilk="function" line="345" lineend="347" name="sync" returns="_DeadlockWrap()" signature="sync()">
+          <variable citdl="_DBWithCursor" ilk="argument" name="self" />
+        </scope>
+      </scope>
+    </scope>
+    

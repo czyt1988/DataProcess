@@ -1,0 +1,135 @@
+<scope doc="Classes to generate plain text from a message object tree.&#10;" ilk="blob" lang="Python" name="email.generator">
+      <scope classrefs="Generator" doc="Generates a text representation of a message.&#10;Like the Generator base class, except that non-text parts are substituted with a format string representing the part." ilk="class" line="289" lineend="332" name="DecodedGenerator">
+        <scope ilk="function" line="323" lineend="332" name="_dispatch" signature="_dispatch(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="DecodedGenerator" ilk="argument" name="self" />
+          <variable citdl="part.get_content_maintype()" line="325" name="maintype" />
+        </scope>
+        <scope doc="Like Generator.__init__() except that an additional optional&#10;argument is allowed." ilk="function" line="295" lineend="321" name="__init__" signature="DecodedGenerator(outfp, mangle_from_=True, maxheaderlen=78, fmt=None)">
+          <variable citdl="DecodedGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="outfp" />
+          <variable citdl="True" ilk="argument" name="mangle_from_" />
+          <variable ilk="argument" name="fmt" />
+          <variable citdl="int" ilk="argument" name="maxheaderlen" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="319" name="_fmt" />
+      </scope>
+      <scope doc="Generates output from a Message object tree.&#10;This basic generator writes the message to the given file object as plain text." ilk="class" line="32" lineend="283" name="Generator">
+        <scope ilk="function" line="172" lineend="180" name="_handle_text" signature="_handle_text(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="fcre.sub()" line="173" name="payload" />
+        </scope>
+        <scope ilk="function" line="246" lineend="265" name="_handle_message_delivery_status" signature="_handle_message_delivery_status(msg)">
+          <variable citdl="list" line="250" name="blocks" />
+          <variable citdl="clone()" line="253" name="g" />
+          <variable citdl="s.getvalue()" line="255" name="text" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="text.split()" line="256" name="lines" />
+          <variable citdl="StringIO()" line="252" name="s" />
+          <variable ilk="argument" name="msg" />
+        </scope>
+        <scope ilk="function" line="235" lineend="244" name="_handle_multipart_signed" signature="_handle_multipart_signed(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="int" line="239" name="old_maxheaderlen" />
+        </scope>
+        <scope ilk="function" line="140" lineend="166" name="_write_headers" signature="_write_headers(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Clone this generator with the exact same options." ilk="function" line="85" lineend="87" name="clone" returns="self.__class__()" signature="clone(fp)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="183" name="_writeBody" />
+        <scope ilk="function" line="63" lineend="65" name="write" signature="write(s)">
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <scope ilk="function" line="185" lineend="233" name="_handle_multipart" signature="_handle_multipart(msg)">
+          <variable citdl="clone()" line="202" name="g" />
+          <variable citdl="list" line="189" name="msgtexts" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="list" line="190" name="subparts" />
+          <variable citdl="StringIO()" line="201" name="s" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="msg.get_boundary()" line="206" name="boundary" />
+          <variable citdl="NL.join()" line="210" name="alltext" />
+        </scope>
+        <scope doc="Print the message object tree rooted at msg to the output&#10;file specified when the Generator instance was created." ilk="function" line="67" lineend="83" name="flatten" signature="flatten(msg, unixfrom=False)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="msg.get_unixfrom()" line="79" name="ufrom" />
+          <variable citdl="False" ilk="argument" name="unixfrom" />
+        </scope>
+        <scope ilk="function" line="267" lineend="283" name="_handle_message" signature="_handle_message(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable citdl="StringIO()" line="268" name="s" />
+          <variable citdl="clone()" line="269" name="g" />
+          <variable citdl="msg.get_payload()" line="279" name="payload" />
+        </scope>
+        <scope ilk="function" line="120" lineend="134" name="_dispatch" signature="_dispatch(msg)">
+          <variable citdl="msg.get_content_subtype()" line="126" name="sub" />
+          <variable citdl="main.replace()" line="130" name="generic" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable line="127" name="specific" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="getattr()" line="128" name="meth" />
+          <variable citdl="msg.get_content_maintype()" line="125" name="main" />
+        </scope>
+        <scope ilk="function" line="93" lineend="118" name="_write" signature="_write(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable line="105" name="oldfp" />
+          <variable citdl="getattr()" line="113" name="meth" />
+        </scope>
+        <scope doc="Create the generator for message flattening." ilk="function" line="42" lineend="61" name="__init__" signature="Generator(outfp, mangle_from_=True, maxheaderlen=78)">
+          <variable citdl="Generator" ilk="argument" name="self" />
+          <variable ilk="argument" name="outfp" />
+          <variable citdl="True" ilk="argument" name="mangle_from_" />
+          <variable citdl="int" ilk="argument" name="maxheaderlen" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="StringIO()" line="59" name="_fp" />
+        <variable attributes="protected __instancevar__" citdl="int" line="61" name="_maxheaderlen" />
+        <variable attributes="protected __instancevar__" citdl="True" line="60" name="_mangle_from_" />
+      </scope>
+      <scope doc="&#10;" ilk="class" name="Header">
+        <scope ilk="function" name="__ne__" />
+        <scope ilk="function" name="_split_ascii" />
+        <scope doc="A synonym for self.encode()." ilk="function" name="__str__" />
+        <scope doc="Append a string to the MIME header." ilk="function" name="append" />
+        <scope ilk="function" name="_encode_chunks" />
+        <scope doc="Create a MIME-compliant header that can contain many&#10;character sets." ilk="function" name="__init__" />
+        <scope doc="Encode a message header into an RFC-compliant format." ilk="function" name="encode" />
+        <scope doc="# Rich comparison operators for equality only." ilk="function" name="__eq__" />
+        <scope doc="Helper for the built-in unicode function." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_split" />
+      </scope>
+      <variable citdl="str" line="18" name="NL" />
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="str" line="17" name="UNDERSCORE" />
+      <variable citdl="list" line="6" name="__all__" />
+      <variable citdl="SRE_Pattern" line="20" name="fcre" />
+      <import module="random" />
+      <import module="re" />
+      <import module="sys" />
+      <import module="time" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="22" lineend="28" name="_is8bitstring" returns="bool" signature="_is8bitstring(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="349" lineend="364" name="_make_boundary" returns="str()" signature="_make_boundary(text=None)">
+        <variable ilk="argument" name="text" />
+        <variable citdl="random.randrange()" line="352" name="token" />
+        <variable citdl="str" line="353" name="boundary" />
+        <variable citdl="str" line="356" name="b" />
+        <variable citdl="int" line="357" name="counter" />
+        <variable citdl="re.compile()" line="359" name="cre" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="len()" line="346" name="_width" />
+      <variable attributes="protected __hidden__" citdl="str" line="287" name="_FMT" />
+      <variable attributes="protected __hidden__" citdl="len()" line="347" name="_fmt" />
+    </scope>
+    

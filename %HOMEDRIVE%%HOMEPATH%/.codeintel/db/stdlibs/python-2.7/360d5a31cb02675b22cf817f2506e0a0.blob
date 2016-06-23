@@ -1,0 +1,19 @@
+<scope doc="Interface to the Expat non-validating XML parser.&#10;" ilk="blob" lang="Python" name="xml.parsers.expat">
+      <variable citdl="str" name="EXPAT_VERSION" />
+      <scope doc="Returns string error for given number." ilk="function" name="ErrorString" returns="str" signature="ErrorString(errno) -&gt; string" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ExpatError" />
+      <scope doc="Return a new XML parser object." ilk="function" name="ParserCreate" signature="ParserCreate([encoding[, namespace_separator]]) -&gt; parser" />
+      <scope classrefs="object" doc="XML parser&#10;" ilk="class" name="XMLParserType" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_ALWAYS" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_NEVER" />
+      <variable citdl="int" name="XML_PARAM_ENTITY_PARSING_UNLESS_STANDALONE" />
+      <variable citdl="str" line="2" name="__version__" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <import module="errors" />
+      <variable citdl="PyCapsule" name="expat_CAPI" />
+      <variable citdl="list" name="features" />
+      <import module="model" />
+      <variable citdl="str" name="native_encoding" />
+      <variable citdl="tuple" name="version_info" />
+    </scope>
+    

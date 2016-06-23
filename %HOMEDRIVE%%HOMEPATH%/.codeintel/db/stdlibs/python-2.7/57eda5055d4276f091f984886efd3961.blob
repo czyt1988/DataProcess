@@ -1,0 +1,87 @@
+<scope doc="This module supports asynchronous I/O on multiple file descriptors.&#10;*** IMPORTANT NOTICE *** On Windows and OpenVMS, only sockets are supported; on Unix, all file descriptors." ilk="blob" lang="Python" name="select">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope doc="Wait until one or more file descriptors are ready for some&#10;kind of I/O." ilk="function" name="select" signature="select(rlist, wlist, xlist[, timeout]) -&gt; (rlist, wlist, xlist)" />
+      <variable citdl="int" name="EPOLLIN" />
+      <variable citdl="int" name="EPOLLHUP" />
+      <variable citdl="int" name="POLLWRBAND" />
+      <variable citdl="int" name="EPOLLPRI" />
+      <variable citdl="int" name="PIPE_BUF" />
+      <variable citdl="int" name="EPOLLOUT" />
+      <variable citdl="int" name="EPOLLWRBAND" />
+      <scope doc="Returns a polling object, which supports registering and&#10;unregistering file descriptors, and then polling them for&#10;I/O events." ilk="function" name="poll" />
+      <variable citdl="int" name="POLLNVAL" />
+      <variable citdl="int" name="EPOLLONESHOT" />
+      <variable citdl="int" name="POLLIN" />
+      <variable citdl="int" name="EPOLLWRNORM" />
+      <variable citdl="int" name="POLLWRNORM" />
+      <scope classrefs="object" doc="select.epoll([sizehint=-1])&#10;Returns an epolling object  sizehint must be a positive integer or -1 for the default size. The sizehint is used to optimize internal data structures. It doesn't limit the maximum number of monitored events." ilk="class" name="epoll">
+        <scope doc="Return the epoll control file descriptor." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; int" />
+        <scope doc="fd is the target file descriptor of the operation." ilk="function" name="unregister" signature="unregister(fd) -&gt; None" />
+        <scope doc="fd is the target file descriptor of the operation events is&#10;a bit set composed of the various EPOLL constants" ilk="function" name="modify" signature="modify(fd, eventmask) -&gt; None" />
+        <scope doc="Registers a new fd or modifies an already registered fd." ilk="function" name="register" signature="register(fd[, eventmask]) -&gt; None" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Close the epoll control file descriptor." ilk="function" name="close" signature="close() -&gt; None" />
+        <scope doc="Wait for events on the epoll file descriptor for a maximum&#10;time of timeout in seconds (as float)." ilk="function" name="poll" signature="poll([timeout=-1[, maxevents=-1]]) -&gt; [(fd, events), (...)]" />
+      </scope>
+      <variable citdl="int" name="EPOLLRDNORM" />
+      <variable citdl="int" name="POLLPRI" />
+      <variable citdl="int" name="POLLERR" />
+      <variable citdl="int" name="POLLOUT" />
+      <variable citdl="int" name="POLLRDBAND" />
+      <variable citdl="int" name="POLLRDNORM" />
+      <variable citdl="int" name="POLLHUP" />
+      <variable citdl="int" name="EPOLLERR" />
+      <variable citdl="int" name="EPOLLRDBAND" />
+      <variable citdl="int" name="POLLMSG" />
+      <variable citdl="int" name="EPOLLMSG" />
+      <variable citdl="int" name="EPOLLET" />
+      <variable citdl="int" name="KQ_EV_ENABLE" />
+      <variable citdl="int" name="KQ_FILTER_AIO" />
+      <variable citdl="int" name="KQ_EV_CLEAR" />
+      <variable citdl="int" name="KQ_NOTE_DELETE" />
+      <variable citdl="int" name="KQ_NOTE_LINK" />
+      <variable citdl="int" name="KQ_NOTE_PCTRLMASK" />
+      <variable citdl="int" name="KQ_NOTE_TRACK" />
+      <variable citdl="int" name="KQ_FILTER_TIMER" />
+      <variable citdl="int" name="KQ_NOTE_LOWAT" />
+      <variable citdl="int" name="KQ_NOTE_EXIT" />
+      <variable citdl="int" name="KQ_NOTE_ATTRIB" />
+      <variable citdl="int" name="KQ_NOTE_FORK" />
+      <variable citdl="int" name="KQ_NOTE_EXEC" />
+      <variable citdl="int" name="KQ_FILTER_PROC" />
+      <variable citdl="int" name="KQ_NOTE_CHILD" />
+      <variable citdl="int" name="KQ_NOTE_REVOKE" />
+      <variable citdl="int" name="KQ_FILTER_VNODE" />
+      <variable citdl="int" name="KQ_EV_SYSFLAGS" />
+      <variable citdl="int" name="KQ_FILTER_WRITE" />
+      <variable citdl="int" name="KQ_NOTE_TRACKERR" />
+      <scope classrefs="object" doc="Kqueue syscall wrapper.&#10;For example, to start watching a socket for input: &gt;&gt;&gt; kq = kqueue() &gt;&gt;&gt; sock = socket() &gt;&gt;&gt; sock.connect((host, port)) &gt;&gt;&gt; kq.control([kevent(sock, KQ_FILTER_WRITE, KQ_EV_ADD)], 0)  To wait one second for it to become writeable: &gt;&gt;&gt; kq.control(None, 1, 1000)  To stop listening:" ilk="class" name="kqueue">
+        <scope doc="Calls the kernel kevent function." ilk="function" name="control" signature="control(changelist, max_events[, timeout=None]) -&gt; eventlist" />
+        <scope doc="Return the kqueue control file descriptor." ilk="function" name="fileno" returns="int" signature="fileno() -&gt; int" />
+        <scope doc="Close the kqueue control file descriptor." ilk="function" name="close" signature="close() -&gt; None" />
+      </scope>
+      <variable citdl="int" name="KQ_NOTE_PDATAMASK" />
+      <variable citdl="int" name="KQ_NOTE_EXTEND" />
+      <variable citdl="int" name="KQ_NOTE_WRITE" />
+      <variable citdl="int" name="KQ_EV_ONESHOT" />
+      <variable citdl="int" name="KQ_NOTE_RENAME" />
+      <variable citdl="int" name="KQ_EV_DISABLE" />
+      <variable citdl="int" name="KQ_EV_DELETE" />
+      <variable citdl="int" name="KQ_EV_FLAG1" />
+      <variable citdl="int" name="KQ_EV_EOF" />
+      <variable citdl="int" name="KQ_FILTER_READ" />
+      <variable citdl="int" name="KQ_EV_ERROR" />
+      <variable citdl="int" name="KQ_EV_ADD" />
+      <variable citdl="int" name="KQ_FILTER_SIGNAL" />
+      <scope classrefs="object" doc="kevent(ident, filter=KQ_FILTER_READ, flags=KQ_EV_ADD, fflags=0, data=0, udata=0)&#10;This object is the equivalent of the struct kevent for the C API.  See the kqueue manpage for more detailed information about the meaning of the arguments.  One minor note: while you might hope that udata could store a reference to a python object, it cannot, because it is impossible to keep a proper reference count of the object once it's passed into the kernel. Therefore, I have restricted it to only storing an integer.  I recommend ignoring it and simply using the 'ident' field to key off" ilk="class" name="kevent">
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+    </scope>
+    

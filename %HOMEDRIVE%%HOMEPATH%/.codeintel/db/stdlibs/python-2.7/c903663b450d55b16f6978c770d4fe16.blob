@@ -1,0 +1,37 @@
+<scope doc="A simple fast partial StringIO replacement.&#10;This module provides a simple useful replacement for the StringIO module that is written in C.  It does not provide the full generality of StringIO, but it provides enough for most applications and is especially useful in conjunction with the pickle module.  Usage:  from cStringIO import StringIO " ilk="blob" lang="Python" name="cStringIO">
+      <scope classrefs="object" doc="Simple type for treating strings as input file streams&#10;" ilk="class" name="InputType">
+        <scope doc="Reset the file position to the beginning" ilk="function" name="reset" signature="reset()" />
+        <scope doc="always returns 0" ilk="function" name="isatty" signature="isatty()" />
+        <scope doc="truncate the file at the current position." ilk="function" name="truncate" signature="truncate()" />
+        <scope doc="Read s characters, or the rest of the string" ilk="function" name="read" signature="read([s])" />
+        <scope doc="Read all lines" ilk="function" name="readlines" signature="readlines()" />
+        <scope doc="Get the string value." ilk="function" name="getvalue" signature="getvalue([use_pos])" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="does nothing." ilk="function" name="flush" signature="flush()" />
+        <scope doc="explicitly release resources held." ilk="function" name="close" signature="close()" />
+        <scope doc="Read one line" ilk="function" name="readline" signature="readline()" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="set the current position mode 0: absolute; 1: relative; 2:&#10;relative to EOF" ilk="function" name="seek" signature="seek(position)&#10;seek(position, mode)" />
+        <scope doc="get the current position." ilk="function" name="tell" signature="tell()" />
+      </scope>
+      <scope classrefs="object" doc="Simple type for output to strings.&#10;" ilk="class" name="OutputType">
+        <scope doc="Reset the file position to the beginning" ilk="function" name="reset" signature="reset()" />
+        <scope doc="always returns 0" ilk="function" name="isatty" signature="isatty()" />
+        <scope doc="truncate the file at the current position." ilk="function" name="truncate" signature="truncate()" />
+        <scope doc="Read s characters, or the rest of the string" ilk="function" name="read" signature="read([s])" />
+        <scope doc="Note that newlines are not added." ilk="function" name="writelines" signature="writelines(sequence_of_strings) -&gt; None.  Write the strings to the file." />
+        <scope doc="Read all lines" ilk="function" name="readlines" signature="readlines()" />
+        <scope doc="Get the string value." ilk="function" name="getvalue" signature="getvalue([use_pos])" />
+        <scope doc="Write a string to the file" ilk="function" name="write" signature="write(s)" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="does nothing." ilk="function" name="flush" signature="flush()" />
+        <scope doc="explicitly release resources held." ilk="function" name="close" signature="close()" />
+        <scope doc="Read one line" ilk="function" name="readline" signature="readline()" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="set the current position mode 0: absolute; 1: relative; 2:&#10;relative to EOF" ilk="function" name="seek" signature="seek(position)&#10;seek(position, mode)" />
+        <scope doc="get the current position." ilk="function" name="tell" signature="tell()" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="PyCapsule" name="cStringIO_CAPI" />
+    </scope>
+    

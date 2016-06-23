@@ -1,0 +1,845 @@
+<scope doc="Python implementation of the io module.&#10;" ilk="blob" lang="Python" name="_pyio">
+      <scope classrefs="IOError" doc="Exception raised when I/O would block on a non-blocking I/O stream.&#10;" ilk="class" line="31" lineend="39" name="BlockingIOError">
+        <scope ilk="function" line="35" lineend="39" name="__init__" signature="BlockingIOError(errno, strerror, characters_written=0)">
+          <variable ilk="argument" name="errno" />
+          <variable citdl="BlockingIOError" ilk="argument" name="self" />
+          <variable ilk="argument" name="strerror" />
+          <variable citdl="int" ilk="argument" name="characters_written" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="39" name="characters_written" />
+      </scope>
+      <scope classrefs="IOBase" doc="Base class for buffered IO objects.&#10;The main difference with RawIOBase is that the read() method supports omitting the size argument, and does not have a default implementation that defers to readinto().  In addition, read(), readinto() and write() may raise BlockingIOError if the underlying raw stream is in non-blocking mode and not ready; unlike their raw counterparts, they will never return None.  A typical implementation should not inherit from a RawIOBase" ilk="class" line="589" lineend="671" name="BufferedIOBase">
+        <scope doc="Read and return up to n bytes." ilk="function" line="606" lineend="624" name="read" signature="read(n=None)">
+          <variable citdl="BufferedIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Read up to n bytes with at most one read() system call." ilk="function" line="626" lineend="628" name="read1" signature="read1(n=None)">
+          <variable citdl="BufferedIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Separate the underlying raw stream from the buffer and&#10;return it." ilk="function" line="664" lineend="671" name="detach" signature="detach()">
+          <variable citdl="BufferedIOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read up to len(b) bytes into b." ilk="function" line="630" lineend="651" name="readinto" returns="len()" signature="readinto(b)">
+          <variable citdl="BufferedIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="read()" line="642" name="data" />
+          <variable citdl="len()" line="643" name="n" />
+        </scope>
+        <scope doc="Write the given buffer to the IO stream." ilk="function" line="653" lineend="662" name="write" signature="write(b)">
+          <variable citdl="BufferedIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+      </scope>
+      <scope classrefs="BufferedIOBase" doc="A buffered reader and writer object together.&#10;A buffered reader object and buffered writer object put together to form a sequential IO object that can read and write. This is typically used with a socket or two-way pipe.  reader and writer are RawIOBase objects that are readable and writeable respectively. If the buffer_size is omitted it defaults to DEFAULT_BUFFER_SIZE." ilk="class" line="1144" lineend="1213" name="BufferedRWPair">
+        <scope ilk="function" line="1189" lineend="1190" name="peek" returns="self.reader.peek()" signature="peek(n=0)">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1208" lineend="1209" name="isatty" returns="self.reader.isatty()" signature="isatty()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1178" lineend="1181" name="read" returns="self.reader.read()" signature="read(n=None)">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1183" lineend="1184" name="readinto" returns="self.reader.readinto()" signature="readinto(b)">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope ilk="function" line="1195" lineend="1196" name="readable" returns="self.reader.readable()" signature="readable()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1186" lineend="1187" name="write" returns="self.writer.write()" signature="write(b)">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope ilk="function" line="1192" lineend="1193" name="read1" returns="self.reader.read1()" signature="read1(n)">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1201" lineend="1202" name="flush" returns="self.writer.flush()" signature="flush()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1204" lineend="1206" name="close" signature="close()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1198" lineend="1199" name="writable" returns="self.writer.writable()" signature="writable()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="1160" lineend="1176" name="__init__" signature="BufferedRWPair(reader, writer, buffer_size=DEFAULT_BUFFER_SIZE, max_buffer_size=None)">
+          <variable citdl="int" ilk="argument" name="buffer_size" />
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+          <variable ilk="argument" name="writer" />
+          <variable ilk="argument" name="max_buffer_size" />
+          <variable ilk="argument" name="reader" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="1212" lineend="1213" name="closed (property getter)" returns="self.writer.closed" signature="closed (property getter)()">
+          <variable citdl="BufferedRWPair" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="BufferedWriter" line="1176" name="writer" />
+        <variable attributes="property" citdl="self.writer.closed" line="1212" name="closed" />
+        <variable attributes="__instancevar__" citdl="BufferedReader" line="1175" name="reader" />
+      </scope>
+      <scope classrefs="BufferedWriter BufferedReader" doc="A buffered interface to random access streams.&#10;The constructor creates a reader and writer for a seekable stream, raw, given in the first argument. If the buffer_size is omitted it defaults to DEFAULT_BUFFER_SIZE." ilk="class" line="1216" lineend="1286" name="BufferedRandom">
+        <scope ilk="function" line="1272" lineend="1274" name="peek" returns="BufferedReader.peek()" signature="peek(n=0)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1256" lineend="1260" name="truncate" returns="BufferedWriter.truncate()" signature="truncate(pos=None)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable citdl="tell()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1262" lineend="1266" name="read" returns="BufferedReader.read()" signature="read(n=None)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1268" lineend="1270" name="readinto" returns="BufferedReader.readinto()" signature="readinto(b)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope ilk="function" line="1280" lineend="1286" name="write" returns="BufferedWriter.write()" signature="write(b)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope ilk="function" line="1276" lineend="1278" name="read1" returns="BufferedReader.read1()" signature="read1(n)">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1233" lineend="1248" name="seek" returns="self.raw.seek()" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable citdl="self.raw.seek()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1250" lineend="1254" name="tell" returns="BufferedWriter.tell()" signature="tell()">
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1227" lineend="1231" name="__init__" signature="BufferedRandom(raw, buffer_size=DEFAULT_BUFFER_SIZE, max_buffer_size=None)">
+          <variable ilk="argument" name="raw" />
+          <variable citdl="BufferedRandom" ilk="argument" name="self" />
+          <variable ilk="argument" name="max_buffer_size" />
+          <variable citdl="int" ilk="argument" name="buffer_size" />
+        </scope>
+        <variable attributes="protected" citdl="int" line="1225" name="_warning_stack_offset" />
+      </scope>
+      <scope classrefs="_BufferedIOMixin" doc="BufferedReader(raw[, buffer_size])&#10;A buffer for a readable, sequential BaseRawIO object.  The constructor creates a BufferedReader for the given readable raw stream and buffer_size. If buffer_size is omitted, DEFAULT_BUFFER_SIZE is used." ilk="class" line="891" lineend="1040" name="BufferedReader" signature="BufferedReader(raw[, buffer_size])">
+        <scope doc="Returns buffered bytes without advancing the position." ilk="function" line="988" lineend="996" name="peek" returns="self._peek_unlocked()" signature="peek(n=0)">
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Read n bytes." ilk="function" line="919" lineend="930" name="read" returns="self._read_unlocked()" signature="read(n=None)">
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="915" lineend="917" name="_reset_read_buf" signature="_reset_read_buf()">
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="932" lineend="986" name="_read_unlocked" returns="self.raw.read()" signature="_read_unlocked(n=None)">
+          <variable citdl="self.raw.read()" line="933" name="nodata_val" />
+          <variable citdl="int" line="942" name="current_size" />
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable citdl="tuple" line="934" name="empty_values" />
+          <variable citdl="int" line="936" name="pos" />
+          <variable citdl="min()" ilk="argument" name="n" />
+          <variable citdl="len()" line="959" name="avail" />
+          <variable citdl="list" line="941" name="chunks" />
+          <variable citdl="max()" line="967" name="wanted" />
+          <variable citdl="str" line="935" name="buf" />
+          <variable citdl="self.raw.read()" line="946" name="chunk" />
+          <variable citdl="str.join()" line="983" name="out" />
+        </scope>
+        <scope doc="Reads up to n bytes, with at most one read() system call." ilk="function" line="1016" lineend="1027" name="read1" returns="str" signature="read1(n)">
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="998" lineend="1014" name="_peek_unlocked" returns="list" signature="_peek_unlocked(n=0)">
+          <variable citdl="min()" line="999" name="want" />
+          <variable citdl="len()" line="1002" name="to_read" />
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+          <variable citdl="self.raw.read()" line="1005" name="current" />
+          <variable citdl="len()" line="1000" name="have" />
+        </scope>
+        <scope ilk="function" line="1032" lineend="1040" name="seek" returns="_BufferedIOMixin.seek()" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable citdl="_BufferedIOMixin.seek()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1029" lineend="1030" name="tell" returns="_BufferedIOMixin.tell()" signature="tell()">
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a new buffered reader using the given readable raw IO&#10;object." ilk="function" line="902" lineend="913" name="__init__" signature="BufferedReader(raw, buffer_size=DEFAULT_BUFFER_SIZE)">
+          <variable ilk="argument" name="raw" />
+          <variable citdl="BufferedReader" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="buffer_size" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="913" name="_read_lock" />
+        <variable attributes="protected __instancevar__" citdl="list" line="916" name="_read_buf" />
+        <variable attributes="protected __instancevar__" citdl="int" line="917" name="_read_pos" />
+        <variable attributes="__instancevar__" citdl="int" line="911" name="buffer_size" />
+      </scope>
+      <scope classrefs="_BufferedIOMixin" doc="A buffer for a writeable sequential RawIO object.&#10;The constructor creates a BufferedWriter for the given writeable raw stream. If the buffer_size is not given, it defaults to DEFAULT_BUFFER_SIZE." ilk="class" line="1042" lineend="1141" name="BufferedWriter">
+        <scope ilk="function" line="1100" lineend="1105" name="truncate" returns="self.raw.truncate()" signature="truncate(pos=None)">
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+          <variable citdl="self.raw.tell()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1111" lineend="1131" name="_flush_unlocked" signature="_flush_unlocked()">
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+          <variable citdl="int" line="1114" name="written" />
+          <variable citdl="self.raw.write()" line="1118" name="n" />
+        </scope>
+        <scope ilk="function" line="1068" lineend="1098" name="write" returns="len()" signature="write(b)">
+          <variable citdl="len()" line="1094" name="overage" />
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="len()" line="1086" name="written" />
+          <variable citdl="len()" line="1084" name="before" />
+        </scope>
+        <scope ilk="function" line="1107" lineend="1109" name="flush" signature="flush()">
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1136" lineend="1141" name="seek" returns="_BufferedIOMixin.seek()" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1133" lineend="1134" name="tell" returns="_BufferedIOMixin.tell()" signature="tell()">
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1053" lineend="1066" name="__init__" signature="BufferedWriter(raw, buffer_size=DEFAULT_BUFFER_SIZE, max_buffer_size=None)">
+          <variable ilk="argument" name="raw" />
+          <variable citdl="BufferedWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="max_buffer_size" />
+          <variable citdl="int" ilk="argument" name="buffer_size" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list" line="1065" name="_write_buf" />
+        <variable attributes="protected __instancevar__" citdl="Lock()" line="1066" name="_write_lock" />
+        <variable attributes="protected" citdl="int" line="1051" name="_warning_stack_offset" />
+        <variable attributes="__instancevar__" citdl="int" line="1064" name="buffer_size" />
+      </scope>
+      <scope classrefs="BufferedIOBase" doc="Buffered I/O implementation using an in-memory bytes buffer.&#10;" ilk="class" line="779" lineend="888" name="BytesIO">
+        <scope ilk="function" line="884" lineend="885" name="writable" returns="bool" signature="writable()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="866" lineend="879" name="truncate" returns="max()" signature="truncate(pos=None)">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="802" lineend="817" name="read" returns="bytes()" signature="read(n=None)">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable citdl="list" line="815" name="b" />
+          <variable citdl="min()" line="814" name="newpos" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="881" lineend="882" name="readable" returns="bool" signature="readable()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the bytes value (contents) of the buffer" ilk="function" line="795" lineend="800" name="getvalue" returns="bytes()" signature="getvalue()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="824" lineend="840" name="write" returns="len()" signature="write(b)">
+          <variable citdl="len()" line="836" name="padding" />
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+          <variable citdl="int" line="832" name="pos" />
+          <variable citdl="len()" line="829" name="n" />
+        </scope>
+        <scope doc="This is the same as read." ilk="function" line="819" lineend="822" name="read1" returns="BytesIO.read()" signature="read1(n)">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="887" lineend="888" name="seekable" returns="bool" signature="seekable()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="790" lineend="793" name="__getstate__" returns="self.__dict__.copy()" signature="__getstate__()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="842" lineend="859" name="seek" returns="max()" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="861" lineend="864" name="tell" returns="max()" signature="tell()">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="783" lineend="788" name="__init__" signature="BytesIO(initial_bytes=None)">
+          <variable citdl="BytesIO" ilk="argument" name="self" />
+          <variable citdl="bytearray()" line="784" name="buf" />
+          <variable ilk="argument" name="initial_bytes" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="bytearray()" line="787" name="_buffer" />
+        <variable attributes="protected __instancevar__" citdl="max()" line="788" name="_pos" />
+      </scope>
+      <variable citdl="int" line="24" name="DEFAULT_BUFFER_SIZE" />
+      <scope classrefs="object" doc="Helper for builtins.open.__doc__&#10;" ilk="class" line="228" lineend="235" name="DocDescriptor">
+        <scope ilk="function" line="231" lineend="235" name="__get__" returns="str" signature="__get__(obj, typ)">
+          <variable ilk="argument" name="typ" />
+          <variable citdl="DocDescriptor" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+      </scope>
+      <variable citdl="int" name="EINTR" />
+      <scope classrefs="_RawIOBase" doc="file(name: str[, mode: str]) -&gt; file IO object&#10;Open a file.  The mode can be 'r', 'w' or 'a' for reading (default), writing or appending.  The file will be created if it doesn't exist when opened for writing or appending; it will be truncated when opened for writing.  Add a '+' to the mode to allow simultaneous reading and writing." ilk="class" name="FileIO">
+        <scope doc="writable() -&gt; bool.  True if file was opened in a write mode." ilk="function" name="writable" signature="writable() -&gt; bool.  True if file was opened in a write mode." />
+        <scope doc="In non-blocking mode, returns as much as is immediately&#10;available, or None if no data is available." ilk="function" name="readall" signature="readall() -&gt; bytes.  read all data from the file, returned as bytes." />
+        <scope doc="isatty() -&gt; bool.  True if the file is connected to a tty device." ilk="function" name="isatty" signature="isatty() -&gt; bool.  True if the file is connected to a tty device." />
+        <scope doc="Size defaults to the current file position, as returned by&#10;tell().The current file position is changed to the value of&#10;size." ilk="function" name="truncate" signature="truncate([size: int]) -&gt; None.  Truncate the file to at most size bytes." />
+        <scope doc="This is needed for lower-level file interfaces, such the&#10;fcntl module." ilk="function" name="fileno" signature="fileno() -&gt; int. &quot;file descriptor&quot;." />
+        <scope doc="Only makes one system call, so less data may be returned&#10;than requested In non-blocking mode, returns None if no data&#10;is available." ilk="function" name="read" signature="read(size: int) -&gt; bytes.  read at most size bytes, returned as bytes." />
+        <scope doc="readable() -&gt; bool.  True if file was opened in a read mode." ilk="function" name="readable" signature="readable() -&gt; bool.  True if file was opened in a read mode." />
+        <scope doc="readinto() -&gt; Same as RawIOBase.readinto()." ilk="function" name="readinto" signature="readinto() -&gt; Same as RawIOBase.readinto()." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Only makes one system call, so not all of the data may be&#10;written." ilk="function" name="write" signature="write(b: bytes) -&gt; int.  Write bytes b to file, return number written." />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="seekable() -&gt; bool.  True if file supports random-access." ilk="function" name="seekable" signature="seekable() -&gt; bool.  True if file supports random-access." />
+        <scope doc="A closed file cannot be used for further I/O operations." ilk="function" name="close" signature="close() -&gt; None.  Close the file." />
+        <scope doc="Argument offset is a byte count." ilk="function" name="seek" signature="seek(offset: int[, whence: int]) -&gt; None.  Move to new file position." />
+        <scope doc="tell() -&gt; int.  Current file position" ilk="function" name="tell" signature="tell() -&gt; int.  Current file position" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="255" lineend="519" name="IOBase">
+        <scope doc="Context management protocol." ilk="function" line="425" lineend="427" name="__exit__" signature="__exit__(*args)">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Context management protocol. Returns self." ilk="function" line="420" lineend="423" name="__enter__" returns="IOBase" signature="__enter__()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Truncate file to size bytes." ilk="function" line="316" lineend="322" name="truncate" signature="truncate(pos=None)">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope doc="Return whether this is an 'interactive' stream." ilk="function" line="440" lineend="446" name="isatty" returns="bool" signature="isatty()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: raise an IOError if file is not writable" ilk="function" line="396" lineend="401" name="_checkWritable" signature="_checkWritable(msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of lines from the stream." ilk="function" line="496" lineend="514" name="readlines" returns="list()" signature="readlines(hint=None)">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable citdl="int" line="507" name="n" />
+          <variable citdl="list" line="508" name="lines" />
+          <variable ilk="argument" name="hint" />
+        </scope>
+        <scope doc="Return whether object was opened for writing." ilk="function" line="389" lineend="394" name="writable" returns="bool" signature="writable()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="486" lineend="488" name="__iter__" returns="IOBase" signature="__iter__()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: raise an IOError if file is not seekable" ilk="function" line="367" lineend="372" name="_checkSeekable" signature="_checkSeekable(msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush write buffers, if applicable." ilk="function" line="326" lineend="331" name="flush" signature="flush()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return whether object supports random access." ilk="function" line="359" lineend="365" name="seekable" returns="bool" signature="seekable()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush and close the IO object." ilk="function" line="336" lineend="343" name="close" signature="close()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read and return a line from the stream." ilk="function" line="450" lineend="484" name="readline" returns="bytes()" signature="readline(limit=-1)">
+          <variable citdl="bytearray()" line="476" name="res" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable citdl="self.read()" line="478" name="b" />
+          <variable citdl="int" ilk="argument" name="limit" />
+          <scope ilk="function" line="470" lineend="471" name="nreadahead" returns="int" signature="nreadahead()" />
+        </scope>
+        <scope doc="Change stream position." ilk="function" line="297" lineend="310" name="seek" signature="seek(pos, whence=0)">
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope doc="Returns underlying file descriptor if one exists." ilk="function" line="433" lineend="438" name="fileno" signature="fileno()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="516" lineend="519" name="writelines" signature="writelines(lines)">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="lines" />
+        </scope>
+        <scope doc="Internal: raise an exception for unsupported operations." ilk="function" line="290" lineend="293" name="_unsupported" signature="_unsupported(name)">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Internal: raise an IOError if file is not readable" ilk="function" line="382" lineend="387" name="_checkReadable" signature="_checkReadable(msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return whether object was opened for reading." ilk="function" line="375" lineend="380" name="readable" returns="bool" signature="readable()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="490" lineend="494" name="next" returns="readline()" signature="next()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+          <variable citdl="readline()" line="491" name="line" />
+        </scope>
+        <scope doc="Destructor. Calls close()." ilk="function" line="345" lineend="355" name="__del__" signature="__del__()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return current stream position." ilk="function" line="312" lineend="314" name="tell" returns="IOBase.seek()" signature="tell()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Internal: raise an ValueError if file is closed" ilk="function" line="411" lineend="416" name="_checkClosed" signature="_checkClosed(msg=None)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" doc="closed: bool. True iff the file has been closed." ilk="function" line="404" lineend="409" name="closed (property getter)" returns="bool" signature="closed (property getter)()">
+          <variable citdl="IOBase" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="abc.ABCMeta" line="256" name="__metaclass__" />
+        <variable attributes="property" citdl="bool" line="404" name="closed" />
+        <variable attributes="private" citdl="True" line="334" name="__closed" />
+      </scope>
+      <scope classrefs="IncrementalDecoder" doc="Codec used when reading a file in universal newlines mode.  It wraps&#10;another incremental decoder, translating \r\n and \r into \n.  It also records the types of newlines encountered.  When used with translate=False, it ensures that the newline sequence is returned in one piece." ilk="class" line="1355" lineend="1437" name="IncrementalNewlineDecoder">
+        <scope ilk="function" line="1417" lineend="1421" name="reset" signature="reset()">
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1400" lineend="1409" name="getstate" returns="tuple" signature="getstate()">
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+          <variable citdl="str" line="1402" name="buf" />
+          <variable citdl="int" line="1403" name="flag" />
+        </scope>
+        <scope ilk="function" line="1369" lineend="1398" name="decode" returns="str" signature="decode(input, final=False)">
+          <variable citdl="output.count()" line="1388" name="lf" />
+          <variable citdl="self.decoder.decode()" line="1372" name="output" />
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+          <variable citdl="output.count()" line="1386" name="crlf" />
+          <variable citdl="output.count()" line="1387" name="cr" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="False" ilk="argument" name="final" />
+        </scope>
+        <scope ilk="function" line="1411" lineend="1415" name="setstate" signature="setstate(state)">
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="1362" lineend="1367" name="__init__" signature="IncrementalNewlineDecoder(decoder, translate, errors='strict')">
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+          <variable ilk="argument" name="translate" />
+          <variable citdl="str" ilk="argument" name="errors" />
+          <variable ilk="argument" name="decoder" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="1366" name="seennl" />
+        <variable attributes="__instancevar__" citdl="False" line="1367" name="pendingcr" />
+        <scope attributes="__hidden__" ilk="function" line="1428" lineend="1437" name="newlines (property getter)" signature="newlines (property getter)()">
+          <variable citdl="IncrementalNewlineDecoder" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected" citdl="int" line="1424" name="_CR" />
+        <variable attributes="protected" citdl="int" line="1425" name="_CRLF" />
+        <variable attributes="protected" citdl="int" line="1423" name="_LF" />
+        <variable attributes="__instancevar__" line="1365" name="decoder" />
+        <variable attributes="__instancevar__" line="1364" name="translate" />
+        <variable attributes="property" line="1428" name="newlines" />
+      </scope>
+      <scope doc="(allocate() is an obsolete synonym)" ilk="function" name="Lock" signature="allocate_lock() -&gt; lock object" />
+      <scope classrefs="object" doc="open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)&#10;Open file and return a stream.  Raise IOError upon failure.  file is either a text or byte string giving the name (and the path if the file isn't in the current working directory) of the file to be opened or an integer file descriptor of the file to be wrapped. (If a file descriptor is given, it is closed when the returned I/O object is closed, unless closefd is set to False.)  mode is an optional string that specifies the mode in which the file is opened. It defaults to 'r' which means open for reading in text" ilk="class" line="237" lineend="248" name="OpenWrapper">
+        <scope ilk="function" line="247" lineend="248" name="__new__" returns="open()" signature="__new__(cls, *args, **kwargs)">
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="OpenWrapper" ilk="argument" name="cls" />
+        </scope>
+        <variable citdl="DocDescriptor" line="245" name="__doc__" />
+      </scope>
+      <scope classrefs="IOBase" doc="Base class for raw binary I/O.&#10;" ilk="class" line="524" lineend="582" name="RawIOBase">
+        <scope doc="Read and return up to n bytes." ilk="function" line="538" lineend="553" name="read" returns="bytes()" signature="read(n=-1)">
+          <variable citdl="RawIOBase" ilk="argument" name="self" />
+          <variable citdl="bytearray()" line="548" name="b" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Read until EOF, using multiple read() call." ilk="function" line="555" lineend="567" name="readall" returns="bytes()" signature="readall()">
+          <variable citdl="bytearray()" line="557" name="res" />
+          <variable citdl="RawIOBase" ilk="argument" name="self" />
+          <variable citdl="read()" line="559" name="data" />
+        </scope>
+        <scope doc="Read up to len(b) bytes into b." ilk="function" line="569" lineend="575" name="readinto" signature="readinto(b)">
+          <variable citdl="RawIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+        <scope doc="Write the given buffer to the IO stream." ilk="function" line="577" lineend="582" name="write" signature="write(b)">
+          <variable citdl="RawIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="b" />
+        </scope>
+      </scope>
+      <variable citdl="int" name="SEEK_CUR" />
+      <variable citdl="int" name="SEEK_END" />
+      <variable citdl="int" name="SEEK_SET" />
+      <scope classrefs="TextIOWrapper" doc="Text I/O implementation using an in-memory buffer.&#10;The initial_value argument sets the value of object.  The newline argument is like the one of TextIOWrapper's constructor." ilk="class" line="1965" lineend="2006" name="StringIO">
+        <scope ilk="function" line="1987" lineend="1989" name="getvalue" signature="getvalue()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1991" lineend="1994" name="__repr__" returns="object.__repr__()" signature="__repr__()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2004" lineend="2006" name="detach" signature="detach()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1972" lineend="1985" name="__init__" signature="StringIO(initial_value='', newline='\n')">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="newline" />
+          <variable citdl="unicode()" ilk="argument" name="initial_value" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="1997" lineend="1998" name="errors (property getter)" signature="errors (property getter)()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="False" line="1980" name="_writetranslate" />
+        <variable attributes="property" line="1997" name="errors" />
+        <scope attributes="__hidden__" ilk="function" line="2001" lineend="2002" name="encoding (property getter)" signature="encoding (property getter)()">
+          <variable citdl="StringIO" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="2001" name="encoding" />
+      </scope>
+      <scope classrefs="IOBase" doc="Base class for text I/O.&#10;This class provides a character and line based interface to stream I/O. There is no readinto method because Python's character strings are immutable. There is no public constructor." ilk="class" line="1289" lineend="1350" name="TextIOBase">
+        <scope doc="Truncate size to pos." ilk="function" line="1310" lineend="1312" name="truncate" signature="truncate(pos=None)">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope doc="Read at most n characters from stream." ilk="function" line="1298" lineend="1304" name="read" signature="read(n=-1)">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope doc="Write string s to stream." ilk="function" line="1306" lineend="1308" name="write" signature="write(s)">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <scope doc="Read until newline or EOF." ilk="function" line="1314" lineend="1319" name="readline" signature="readline()">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Separate the underlying buffer from the TextIOBase and&#10;return it." ilk="function" line="1321" lineend="1328" name="detach" signature="detach()">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" doc="Error setting of the decoder or encoder." ilk="function" line="1346" lineend="1350" name="errors (property getter)" signature="errors (property getter)()">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="1346" name="errors" />
+        <scope attributes="__hidden__" doc="Line endings translated so far." ilk="function" line="1336" lineend="1343" name="newlines (property getter)" signature="newlines (property getter)()">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="1331" name="encoding" />
+        <scope attributes="__hidden__" doc="Subclasses should override." ilk="function" line="1331" lineend="1333" name="encoding (property getter)" signature="encoding (property getter)()">
+          <variable citdl="TextIOBase" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="1336" name="newlines" />
+      </scope>
+      <scope classrefs="TextIOBase" doc="Character and line based layer over a BufferedIOBase object, buffer.&#10;encoding gives the name of the encoding that the stream will be decoded or encoded with. It defaults to locale.getpreferredencoding.  errors determines the strictness of encoding and decoding (see the codecs.register) and defaults to &quot;strict&quot;.  newline can be None, '', '\n', '\r', or '\r\n'.  It controls the handling of line endings. If it is None, universal newlines is enabled.  With this enabled, on input, the lines endings '\n', '\r', or '\r\n' are translated to '\n' before being returned to the" ilk="class" line="1440" lineend="1962" name="TextIOWrapper">
+        <scope ilk="function" line="1555" lineend="1556" name="writable" returns="self.buffer.writable()" signature="writable()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1558" lineend="1560" name="flush" signature="flush()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1562" lineend="1565" name="close" signature="close()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1766" lineend="1836" name="seek" returns="tell()" signature="seek(cookie, whence=0)">
+          <variable line="1797" name="need_eof" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable line="1797" name="bytes_to_feed" />
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="tell()" ilk="argument" name="cookie" />
+          <variable line="1797" name="start_pos" />
+          <variable citdl="self.buffer.read()" line="1815" name="input_chunk" />
+          <variable citdl="self.buffer.seek()" line="1782" name="position" />
+          <variable citdl="TextIOWrapper._get_encoder()" line="1827" name="encoder" />
+          <variable line="1797" name="chars_to_skip" />
+          <variable line="1797" name="dec_flags" />
+        </scope>
+        <scope doc="Read and decode the next chunk of data from the&#10;BufferedReader." ilk="function" line="1639" lineend="1671" name="_read_chunk" returns="bool" signature="_read_chunk()">
+          <variable citdl="self.buffer.read1()" line="1662" name="input_chunk" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable line="1657" name="dec_buffer" />
+          <variable line="1657" name="dec_flags" />
+          <variable citdl="bool" line="1663" name="eof" />
+        </scope>
+        <scope ilk="function" line="1466" lineend="1513" name="__init__" signature="TextIOWrapper(buffer, encoding=None, errors=None, newline=None, line_buffering=False)">
+          <variable citdl="str" ilk="argument" name="errors" />
+          <variable citdl="False" ilk="argument" name="line_buffering" />
+          <variable ilk="argument" name="buffer" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="newline" />
+          <variable citdl="locale.getpreferredencoding()" ilk="argument" name="encoding" />
+          <variable citdl="self.buffer.tell()" line="1507" name="position" />
+        </scope>
+        <scope ilk="function" line="1602" lineend="1605" name="_get_encoder" returns="_get_encoder.make_encoder()" signature="_get_encoder()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="codecs.getincrementalencoder()" line="1603" name="make_encoder" />
+        </scope>
+        <scope ilk="function" line="1552" lineend="1553" name="readable" returns="self.buffer.readable()" signature="readable()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1863" lineend="1870" name="next" returns="self.readline()" signature="next()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="self.readline()" line="1865" name="line" />
+        </scope>
+        <scope ilk="function" line="1581" lineend="1600" name="write" returns="len()" signature="write(s)">
+          <variable citdl="encoder.encode()" line="1593" name="b" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="s.replace()" ilk="argument" name="s" />
+          <variable citdl="self._get_encoder()" line="1591" name="encoder" />
+          <variable citdl="len()" line="1587" name="length" />
+          <variable citdl="False" line="1588" name="haslf" />
+        </scope>
+        <scope ilk="function" line="1607" lineend="1613" name="_get_decoder" returns="IncrementalNewlineDecoder" signature="_get_decoder()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="make_decoder()" line="1609" name="decoder" />
+          <variable citdl="codecs.getincrementaldecoder()" line="1608" name="make_decoder" />
+        </scope>
+        <scope doc="Rewind the _decoded_chars buffer." ilk="function" line="1633" lineend="1637" name="_rewind_decoded_chars" signature="_rewind_decoded_chars(n)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope doc="Set the _decoded_chars buffer." ilk="function" line="1618" lineend="1621" name="_set_decoded_chars" signature="_set_decoded_chars(chars)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="chars" />
+        </scope>
+        <scope ilk="function" line="1578" lineend="1579" name="isatty" returns="self.buffer.isatty()" signature="isatty()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1752" lineend="1756" name="truncate" returns="self.buffer.truncate()" signature="truncate(pos=None)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="tell()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="1838" lineend="1861" name="read" returns="TextIOWrapper._get_decoded_chars()" signature="read(n=None)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="False" line="1856" name="eof" />
+          <variable citdl="make_decoder()" line="1842" name="decoder" />
+          <variable citdl="_get_decoded_chars()" line="1849" name="result" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="1673" lineend="1681" name="_pack_cookie" returns="int" signature="_pack_cookie(position, dec_flags=0, bytes_to_feed=0, need_eof=0, chars_to_skip=0)">
+          <variable citdl="int" ilk="argument" name="need_eof" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="bytes_to_feed" />
+          <variable ilk="argument" name="position" />
+          <variable citdl="int" ilk="argument" name="chars_to_skip" />
+          <variable citdl="int" ilk="argument" name="dec_flags" />
+        </scope>
+        <scope ilk="function" line="1549" lineend="1550" name="seekable" returns="self.buffer.seekable()" signature="seekable()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1872" lineend="1958" name="readline" returns="list" signature="readline(limit=None)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="line.find()" line="1888" name="pos" />
+          <variable citdl="line.find()" line="1904" name="nlpos" />
+          <variable citdl="len()" line="1883" name="start" />
+          <variable citdl="line.find()" line="1905" name="crpos" />
+          <variable citdl="int" ilk="argument" name="limit" />
+          <variable citdl="line.find()" line="1894" name="endpos" />
+          <variable citdl="_get_decoded_chars()" line="1881" name="line" />
+        </scope>
+        <scope ilk="function" line="1758" lineend="1764" name="detach" signature="detach()">
+          <variable line="1762" name="buffer" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1575" lineend="1576" name="fileno" returns="self.buffer.fileno()" signature="fileno()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1690" lineend="1750" name="tell" returns="self.buffer.tell()" signature="tell()">
+          <variable citdl="int" line="1722" name="need_eof" />
+          <variable citdl="int" line="1721" name="bytes_fed" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="decoder.getstate()" line="1716" name="saved_state" />
+          <variable line="1731" name="dec_buffer" />
+          <variable citdl="self.buffer.tell()" line="1720" name="start_pos" />
+          <variable citdl="make_decoder()" line="1697" name="decoder" />
+          <variable citdl="int" line="1721" name="chars_decoded" />
+          <variable citdl="self.buffer.tell()" line="1696" name="position" />
+          <variable citdl="dec_flags" line="1721" name="start_flags" />
+          <variable citdl="int" line="1709" name="chars_to_skip" />
+          <variable line="1731" name="dec_flags" />
+        </scope>
+        <scope ilk="function" line="1683" lineend="1688" name="_unpack_cookie" returns="tuple" signature="_unpack_cookie(bigint)">
+          <variable line="1687" name="need_eof" />
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable line="1684" name="rest" />
+          <variable line="1686" name="bytes_to_feed" />
+          <variable ilk="argument" name="bigint" />
+          <variable line="1684" name="position" />
+          <variable line="1687" name="chars_to_skip" />
+          <variable line="1685" name="dec_flags" />
+        </scope>
+        <scope ilk="function" line="1524" lineend="1531" name="__repr__" returns="str.format()" signature="__repr__()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="self.name" line="1526" name="name" />
+        </scope>
+        <scope doc="Advance into the _decoded_chars buffer." ilk="function" line="1623" lineend="1631" name="_get_decoded_chars" returns="list" signature="_get_decoded_chars(n=None)">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+          <variable citdl="int" line="1625" name="offset" />
+          <variable citdl="list" line="1627" name="chars" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="1538" lineend="1539" name="errors (property getter)" returns="str" signature="errors (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="locale.getpreferredencoding()" line="1492" name="_encoding" />
+        <variable attributes="protected __instancevar__" line="1496" name="_readnl" />
+        <scope attributes="__hidden__" ilk="function" line="1546" lineend="1547" name="buffer (property getter)" signature="buffer (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="_get_encoder.make_encoder()" line="1499" name="_encoder" />
+        <variable attributes="property" citdl="locale.getpreferredencoding()" line="1534" name="encoding" />
+        <variable attributes="protected" citdl="int" line="1464" name="_CHUNK_SIZE" />
+        <variable attributes="protected __instancevar__" citdl="os.linesep" line="1498" name="_writenl" />
+        <variable attributes="protected __instancevar__" citdl="self.buffer.seekable()" line="1560" name="_telling" />
+        <variable attributes="protected __instancevar__" citdl="str" line="1493" name="_errors" />
+        <variable attributes="property" line="1961" name="newlines" />
+        <variable attributes="protected __instancevar__" citdl="bool" line="1497" name="_writetranslate" />
+        <variable attributes="property" citdl="str" line="1538" name="errors" />
+        <variable attributes="protected __instancevar__" line="1490" name="_buffer" />
+        <variable attributes="protected __instancevar__" citdl="str" line="1501" name="_decoded_chars" />
+        <variable attributes="protected __instancevar__" citdl="tuple" line="1503" name="_snapshot" />
+        <variable attributes="property" citdl="self.buffer.closed" line="1568" name="closed" />
+        <variable attributes="protected __instancevar__" citdl="bool" line="1494" name="_readuniversal" />
+        <variable attributes="property" line="1546" name="buffer" />
+        <variable attributes="protected __instancevar__" citdl="self.buffer.seekable()" line="1504" name="_seekable" />
+        <scope attributes="__hidden__" ilk="function" line="1534" lineend="1535" name="encoding (property getter)" returns="str" signature="encoding (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="1961" lineend="1962" name="newlines (property getter)" signature="newlines (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="make_decoder()" line="1500" name="_decoder" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1502" name="_decoded_chars_used" />
+        <variable attributes="property" citdl="self.buffer.name" line="1572" name="name" />
+        <scope attributes="__hidden__" ilk="function" line="1542" lineend="1543" name="line_buffering (property getter)" returns="bool" signature="line_buffering (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="False" line="1491" name="_line_buffering" />
+        <variable attributes="protected __instancevar__" citdl="bool" line="1495" name="_readtranslate" />
+        <scope attributes="__hidden__" ilk="function" line="1572" lineend="1573" name="name (property getter)" returns="self.buffer.name" signature="name (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="bool" line="1542" name="line_buffering" />
+        <scope attributes="__hidden__" ilk="function" line="1568" lineend="1569" name="closed (property getter)" returns="self.buffer.closed" signature="closed (property getter)()">
+          <variable citdl="TextIOWrapper" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="ValueError IOError" doc="&#10;" ilk="class" line="251" lineend="252" name="UnsupportedOperation" />
+      <variable citdl="list" name="__all__" />
+      <scope classrefs="object" doc="type(object) -&gt; the object's type&#10;type(name, bases, dict) -&gt; a new type" ilk="class" line="21" name="__metaclass__">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="__subclasses__() -&gt; list of immediate subclasses" ilk="function" name="__subclasses__" returns="list" signature="__subclasses__() -&gt; list of immediate subclasses" />
+        <scope doc="return a type's method resolution order" ilk="function" name="mro" returns="list" signature="mro() -&gt; list" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="check if an object is an instance" ilk="function" name="__instancecheck__" returns="bool" signature="__instancecheck__() -&gt; bool" />
+        <scope doc="check if a class is a subclass" ilk="function" name="__subclasscheck__" returns="bool" signature="__subclasscheck__() -&gt; bool" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <import module="abc" />
+      <import module="codecs" />
+      <import module="io" />
+      <scope doc="Open file and return a stream. Raise IOError upon failure." ilk="function" line="42" lineend="225" name="open" returns="FileIO()" signature="open(file, mode=u'r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)">
+        <variable citdl="bool" line="171" name="binary" />
+        <variable ilk="argument" name="errors" />
+        <variable citdl="set()" line="163" name="modes" />
+        <variable ilk="argument" name="encoding" />
+        <variable citdl="BufferedReader()" line="214" name="buffer" />
+        <variable citdl="bool" line="168" name="appending" />
+        <variable ilk="argument" name="newline" />
+        <variable citdl="bool" line="167" name="writing" />
+        <variable citdl="FileIO()" line="188" name="raw" />
+        <variable citdl="True" line="194" name="line_buffering" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable ilk="argument" name="file" />
+        <variable line="201" name="bs" />
+        <variable citdl="int" ilk="argument" name="buffering" />
+        <variable citdl="TextIOWrapper()" line="170" name="text" />
+        <variable citdl="True" line="166" name="reading" />
+        <variable citdl="bool" line="169" name="updating" />
+        <variable citdl="True" ilk="argument" name="closefd" />
+      </scope>
+      <import module="os" />
+      <variable citdl="__future__._Feature" name="print_function" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="__future__._Feature" name="unicode_literals" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" classrefs="BufferedIOBase" doc="A mixin implementation of BufferedIOBase with an underlying&#10;raw stream." ilk="class" line="676" lineend="776" name="_BufferedIOMixin">
+        <scope attributes="__ctor__" ilk="function" line="685" lineend="686" name="__init__" signature="_BufferedIOMixin(raw)">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable ilk="argument" name="raw" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="686" name="_raw" />
+        <scope ilk="function" line="690" lineend="694" name="seek" returns="self.raw.seek()" signature="seek(pos, whence=0)">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+          <variable citdl="int" ilk="argument" name="whence" />
+          <variable citdl="self.raw.seek()" line="691" name="new_position" />
+        </scope>
+        <scope ilk="function" line="696" lineend="700" name="tell" returns="self.raw.tell()" signature="tell()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable citdl="self.raw.tell()" line="697" name="pos" />
+        </scope>
+        <scope ilk="function" line="702" lineend="712" name="truncate" returns="self.raw.truncate()" signature="truncate(pos=None)">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable citdl="tell()" ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="716" lineend="719" name="flush" signature="flush()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="721" lineend="724" name="close" signature="close()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="726" lineend="732" name="detach" signature="detach()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable line="730" name="raw" />
+        </scope>
+        <scope ilk="function" line="736" lineend="737" name="seekable" returns="self.raw.seekable()" signature="seekable()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="739" lineend="740" name="readable" returns="self.raw.readable()" signature="readable()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="742" lineend="743" name="writable" returns="self.raw.writable()" signature="writable()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" line="746" name="raw" />
+        <scope attributes="__hidden__" ilk="function" line="746" lineend="747" name="raw (property getter)" signature="raw (property getter)()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="self.raw.closed" line="750" name="closed" />
+        <scope attributes="__hidden__" ilk="function" line="750" lineend="751" name="closed (property getter)" returns="self.raw.closed" signature="closed (property getter)()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="self.raw.name" line="754" name="name" />
+        <scope attributes="__hidden__" ilk="function" line="754" lineend="755" name="name (property getter)" returns="self.raw.name" signature="name (property getter)()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="__hidden__" ilk="function" line="758" lineend="759" name="mode (property getter)" returns="self.raw.mode" signature="mode (property getter)()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="property" citdl="self.raw.mode" line="758" name="mode" />
+        <scope ilk="function" line="761" lineend="768" name="__repr__" returns="str.format()" signature="__repr__()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+          <variable citdl="self.__class__.__name__" line="762" name="clsname" />
+          <variable citdl="self.raw.name" line="764" name="name" />
+        </scope>
+        <scope ilk="function" line="772" lineend="773" name="fileno" returns="self.raw.fileno()" signature="fileno()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="775" lineend="776" name="isatty" returns="self.raw.isatty()" signature="isatty()">
+          <variable citdl="_BufferedIOMixin" ilk="argument" name="self" />
+        </scope>
+      </scope>
+    </scope>
+    

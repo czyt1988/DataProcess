@@ -1,0 +1,46 @@
+<scope doc="Documentation&#10;" ilk="blob" lang="Python" name="_msi">
+      <scope doc="Wraps MsiCreateRecord" ilk="function" name="CreateRecord" signature="OpenDatabase(name, flags) -&gt; dbobj" />
+      <scope doc="fcicreate(cabname,files) -&gt; None" ilk="function" name="FCICreate" signature="fcicreate(cabname,files) -&gt; None" />
+      <variable citdl="int" name="MSICOLINFO_NAMES" />
+      <variable citdl="int" name="MSICOLINFO_TYPES" />
+      <variable citdl="int" name="MSIDBOPEN_CREATE" />
+      <variable citdl="int" name="MSIDBOPEN_CREATEDIRECT" />
+      <variable citdl="int" name="MSIDBOPEN_DIRECT" />
+      <variable citdl="int" name="MSIDBOPEN_PATCHFILE" />
+      <variable citdl="int" name="MSIDBOPEN_READONLY" />
+      <variable citdl="int" name="MSIDBOPEN_TRANSACT" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="MSIError" />
+      <variable citdl="int" name="MSIMODIFY_ASSIGN" />
+      <variable citdl="int" name="MSIMODIFY_DELETE" />
+      <variable citdl="int" name="MSIMODIFY_INSERT" />
+      <variable citdl="int" name="MSIMODIFY_INSERT_TEMPORARY" />
+      <variable citdl="int" name="MSIMODIFY_MERGE" />
+      <variable citdl="int" name="MSIMODIFY_REFRESH" />
+      <variable citdl="int" name="MSIMODIFY_REPLACE" />
+      <variable citdl="int" name="MSIMODIFY_SEEK" />
+      <variable citdl="int" name="MSIMODIFY_UPDATE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_DELETE" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_FIELD" />
+      <variable citdl="int" name="MSIMODIFY_VALIDATE_NEW" />
+      <scope doc="Wraps MsiOpenDatabase" ilk="function" name="OpenDatabase" signature="OpenDatabase(name, flags) -&gt; dbobj" />
+      <variable citdl="int" name="PID_APPNAME" />
+      <variable citdl="int" name="PID_AUTHOR" />
+      <variable citdl="int" name="PID_CHARCOUNT" />
+      <variable citdl="int" name="PID_CODEPAGE" />
+      <variable citdl="int" name="PID_COMMENTS" />
+      <variable citdl="int" name="PID_CREATE_DTM" />
+      <variable citdl="int" name="PID_KEYWORDS" />
+      <variable citdl="int" name="PID_LASTAUTHOR" />
+      <variable citdl="int" name="PID_LASTPRINTED" />
+      <variable citdl="int" name="PID_LASTSAVE_DTM" />
+      <variable citdl="int" name="PID_PAGECOUNT" />
+      <variable citdl="int" name="PID_REVNUMBER" />
+      <variable citdl="int" name="PID_SECURITY" />
+      <variable citdl="int" name="PID_SUBJECT" />
+      <variable citdl="int" name="PID_TEMPLATE" />
+      <variable citdl="int" name="PID_TITLE" />
+      <variable citdl="int" name="PID_WORDCOUNT" />
+      <scope doc="UuidCreate() -&gt; string" ilk="function" name="UuidCreate" returns="str" signature="UuidCreate() -&gt; string" />
+    </scope>
+    

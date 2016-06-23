@@ -1,0 +1,20 @@
+<scope doc="Fixer that changes filter(F, X) into list(filter(F, X)).&#10;We avoid the transformation if the filter() call is directly contained in iter(&lt;&gt;), list(&lt;&gt;), tuple(&lt;&gt;), sorted(&lt;&gt;), ...join(&lt;&gt;), or for V in &lt;&gt;:.  NOTE: This is still not correct if the original code was depending on filter(F, X) to return a string if X is a string and a tuple if X is a tuple.  That would require type inference, which we don't do.  Let Python 2.6 figure it out." ilk="blob" lang="Python" name="lib2to3.fixes.fix_filter">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="ConditionalFix" doc="&#10;" ilk="class" line="21" lineend="76" name="FixFilter">
+        <scope ilk="function" line="53" lineend="76" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="ListComp()" line="58" name="new" />
+          <variable citdl="FixFilter" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="22" name="BM_compatible" />
+        <variable citdl="str" line="51" name="skip_on" />
+        <variable citdl="str" line="24" name="PATTERN" />
+      </scope>
+      <scope doc="A list comprehension of the form [xp for fp in it if test]." ilk="function" name="ListComp" signature="ListComp(xp, fp, it, test=None)" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Returns true if node is in an environment where all that is&#10;required of it is being itterable (ie, it doesn't matter if&#10;it returns a list or an itterator)." ilk="function" name="in_special_context" signature="in_special_context(node)" />
+      <import module="token" />
+    </scope>
+    

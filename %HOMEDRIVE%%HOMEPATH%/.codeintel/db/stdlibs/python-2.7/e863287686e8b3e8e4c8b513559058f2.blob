@@ -1,0 +1,14 @@
+<scope doc="Base class for MIME specializations.&#10;" ilk="blob" lang="Python" name="email.mime.base">
+      <scope classrefs="Message" doc="Base class for MIME specializations.&#10;" ilk="class" line="13" lineend="26" name="MIMEBase">
+        <scope doc="This constructor adds a Content-Type: and a MIME-Version:&#10;header." ilk="function" line="16" lineend="26" name="__init__" signature="MIMEBase(_maintype, _subtype, **_params)">
+          <variable ilk="argument" name="_maintype" />
+          <variable citdl="MIMEBase" ilk="argument" name="self" />
+          <variable citdl="str" line="24" name="ctype" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable ilk="argument" name="_subtype" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="message" />
+    </scope>
+    

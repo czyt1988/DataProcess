@@ -1,0 +1,301 @@
+<scope doc="SMTP/ESMTP client class.&#10;This should follow RFC 821 (SMTP), RFC 1869 (ESMTP), RFC 2554 (SMTP Authentication) and RFC 2487 (Secure SMTP over TLS).  Notes:  Please remember, when doing ESMTP, that the names of the SMTP service extensions are NOT the same thing as the option keywords for the RCPT and MAIL commands!  Example:" ilk="blob" lang="Python" name="smtplib">
+      <variable citdl="str" line="59" name="CRLF" />
+      <scope classrefs="SMTP" doc="LMTP - Local Mail Transfer Protocol&#10;The LMTP protocol, which is very similar to ESMTP, is heavily based on the standard SMTP client. It's common to use Unix sockets for LMTP, so our connect() method must support that as well as a regular host:port server. To specify a Unix socket, you must use an absolute path as the host, starting with a '/'.  Authentication is supported, using the regular SMTP mechanism. When using a Unix socket, LMTP generally don't support or require any authentication, but your mileage might vary." ilk="class" line="784" lineend="822" name="LMTP">
+        <scope doc="Initialize a new instance." ilk="function" line="799" lineend="801" name="__init__" signature="LMTP(host='', port=LMTP_PORT, local_hostname=None)">
+          <variable ilk="argument" name="local_hostname" />
+          <variable citdl="LMTP" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Connect to the LMTP daemon, on either a Unix or a TCP&#10;socket." ilk="function" line="803" lineend="822" name="connect" returns="SMTP.connect()" signature="connect(host='localhost', port=0)">
+          <variable line="819" name="msg" />
+          <variable citdl="LMTP" ilk="argument" name="self" />
+          <variable line="819" name="code" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <variable citdl="str" line="797" name="ehlo_msg" />
+        <variable attributes="__instancevar__" citdl="socket.socket()" line="810" name="sock" />
+      </scope>
+      <variable citdl="int" line="782" name="LMTP_PORT" />
+      <variable citdl="SRE_Pattern" line="61" name="OLDSTYLE_AUTH" />
+      <scope doc="This class manages a connection to an SMTP or ESMTP server.&#10;SMTP Objects: SMTP objects have the following attributes: helo_resp This is the message given by the server in response to the most recent HELO command.  ehlo_resp This is the message given by the server in response to the most recent EHLO command. This is usually multiline. " ilk="class" line="190" lineend="747" name="SMTP">
+        <scope doc="SMTP 'ehlo' command." ilk="function" line="389" lineend="437" name="ehlo" returns="tuple" signature="ehlo(name='')">
+          <variable line="396" name="code" />
+          <variable citdl="str" ilk="argument" name="name" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="re.match()" line="428" name="m" />
+          <variable line="430" name="feature" />
+          <variable line="431" name="params" />
+          <variable citdl="OLDSTYLE_AUTH.match()" line="417" name="auth_match" />
+          <variable line="396" name="msg" />
+          <variable citdl="self.ehlo_resp.split()" line="408" name="resp" />
+        </scope>
+        <scope doc="SMTP 'help' command." ilk="function" line="443" lineend="447" name="help" signature="help(args='')">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Puts the connection to the SMTP server into TLS mode." ilk="function" line="607" lineend="641" name="starttls" returns="tuple" signature="starttls(keyfile=None, certfile=None)">
+          <variable ilk="argument" name="certfile" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="keyfile" />
+          <variable line="627" name="resp" />
+          <variable line="627" name="reply" />
+        </scope>
+        <scope doc="Set the debug output level." ilk="function" line="263" lineend="270" name="set_debuglevel" signature="set_debuglevel(debuglevel)">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="debuglevel" />
+        </scope>
+        <scope doc="Connect to a host on a given port." ilk="function" line="279" lineend="306" name="connect" returns="tuple" signature="connect(host='localhost', port=0)">
+          <variable line="303" name="code" />
+          <variable citdl="host.rfind()" line="291" name="i" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="host" />
+          <variable line="303" name="msg" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="SMTP 'rset' command -- resets session." ilk="function" line="449" lineend="451" name="rset" returns="SMTP.docmd()" signature="rset()">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close the connection to the SMTP server." ilk="function" line="733" lineend="740" name="close" signature="close()">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="SMTP 'helo' command." ilk="function" line="379" lineend="387" name="helo" returns="tuple" signature="helo(name='')">
+          <variable line="385" name="msg" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable line="385" name="code" />
+          <variable citdl="str" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Initialize a new instance." ilk="function" line="227" lineend="261" name="__init__" signature="SMTP(host='', port=0, local_hostname=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable line="242" name="code" />
+          <variable citdl="socket.gethostbyname()" line="256" name="addr" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="socket.getfqdn()" line="251" name="fqdn" />
+          <variable ilk="argument" name="local_hostname" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable line="242" name="msg" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Terminate the SMTP session." ilk="function" line="743" lineend="747" name="quit" returns="docmd()" signature="quit()">
+          <variable citdl="docmd()" line="745" name="res" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="SMTP 'verify' command -- checks for address validity." ilk="function" line="498" lineend="501" name="verify" returns="SMTP.getreply()" signature="verify(address)">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope doc="Send `str' to the server." ilk="function" line="308" lineend="319" name="send" signature="send(str)">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="str" />
+        </scope>
+        <scope doc="Get a reply from the server." ilk="function" line="329" lineend="371" name="getreply" returns="tuple" signature="getreply()">
+          <variable citdl="list" line="356" name="code" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="int" line="360" name="errcode" />
+          <variable citdl="str" line="347" name="line" />
+          <variable citdl="list" line="342" name="resp" />
+          <variable citdl="str.join()" line="368" name="errmsg" />
+        </scope>
+        <scope doc="SMTP 'noop' command -- doesn't do anything :&gt;" ilk="function" line="453" lineend="455" name="noop" returns="SMTP.docmd()" signature="noop()">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="SMTP 'mail' command -- begins mail xfer session." ilk="function" line="457" lineend="463" name="mail" returns="SMTP.getreply()" signature="mail(sender, options=[])">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="sender" />
+          <variable citdl="list" ilk="argument" name="options" />
+          <variable citdl="str" line="459" name="optionlist" />
+        </scope>
+        <scope doc="This command performs an entire mail transaction." ilk="function" line="643" lineend="730" name="sendmail" returns="dict" signature="sendmail(from_addr, to_addrs, msg, mail_options=[], rcpt_options=[])">
+          <variable line="710" name="code" />
+          <variable ilk="argument" name="from_addr" />
+          <variable citdl="list" line="701" name="esmtp_opts" />
+          <variable line="710" name="resp" />
+          <variable citdl="list" ilk="argument" name="rcpt_options" />
+          <variable citdl="dict" line="714" name="senderrs" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="list" ilk="argument" name="to_addrs" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="mail_options" />
+        </scope>
+        <scope ilk="function" line="272" lineend="277" name="_get_socket" returns="socket.create_connection()" signature="_get_socket(port, host, timeout)">
+          <variable ilk="argument" name="host" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="timeout" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope doc="Send a command to the server." ilk="function" line="321" lineend="327" name="putcmd" signature="putcmd(cmd, args='')">
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="args" />
+          <variable citdl="str" line="324" name="str" />
+        </scope>
+        <scope doc="Send a command, and return its response code." ilk="function" line="373" lineend="376" name="docmd" returns="SMTP.getreply()" signature="docmd(cmd, args='')">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="str" ilk="argument" name="args" />
+        </scope>
+        <scope doc="SMTP 'DATA' command -- sends message data to server." ilk="function" line="473" lineend="496" name="data" returns="tuple" signature="data(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="str" line="488" name="q" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable line="482" name="repl" />
+          <variable line="482" name="code" />
+        </scope>
+        <scope doc="Call self.ehlo() and/or self.helo() if needed." ilk="function" line="512" lineend="527" name="ehlo_or_helo_if_needed" signature="ehlo_or_helo_if_needed()">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable line="525" name="code" />
+          <variable line="525" name="resp" />
+        </scope>
+        <scope doc="SMTP 'rcpt' command -- indicates 1 recipient for this mail." ilk="function" line="465" lineend="471" name="rcpt" returns="SMTP.getreply()" signature="rcpt(recip, options=[])">
+          <variable ilk="argument" name="recip" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="options" />
+          <variable citdl="str" line="467" name="optionlist" />
+        </scope>
+        <scope doc="Does the server support a given SMTP service extension?" ilk="function" line="439" lineend="441" name="has_extn" returns="bool" signature="has_extn(opt)">
+          <variable ilk="argument" name="opt" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+        </scope>
+        <scope doc="SMTP 'expn' command -- expands a mailing list." ilk="function" line="505" lineend="508" name="expn" returns="SMTP.getreply()" signature="expn(address)">
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope doc="Log in on an SMTP server that requires authentication." ilk="function" line="529" lineend="605" name="login" returns="tuple" signature="login(user, password)">
+          <variable line="585" name="code" />
+          <variable line="585" name="resp" />
+          <variable citdl="method" line="578" name="authmethod" />
+          <variable citdl="SMTP" ilk="argument" name="self" />
+          <scope ilk="function" line="551" lineend="554" name="encode_cram_md5" returns="encode_base64()" signature="encode_cram_md5(challenge, user, password)">
+            <variable citdl="base64.decodestring()" ilk="argument" name="challenge" />
+            <variable ilk="argument" name="user" />
+            <variable ilk="argument" name="password" />
+            <variable citdl="str" line="553" name="response" />
+          </scope>
+          <variable ilk="argument" name="user" />
+          <variable line="570" name="authlist" />
+          <variable citdl="list" line="575" name="preferred_auths" />
+          <variable citdl="str" line="562" name="AUTH_LOGIN" />
+          <variable ilk="argument" name="password" />
+          <variable citdl="str" line="561" name="AUTH_CRAM_MD5" />
+          <variable citdl="str" line="560" name="AUTH_PLAIN" />
+          <scope ilk="function" line="556" lineend="557" name="encode_plain" returns="encode_base64()" signature="encode_plain(user, password)">
+            <variable ilk="argument" name="user" />
+            <variable ilk="argument" name="password" />
+          </scope>
+        </scope>
+        <scope doc="SMTP 'verify' command -- checks for address validity." ilk="function" line="503" name="vrfy" />
+        <variable citdl="str" line="222" name="ehlo_msg" />
+        <variable line="223" name="ehlo_resp" />
+        <variable citdl="SSLFakeFile" line="220" name="file" />
+        <variable line="221" name="helo_resp" />
+        <variable attributes="__instancevar__" citdl="dict" line="240" name="esmtp_features" />
+        <variable attributes="__instancevar__" citdl="ssl.wrap_socket()" line="302" name="sock" />
+        <variable attributes="__instancevar__" citdl="str" line="246" name="local_hostname" />
+        <variable citdl="int" line="224" name="does_esmtp" />
+        <variable attributes="__instancevar__" citdl="socket._GLOBAL_DEFAULT_TIMEOUT" line="239" name="timeout" />
+        <variable citdl="int" line="219" name="debuglevel" />
+        <variable citdl="int" line="225" name="default_port" />
+      </scope>
+      <scope classrefs="SMTPResponseException" doc="Authentication error.&#10;Most probably the server didn't accept the username/password combination provided." ilk="class" line="125" name="SMTPAuthenticationError" />
+      <scope classrefs="SMTPResponseException" doc="Error during connection establishment.&#10;" ilk="class" line="119" name="SMTPConnectError" />
+      <scope classrefs="SMTPResponseException" doc="The SMTP server didn't accept the data.&#10;" ilk="class" line="116" name="SMTPDataError" />
+      <scope classrefs="Exception" doc="Base class for all exceptions raised by this module.&#10;" ilk="class" line="65" name="SMTPException" />
+      <scope classrefs="SMTPResponseException" doc="The server refused our HELO reply.&#10;" ilk="class" line="122" name="SMTPHeloError" />
+      <scope classrefs="SMTPException" doc="All recipient addresses refused.&#10;The errors for each recipient are accessible through the attribute 'recipients', which is a dictionary of exactly the same sort as SMTP.sendmail() returns." ilk="class" line="103" lineend="113" name="SMTPRecipientsRefused">
+        <scope ilk="function" line="111" lineend="113" name="__init__" signature="SMTPRecipientsRefused(recipients)">
+          <variable citdl="SMTPRecipientsRefused" ilk="argument" name="self" />
+          <variable ilk="argument" name="recipients" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tuple" line="113" name="args" />
+        <variable attributes="__instancevar__" line="112" name="recipients" />
+      </scope>
+      <scope classrefs="SMTPException" doc="Base class for all exceptions that include an SMTP error code.&#10;These exceptions are generated in some instances when the SMTP server returns an error code.  The error code is stored in the `smtp_code' attribute of the error, and the `smtp_error' attribute is set to the error message." ilk="class" line="76" lineend="88" name="SMTPResponseException">
+        <scope ilk="function" line="85" lineend="88" name="__init__" signature="SMTPResponseException(code, msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="SMTPResponseException" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <variable attributes="__instancevar__" line="87" name="smtp_error" />
+        <variable attributes="__instancevar__" citdl="tuple" line="88" name="args" />
+        <variable attributes="__instancevar__" line="86" name="smtp_code" />
+      </scope>
+      <scope classrefs="SMTPResponseException" doc="Sender address refused.&#10;In addition to the attributes set by on all SMTPResponseException exceptions, this sets `sender' to the string that the SMTP refused." ilk="class" line="90" lineend="101" name="SMTPSenderRefused">
+        <scope ilk="function" line="97" lineend="101" name="__init__" signature="SMTPSenderRefused(code, msg, sender)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="SMTPSenderRefused" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="sender" />
+        </scope>
+        <variable attributes="__instancevar__" line="99" name="smtp_error" />
+        <variable attributes="__instancevar__" citdl="tuple" line="101" name="args" />
+        <variable attributes="__instancevar__" line="98" name="smtp_code" />
+        <variable attributes="__instancevar__" line="100" name="sender" />
+      </scope>
+      <scope classrefs="SMTPException" doc="Not connected to any SMTP server.&#10;This exception is raised when the server unexpectedly disconnects, or when an attempt is made to use the SMTP instance before connecting it to a server." ilk="class" line="68" name="SMTPServerDisconnected" />
+      <variable citdl="int" line="57" name="SMTP_PORT" />
+      <scope classrefs="SMTP" doc="This is a subclass derived from SMTP that connects over an SSL encrypted&#10;socket (to use this class you need a socket module that was compiled with SSL support). If host is not specified, '' (the local host) is used. If port is omitted, the standard SMTP-over-SSL port (465) is used. keyfile and certfile are also optional - they can contain a PEM formatted private key and certificate chain file for the SSL connection." ilk="class" line="751" lineend="775" name="SMTP_SSL">
+        <scope ilk="function" line="769" lineend="775" name="_get_socket" returns="socket.create_connection()" signature="_get_socket(host, port, timeout)">
+          <variable citdl="SMTP_SSL" ilk="argument" name="self" />
+          <variable citdl="socket.create_connection()" line="772" name="new_socket" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="timeout" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="762" lineend="767" name="__init__" signature="SMTP_SSL(host='', port=0, local_hostname=None, keyfile=None, certfile=None, timeout=socket._GLOBAL_DEFAULT_TIMEOUT)">
+          <variable ilk="argument" name="certfile" />
+          <variable citdl="SMTP_SSL" ilk="argument" name="self" />
+          <variable ilk="argument" name="local_hostname" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="socket._GLOBAL_DEFAULT_TIMEOUT" ilk="argument" name="timeout" />
+          <variable ilk="argument" name="keyfile" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" line="765" name="keyfile" />
+        <variable attributes="__instancevar__" line="766" name="certfile" />
+        <variable attributes="__instancevar__" citdl="SSLFakeFile" line="774" name="file" />
+        <variable citdl="int" line="760" name="default_port" />
+      </scope>
+      <variable citdl="int" line="58" name="SMTP_SSL_PORT" />
+      <scope doc="A fake file like object that really wraps a SSLObject.&#10;It only supports what is needed in smtplib." ilk="class" line="167" lineend="186" name="SSLFakeFile">
+        <scope ilk="function" line="175" lineend="183" name="readline" returns="str" signature="readline()">
+          <variable citdl="SSLFakeFile" ilk="argument" name="self" />
+          <variable citdl="self.sslobj.read()" line="177" name="chr" />
+          <variable citdl="str" line="176" name="str" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="close" signature="close()">
+          <variable citdl="SSLFakeFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="172" lineend="173" name="__init__" signature="SSLFakeFile(sslobj)">
+          <variable citdl="SSLFakeFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="sslobj" />
+        </scope>
+        <variable attributes="__instancevar__" line="173" name="sslobj" />
+      </scope>
+      <variable citdl="list" line="52" name="__all__" />
+      <import module="base64" />
+      <import module="email" />
+      <scope doc="Encode a string with base64." ilk="function" name="encode_base64" signature="encode_base64(s, binary=True, maxlinelen=76, eol='\n')" />
+      <import module="hmac" />
+      <scope doc="Quote a subset of the email addresses defined by RFC 821." ilk="function" line="133" lineend="150" name="quoteaddr" returns="tuple" signature="quoteaddr(addr)">
+        <variable citdl="tuple" line="138" name="m" />
+        <variable ilk="argument" name="addr" />
+      </scope>
+      <scope doc="Quote data for email." ilk="function" line="152" lineend="159" name="quotedata" returns="re.sub()" signature="quotedata(data)">
+        <variable ilk="argument" name="data" />
+      </scope>
+      <import module="re" />
+      <import module="socket" />
+      <import module="ssl" />
+      <variable citdl="file" name="stderr" />
+      <variable attributes="__hidden__" line="835" name="toaddrs" />
+      <scope attributes="__hidden__" ilk="function" line="830" lineend="832" name="prompt" signature="prompt(prompt)">
+        <variable ilk="argument" name="prompt" />
+      </scope>
+      <variable attributes="__hidden__" citdl="prompt()" line="834" name="fromaddr" />
+      <variable attributes="__hidden__" citdl="SMTP" line="845" name="server" />
+      <variable attributes="protected __hidden__" citdl="True" line="165" name="_have_ssl" />
+      <variable attributes="__hidden__" citdl="str" line="837" name="msg" />
+      <variable attributes="__hidden__" citdl="sys.stdin.readline()" line="839" name="line" />
+    </scope>
+    

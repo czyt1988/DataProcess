@@ -1,0 +1,114 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_ast">
+      <scope classrefs="object" doc="&#10;" ilk="class" name="AST">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Add" />
+      <scope classrefs="boolop" doc="&#10;" ilk="class" name="And" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Assert" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Assign" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Attribute" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="AugAssign" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="AugLoad" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="AugStore" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="BinOp" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="BitAnd" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="BitOr" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="BitXor" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="BoolOp" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Break" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Call" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="ClassDef" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Compare" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Continue" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="Del" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Delete" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Dict" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="DictComp" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Div" />
+      <scope classrefs="slice" doc="&#10;" ilk="class" name="Ellipsis" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="Eq" />
+      <scope classrefs="excepthandler" doc="&#10;" ilk="class" name="ExceptHandler" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Exec" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Expr" />
+      <scope classrefs="mod" doc="&#10;" ilk="class" name="Expression" />
+      <scope classrefs="slice" doc="&#10;" ilk="class" name="ExtSlice" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="FloorDiv" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="For" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="FunctionDef" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="GeneratorExp" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Global" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="Gt" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="GtE" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="If" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="IfExp" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Import" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="ImportFrom" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="In" />
+      <scope classrefs="slice" doc="&#10;" ilk="class" name="Index" />
+      <scope classrefs="mod" doc="&#10;" ilk="class" name="Interactive" />
+      <scope classrefs="unaryop" doc="&#10;" ilk="class" name="Invert" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="Is" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="IsNot" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="LShift" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Lambda" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="List" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="ListComp" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="Load" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="Lt" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="LtE" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Mod" />
+      <scope classrefs="mod" doc="&#10;" ilk="class" name="Module" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Mult" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Name" />
+      <scope classrefs="unaryop" doc="&#10;" ilk="class" name="Not" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="NotEq" />
+      <scope classrefs="cmpop" doc="&#10;" ilk="class" name="NotIn" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Num" />
+      <scope classrefs="boolop" doc="&#10;" ilk="class" name="Or" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="Param" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Pass" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Pow" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Print" />
+      <variable citdl="int" name="PyCF_ONLY_AST" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="RShift" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Raise" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Repr" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="Return" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Set" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="SetComp" />
+      <scope classrefs="slice" doc="&#10;" ilk="class" name="Slice" />
+      <scope classrefs="expr_context" doc="&#10;" ilk="class" name="Store" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Str" />
+      <scope classrefs="operator" doc="&#10;" ilk="class" name="Sub" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Subscript" />
+      <scope classrefs="mod" doc="&#10;" ilk="class" name="Suite" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="TryExcept" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="TryFinally" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Tuple" />
+      <scope classrefs="unaryop" doc="&#10;" ilk="class" name="UAdd" />
+      <scope classrefs="unaryop" doc="&#10;" ilk="class" name="USub" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="UnaryOp" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="While" />
+      <scope classrefs="stmt" doc="&#10;" ilk="class" name="With" />
+      <scope classrefs="expr" doc="&#10;" ilk="class" name="Yield" />
+      <variable citdl="str" name="__version__" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="alias" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="arguments" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="boolop" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="cmpop" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="comprehension" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="excepthandler" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="expr" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="expr_context" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="keyword" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="mod" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="operator" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="slice" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="stmt" />
+      <scope classrefs="AST" doc="&#10;" ilk="class" name="unaryop" />
+    </scope>
+    

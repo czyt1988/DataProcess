@@ -1,0 +1,146 @@
+<scope doc="Support to pretty-print lists, tuples, &amp; dictionaries recursively.&#10;Very simple, but useful, especially in debugging data structures.  Classes -------  PrettyPrinter() Handle pretty-printing operations onto a stream using a configured set of formatting parameters.  Functions" ilk="blob" lang="Python" name="pprint">
+      <scope doc="&#10;" ilk="class" line="81" lineend="242" name="PrettyPrinter">
+        <scope ilk="function" line="117" lineend="120" name="pformat" returns="sio.getvalue()" signature="pformat(object)">
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable citdl="_StringIO()" line="118" name="sio" />
+        </scope>
+        <scope doc="Format object for a specific context, returning a string and&#10;flags indicating whether the representation is 'readable'&#10;and whether the object represents a recursive construct." ilk="function" line="237" lineend="242" name="format" returns="_safe_repr()" signature="format(object, context, maxlevels, level)">
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable ilk="argument" name="maxlevels" />
+          <variable ilk="argument" name="context" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="129" lineend="226" name="_format" signature="_format(object, stream, indent, allowance, context, level)">
+          <variable citdl="_id()" line="131" name="objid" />
+          <variable citdl="int()" ilk="argument" name="indent" />
+          <variable ilk="argument" name="stream" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="str" line="184" name="endchar" />
+          <variable citdl="_sorted()" line="155" name="items" />
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable citdl="_sorted()" ilk="argument" name="object" />
+          <variable citdl="stream.write" line="140" name="write" />
+          <variable citdl="_len()" line="151" name="length" />
+          <variable citdl="getattr()" line="146" name="r" />
+          <variable citdl="bool" line="139" name="sepLines" />
+          <variable ilk="argument" name="context" />
+          <variable citdl="_type()" line="138" name="typ" />
+          <variable citdl="self._repr()" line="137" name="rep" />
+          <variable ilk="argument" name="allowance" />
+        </scope>
+        <scope ilk="function" line="113" lineend="115" name="pprint" signature="pprint(object)">
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope ilk="function" line="228" lineend="235" name="_repr" signature="_repr(object, context, level)">
+          <variable line="229" name="recursive" />
+          <variable ilk="argument" name="level" />
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable line="229" name="readable" />
+          <variable line="229" name="repr" />
+          <variable ilk="argument" name="context" />
+        </scope>
+        <scope ilk="function" line="125" lineend="127" name="isreadable" returns="bool" signature="isreadable(object)">
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+          <variable line="126" name="readable" />
+          <variable line="126" name="s" />
+          <variable line="126" name="recursive" />
+        </scope>
+        <scope doc="Handle pretty printing operations onto a stream using a set&#10;of configured parameters." ilk="function" line="82" lineend="111" name="__init__" signature="PrettyPrinter(indent=1, width=80, depth=None, stream=None)">
+          <variable citdl="int" ilk="argument" name="width" />
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="indent" />
+          <variable ilk="argument" name="depth" />
+          <variable ilk="argument" name="stream" />
+        </scope>
+        <scope ilk="function" line="122" lineend="123" name="isrecursive" signature="isrecursive(object)">
+          <variable citdl="PrettyPrinter" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="105" name="_depth" />
+        <variable attributes="protected __instancevar__" citdl="int" line="106" name="_indent_per_level" />
+        <variable attributes="protected __instancevar__" citdl="_sys.stdout" line="109" name="_stream" />
+        <variable attributes="protected __instancevar__" citdl="int" line="107" name="_width" />
+        <variable attributes="protected __instancevar__" citdl="True" line="134" name="_recursive" />
+        <variable attributes="protected __instancevar__" citdl="False" line="135" name="_readable" />
+      </scope>
+      <variable citdl="list" line="42" name="__all__" />
+      <import module="_sys" />
+      <scope doc="Determine if saferepr(object) is readable by eval()." ilk="function" line="66" lineend="68" name="isreadable" signature="isreadable(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Determine if object requires a recursive representation." ilk="function" line="70" lineend="72" name="isrecursive" signature="isrecursive(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Format a Python object into a pretty-printed representation." ilk="function" line="58" lineend="60" name="pformat" signature="pformat(object, indent=1, width=80, depth=None)">
+        <variable citdl="int" ilk="argument" name="width" />
+        <variable ilk="argument" name="depth" />
+        <variable ilk="argument" name="object" />
+        <variable citdl="int" ilk="argument" name="indent" />
+      </scope>
+      <scope doc="Pretty-print a Python object to a stream [default is&#10;sys.stdout]." ilk="function" line="52" lineend="56" name="pprint" signature="pprint(object, stream=None, indent=1, width=80, depth=None)">
+        <variable citdl="PrettyPrinter()" line="54" name="printer" />
+        <variable citdl="int" ilk="argument" name="indent" />
+        <variable ilk="argument" name="stream" />
+        <variable ilk="argument" name="object" />
+        <variable citdl="int" ilk="argument" name="width" />
+        <variable ilk="argument" name="depth" />
+      </scope>
+      <scope doc="Version of repr() which can handle recursive data&#10;structures." ilk="function" line="62" lineend="64" name="saferepr" signature="saferepr(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" ilk="function" line="336" lineend="347" name="_perfcheck" signature="_perfcheck(object=None)">
+        <import line="337" module="time" />
+        <variable citdl="list" ilk="argument" name="object" />
+        <variable citdl="PrettyPrinter" line="340" name="p" />
+        <variable citdl="time.time()" line="341" name="t1" />
+        <variable citdl="time.time()" line="343" name="t2" />
+        <variable citdl="time.time()" line="345" name="t3" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="type" line="49" name="_type" />
+      <scope attributes="protected __hidden__" ilk="function" line="74" lineend="79" name="_sorted" returns="sorted()" signature="_sorted(iterable)">
+        <variable ilk="argument" name="iterable" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="len" line="48" name="_len" />
+      <scope attributes="protected __hidden__" ilk="function" line="331" lineend="333" name="_recursion" returns="tuple" signature="_recursion(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="247" lineend="328" name="_safe_repr" returns="tuple" signature="_safe_repr(object, context, maxlevels, level)">
+        <variable ilk="argument" name="object" />
+        <variable ilk="argument" name="context" />
+        <variable ilk="argument" name="maxlevels" />
+        <variable ilk="argument" name="level" />
+        <variable citdl="_type()" line="248" name="typ" />
+        <variable citdl="str" line="253" name="closure" />
+        <variable citdl="dict" line="254" name="quotes" />
+        <variable citdl="quotes.get" line="258" name="qget" />
+        <variable citdl="_StringIO()" line="259" name="sio" />
+        <variable citdl="sio.write" line="260" name="write" />
+        <variable citdl="getattr()" line="268" name="r" />
+        <variable citdl="_id()" line="272" name="objid" />
+        <variable citdl="True" line="278" name="readable" />
+        <variable citdl="False" line="279" name="recursive" />
+        <variable citdl="list" line="280" name="components" />
+        <variable citdl="components.append" line="281" name="append" />
+        <variable citdl="_safe_repr" line="283" name="saferepr" />
+        <variable line="285" name="kreadable" />
+        <variable line="285" name="krecur" />
+        <variable line="285" name="krepr" />
+        <variable line="286" name="vrecur" />
+        <variable line="286" name="vrepr" />
+        <variable line="286" name="vreadable" />
+        <variable citdl="str" line="299" name="format" />
+        <variable line="318" name="orepr" />
+        <variable line="318" name="orecur" />
+        <variable line="318" name="oreadable" />
+        <variable citdl="repr()" line="327" name="rep" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str.join" line="46" name="_commajoin" />
+      <variable attributes="protected __hidden__" citdl="id" line="47" name="_id" />
+    </scope>
+    

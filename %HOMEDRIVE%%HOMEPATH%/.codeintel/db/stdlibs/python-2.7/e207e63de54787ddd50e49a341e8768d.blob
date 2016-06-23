@@ -1,0 +1,112 @@
+<scope doc="The Tab Nanny despises ambiguous indentation.  She knows no mercy.&#10;tabnanny -- Detection of ambiguous indentation  For the time being this module is intended to be called as a script. However it is possible to import it into an IDE and use the function check() described below.  Warning: The API provided by this module is likely to change in future releases; such changes may not be backward compatible." ilk="blob" lang="Python" name="tabnanny">
+      <scope classrefs="Exception" doc="Raised by tokeneater() if detecting an ambiguous indent.&#10;Captured and handled in check()." ilk="class" line="60" lineend="72" name="NannyNag">
+        <scope ilk="function" line="67" lineend="68" name="get_lineno" signature="get_lineno()">
+          <variable citdl="NannyNag" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="71" lineend="72" name="get_line" signature="get_line()">
+          <variable citdl="NannyNag" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="65" lineend="66" name="__init__" signature="NannyNag(lineno, msg, line)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="NannyNag" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <scope ilk="function" line="69" lineend="70" name="get_msg" signature="get_msg()">
+          <variable citdl="NannyNag" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="66" name="msg" />
+        <variable attributes="__instancevar__" line="66" name="line" />
+        <variable attributes="__instancevar__" line="66" name="lineno" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="132" lineend="264" name="Whitespace">
+        <scope doc="# return a list of tuples (ts, i1, i2) such that # i1 ==&#10;self.indent_level(ts) != other.indent_level(ts) == i2." ilk="function" line="214" lineend="223" name="not_equal_witness" returns="list" signature="not_equal_witness(other)">
+          <variable citdl="list" line="217" name="a" />
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="max()" line="215" name="n" />
+        </scope>
+        <scope ilk="function" line="184" lineend="203" name="indent_level" returns="trailing" signature="indent_level(tabsize)">
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable ilk="argument" name="tabsize" />
+          <variable citdl="int" line="200" name="il" />
+        </scope>
+        <scope doc="# Return True iff self.indent_level(t) &lt;&#10;other.indent_level(t) # for all t &gt;= 1." ilk="function" line="238" lineend="249" name="less" returns="bool" signature="less(other)">
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="max()" line="243" name="n" />
+        </scope>
+        <scope doc="# return true iff self.indent_level(t) ==&#10;other.indent_level(t) # for all t &gt;= 1" ilk="function" line="207" lineend="208" name="equal" returns="bool" signature="equal(other)">
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope doc="# return length of longest contiguous run of spaces (whether&#10;or not # preceding a tab)" ilk="function" line="180" lineend="182" name="longest_run_of_spaces" returns="max()" signature="longest_run_of_spaces()">
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# return a list of tuples (ts, i1, i2) such that # i1 ==&#10;self.indent_level(ts) &gt;= other.indent_level(ts) == i2." ilk="function" line="255" lineend="264" name="not_less_witness" returns="list" signature="not_less_witness(other)">
+          <variable citdl="list" line="258" name="a" />
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="max()" line="256" name="n" />
+        </scope>
+        <scope ilk="function" line="155" lineend="176" name="__init__" signature="Whitespace(ws)">
+          <variable citdl="list" line="158" name="count" />
+          <variable citdl="int" line="159" name="b" />
+          <variable citdl="Whitespace" ilk="argument" name="self" />
+          <variable citdl="int" line="162" name="n" />
+          <variable citdl="Whitespace.S" line="157" name="S" />
+          <variable ilk="argument" name="ws" />
+          <variable citdl="Whitespace.T" line="157" name="T" />
+          <variable citdl="int" line="166" name="nt" />
+        </scope>
+        <variable attributes="__instancevar__" line="156" name="raw" />
+        <variable attributes="__instancevar__" citdl="int" line="174" name="nt" />
+        <variable attributes="__instancevar__" citdl="bool" line="176" name="is_simple" />
+        <variable attributes="__instancevar__" citdl="tuple" line="175" name="norm" />
+        <variable attributes="__instancevar__" citdl="int" line="173" name="n" />
+      </scope>
+      <variable citdl="list" line="30" name="__all__" />
+      <variable citdl="str" line="21" name="__version__" />
+      <scope doc="If file_or_dir is a directory and not a symbolic link, then&#10;recursively descend the directory tree named by file_or_dir,&#10;checking all .py files along the way." ilk="function" line="74" lineend="130" name="check" signature="check(file_or_dir)">
+        <variable citdl="open()" line="97" name="f" />
+        <variable citdl="nag.get_lineno()" line="117" name="badline" />
+        <variable citdl="os.listdir()" line="87" name="names" />
+        <variable citdl="str" ilk="argument" name="file" />
+        <variable citdl="nag.get_line()" line="118" name="line" />
+        <variable citdl="os.path.join()" line="89" name="fullname" />
+      </scope>
+      <scope ilk="function" line="35" lineend="40" name="errprint" signature="errprint(*args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable citdl="str" line="36" name="sep" />
+      </scope>
+      <variable citdl="int" line="33" name="filename_only" />
+      <scope ilk="function" line="266" lineend="271" name="format_witnesses" returns="str" signature="format_witnesses(w)">
+        <variable citdl="str" line="268" name="prefix" />
+        <variable citdl="map()" line="267" name="firsts" />
+        <variable ilk="argument" name="w" />
+      </scope>
+      <import module="getopt" />
+      <scope ilk="function" line="42" lineend="58" name="main" signature="main()">
+        <variable line="45" name="args" />
+        <variable citdl="int" line="51" name="filename_only" />
+        <variable line="45" name="opts" />
+        <variable citdl="int" line="53" name="verbose" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="273" lineend="325" name="process_tokens" signature="process_tokens(tokens)">
+        <variable citdl="tokenize.DEDENT" line="275" name="DEDENT" />
+        <variable citdl="tuple" line="277" name="JUNK" />
+        <variable citdl="tokenize.INDENT" line="274" name="INDENT" />
+        <variable citdl="Whitespace" line="292" name="thisguy" />
+        <variable citdl="tokenize.NEWLINE" line="276" name="NEWLINE" />
+        <variable ilk="argument" name="tokens" />
+        <variable citdl="list" line="278" name="indents" />
+        <variable line="294" name="witness" />
+        <variable citdl="format_witnesses()" line="295" name="msg" />
+        <variable citdl="int" line="279" name="check_equal" />
+      </scope>
+      <import module="sys" />
+      <import module="tokenize" />
+      <variable citdl="int" line="32" name="verbose" />
+    </scope>
+    

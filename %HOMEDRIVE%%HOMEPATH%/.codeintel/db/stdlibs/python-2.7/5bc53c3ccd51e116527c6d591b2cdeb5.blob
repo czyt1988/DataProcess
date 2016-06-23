@@ -1,0 +1,80 @@
+<scope doc="Pattern compiler.&#10;The grammer is taken from PatternGrammar.txt.  The compiler compiles a pattern to a pytree.*Pattern instance." ilk="blob" lang="Python" name="lib2to3.patcomp">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="43" lineend="176" name="PatternCompiler">
+        <scope ilk="function" line="139" lineend="172" name="compile_basic" returns="pytree.WildcardPattern()" signature="compile_basic(nodes, repeat=None)">
+          <variable line="142" name="node" />
+          <variable ilk="argument" name="repeat" />
+          <variable citdl="PatternCompiler" ilk="argument" name="self" />
+          <variable citdl="unicode()" line="144" name="value" />
+          <variable citdl="list" line="162" name="content" />
+          <variable citdl="compile_node()" line="170" name="subpattern" />
+          <variable ilk="argument" name="nodes" />
+          <variable citdl="getattr()" line="156" name="type" />
+        </scope>
+        <scope ilk="function" line="174" lineend="176" name="get_int" returns="int()" signature="get_int(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="PatternCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compiles a pattern string to a nested pytree.*Pattern&#10;object." ilk="function" line="56" lineend="66" name="compile_pattern" returns="tuple" signature="compile_pattern(input, debug=False, with_tree=False)">
+          <variable citdl="PatternCompiler" ilk="argument" name="self" />
+          <variable citdl="tokenize_wrapper()" line="58" name="tokens" />
+          <variable citdl="False" ilk="argument" name="debug" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="self.driver.parse_tokens()" line="60" name="root" />
+          <variable citdl="False" ilk="argument" name="with_tree" />
+        </scope>
+        <scope doc="Compiles a node, recursively." ilk="function" line="68" lineend="137" name="compile_node" returns="p.optimize()" signature="compile_node(node)">
+          <variable ilk="argument" name="node" />
+          <variable line="105" name="repeat" />
+          <variable line="100" name="name" />
+          <variable citdl="int" line="118" name="min" />
+          <variable citdl="pytree.HUGE" line="119" name="max" />
+          <variable citdl="PatternCompiler" ilk="argument" name="self" />
+          <variable citdl="pytree.WildcardPattern()" line="83" name="p" />
+          <variable line="116" name="child" />
+          <variable citdl="list" line="87" name="units" />
+          <variable citdl="self.compile_basic()" line="94" name="pattern" />
+          <variable citdl="list" line="101" name="nodes" />
+          <variable citdl="list" line="80" name="alts" />
+          <variable citdl="repeat.children" line="115" name="children" />
+        </scope>
+        <scope doc="Initializer." ilk="function" line="45" lineend="54" name="__init__" signature="PatternCompiler(grammar_file=_PATTERN_GRAMMAR_FILE)">
+          <variable citdl="os.path.join()" ilk="argument" name="grammar_file" />
+          <variable citdl="PatternCompiler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="pygram.Symbols()" line="51" name="syms" />
+        <variable attributes="__instancevar__" citdl="driver.Driver()" line="54" name="driver" />
+        <variable attributes="__instancevar__" citdl="driver.load_grammar()" line="50" name="grammar" />
+        <variable attributes="__instancevar__" citdl="pygram.python_grammar" line="52" name="pygrammar" />
+        <variable attributes="__instancevar__" citdl="pygram.python_symbols" line="53" name="pysyms" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="29" lineend="30" name="PatternSyntaxError" />
+      <import module="StringIO" />
+      <variable citdl="dict" line="180" name="TOKEN_MAP" />
+      <variable citdl="str" line="11" name="__author__" />
+      <scope ilk="function" line="204" lineend="205" name="compile_pattern" signature="compile_pattern(pattern)">
+        <variable ilk="argument" name="pattern" />
+      </scope>
+      <import module="driver" />
+      <import module="grammar" />
+      <import module="literals" />
+      <import module="os" />
+      <import module="parse" />
+      <scope doc="Converts raw node information to a Node or Leaf instance." ilk="function" line="195" lineend="201" name="pattern_convert" returns="pytree.Node()" signature="pattern_convert(grammar, raw_node_info)">
+        <variable ilk="argument" name="grammar" />
+        <variable ilk="argument" name="raw_node_info" />
+      </scope>
+      <import module="pygram" />
+      <import module="pytree" />
+      <import module="token" />
+      <import module="tokenize" />
+      <scope doc="Tokenizes a string suppressing significant whitespace." ilk="function" line="33" lineend="40" name="tokenize_wrapper" signature="tokenize_wrapper(input)">
+        <variable citdl="tokenize.generate_tokens()" line="36" name="tokens" />
+        <variable ilk="argument" name="input" />
+        <variable citdl="set()" line="35" name="skip" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="os.path.join()" line="25" name="_PATTERN_GRAMMAR_FILE" />
+      <scope attributes="protected __hidden__" ilk="function" line="186" lineend="192" name="_type_of_literal" returns="token.NAME" signature="_type_of_literal(value)">
+        <variable ilk="argument" name="value" />
+      </scope>
+    </scope>
+    

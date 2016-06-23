@@ -1,0 +1,91 @@
+<scope doc="Conversion pipeline templates.&#10;The problem: ------------  Suppose you have some data that you want to convert to another format, such as from GIF image format to PPM image format.  Maybe the conversion involves several steps (e.g. piping it through compress or uuencode).  Some of the conversion steps may require that their input is a disk file, others may be able to read standard input; similar for their output.  The input to the entire conversion may also be read from a disk file or from an open file, and similar for its output." ilk="blob" lang="Python" name="pipes">
+      <variable citdl="str" line="71" name="FILEIN_FILEOUT" />
+      <variable citdl="str" line="73" name="FILEIN_STDOUT" />
+      <variable citdl="str" line="76" name="SINK" />
+      <variable citdl="str" line="75" name="SOURCE" />
+      <variable citdl="str" line="72" name="STDIN_FILEOUT" />
+      <variable citdl="str" line="74" name="STDIN_STDOUT" />
+      <scope doc="Class representing a pipeline template.&#10;" ilk="class" line="82" lineend="192" name="Template">
+        <scope doc="t.reset() restores a pipeline template to its initial state." ilk="function" line="94" lineend="96" name="reset" signature="t.reset() restores a pipeline template to its initial state.">
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <scope doc="initial state as the current one." ilk="function" line="98" lineend="104" name="clone" signature="t.clone() returns a new pipeline template with identical">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable citdl="" line="101" name="t" />
+        </scope>
+        <scope doc="t.append(cmd, kind) adds a new step at the end." ilk="function" line="110" lineend="130" name="append" signature="t.append(cmd, kind) adds a new step at the end.">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="kind" />
+        </scope>
+        <scope doc="t.prepend(cmd, kind) adds a new step at the front." ilk="function" line="132" lineend="152" name="prepend" signature="t.prepend(cmd, kind) adds a new step at the front.">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="kind" />
+        </scope>
+        <scope ilk="function" line="187" lineend="192" name="makepipeline" returns="str" signature="makepipeline(infile, outfile)">
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable citdl="()" line="188" name="cmd" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <scope doc="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively." ilk="function" line="164" lineend="173" name="open_r" returns="os.popen()" signature="t.open_r(file) and t.open_w(file) implement&#10;t.open(file, 'r') and t.open(file, 'w') respectively.">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable citdl="self.makepipeline()" line="172" name="cmd" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope ilk="function" line="175" lineend="182" name="open_w" returns="os.popen()" signature="open_w(file)">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable citdl="self.makepipeline()" line="181" name="cmd" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope doc="t.__repr__() implements repr(t)." ilk="function" line="90" lineend="92" name="__repr__" returns="tuple" signature="t.__repr__() implements repr(t).">
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <scope doc="t.debug(flag) turns debugging on or off." ilk="function" line="106" lineend="108" name="debug" signature="t.debug(flag) turns debugging on or off.">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope ilk="function" line="184" lineend="185" name="copy" returns="os.system()" signature="copy(infile, outfile)">
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <scope doc="reading or writing; the file is the other end of the&#10;pipeline." ilk="function" line="154" lineend="162" name="open" returns="self.open_r()" signature="t.open(file, rw) returns a pipe or file object open for">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="rw" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope doc="Template() returns a fresh pipeline template." ilk="function" line="85" lineend="88" name="__init__" signature="Template() returns a fresh pipeline template.">
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="87" name="debugging" />
+        <variable attributes="__instancevar__" citdl="list" line="96" name="steps" />
+      </scope>
+      <variable citdl="list" line="67" name="__all__" />
+      <scope ilk="function" line="195" lineend="261" name="makepipeline" returns="str" signature="makepipeline(infile, steps, outfile)">
+        <variable line="227" name="temp" />
+        <variable citdl="list" line="222" name="garbage" />
+        <variable line="224" name="lkind" />
+        <variable citdl="str" line="235" name="cmd" />
+        <variable citdl="list" line="199" name="list" />
+        <variable line="225" name="rkind" />
+        <variable citdl="str" line="255" name="rmcmd" />
+        <variable ilk="argument" name="outfile" />
+        <variable line="227" name="fd" />
+        <variable citdl="str" line="244" name="cmdlist" />
+        <variable citdl="str" line="258" name="trapcmd" />
+        <variable ilk="argument" name="steps" />
+        <variable ilk="argument" name="infile" />
+      </scope>
+      <import module="os" />
+      <scope doc="Return a shell-escaped version of the file string." ilk="function" line="269" lineend="280" name="quote" returns="file.replace()" signature="quote(file)">
+        <variable ilk="argument" name="file" />
+      </scope>
+      <import module="re" />
+      <variable citdl="list" line="78" name="stepkinds" />
+      <import module="string" />
+      <import module="tempfile" />
+      <variable attributes="protected __hidden__" citdl="frozenset()" line="267" name="_safechars" />
+    </scope>
+    

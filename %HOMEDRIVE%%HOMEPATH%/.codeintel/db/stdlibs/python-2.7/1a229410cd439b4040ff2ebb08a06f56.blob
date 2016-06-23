@@ -1,0 +1,16 @@
+<scope doc="#------------------------------------------------------------------------&#10;# # Copyright (C) 2000 Autonomous Zone Industries # # License:      This is free software.  You may use this software for any #               purpose including modification/redistribution, so long as #               this header remains intact and that you do not claim any #               rights of ownership or authorship of this software.  This #               software has been tested, but no warranty is expressed or #               implied. #" ilk="blob" lang="Python" name="bsddb.dbutils">
+      <scope doc="automatically retries" ilk="function" line="47" lineend="80" name="DeadlockWrap" returns="DeadlockWrap.function()" signature="DeadlockWrap(function, *_args, **_kwargs)">
+        <variable ilk="argument" name="function" />
+        <variable attributes="varargs" ilk="argument" name="_args" />
+        <variable citdl="_kwargs.get()" line="63" name="max_retries" />
+        <variable citdl="float" line="62" name="sleeptime" />
+        <variable attributes="kwargs" ilk="argument" name="_kwargs" />
+      </scope>
+      <variable citdl="bool" line="30" name="absolute_import" />
+      <import module="db" />
+      <import module="sys" />
+      <variable attributes="protected __hidden__" citdl="float" line="40" name="_deadlock_MaxSleepTime" />
+      <variable attributes="protected __hidden__" line="44" name="_deadlock_VerboseFile" />
+      <variable attributes="protected __hidden__" citdl="float" line="38" name="_deadlock_MinSleepTime" />
+    </scope>
+    

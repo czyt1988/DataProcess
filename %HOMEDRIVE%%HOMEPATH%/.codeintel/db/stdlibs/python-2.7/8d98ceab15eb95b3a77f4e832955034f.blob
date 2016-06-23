@@ -1,0 +1,8 @@
+<scope doc="_warnings provides basic warning filtering support.&#10;It is a helper module to speed up interpreter start-up." ilk="blob" lang="Python" name="_warnings">
+      <variable citdl="str" name="default_action" />
+      <variable citdl="list" name="filters" />
+      <variable citdl="dict" name="once_registry" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+      <scope doc="Low-level inferface to warnings functionality." ilk="function" name="warn_explicit" />
+    </scope>
+    

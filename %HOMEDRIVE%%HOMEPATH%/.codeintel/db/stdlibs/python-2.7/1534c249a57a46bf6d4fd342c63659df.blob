@@ -1,0 +1,123 @@
+<scope doc="Helper class to quickly write a loop over all standard input files.&#10;Typical use is:  import fileinput for line in fileinput.input(): process(line)  This iterates over the lines of all files listed in sys.argv[1:], defaulting to sys.stdin if the list is empty.  If a filename is '-' it is also replaced by sys.stdin.  To specify an alternative list of filenames, pass it as the argument to input().  A single file name is" ilk="blob" lang="Python" name="fileinput">
+      <variable citdl="int" line="89" name="DEFAULT_BUFSIZE" />
+      <scope doc="class FileInput([files[, inplace[, backup[, mode[, openhook]]]]])&#10;Class FileInput is the implementation of the module; its methods filename(), lineno(), fileline(), isfirstline(), isstdin(), fileno(), nextfile() and close() correspond to the functions of the same name in the module. In addition it has a readline() method which returns the next input line, and a __getitem__() method which implements the sequence behavior. The sequence must be accessed in strictly sequential order; random access and readline() cannot be mixed." ilk="class" line="184" lineend="375" name="FileInput" signature="class FileInput([files[, inplace[, backup[, mode[, openhook]]]]])">
+        <scope ilk="function" line="362" lineend="369" name="fileno" returns="self._file.fileno()" signature="fileno()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="266" lineend="290" name="nextfile" signature="nextfile()">
+          <variable line="267" name="savestdout" />
+          <variable line="272" name="output" />
+          <variable citdl="FileInput" ilk="argument" name="self" />
+          <variable line="277" name="file" />
+          <variable line="282" name="backupfilename" />
+        </scope>
+        <scope ilk="function" line="258" lineend="264" name="__getitem__" returns="FileInput.next()" signature="__getitem__(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="374" lineend="375" name="isstdin" returns="bool" signature="isstdin()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="233" lineend="234" name="__del__" signature="__del__()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="371" lineend="372" name="isfirstline" returns="bool" signature="isfirstline()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="243" lineend="256" name="next" returns="self.readline()" signature="next()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+          <variable citdl="self.readline()" line="245" name="line" />
+        </scope>
+        <scope ilk="function" line="240" lineend="241" name="__iter__" returns="FileInput" signature="__iter__()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="359" lineend="360" name="filelineno" returns="int" signature="filelineno()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="356" lineend="357" name="lineno" returns="int" signature="lineno()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="236" lineend="238" name="close" signature="close()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="292" lineend="351" name="readline" returns="str" signature="readline()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+          <variable citdl="os.open()" line="329" name="fd" />
+          <variable line="294" name="line" />
+          <variable line="325" name="perm" />
+        </scope>
+        <scope ilk="function" line="353" lineend="354" name="filename" returns="str" signature="filename()">
+          <variable citdl="FileInput" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="197" lineend="231" name="__init__" signature="FileInput(files=None, inplace=0, backup='', bufsize=0, mode='r', openhook=None)">
+          <variable citdl="tuple" ilk="argument" name="files" />
+          <variable ilk="argument" name="openhook" />
+          <variable citdl="FileInput" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="inplace" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable citdl="str" ilk="argument" name="backup" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="int" line="215" name="_lineno" />
+        <variable attributes="protected __instancevar__" citdl="int" line="209" name="_inplace" />
+        <variable attributes="protected __instancevar__" citdl="str" line="214" name="_filename" />
+        <variable attributes="protected __instancevar__" citdl="list" line="220" name="_buffer" />
+        <variable attributes="protected __instancevar__" citdl="int" line="221" name="_bufindex" />
+        <variable attributes="protected __instancevar__" citdl="int" line="211" name="_bufsize" />
+        <variable attributes="protected __instancevar__" citdl="str" line="210" name="_backup" />
+        <variable attributes="protected __instancevar__" citdl="str" line="226" name="_mode" />
+        <variable attributes="protected __instancevar__" citdl="open()" line="217" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="list" line="208" name="_files" />
+        <variable attributes="protected __instancevar__" citdl="False" line="218" name="_isstdin" />
+        <variable attributes="protected __instancevar__" citdl="int" line="213" name="_output" />
+        <variable attributes="protected __instancevar__" citdl="int" line="219" name="_backupfilename" />
+        <variable attributes="protected __instancevar__" citdl="int" line="216" name="_filelineno" />
+        <variable attributes="protected __instancevar__" line="231" name="_openhook" />
+        <variable attributes="protected __instancevar__" citdl="int" line="212" name="_savestdout" />
+      </scope>
+      <variable citdl="list" line="84" name="__all__" />
+      <scope doc="Close the sequence." ilk="function" line="106" lineend="112" name="close" signature="close()">
+        <variable line="109" name="state" />
+        <variable attributes="protected" line="110" name="_state" />
+      </scope>
+      <scope doc="Return the line number in the current file." ilk="function" line="147" lineend="155" name="filelineno" returns="_state.filelineno()" signature="filelineno()" />
+      <scope doc="Return the name of the file currently being read." ilk="function" line="128" lineend="135" name="filename" returns="_state.filename()" signature="filename()" />
+      <scope doc="Return the file number of the current file." ilk="function" line="157" lineend="164" name="fileno" returns="_state.fileno()" signature="fileno()" />
+      <scope ilk="function" line="378" lineend="387" name="hook_compressed" returns="open()" signature="hook_compressed(filename, mode)">
+        <variable line="379" name="ext" />
+        <variable ilk="argument" name="mode" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope ilk="function" line="390" lineend="394" name="hook_encoded" returns="hook_encoded.openhook" signature="hook_encoded(encoding)">
+        <scope ilk="function" line="392" lineend="393" name="openhook" returns="codecs.open()" signature="openhook(filename, mode)">
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <variable ilk="argument" name="encoding" />
+      </scope>
+      <scope doc="Create an instance of the FileInput class." ilk="function" line="91" lineend="104" name="input" returns="FileInput()" signature="input([files[, inplace[, backup[, mode[, openhook]]]]])">
+        <variable ilk="argument" name="files" />
+        <variable ilk="argument" name="openhook" />
+        <variable attributes="protected" citdl="FileInput()" line="103" name="_state" />
+        <variable citdl="int" ilk="argument" name="inplace" />
+        <variable citdl="str" ilk="argument" name="mode" />
+        <variable citdl="int" ilk="argument" name="bufsize" />
+        <variable citdl="str" ilk="argument" name="backup" />
+      </scope>
+      <scope doc="Returns true the line just read is the first line of its&#10;file, otherwise returns false." ilk="function" line="166" lineend="173" name="isfirstline" returns="_state.isfirstline()" signature="isfirstline()" />
+      <scope doc="Returns true if the last line was read from sys.stdin,&#10;otherwise returns false." ilk="function" line="175" lineend="182" name="isstdin" returns="_state.isstdin()" signature="isstdin()" />
+      <scope doc="Return the cumulative line number of the line that has just&#10;been read." ilk="function" line="137" lineend="145" name="lineno" returns="_state.lineno()" signature="lineno()" />
+      <scope doc="Close the current file so that the next iteration will read&#10;the first line from the next file (if any); lines not read&#10;from the file will not count towards the cumulative line&#10;count." ilk="function" line="114" lineend="126" name="nextfile" returns="_state.nextfile()" signature="nextfile()" />
+      <import module="os" />
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="397" lineend="410" name="_test" signature="_test()">
+        <import line="398" module="getopt" />
+        <variable citdl="int" line="399" name="inplace" />
+        <variable citdl="int" line="400" name="backup" />
+        <variable line="401" name="args" />
+        <variable line="401" name="opts" />
+        <variable citdl="list" line="406" name="line" />
+      </scope>
+      <variable attributes="protected __hidden__" line="87" name="_state" />
+    </scope>
+    

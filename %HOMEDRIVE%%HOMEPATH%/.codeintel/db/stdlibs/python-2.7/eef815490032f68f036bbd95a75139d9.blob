@@ -1,0 +1,9 @@
+<scope doc="Fix incompatible imports and module references that must be fixed after&#10;fix_imports." ilk="blob" lang="Python" name="lib2to3.fixes.fix_imports2">
+      <scope classrefs="FixImports" doc="&#10;" ilk="class" line="12" lineend="16" name="FixImports2">
+        <variable citdl="int" line="14" name="run_order" />
+        <variable citdl="dict" line="16" name="mapping" />
+      </scope>
+      <variable citdl="dict" line="6" name="MAPPING" />
+      <import module="fix_imports" />
+    </scope>
+    

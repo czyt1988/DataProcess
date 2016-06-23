@@ -1,0 +1,427 @@
+<scope doc="distutils.ccompiler&#10;Contains CCompiler, an abstract base class that defines the interface for the Distutils compiler abstraction model." ilk="blob" lang="Python" name="distutils.ccompiler">
+      <scope doc="Abstract base class to define the interface that must be implemented&#10;by real compiler classes.  Also has some utility methods used by several compiler classes.  The basic idea behind a compiler abstraction class is that each instance can be used for all the compile/link steps in building a single project.  Thus, attributes common to all of those compile and link steps -- include directories, macros to define, libraries to link against, etc. -- are attributes of the compiler instance.  To allow for variability in how individual files are treated, most of those attributes may be varied on a per-compilation or per-link basis." ilk="class" line="73" lineend="931" name="CCompiler">
+        <scope ilk="function" line="924" lineend="925" name="spawn" signature="spawn(cmd)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+        </scope>
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;directories searched for runtime libraries." ilk="function" line="764" lineend="768" name="runtime_library_dir_option" signature="runtime_library_dir_option(dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope doc="Set the list of directories to search for shared libraries&#10;at runtime to 'dirs' (a list of strings)." ilk="function" line="343" lineend="349" name="set_runtime_library_dirs" signature="set_runtime_library_dirs(dirs)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="417" lineend="424" name="_get_cc_args" returns="list" signature="_get_cc_args(pp_opts, debug, before)">
+          <variable ilk="argument" name="debug" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="list" line="419" name="cc_args" />
+          <variable ilk="argument" name="pp_opts" />
+          <variable ilk="argument" name="before" />
+        </scope>
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for shared libraries at runtime." ilk="function" line="337" lineend="341" name="add_runtime_library_dir" signature="add_runtime_library_dir(dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope doc="Add 'object' to the list of object files (or analogues, such&#10;as explicitly named library files or the output of &quot;resource&#10;compilers&quot;) to be included in every link driven by this&#10;compiler object." ilk="function" line="351" lineend="357" name="add_link_object" signature="add_link_object(object)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="object" />
+        </scope>
+        <scope doc="Typecheck and fix up some arguments supplied to various&#10;methods." ilk="function" line="458" lineend="474" name="_fix_object_args" returns="tuple" signature="_fix_object_args(objects, output_dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="list()" ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+        </scope>
+        <scope doc="Set the list of library search directories to 'dirs' (a list&#10;of strings)." ilk="function" line="330" lineend="335" name="set_library_dirs" signature="set_library_dirs(dirs)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Define the executables (and options for them) that will be&#10;run to perform the various stages of compilation." ilk="function" line="179" lineend="210" name="set_executables" signature="set_executables(**args)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Link a bunch of stuff together to create a static library&#10;file." ilk="function" line="636" lineend="660" name="create_static_lib" signature="create_static_lib(objects, output_libname, output_dir=None, debug=0, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="output_libname" />
+        </scope>
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;directories searched for libraries." ilk="function" line="758" lineend="762" name="library_dir_option" signature="library_dir_option(dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope ilk="function" line="143" lineend="177" name="__init__" signature="CCompiler(verbose=0, dry_run=0, force=0)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="force" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+          <variable citdl="int" ilk="argument" name="dry_run" />
+        </scope>
+        <scope doc="Return the compiler option to add 'dir' to the list of&#10;libraries linked into the shared library or executable." ilk="function" line="770" lineend="774" name="library_option" signature="library_option(lib)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="lib" />
+        </scope>
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for libraries specified to 'add_library()' and&#10;'set_libraries()'." ilk="function" line="322" lineend="328" name="add_library_dir" signature="add_library_dir(dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope doc="Define a preprocessor macro for all compilations driven by&#10;this compiler object." ilk="function" line="245" lineend="259" name="define_macro" signature="define_macro(name, value=None)">
+          <variable citdl="_find_macro()" line="254" name="i" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+          <variable citdl="tuple" line="258" name="defn" />
+        </scope>
+        <scope ilk="function" line="892" lineend="905" name="library_filename" returns="os.path.join()" signature="library_filename(libname, lib_type='static', strip_dir=0, output_dir='')">
+          <variable citdl="str" ilk="argument" name="lib_type" />
+          <variable ilk="argument" name="libname" />
+          <variable citdl="int" ilk="argument" name="strip_dir" />
+          <variable citdl="getattr()" line="897" name="fmt" />
+          <variable citdl="getattr()" line="901" name="filename" />
+          <variable citdl="getattr()" line="898" name="ext" />
+          <variable line="900" name="base" />
+          <variable citdl="str" ilk="argument" name="output_dir" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="str" line="900" name="dir" />
+        </scope>
+        <scope doc="Return true if we need to relink the files listed in&#10;'objects' to recreate 'output_file'." ilk="function" line="511" lineend="522" name="_need_link" returns="newer_group()" signature="_need_link(objects, output_file)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_file" />
+          <variable ilk="argument" name="objects" />
+          <variable citdl="newer_group()" line="519" name="newer" />
+        </scope>
+        <scope ilk="function" line="719" lineend="729" name="link_shared_lib" signature="link_shared_lib(objects, output_libname, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, export_symbols=None, debug=0, extra_preargs=None, extra_postargs=None, build_temp=None, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable ilk="argument" name="export_symbols" />
+          <variable ilk="argument" name="output_libname" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="build_temp" />
+          <variable ilk="argument" name="library_dirs" />
+        </scope>
+        <scope ilk="function" line="732" lineend="741" name="link_shared_object" signature="link_shared_object(objects, output_filename, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, export_symbols=None, debug=0, extra_preargs=None, extra_postargs=None, build_temp=None, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable ilk="argument" name="export_symbols" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_filename" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="build_temp" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="output_dir" />
+        </scope>
+        <scope doc="Preprocess a single C/C++ source file, named in 'source'." ilk="function" line="547" lineend="558" name="preprocess" signature="preprocess(source, output_file=None, macros=None, include_dirs=None, extra_preargs=None, extra_postargs=None)">
+          <variable ilk="argument" name="macros" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_file" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="source" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Compile 'src' to product 'obj'." ilk="function" line="629" lineend="634" name="_compile" signature="_compile(obj, src, ext, cc_args, extra_postargs, pp_opts)">
+          <variable ilk="argument" name="src" />
+          <variable ilk="argument" name="obj" />
+          <variable ilk="argument" name="cc_args" />
+          <variable ilk="argument" name="pp_opts" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="ext" />
+          <variable ilk="argument" name="extra_postargs" />
+        </scope>
+        <scope doc="Search the specified list of directories for a static or&#10;shared library file 'lib' and return the full path to that&#10;file." ilk="function" line="820" lineend="827" name="find_library_file" signature="find_library_file(dirs, lib, debug=0)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="lib" />
+        </scope>
+        <scope ilk="function" line="863" lineend="878" name="object_filenames" returns="list" signature="object_filenames(source_filenames, strip_dir=0, output_dir='')">
+          <variable citdl="list" line="866" name="obj_names" />
+          <variable ilk="argument" name="source_filenames" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="strip_dir" />
+          <variable line="868" name="ext" />
+          <variable citdl="os.path.basename()" line="868" name="base" />
+          <variable citdl="str" ilk="argument" name="output_dir" />
+        </scope>
+        <scope doc="Undefine a preprocessor macro for all compilations driven by&#10;this compiler object." ilk="function" line="261" lineend="277" name="undefine_macro" signature="undefine_macro(name)">
+          <variable citdl="_find_macro()" line="272" name="i" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="tuple" line="276" name="undefn" />
+        </scope>
+        <scope doc="Set the list of directories that will be searched to 'dirs'&#10;(a list of strings)." ilk="function" line="287" lineend="295" name="set_include_dirs" signature="set_include_dirs(dirs)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Typecheck and fix-up some of the arguments to the&#10;'compile()' method, and return fixed-up values." ilk="function" line="426" lineend="456" name="_fix_compile_args" returns="tuple" signature="_fix_compile_args(output_dir, macros, include_dirs)">
+          <variable citdl="list" ilk="argument" name="macros" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="list" ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Set the list of object files (or analogues) to be included&#10;in every link to 'objects'." ilk="function" line="359" lineend="365" name="set_link_objects" signature="set_link_objects(objects)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="objects" />
+        </scope>
+        <scope doc="Ensures that every element of 'definitions' is a valid macro&#10;definition, ie." ilk="function" line="226" lineend="240" name="_check_macro_definitions" signature="_check_macro_definitions(definitions)">
+          <variable ilk="argument" name="definitions" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="918" lineend="919" name="warn" signature="warn(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add 'dir' to the list of directories that will be searched&#10;for header files." ilk="function" line="279" lineend="285" name="add_include_dir" signature="add_include_dir(dir)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope doc="Link a bunch of stuff together to create an executable or&#10;shared library file." ilk="function" line="667" lineend="714" name="link" signature="link(target_desc, objects, output_filename, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, export_symbols=None, debug=0, extra_preargs=None, extra_postargs=None, build_temp=None, target_lang=None)">
+          <variable ilk="argument" name="target_lang" />
+          <variable ilk="argument" name="export_symbols" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="output_filename" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="build_temp" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="target_desc" />
+          <variable ilk="argument" name="output_dir" />
+        </scope>
+        <scope ilk="function" line="910" lineend="911" name="announce" signature="announce(msg, level=1)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="212" lineend="216" name="set_executable" signature="set_executable(key, value)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Set the list of libraries to be included in all links driven&#10;by this compiler object to 'libnames' (a list of strings)." ilk="function" line="313" lineend="319" name="set_libraries" signature="set_libraries(libnames)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="libnames" />
+        </scope>
+        <scope ilk="function" line="927" lineend="928" name="move_file" returns="CCompiler.move_file()" signature="move_file(src, dst)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="dst" />
+        </scope>
+        <scope doc="Return a boolean indicating whether funcname is supported on&#10;the current platform." ilk="function" line="776" lineend="818" name="has_function" returns="bool" signature="has_function(funcname, includes=None, include_dirs=None, libraries=None, library_dirs=None)">
+          <variable citdl="os.fdopen()" line="796" name="f" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="includes" />
+          <variable citdl="list" ilk="argument" name="libraries" />
+          <variable citdl="compile()" line="808" name="objects" />
+          <variable line="795" name="fd" />
+          <variable line="795" name="fname" />
+          <variable ilk="argument" name="funcname" />
+          <variable citdl="list" ilk="argument" name="library_dirs" />
+          <variable citdl="list" ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="921" lineend="922" name="execute" signature="execute(func, args, msg=None, level=1)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="func" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="886" lineend="890" name="executable_filename" returns="os.path.join()" signature="executable_filename(basename, strip_dir=0, output_dir='')">
+          <variable citdl="os.path.basename()" ilk="argument" name="basename" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="strip_dir" />
+        </scope>
+        <scope ilk="function" line="930" lineend="931" name="mkpath" signature="mkpath(name, mode=511)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="743" lineend="750" name="link_executable" signature="link_executable(objects, output_progname, output_dir=None, libraries=None, library_dirs=None, runtime_library_dirs=None, debug=0, extra_preargs=None, extra_postargs=None, target_lang=None)">
+          <variable ilk="argument" name="output_progname" />
+          <variable ilk="argument" name="target_lang" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="runtime_library_dirs" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable ilk="argument" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable ilk="argument" name="library_dirs" />
+        </scope>
+        <scope doc="Process arguments and decide which source files to compile." ilk="function" line="373" lineend="415" name="_setup_compile" returns="tuple" signature="_setup_compile(outdir, macros, incdirs, sources, depends, extra)">
+          <variable line="409" name="src" />
+          <variable line="410" name="obj" />
+          <variable citdl="gen_preprocess_options()" line="405" name="pp_opts" />
+          <variable citdl="list" ilk="argument" name="extra" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable line="411" name="ext" />
+          <variable citdl="list" ilk="argument" name="macros" />
+          <variable ilk="argument" name="depends" />
+          <variable citdl="self.object_filenames()" line="400" name="objects" />
+          <variable ilk="argument" name="sources" />
+          <variable citdl="dict" line="407" name="build" />
+          <variable ilk="argument" name="outdir" />
+          <variable citdl="list" ilk="argument" name="incdirs" />
+        </scope>
+        <scope ilk="function" line="218" lineend="224" name="_find_macro" returns="int" signature="_find_macro(name)">
+          <variable citdl="int" line="219" name="i" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Typecheck and fix up some of the arguments supplied to the&#10;'link_*' methods." ilk="function" line="476" lineend="509" name="_fix_lib_args" returns="tuple" signature="_fix_lib_args(libraries, library_dirs, runtime_library_dirs)">
+          <variable citdl="list" ilk="argument" name="libraries" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="library_dirs" />
+          <variable citdl="list" ilk="argument" name="runtime_library_dirs" />
+        </scope>
+        <scope doc="Add 'libname' to the list of libraries that will be included&#10;in all links driven by this compiler object." ilk="function" line="297" lineend="311" name="add_library" signature="add_library(libname)">
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="libname" />
+        </scope>
+        <scope doc="Compile one or more source files." ilk="function" line="560" lineend="627" name="compile" signature="compile(sources, output_dir=None, macros=None, include_dirs=None, debug=0, extra_preargs=None, extra_postargs=None, depends=None)">
+          <variable citdl="_get_cc_args()" line="617" name="cc_args" />
+          <variable line="614" name="pp_opts" />
+          <variable ilk="argument" name="macros" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable ilk="argument" name="depends" />
+          <variable ilk="argument" name="extra_preargs" />
+          <variable ilk="argument" name="sources" />
+          <variable ilk="argument" name="extra_postargs" />
+          <variable line="614" name="objects" />
+          <variable ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable line="614" name="build" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Detect the language of a given file, or list of files." ilk="function" line="524" lineend="542" name="detect_language" returns="self.language_map.get()" signature="detect_language(sources)">
+          <variable citdl="self.language_map.get()" line="530" name="lang" />
+          <variable citdl="self.language_order.index()" line="531" name="index" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="self.language_order.index()" line="536" name="extindex" />
+          <variable citdl="self.language_map.get()" line="534" name="extlang" />
+          <variable citdl="list" ilk="argument" name="sources" />
+          <variable line="533" name="ext" />
+          <variable line="533" name="base" />
+        </scope>
+        <scope ilk="function" line="880" lineend="884" name="shared_object_filename" returns="os.path.join()" signature="shared_object_filename(basename, strip_dir=0, output_dir='')">
+          <variable citdl="os.path.basename()" ilk="argument" name="basename" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="output_dir" />
+          <variable citdl="int" ilk="argument" name="strip_dir" />
+        </scope>
+        <scope ilk="function" line="913" lineend="916" name="debug_print" signature="debug_print(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="CCompiler" ilk="argument" name="self" />
+        </scope>
+        <variable line="121" name="src_extensions" />
+        <variable attributes="__instancevar__" citdl="int" line="145" name="force" />
+        <variable attributes="__instancevar__" citdl="int" line="146" name="verbose" />
+        <variable citdl="str" line="665" name="EXECUTABLE" />
+        <variable attributes="__instancevar__" citdl="int" line="144" name="dry_run" />
+        <variable attributes="__instancevar__" citdl="list" line="163" name="libraries" />
+        <variable attributes="__instancevar__" citdl="list" line="156" name="macros" />
+        <variable attributes="__instancevar__" line="150" name="output_dir" />
+        <variable line="95" name="compiler_type" />
+        <variable citdl="dict" line="135" name="language_map" />
+        <variable citdl="list" line="141" name="language_order" />
+        <variable line="122" name="obj_extension" />
+        <variable citdl="str" line="663" name="SHARED_OBJECT" />
+        <variable attributes="__instancevar__" citdl="list" line="174" name="objects" />
+        <variable line="127" name="exe_extension" />
+        <variable line="126" name="shared_lib_format" />
+        <variable attributes="__instancevar__" citdl="list" line="159" name="include_dirs" />
+        <variable line="125" name="static_lib_format" />
+        <variable attributes="__instancevar__" citdl="list" line="170" name="runtime_library_dirs" />
+        <variable line="123" name="static_lib_extension" />
+        <variable line="124" name="shared_lib_extension" />
+        <variable attributes="__instancevar__" citdl="list" line="166" name="library_dirs" />
+        <variable citdl="str" line="664" name="SHARED_LIBRARY" />
+      </scope>
+      <scope classrefs="CCompilerError" doc="Failure to compile one or more C/C++ source files.&#10;" ilk="class" name="CompileError" />
+      <scope classrefs="DistutilsError" doc="Unable to load an expected module, or to find an expected class&#10;within some module (in particular, command modules and classes)." ilk="class" name="DistutilsModuleError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <scope classrefs="CCompilerError" doc="Failure to link one or more C/C++ object files into an executable&#10;or shared library file." ilk="class" name="LinkError" />
+      <scope classrefs="CCompilerError" doc="Attempt to process an unknown file type.&#10;" ilk="class" name="UnknownFileError" />
+      <variable citdl="str" line="6" name="__revision__" />
+      <import module="_sysconfig" />
+      <variable citdl="dict" line="981" name="compiler_class" />
+      <scope doc="Do any platform-specific customization of a CCompiler&#10;instance." ilk="function" line="23" lineend="71" name="customize_compiler" signature="customize_compiler(compiler)">
+        <variable line="30" name="opt" />
+        <variable citdl="str" line="61" name="cc_cmd" />
+        <variable line="30" name="cxx" />
+        <variable citdl="str" line="42" name="cpp" />
+        <variable line="30" name="cc" />
+        <variable line="30" name="ar" />
+        <variable citdl="str" line="57" name="archiver" />
+        <variable line="30" name="ar_flags" />
+        <variable citdl="str" line="30" name="cflags" />
+        <variable citdl="str" line="30" name="ldshared" />
+        <variable line="30" name="so_ext" />
+        <variable line="30" name="ccshared" />
+        <variable ilk="argument" name="compiler" />
+      </scope>
+      <scope doc="Perform some action that affects the outside world (eg." ilk="function" name="execute" signature="execute(func, args, msg=None, verbose=0, dry_run=0)" />
+      <scope doc="Generate linker options for searching library directories&#10;and linking with specific libraries." ilk="function" line="1106" lineend="1145" name="gen_lib_options" returns="list" signature="gen_lib_options(compiler, library_dirs, runtime_library_dirs, libraries)">
+        <variable citdl="compiler.runtime_library_dir_option()" line="1121" name="opt" />
+        <variable citdl="list" line="1115" name="lib_opts" />
+        <variable line="1134" name="lib_dir" />
+        <variable ilk="argument" name="runtime_library_dirs" />
+        <variable ilk="argument" name="libraries" />
+        <variable line="1134" name="lib_name" />
+        <variable ilk="argument" name="library_dirs" />
+        <variable citdl="compiler.find_library_file()" line="1136" name="lib_file" />
+        <variable ilk="argument" name="compiler" />
+      </scope>
+      <scope doc="Generate C pre-processor options (-D, -U, -I) as used by at&#10;least two types of compilers: the typical Unix compiler and&#10;Visual C++." ilk="function" line="1057" lineend="1103" name="gen_preprocess_options" returns="list" signature="gen_preprocess_options(macros, include_dirs)">
+        <variable ilk="argument" name="macros" />
+        <variable citdl="list" line="1079" name="pp_opts" />
+        <variable ilk="argument" name="include_dirs" />
+      </scope>
+      <scope doc="Determine the default compiler to use for the given&#10;platform." ilk="function" line="956" lineend="976" name="get_default_compiler" returns="compiler" signature="get_default_compiler(osname=None, platform=None)">
+        <variable citdl="sys.platform" ilk="argument" name="platform" />
+        <variable citdl="os.name" ilk="argument" name="osname" />
+      </scope>
+      <import module="log" />
+      <scope doc="Create a directory and any missing ancestor directories." ilk="function" name="mkpath" signature="mkpath(name, mode=511, verbose=1, dry_run=0)" />
+      <scope doc="Move a file 'src' to 'dst'." ilk="function" name="move_file" signature="move_file(src, dst, verbose=1, dry_run=0)" />
+      <scope doc="Generate an instance of some CCompiler subclass for the&#10;supplied platform/compiler combination." ilk="function" line="1012" lineend="1054" name="new_compiler" returns="new_compiler.klass()" signature="new_compiler(plat=None, compiler=None, verbose=0, dry_run=0, force=0)">
+        <variable citdl="int" ilk="argument" name="force" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable line="1040" name="module" />
+        <variable citdl="os.name" ilk="argument" name="plat" />
+        <variable line="1041" name="klass" />
+        <variable citdl="str" line="1032" name="msg" />
+        <variable citdl="str" line="1038" name="module_name" />
+        <variable citdl="get_default_compiler()" ilk="argument" name="compiler" />
+      </scope>
+      <scope doc="Return true if 'target' is out-of-date with respect to any&#10;file listed in 'sources'." ilk="function" name="newer_group" signature="newer_group(sources, target, missing='error')" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Print list of available compilers (used by the &quot;--help-&#10;compiler&quot; options to &quot;build&quot;, &quot;build_ext&quot;, &quot;build_clib&quot;)." ilk="function" line="995" lineend="1009" name="show_compilers" signature="show_compilers()">
+        <variable citdl="FancyGetopt()" line="1008" name="pretty_printer" />
+        <variable citdl="list" line="1003" name="compilers" />
+      </scope>
+      <scope doc="Run another program, specified as a command list 'cmd', in a&#10;new process." ilk="function" name="spawn" signature="spawn(cmd, search_path=1, verbose=0, dry_run=0)" />
+      <scope doc="Split a string up according to Unix shell-like rules for&#10;quotes and backslashes." ilk="function" name="split_quoted" signature="split_quoted(s)" />
+      <import module="sys" />
+      <variable attributes="protected __hidden__" citdl="__import__()" line="21" name="_sysconfig" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="941" name="_default_compilers" />
+    </scope>
+    

@@ -1,0 +1,316 @@
+<scope doc="RFC 2822 message manipulation.&#10;Note: This is only a very rough sketch of a full RFC-822 parser; in particular the tokenizing of addresses does not adhere to all the quoting rules.  Note: RFC 2822 is a long awaited update to RFC 822.  This module should conform to RFC 2822, and is thus mis-named (it's not worth renaming it).  Some effort at RFC 2822 updates have been made, but a thorough audit has not been performed.  Consider any RFC 2822 non-conformance to be a bug.  RFC 2822: http://www.faqs.org/rfcs/rfc2822.html RFC 822 : http://www.faqs.org/rfcs/rfc822.html (obsolete)" ilk="blob" lang="Python" name="rfc822">
+      <scope classrefs="AddrlistClass" doc="An AddressList encapsulates a list of parsed RFC 2822 addresses.&#10;" ilk="class" line="770" lineend="818" name="AddressList">
+        <scope ilk="function" line="809" lineend="814" name="__isub__" returns="AddressList" signature="__isub__(other)">
+          <variable citdl="AddressList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="816" lineend="818" name="__getitem__" signature="__getitem__(index)">
+          <variable ilk="argument" name="index" />
+          <variable citdl="AddressList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="782" lineend="783" name="__str__" returns="str.join()" signature="__str__()">
+          <variable citdl="AddressList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="794" lineend="799" name="__iadd__" returns="AddressList" signature="__iadd__(other)">
+          <variable citdl="AddressList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="772" lineend="777" name="__init__" signature="AddressList(field)">
+          <variable ilk="argument" name="field" />
+          <variable citdl="AddressList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="785" lineend="792" name="__add__" signature="__add__(other)">
+          <variable citdl="" line="787" name="newaddr" />
+          <variable citdl="AddressList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="801" lineend="807" name="__sub__" signature="__sub__(other)">
+          <variable citdl="" line="803" name="newaddr" />
+          <variable citdl="AddressList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="779" lineend="780" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="AddressList" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="775" name="addresslist" />
+      </scope>
+      <scope doc="Address parser class by Ben Escoto.&#10;To understand what this class does, it helps to have a copy of RFC 2822 in front of you.  http://www.faqs.org/rfcs/rfc2822.html  Note: this class interface is deprecated and may be removed in the future. Use rfc822.AddressList instead." ilk="class" line="496" lineend="768" name="AddrlistClass">
+        <scope doc="Get a quote-delimited fragment from self's field." ilk="function" line="716" lineend="718" name="getquote" returns="AddrlistClass.getdelimited()" signature="getquote()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get the complete domain name from an address." ilk="function" line="661" lineend="677" name="getdomain" returns="str.join()" signature="getdomain()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="list" line="663" name="sdlist" />
+        </scope>
+        <scope doc="Parse an RFC 2822 addr-spec." ilk="function" line="637" lineend="659" name="getaddrspec" returns="self.getdomain()" signature="getaddrspec()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="list" line="639" name="aslist" />
+        </scope>
+        <scope doc="Parse a route address (Return-path value)." ilk="function" line="605" lineend="635" name="getrouteaddr" returns="self.getaddrspec()" signature="getrouteaddr()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="int" line="613" name="expectroute" />
+          <variable citdl="str" line="616" name="adlist" />
+        </scope>
+        <scope doc="Parse up to the start of the next address." ilk="function" line="526" lineend="533" name="gotonext" signature="gotonext()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse an RFC 2822 atom." ilk="function" line="728" lineend="745" name="getatom" returns="str.join()" signature="getatom(atomends=None)">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="atomends" />
+          <variable citdl="list" line="735" name="atomlist" />
+        </scope>
+        <scope doc="Parse a header fragment delimited by special characters." ilk="function" line="679" lineend="714" name="getdelimited" returns="str" signature="getdelimited(beginchar, endchars, allowcomments=1)">
+          <variable citdl="list" line="695" name="slist" />
+          <variable ilk="argument" name="beginchar" />
+          <variable citdl="int" line="696" name="quote" />
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="allowcomments" />
+          <variable ilk="argument" name="endchars" />
+        </scope>
+        <scope doc="Parse the next address." ilk="function" line="547" lineend="603" name="getaddress" returns="list" signature="getaddress()">
+          <variable citdl="self.getaddrspec()" line="569" name="addrspec" />
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="list" line="553" name="oldcl" />
+          <variable citdl="int" line="552" name="oldpos" />
+          <variable citdl="self.getrouteaddr()" line="587" name="routeaddr" />
+          <variable citdl="len()" line="576" name="fieldlen" />
+          <variable citdl="list" line="557" name="returnlist" />
+          <variable citdl="self.getphraselist()" line="554" name="plist" />
+        </scope>
+        <scope doc="Parse an RFC 2822 domain-literal." ilk="function" line="724" lineend="726" name="getdomainliteral" returns="str" signature="getdomainliteral()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse a sequence of RFC 2822 phrases." ilk="function" line="747" lineend="768" name="getphraselist" returns="list" signature="getphraselist()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="list" line="754" name="plist" />
+        </scope>
+        <scope doc="Parse all addresses." ilk="function" line="535" lineend="545" name="getaddrlist" returns="list" signature="getaddrlist()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+          <variable citdl="list" line="540" name="result" />
+          <variable citdl="self.getaddress()" line="541" name="ad" />
+        </scope>
+        <scope doc="Get a parenthesis-delimited fragment from self's field." ilk="function" line="720" lineend="722" name="getcomment" returns="AddrlistClass.getdelimited()" signature="getcomment()">
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a new instance." ilk="function" line="508" lineend="524" name="__init__" signature="AddrlistClass(field)">
+          <variable ilk="argument" name="field" />
+          <variable citdl="AddrlistClass" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="524" name="commentlist" />
+        <variable attributes="__instancevar__" citdl="str" line="518" name="atomends" />
+        <variable attributes="__instancevar__" citdl="str" line="516" name="LWS" />
+        <variable attributes="__instancevar__" citdl="int" line="515" name="pos" />
+        <variable attributes="__instancevar__" citdl="str" line="514" name="specials" />
+        <variable attributes="__instancevar__" line="523" name="field" />
+        <variable attributes="__instancevar__" citdl="str" line="517" name="CR" />
+        <variable attributes="__instancevar__" citdl="self.atomends.replace()" line="522" name="phraseends" />
+      </scope>
+      <scope doc="Represents a single RFC 2822-compliant message.&#10;" ilk="class" line="85" lineend="462" name="Message">
+        <scope doc="Rewind the file to the start of the body (if seekable)." ilk="function" line="116" lineend="120" name="rewindbody" signature="rewindbody()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="A higher-level interface to getfirstmatchingheader()." ilk="function" line="270" lineend="283" name="getrawheader" returns="str.join()" signature="getrawheader(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="getfirstmatchingheader()" line="279" name="lst" />
+        </scope>
+        <scope doc="Get the header value for a name." ilk="function" line="285" lineend="292" name="getheader" returns="self.dict.get()" signature="getheader(name, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Determine whether a message contains the named header." ilk="function" line="435" lineend="437" name="has_key" returns="bool" signature="has_key(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Initialize the class instance and read the headers." ilk="function" line="88" lineend="114" name="__init__" signature="Message(fp, seekable=1)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="int" ilk="argument" name="seekable" />
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Retrieve a date field from a header as a 10-tuple." ilk="function" line="367" lineend="377" name="getdate_tz" returns="parsedate_tz()" signature="getdate_tz(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable line="374" name="data" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Determine whether a message contains the named header." ilk="function" line="439" lineend="441" name="__contains__" returns="bool" signature="__contains__(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Read header lines." ilk="function" line="122" lineend="195" name="readheaders" signature="readheaders()">
+          <variable citdl="int" line="142" name="firstline" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="tell()" line="143" name="startofline" />
+          <variable citdl="self.isheader()" line="141" name="headerseen" />
+          <variable citdl="line.strip()" line="167" name="x" />
+          <variable citdl="self.fp.readline()" line="155" name="line" />
+          <variable citdl="self.fp.unread" line="145" name="unread" />
+          <variable citdl="self.fp.tell" line="147" name="tell" />
+        </scope>
+        <scope doc="Get the header value for a name." ilk="function" line="293" name="get" />
+        <scope ilk="function" line="443" lineend="444" name="__iter__" returns="iter()" signature="__iter__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get all values for a header." ilk="function" line="295" lineend="318" name="getheaders" returns="list" signature="getheaders(name)">
+          <variable citdl="str" line="303" name="current" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" line="304" name="have_header" />
+          <variable citdl="list" line="302" name="result" />
+        </scope>
+        <scope doc="Get the first header line matching name." ilk="function" line="250" lineend="268" name="getfirstmatchingheader" returns="list" signature="getfirstmatchingheader(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="int" line="259" name="hit" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+          <variable citdl="list" line="258" name="lst" />
+          <variable citdl="len()" line="257" name="n" />
+        </scope>
+        <scope doc="Find all header lines matching a given header name." ilk="function" line="228" lineend="248" name="getallmatchingheaders" returns="list" signature="getallmatchingheaders(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="int" line="240" name="hit" />
+          <variable citdl="str" ilk="argument" name="name" />
+          <variable citdl="list" line="239" name="lst" />
+          <variable citdl="len()" line="238" name="n" />
+        </scope>
+        <scope doc="Get the number of headers in a message." ilk="function" line="382" lineend="384" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get a list of addresses from a header." ilk="function" line="333" lineend="353" name="getaddrlist" returns="a.addresslist" signature="getaddrlist(name)">
+          <variable citdl="AddressList()" line="352" name="a" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="str.join()" line="351" name="alladdrs" />
+          <variable citdl="h.find()" line="347" name="i" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="list" line="340" name="raw" />
+          <variable citdl="list" line="349" name="addr" />
+        </scope>
+        <scope doc="Get a specific header, as from a dictionary." ilk="function" line="386" lineend="388" name="__getitem__" signature="__getitem__(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Determine whether a given line is a legal header." ilk="function" line="197" lineend="207" name="isheader" signature="isheader(line)">
+          <variable citdl="line.find()" line="204" name="i" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Get all of a message's header field names." ilk="function" line="446" lineend="448" name="keys" returns="self.dict.keys()" signature="keys()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get a single address from a header, as a tuple." ilk="function" line="320" lineend="331" name="getaddr" returns="tuple" signature="getaddr(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="self.getaddrlist()" line="327" name="alist" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="461" lineend="462" name="__str__" returns="str.join()" signature="__str__()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Retrieve a date field from a header." ilk="function" line="355" lineend="365" name="getdate" returns="parsedate()" signature="getdate(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable line="362" name="data" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Delete all occurrences of a specific header, if it is&#10;present." ilk="function" line="403" lineend="422" name="__delitem__" signature="__delitem__(name)">
+          <variable citdl="int" line="412" name="hit" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="len()" line="410" name="n" />
+          <variable citdl="list" line="411" name="lst" />
+          <variable line="414" name="line" />
+        </scope>
+        <scope ilk="function" line="424" lineend="433" name="setdefault" returns="str" signature="setdefault(name, default='')">
+          <variable citdl="str" ilk="argument" name="default" />
+          <variable citdl="str" line="429" name="text" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="name.lower()" line="425" name="lowername" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Get all of a message's headers." ilk="function" line="454" lineend="459" name="items" returns="self.dict.items()" signature="items()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the value of a header." ilk="function" line="390" lineend="401" name="__setitem__" signature="__setitem__(name, value)">
+          <variable citdl="str" line="399" name="text" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Get all of a message's header field values." ilk="function" line="450" lineend="452" name="values" returns="self.dict.values()" signature="values()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Determine whether a line should be skipped entirely." ilk="function" line="219" lineend="226" name="iscomment" returns="bool" signature="iscomment(line)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Determine whether a line is a legal end of RFC 2822 headers." ilk="function" line="209" lineend="217" name="islast" returns="bool" signature="islast(line)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <variable attributes="__instancevar__" line="97" name="fp" />
+        <variable attributes="__instancevar__" citdl="str" line="140" name="status" />
+        <variable attributes="__instancevar__" citdl="self.fp.tell()" line="100" name="startofbody" />
+        <variable attributes="__instancevar__" citdl="self.fp.tell()" line="99" name="startofheaders" />
+        <variable attributes="__instancevar__" citdl="list" line="139" name="headers" />
+        <variable attributes="__instancevar__" citdl="dict" line="137" name="dict" />
+        <variable attributes="__instancevar__" citdl="int" line="98" name="seekable" />
+        <variable attributes="__instancevar__" citdl="str" line="138" name="unixfrom" />
+      </scope>
+      <variable citdl="list" line="80" name="__all__" />
+      <scope doc="Dump a (name, address) pair in a canonicalized form." ilk="function" line="820" lineend="825" name="dump_address_pair" returns="str" signature="dump_address_pair(pair)">
+        <variable ilk="argument" name="pair" />
+      </scope>
+      <scope doc="Returns time format preferred for Internet standards." ilk="function" line="952" lineend="970" name="formatdate" returns="tuple" signature="formatdate(timeval=None)">
+        <variable citdl="time.time()" ilk="argument" name="timeval" />
+      </scope>
+      <scope doc="Turn a 10-tuple as returned by parsedate_tz() into a UTC&#10;timestamp." ilk="function" line="943" lineend="950" name="mktime_tz" returns="time.mktime()" signature="mktime_tz(data)">
+        <variable ilk="argument" name="data" />
+        <variable citdl="time.mktime()" line="949" name="t" />
+      </scope>
+      <scope doc="Parse an address into a (realname, mailaddr) tuple." ilk="function" line="487" lineend="493" name="parseaddr" returns="tuple" signature="parseaddr(address)">
+        <variable citdl="AddressList()" line="489" name="a" />
+        <variable citdl="a.addresslist" line="490" name="lst" />
+        <variable ilk="argument" name="address" />
+      </scope>
+      <scope doc="Convert a time string to a time tuple." ilk="function" line="935" lineend="940" name="parsedate" returns="parsedate_tz()" signature="parsedate(data)">
+        <variable ilk="argument" name="data" />
+        <variable citdl="parsedate_tz()" line="937" name="t" />
+      </scope>
+      <scope doc="Convert a date string to a time tuple." ilk="function" line="850" lineend="932" name="parsedate_tz" returns="tuple" signature="parsedate_tz(data)">
+        <variable citdl="int" line="927" name="tzsign" />
+        <variable citdl="tm" line="896" name="tz" />
+        <variable citdl="s.find()" line="863" name="i" />
+        <variable citdl="int()" line="883" name="dd" />
+        <variable line="867" name="stuff" />
+        <variable citdl="int()" line="911" name="tmm" />
+        <variable citdl="tm" line="892" name="yy" />
+        <variable citdl="_monthnames.index()" line="881" name="mm" />
+        <variable line="871" name="s" />
+        <variable citdl="tm" line="892" name="tm" />
+        <variable citdl="int()" line="910" name="thh" />
+        <variable citdl="list" ilk="argument" name="data" />
+        <variable citdl="int()" line="902" name="tss" />
+        <variable citdl="int()" line="915" name="tzoffset" />
+      </scope>
+      <scope doc="Add quotes around a string." ilk="function" line="482" lineend="484" name="quote" signature="quote(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <import module="time" />
+      <scope doc="Remove quotes from a string." ilk="function" line="472" lineend="479" name="unquote" returns="list" signature="unquote(s)">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <variable attributes="__hidden__" line="992" name="hhmmss" />
+      <variable attributes="__hidden__" line="988" name="tz" />
+      <variable attributes="protected __hidden__" citdl="list" line="829" name="_monthnames" />
+      <variable attributes="__hidden__" citdl="open()" line="981" name="f" />
+      <variable attributes="__hidden__" line="993" name="ss" />
+      <variable attributes="__hidden__" citdl="Message" line="982" name="m" />
+      <variable attributes="protected __hidden__" citdl="tuple" line="82" name="_blanklines" />
+      <variable attributes="protected __hidden__" citdl="list" line="833" name="_daynames" />
+      <variable attributes="__hidden__" citdl="int" line="1001" name="n" />
+      <variable attributes="__hidden__" line="994" name="mm" />
+      <variable attributes="__hidden__" line="994" name="hh" />
+      <variable attributes="protected __hidden__" citdl="dict" line="841" name="_timezones" />
+      <variable attributes="__hidden__" citdl="os.path.join()" line="979" name="file" />
+      <variable attributes="__hidden__" citdl="time.localtime()" line="987" name="date" />
+      <variable attributes="__hidden__" line="993" name="hhmm" />
+    </scope>
+    

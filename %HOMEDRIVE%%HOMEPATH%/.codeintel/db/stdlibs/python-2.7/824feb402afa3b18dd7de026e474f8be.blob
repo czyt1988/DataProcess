@@ -1,0 +1,187 @@
+<scope doc="UUID objects (universally unique identifiers) according to RFC 4122.&#10;This module provides immutable UUID objects (class UUID) and the functions uuid1(), uuid3(), uuid4(), uuid5() for generating version 1, 3, 4, and 5 UUIDs as specified in RFC 4122.  If all you want is a unique ID, you should probably call uuid1() or uuid4(). Note that uuid1() may compromise privacy since it creates a UUID containing the computer's network address.  uuid4() creates a random UUID.  Typical usage: " ilk="blob" lang="Python" name="uuid">
+      <variable citdl="UUID" line="557" name="NAMESPACE_DNS" />
+      <variable citdl="UUID" line="559" name="NAMESPACE_OID" />
+      <variable citdl="UUID" line="558" name="NAMESPACE_URL" />
+      <variable citdl="UUID" line="560" name="NAMESPACE_X500" />
+      <variable citdl="str" line="49" name="RESERVED_FUTURE" />
+      <variable citdl="str" line="49" name="RESERVED_MICROSOFT" />
+      <variable citdl="str" line="49" name="RESERVED_NCS" />
+      <variable citdl="str" line="49" name="RFC_4122" />
+      <scope classrefs="object" doc="Instances of the UUID class represent UUIDs as specified in RFC 4122.&#10;UUID objects are immutable, hashable, and usable as dictionary keys. Converting a UUID to a string with str() yields something in the form '12345678-1234-1234-1234-123456789abc'.  The UUID constructor accepts five possible forms: a similar string of hexadecimal digits, or a tuple of six integer fields (with 32-bit, 16-bit, 16-bit, 8-bit, 8-bit, and 48-bit values respectively) as an argument named 'fields', or a string of 16 bytes (with all the integer fields in big-endian order) as an argument named 'bytes', or a string of 16 bytes (with the first three fields in little-endian order) as an argument named 'bytes_le', or a single 128-bit integer as an argument named 'int'." ilk="class" line="53" lineend="292" name="UUID">
+        <scope ilk="function" line="188" lineend="189" name="__int__" returns="self.int" signature="__int__()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="197" lineend="200" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable citdl="self.int" line="198" name="hex" />
+        </scope>
+        <scope ilk="function" line="233" lineend="234" name="get_time_hi_version" returns="int" signature="get_time_hi_version()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="228" lineend="229" name="get_time_mid" returns="int" signature="get_time_mid()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="275" lineend="283" name="get_variant" returns="str" signature="get_variant()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a UUID from either a string of 32 hexadecimal digits,&#10;a string of 16 bytes as the 'bytes' argument, a string of 16&#10;bytes in little-endian order as the 'bytes_le' argument, a&#10;tuple of six integers (32-bit time_low, 16-bit time_mid,&#10;16-bit time_hi_version," ilk="function" line="101" lineend="178" name="__init__" signature="UUID(hex=None, bytes=None, bytes_le=None, fields=None, int=None, version=None)">
+          <variable citdl="long()" ilk="argument" name="int" />
+          <variable ilk="argument" name="hex" />
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="bytes" />
+          <variable ilk="argument" name="bytes_le" />
+          <variable ilk="argument" name="version" />
+          <variable ilk="argument" name="fields" />
+          <variable citdl="int" line="163" name="clock_seq" />
+        </scope>
+        <scope ilk="function" line="194" lineend="195" name="__setattr__" signature="__setattr__(name, value)">
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="287" lineend="290" name="get_version" returns="int()" signature="get_version()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="180" lineend="183" name="__cmp__" returns="NotImplemented" signature="__cmp__(other)">
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="254" lineend="256" name="get_clock_seq" returns="int" signature="get_clock_seq()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="202" lineend="206" name="get_bytes" returns="str" signature="get_bytes()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable citdl="str" line="203" name="bytes" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="__hash__" returns="hash()" signature="__hash__()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="243" lineend="244" name="get_clock_seq_low" returns="int" signature="get_clock_seq_low()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="238" lineend="239" name="get_clock_seq_hi_variant" returns="int" signature="get_clock_seq_hi_variant()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="260" lineend="261" name="get_node" returns="int" signature="get_node()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="210" lineend="213" name="get_bytes_le" returns="list" signature="get_bytes_le()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+          <variable citdl="property()" line="211" name="bytes" />
+        </scope>
+        <scope ilk="function" line="270" lineend="271" name="get_urn" returns="str" signature="get_urn()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="265" lineend="266" name="get_hex" returns="self.int" signature="get_hex()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="191" lineend="192" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="248" lineend="250" name="get_time" returns="int" signature="get_time()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="217" lineend="219" name="get_fields" returns="tuple" signature="get_fields()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="223" lineend="224" name="get_time_low" returns="int" signature="get_time_low()">
+          <variable citdl="UUID" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="property()" line="263" name="node" />
+        <variable citdl="property()" line="246" name="clock_seq_low" />
+        <variable citdl="property()" line="236" name="time_hi_version" />
+        <variable citdl="property()" line="273" name="urn" />
+        <variable citdl="property()" line="252" name="time" />
+        <variable citdl="property()" line="268" name="hex" />
+        <variable citdl="property()" line="215" name="bytes_le" />
+        <variable citdl="property()" line="231" name="time_mid" />
+        <variable citdl="property()" line="208" name="bytes" />
+        <variable citdl="property()" line="292" name="version" />
+        <variable citdl="property()" line="226" name="time_low" />
+        <variable citdl="property()" line="221" name="fields" />
+        <variable citdl="property()" line="241" name="clock_seq_hi_variant" />
+        <variable citdl="property()" line="285" name="variant" />
+        <variable citdl="property()" line="258" name="clock_seq" />
+      </scope>
+      <variable citdl="str" line="47" name="__author__" />
+      <import module="ctypes" />
+      <scope doc="Get the hardware address as a 48-bit positive integer." ilk="function" line="461" lineend="486" name="getnode" returns="getter()" signature="getnode()">
+        <variable attributes="protected" citdl="getter()" line="482" name="_node" />
+        <variable citdl="list" line="476" name="getters" />
+      </scope>
+      <variable citdl="WinDLL" line="404" name="lib" />
+      <variable citdl="str" name="libname" />
+      <import module="sys" />
+      <scope doc="Generate a UUID from a host ID, sequence number, and the&#10;current time." ilk="function" line="490" lineend="523" name="uuid1" returns="UUID" signature="uuid1(node=None, clock_seq=None)">
+        <variable citdl="getnode()" ilk="argument" name="node" />
+        <variable citdl="int" line="515" name="time_low" />
+        <variable attributes="protected" citdl="ctypes.create_string_buffer()" line="499" name="_buffer" />
+        <variable citdl="int()" line="508" name="timestamp" />
+        <variable citdl="int()" line="505" name="nanoseconds" />
+        <variable citdl="int" line="518" name="clock_seq_low" />
+        <variable citdl="int" line="516" name="time_mid" />
+        <variable attributes="protected" citdl="int()" line="511" name="_last_timestamp" />
+        <variable citdl="int" line="519" name="clock_seq_hi_variant" />
+        <variable citdl="int" line="517" name="time_hi_version" />
+        <variable citdl="random.randrange()" ilk="argument" name="clock_seq" />
+      </scope>
+      <scope doc="Generate a UUID from the MD5 hash of a namespace UUID and a&#10;name." ilk="function" line="525" lineend="529" name="uuid3" returns="UUID" signature="uuid3(namespace, name)">
+        <variable line="528" name="hash" />
+        <variable ilk="argument" name="namespace" />
+        <variable ilk="argument" name="name" />
+      </scope>
+      <scope doc="Generate a random UUID." ilk="function" line="531" lineend="547" name="uuid4" returns="UUID" signature="uuid4()">
+        <variable citdl="list" line="546" name="bytes" />
+        <variable attributes="protected" citdl="ctypes.create_string_buffer()" line="536" name="_buffer" />
+      </scope>
+      <scope doc="Generate a UUID from the SHA-1 hash of a namespace UUID and&#10;a name." ilk="function" line="549" lineend="553" name="uuid5" returns="UUID" signature="uuid5(namespace, name)">
+        <variable line="552" name="hash" />
+        <variable ilk="argument" name="namespace" />
+        <variable ilk="argument" name="name" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="getattr()" line="437" name="_UuidCreate" />
+      <variable attributes="protected __hidden__" citdl="lib.uuid_generate_random" line="396" name="_uuid_generate_random" />
+      <scope attributes="protected __hidden__" doc="Get a random node ID, with eighth bit set as suggested by&#10;RFC 4122." ilk="function" line="454" lineend="457" name="_random_getnode" returns="int" signature="_random_getnode()">
+        <import line="456" module="random" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Get the hardware address on Windows using ctypes." ilk="function" line="448" lineend="452" name="_windll_getnode" signature="_windll_getnode()">
+        <variable attributes="protected" citdl="ctypes.create_string_buffer()" line="450" name="_buffer" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Get the hardware address on Windows using NetBIOS calls." ilk="function" line="364" lineend="391" name="_netbios_getnode" returns="int" signature="_netbios_getnode()">
+        <import line="367" module="win32wnet" />
+        <import line="367" module="netbios" />
+        <variable citdl="netbios.NCB()" line="368" name="ncb" />
+        <variable citdl="map()" line="389" name="bytes" />
+      </scope>
+      <variable attributes="protected __hidden__" line="488" name="_last_timestamp" />
+      <scope attributes="protected __hidden__" ilk="function" line="294" lineend="314" name="_find_mac" returns="int()" signature="_find_mac(command, args, hw_identifiers, get_index)">
+        <import line="295" module="os" />
+        <variable ilk="argument" name="command" />
+        <variable ilk="argument" name="args" />
+        <variable ilk="argument" name="hw_identifiers" />
+        <variable ilk="argument" name="get_index" />
+        <variable citdl="os.path.join()" line="297" name="executable" />
+        <variable citdl="str" line="304" name="cmd" />
+        <variable line="307" name="words" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Get the hardware address on Windows by running ipconfig.exe." ilk="function" line="340" lineend="362" name="_ipconfig_getnode" returns="int()" signature="_ipconfig_getnode()">
+        <import line="342" module="os" />
+        <import line="342" module="re" />
+        <import line="345" module="ctypes" />
+        <variable citdl="list" line="343" name="dirs" />
+        <variable citdl="ctypes.create_string_buffer()" line="346" name="buffer" />
+        <variable citdl="os.popen()" line="353" name="pipe" />
+        <variable line="358" name="value" />
+      </scope>
+      <variable attributes="protected __hidden__" line="459" name="_node" />
+      <scope attributes="protected __hidden__" doc="Get the hardware address on Unix using ctypes." ilk="function" line="442" lineend="446" name="_unixdll_getnode" signature="_unixdll_getnode()">
+        <variable attributes="protected" citdl="ctypes.create_string_buffer()" line="444" name="_buffer" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Get the hardware address on Unix by running ifconfig." ilk="function" line="316" lineend="338" name="_ifconfig_getnode" returns="_find_mac()" signature="_ifconfig_getnode()">
+        <import line="325" module="socket" />
+        <variable citdl="_find_mac()" line="321" name="mac" />
+        <variable citdl="socket.gethostbyname()" line="326" name="ip_addr" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="lib.uuid_generate_time" line="410" name="_uuid_generate_time" />
+    </scope>
+    

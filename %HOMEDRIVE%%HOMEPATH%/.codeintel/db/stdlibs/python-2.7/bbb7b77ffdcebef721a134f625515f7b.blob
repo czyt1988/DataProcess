@@ -1,0 +1,45 @@
+<scope doc="Generic MIME writer.&#10;This module defines the class MimeWriter.  The MimeWriter class implements a basic formatter for creating MIME multi-part files.  It doesn't seek around the output file nor does it use large amounts of buffer space. You must write the parts out in the order that they should occur in the final file. MimeWriter does buffer the headers you add, allowing you to rearrange their order." ilk="blob" lang="Python" name="MimeWriter">
+      <scope doc="Generic MIME writer.&#10;Methods:  __init__() addheader() flushheaders() startbody() startmultipartbody() nextpart() lastpart() " ilk="class" line="22" lineend="182" name="MimeWriter">
+        <scope doc="Returns a file-like object for writing the body of the&#10;message." ilk="function" line="128" lineend="143" name="startbody" signature="startbody(ctype, plist=[], prefix=1)">
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="prefix" />
+          <variable citdl="str" ilk="argument" name="ctype" />
+          <variable citdl="list" ilk="argument" name="plist" />
+        </scope>
+        <scope doc="Returns a file-like object for writing the body of the&#10;message." ilk="function" line="145" lineend="161" name="startmultipartbody" returns="MimeWriter.startbody()" signature="startmultipartbody(subtype, boundary=None, plist=[], prefix=1)">
+          <variable ilk="argument" name="subtype" />
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="prefix" />
+          <variable citdl="list" ilk="argument" name="plist" />
+          <variable ilk="argument" name="boundary" />
+        </scope>
+        <scope doc="Add a header line to the MIME message." ilk="function" line="96" lineend="115" name="addheader" signature="addheader(key, value, prefix=0)">
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+          <variable citdl="value.split()" line="105" name="lines" />
+          <variable citdl="str.join()" ilk="argument" name="value" />
+          <variable citdl="int" ilk="argument" name="prefix" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="str" line="111" name="line" />
+        </scope>
+        <scope doc="Returns a new instance of MimeWriter which represents an&#10;individual part in a multipart message." ilk="function" line="163" lineend="174" name="nextpart" returns="self.__class__()" signature="nextpart()">
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Writes out and forgets all headers accumulated so far." ilk="function" line="117" lineend="126" name="flushheaders" signature="flushheaders()">
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="92" lineend="94" name="__init__" signature="MimeWriter(fp)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="This is used to designate the last part of a multipart&#10;message." ilk="function" line="176" lineend="182" name="lastpart" signature="lastpart()">
+          <variable citdl="MimeWriter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="93" name="_fp" />
+        <variable attributes="protected __instancevar__" citdl="list" line="94" name="_headers" />
+        <variable attributes="protected __instancevar__" citdl="mimetools.choose_boundary()" line="158" name="_boundary" />
+      </scope>
+      <variable citdl="list" line="15" name="__all__" />
+      <import module="mimetools" />
+      <import module="warnings" />
+    </scope>
+    

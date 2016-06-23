@@ -1,0 +1,488 @@
+<scope doc="Package Install Manager for Python.&#10;This is currently a MacOSX-only strawman implementation. Despite other rumours the name stands for &quot;Packman IMPlementation&quot;.  Tools to allow easy installation of packages. The idea is that there is an online XML database per (platform, python-version) containing packages known to work with that combination. This module contains tools for getting and parsing the database, testing whether packages are installed, computing dependencies and installing packages.  There is a minimal main program that works as a command line tool, but the" ilk="blob" lang="Python" name="pimp">
+      <variable citdl="list" line="508" name="ALLOWED_KEYS" />
+      <variable citdl="list" line="263" name="ARCHIVE_FORMATS" />
+      <variable citdl="str" line="51" name="DEFAULT_BUILDDIR" />
+      <variable citdl="str" line="50" name="DEFAULT_DOWNLOADDIR" />
+      <variable citdl="list" line="49" name="DEFAULT_FLAVORORDER" />
+      <variable citdl="str" line="52" name="DEFAULT_INSTALLDIR" />
+      <variable citdl="str" line="53" name="DEFAULT_PIMPDATABASE_FMT" />
+      <variable citdl="int" line="41" name="NO_EXECUTE" />
+      <variable citdl="str" line="43" name="PIMP_VERSION" />
+      <scope classrefs="PimpUnpacker" doc="Unpack archives by calling a Unix utility&#10;" ilk="class" line="205" lineend="213" name="PimpCommandUnpacker">
+        <scope ilk="function" line="210" lineend="213" name="unpack" returns="str" signature="unpack(archive, output=None, package=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpCommandUnpacker" ilk="argument" name="self" />
+          <variable citdl="self.argument" line="211" name="cmd" />
+          <variable ilk="argument" name="archive" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <variable attributes="protected" citdl="False" line="208" name="_can_rename" />
+      </scope>
+      <scope classrefs="PimpDownloader" doc="&#10;" ilk="class" line="137" lineend="146" name="PimpCurlDownloader">
+        <scope ilk="function" line="139" lineend="146" name="download" returns="bool" signature="download(url, filename, output=None)">
+          <variable ilk="argument" name="url" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpCurlDownloader" ilk="argument" name="self" />
+          <variable citdl="_cmd()" line="141" name="exitstatus" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+      </scope>
+      <scope doc="Class representing a pimp database. It can actually contain&#10;information from multiple databases through inclusion, but the toplevel database is considered the master, as its maintainer is &quot;responsible&quot; for the contents." ilk="class" line="358" lineend="506" name="PimpDatabase">
+        <scope doc="Return a list of names of all packages in the database." ilk="function" line="443" lineend="450" name="listnames" returns="list" signature="listnames()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable citdl="list" line="446" name="rv" />
+        </scope>
+        <scope ilk="function" line="376" lineend="376" name="maintainer" returns="str" signature="maintainer()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="377" lineend="377" name="description" returns="str" signature="description()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Dump the contents of the database to an XML .plist file." ilk="function" line="452" lineend="468" name="dump" signature="dump(pathOrFile)">
+          <variable citdl="dict" line="461" name="plistdata" />
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable citdl="list" line="458" name="packages" />
+          <variable ilk="argument" name="pathOrFile" />
+          <variable citdl="plistlib.Plist()" line="467" name="plist" />
+        </scope>
+        <scope doc="# Accessor functions" ilk="function" line="374" lineend="374" name="url" returns="str" signature="url()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Append packages from the database with the given URL." ilk="function" line="384" lineend="414" name="appendURL" signature="appendURL(url, included=0)">
+          <variable line="392" name="fp" />
+          <variable ilk="argument" name="url" />
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable citdl="urllib.basejoin()" line="413" name="o" />
+          <variable citdl="plistdata.get()" line="396" name="version" />
+          <variable citdl="plistdata.get()" line="411" name="others" />
+          <variable citdl="int" ilk="argument" name="included" />
+          <variable citdl="plistlib.Plist.fromFile()" line="393" name="plistdata" />
+        </scope>
+        <scope doc="Given a list of dictionaries containing package descriptions&#10;create the PimpPackage objects and append them to our&#10;internal storage." ilk="function" line="416" lineend="436" name="_appendPackages" signature="_appendPackages(packages, url)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable citdl="dict()" line="422" name="p" />
+          <variable citdl="PimpPackage_installer()" line="427" name="pkg" />
+          <variable citdl="p.get()" line="425" name="flavor" />
+          <variable ilk="argument" name="packages" />
+        </scope>
+        <scope doc="Return a list of all PimpPackage objects in the database." ilk="function" line="438" lineend="441" name="list" returns="list" signature="list()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Find a package." ilk="function" line="470" lineend="506" name="find" returns="p" signature="find(ident)">
+          <variable citdl="list" ilk="argument" name="ident" />
+          <variable line="486" name="name" />
+          <variable citdl="ident.split()" line="483" name="fields" />
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable citdl="ident.get()" line="488" name="version" />
+          <variable citdl="p" line="499" name="found" />
+          <variable citdl="ident.get()" line="492" name="flavor" />
+        </scope>
+        <scope ilk="function" line="375" lineend="375" name="version" returns="str" signature="version()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Clean up" ilk="function" line="379" lineend="382" name="close" signature="close()">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="364" lineend="371" name="__init__" signature="PimpDatabase(prefs)">
+          <variable citdl="PimpDatabase" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefs" />
+        </scope>
+        <variable attributes="__instancevar__" line="366" name="preferences" />
+        <variable attributes="protected __instancevar__" citdl="str" line="371" name="_description" />
+        <variable attributes="protected __instancevar__" citdl="list" line="365" name="_packages" />
+        <variable attributes="protected __instancevar__" citdl="plistdata.get()" line="369" name="_version" />
+        <variable attributes="protected __instancevar__" citdl="list" line="368" name="_urllist" />
+        <variable attributes="protected __instancevar__" citdl="plistdata.get()" line="370" name="_maintainer" />
+        <variable attributes="protected __instancevar__" citdl="str" line="367" name="_url" />
+      </scope>
+      <scope doc="Abstract base class - Downloader for archives&#10;" ilk="class" line="119" lineend="135" name="PimpDownloader">
+        <scope ilk="function" line="129" lineend="130" name="download" signature="download(url, filename, output=None)">
+          <variable ilk="argument" name="url" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpDownloader" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="122" lineend="127" name="__init__" signature="PimpDownloader(argument, dir='', watcher=None)">
+          <variable citdl="PimpDownloader" ilk="argument" name="self" />
+          <variable ilk="argument" name="argument" />
+          <variable citdl="str" ilk="argument" name="dir" />
+          <variable ilk="argument" name="watcher" />
+        </scope>
+        <scope ilk="function" line="132" lineend="135" name="update" returns="self._watcher.update()" signature="update(str)">
+          <variable citdl="PimpDownloader" ilk="argument" name="self" />
+          <variable ilk="argument" name="str" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="126" name="_dir" />
+        <variable attributes="__instancevar__" line="125" name="argument" />
+        <variable attributes="protected __instancevar__" line="127" name="_watcher" />
+      </scope>
+      <scope doc="Installer engine: computes dependencies and installs&#10;packages in the right order." ilk="class" line="939" lineend="1007" name="PimpInstaller">
+        <scope ilk="function" line="949" lineend="950" name="__contains__" returns="bool" signature="__contains__(package)">
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope doc="Prepare installation of a package." ilk="function" line="980" lineend="996" name="prepareInstall" returns="tuple" signature="prepareInstall(package, force=0, recursive=1)">
+          <variable citdl="int" ilk="argument" name="recursive" />
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="force" />
+          <variable citdl="tuple" line="993" name="rv" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope doc="Internal routine, recursive engine for prepareInstall." ilk="function" line="957" lineend="978" name="_prepareInstall" signature="_prepareInstall(package, force=0, recursive=1)">
+          <variable line="965" name="status" />
+          <variable citdl="int" ilk="argument" name="force" />
+          <variable citdl="int" ilk="argument" name="recursive" />
+          <variable ilk="argument" name="package" />
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable citdl="package.prerequisites()" line="973" name="prereqs" />
+          <variable line="965" name="message" />
+        </scope>
+        <scope doc="Install a list of packages." ilk="function" line="998" lineend="1007" name="install" returns="list" signature="install(packages, output)">
+          <variable citdl="list" line="1002" name="status" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable ilk="argument" name="packages" />
+          <variable citdl="pkg.installSinglePackage()" line="1004" name="msg" />
+        </scope>
+        <scope ilk="function" line="952" lineend="955" name="_addPackages" signature="_addPackages(packages)">
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable ilk="argument" name="packages" />
+        </scope>
+        <scope ilk="function" line="943" lineend="947" name="__init__" signature="PimpInstaller(db)">
+          <variable citdl="PimpInstaller" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list" line="944" name="_todo" />
+        <variable attributes="protected __instancevar__" citdl="list" line="947" name="_curmessages" />
+        <variable attributes="protected __instancevar__" line="945" name="_db" />
+        <variable attributes="protected __instancevar__" citdl="list" line="946" name="_curtodo" />
+      </scope>
+      <scope doc="Class representing a single package.&#10;" ilk="class" line="525" lineend="789" name="PimpPackage">
+        <scope doc="Return a dict object containing the information on the&#10;package." ilk="function" line="564" lineend="566" name="dump" signature="dump()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Download, unpack and install a single package." ilk="function" line="725" lineend="741" name="installSinglePackage" returns="tuple" signature="installSinglePackage(output=None)">
+          <variable citdl="downloadPackageOnly()" line="733" name="msg" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Test wheter the package is installed." ilk="function" line="579" lineend="617" name="installed" returns="tuple" signature="installed()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable citdl="dict" line="587" name="namespace" />
+          <variable citdl="str" line="594" name="installTest" />
+        </scope>
+        <scope doc="Download a single package, if needed." ilk="function" line="663" lineend="690" name="downloadPackageOnly" returns="str" signature="downloadPackageOnly(output=None)">
+          <variable line="675" name="frag" />
+          <variable line="675" name="loc" />
+          <variable citdl="PimpUrllibDownloader" line="682" name="downloader" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable line="677" name="filename" />
+          <variable line="675" name="query" />
+          <variable citdl="urllib.url2pathname()" line="675" name="path" />
+          <variable ilk="argument" name="output" />
+          <variable line="675" name="scheme" />
+        </scope>
+        <scope ilk="function" line="541" lineend="541" name="flavor" returns="self._dict.get()" signature="flavor()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="528" lineend="534" name="__init__" signature="PimpPackage(db, plistdata)">
+          <variable ilk="argument" name="plistdata" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+          <variable line="530" name="name" />
+        </scope>
+        <scope ilk="function" line="546" lineend="546" name="systemwideOnly" returns="self._dict.get()" signature="systemwideOnly()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compare two packages, where the &quot;better&quot; package sorts&#10;lower." ilk="function" line="568" lineend="577" name="__cmp__" returns="self._db.preferences.compareFlavors()" signature="__cmp__(other)">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="545" lineend="545" name="downloadURL" returns="self._dict.get()" signature="downloadURL()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="540" lineend="540" name="version" returns="self._dict.get()" signature="version()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="544" lineend="544" name="homepage" returns="self._dict.get()" signature="homepage()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Bookkeeping after installation: interpret any new .pth files&#10;that have appeared" ilk="function" line="747" lineend="773" name="afterInstall" signature="afterInstall()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable citdl="os.listdir()" line="751" name="new_contents" />
+          <variable citdl="os.path.join()" line="768" name="line" />
+          <variable citdl="os.path.join()" line="757" name="fullname" />
+          <variable citdl="open()" line="758" name="f" />
+        </scope>
+        <scope doc="Bookkeeping before installation: remember what we have in&#10;site-packages" ilk="function" line="743" lineend="745" name="beforeInstall" signature="beforeInstall()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="542" lineend="542" name="description" signature="description()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="536" lineend="537" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Default install method, to be overridden by subclasses" ilk="function" line="720" lineend="723" name="installPackageOnly" returns="tuple" signature="installPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="539" lineend="539" name="name" signature="name()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of prerequisites for this package." ilk="function" line="619" lineend="660" name="prerequisites" returns="list" signature="prerequisites()">
+          <variable line="632" name="status" />
+          <variable citdl="list" line="628" name="rv" />
+          <variable citdl="str" line="649" name="name" />
+          <variable citdl="str" line="647" name="descr" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable citdl="self._db.find()" line="646" name="pkg" />
+          <variable attributes="protected" line="632" name="_" />
+        </scope>
+        <scope doc="Return a list that contains only unpexpected skips" ilk="function" line="775" lineend="789" name="filterExpectedSkips" returns="list" signature="filterExpectedSkips(names)">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+          <variable citdl="list" line="782" name="newnames" />
+          <variable citdl="self._dict.get()" line="779" name="expected_skips" />
+        </scope>
+        <scope doc="Test an archive." ilk="function" line="692" lineend="702" name="_archiveOK" returns="bool" signature="_archiveOK()">
+          <variable line="701" name="checksum" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable line="700" name="data" />
+        </scope>
+        <scope doc="Unpack a downloaded package archive." ilk="function" line="704" lineend="718" name="unpackPackageOnly" returns="str" signature="unpackPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable citdl="unpackerClass()" line="714" name="unpacker" />
+          <variable citdl="unpacker.unpack()" line="716" name="rv" />
+          <variable line="707" name="filename" />
+        </scope>
+        <scope doc="Return the full name &quot;name-version-flavor&quot; of a package." ilk="function" line="548" lineend="562" name="fullname" returns="str" signature="fullname()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+          <variable citdl="str" line="554" name="rv" />
+        </scope>
+        <scope ilk="function" line="543" lineend="543" name="shortdescription" signature="shortdescription()">
+          <variable citdl="PimpPackage" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="529" name="_db" />
+        <variable attributes="protected __instancevar__" citdl="os.listdir()" line="745" name="_old_contents" />
+        <variable attributes="protected __instancevar__" line="534" name="_dict" />
+        <variable attributes="__instancevar__" citdl="os.path.join()" line="678" name="archiveFilename" />
+        <variable attributes="__instancevar__" citdl="list" line="713" name="basename" />
+      </scope>
+      <scope classrefs="PimpPackage" doc="&#10;" ilk="class" line="791" lineend="844" name="PimpPackage_binary">
+        <scope doc="We don't unpack binary packages until installing" ilk="function" line="793" lineend="795" name="unpackPackageOnly" signature="unpackPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage_binary" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Install a single source package." ilk="function" line="797" lineend="844" name="installPackageOnly" returns="tuple" signature="installPackageOnly(output=None)">
+          <variable citdl="unpacker.unpack()" line="833" name="rv" />
+          <variable citdl="distutils.sysconfig.get_python_lib()" line="827" name="oldloc" />
+          <variable citdl="PimpPackage_binary" ilk="argument" name="self" />
+          <variable line="814" name="filename" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="unpackerClass()" line="832" name="unpacker" />
+          <variable citdl="list" line="822" name="install_renames" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="820" name="basename" />
+      </scope>
+      <scope classrefs="PimpPackage" doc="&#10;" ilk="class" line="907" lineend="937" name="PimpPackage_installer">
+        <scope doc="We don't unpack dmg packages until installing" ilk="function" line="909" lineend="911" name="unpackPackageOnly" signature="unpackPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage_installer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Install a single source package." ilk="function" line="913" lineend="937" name="installPackageOnly" returns="tuple" signature="installPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage_installer" ilk="argument" name="self" />
+          <variable citdl="self._dict.get()" line="929" name="installcmd" />
+        </scope>
+      </scope>
+      <scope classrefs="PimpPackage" doc="&#10;" ilk="class" line="847" lineend="905" name="PimpPackage_source">
+        <scope doc="Unpack a source package and check that setup.py exists" ilk="function" line="849" lineend="856" name="unpackPackageOnly" returns="str" signature="unpackPackageOnly(output=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpPackage_source" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="854" name="setupname" />
+        </scope>
+        <scope doc="Install a single source package." ilk="function" line="858" lineend="905" name="installPackageOnly" returns="tuple" signature="installPackageOnly(output=None)">
+          <variable citdl="str.join()" line="893" name="rv" />
+          <variable citdl="PimpPackage_source" ilk="argument" name="self" />
+          <variable citdl="tuple" line="870" name="installcmd" />
+          <variable citdl="str" line="877" name="extra_args" />
+          <variable citdl="tempfile.mkdtemp()" line="875" name="unwanted_install_dir" />
+          <variable citdl="tempfile.mkdtemp()" line="884" name="v" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="os.listdir()" line="891" name="unwanted_files" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="os.path.join()" line="853" name="_buildDirname" />
+      </scope>
+      <scope doc="Container for per-user preferences, such as the database to use&#10;and where to install packages." ilk="class" line="272" lineend="356" name="PimpPreferences">
+        <scope ilk="function" line="297" lineend="298" name="setWatcher" signature="setWatcher(watcher)">
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+          <variable ilk="argument" name="watcher" />
+        </scope>
+        <scope ilk="function" line="313" lineend="314" name="isUserInstall" returns="bool" signature="isUserInstall()">
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compare two flavor strings." ilk="function" line="347" lineend="356" name="compareFlavors" returns="int" signature="compareFlavors(left, right)">
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+          <variable ilk="argument" name="right" />
+          <variable ilk="argument" name="left" />
+        </scope>
+        <scope doc="Check that the preferences make sense: directories exist and&#10;are writable, the install directory is on sys.path, etc." ilk="function" line="316" lineend="345" name="check" returns="str" signature="check()">
+          <variable citdl="os.path.realpath()" line="338" name="realpath" />
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+          <variable citdl="os.path.realpath()" line="335" name="installDir" />
+          <variable citdl="int" line="321" name="RWX_OK" />
+          <variable citdl="str" line="320" name="rv" />
+        </scope>
+        <scope ilk="function" line="300" lineend="311" name="setInstallDir" signature="setInstallDir(installDir=None)">
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+          <variable citdl="distutils.sysconfig.get_python_lib()" ilk="argument" name="installDir" />
+        </scope>
+        <scope ilk="function" line="276" lineend="295" name="__init__" signature="PimpPreferences(flavorOrder=None, downloadDir=None, buildDir=None, installDir=None, pimpDatabase=None)">
+          <variable citdl="str" ilk="argument" name="buildDir" />
+          <variable citdl="str" ilk="argument" name="downloadDir" />
+          <variable citdl="PimpPreferences" ilk="argument" name="self" />
+          <variable citdl="getDefaultDatabase()" ilk="argument" name="pimpDatabase" />
+          <variable ilk="argument" name="installDir" />
+          <variable citdl="list" ilk="argument" name="flavorOrder" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="293" name="buildDir" />
+        <variable attributes="__instancevar__" citdl="str" line="292" name="downloadDir" />
+        <variable attributes="__instancevar__" line="295" name="watcher" />
+        <variable attributes="__instancevar__" citdl="getDefaultDatabase()" line="294" name="pimpDatabase" />
+        <variable attributes="__instancevar__" citdl="list" line="303" name="installLocations" />
+        <variable attributes="__instancevar__" citdl="distutils.sysconfig.get_python_lib()" line="311" name="installDir" />
+        <variable attributes="__instancevar__" citdl="list" line="291" name="flavorOrder" />
+      </scope>
+      <scope classrefs="PimpUnpacker" doc="Unpack tarfiles using the builtin tarfile module&#10;" ilk="class" line="215" lineend="261" name="PimpTarUnpacker">
+        <scope ilk="function" line="220" lineend="261" name="unpack" returns="str" signature="unpack(archive, output=None, package=None)">
+          <variable citdl="list" line="228" name="oldprefix2" />
+          <variable ilk="argument" name="package" />
+          <variable citdl="list" line="223" name="skip" />
+          <variable citdl="PimpTarUnpacker" ilk="argument" name="self" />
+          <variable citdl="list" line="257" name="names" />
+          <variable citdl="tf.getmembers()" line="222" name="members" />
+          <variable citdl="tarfile.open()" line="221" name="tf" />
+          <variable ilk="argument" name="output" />
+          <variable ilk="argument" name="archive" />
+        </scope>
+        <variable attributes="protected" citdl="True" line="218" name="_can_rename" />
+      </scope>
+      <scope doc="Abstract base class - Unpacker for archives&#10;" ilk="class" line="181" lineend="203" name="PimpUnpacker">
+        <scope ilk="function" line="200" lineend="203" name="update" returns="self._watcher.update()" signature="update(str)">
+          <variable citdl="PimpUnpacker" ilk="argument" name="self" />
+          <variable ilk="argument" name="str" />
+        </scope>
+        <scope ilk="function" line="197" lineend="198" name="unpack" signature="unpack(archive, output=None, package=None)">
+          <variable ilk="argument" name="output" />
+          <variable citdl="PimpUnpacker" ilk="argument" name="self" />
+          <variable ilk="argument" name="archive" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope ilk="function" line="186" lineend="195" name="__init__" signature="PimpUnpacker(argument, dir='', renames=[], watcher=None)">
+          <variable citdl="PimpUnpacker" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="renames" />
+          <variable ilk="argument" name="argument" />
+          <variable citdl="str" ilk="argument" name="dir" />
+          <variable ilk="argument" name="watcher" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list" line="194" name="_renames" />
+        <variable attributes="protected __instancevar__" citdl="str" line="193" name="_dir" />
+        <variable attributes="protected" citdl="False" line="184" name="_can_rename" />
+        <variable attributes="__instancevar__" line="190" name="argument" />
+        <variable attributes="protected __instancevar__" line="195" name="_watcher" />
+      </scope>
+      <scope classrefs="PimpDownloader" doc="&#10;" ilk="class" line="148" lineend="179" name="PimpUrllibDownloader">
+        <scope ilk="function" line="150" lineend="179" name="download" returns="bool" signature="download(url, filename, output=None)">
+          <variable ilk="argument" name="url" />
+          <variable citdl="PimpUrllibDownloader" ilk="argument" name="self" />
+          <variable citdl="self.update()" line="153" name="keepgoing" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="long()" line="156" name="length" />
+          <variable citdl="urllib2.urlopen()" line="154" name="download" />
+          <variable citdl="open()" ilk="argument" name="output" />
+          <variable citdl="int" line="162" name="lasttime" />
+          <variable citdl="download.read()" line="160" name="data" />
+          <variable citdl="int" line="161" name="dlsize" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="34" name="__all__" />
+      <import module="distutils" />
+      <scope ilk="function" line="55" lineend="98" name="getDefaultDatabase" returns="tuple" signature="getDefaultDatabase(experimental=False)">
+        <variable citdl="str" line="57" name="status" />
+        <variable citdl="distutils.util.get_platform()" line="66" name="longplatform" />
+        <variable citdl="rel.rfind()" line="93" name="idx" />
+        <variable citdl="str" line="80" name="url" />
+        <variable citdl="str" line="62" name="pyvers" />
+        <variable citdl="str" line="67" name="osname" />
+        <variable line="67" name="machine" />
+        <variable citdl="list" line="78" name="rel" />
+        <variable line="67" name="release" />
+        <variable citdl="False" ilk="argument" name="experimental" />
+      </scope>
+      <import module="hashlib" />
+      <scope doc="Minimal commandline tool to drive pimp." ilk="function" line="1095" lineend="1162" name="main" signature="main()">
+        <variable citdl="int" line="1125" name="force" />
+        <variable citdl="int" line="1126" name="verbose" />
+        <variable line="1119" name="args" />
+        <variable citdl="_Watcher" line="1128" name="watcher" />
+        <scope attributes="protected" ilk="function" line="1099" lineend="1111" name="_help" signature="_help()" />
+        <variable citdl="dict" line="1127" name="prefargs" />
+        <scope attributes="protected" ilk="class" line="1113" lineend="1116" name="_Watcher">
+          <scope ilk="function" line="1114" lineend="1116" name="update" returns="int" signature="update(msg)">
+            <variable citdl="_Watcher" ilk="argument" name="self" />
+            <variable ilk="argument" name="msg" />
+          </scope>
+        </scope>
+        <variable line="1119" name="opts" />
+        <variable citdl="str" line="1124" name="mode" />
+      </scope>
+      <import module="os" />
+      <import module="plistlib" />
+      <import module="shutil" />
+      <import module="subprocess" />
+      <import module="sys" />
+      <import module="tarfile" />
+      <import module="tempfile" />
+      <import module="time" />
+      <import module="urllib" />
+      <import module="urllib2" />
+      <import module="urlparse" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope attributes="protected __hidden__" doc="Engine for the main program" ilk="function" line="1011" lineend="1093" name="_run" signature="_run(mode, verbose, force, args, prefargs, watcher)">
+        <variable ilk="argument" name="mode" />
+        <variable ilk="argument" name="verbose" />
+        <variable ilk="argument" name="force" />
+        <variable citdl="db.listnames()" ilk="argument" name="args" />
+        <variable ilk="argument" name="prefargs" />
+        <variable ilk="argument" name="watcher" />
+        <variable citdl="PimpPreferences" line="1014" name="prefs" />
+        <variable citdl="prefs.check()" line="1017" name="rv" />
+        <variable citdl="PimpDatabase" line="1020" name="db" />
+        <variable citdl="db.find()" line="1031" name="pkg" />
+        <variable citdl="pkg.shortdescription()" line="1033" name="description" />
+        <variable citdl="pkg.fullname()" line="1034" name="pkgname" />
+        <variable citdl="str" line="1055" name="status" />
+        <variable citdl="str" line="1055" name="msg" />
+        <variable citdl="pkg.prerequisites()" line="1062" name="prereq" />
+        <variable citdl="PimpInstaller" line="1073" name="inst" />
+        <variable line="1079" name="list" />
+        <variable citdl="inst.install()" line="1079" name="messages" />
+        <variable citdl="sys.stdout" line="1086" name="output" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="37" name="_scriptExc_NotInstalled" />
+      <variable attributes="protected __hidden__" citdl="str" line="38" name="_scriptExc_OldInstalled" />
+      <scope attributes="protected __hidden__" doc="Internal routine to run a shell command in a given directory." ilk="function" line="100" lineend="117" name="_cmd" returns="child.wait()" signature="_cmd(output, dir, *cmditems)">
+        <variable ilk="argument" name="output" />
+        <variable ilk="argument" name="dir" />
+        <variable attributes="varargs" ilk="argument" name="cmditems" />
+        <variable citdl="str.join()" line="103" name="cmd" />
+        <variable citdl="subprocess.Popen()" line="108" name="child" />
+        <variable citdl="child.stdout.readline()" line="112" name="line" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="39" name="_scriptExc_BadInstalled" />
+    </scope>
+    

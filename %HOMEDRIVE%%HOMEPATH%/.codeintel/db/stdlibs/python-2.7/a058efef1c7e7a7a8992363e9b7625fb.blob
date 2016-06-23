@@ -1,0 +1,15 @@
+<scope doc="Class representing message/* MIME documents.&#10;" ilk="blob" lang="Python" name="email.mime.message">
+      <scope classrefs="MIMENonMultipart" doc="Class representing message/* MIME documents.&#10;" ilk="class" line="14" lineend="34" name="MIMEMessage">
+        <scope doc="Create a message/* type MIME document." ilk="function" line="17" lineend="34" name="__init__" signature="MIMEMessage(_msg, _subtype='rfc822')">
+          <variable citdl="MIMEMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="_msg" />
+          <variable citdl="str" ilk="argument" name="_subtype" />
+        </scope>
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" name="MIMENonMultipart">
+        <scope ilk="function" name="attach" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="message" />
+    </scope>
+    

@@ -1,0 +1,29 @@
+<scope doc="Fixer for 'raise E, V, T'&#10;raise         -&gt; raise raise E       -&gt; raise E raise E, V    -&gt; raise E(V) raise E, V, T -&gt; raise E(V).with_traceback(T) raise E, None, T -&gt; raise E.with_traceback(T)  raise (((E, E'), E''), E'''), V -&gt; raise E(V) raise &quot;foo&quot;, V, T               -&gt; warns about string exceptions  " ilk="blob" lang="Python" name="lib2to3.fixes.fix_raise">
+      <scope doc="A parenthesised argument list, used by Call()" ilk="function" name="ArgList" signature="ArgList(args, lparen=Leaf(7, u'('), rparen=Leaf(8, u')'))" />
+      <scope doc="A node tuple for obj.attr" ilk="function" name="Attr" signature="Attr(obj, attr)" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="31" lineend="90" name="FixRaise">
+        <scope ilk="function" line="38" lineend="90" name="transform" returns="pytree.Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="Call()" line="77" name="e" />
+          <variable line="41" name="exc" />
+          <variable line="66" name="val" />
+          <variable citdl="FixRaise" ilk="argument" name="self" />
+          <variable citdl="list" line="68" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="self.syms" line="39" name="syms" />
+          <variable citdl="list" line="83" name="with_tb" />
+          <variable citdl="str" line="43" name="msg" />
+          <variable citdl="pytree.Node()" line="62" name="new" />
+          <variable line="74" name="tb" />
+        </scope>
+        <variable citdl="True" line="33" name="BM_compatible" />
+        <variable citdl="str" line="34" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <scope doc="Does the node represent a tuple literal?" ilk="function" name="is_tuple" signature="is_tuple(node)" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

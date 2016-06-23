@@ -1,0 +1,289 @@
+<scope doc="Find modules used by a script, using introspection.&#10;" ilk="blob" lang="Python" name="modulefinder">
+      <scope doc="# A Public interface" ilk="function" line="35" lineend="38" name="AddPackagePath" signature="AddPackagePath(packagename, path)">
+        <variable ilk="argument" name="path" />
+        <variable ilk="argument" name="packagename" />
+        <variable citdl="packagePathMap.get()" line="36" name="paths" />
+      </scope>
+      <variable citdl="str" line="24" name="HAVE_ARGUMENT" />
+      <variable citdl="str" line="20" name="IMPORT_NAME" />
+      <variable citdl="str" line="19" name="LOAD_CONST" />
+      <scope doc="&#10;" ilk="class" line="51" lineend="73" name="Module">
+        <scope ilk="function" line="66" lineend="73" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Module" ilk="argument" name="self" />
+          <variable citdl="str" line="67" name="s" />
+        </scope>
+        <scope ilk="function" line="53" lineend="64" name="__init__" signature="Module(name, file=None, path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="Module" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="64" name="starimports" />
+        <variable attributes="__instancevar__" line="55" name="__file__" />
+        <variable attributes="__instancevar__" line="56" name="__path__" />
+        <variable attributes="__instancevar__" line="54" name="__name__" />
+        <variable attributes="__instancevar__" line="57" name="__code__" />
+        <variable attributes="__instancevar__" citdl="dict" line="61" name="globalnames" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="75" lineend="605" name="ModuleFinder">
+        <scope ilk="function" line="317" lineend="338" name="_safe_import_hook" signature="_safe_import_hook(name, caller, fromlist, level=-1)">
+          <variable ilk="argument" name="fromlist" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="caller" />
+          <variable citdl="sub" line="337" name="fullname" />
+        </scope>
+        <scope ilk="function" line="309" lineend="315" name="_add_badmodule" signature="_add_badmodule(name, caller)">
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="caller" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="196" lineend="209" name="load_tail" returns="self.import_module()" signature="load_tail(q, tail)">
+          <variable citdl="list" line="202" name="head" />
+          <variable citdl="tail.find()" line="200" name="i" />
+          <variable citdl="str" line="203" name="mname" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="self.import_module()" line="198" name="m" />
+          <variable ilk="argument" name="q" />
+          <variable citdl="list" ilk="argument" name="tail" />
+        </scope>
+        <scope ilk="function" line="466" lineend="470" name="add_module" returns="m" signature="add_module(fqname)">
+          <variable ilk="argument" name="fqname" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="98" lineend="102" name="msgin" signature="msgin(*args)">
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="99" name="level" />
+        </scope>
+        <scope doc="Return a list of modules that appear to be missing." ilk="function" line="526" lineend="532" name="any_missing" signature="any_missing()">
+          <variable line="531" name="maybe" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable line="531" name="missing" />
+        </scope>
+        <scope ilk="function" line="472" lineend="487" name="find_module" returns="tuple" signature="find_module(name, path, parent=None)">
+          <variable citdl="sys.path" ilk="argument" name="path" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="parent.__name__" line="475" name="fullname" />
+          <variable ilk="argument" name="parent" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="282" lineend="307" name="load_module" returns="self.load_package()" signature="load_module(fqname, fp, pathname, file_info)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="compile()" line="290" name="co" />
+          <variable ilk="argument" name="file_info" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="self.add_module()" line="286" name="m" />
+          <variable ilk="argument" name="fqname" />
+          <variable ilk="argument" name="pathname" />
+        </scope>
+        <scope ilk="function" line="77" lineend="87" name="__init__" signature="ModuleFinder(path=None, debug=0, excludes=[], replace_paths=[])">
+          <variable citdl="int" ilk="argument" name="debug" />
+          <variable citdl="sys.path" ilk="argument" name="path" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="replace_paths" />
+          <variable citdl="list" ilk="argument" name="excludes" />
+        </scope>
+        <scope ilk="function" line="225" lineend="250" name="find_all_submodules" returns="modules.keys()" signature="find_all_submodules(m)">
+          <variable ilk="argument" name="m" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="dict" line="228" name="modules" />
+          <variable citdl="len()" line="244" name="n" />
+          <variable citdl="os.listdir()" line="237" name="names" />
+          <variable citdl="list" line="232" name="suffixes" />
+          <variable citdl="list" line="242" name="mod" />
+        </scope>
+        <scope ilk="function" line="89" lineend="96" name="msg" signature="msg(level, str, *args)">
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="str" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="116" lineend="121" name="load_file" signature="load_file(pathname)">
+          <variable citdl="open()" line="119" name="fp" />
+          <variable line="117" name="name" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable line="118" name="ext" />
+          <variable citdl="tuple" line="120" name="stuff" />
+          <variable ilk="argument" name="pathname" />
+          <variable line="117" name="dir" />
+        </scope>
+        <scope ilk="function" line="104" lineend="108" name="msgout" signature="msgout(*args)">
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="105" name="level" />
+        </scope>
+        <scope ilk="function" line="123" lineend="132" name="import_hook" signature="import_hook(name, caller=None, fromlist=None, level=-1)">
+          <variable ilk="argument" name="fromlist" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.determine_parent()" line="125" name="parent" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="caller" />
+          <variable citdl="self.load_tail()" line="127" name="m" />
+          <variable line="126" name="q" />
+          <variable line="126" name="tail" />
+        </scope>
+        <scope ilk="function" line="580" lineend="605" name="replace_paths_in_code" returns="types.CodeType()" signature="replace_paths_in_code(co)">
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="co" />
+          <variable citdl="list()" line="596" name="consts" />
+          <variable citdl="os.path.normpath()" line="581" name="new_filename" />
+        </scope>
+        <scope ilk="function" line="110" lineend="114" name="run_script" signature="run_script(pathname)">
+          <variable citdl="open()" line="112" name="fp" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="tuple" line="113" name="stuff" />
+          <variable ilk="argument" name="pathname" />
+        </scope>
+        <scope ilk="function" line="449" lineend="464" name="load_package" returns="self.add_module()" signature="load_package(fqname, pathname)">
+          <variable line="461" name="fp" />
+          <variable citdl="replacePackageMap.get()" line="451" name="newname" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="self.add_module()" line="454" name="m" />
+          <variable citdl="replacePackageMap.get()" ilk="argument" name="fqname" />
+          <variable line="461" name="stuff" />
+          <variable ilk="argument" name="pathname" />
+          <variable line="461" name="buf" />
+        </scope>
+        <scope ilk="function" line="134" lineend="167" name="determine_parent" signature="determine_parent(caller, level=-1)">
+          <variable line="144" name="parent" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="pname.rfind()" line="160" name="i" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="caller" />
+          <variable citdl="caller.__name__" line="139" name="pname" />
+        </scope>
+        <scope doc="Print a report to stdout, listing the found modules with&#10;their paths, as well as modules that are missing, or seem to&#10;be missing." ilk="function" line="489" lineend="524" name="report" signature="report()">
+          <variable line="513" name="mods" />
+          <variable line="508" name="missing" />
+          <variable citdl="self.modules.keys()" line="497" name="keys" />
+          <variable line="508" name="maybe" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable line="500" name="m" />
+        </scope>
+        <scope ilk="function" line="364" lineend="393" name="scan_opcodes_25" signature="scan_opcodes_25(co, unpack=struct.unpack)">
+          <variable line="373" name="c" />
+          <variable citdl="list" line="368" name="code" />
+          <variable ilk="argument" name="co" />
+          <variable line="381" name="level" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable line="375" name="oparg" />
+          <variable citdl="chr()" line="371" name="LOAD_LOAD_AND_IMPORT" />
+          <variable citdl="co.co_names" line="369" name="names" />
+          <variable citdl="co.co_consts" line="370" name="consts" />
+          <variable line="380" name="oparg_1" />
+          <variable line="380" name="oparg_3" />
+          <variable line="380" name="oparg_2" />
+          <variable citdl="struct.unpack" ilk="argument" name="unpack" />
+        </scope>
+        <scope ilk="function" line="169" lineend="194" name="find_head_package" returns="tuple" signature="find_head_package(parent, name)">
+          <variable citdl="list" line="173" name="head" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="name.find()" line="172" name="i" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="list" line="179" name="qname" />
+          <variable citdl="self.import_module()" line="182" name="q" />
+          <variable citdl="list" line="174" name="tail" />
+        </scope>
+        <scope ilk="function" line="340" lineend="362" name="scan_opcodes" signature="scan_opcodes(co, unpack=struct.unpack)">
+          <variable line="348" name="c" />
+          <variable citdl="list" line="344" name="code" />
+          <variable ilk="argument" name="co" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable line="350" name="oparg" />
+          <variable citdl="co.co_names" line="345" name="names" />
+          <variable citdl="co.co_consts" line="346" name="consts" />
+          <variable line="355" name="oparg_1" />
+          <variable line="355" name="oparg_2" />
+          <variable citdl="struct.unpack" ilk="argument" name="unpack" />
+        </scope>
+        <scope ilk="function" line="395" lineend="447" name="scan_code" signature="scan_code(co, m)">
+          <variable citdl="list" line="411" name="fromlist" />
+          <variable citdl="co.co_code" line="396" name="code" />
+          <variable ilk="argument" name="co" />
+          <variable citdl="ModuleFinder.scan_opcodes" line="398" name="scanner" />
+          <variable citdl="determine_parent()" line="439" name="parent" />
+          <variable citdl="int" line="412" name="level" />
+          <variable citdl="self.modules.get()" line="419" name="mm" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+          <variable citdl="int" line="407" name="have_star" />
+        </scope>
+        <scope ilk="function" line="211" lineend="223" name="ensure_fromlist" signature="ensure_fromlist(m, fromlist, recursive=0)">
+          <variable ilk="argument" name="fromlist" />
+          <variable citdl="self.find_all_submodules()" line="216" name="all" />
+          <variable citdl="int" ilk="argument" name="recursive" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+          <variable citdl="str" line="220" name="subname" />
+          <variable citdl="self.import_module()" line="221" name="submod" />
+        </scope>
+        <scope ilk="function" line="252" lineend="280" name="import_module" returns="self.load_module()" signature="import_module(partname, fqname, parent)">
+          <variable line="268" name="fp" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="self.load_module()" line="255" name="m" />
+          <variable ilk="argument" name="fqname" />
+          <variable line="268" name="stuff" />
+          <variable line="268" name="pathname" />
+          <variable ilk="argument" name="partname" />
+        </scope>
+        <scope doc="Return two lists, one with modules that are certainly&#10;missing and one with modules that *may* be missing." ilk="function" line="534" lineend="578" name="any_missing_maybe" returns="tuple" signature="any_missing_maybe()">
+          <variable citdl="list" line="553" name="pkgname" />
+          <variable citdl="list" line="543" name="missing" />
+          <variable citdl="name.rfind()" line="548" name="i" />
+          <variable citdl="list" line="544" name="maybe" />
+          <variable citdl="ModuleFinder" ilk="argument" name="self" />
+          <variable citdl="list" line="552" name="subname" />
+          <variable citdl="self.modules.get()" line="554" name="pkg" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="85" name="excludes" />
+        <variable attributes="__instancevar__" citdl="int" line="84" name="indent" />
+        <variable attributes="__instancevar__" citdl="list" line="87" name="processed_paths" />
+        <variable attributes="__instancevar__" citdl="list" line="86" name="replace_paths" />
+        <variable attributes="__instancevar__" citdl="dict" line="81" name="modules" />
+        <variable attributes="__instancevar__" citdl="dict" line="82" name="badmodules" />
+        <variable attributes="__instancevar__" citdl="int" line="83" name="debug" />
+        <variable attributes="__instancevar__" citdl="sys.path" line="80" name="path" />
+      </scope>
+      <variable citdl="str" line="14" name="READ_MODE" />
+      <scope ilk="function" line="47" lineend="48" name="ReplacePackage" signature="ReplacePackage(oldname, newname)">
+        <variable ilk="argument" name="newname" />
+        <variable ilk="argument" name="oldname" />
+      </scope>
+      <variable citdl="str" line="22" name="STORE_GLOBAL" />
+      <variable citdl="str" line="21" name="STORE_NAME" />
+      <variable citdl="list" line="23" name="STORE_OPS" />
+      <import module="dis" />
+      <variable citdl="__future__._Feature" name="generators" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <import module="imp" />
+      <import module="marshal" />
+      <import module="os" />
+      <variable citdl="dict" line="32" name="packagePathMap" />
+      <variable citdl="dict" line="40" name="replacePackageMap" />
+      <import module="struct" />
+      <import module="sys" />
+      <scope ilk="function" line="608" lineend="664" name="test" returns="ModuleFinder" signature="test()">
+        <variable citdl="ModuleFinder" line="650" name="mf" />
+        <variable line="612" name="args" />
+        <variable citdl="str" line="636" name="script" />
+        <variable citdl="list" line="620" name="addpath" />
+        <variable citdl="int" line="619" name="domods" />
+        <variable citdl="list" line="641" name="path" />
+        <variable citdl="int" line="618" name="debug" />
+        <variable citdl="list" line="621" name="exclude" />
+        <variable line="612" name="opts" />
+      </scope>
+      <import module="types" />
+      <variable attributes="__hidden__" citdl="test()" line="669" name="mf" />
+    </scope>
+    

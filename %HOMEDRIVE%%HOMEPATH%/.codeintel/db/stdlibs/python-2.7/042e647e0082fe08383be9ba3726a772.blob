@@ -1,0 +1,40 @@
+<scope doc="Fixer for import statements.&#10;If spam is being imported from the local directory, this import: from spam import eggs Becomes: from .spam import eggs  And this import: import spam Becomes: from . import spam" ilk="blob" lang="Python" name="lib2to3.fixes.fix_import">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="38" lineend="99" name="FixImport">
+        <scope ilk="function" line="47" lineend="49" name="start_tree" signature="start_tree(tree, name)">
+          <variable citdl="FixImport" ilk="argument" name="self" />
+          <variable ilk="argument" name="tree" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="85" lineend="99" name="probably_a_local_import" returns="bool" signature="probably_a_local_import(imp_name)">
+          <variable ilk="argument" name="imp_name" />
+          <variable citdl="FixImport" ilk="argument" name="self" />
+          <variable citdl="join()" line="90" name="base_path" />
+        </scope>
+        <scope ilk="function" line="51" lineend="83" name="transform" returns="FromImport()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="False" line="67" name="have_local" />
+          <variable citdl="FixImport" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="54" name="imp" />
+          <variable citdl="FromImport()" line="81" name="new" />
+          <variable citdl="False" line="68" name="have_absolute" />
+        </scope>
+        <variable citdl="True" line="39" name="BM_compatible" />
+        <variable attributes="__instancevar__" citdl="bool" line="49" name="skip" />
+        <variable citdl="str" line="41" name="PATTERN" />
+      </scope>
+      <scope doc="Return an import statement in the form: from package import&#10;name_leafs" ilk="function" name="FromImport" signature="FromImport(package_name, name_leafs)" />
+      <scope doc="Returns the directory component of a pathname" ilk="function" name="dirname" signature="dirname(p)" />
+      <scope doc="Test whether a path exists." ilk="function" name="exists" signature="exists(path)" />
+      <import module="fixer_base" />
+      <scope doc="Join two or more pathname components, inserting &quot;\&quot; as&#10;needed." ilk="function" name="join" signature="join(a, *p)" />
+      <variable citdl="str" name="sep" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+      <scope doc="Walks over all the names imported in a dotted_as_names node." ilk="function" line="19" lineend="35" name="traverse_imports" signature="traverse_imports(names)">
+        <variable citdl="pending.pop()" line="25" name="node" />
+        <variable ilk="argument" name="names" />
+        <variable citdl="list" line="23" name="pending" />
+      </scope>
+    </scope>
+    

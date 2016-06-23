@@ -1,0 +1,101 @@
+<scope doc="Text wrapping and filling.&#10;" ilk="blob" lang="Python" name="textwrap">
+      <scope doc="Object for wrapping/filling text.  The public interface consists of&#10;the wrap() and fill() methods; the other methods are just there for subclasses to override in order to tweak the default behaviour. If you want to completely replace the main wrapping algorithm, you'll probably have to override _wrap_chunks().  Several instance attributes control various aspects of wrapping: width (default: 70) the maximum width of wrapped lines (unless break_long_words is false) initial_indent (default: &quot;&quot;)" ilk="class" line="32" lineend="330" name="TextWrapper">
+        <scope doc="Correct for sentence endings buried in 'chunks'. Eg." ilk="function" line="184" lineend="200" name="_fix_sentence_endings" signature="_fix_sentence_endings(chunks : [string])">
+          <variable ilk="argument" name="chunks" />
+          <variable citdl="int" line="193" name="i" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+          <variable citdl="self.sentence_end_re.search" line="194" name="patsearch" />
+        </scope>
+        <scope doc="_handle_long_word(chunks : [string], cur_line : [string],&#10;cur_len : int, width : int)" ilk="function" line="202" lineend="227" name="_handle_long_word" signature="_handle_long_word(reversed_chunks, cur_line, cur_len, width)">
+          <variable ilk="argument" name="reversed_chunks" />
+          <variable ilk="argument" name="cur_len" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="cur_line" />
+          <variable ilk="argument" name="width" />
+          <variable citdl="int" line="213" name="space_left" />
+        </scope>
+        <scope doc="Reformat the single paragraph in 'text' so it fits in lines&#10;of no more than 'self.width' columns, and return a list of&#10;wrapped lines." ilk="function" line="308" lineend="321" name="wrap" returns="TextWrapper._wrap_chunks()" signature="wrap(text : string) -&gt; [string]">
+          <variable citdl="_split()" line="318" name="chunks" />
+          <variable citdl="_munge_whitespace()" ilk="argument" name="text" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Munge whitespace in text: expand tabs and convert all other&#10;whitespace characters to spaces." ilk="function" line="138" lineend="152" name="_munge_whitespace" returns="text.expandtabs()" signature="_munge_whitespace(text : string) -&gt; string">
+          <variable citdl="text.translate()" ilk="argument" name="text" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="107" lineend="132" name="__init__" signature="TextWrapper(width=70, initial_indent='', subsequent_indent='', expand_tabs=True, replace_whitespace=True, fix_sentence_endings=False, break_long_words=True, drop_whitespace=True, break_on_hyphens=True)">
+          <variable citdl="True" ilk="argument" name="expand_tabs" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="initial_indent" />
+          <variable citdl="True" ilk="argument" name="break_long_words" />
+          <variable citdl="False" ilk="argument" name="fix_sentence_endings" />
+          <variable citdl="int" ilk="argument" name="width" />
+          <variable citdl="True" ilk="argument" name="replace_whitespace" />
+          <variable citdl="True" ilk="argument" name="break_on_hyphens" />
+          <variable citdl="str" ilk="argument" name="subsequent_indent" />
+          <variable citdl="True" ilk="argument" name="drop_whitespace" />
+        </scope>
+        <scope doc="Reformat the single paragraph in 'text' to fit in lines of&#10;no more than 'self.width' columns, and return a new string&#10;containing the entire wrapped paragraph." ilk="function" line="323" lineend="330" name="fill" returns="str.join()" signature="fill(text : string) -&gt; string">
+          <variable ilk="argument" name="text" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Split the text to wrap into indivisible chunks." ilk="function" line="155" lineend="182" name="_split" returns="pat.split()" signature="_split(text : string) -&gt; [string]">
+          <variable citdl="pat.split()" line="180" name="chunks" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+          <variable citdl="re.compile()" line="172" name="pat" />
+        </scope>
+        <scope doc="Wrap a sequence of text chunks and return a list of lines of&#10;length 'self.width' or less." ilk="function" line="235" lineend="303" name="_wrap_chunks" returns="list" signature="_wrap_chunks(chunks : [string]) -&gt; [string]">
+          <variable citdl="str" line="265" name="indent" />
+          <variable citdl="int" line="261" name="cur_len" />
+          <variable citdl="TextWrapper" ilk="argument" name="self" />
+          <variable citdl="list" line="248" name="lines" />
+          <variable citdl="len()" line="278" name="l" />
+          <variable citdl="list" line="260" name="cur_line" />
+          <variable citdl="len()" line="270" name="width" />
+          <variable ilk="argument" name="chunks" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="120" name="expand_tabs" />
+        <variable citdl="string.maketrans()" line="74" name="whitespace_trans" />
+        <variable attributes="__instancevar__" citdl="re.compile()" line="131" name="wordsep_simple_re_uni" />
+        <variable attributes="__instancevar__" citdl="True" line="124" name="drop_whitespace" />
+        <variable attributes="__instancevar__" citdl="str" line="118" name="initial_indent" />
+        <variable attributes="__instancevar__" citdl="True" line="123" name="break_long_words" />
+        <variable attributes="__instancevar__" citdl="False" line="122" name="fix_sentence_endings" />
+        <variable attributes="__instancevar__" citdl="int" line="117" name="width" />
+        <variable attributes="__instancevar__" citdl="True" line="121" name="replace_whitespace" />
+        <variable citdl="dict" line="76" name="unicode_whitespace_trans" />
+        <variable citdl="re.compile()" line="87" name="wordsep_re" />
+        <variable attributes="__instancevar__" citdl="re.compile()" line="130" name="wordsep_re_uni" />
+        <variable citdl="re.compile()" line="100" name="sentence_end_re" />
+        <variable attributes="__instancevar__" citdl="str" line="119" name="subsequent_indent" />
+        <variable attributes="__instancevar__" citdl="True" line="125" name="break_on_hyphens" />
+        <variable citdl="re.compile()" line="96" name="wordsep_simple_re" />
+        <variable citdl="ord()" line="77" name="uspace" />
+      </scope>
+      <variable citdl="list" line="20" name="__all__" />
+      <variable citdl="str" line="8" name="__revision__" />
+      <scope doc="Remove any common leading whitespace from every line in&#10;`text`." ilk="function" line="366" lineend="412" name="dedent" returns="_whitespace_only_re.sub()" signature="dedent(text)">
+        <variable citdl="re.sub()" ilk="argument" name="text" />
+        <variable citdl="_leading_whitespace_re.findall()" line="383" name="indents" />
+        <variable citdl="indent" line="381" name="margin" />
+      </scope>
+      <scope doc="Fill a single paragraph of text, returning a new string." ilk="function" line="348" lineend="358" name="fill" returns="w.fill()" signature="fill(text, width=70, **kwargs)">
+        <variable ilk="argument" name="text" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        <variable citdl="TextWrapper" line="357" name="w" />
+        <variable citdl="int" ilk="argument" name="width" />
+      </scope>
+      <import module="re" />
+      <import module="string" />
+      <scope doc="Wrap a single paragraph of text, returning a list of wrapped&#10;lines." ilk="function" line="335" lineend="346" name="wrap" returns="w.wrap()" signature="wrap(text, width=70, **kwargs)">
+        <variable ilk="argument" name="text" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        <variable citdl="TextWrapper" line="345" name="w" />
+        <variable citdl="int" ilk="argument" name="width" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="363" name="_whitespace_only_re" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="364" name="_leading_whitespace_re" />
+      <variable attributes="protected __hidden__" citdl="str" line="30" name="_whitespace" />
+    </scope>
+    

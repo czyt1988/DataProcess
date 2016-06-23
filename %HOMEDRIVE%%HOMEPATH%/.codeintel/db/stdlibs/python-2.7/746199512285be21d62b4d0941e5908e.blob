@@ -1,0 +1,52 @@
+<scope doc="A package for parsing, handling, and generating email messages.&#10;" ilk="blob" lang="Python" name="email">
+      <variable citdl="LazyImporter" name="Charset" />
+      <variable citdl="LazyImporter" name="Encoders" />
+      <variable citdl="LazyImporter" name="Errors" />
+      <variable citdl="LazyImporter" name="FeedParser" />
+      <variable citdl="LazyImporter" name="Generator" />
+      <variable citdl="LazyImporter" name="Header" />
+      <variable citdl="LazyImporter" name="Iterators" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="74" lineend="82" name="LazyImporter">
+        <scope ilk="function" line="78" lineend="82" name="__getattr__" returns="getattr()" signature="__getattr__(name)">
+          <variable citdl="LazyImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable line="80" name="mod" />
+        </scope>
+        <scope ilk="function" line="75" lineend="76" name="__init__" signature="LazyImporter(module_name)">
+          <variable ilk="argument" name="module_name" />
+          <variable citdl="LazyImporter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="76" name="__name__" />
+      </scope>
+      <variable citdl="LazyImporter" name="MIMEAudio" />
+      <variable citdl="LazyImporter" name="MIMEBase" />
+      <variable citdl="LazyImporter" name="MIMEImage" />
+      <variable citdl="LazyImporter" name="MIMEMessage" />
+      <variable citdl="LazyImporter" name="MIMEMultipart" />
+      <variable citdl="LazyImporter" name="MIMENonMultipart" />
+      <variable citdl="LazyImporter" name="MIMEText" />
+      <variable citdl="LazyImporter" name="Message" />
+      <variable citdl="LazyImporter" name="Parser" />
+      <variable citdl="LazyImporter" name="Utils" />
+      <variable citdl="list" line="9" name="__all__" />
+      <variable citdl="str" line="7" name="__version__" />
+      <variable citdl="LazyImporter" name="base64MIME" />
+      <import module="email" />
+      <variable citdl="LazyImporter" line="113" name="importer" />
+      <scope doc="Read a file and parse its contents into a Message object&#10;model." ilk="function" line="60" lineend="66" name="message_from_file" signature="message_from_file(fp, *args, **kws)">
+        <variable ilk="argument" name="fp" />
+        <variable attributes="kwargs" ilk="argument" name="kws" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Parse a string into a Message object model." ilk="function" line="51" lineend="57" name="message_from_string" signature="message_from_string(s, *args, **kws)">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kws" />
+      </scope>
+      <import module="mime" />
+      <variable citdl="LazyImporter" name="quopriMIME" />
+      <import module="sys" />
+      <variable attributes="protected __hidden__" citdl="list" line="85" name="_LOWERNAMES" />
+      <variable attributes="protected __hidden__" citdl="list" line="101" name="_MIMENAMES" />
+    </scope>
+    

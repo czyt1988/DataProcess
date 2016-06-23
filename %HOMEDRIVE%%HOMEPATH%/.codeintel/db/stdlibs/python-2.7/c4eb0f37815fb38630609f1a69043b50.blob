@@ -1,0 +1,25 @@
+<scope doc="# This is the Python mapping for interface NodeFilter from&#10;# DOM2-Traversal-Range. It contains only constants." ilk="blob" lang="Python" name="xml.dom.NodeFilter">
+      <scope doc="This is the DOM2 NodeFilter interface. It contains only constants.&#10;" ilk="class" line="4" lineend="27" name="NodeFilter">
+        <scope ilk="function" line="26" lineend="27" name="acceptNode" signature="acceptNode(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="NodeFilter" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="int" line="17" name="SHOW_ENTITY_REFERENCE" />
+        <variable citdl="int" line="9" name="FILTER_REJECT" />
+        <variable citdl="int" line="13" name="SHOW_ELEMENT" />
+        <variable citdl="int" line="16" name="SHOW_CDATA_SECTION" />
+        <variable citdl="int" line="8" name="FILTER_ACCEPT" />
+        <variable citdl="int" line="23" name="SHOW_DOCUMENT_FRAGMENT" />
+        <variable citdl="int" line="19" name="SHOW_PROCESSING_INSTRUCTION" />
+        <variable citdl="int" line="21" name="SHOW_DOCUMENT" />
+        <variable citdl="int" line="20" name="SHOW_COMMENT" />
+        <variable citdl="long" line="12" name="SHOW_ALL" />
+        <variable citdl="int" line="10" name="FILTER_SKIP" />
+        <variable citdl="int" line="18" name="SHOW_ENTITY" />
+        <variable citdl="int" line="24" name="SHOW_NOTATION" />
+        <variable citdl="int" line="14" name="SHOW_ATTRIBUTE" />
+        <variable citdl="int" line="15" name="SHOW_TEXT" />
+        <variable citdl="int" line="22" name="SHOW_DOCUMENT_TYPE" />
+      </scope>
+    </scope>
+    

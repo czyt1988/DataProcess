@@ -1,0 +1,17 @@
+<scope doc="Base class for MIME multipart/* type messages.&#10;" ilk="blob" lang="Python" name="email.mime.multipart">
+      <scope classrefs="Message" doc="Base class for MIME specializations.&#10;" ilk="class" name="MIMEBase">
+        <scope doc="This constructor adds a Content-Type: and a MIME-Version:&#10;header." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" line="13" lineend="47" name="MIMEMultipart">
+        <scope doc="Creates a multipart/* type message." ilk="function" line="16" lineend="47" name="__init__" signature="MIMEMultipart(_subtype='mixed', boundary=None, _subparts=None, **_params)">
+          <variable ilk="argument" name="_subparts" />
+          <variable citdl="MIMEMultipart" ilk="argument" name="self" />
+          <variable ilk="argument" name="boundary" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable citdl="str" ilk="argument" name="_subtype" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list" line="41" name="_payload" />
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+    </scope>
+    

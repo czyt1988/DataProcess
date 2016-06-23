@@ -1,0 +1,205 @@
+<scope doc="Internal support module for sre&#10;" ilk="blob" lang="Python" name="sre_compile">
+      <variable citdl="str" name="ANY" />
+      <variable citdl="str" name="ANY_ALL" />
+      <variable citdl="str" name="ASSERT" />
+      <variable citdl="str" name="ASSERT_NOT" />
+      <variable citdl="str" name="AT" />
+      <variable citdl="dict" name="ATCODES" />
+      <variable citdl="str" name="AT_BEGINNING" />
+      <variable citdl="str" name="AT_BEGINNING_LINE" />
+      <variable citdl="str" name="AT_BEGINNING_STRING" />
+      <variable citdl="str" name="AT_BOUNDARY" />
+      <variable citdl="str" name="AT_END" />
+      <variable citdl="str" name="AT_END_LINE" />
+      <variable citdl="str" name="AT_END_STRING" />
+      <variable citdl="dict" name="AT_LOCALE" />
+      <variable citdl="str" name="AT_LOC_BOUNDARY" />
+      <variable citdl="str" name="AT_LOC_NON_BOUNDARY" />
+      <variable citdl="dict" name="AT_MULTILINE" />
+      <variable citdl="str" name="AT_NON_BOUNDARY" />
+      <variable citdl="dict" name="AT_UNICODE" />
+      <variable citdl="str" name="AT_UNI_BOUNDARY" />
+      <variable citdl="str" name="AT_UNI_NON_BOUNDARY" />
+      <variable citdl="str" name="BIGCHARSET" />
+      <variable citdl="str" name="BRANCH" />
+      <variable citdl="str" name="CALL" />
+      <variable citdl="str" name="CATEGORY" />
+      <variable citdl="str" name="CATEGORY_DIGIT" />
+      <variable citdl="str" name="CATEGORY_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_LOC_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_LOC_WORD" />
+      <variable citdl="str" name="CATEGORY_NOT_DIGIT" />
+      <variable citdl="str" name="CATEGORY_NOT_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_NOT_SPACE" />
+      <variable citdl="str" name="CATEGORY_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_DIGIT" />
+      <variable citdl="str" name="CATEGORY_UNI_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_DIGIT" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_LINEBREAK" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_NOT_WORD" />
+      <variable citdl="str" name="CATEGORY_UNI_SPACE" />
+      <variable citdl="str" name="CATEGORY_UNI_WORD" />
+      <variable citdl="str" name="CATEGORY_WORD" />
+      <variable citdl="str" name="CHARSET" />
+      <variable citdl="dict" name="CHCODES" />
+      <variable citdl="dict" name="CH_LOCALE" />
+      <variable citdl="dict" name="CH_UNICODE" />
+      <variable citdl="str" name="FAILURE" />
+      <variable citdl="str" name="GROUPREF" />
+      <variable citdl="str" name="GROUPREF_EXISTS" />
+      <variable citdl="str" name="GROUPREF_IGNORE" />
+      <variable citdl="str" name="IN" />
+      <variable citdl="str" name="INFO" />
+      <variable citdl="str" name="IN_IGNORE" />
+      <variable citdl="str" name="JUMP" />
+      <variable citdl="str" name="LITERAL" />
+      <variable citdl="str" name="LITERAL_IGNORE" />
+      <variable citdl="int" name="MAGIC" />
+      <variable citdl="str" name="MARK" />
+      <variable citdl="int" line="20" name="MAXCODE" />
+      <variable citdl="int" name="MAXREPEAT" />
+      <variable citdl="str" name="MAX_REPEAT" />
+      <variable citdl="str" name="MAX_UNTIL" />
+      <variable citdl="str" name="MIN_REPEAT" />
+      <variable citdl="str" name="MIN_REPEAT_ONE" />
+      <variable citdl="str" name="MIN_UNTIL" />
+      <variable citdl="str" name="NEGATE" />
+      <variable citdl="str" name="NOT_LITERAL" />
+      <variable citdl="str" name="NOT_LITERAL_IGNORE" />
+      <variable citdl="dict" name="OPCODES" />
+      <variable citdl="dict" name="OP_IGNORE" />
+      <variable citdl="str" name="RANGE" />
+      <variable citdl="str" name="REPEAT" />
+      <variable citdl="str" name="REPEAT_ONE" />
+      <variable citdl="int" name="SRE_FLAG_DEBUG" />
+      <variable citdl="int" name="SRE_FLAG_DOTALL" />
+      <variable citdl="int" name="SRE_FLAG_IGNORECASE" />
+      <variable citdl="int" name="SRE_FLAG_LOCALE" />
+      <variable citdl="int" name="SRE_FLAG_MULTILINE" />
+      <variable citdl="int" name="SRE_FLAG_TEMPLATE" />
+      <variable citdl="int" name="SRE_FLAG_UNICODE" />
+      <variable citdl="int" name="SRE_FLAG_VERBOSE" />
+      <variable citdl="int" name="SRE_INFO_CHARSET" />
+      <variable citdl="int" name="SRE_INFO_LITERAL" />
+      <variable citdl="int" name="SRE_INFO_PREFIX" />
+      <variable citdl="tuple" line="470" name="STRING_TYPES" />
+      <variable citdl="str" name="SUBPATTERN" />
+      <variable citdl="str" name="SUCCESS" />
+      <import module="_sre" />
+      <scope ilk="function" line="495" lineend="523" name="compile" returns="_sre.compile()" signature="compile(p, flags=0)">
+        <variable citdl="_code()" line="504" name="code" />
+        <variable line="499" name="pattern" />
+        <variable citdl="sre_parse.parse()" ilk="argument" name="p" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable citdl="p.pattern.groupdict" line="515" name="groupindex" />
+        <variable citdl="list" line="516" name="indexgroup" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" line="474" lineend="478" name="isstring" returns="int" signature="isstring(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope ilk="function" name="makedict" signature="makedict(list)" />
+      <import module="sre_parse" />
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="258" lineend="273" name="_mk_bitmap" returns="list" signature="_mk_bitmap(bits)">
+        <variable ilk="argument" name="bits" />
+        <variable citdl="list" line="259" name="data" />
+        <variable citdl="data.append" line="260" name="dataappend" />
+        <variable citdl="tuple" line="262" name="start" />
+        <variable citdl="m" line="268" name="v" />
+        <variable line="269" name="m" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="301" lineend="352" name="_optimize_unicode" returns="list" signature="_optimize_unicode(charset, fixup)">
+        <import line="303" module="array" />
+        <variable ilk="argument" name="charset" />
+        <variable ilk="argument" name="fixup" />
+        <variable citdl="list" line="306" name="charmap" />
+        <variable citdl="int" line="307" name="negate" />
+        <variable citdl="dict" line="329" name="comps" />
+        <variable citdl="list" line="330" name="mapping" />
+        <variable citdl="int" line="331" name="block" />
+        <variable citdl="list" line="332" name="data" />
+        <variable citdl="tuple()" line="334" name="chunk" />
+        <variable citdl="comps.setdefault()" line="335" name="new" />
+        <variable citdl="list" line="340" name="header" />
+        <variable citdl="str" line="342" name="code" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="361" lineend="465" name="_compile_info" signature="_compile_info(code, pattern, flags)">
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="pattern" />
+        <variable ilk="argument" name="flags" />
+        <variable line="365" name="hi" />
+        <variable line="365" name="lo" />
+        <variable citdl="list" line="369" name="prefix" />
+        <variable citdl="prefix.append" line="370" name="prefixappend" />
+        <variable citdl="int" line="371" name="prefix_skip" />
+        <variable citdl="list" line="372" name="charset" />
+        <variable citdl="charset.append" line="373" name="charsetappend" />
+        <variable citdl="list" line="397" name="c" />
+        <variable citdl="c.append" line="398" name="cappend" />
+        <variable citdl="code.append" line="429" name="emit" />
+        <variable citdl="len()" line="431" name="skip" />
+        <variable citdl="SRE_INFO_PREFIX" line="433" name="mask" />
+        <variable citdl="list" line="457" name="table" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="29" name="_SUCCESS_CODES" />
+      <scope attributes="protected __hidden__" ilk="function" line="354" lineend="359" name="_simple" returns="bool" signature="_simple(av)">
+        <variable ilk="argument" name="av" />
+        <variable line="356" name="lo" />
+        <variable line="356" name="hi" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="178" lineend="205" name="_compile_charset" signature="_compile_charset(charset, flags, code, fixup=None)">
+        <variable ilk="argument" name="charset" />
+        <variable ilk="argument" name="flags" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="_identityfunction" ilk="argument" name="fixup" />
+        <variable citdl="code.append" line="180" name="emit" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="27" name="_LITERAL_CODES" />
+      <variable attributes="protected __hidden__" citdl="set()" line="30" name="_ASSERT_CODES" />
+      <scope attributes="protected __hidden__" ilk="function" line="24" lineend="25" name="_identityfunction" signature="_identityfunction(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="480" lineend="493" name="_code" returns="list" signature="_code(p, flags)">
+        <variable ilk="argument" name="p" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable citdl="list" line="483" name="code" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="set()" line="28" name="_REPEATING_CODES" />
+      <scope attributes="protected __hidden__" ilk="function" line="32" lineend="176" name="_compile" signature="_compile(code, pattern, flags)">
+        <variable ilk="argument" name="code" />
+        <variable ilk="argument" name="pattern" />
+        <variable ilk="argument" name="flags" />
+        <variable citdl="code.append" line="34" name="emit" />
+        <variable attributes="protected" citdl="len" line="35" name="_len" />
+        <variable citdl="set()" line="36" name="LITERAL_CODES" />
+        <variable citdl="set()" line="37" name="REPEATING_CODES" />
+        <variable citdl="set()" line="38" name="SUCCESS_CODES" />
+        <variable citdl="set()" line="39" name="ASSERT_CODES" />
+        <variable citdl="function" line="51" name="fixup" />
+        <variable citdl="_len()" line="56" name="skip" />
+        <variable line="113" name="lo" />
+        <variable line="113" name="hi" />
+        <variable citdl="AT_MULTILINE.get()" line="129" name="av" />
+        <variable citdl="list" line="137" name="tail" />
+        <variable citdl="tail.append" line="138" name="tailappend" />
+        <variable citdl="_len()" line="165" name="skipyes" />
+        <variable citdl="_len()" line="169" name="skipno" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="207" lineend="256" name="_optimize_charset" returns="list" signature="_optimize_charset(charset, fixup)">
+        <variable ilk="argument" name="charset" />
+        <variable ilk="argument" name="fixup" />
+        <variable citdl="list" line="209" name="out" />
+        <variable citdl="out.append" line="210" name="outappend" />
+        <variable citdl="list" line="211" name="charmap" />
+        <variable citdl="int" line="228" name="i" />
+        <variable citdl="list" line="229" name="runs" />
+        <variable citdl="runs.append" line="230" name="runsappend" />
+        <variable citdl="int" line="234" name="p" />
+        <variable citdl="int" line="235" name="n" />
+        <variable citdl="_mk_bitmap()" line="253" name="data" />
+      </scope>
+    </scope>
+    

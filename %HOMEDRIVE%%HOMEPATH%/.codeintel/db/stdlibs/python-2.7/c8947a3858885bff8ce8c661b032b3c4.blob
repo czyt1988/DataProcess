@@ -1,0 +1,63 @@
+<scope doc="Parser for command line options.&#10;This module helps scripts to parse the command line arguments in sys.argv.  It supports the same conventions as the Unix getopt() function (including the special meanings of arguments of the form `-' and `--').  Long options similar to those supported by GNU software may be used as well via an optional third argument.  This module provides two functions and an exception:  getopt() -- Parse command line options gnu_getopt() -- Like getopt(), but allow option and non-option arguments to be intermixed." ilk="blob" lang="Python" name="getopt">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="38" lineend="47" name="GetoptError">
+        <scope ilk="function" line="46" lineend="47" name="__str__" returns="str" signature="__str__()">
+          <variable citdl="GetoptError" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="41" lineend="44" name="__init__" signature="GetoptError(msg, opt='')">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="str" ilk="argument" name="opt" />
+          <variable citdl="GetoptError" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="str" line="39" name="opt" />
+        <variable citdl="str" line="40" name="msg" />
+      </scope>
+      <variable citdl="list" line="34" name="__all__" />
+      <scope ilk="function" line="144" lineend="161" name="do_longs" returns="tuple" signature="do_longs(opts, opt, longopts, args)">
+        <variable citdl="list" ilk="argument" name="opt" />
+        <variable citdl="opt.index()" line="146" name="i" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable ilk="argument" name="longopts" />
+        <variable line="152" name="has_arg" />
+        <variable ilk="argument" name="opts" />
+        <variable citdl="list" line="148" name="optarg" />
+      </scope>
+      <scope ilk="function" line="187" lineend="200" name="do_shorts" returns="tuple" signature="do_shorts(opts, optstring, shortopts, args)">
+        <variable line="189" name="opt" />
+        <variable citdl="list" ilk="argument" name="optstring" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable ilk="argument" name="shortopts" />
+        <variable ilk="argument" name="opts" />
+        <variable citdl="list" line="196" name="optarg" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="49" name="error">
+        <scope ilk="function" name="__str__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Parses command line options and parameter list." ilk="function" line="51" lineend="92" name="getopt" returns="tuple" signature="getopt(args, options[, long_options]) -&gt; opts, args">
+        <variable ilk="argument" name="shortopts" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="list" ilk="argument" name="longopts" />
+        <variable citdl="list" line="78" name="opts" />
+      </scope>
+      <scope doc="This function works like getopt(), except that GNU style&#10;scanning mode is used by default." ilk="function" line="94" lineend="142" name="gnu_getopt" returns="tuple" signature="getopt(args, options[, long_options]) -&gt; opts, args">
+        <variable citdl="list" line="110" name="prog_args" />
+        <variable citdl="list" ilk="argument" name="args" />
+        <variable citdl="list" ilk="argument" name="longopts" />
+        <variable citdl="True" line="119" name="all_options_first" />
+        <variable citdl="list" ilk="argument" name="shortopts" />
+        <variable citdl="list" line="109" name="opts" />
+      </scope>
+      <scope doc="# Return: #   has_arg? #   full option name" ilk="function" line="166" lineend="185" name="long_has_args" returns="tuple" signature="long_has_args(opt, longopts)">
+        <variable ilk="argument" name="opt" />
+        <variable citdl="list" line="167" name="possibilities" />
+        <variable citdl="unique_match.endswith()" line="182" name="has_arg" />
+        <variable ilk="argument" name="longopts" />
+        <variable citdl="list" line="181" name="unique_match" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="202" lineend="206" name="short_has_arg" returns="shortopts.startswith()" signature="short_has_arg(opt, shortopts)">
+        <variable ilk="argument" name="opt" />
+        <variable ilk="argument" name="shortopts" />
+      </scope>
+    </scope>
+    

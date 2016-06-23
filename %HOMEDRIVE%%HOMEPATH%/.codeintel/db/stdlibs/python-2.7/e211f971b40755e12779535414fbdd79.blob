@@ -1,0 +1,41 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="unittest.signals">
+      <scope ilk="function" line="35" lineend="40" name="installHandler" signature="installHandler()">
+        <variable attributes="protected" citdl="_InterruptHandler" line="39" name="_interrupt_handler" />
+        <variable citdl="signal.getsignal()" line="38" name="default_handler" />
+      </scope>
+      <scope ilk="function" line="28" lineend="29" name="registerResult" signature="registerResult(result)">
+        <variable ilk="argument" name="result" />
+      </scope>
+      <scope ilk="function" line="43" lineend="57" name="removeHandler" returns="removeHandler.inner" signature="removeHandler(method=None)">
+        <variable ilk="argument" name="method" />
+        <scope ilk="function" line="46" lineend="52" name="inner" returns="removeHandler.method()" signature="inner(*args, **kwargs)">
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="signal.getsignal()" line="47" name="initial" />
+        </scope>
+      </scope>
+      <scope ilk="function" line="31" lineend="32" name="removeResult" returns="bool()" signature="removeResult(result)">
+        <variable ilk="argument" name="result" />
+      </scope>
+      <import module="signal" />
+      <import module="weakref" />
+      <scope doc="Decorator factory to apply update_wrapper() to a wrapper&#10;function" ilk="function" name="wraps" signature="wraps(wrapped, assigned=('__module__', '__name__', '__doc__'), updated=('__dict__',))" />
+      <variable attributes="protected __hidden__" line="34" name="_interrupt_handler" />
+      <scope attributes="protected __hidden__" classrefs="object" ilk="class" line="9" lineend="25" name="_InterruptHandler">
+        <scope attributes="__ctor__" ilk="function" line="10" lineend="12" name="__init__" signature="_InterruptHandler(default_handler)">
+          <variable citdl="_InterruptHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="default_handler" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="11" name="called" />
+        <variable attributes="__instancevar__" line="12" name="default_handler" />
+        <scope ilk="function" line="14" lineend="25" name="__call__" signature="__call__(signum, frame)">
+          <variable citdl="_InterruptHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="signum" />
+          <variable ilk="argument" name="frame" />
+          <variable citdl="signal.getsignal()" line="15" name="installed_handler" />
+        </scope>
+      </scope>
+      <variable attributes="private __hidden__" citdl="True" line="6" name="__unittest" />
+      <variable attributes="protected __hidden__" citdl="weakref.WeakKeyDictionary()" line="27" name="_results" />
+    </scope>
+    

@@ -1,0 +1,5 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_sha256">
+      <scope doc="Return a new SHA-224 hash object; optionally initialized&#10;with a string." ilk="function" name="sha224" />
+      <scope doc="Return a new SHA-256 hash object; optionally initialized&#10;with a string." ilk="function" name="sha256" />
+    </scope>
+    

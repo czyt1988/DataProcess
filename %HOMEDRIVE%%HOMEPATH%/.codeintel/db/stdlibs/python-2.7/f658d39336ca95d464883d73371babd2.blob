@@ -1,0 +1,352 @@
+<scope doc="Import hook support.&#10;Consistent use of this module will make it possible to change the different mechanisms involved in loading modules independently.  While the built-in module imp exports interfaces to the built-in module searching and loading algorithm, and it is possible to replace the built-in function __import__ in order to change the semantics of the import statement, until now it has been difficult to combine the effect of different __import__ hacks, like loading modules from URLs by rimport.py, or restricted execution by rexec.py. " ilk="blob" lang="Python" name="ihooks">
+      <variable citdl="int" line="69" name="BUILTIN_MODULE" />
+      <scope classrefs="_Verbose" doc="Basic module importer; uses module loader.&#10;This provides basic import facilities but no package imports." ilk="class" line="337" lineend="397" name="BasicModuleImporter">
+        <scope ilk="function" line="353" lineend="354" name="set_loader" signature="set_loader(loader)">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="loader" />
+        </scope>
+        <scope ilk="function" line="371" lineend="376" name="reload" returns="self.loader.load_module()" signature="reload(module, path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+          <variable citdl="self.loader.find_module()" line="373" name="stuff" />
+          <variable citdl="str()" line="372" name="name" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope ilk="function" line="378" lineend="379" name="unload" signature="unload(module)">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope ilk="function" line="359" lineend="360" name="set_hooks" returns="self.loader.set_hooks()" signature="set_hooks(hooks)">
+          <variable ilk="argument" name="hooks" />
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="356" lineend="357" name="get_hooks" returns="self.loader.get_hooks()" signature="get_hooks()">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="382" lineend="390" name="install" signature="install()">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="350" lineend="351" name="get_loader" returns="ModuleLoader" signature="get_loader()">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="362" lineend="369" name="import_module" returns="self.loader.load_module()" signature="import_module(name, globals={}, locals={}, fromlist=[])">
+          <variable citdl="list" ilk="argument" name="fromlist" />
+          <variable citdl="self.loader.find_module()" line="366" name="stuff" />
+          <variable citdl="str()" ilk="argument" name="name" />
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="globals" />
+          <variable citdl="dict" ilk="argument" name="locals" />
+        </scope>
+        <scope ilk="function" line="345" lineend="348" name="__init__" signature="BasicModuleImporter(loader=None, verbose=VERBOSE)">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+          <variable ilk="argument" name="loader" />
+        </scope>
+        <scope ilk="function" line="392" lineend="397" name="uninstall" signature="uninstall()">
+          <variable citdl="BasicModuleImporter" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="__builtin__.unload" line="387" name="save_unload" />
+        <variable attributes="__instancevar__" citdl="__builtin__.reload" line="384" name="save_reload" />
+        <variable attributes="__instancevar__" citdl="self.loader.modules_dict()" line="348" name="modules" />
+        <variable attributes="__instancevar__" citdl="__builtin__.__import__" line="383" name="save_import_module" />
+        <variable attributes="__instancevar__" citdl="ModuleLoader" line="347" name="loader" />
+      </scope>
+      <scope classrefs="_Verbose" doc="Basic module loader.&#10;This provides the same functionality as built-in import.  It doesn't deal with checking sys.modules -- all it provides is find_module() and a load_module(), as well as find_module_in_dir() which searches just one directory, and can be overridden by a derived class to change the module search algorithm when the basic dependency on sys.path is unchanged.  The interface is a little more convenient than imp's: find_module(name, [path]) returns None or 'stuff', and load_module(name, stuff) loads the module." ilk="class" line="97" lineend="147" name="BasicModuleLoader">
+        <scope ilk="function" line="125" lineend="132" name="find_module_in_dir" returns="imp.find_module()" signature="find_module_in_dir(name, dir)">
+          <variable citdl="BasicModuleLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope ilk="function" line="122" lineend="123" name="default_path" returns="sys.path" signature="default_path()">
+          <variable citdl="BasicModuleLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="134" lineend="140" name="find_builtin_module" returns="tuple" signature="find_builtin_module(name)">
+          <variable citdl="BasicModuleLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="114" lineend="120" name="find_module" returns="self.find_module_in_dir()" signature="find_module(name, path=None)">
+          <variable citdl="self.default_path()" ilk="argument" name="path" />
+          <variable citdl="BasicModuleLoader" ilk="argument" name="self" />
+          <variable citdl="self.find_module_in_dir()" line="118" name="stuff" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="142" lineend="147" name="load_module" returns="imp.load_module()" signature="load_module(name, stuff)">
+          <variable citdl="BasicModuleLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="stuff" />
+          <variable ilk="argument" name="name" />
+        </scope>
+      </scope>
+      <variable citdl="int" name="C_BUILTIN" />
+      <variable citdl="int" name="C_EXTENSION" />
+      <variable citdl="int" line="70" name="FROZEN_MODULE" />
+      <scope classrefs="ModuleLoader" doc="Fancy module loader -- parses and execs the code itself.&#10;" ilk="class" line="286" lineend="334" name="FancyModuleLoader">
+        <scope ilk="function" line="290" lineend="334" name="load_module" returns="self.hooks.add_module()" signature="load_module(name, stuff)">
+          <variable citdl="marshal.load()" line="312" name="code" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="initfilename" line="292" name="realfilename" />
+          <variable citdl="file.read()" line="318" name="data" />
+          <variable citdl="FancyModuleLoader" ilk="argument" name="self" />
+          <variable citdl="self.hooks.add_module()" line="323" name="m" />
+          <variable ilk="argument" name="stuff" />
+          <variable citdl="initfile" line="307" name="file" />
+          <variable citdl="list" line="293" name="path" />
+          <variable citdl="inittype" line="309" name="type" />
+          <variable citdl="self.find_module_in_dir()" line="296" name="initstuff" />
+          <variable citdl="self.hooks.modules_dict()" line="330" name="d" />
+        </scope>
+      </scope>
+      <scope classrefs="_Verbose" doc="Hooks into the filesystem and interpreter.&#10;By deriving a subclass you can redefine your filesystem interface, e.g. to merge it with the URL space.  This base class behaves just like the native filesystem." ilk="class" line="150" lineend="202" name="Hooks">
+        <scope ilk="function" line="169" lineend="170" name="load_source" returns="imp.load_source()" signature="load_source(name, filename, file=None)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="# imp interface" ilk="function" line="162" lineend="162" name="get_suffixes" returns="imp.get_suffixes()" signature="get_suffixes()">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="173" lineend="174" name="load_dynamic" returns="imp.load_dynamic()" signature="load_dynamic(name, filename, file=None)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="188" lineend="188" name="path_split" returns="os.path.split()" signature="path_split(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="165" lineend="165" name="init_builtin" returns="imp.init_builtin()" signature="init_builtin(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="190" lineend="190" name="path_isabs" returns="os.path.isabs()" signature="path_isabs(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="164" lineend="164" name="is_builtin" returns="imp.is_builtin()" signature="is_builtin(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="178" lineend="182" name="add_module" returns="m" signature="add_module(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.modules_dict()" line="179" name="d" />
+        </scope>
+        <scope ilk="function" line="199" lineend="199" name="openfile" returns="open()" signature="openfile(*x)">
+          <variable attributes="varargs" ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="171" lineend="172" name="load_compiled" returns="imp.load_compiled()" signature="load_compiled(name, filename, file=None)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="163" lineend="163" name="new_module" returns="imp.new_module()" signature="new_module(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="# sys interface" ilk="function" line="185" lineend="185" name="modules_dict" returns="sys.modules" signature="modules_dict()">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="167" lineend="167" name="init_frozen" returns="imp.init_frozen()" signature="init_frozen(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="196" lineend="196" name="path_islink" returns="os.path.islink()" signature="path_islink(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="201" lineend="201" name="listdir" returns="os.listdir()" signature="listdir(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="168" lineend="168" name="get_frozen_object" returns="imp.get_frozen_object()" signature="get_frozen_object(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="175" lineend="176" name="load_package" returns="imp.load_module()" signature="load_package(name, filename, file=None)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="193" lineend="193" name="path_exists" returns="os.path.exists()" signature="path_exists(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="194" lineend="194" name="path_isdir" returns="os.path.isdir()" signature="path_isdir(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="189" lineend="189" name="path_join" returns="os.path.join()" signature="path_join(x, y)">
+          <variable ilk="argument" name="y" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="186" lineend="186" name="default_path" returns="sys.path" signature="default_path()">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="166" lineend="166" name="is_frozen" returns="imp.is_frozen()" signature="is_frozen(name)">
+          <variable citdl="Hooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="195" lineend="195" name="path_isfile" returns="os.path.isfile()" signature="path_isfile(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Hooks" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="os.error" line="202" name="listdir_error" />
+        <variable citdl="IOError" line="200" name="openfile_error" />
+      </scope>
+      <scope classrefs="BasicModuleImporter" doc="A module importer that supports packages.&#10;" ilk="class" line="400" lineend="541" name="ModuleImporter">
+        <scope ilk="function" line="460" lineend="479" name="find_head_package" returns="tuple" signature="find_head_package(parent, name)">
+          <variable citdl="list" line="463" name="head" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="parent" />
+          <variable citdl="name.find()" line="462" name="i" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable citdl="list" line="469" name="qname" />
+          <variable citdl="self.import_it()" line="472" name="q" />
+          <variable citdl="list" line="464" name="tail" />
+        </scope>
+        <scope ilk="function" line="510" lineend="532" name="import_it" returns="self.loader.load_module()" signature="import_it(partname, fqname, parent, force_load=0)">
+          <variable ilk="argument" name="parent" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable citdl="self.loader.load_module()" line="529" name="m" />
+          <variable citdl="str()" ilk="argument" name="fqname" />
+          <variable citdl="int" ilk="argument" name="force_load" />
+          <variable citdl="self.loader.find_module()" line="525" name="stuff" />
+          <variable citdl="parent.__path__" line="521" name="path" />
+          <variable citdl="str()" ilk="argument" name="partname" />
+        </scope>
+        <scope ilk="function" line="534" lineend="541" name="reload" returns="ModuleImporter.import_it()" signature="reload(module)">
+          <variable citdl="str()" line="535" name="name" />
+          <variable line="540" name="parent" />
+          <variable citdl="name.rfind()" line="538" name="i" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+          <variable citdl="list" line="539" name="pname" />
+        </scope>
+        <scope ilk="function" line="415" lineend="458" name="determine_parent" signature="determine_parent(globals, level=-1)">
+          <variable citdl="globals.get()" line="424" name="modname" />
+          <variable citdl="globals.get()" line="418" name="pkgname" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="globals" />
+          <variable citdl="pkgname.rindex()" line="441" name="dot" />
+        </scope>
+        <scope ilk="function" line="481" lineend="491" name="load_tail" returns="self.import_it()" signature="load_tail(q, tail)">
+          <variable citdl="list" line="486" name="head" />
+          <variable citdl="tail.find()" line="484" name="i" />
+          <variable citdl="str" line="487" name="mname" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable citdl="self.import_it()" line="482" name="m" />
+          <variable ilk="argument" name="q" />
+          <variable citdl="list" ilk="argument" name="tail" />
+        </scope>
+        <scope ilk="function" line="493" lineend="508" name="ensure_fromlist" signature="ensure_fromlist(m, fromlist, recursive=0)">
+          <variable ilk="argument" name="fromlist" />
+          <variable citdl="m.__all__" line="498" name="all" />
+          <variable citdl="int" ilk="argument" name="recursive" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+          <variable citdl="str" line="505" name="subname" />
+          <variable citdl="self.import_it()" line="506" name="submod" />
+        </scope>
+        <scope ilk="function" line="404" lineend="413" name="import_module" returns="self.load_tail()" signature="import_module(name, globals=None, locals=None, fromlist=None, level=-1)">
+          <variable ilk="argument" name="fromlist" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self.determine_parent()" line="406" name="parent" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="ModuleImporter" ilk="argument" name="self" />
+          <variable citdl="self.load_tail()" line="408" name="m" />
+          <variable line="407" name="q" />
+          <variable line="407" name="tail" />
+          <variable ilk="argument" name="globals" />
+          <variable ilk="argument" name="locals" />
+        </scope>
+      </scope>
+      <scope classrefs="BasicModuleLoader" doc="Default module loader; uses file system hooks.&#10;By defining suitable hooks, you might be able to load modules from other sources than the file system, e.g. from compressed or encrypted files, tar files or (if you're brave!) URLs." ilk="class" line="206" lineend="283" name="ModuleLoader">
+        <scope ilk="function" line="240" lineend="259" name="find_module_in_dir" returns="tuple" signature="find_module_in_dir(name, dir, allow_packages=1)">
+          <variable citdl="self.hooks.openfile()" line="255" name="fp" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="allow_packages" />
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+          <variable citdl="()" line="246" name="stuff" />
+          <variable line="248" name="file" />
+          <variable citdl="self.hooks.path_join()" line="244" name="fullname" />
+          <variable ilk="argument" name="dir" />
+        </scope>
+        <scope ilk="function" line="220" lineend="221" name="default_path" returns="self.hooks.default_path()" signature="default_path()">
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="232" lineend="238" name="find_builtin_module" returns="tuple" signature="find_builtin_module(name)">
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="261" lineend="283" name="load_module" returns="self.hooks.load_compiled()" signature="load_module(name, stuff)">
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="stuff" />
+          <variable citdl="self.hooks.load_source()" line="270" name="m" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="226" lineend="227" name="get_hooks" returns="Hooks" signature="get_hooks()">
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="223" lineend="224" name="modules_dict" returns="self.hooks.modules_dict()" signature="modules_dict()">
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="229" lineend="230" name="set_hooks" signature="set_hooks(hooks)">
+          <variable ilk="argument" name="hooks" />
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="216" lineend="218" name="__init__" signature="ModuleLoader(hooks=None, verbose=VERBOSE)">
+          <variable ilk="argument" name="hooks" />
+          <variable citdl="ModuleLoader" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="Hooks" line="218" name="hooks" />
+      </scope>
+      <variable citdl="int" name="PKG_DIRECTORY" />
+      <variable citdl="int" name="PY_COMPILED" />
+      <variable citdl="int" name="PY_FROZEN" />
+      <variable citdl="int" name="PY_SOURCE" />
+      <variable citdl="int" line="64" name="VERBOSE" />
+      <variable citdl="list" line="61" name="__all__" />
+      <import module="__builtin__" />
+      <variable citdl="NoneType" line="545" name="current_importer" />
+      <variable citdl="NoneType" line="544" name="default_importer" />
+      <import module="imp" />
+      <scope ilk="function" line="547" lineend="550" name="install" signature="install(importer=None)">
+        <variable citdl="ModuleImporter" line="549" name="current_importer" />
+        <variable ilk="argument" name="importer" />
+      </scope>
+      <import module="os" />
+      <import module="sys" />
+      <scope ilk="function" line="552" lineend="554" name="uninstall" signature="uninstall()" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+      <scope attributes="protected __hidden__" ilk="class" line="73" lineend="94" name="_Verbose">
+        <scope attributes="__ctor__" ilk="function" line="75" lineend="76" name="__init__" signature="_Verbose(verbose=VERBOSE)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="76" name="verbose" />
+        <scope ilk="function" line="78" lineend="79" name="get_verbose" returns="int" signature="get_verbose()">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="81" lineend="82" name="set_verbose" signature="set_verbose(verbose)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable ilk="argument" name="verbose" />
+        </scope>
+        <scope ilk="function" line="86" lineend="88" name="note" signature="note(*args)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="90" lineend="94" name="message" signature="message(format, *args)">
+          <variable citdl="_Verbose" ilk="argument" name="self" />
+          <variable ilk="argument" name="format" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+      </scope>
+    </scope>
+    

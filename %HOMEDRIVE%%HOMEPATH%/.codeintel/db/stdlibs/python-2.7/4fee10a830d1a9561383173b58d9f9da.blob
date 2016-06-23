@@ -1,0 +1,11 @@
+<scope doc="This module implements the interface to RSA's MD5 message digest&#10;algorithm (see also Internet RFC 1321). Its use is quite straightforward: use the new() to create an md5 object. You can now feed this object with arbitrary strings using the update() method, and at any point you can ask it for the digest (a strong kind of 128-bit checksum, a.k.a. ``fingerprint'') of the concatenation of the strings fed to it so far using the digest() method.  Functions:  new([arg]) -- return a new md5 object, initialized with arg if provided" ilk="blob" lang="Python" name="_md5">
+      <scope classrefs="object" doc="An md5 represents the object used to calculate the MD5 checksum of a&#10;string of information.  Methods:  update() -- updates the current digest with an additional string digest() -- return the current digest value hexdigest() -- return the current digest as a string of hexadecimal digits copy() -- return a copy of the current md5 object" ilk="class" name="MD5Type">
+        <scope doc="Return a copy (``clone'') of the md5 object." ilk="function" name="copy" signature="copy() -&gt; md5 object" />
+        <scope doc="Update the md5 object with the string arg." ilk="function" name="update" signature="update (arg)" />
+        <scope doc="Like digest(), but returns the digest as a string of&#10;hexadecimal digits." ilk="function" name="hexdigest" returns="str" signature="hexdigest() -&gt; string" />
+        <scope doc="Return the digest of the strings passed to the update()&#10;method so far." ilk="function" name="digest" returns="str" signature="digest() -&gt; string" />
+      </scope>
+      <variable citdl="int" name="digest_size" />
+      <scope doc="Return a new md5 object." ilk="function" name="new" signature="new([arg]) -&gt; md5 object" />
+    </scope>
+    

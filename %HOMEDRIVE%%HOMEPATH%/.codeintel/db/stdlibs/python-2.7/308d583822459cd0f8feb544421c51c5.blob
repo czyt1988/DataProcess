@@ -1,0 +1,15 @@
+<scope doc="Fix function attribute names (f.func_x -&gt; f.__x__).&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_funcattrs">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="9" lineend="21" name="FixFuncattrs">
+        <scope ilk="function" line="18" lineend="21" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixFuncattrs" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="19" name="attr" />
+        </scope>
+        <variable citdl="True" line="10" name="BM_compatible" />
+        <variable citdl="str" line="12" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+    </scope>
+    

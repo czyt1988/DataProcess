@@ -1,0 +1,125 @@
+<scope doc="Operator interface.&#10;This module exports a set of functions implemented in C corresponding to the intrinsic operators of Python.  For example, operator.add(x, y) is equivalent to the expression x+y.  The function names are those used for special methods; variants without leading and trailing '__' are also provided for convenience." ilk="blob" lang="Python" name="operator">
+      <scope doc="Same as abs(a)." ilk="function" name="__abs__" signature="abs(a)" />
+      <scope doc="Same as a + b." ilk="function" name="__add__" signature="add(a, b)" />
+      <scope doc="Same as a &amp; b." ilk="function" name="__and__" signature="and_(a, b)" />
+      <scope doc="Same as a + b, for a and b sequences." ilk="function" name="__concat__" signature="concat(a, b)" />
+      <scope doc="Same as b in a (note reversed operands)." ilk="function" name="__contains__" signature="contains(a, b)" />
+      <scope doc="Same as del a[b]." ilk="function" name="__delitem__" signature="delitem(a, b)" />
+      <scope doc="Same as del a[b:c]." ilk="function" name="__delslice__" signature="delslice(a, b, c)" />
+      <scope doc="Same as a / b when __future__.division is not in effect." ilk="function" name="__div__" signature="div(a, b)" />
+      <scope doc="Same as a==b." ilk="function" name="__eq__" signature="eq(a, b)" />
+      <scope doc="Same as a // b." ilk="function" name="__floordiv__" signature="floordiv(a, b)" />
+      <scope doc="Same as a&gt;=b." ilk="function" name="__ge__" signature="ge(a, b)" />
+      <scope doc="Same as a[b]." ilk="function" name="__getitem__" signature="getitem(a, b)" />
+      <scope doc="Same as a[b:c]." ilk="function" name="__getslice__" signature="getslice(a, b, c)" />
+      <scope doc="Same as a&gt;b." ilk="function" name="__gt__" signature="gt(a, b)" />
+      <scope doc="Same as a += b." ilk="function" name="__iadd__" signature="iadd(a, b) -&gt; a" />
+      <scope doc="Same as a &amp;= b." ilk="function" name="__iand__" signature="iand(a, b) -&gt; a" />
+      <scope doc="Same as a += b, for a and b sequences." ilk="function" name="__iconcat__" signature="iconcat(a, b) -&gt; a" />
+      <scope doc="Same as a /= b when __future__.division is not in effect." ilk="function" name="__idiv__" signature="idiv(a, b) -&gt; a" />
+      <scope doc="Same as a //= b." ilk="function" name="__ifloordiv__" signature="ifloordiv(a, b) -&gt; a" />
+      <scope doc="Same as a &lt;&lt;= b." ilk="function" name="__ilshift__" signature="ilshift(a, b) -&gt; a" />
+      <scope doc="Same as a %= b." ilk="function" name="__imod__" signature="imod(a, b) -&gt; a" />
+      <scope doc="Same as a *= b." ilk="function" name="__imul__" signature="imul(a, b) -&gt; a" />
+      <scope doc="Same as a.__index__()" ilk="function" name="__index__" signature="index(a)" />
+      <scope doc="Same as ~a." ilk="function" name="__inv__" signature="inv(a)" />
+      <scope doc="Same as ~a." ilk="function" name="__invert__" signature="invert(a)" />
+      <scope doc="Same as a |= b." ilk="function" name="__ior__" signature="ior(a, b) -&gt; a" />
+      <scope doc="Same as a **= b." ilk="function" name="__ipow__" signature="ipow(a, b) -&gt; a" />
+      <scope doc="Same as a *= b, where a is a sequence, and b is an integer." ilk="function" name="__irepeat__" signature="irepeat(a, b) -&gt; a" />
+      <scope doc="Same as a &gt;&gt;= b." ilk="function" name="__irshift__" signature="irshift(a, b) -&gt; a" />
+      <scope doc="Same as a -= b." ilk="function" name="__isub__" signature="isub(a, b) -&gt; a" />
+      <scope doc="Same as a /= b when __future__.division is in effect." ilk="function" name="__itruediv__" signature="itruediv(a, b) -&gt; a" />
+      <scope doc="Same as a ^= b." ilk="function" name="__ixor__" signature="ixor(a, b) -&gt; a" />
+      <scope doc="Same as a&lt;=b." ilk="function" name="__le__" signature="le(a, b)" />
+      <scope doc="Same as a &lt;&lt; b." ilk="function" name="__lshift__" signature="lshift(a, b)" />
+      <scope doc="Same as a&lt;b." ilk="function" name="__lt__" signature="lt(a, b)" />
+      <scope doc="Same as a % b." ilk="function" name="__mod__" signature="mod(a, b)" />
+      <scope doc="Same as a * b." ilk="function" name="__mul__" signature="mul(a, b)" />
+      <scope doc="Same as a!=b." ilk="function" name="__ne__" signature="ne(a, b)" />
+      <scope doc="Same as -a." ilk="function" name="__neg__" signature="neg(a)" />
+      <scope doc="Same as not a." ilk="function" name="__not__" signature="not_(a)" />
+      <scope doc="Same as a | b." ilk="function" name="__or__" signature="or_(a, b)" />
+      <scope doc="Same as +a." ilk="function" name="__pos__" signature="pos(a)" />
+      <scope doc="Same as a ** b." ilk="function" name="__pow__" signature="pow(a, b)" />
+      <scope doc="Return a * b, where a is a sequence, and b is an integer." ilk="function" name="__repeat__" signature="repeat(a, b)" />
+      <scope doc="Same as a &gt;&gt; b." ilk="function" name="__rshift__" signature="rshift(a, b)" />
+      <scope doc="Same as a[b] = c." ilk="function" name="__setitem__" signature="setitem(a, b, c)" />
+      <scope doc="Same as a[b:c] = d." ilk="function" name="__setslice__" signature="setslice(a, b, c, d)" />
+      <scope doc="Same as a - b." ilk="function" name="__sub__" signature="sub(a, b)" />
+      <scope doc="Same as a / b when __future__.division is in effect." ilk="function" name="__truediv__" signature="truediv(a, b)" />
+      <scope doc="Same as a ^ b." ilk="function" name="__xor__" signature="xor(a, b)" />
+      <scope doc="Same as abs(a)." ilk="function" name="abs" signature="abs(a)" />
+      <scope doc="Same as a + b." ilk="function" name="add" signature="add(a, b)" />
+      <scope doc="Same as a &amp; b." ilk="function" name="and_" signature="and_(a, b)" />
+      <scope classrefs="object" doc="attrgetter(attr, ...) --&gt; attrgetter object&#10;Return a callable object that fetches the given attribute(s) from its operand. After, f=attrgetter('name'), the call f(r) returns r.name. After, g=attrgetter('name', 'date'), the call g(r) returns (r.name, r.date). After, h=attrgetter('name.first', 'name.last'), the call h(r) returns (r.name.first, r.name.last)." ilk="class" name="attrgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope doc="Same as a + b, for a and b sequences." ilk="function" name="concat" signature="concat(a, b)" />
+      <scope doc="Same as b in a (note reversed operands)." ilk="function" name="contains" signature="contains(a, b)" />
+      <scope doc="Return the number of times b occurs in a." ilk="function" name="countOf" signature="countOf(a, b)" />
+      <scope doc="Same as del a[b]." ilk="function" name="delitem" signature="delitem(a, b)" />
+      <scope doc="Same as del a[b:c]." ilk="function" name="delslice" signature="delslice(a, b, c)" />
+      <scope doc="Same as a / b when __future__.division is not in effect." ilk="function" name="div" signature="div(a, b)" />
+      <scope doc="Same as a==b." ilk="function" name="eq" signature="eq(a, b)" />
+      <scope doc="Same as a // b." ilk="function" name="floordiv" signature="floordiv(a, b)" />
+      <scope doc="Same as a&gt;=b." ilk="function" name="ge" signature="ge(a, b)" />
+      <scope doc="Same as a[b]." ilk="function" name="getitem" signature="getitem(a, b)" />
+      <scope doc="Same as a[b:c]." ilk="function" name="getslice" signature="getslice(a, b, c)" />
+      <scope doc="Same as a&gt;b." ilk="function" name="gt" signature="gt(a, b)" />
+      <scope doc="Same as a += b." ilk="function" name="iadd" signature="iadd(a, b) -&gt; a" />
+      <scope doc="Same as a &amp;= b." ilk="function" name="iand" signature="iand(a, b) -&gt; a" />
+      <scope doc="Same as a += b, for a and b sequences." ilk="function" name="iconcat" signature="iconcat(a, b) -&gt; a" />
+      <scope doc="Same as a /= b when __future__.division is not in effect." ilk="function" name="idiv" signature="idiv(a, b) -&gt; a" />
+      <scope doc="Same as a //= b." ilk="function" name="ifloordiv" signature="ifloordiv(a, b) -&gt; a" />
+      <scope doc="Same as a &lt;&lt;= b." ilk="function" name="ilshift" signature="ilshift(a, b) -&gt; a" />
+      <scope doc="Same as a %= b." ilk="function" name="imod" signature="imod(a, b) -&gt; a" />
+      <scope doc="Same as a *= b." ilk="function" name="imul" signature="imul(a, b) -&gt; a" />
+      <scope doc="Same as a.__index__()" ilk="function" name="index" signature="index(a)" />
+      <scope doc="Return the first index of b in a." ilk="function" name="indexOf" signature="indexOf(a, b)" />
+      <scope doc="Same as ~a." ilk="function" name="inv" signature="inv(a)" />
+      <scope doc="Same as ~a." ilk="function" name="invert" signature="invert(a)" />
+      <scope doc="Same as a |= b." ilk="function" name="ior" signature="ior(a, b) -&gt; a" />
+      <scope doc="Same as a **= b." ilk="function" name="ipow" signature="ipow(a, b) -&gt; a" />
+      <scope doc="Same as a *= b, where a is a sequence, and b is an integer." ilk="function" name="irepeat" signature="irepeat(a, b) -&gt; a" />
+      <scope doc="Same as a &gt;&gt;= b." ilk="function" name="irshift" signature="irshift(a, b) -&gt; a" />
+      <scope doc="Same as callable(a)." ilk="function" name="isCallable" signature="isCallable(a)" />
+      <scope doc="Return True if a has a mapping type, False otherwise." ilk="function" name="isMappingType" signature="isMappingType(a)" />
+      <scope doc="Return True if a has a numeric type, False otherwise." ilk="function" name="isNumberType" signature="isNumberType(a)" />
+      <scope doc="Return True if a has a sequence type, False otherwise." ilk="function" name="isSequenceType" signature="isSequenceType(a)" />
+      <scope doc="Same as a is b." ilk="function" name="is_" signature="is_(a, b)" />
+      <scope doc="Same as a is not b." ilk="function" name="is_not" signature="is_not(a, b)" />
+      <scope doc="Same as a -= b." ilk="function" name="isub" signature="isub(a, b) -&gt; a" />
+      <scope classrefs="object" doc="itemgetter(item, ...) --&gt; itemgetter object&#10;Return a callable object that fetches the given item(s) from its operand. After, f=itemgetter(2), the call f(r) returns r[2]. After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])" ilk="class" name="itemgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope doc="Same as a /= b when __future__.division is in effect." ilk="function" name="itruediv" signature="itruediv(a, b) -&gt; a" />
+      <scope doc="Same as a ^= b." ilk="function" name="ixor" signature="ixor(a, b) -&gt; a" />
+      <scope doc="Same as a&lt;=b." ilk="function" name="le" signature="le(a, b)" />
+      <scope doc="Same as a &lt;&lt; b." ilk="function" name="lshift" signature="lshift(a, b)" />
+      <scope doc="Same as a&lt;b." ilk="function" name="lt" signature="lt(a, b)" />
+      <scope classrefs="object" doc="methodcaller(name, ...) --&gt; methodcaller object&#10;Return a callable object that calls the given method on its operand. After, f = methodcaller('name'), the call f(r) returns r.name(). After, g = methodcaller('name', 'date', foo=1), the call g(r) returns r.name('date', foo=1)." ilk="class" name="methodcaller">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope doc="Same as a % b." ilk="function" name="mod" signature="mod(a, b)" />
+      <scope doc="Same as a * b." ilk="function" name="mul" signature="mul(a, b)" />
+      <scope doc="Same as a!=b." ilk="function" name="ne" signature="ne(a, b)" />
+      <scope doc="Same as -a." ilk="function" name="neg" signature="neg(a)" />
+      <scope doc="Same as not a." ilk="function" name="not_" signature="not_(a)" />
+      <scope doc="Same as a | b." ilk="function" name="or_" signature="or_(a, b)" />
+      <scope doc="Same as +a." ilk="function" name="pos" signature="pos(a)" />
+      <scope doc="Same as a ** b." ilk="function" name="pow" signature="pow(a, b)" />
+      <scope doc="Return a * b, where a is a sequence, and b is an integer." ilk="function" name="repeat" signature="repeat(a, b)" />
+      <scope doc="Same as a &gt;&gt; b." ilk="function" name="rshift" signature="rshift(a, b)" />
+      <scope doc="Same as b in a (note reversed operands; deprecated)." ilk="function" name="sequenceIncludes" signature="sequenceIncludes(a, b)" />
+      <scope doc="Same as a[b] = c." ilk="function" name="setitem" signature="setitem(a, b, c)" />
+      <scope doc="Same as a[b:c] = d." ilk="function" name="setslice" signature="setslice(a, b, c, d)" />
+      <scope doc="Same as a - b." ilk="function" name="sub" signature="sub(a, b)" />
+      <scope doc="Same as a / b when __future__.division is in effect." ilk="function" name="truediv" signature="truediv(a, b)" />
+      <scope doc="Return True if a is true, False otherwise." ilk="function" name="truth" signature="truth(a)" />
+      <scope doc="Same as a ^ b." ilk="function" name="xor" signature="xor(a, b)" />
+    </scope>
+    

@@ -1,0 +1,124 @@
+<scope doc="######################################################################&#10;#  This file should be kept compatible with Python 2.3, see PEP 291. # ######################################################################" ilk="blob" lang="Python" name="ctypes._endian">
+      <scope doc="# XXX Deprecated" ilk="function" name="ARRAY" signature="ARRAY(typ, len)" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ArgumentError" />
+      <scope classrefs="_CData" doc="XXX to be provided&#10;" ilk="class" name="Array">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+      </scope>
+      <scope classrefs="Structure" doc="Structure with big endian byte order&#10;" ilk="class" line="45" name="BigEndianStructure" />
+      <scope classrefs="object" doc="An instance of this class represents a loaded dll/shared&#10;library, exporting functions using the standard C calling convention (named 'cdecl' on Windows).  The exported functions can be accessed as attributes, or by indexing with the function name.  Examples:  &lt;obj&gt;.qsort -&gt; callable object &lt;obj&gt;['qsort'] -&gt; callable object  Calling the functions releases the Python GIL during the call and" ilk="class" name="CDLL">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__getattr__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="CFUNCTYPE(restype, *argtypes, use_errno=False,&#10;use_last_error=False) -&gt; function prototype." ilk="function" name="CFUNCTYPE" signature="CFUNCTYPE(restype, *argtypes, **kw)" />
+      <variable citdl="int" name="DEFAULT_MODE" />
+      <scope ilk="function" name="DllCanUnloadNow" signature="DllCanUnloadNow()" />
+      <scope ilk="function" name="DllGetClassObject" signature="DllGetClassObject(rclsid, riid, ppv)" />
+      <scope doc="Convert a win32 error code into a string." ilk="function" name="FormatError" returns="str" signature="FormatError([integer]) -&gt; string" />
+      <variable citdl="_FuncPtr" name="GetLastError" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="HRESULT" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="LibraryLoader">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="__getattr__" />
+        <scope ilk="function" name="LoadLibrary" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" line="54" lineend="57" name="LittleEndianStructure">
+        <scope ilk="function" name="__init__" />
+        <variable citdl="_swapped_meta" line="56" name="__metaclass__" />
+        <variable attributes="protected" line="57" name="_swappedbytes_" />
+      </scope>
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention, and returning HRESULT. HRESULT error values are automatically raised as WindowsError exceptions." ilk="class" name="OleDLL" />
+      <scope ilk="function" name="POINTER" />
+      <scope ilk="function" name="PYFUNCTYPE" signature="PYFUNCTYPE(restype, *argtypes)" />
+      <scope classrefs="CDLL" doc="This class represents the Python library itself.  It allows to&#10;access Python API functions.  The GIL is not released, and Python exceptions are handled correctly." ilk="class" name="PyDLL" />
+      <variable citdl="int" name="RTLD_GLOBAL" />
+      <variable citdl="int" name="RTLD_LOCAL" />
+      <scope doc="# XXX Deprecated" ilk="function" name="SetPointerType" signature="SetPointerType(pointer, cls)" />
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="Structure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_CData" doc="Union base class&#10;" ilk="class" name="Union">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" name="WINFUNCTYPE" signature="WINFUNCTYPE(restype, *argtypes, **kw)" />
+      <scope classrefs="CDLL" doc="This class represents a dll exporting functions using the&#10;Windows stdcall calling convention." ilk="class" name="WinDLL" />
+      <scope ilk="function" name="WinError" signature="WinError(code=None, descr=None)" />
+      <scope doc="Return the address of the C instance internal buffer" ilk="function" name="addressof" returns="int" signature="addressof(C instance) -&gt; integer" />
+      <scope doc="Return the alignment requirements of a C instance" ilk="function" name="alignment" signature="alignment(C type) -&gt; integer&#10;alignment(C instance) -&gt; integer" />
+      <scope doc="Return a pointer lookalike to a C instance, only usable as&#10;function argument" ilk="function" name="byref" signature="byref(C instance[, offset=0]) -&gt; byref-object" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_bool" />
+      <scope ilk="function" name="c_buffer" signature="c_buffer(init, size=None)" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_byte" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_char" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_char_p">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_double" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_float" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_int" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_long" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_longdouble" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_longlong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_short" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_size_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ssize_t" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ubyte" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_uint" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ulong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ulonglong" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_ushort" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_void_p" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_voidp" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_wchar" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="c_wchar_p" />
+      <scope ilk="function" name="cast" signature="cast(obj, typ)" />
+      <variable citdl="LibraryLoader" name="cdll" />
+      <scope doc="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array" ilk="function" name="create_string_buffer" signature="create_string_buffer(aString) -&gt; character array&#10;create_string_buffer(anInteger) -&gt; character array&#10;create_string_buffer(aString, anInteger) -&gt; character array" />
+      <scope doc="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array" ilk="function" name="create_unicode_buffer" signature="create_unicode_buffer(aString) -&gt; character array&#10;create_unicode_buffer(anInteger) -&gt; character array&#10;create_unicode_buffer(aString, anInteger) -&gt; character array" />
+      <scope ilk="function" name="get_errno" />
+      <scope ilk="function" name="get_last_error" />
+      <variable citdl="CFunctionType" name="memmove" />
+      <variable citdl="CFunctionType" name="memset" />
+      <variable citdl="LibraryLoader" name="oledll" />
+      <scope ilk="function" name="pointer" />
+      <scope classrefs="_SimpleCData" doc="&#10;" ilk="class" name="py_object">
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <variable citdl="LibraryLoader" name="pydll" />
+      <variable citdl="PyDLL" name="pythonapi" />
+      <scope doc="Resize the memory buffer of a ctypes instance" ilk="function" name="resize" />
+      <scope doc="Set the encoding and error handling ctypes uses when&#10;converting between unicode and strings." ilk="function" name="set_conversion_mode" signature="set_conversion_mode(encoding, errors) -&gt; (previous-encoding, previous-errors)" />
+      <scope ilk="function" name="set_errno" />
+      <scope ilk="function" name="set_last_error" />
+      <scope doc="Return the size in bytes of a C instance" ilk="function" name="sizeof" signature="sizeof(C type) -&gt; integer&#10;sizeof(C instance) -&gt; integer" />
+      <scope doc="Return the string at addr." ilk="function" name="string_at" returns="str" signature="string_at(addr[, size]) -&gt; string" />
+      <import module="sys" />
+      <variable citdl="LibraryLoader" name="windll" />
+      <scope doc="Return the string at addr." ilk="function" name="wstring_at" returns="str" signature="wstring_at(addr[, size]) -&gt; string" />
+      <variable attributes="protected __hidden__" citdl="type()" line="7" name="_array_type" />
+      <scope attributes="protected __hidden__" doc="Return the type with the 'other' byte order." ilk="function" line="9" lineend="20" name="_other_endian" returns="_other_endian()" signature="_other_endian(typ)">
+        <variable ilk="argument" name="typ" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="41" name="_OTHER_ENDIAN" />
+      <scope attributes="protected __hidden__" classrefs="type()" ilk="class" line="22" lineend="32" name="_swapped_meta">
+        <scope ilk="function" line="23" lineend="32" name="__setattr__" signature="__setattr__(attrname, value)">
+          <variable citdl="_swapped_meta" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrname" />
+          <variable citdl="list" ilk="argument" name="value" />
+          <variable citdl="list" line="25" name="fields" />
+          <variable line="27" name="name" />
+          <variable line="28" name="typ" />
+          <variable citdl="list" line="29" name="rest" />
+        </scope>
+      </scope>
+    </scope>
+    

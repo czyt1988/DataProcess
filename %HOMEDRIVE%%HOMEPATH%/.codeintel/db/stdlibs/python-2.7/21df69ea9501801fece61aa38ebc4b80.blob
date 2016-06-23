@@ -1,0 +1,35 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_hotshot">
+      <scope classrefs="object" doc="logreader(filename) --&gt; log-iterator&#10;Create a log-reader for the timing information file." ilk="class" name="LogReaderType">
+        <scope doc="Returns the file descriptor for the log file, if open." ilk="function" name="fileno" returns="file" signature="fileno() -&gt; file descriptor" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="Close the log file, preventing additional records from being&#10;read." ilk="function" name="close" signature="close()" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ProfilerError" />
+      <scope classrefs="object" doc="High-performance profiler object.&#10;Methods:  close():      Stop the profiler and close the log files. fileno():     Returns the file descriptor of the log file. runcall():    Run a single function call with profiling enabled. runcode():    Execute a code object with profiling enabled. start():      Install the profiler and return. stop():       Remove the profiler.  Attributes (read-only):" ilk="class" name="ProfilerType">
+        <scope doc="Returns the file descriptor for the log file, if open." ilk="function" name="fileno" returns="file" signature="fileno() -&gt; file descriptor" />
+        <scope doc="Profile a specific function call, returning the result of&#10;that call." ilk="function" name="runcall" signature="runcall(callable[, args[, kw]]) -&gt; callable()" />
+        <scope doc="Remove this profiler from the current thread." ilk="function" name="stop" signature="stop()" />
+        <scope doc="Execute a code object while collecting profile data." ilk="function" name="runcode" signature="runcode(code, globals[, locals])" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Install this profiler for the current thread." ilk="function" name="start" signature="start()" />
+        <scope doc="Shut down this profiler and close the log files, even if its&#10;active." ilk="function" name="close" signature="close()" />
+        <scope doc="Insert an ADD_INFO record into the log." ilk="function" name="addinfo" signature="addinfo(key, value)" />
+      </scope>
+      <variable citdl="int" name="WHAT_ADD_INFO" />
+      <variable citdl="int" name="WHAT_DEFINE_FILE" />
+      <variable citdl="int" name="WHAT_DEFINE_FUNC" />
+      <variable citdl="int" name="WHAT_ENTER" />
+      <variable citdl="int" name="WHAT_EXIT" />
+      <variable citdl="int" name="WHAT_LINENO" />
+      <variable citdl="int" name="WHAT_LINE_TIMES" />
+      <variable citdl="int" name="WHAT_OTHER" />
+      <variable citdl="str" name="__version__" />
+      <scope doc="Returns a profiler that doesn't collect any timing&#10;information, which is useful in building a coverage analysis&#10;tool." ilk="function" name="coverage" signature="coverage(logfilename) -&gt; profiler" />
+      <scope doc="Create a log-reader for the timing information file." ilk="function" name="logreader" signature="logreader(filename) --&gt; log-iterator" />
+      <scope doc="Create a new profiler object." ilk="function" name="profiler" signature="profiler(logfilename[, lineevents[, linetimes]]) -&gt; profiler" />
+      <scope doc="Return the resolution of the timer provided by the&#10;QueryPerformanceCounter() function." ilk="function" name="resolution" signature="resolution() -&gt; (performance-counter-ticks, update-frequency)" />
+    </scope>
+    

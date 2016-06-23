@@ -1,0 +1,142 @@
+<scope doc="A generic class to build line-oriented command interpreters.&#10;Interpreters constructed with this class obey the following conventions:  1. End of file on input is processed as the command 'EOF'. 2. A command is parsed out of each line by collecting the prefix composed of characters in the identchars member. 3. A command `foo' is dispatched to a method 'do_foo()'; the do_ method is passed a single argument consisting of the remainder of the line. 4. Typing an empty line repeats the last command.  (Actually, it calls the method `emptyline', which may be overridden in a subclass.) 5. There is a predefined `help' method.  Given an argument `topic', it" ilk="blob" lang="Python" name="cmd">
+      <scope doc="A simple framework for writing line-oriented command interpreters.&#10;These are often useful for test harnesses, administrative tools, and prototypes that will later be wrapped in a more sophisticated interface.  A Cmd instance or subclass instance is a line-oriented interpreter framework.  There is no good reason to instantiate Cmd itself; rather, it's useful as a superclass of an interpreter class you define yourself in order to inherit Cmd's methods and encapsulate action methods." ilk="class" line="55" lineend="401" name="Cmd">
+        <scope ilk="function" line="294" lineend="337" name="do_help" signature="do_help(arg)">
+          <variable citdl="name" line="320" name="prevname" />
+          <variable citdl="dict" line="314" name="help" />
+          <variable line="301" name="doc" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable citdl="list" line="326" name="cmd" />
+          <variable citdl="list" line="313" name="cmds_undoc" />
+          <variable citdl="list" line="312" name="cmds_doc" />
+          <variable citdl="get_names()" line="311" name="names" />
+          <variable citdl="getattr()" line="298" name="func" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="Interpret the argument as though it had been typed in&#10;response to the prompt." ilk="function" line="196" lineend="219" name="onecmd" returns="Cmd.onecmd.func()" signature="onecmd(line)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable line="206" name="cmd" />
+          <variable ilk="argument" name="line" />
+          <variable citdl="getattr()" line="216" name="func" />
+          <variable line="206" name="arg" />
+        </scope>
+        <scope doc="Hook method executed just before the command line is&#10;interpreted, but after the input prompt is generated and&#10;issued." ilk="function" line="154" lineend="159" name="precmd" signature="precmd(line)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Instantiate a line-oriented interpreter framework." ilk="function" line="79" lineend="100" name="__init__" signature="Cmd(completekey='tab', stdin=None, stdout=None)">
+          <variable citdl="str" ilk="argument" name="completekey" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="stdin" />
+          <variable ilk="argument" name="stdout" />
+        </scope>
+        <scope doc="Hook method executed just after a command dispatch is&#10;finished." ilk="function" line="161" lineend="163" name="postcmd" signature="postcmd(stop, line)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="stop" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="288" lineend="292" name="complete_help" returns="list()" signature="complete_help(*args)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="set()" line="289" name="commands" />
+          <variable citdl="set()" line="290" name="topics" />
+        </scope>
+        <scope doc="Repeatedly issue a prompt, accept input, parse an initial&#10;prefix off the received input, and dispatch to action&#10;methods, passing them the remainder of the line as argument." ilk="function" line="102" lineend="151" name="cmdloop" signature="cmdloop(intro=None)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="intro" />
+          <variable citdl="self.postcmd()" line="123" name="stop" />
+          <variable citdl="str" line="126" name="line" />
+        </scope>
+        <scope doc="Hook method executed once when the cmdloop() method is&#10;called." ilk="function" line="165" lineend="167" name="preloop" signature="preloop()">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Method called to complete an input line when no command-&#10;specific complete_*() method is available." ilk="function" line="240" lineend="247" name="completedefault" returns="list" signature="completedefault(*ignored)">
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the next possible completion for 'text'." ilk="function" line="253" lineend="281" name="complete" signature="complete(text, state)">
+          <variable line="267" name="args" />
+          <variable citdl="len()" line="263" name="stripped" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable line="267" name="cmd" />
+          <variable citdl="readline.get_endidx()" line="265" name="endidx" />
+          <variable citdl="Cmd.completedefault" line="269" name="compfunc" />
+          <variable citdl="readline.get_line_buffer()" line="261" name="origline" />
+          <variable ilk="argument" name="state" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="len()" line="264" name="begidx" />
+          <variable citdl="origline.lstrip()" line="262" name="line" />
+          <variable line="267" name="foo" />
+        </scope>
+        <scope ilk="function" line="283" lineend="286" name="get_names" returns="dir()" signature="get_names()">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called when an empty line is entered in response to the&#10;prompt." ilk="function" line="221" lineend="229" name="emptyline" returns="Cmd.onecmd()" signature="emptyline()">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Display a list of strings as a compact set of columns." ilk="function" line="347" lineend="401" name="columnize" signature="columnize(list, displaywidth=80)">
+          <variable citdl="int" line="367" name="ncols" />
+          <variable citdl="row" line="373" name="i" />
+          <variable citdl="list" line="368" name="colwidths" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable citdl="int" line="369" name="totwidth" />
+          <variable ilk="argument" name="list" />
+          <variable citdl="len()" line="385" name="nrows" />
+          <variable citdl="list" line="389" name="texts" />
+          <variable citdl="int" ilk="argument" name="displaywidth" />
+          <variable citdl="str" line="376" name="x" />
+          <variable citdl="int" line="371" name="colwidth" />
+          <variable citdl="list" line="356" name="nonstrings" />
+          <variable citdl="len()" line="361" name="size" />
+        </scope>
+        <scope doc="Hook method executed once when the cmdloop() method is about&#10;to return." ilk="function" line="169" lineend="174" name="postloop" signature="postloop()">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Called on an input line when the command prefix is not&#10;recognized." ilk="function" line="231" lineend="238" name="default" signature="default(line)">
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Parse the line into a command name and a string containing&#10;the arguments." ilk="function" line="176" lineend="194" name="parseline" returns="tuple" signature="parseline(line)">
+          <variable citdl="int" line="191" name="i" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable citdl="list" line="193" name="cmd" />
+          <variable citdl="len()" line="191" name="n" />
+          <variable line="193" name="arg" />
+          <variable citdl="list" ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="339" lineend="345" name="print_topics" signature="print_topics(header, cmds, cmdlen, maxcol)">
+          <variable ilk="argument" name="header" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmdlen" />
+          <variable ilk="argument" name="maxcol" />
+          <variable ilk="argument" name="cmds" />
+        </scope>
+        <scope ilk="function" line="249" lineend="251" name="completenames" returns="list" signature="completenames(text, *ignored)">
+          <variable citdl="str" line="250" name="dotext" />
+          <variable ilk="argument" name="text" />
+          <variable citdl="Cmd" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="ignored" />
+        </scope>
+        <variable citdl="str" line="72" name="doc_leader" />
+        <variable citdl="str" line="76" name="nohelp" />
+        <variable citdl="str" line="75" name="undoc_header" />
+        <variable citdl="str" line="67" name="prompt" />
+        <variable attributes="__instancevar__" citdl="list" line="99" name="cmdqueue" />
+        <variable attributes="__instancevar__" citdl="sys.stdout" line="96" name="stdout" />
+        <variable citdl="str" line="69" name="ruler" />
+        <variable attributes="__instancevar__" citdl="readline.get_completer()" line="113" name="old_completer" />
+        <variable attributes="__instancevar__" citdl="sys.stdin" line="92" name="stdin" />
+        <variable citdl="str" line="70" name="lastcmd" />
+        <variable attributes="__instancevar__" citdl="str" line="100" name="completekey" />
+        <variable attributes="__instancevar__" citdl="complete.compfunc()" line="277" name="completion_matches" />
+        <variable line="71" name="intro" />
+        <variable citdl="int" line="77" name="use_rawinput" />
+        <variable citdl="str" line="74" name="misc_header" />
+        <variable citdl="str" line="73" name="doc_header" />
+        <variable citdl="string.digits" line="68" name="identchars" />
+      </scope>
+      <variable citdl="str" line="53" name="IDENTCHARS" />
+      <variable citdl="str" line="52" name="PROMPT" />
+      <variable citdl="list" line="50" name="__all__" />
+      <import module="string" />
+    </scope>
+    

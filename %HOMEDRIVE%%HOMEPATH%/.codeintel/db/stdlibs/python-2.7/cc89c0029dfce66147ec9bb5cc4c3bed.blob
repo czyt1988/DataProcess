@@ -1,0 +1,218 @@
+<scope doc="&quot;Executable documentation&quot; for the pickle module.&#10;Extensive comments about the pickle protocols and pickle-machine opcodes can be found here.  Some functions meant for external use:  genops(pickle) Generate all the opcodes in a pickle, as (opcode, arg, position) triples.  dis(pickle, out=None, memo=None, indentlevel=4) Print a symbolic disassembly of a pickle." ilk="blob" lang="Python" name="pickletools">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="165" lineend="197" name="ArgumentDescriptor">
+        <scope ilk="function" line="184" lineend="197" name="__init__" signature="ArgumentDescriptor(name, n, reader, doc)">
+          <variable ilk="argument" name="doc" />
+          <variable citdl="ArgumentDescriptor" ilk="argument" name="self" />
+          <variable ilk="argument" name="reader" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <variable attributes="__instancevar__" line="197" name="doc" />
+        <variable citdl="tuple" line="166" name="__slots__" />
+        <variable attributes="__instancevar__" line="194" name="reader" />
+        <variable attributes="__instancevar__" line="186" name="name" />
+        <variable attributes="__instancevar__" line="192" name="n" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="823" lineend="880" name="OpcodeInfo">
+        <scope ilk="function" line="854" lineend="880" name="__init__" signature="OpcodeInfo(name, code, arg, stack_before, stack_after, proto, doc)">
+          <variable ilk="argument" name="code" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="proto" />
+          <variable ilk="argument" name="stack_after" />
+          <variable ilk="argument" name="doc" />
+          <variable citdl="OpcodeInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="stack_before" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <variable attributes="__instancevar__" line="861" name="code" />
+        <variable attributes="__instancevar__" line="857" name="name" />
+        <variable attributes="__instancevar__" line="877" name="proto" />
+        <variable attributes="__instancevar__" line="874" name="stack_after" />
+        <variable attributes="__instancevar__" line="880" name="doc" />
+        <variable citdl="tuple" line="825" name="__slots__" />
+        <variable attributes="__instancevar__" line="869" name="stack_before" />
+        <variable attributes="__instancevar__" line="864" name="arg" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="697" lineend="724" name="StackObject">
+        <scope ilk="function" line="723" lineend="724" name="__repr__" signature="__repr__()">
+          <variable citdl="StackObject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="710" lineend="721" name="__init__" signature="StackObject(name, obtype, doc)">
+          <variable ilk="argument" name="obtype" />
+          <variable citdl="StackObject" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="doc" />
+        </scope>
+        <variable attributes="__instancevar__" line="721" name="doc" />
+        <variable citdl="tuple" line="698" name="__slots__" />
+        <variable attributes="__instancevar__" line="712" name="name" />
+        <variable attributes="__instancevar__" line="718" name="obtype" />
+      </scope>
+      <variable citdl="int" line="162" name="TAKEN_FROM_ARGUMENT1" />
+      <variable citdl="int" line="163" name="TAKEN_FROM_ARGUMENT4" />
+      <variable citdl="int" line="158" name="UP_TO_NEWLINE" />
+      <variable citdl="list" line="13" name="__all__" />
+      <variable citdl="dict" line="2265" name="__test__" />
+      <variable citdl="StackObject" line="783" name="anyobject" />
+      <variable citdl="dict" line="1758" name="code2op" />
+      <variable citdl="ArgumentDescriptor" line="551" name="decimalnl_long" />
+      <variable citdl="ArgumentDescriptor" line="538" name="decimalnl_short" />
+      <scope doc="Decode a long from a two's complement little-endian binary&#10;string." ilk="function" name="decode_long" signature="decode_long(data)" />
+      <scope doc="Produce a symbolic disassembly of a pickle." ilk="function" line="1891" lineend="2025" name="dis" signature="dis(pickle, out=None, memo=None, indentlevel=4)">
+        <variable citdl="list" line="1934" name="markstack" />
+        <variable citdl="markstack.pop()" line="1960" name="markpos" />
+        <variable citdl="int" line="1933" name="maxproto" />
+        <variable citdl="str" line="1951" name="markmsg" />
+        <variable citdl="str" line="1936" name="errormsg" />
+        <variable citdl="str" line="1935" name="indentchunk" />
+        <variable citdl="opcode.stack_after" line="1947" name="after" />
+        <variable citdl="dict" ilk="argument" name="memo" />
+        <variable citdl="int" line="1948" name="numtopop" />
+        <variable citdl="int" ilk="argument" name="indentlevel" />
+        <variable citdl="str" line="1941" name="line" />
+        <variable citdl="opcode.stack_before" line="1946" name="before" />
+        <variable ilk="argument" name="pickle" />
+        <variable citdl="list" line="1930" name="stack" />
+        <variable ilk="argument" name="out" />
+      </scope>
+      <variable citdl="ArgumentDescriptor" line="600" name="float8" />
+      <variable citdl="ArgumentDescriptor" line="571" name="floatnl" />
+      <scope doc="Generate all the opcodes in a pickle." ilk="function" line="1807" lineend="1859" name="genops" signature="genops(pickle)">
+        <variable citdl="pickle.read()" line="1843" name="code" />
+        <variable citdl="pickle.tell" line="1837" name="getpos" />
+        <variable citdl="getpos()" line="1842" name="pos" />
+        <variable citdl="code2op.get()" line="1844" name="opcode" />
+        <variable citdl="opcode.arg.reader()" line="1853" name="arg" />
+        <variable citdl="StringIO.StringIO()" ilk="argument" name="pickle" />
+      </scope>
+      <variable citdl="ArgumentDescriptor" line="255" name="int4" />
+      <variable citdl="ArgumentDescriptor" line="643" name="long1" />
+      <variable citdl="ArgumentDescriptor" line="677" name="long4" />
+      <variable citdl="StackObject" line="788" name="markobject" />
+      <variable citdl="list" line="883" name="opcodes" />
+      <scope doc="Optimize a pickle string by removing unused PUT opcodes" ilk="function" line="1864" lineend="1886" name="optimize" returns="str.join()" signature="optimize(p)">
+        <variable citdl="list" line="1867" name="puts" />
+        <variable citdl="int" line="1880" name="i" />
+        <variable line="1882" name="j" />
+        <variable citdl="pos" line="1868" name="prevpos" />
+        <variable citdl="list" line="1879" name="s" />
+        <variable ilk="argument" name="p" />
+        <variable citdl="arg" line="1874" name="prevarg" />
+        <variable citdl="set()" line="1866" name="gets" />
+      </scope>
+      <variable citdl="StackObject" line="743" name="pybool" />
+      <variable citdl="StackObject" line="778" name="pydict" />
+      <variable citdl="StackObject" line="748" name="pyfloat" />
+      <variable citdl="StackObject" line="727" name="pyint" />
+      <variable citdl="StackObject" line="737" name="pyinteger_or_bool" />
+      <variable citdl="StackObject" line="773" name="pylist" />
+      <variable citdl="StackObject" line="732" name="pylong" />
+      <variable citdl="StackObject" line="763" name="pynone" />
+      <variable citdl="StackObject" line="753" name="pystring" />
+      <variable citdl="StackObject" line="768" name="pytuple" />
+      <variable citdl="StackObject" line="758" name="pyunicode" />
+      <scope doc="&gt;&gt;&gt; import StringIO" ilk="function" line="514" lineend="535" name="read_decimalnl_long" returns="long()" signature="read_decimalnl_long(f)">
+        <variable citdl="read_stringnl()" line="532" name="s" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_decimalnl_short(StringIO.StringIO(&quot;1234\n56&quot;)) 1234" ilk="function" line="485" lineend="512" name="read_decimalnl_short" returns="int()" signature="read_decimalnl_short(f)">
+        <variable citdl="read_stringnl()" line="497" name="s" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO, struct &gt;&gt;&gt; raw = struct.pack(&quot;&gt;d&quot;,&#10;-1.25) &gt;&gt;&gt; raw '\xbf\xf4\x00\x00\x00\x00\x00\x00'" ilk="function" line="584" lineend="597" name="read_float8" signature="read_float8(f)">
+        <variable citdl="f.read()" line="594" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_floatnl(StringIO.StringIO(&quot;-1.25\n6&quot;)) -1.25" ilk="function" line="562" lineend="569" name="read_floatnl" returns="float()" signature="read_floatnl(f)">
+        <variable citdl="read_stringnl()" line="568" name="s" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_int4(StringIO.StringIO('\xff\x00\x00\x00')) 255 &gt;&gt;&gt;&#10;read_int4(StringIO.StringIO('\x00\x00\x00\x80')) == -(2**31)" ilk="function" line="241" lineend="253" name="read_int4" signature="read_int4(f)">
+        <variable citdl="f.read()" line="250" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_long1(StringIO.StringIO(&quot;\x00&quot;)) 0L &gt;&gt;&gt;&#10;read_long1(StringIO.StringIO(&quot;\x02\xff\x00&quot;))" ilk="function" line="622" lineend="641" name="read_long1" returns="decode_long()" signature="read_long1(f)">
+        <variable citdl="read_uint1()" line="637" name="n" />
+        <variable citdl="f.read()" line="638" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_long4(StringIO.StringIO(&quot;\x02\x00\x00\x00\xff\x00&quot;))&#10;255L &gt;&gt;&gt;&#10;read_long4(StringIO.StringIO(&quot;\x02\x00\x00\x00\xff\x7f&quot;))" ilk="function" line="654" lineend="675" name="read_long4" returns="decode_long()" signature="read_long4(f)">
+        <variable citdl="read_int4()" line="669" name="n" />
+        <variable citdl="f.read()" line="672" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_string1(StringIO.StringIO(&quot;\x00&quot;)) '' &gt;&gt;&gt;&#10;read_string1(StringIO.StringIO(&quot;\x03abcdef&quot;))" ilk="function" line="391" lineend="406" name="read_string1" returns="f.read()" signature="read_string1(f)">
+        <variable citdl="read_uint1()" line="400" name="n" />
+        <variable citdl="f.read()" line="402" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_string4(StringIO.StringIO(&quot;\x00\x00\x00\x00abc&quot;)) ''&#10;&gt;&gt;&gt;&#10;read_string4(StringIO.StringIO(&quot;\x03\x00\x00\x00abcdef&quot;))" ilk="function" line="357" lineend="377" name="read_string4" returns="f.read()" signature="read_string4(f)">
+        <variable citdl="read_int4()" line="370" name="n" />
+        <variable citdl="f.read()" line="373" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_stringnl(StringIO.StringIO(&quot;'abcd'\nefg\n&quot;)) 'abcd'" ilk="function" line="262" lineend="309" name="read_stringnl" returns="list" signature="read_stringnl(f, decode=True, stripquotes=True)">
+        <variable citdl="True" ilk="argument" name="decode" />
+        <variable citdl="True" ilk="argument" name="stripquotes" />
+        <variable citdl="list" line="289" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="321" lineend="322" name="read_stringnl_noescape" returns="read_stringnl()" signature="read_stringnl_noescape(f)">
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt; read_stringnl_noescape_pair(StringIO&#10;.StringIO(&quot;Queue\nEmpty\njunk&quot;)) 'Queue Empty'" ilk="function" line="335" lineend="342" name="read_stringnl_noescape_pair" returns="tuple" signature="read_stringnl_noescape_pair(f)">
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_uint1(StringIO.StringIO('\xff')) 255" ilk="function" line="201" lineend="211" name="read_uint1" returns="ord()" signature="read_uint1(f)">
+        <variable citdl="f.read()" line="208" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_uint2(StringIO.StringIO('\xff\x00')) 255 &gt;&gt;&gt;&#10;read_uint2(StringIO.StringIO('\xff\xff'))" ilk="function" line="220" lineend="232" name="read_uint2" signature="read_uint2(f)">
+        <variable citdl="f.read()" line="229" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt; s = u'abcd\uabcd' &gt;&gt;&gt; enc =&#10;s.encode('utf-8') &gt;&gt;&gt; enc" ilk="function" line="445" lineend="470" name="read_unicodestring4" returns="unicode()" signature="read_unicodestring4(f)">
+        <variable citdl="read_int4()" line="463" name="n" />
+        <variable citdl="f.read()" line="466" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="&gt;&gt;&gt; import StringIO &gt;&gt;&gt;&#10;read_unicodestringnl(StringIO.StringIO(&quot;abc\uabcd\njunk&quot;))&#10;u'abc\uabcd'" ilk="function" line="420" lineend="432" name="read_unicodestringnl" returns="unicode()" signature="read_unicodestringnl(f)">
+        <variable citdl="f.readline()" line="427" name="data" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <variable citdl="StackObject" line="802" name="stackslice" />
+      <variable citdl="ArgumentDescriptor" line="408" name="string1" />
+      <variable citdl="ArgumentDescriptor" line="379" name="string4" />
+      <variable citdl="ArgumentDescriptor" line="311" name="stringnl" />
+      <variable citdl="ArgumentDescriptor" line="324" name="stringnl_noescape" />
+      <variable citdl="ArgumentDescriptor" line="344" name="stringnl_noescape_pair" />
+      <variable citdl="ArgumentDescriptor" line="213" name="uint1" />
+      <variable citdl="ArgumentDescriptor" line="234" name="uint2" />
+      <variable citdl="ArgumentDescriptor" line="472" name="unicodestring4" />
+      <variable citdl="ArgumentDescriptor" line="434" name="unicodestringnl" />
+      <variable attributes="__hidden__" citdl="OpcodeInfo" line="882" name="I" />
+      <scope attributes="protected __hidden__" ilk="function" line="2269" lineend="2271" name="_test" returns="doctest.testmod()" signature="_test()">
+        <import line="2270" module="doctest" />
+      </scope>
+      <scope attributes="__hidden__" ilk="function" line="1763" lineend="1799" name="assure_pickle_consistency" signature="assure_pickle_consistency(verbose=False)">
+        <import line="1764" module="pickle" />
+        <import line="1764" module="re" />
+        <variable citdl="False" ilk="argument" name="verbose" />
+        <variable citdl="code2op.copy()" line="1766" name="copy" />
+        <variable citdl="getattr()" line="1772" name="picklecode" />
+        <variable line="1782" name="d" />
+        <variable citdl="list" line="1796" name="msg" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="str" line="2237" name="_memo_test" />
+      <variable attributes="protected __hidden__" citdl="str" line="2032" name="_dis_test" />
+      <variable attributes="__hidden__" citdl="dict" line="1738" name="code2i" />
+      <scope attributes="protected __hidden__" ilk="class" line="2028" lineend="2030" name="_Example">
+        <scope attributes="__ctor__" ilk="function" line="2029" lineend="2030" name="__init__" signature="_Example(value)">
+          <variable citdl="_Example" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <variable attributes="__instancevar__" line="2030" name="value" />
+      </scope>
+      <variable attributes="__hidden__" citdl="dict" line="1737" name="name2i" />
+    </scope>
+    

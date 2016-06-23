@@ -1,0 +1,42 @@
+<scope doc="Wrapper function that initializes curses and calls another function,&#10;restoring normal keyboard/screen behavior on error. The callable object 'func' is then passed the main window 'stdscr' as its first argument, followed by any other arguments passed to wrapper()." ilk="blob" lang="Python" name="curses.wrapper">
+      <variable citdl="method-wrapper" name="__call__" />
+      <scope classrefs="object" doc="function(code, globals[, name[, argdefs[, closure]]])&#10;Create a function object from a code object and a dictionary. The optional name string overrides the name from the code object. The optional argdefs tuple specifies the default argument values. The optional closure tuple supplies the bindings for free variables." ilk="class" name="__class__">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="descr.__get__(obj[, type]) -&gt; value" ilk="function" name="__get__" signature="descr.__get__(obj[, type]) -&gt; value" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <variable citdl="NoneType" name="__closure__" />
+      <variable citdl="NoneType" name="__defaults__" />
+      <variable citdl="method-wrapper" name="__delattr__" />
+      <variable citdl="dict" name="__dict__" />
+      <scope doc="default object formatter" ilk="function" name="__format__" />
+      <variable citdl="method-wrapper" name="__get__" />
+      <variable citdl="method-wrapper" name="__getattribute__" />
+      <variable citdl="dict" name="__globals__" />
+      <variable citdl="method-wrapper" name="__hash__" />
+      <variable citdl="method-wrapper" name="__init__" />
+      <scope doc="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" ilk="function" name="__new__" signature="T.__new__(S, ...) -&gt; a new object with type S, a subtype of T" />
+      <scope doc="helper for pickle" ilk="function" name="__reduce__" />
+      <scope doc="helper for pickle" ilk="function" name="__reduce_ex__" />
+      <variable citdl="method-wrapper" name="__repr__" />
+      <variable citdl="method-wrapper" name="__setattr__" />
+      <scope doc="size of object in memory, in bytes" ilk="function" name="__sizeof__" returns="int" signature="__sizeof__() -&gt; int" />
+      <variable citdl="method-wrapper" name="__str__" />
+      <scope doc="Abstract classes can override this to customize&#10;issubclass()." ilk="function" name="__subclasshook__" />
+      <variable citdl="NoneType" name="func_closure" />
+      <variable citdl="NoneType" name="func_defaults" />
+      <variable citdl="dict" name="func_dict" />
+      <variable citdl="str" name="func_doc" />
+      <variable citdl="dict" name="func_globals" />
+      <variable citdl="str" name="func_name" />
+      <scope attributes="__hidden__" doc="Wrapper function that initializes curses and calls another function,&#10;restoring normal keyboard/screen behavior on error.&#10;The callable object 'func' is then passed the main window 'stdscr'&#10;as its first argument, followed by any other arguments passed to&#10;wrapper()." ilk="function" line="12" lineend="50" name="wrapper" returns="wrapper.func()" signature="wrapper(func, *args, **kwds)">
+        <variable ilk="argument" name="func" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+        <variable citdl="curses.initscr()" line="22" name="stdscr" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,651 @@
+<scope doc="HTTP cookie handling for web clients.&#10;This module has (now fairly distant) origins in Gisle Aas' Perl module HTTP::Cookies, from the libwww-perl library.  Docstrings, comments and debug strings in this code refer to the attributes of the HTTP cookie system as cookie-attributes, to distinguish them clearly from Python attributes.  Class diagram (note that BSDDBCookieJar and the MSIE* classes are not distributed with the Python standard library, but are available from http://wwwsearch.sf.net/):" ilk="blob" lang="Python" name="cookielib">
+      <scope doc="# Used as second parameter to dict.get() method, to distinguish absent&#10;# dict key from one with a None value." ilk="class" line="1199" lineend="1199" name="Absent" />
+      <scope doc="HTTP Cookie.&#10;This class represents both Netscape and RFC 2965 cookies.  This is deliberately a very simple class.  It just holds attributes.  It's possible to construct Cookie instances that don't comply with the cookie standards.  CookieJar.make_cookies is the factory function for Cookie objects -- it deals with cookie parsing, supplying defaults, and normalising to the representation used in this class.  CookiePolicy is responsible for checking them to see whether they should be accepted from and returned to the server. " ilk="class" line="707" lineend="802" name="Cookie">
+        <scope ilk="function" line="767" lineend="768" name="has_nonstandard_attr" returns="bool" signature="has_nonstandard_attr(name)">
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="780" lineend="788" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="str" line="781" name="p" />
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable citdl="domain.lower()" line="783" name="limit" />
+          <variable citdl="str" line="785" name="namevalue" />
+        </scope>
+        <scope ilk="function" line="790" lineend="802" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable citdl="list" line="791" name="args" />
+          <variable citdl="getattr()" line="798" name="attr" />
+        </scope>
+        <scope ilk="function" line="769" lineend="770" name="get_nonstandard_attr" returns="self._rest.get()" signature="get_nonstandard_attr(name, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="774" lineend="778" name="is_expired" returns="bool" signature="is_expired(now=None)">
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable citdl="time.time()" ilk="argument" name="now" />
+        </scope>
+        <scope ilk="function" line="725" lineend="765" name="__init__" signature="Cookie(version, name, value, port, port_specified, domain, domain_specified, domain_initial_dot, path, path_specified, secure, expires, discard, comment, comment_url, rest, rfc2109=False)">
+          <variable ilk="argument" name="comment" />
+          <variable ilk="argument" name="domain" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="domain_initial_dot" />
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable citdl="int()" ilk="argument" name="expires" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="domain_specified" />
+          <variable citdl="False" ilk="argument" name="rfc2109" />
+          <variable citdl="int()" ilk="argument" name="version" />
+          <variable ilk="argument" name="port_specified" />
+          <variable ilk="argument" name="rest" />
+          <variable ilk="argument" name="discard" />
+          <variable ilk="argument" name="path_specified" />
+          <variable ilk="argument" name="path" />
+          <variable ilk="argument" name="port" />
+          <variable ilk="argument" name="comment_url" />
+          <variable ilk="argument" name="secure" />
+        </scope>
+        <scope ilk="function" line="771" lineend="772" name="set_nonstandard_attr" signature="set_nonstandard_attr(name, value)">
+          <variable citdl="Cookie" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <variable attributes="__instancevar__" line="761" name="comment" />
+        <variable attributes="__instancevar__" citdl="domain.lower()" line="749" name="domain" />
+        <variable attributes="__instancevar__" line="758" name="secure" />
+        <variable attributes="__instancevar__" line="755" name="domain_initial_dot" />
+        <variable attributes="__instancevar__" citdl="int()" line="759" name="expires" />
+        <variable attributes="__instancevar__" line="745" name="value" />
+        <variable attributes="__instancevar__" line="750" name="domain_specified" />
+        <variable attributes="protected __instancevar__" citdl="copy.copy()" line="765" name="_rest" />
+        <variable attributes="__instancevar__" citdl="int()" line="743" name="version" />
+        <variable attributes="__instancevar__" line="747" name="port_specified" />
+        <variable attributes="__instancevar__" line="762" name="comment_url" />
+        <variable attributes="__instancevar__" line="760" name="discard" />
+        <variable attributes="__instancevar__" line="757" name="path_specified" />
+        <variable attributes="__instancevar__" line="756" name="path" />
+        <variable attributes="__instancevar__" line="746" name="port" />
+        <variable attributes="__instancevar__" citdl="False" line="763" name="rfc2109" />
+        <variable attributes="__instancevar__" line="744" name="name" />
+      </scope>
+      <scope doc="Collection of HTTP cookies.&#10;You may not need to know about this class: try urllib2.build_opener(HTTPCookieProcessor).open(url)." ilk="class" line="1201" lineend="1727" name="CookieJar">
+        <scope doc="Set a cookie, without checking whether or not it should be&#10;set." ilk="function" line="1622" lineend="1633" name="set_cookie" signature="set_cookie(cookie)">
+          <variable line="1630" name="c3" />
+          <variable line="1628" name="c2" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="dict" line="1624" name="c" />
+        </scope>
+        <scope doc="Add correct Cookie: header to request (urllib2.Request&#10;object)." ilk="function" line="1312" lineend="1343" name="add_cookie_header" signature="add_cookie_header(request)">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="_cookies_for_request()" line="1324" name="cookies" />
+          <variable citdl="_cookie_attrs()" line="1326" name="attrs" />
+        </scope>
+        <scope doc="Return list of tuples containing normalised cookie&#10;information." ilk="function" line="1345" lineend="1440" name="_normalized_cookie_tuples" returns="list" signature="_normalized_cookie_tuples(attrs_set)">
+          <variable ilk="argument" name="attrs_set" />
+          <variable citdl="list" line="1358" name="cookie_tuples" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="dict" line="1382" name="rest" />
+          <variable citdl="dict" line="1381" name="standard" />
+          <variable citdl="tuple" line="1361" name="value_attrs" />
+          <variable citdl="False" line="1377" name="max_age_set" />
+          <variable citdl="int()" line="1391" name="v" />
+          <variable citdl="tuple" line="1360" name="boolean_attrs" />
+          <variable citdl="True" line="1379" name="bad_cookie" />
+          <variable citdl="k.lower()" line="1387" name="k" />
+          <variable citdl="k.lower()" line="1384" name="lc" />
+        </scope>
+        <scope doc="Discard all session cookies." ilk="function" line="1676" lineend="1689" name="clear_session_cookies" signature="clear_session_cookies()">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return sequence of Cookie objects extracted from response&#10;object." ilk="function" line="1555" lineend="1607" name="make_cookies" returns="list" signature="make_cookies(response, request)">
+          <variable citdl="_cookies_from_attrs_set()" line="1572" name="cookies" />
+          <variable citdl="_cookies_from_attrs_set()" line="1581" name="ns_cookies" />
+          <variable citdl="headers.getheaders()" line="1559" name="rfc2965_hdrs" />
+          <variable citdl="self._policy.rfc2965" line="1562" name="rfc2965" />
+          <scope ilk="function" line="1599" lineend="1601" name="no_matching_rfc2965" returns="bool" signature="no_matching_rfc2965(ns_cookie, lookup=lookup)">
+            <variable ilk="argument" name="ns_cookie" />
+            <variable citdl="dict" ilk="argument" name="lookup" />
+            <variable citdl="tuple" line="1600" name="key" />
+          </scope>
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="self._policy.netscape" line="1563" name="netscape" />
+          <variable citdl="response.info()" line="1558" name="headers" />
+          <variable citdl="dict" line="1595" name="lookup" />
+          <variable citdl="headers.getheaders()" line="1560" name="ns_hdrs" />
+          <variable ilk="argument" name="response" />
+        </scope>
+        <scope doc="Extract cookies from response, where allowable given the&#10;request." ilk="function" line="1635" lineend="1647" name="extract_cookies" signature="extract_cookies(response, request)">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="response" />
+        </scope>
+        <scope doc="Return a list of cookie-attributes to be returned to server." ilk="function" line="1253" lineend="1310" name="_cookie_attrs" returns="list" signature="_cookie_attrs(cookies)">
+          <variable ilk="argument" name="cookies" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="cookie.domain" line="1299" name="domain" />
+          <variable citdl="cookie.value" line="1286" name="value" />
+          <variable citdl="str" line="1305" name="p" />
+          <variable citdl="cookie.version" line="1275" name="version" />
+          <variable citdl="list" line="1267" name="attrs" />
+          <variable citdl="False" line="1265" name="version_set" />
+        </scope>
+        <scope doc="Discard all expired cookies." ilk="function" line="1691" lineend="1708" name="clear_expired_cookies" signature="clear_expired_cookies()">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="time.time()" line="1703" name="now" />
+        </scope>
+        <scope ilk="function" line="1543" lineend="1553" name="_process_rfc2109_cookies" signature="_process_rfc2109_cookies(cookies)">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="1544" name="rfc2109_as_ns" />
+          <variable ilk="argument" name="cookies" />
+        </scope>
+        <scope doc="Return number of contained cookies." ilk="function" line="1713" lineend="1717" name="__len__" returns="int" signature="__len__()">
+          <variable citdl="int" line="1715" name="i" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set a cookie if policy says it's OK to do so." ilk="function" line="1609" lineend="1620" name="set_cookie_if_ok" signature="set_cookie_if_ok(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope ilk="function" line="1442" lineend="1532" name="_cookie_from_cookie_tuple" returns="Cookie" signature="_cookie_from_cookie_tuple(tup, request)">
+          <variable citdl="standard.get()" line="1462" name="comment" />
+          <variable citdl="standard.get()" line="1447" name="domain" />
+          <variable citdl="standard.get()" line="1459" name="secure" />
+          <variable citdl="False" line="1484" name="domain_initial_dot" />
+          <variable ilk="argument" name="tup" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="standard.get()" line="1450" name="expires" />
+          <variable ilk="argument" name="request" />
+          <variable line="1488" name="req_host" />
+          <variable citdl="bool" line="1482" name="domain_specified" />
+          <variable citdl="path.rfind()" line="1472" name="i" />
+          <variable citdl="int()" line="1453" name="version" />
+          <variable citdl="False" line="1494" name="port_specified" />
+          <variable line="1488" name="erhn" />
+          <variable citdl="True" line="1467" name="path_specified" />
+          <variable citdl="True" line="1461" name="discard" />
+          <variable citdl="list" line="1448" name="path" />
+          <variable citdl="request_port()" line="1449" name="port" />
+          <variable citdl="standard.get()" line="1463" name="comment_url" />
+        </scope>
+        <scope ilk="function" line="1710" lineend="1711" name="__iter__" returns="deepvalues()" signature="__iter__()">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1228" lineend="1244" name="_cookies_for_domain" returns="list" signature="_cookies_for_domain(domain, request)">
+          <variable line="1233" name="cookies_by_path" />
+          <variable ilk="argument" name="domain" />
+          <variable line="1237" name="cookies_by_name" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="list" line="1229" name="cookies" />
+        </scope>
+        <scope ilk="function" line="1534" lineend="1541" name="_cookies_from_attrs_set" returns="list" signature="_cookies_from_attrs_set(attrs_set, request)">
+          <variable ilk="argument" name="attrs_set" />
+          <variable citdl="list" line="1537" name="cookies" />
+          <variable citdl="_normalized_cookie_tuples()" line="1535" name="cookie_tuples" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="_cookie_from_cookie_tuple()" line="1539" name="cookie" />
+        </scope>
+        <scope ilk="function" line="1724" lineend="1727" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="list" line="1725" name="r" />
+        </scope>
+        <scope ilk="function" line="1225" lineend="1226" name="set_policy" signature="set_policy(policy)">
+          <variable ilk="argument" name="policy" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Clear some cookies." ilk="function" line="1649" lineend="1674" name="clear" signature="clear(domain=None, path=None, name=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="domain" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="1719" lineend="1722" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable citdl="list" line="1720" name="r" />
+        </scope>
+        <scope ilk="function" line="1217" lineend="1223" name="__init__" signature="CookieJar(policy=None)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="policy" />
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of cookies to be returned to server." ilk="function" line="1246" lineend="1251" name="_cookies_for_request" returns="list" signature="_cookies_for_request(request)">
+          <variable citdl="CookieJar" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="list" line="1248" name="cookies" />
+        </scope>
+        <variable citdl="re.compile()" line="1213" name="dots_re" />
+        <variable citdl="re.compile()" line="1210" name="quote_re" />
+        <variable citdl="re.compile()" line="1211" name="strict_domain_re" />
+        <variable citdl="re.compile()" line="1212" name="domain_re" />
+        <variable attributes="protected __instancevar__" citdl="_threading.RLock()" line="1222" name="_cookies_lock" />
+        <variable citdl="re.compile()" line="1209" name="non_word_re" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="1223" name="_cookies" />
+        <variable attributes="protected __instancevar__" citdl="DefaultCookiePolicy" line="1220" name="_policy" />
+        <variable citdl="str" line="1215" name="magic_re" />
+      </scope>
+      <scope doc="Defines which cookies get accepted from and returned to server.&#10;May also modify cookies, though this is probably a bad idea.  The subclass DefaultCookiePolicy defines the standard rules for Netscape and RFC 2965 cookies -- override that if you want a customised policy." ilk="class" line="805" lineend="835" name="CookiePolicy">
+        <scope doc="Return false if cookies should not be returned, given cookie&#10;domain." ilk="function" line="827" lineend="830" name="domain_return_ok" returns="bool" signature="domain_return_ok(domain, request)">
+          <variable citdl="CookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable ilk="argument" name="domain" />
+        </scope>
+        <scope doc="Return true if (and only if) cookie should be returned to&#10;server." ilk="function" line="823" lineend="825" name="return_ok" signature="return_ok(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="CookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope doc="Return false if cookies should not be returned, given cookie&#10;path." ilk="function" line="832" lineend="835" name="path_return_ok" returns="bool" signature="path_return_ok(path, request)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="CookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+        </scope>
+        <scope doc="Return true if (and only if) cookie should be accepted from&#10;server." ilk="function" line="814" lineend="821" name="set_ok" signature="set_ok(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="CookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="80" name="DAYS" />
+      <variable citdl="str" line="53" name="DEFAULT_HTTP_PORT" />
+      <scope classrefs="CookiePolicy" doc="Implements the standard rules for accepting and returning cookies.&#10;" ilk="class" line="838" lineend="1172" name="DefaultCookiePolicy">
+        <scope ilk="function" line="977" lineend="1034" name="set_ok_domain" returns="bool" signature="set_ok_domain(cookie, request)">
+          <variable citdl="cookie.domain" line="986" name="domain" />
+          <variable citdl="list" line="1004" name="undotted_domain" />
+          <variable citdl="domain.rfind()" line="991" name="i" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable citdl="domain.rfind()" line="992" name="j" />
+          <variable ilk="argument" name="request" />
+          <variable line="985" name="req_host" />
+          <variable citdl="list" line="1028" name="host_prefix" />
+          <variable ilk="argument" name="cookie" />
+          <variable line="985" name="erhn" />
+          <variable citdl="list" line="995" name="sld" />
+          <variable citdl="bool" line="1007" name="embedded_dots" />
+          <variable citdl="list" line="994" name="tld" />
+        </scope>
+        <scope ilk="function" line="1084" lineend="1094" name="return_ok_verifiability" returns="bool" signature="return_ok_verifiability(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope doc="Set the sequence of allowed domains, or None." ilk="function" line="897" lineend="901" name="set_allowed_domains" signature="set_allowed_domains(allowed_domains)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable citdl="tuple()" ilk="argument" name="allowed_domains" />
+        </scope>
+        <scope doc="Return the sequence of blocked domains (as a tuple)." ilk="function" line="881" lineend="883" name="blocked_domains" returns="tuple" signature="blocked_domains()">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="945" lineend="955" name="set_ok_verifiability" returns="bool" signature="set_ok_verifiability(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope doc="Constructor arguments should be passed as keyword arguments&#10;only." ilk="function" line="848" lineend="879" name="__init__" signature="DefaultCookiePolicy(blocked_domains=None, allowed_domains=None, netscape=True, rfc2965=False, rfc2109_as_netscape=None, hide_cookie2=False, strict_domain=False, strict_rfc2965_unverifiable=True, strict_ns_unverifiable=False, strict_ns_domain=DomainLiberal, strict_ns_set_initial_dollar=False, strict_ns_set_path=False)">
+          <variable citdl="True" ilk="argument" name="strict_rfc2965_unverifiable" />
+          <variable citdl="int" ilk="argument" name="strict_ns_domain" />
+          <variable ilk="argument" name="rfc2109_as_netscape" />
+          <variable citdl="False" ilk="argument" name="rfc2965" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="strict_domain" />
+          <variable ilk="argument" name="blocked_domains" />
+          <variable citdl="False" ilk="argument" name="strict_ns_set_path" />
+          <variable citdl="False" ilk="argument" name="strict_ns_unverifiable" />
+          <variable citdl="False" ilk="argument" name="strict_ns_set_initial_dollar" />
+          <variable citdl="False" ilk="argument" name="hide_cookie2" />
+          <variable citdl="True" ilk="argument" name="netscape" />
+          <variable citdl="tuple()" ilk="argument" name="allowed_domains" />
+        </scope>
+        <scope ilk="function" line="1122" lineend="1142" name="return_ok_domain" returns="bool" signature="return_ok_domain(cookie, request)">
+          <variable citdl="cookie.domain" line="1124" name="domain" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable line="1123" name="req_host" />
+          <variable ilk="argument" name="cookie" />
+          <variable line="1123" name="erhn" />
+        </scope>
+        <scope ilk="function" line="1166" lineend="1172" name="path_return_ok" returns="bool" signature="path_return_ok(path, request)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="request_path()" line="1168" name="req_path" />
+        </scope>
+        <scope ilk="function" line="930" lineend="943" name="set_ok_version" returns="bool" signature="set_ok_version(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope ilk="function" line="1075" lineend="1082" name="return_ok_version" returns="bool" signature="return_ok_version(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope ilk="function" line="1144" lineend="1164" name="domain_return_ok" returns="bool" signature="domain_return_ok(domain, request)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="request" />
+          <variable citdl="str" line="1147" name="req_host" />
+          <variable ilk="argument" name="domain" />
+          <variable citdl="str" line="1147" name="erhn" />
+        </scope>
+        <scope ilk="function" line="903" lineend="909" name="is_not_allowed" returns="bool" signature="is_not_allowed(domain)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="domain" />
+        </scope>
+        <scope doc="If you override .return_ok(), be sure to call this method." ilk="function" line="1057" lineend="1073" name="return_ok" returns="bool" signature="return_ok(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="getattr()" line="1070" name="fn" />
+          <variable citdl="n" line="1069" name="fn_name" />
+        </scope>
+        <scope ilk="function" line="1102" lineend="1106" name="return_ok_expires" returns="bool" signature="return_ok_expires(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope ilk="function" line="888" lineend="892" name="is_blocked" returns="bool" signature="is_blocked(domain)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="domain" />
+        </scope>
+        <scope ilk="function" line="1096" lineend="1100" name="return_ok_secure" returns="bool" signature="return_ok_secure(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope ilk="function" line="957" lineend="964" name="set_ok_name" returns="bool" signature="set_ok_name(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+        </scope>
+        <scope doc="Return None, or the sequence of allowed domains (as a&#10;tuple)." ilk="function" line="894" lineend="896" name="allowed_domains" returns="tuple()" signature="allowed_domains()">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1108" lineend="1120" name="return_ok_port" returns="bool" signature="return_ok_port(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="request_port()" line="1110" name="req_port" />
+        </scope>
+        <scope doc="Set the sequence of blocked domains." ilk="function" line="884" lineend="886" name="set_blocked_domains" signature="set_blocked_domains(blocked_domains)">
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="blocked_domains" />
+        </scope>
+        <scope ilk="function" line="1036" lineend="1055" name="set_ok_port" returns="bool" signature="set_ok_port(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="request_port()" line="1038" name="req_port" />
+        </scope>
+        <scope doc="If you override .set_ok(), be sure to call this method." ilk="function" line="911" lineend="928" name="set_ok" returns="bool" signature="set_ok(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="getattr()" line="924" name="fn" />
+          <variable citdl="n" line="923" name="fn_name" />
+        </scope>
+        <scope ilk="function" line="966" lineend="975" name="set_ok_path" returns="bool" signature="set_ok_path(cookie, request)">
+          <variable ilk="argument" name="request" />
+          <variable citdl="DefaultCookiePolicy" ilk="argument" name="self" />
+          <variable ilk="argument" name="cookie" />
+          <variable citdl="request_path()" line="968" name="req_path" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="866" name="strict_rfc2965_unverifiable" />
+        <variable attributes="__instancevar__" citdl="int" line="868" name="strict_ns_domain" />
+        <variable attributes="__instancevar__" citdl="False" line="865" name="strict_domain" />
+        <variable citdl="int" line="843" name="DomainRFC2965Match" />
+        <variable attributes="__instancevar__" line="863" name="rfc2109_as_netscape" />
+        <variable citdl="int" line="846" name="DomainStrict" />
+        <variable attributes="__instancevar__" citdl="False" line="862" name="rfc2965" />
+        <variable attributes="protected __instancevar__" citdl="tuple()" line="879" name="_allowed_domains" />
+        <variable citdl="int" line="841" name="DomainStrictNoDots" />
+        <variable attributes="__instancevar__" citdl="False" line="870" name="strict_ns_set_path" />
+        <variable attributes="__instancevar__" citdl="False" line="867" name="strict_ns_unverifiable" />
+        <variable citdl="int" line="842" name="DomainStrictNonDomain" />
+        <variable attributes="__instancevar__" citdl="False" line="869" name="strict_ns_set_initial_dollar" />
+        <variable attributes="__instancevar__" citdl="False" line="864" name="hide_cookie2" />
+        <variable citdl="int" line="845" name="DomainLiberal" />
+        <variable attributes="protected __instancevar__" citdl="tuple()" line="873" name="_blocked_domains" />
+        <variable attributes="__instancevar__" citdl="True" line="861" name="netscape" />
+      </scope>
+      <variable citdl="int" line="71" name="EPOCH_YEAR" />
+      <variable citdl="SRE_Pattern" line="636" name="ESCAPED_CHAR_RE" />
+      <scope classrefs="CookieJar" doc="CookieJar that can be loaded from and saved to a file.&#10;" ilk="class" line="1733" lineend="1791" name="FileCookieJar">
+        <scope doc="Load cookies from a file." ilk="function" line="1755" lineend="1765" name="load" signature="load(filename=None, ignore_discard=False, ignore_expires=False)">
+          <variable citdl="False" ilk="argument" name="ignore_discard" />
+          <variable citdl="FileCookieJar" ilk="argument" name="self" />
+          <variable citdl="open()" line="1761" name="f" />
+          <variable citdl="False" ilk="argument" name="ignore_expires" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Clear all cookies and reload cookies from a saved file." ilk="function" line="1767" lineend="1791" name="revert" signature="revert(filename=None, ignore_discard=False, ignore_expires=False)">
+          <variable citdl="copy.deepcopy()" line="1782" name="old_state" />
+          <variable citdl="FileCookieJar" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="ignore_discard" />
+          <variable citdl="False" ilk="argument" name="ignore_expires" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Save cookies to a file." ilk="function" line="1751" lineend="1753" name="save" signature="save(filename=None, ignore_discard=False, ignore_expires=False)">
+          <variable citdl="FileCookieJar" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="ignore_discard" />
+          <variable citdl="False" ilk="argument" name="ignore_expires" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Cookies are NOT loaded from the named file until either the&#10;.load() or .revert() method is called." ilk="function" line="1736" lineend="1749" name="__init__" signature="FileCookieJar(filename=None, delayload=False, policy=None)">
+          <variable ilk="argument" name="policy" />
+          <variable citdl="FileCookieJar" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="delayload" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="copy.deepcopy()" line="1783" name="_cookies" />
+        <variable attributes="__instancevar__" citdl="bool()" line="1749" name="delayload" />
+        <variable attributes="__instancevar__" line="1748" name="filename" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="325" name="HEADER_ESCAPE_RE" />
+      <variable citdl="SRE_Pattern" line="411" name="HEADER_JOIN_ESCAPE_RE" />
+      <variable citdl="SRE_Pattern" line="323" name="HEADER_QUOTED_VALUE_RE" />
+      <variable citdl="SRE_Pattern" line="322" name="HEADER_TOKEN_RE" />
+      <variable citdl="SRE_Pattern" line="324" name="HEADER_VALUE_RE" />
+      <variable citdl="str" line="635" name="HTTP_PATH_SAFE" />
+      <variable citdl="SRE_Pattern" line="496" name="IPV4_RE" />
+      <variable citdl="SRE_Pattern" line="268" name="ISO_DATE_RE" />
+      <variable citdl="SRE_Pattern" line="195" name="LOOSE_HTTP_DATE_RE" />
+      <scope classrefs="FileCookieJar" doc="The LWPCookieJar saves a sequence of&quot;Set-Cookie3&quot; lines.&#10;&quot;Set-Cookie3&quot; is the format used by the libwww-perl libary, not known to be compatible with any browser, but which is easy to read and doesn't lose information about RFC 2965 cookies.  Additional methods  as_lwp_str(ignore_discard=True, ignore_expired=True)" ilk="class" name="LWPCookieJar">
+        <scope ilk="function" name="save" />
+        <scope doc="Return cookies as a string of &quot; &quot;-separated &quot;Set-Cookie3&quot;&#10;headers." ilk="function" name="as_lwp_str" />
+        <scope ilk="function" name="_really_load" />
+      </scope>
+      <scope classrefs="IOError" doc="# derives from IOError for backwards-compatibility with Python 2.4.0&#10;" ilk="class" line="1731" lineend="1731" name="LoadError" />
+      <variable citdl="str" line="54" name="MISSING_FILENAME_TEXT" />
+      <variable citdl="list" line="81" name="MONTHS" />
+      <variable citdl="list" line="83" name="MONTHS_LOWER" />
+      <scope classrefs="FileCookieJar" doc="WARNING: you may want to backup your browser's cookies file if you use&#10;this class to save cookies.  I *think* it works, but there have been bugs in the past!  This class differs from CookieJar only in the format it uses to save and load cookies to and from a file.  This class uses the Mozilla/Netscape `cookies.txt' format.  lynx uses this file format, too.  Don't expect cookies saved while the browser is running to be noticed by the browser (in fact, Mozilla on unix will overwrite your saved cookies if you change them on disk while it's running; on Windows, you probably can't" ilk="class" name="MozillaCookieJar">
+        <scope ilk="function" name="_really_load" />
+        <scope ilk="function" name="save" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="190" name="STRICT_DATE_RE" />
+      <variable citdl="SRE_Pattern" line="122" name="TIMEZONE_RE" />
+      <variable citdl="dict" line="120" name="UTC_ZONES" />
+      <variable citdl="SRE_Pattern" line="193" name="WEEKDAY_RE" />
+      <variable citdl="list" line="28" name="__all__" />
+      <import module="_threading" />
+      <import module="copy" />
+      <variable citdl="SRE_Pattern" line="581" name="cut_port_re" />
+      <variable citdl="bool" line="40" name="debug" />
+      <scope doc="Iterates over nested mapping, depth-first, in sorted order&#10;by key." ilk="function" line="1180" lineend="1194" name="deepvalues" signature="deepvalues(mapping)">
+        <variable citdl="vals_sorted_by_key()" line="1182" name="values" />
+        <variable citdl="False" ilk="argument" name="mapping" />
+      </scope>
+      <scope doc="Return True if domain A domain-matches domain B, according&#10;to RFC 2965." ilk="function" line="512" lineend="549" name="domain_match" returns="bool" signature="domain_match(A, B)">
+        <variable citdl="A.lower()" ilk="argument" name="A" />
+        <variable citdl="A.rfind()" line="541" name="i" />
+        <variable citdl="B.lower()" ilk="argument" name="B" />
+      </scope>
+      <scope doc="Return a tuple (request-host, effective request-host name)." ilk="function" line="598" lineend="607" name="eff_request_host" returns="tuple" signature="eff_request_host(request)">
+        <variable ilk="argument" name="request" />
+        <variable citdl="request_host()" line="604" name="erhn" />
+      </scope>
+      <scope doc="Escape any invalid characters in HTTP URL, and uppercase all&#10;escapes." ilk="function" line="639" lineend="653" name="escape_path" returns="path.encode()" signature="escape_path(path)">
+        <variable citdl="ESCAPED_CHAR_RE.sub()" ilk="argument" name="path" />
+      </scope>
+      <scope doc="Returns time in seconds since epoch of time represented by a&#10;string." ilk="function" line="212" lineend="266" name="http2time" returns="_str2time()" signature="http2time(text)">
+        <variable line="262" name="tz" />
+        <variable citdl="m.groups()" line="244" name="g" />
+        <variable line="262" name="min" />
+        <variable line="262" name="hr" />
+        <variable citdl="WEEKDAY_RE.sub()" ilk="argument" name="text" />
+        <variable citdl="tuple" line="246" name="tt" />
+        <variable citdl="LOOSE_HTTP_DATE_RE.search()" line="242" name="m" />
+        <variable line="262" name="sec" />
+        <variable citdl="MONTHS_LOWER.index()" line="245" name="mon" />
+        <variable line="262" name="yr" />
+        <variable line="262" name="day" />
+      </scope>
+      <import module="httplib" />
+      <scope doc="Return True if text is a host domain name." ilk="function" line="497" lineend="510" name="is_HDN" returns="bool" signature="is_HDN(text)">
+        <variable ilk="argument" name="text" />
+      </scope>
+      <scope doc="RFC 2965, section 3.3.6:" ilk="function" line="690" lineend="704" name="is_third_party" returns="bool" signature="is_third_party(request)">
+        <variable ilk="argument" name="request" />
+        <variable citdl="request_host()" line="700" name="req_host" />
+      </scope>
+      <scope doc="As for http2time, but parses the ISO 8601 formats:" ilk="function" line="284" lineend="311" name="iso2time" returns="_str2time()" signature="iso2time(text)">
+        <variable line="307" name="tz" />
+        <variable line="307" name="min" />
+        <variable line="307" name="hr" />
+        <variable citdl="text.lstrip()" ilk="argument" name="text" />
+        <variable citdl="ISO_DATE_RE.search()" line="303" name="m" />
+        <variable line="307" name="sec" />
+        <variable line="307" name="mon" />
+        <variable line="307" name="yr" />
+        <variable line="307" name="day" />
+        <variable attributes="protected" line="307" name="_" />
+      </scope>
+      <scope doc="Do the inverse (almost) of the conversion done by&#10;split_header_words." ilk="function" line="412" lineend="435" name="join_header_words" returns="str.join()" signature="join_header_words(lists)">
+        <variable citdl="list" line="424" name="headers" />
+        <variable citdl="str" line="432" name="k" />
+        <variable citdl="list" line="426" name="attr" />
+        <variable ilk="argument" name="lists" />
+        <variable citdl="HEADER_JOIN_ESCAPE_RE.sub()" line="430" name="v" />
+      </scope>
+      <scope doc="Return True if text is a sort-of-like a host domain name." ilk="function" line="551" lineend="559" name="liberal_is_HDN" returns="bool" signature="liberal_is_HDN(text)">
+        <variable ilk="argument" name="text" />
+      </scope>
+      <variable citdl="NoneType" line="41" name="logger" />
+      <scope doc="Return string representation of Cookie in an the LWP cookie&#10;file format." ilk="function" name="lwp_cookie_str" signature="lwp_cookie_str(cookie)" />
+      <variable citdl="str" name="month" />
+      <scope ilk="function" line="123" lineend="135" name="offset_from_tz_string" returns="int()" signature="offset_from_tz_string(tz)">
+        <variable citdl="TIMEZONE_RE.search()" line="128" name="m" />
+        <variable ilk="argument" name="tz" />
+        <variable citdl="int()" line="124" name="offset" />
+      </scope>
+      <scope doc="Ad-hoc parser for Netscape protocol cookie-attributes." ilk="function" line="444" lineend="493" name="parse_ns_headers" returns="list" signature="parse_ns_headers(ns_headers)">
+        <variable ilk="argument" name="ns_headers" />
+        <variable citdl="list" line="465" name="pairs" />
+        <variable citdl="tuple" line="459" name="known_attrs" />
+        <variable citdl="k.lower()" line="476" name="lc" />
+        <variable citdl="k.lstrip()" line="471" name="k" />
+        <variable citdl="param.rstrip()" line="468" name="param" />
+        <variable citdl="list" line="463" name="result" />
+        <variable citdl="_strip_quotes()" line="471" name="v" />
+        <variable citdl="True" line="466" name="version_set" />
+      </scope>
+      <import module="re" />
+      <scope doc="Return reach of host h, as defined by RFC 2965, section 1." ilk="function" line="655" lineend="688" name="reach" returns="str" signature="reach(h)">
+        <variable citdl="h.find()" line="681" name="i" />
+        <variable ilk="argument" name="h" />
+        <variable citdl="list" line="684" name="b" />
+      </scope>
+      <scope doc="Return request-host, as defined by RFC 2965." ilk="function" line="582" lineend="596" name="request_host" returns="host.lower()" signature="request_host(request)">
+        <variable citdl="request.get_full_url()" line="589" name="url" />
+        <variable citdl="request.get_header()" line="590" name="host" />
+        <variable ilk="argument" name="request" />
+      </scope>
+      <scope doc="Path component of request-URI, as defined by RFC 2965." ilk="function" line="609" lineend="617" name="request_path" returns="str" signature="request_path(request)">
+        <variable citdl="request.get_full_url()" line="611" name="url" />
+        <variable citdl="escape_path()" line="613" name="path" />
+        <variable citdl="urlparse.urlsplit()" line="612" name="parts" />
+        <variable ilk="argument" name="request" />
+      </scope>
+      <scope ilk="function" line="619" lineend="631" name="request_port" returns="list" signature="request_port(request)">
+        <variable citdl="host.find()" line="621" name="i" />
+        <variable citdl="request.get_host()" line="620" name="host" />
+        <variable ilk="argument" name="request" />
+        <variable citdl="str()" line="623" name="port" />
+      </scope>
+      <scope doc="Parse header values into a list of lists containing&#10;key,value pairs." ilk="function" line="326" lineend="409" name="split_header_words" returns="list" signature="split_header_words(header_values)">
+        <variable ilk="argument" name="header_values" />
+        <variable citdl="list" line="375" name="pairs" />
+        <variable citdl="m.group()" line="380" name="name" />
+        <variable line="403" name="nr_junk_chars" />
+        <variable citdl="unmatched()" line="379" name="text" />
+        <variable line="403" name="non_junk" />
+        <variable citdl="HEADER_TOKEN_RE.search()" line="377" name="m" />
+        <variable citdl="m.group()" line="384" name="value" />
+        <variable citdl="text" line="374" name="orig_text" />
+        <variable citdl="list" line="372" name="result" />
+      </scope>
+      <import module="time" />
+      <scope doc="Return a string representing time in seconds since epoch, t." ilk="function" line="86" lineend="101" name="time2isoz" returns="tuple" signature="time2isoz(t=None)">
+        <variable citdl="time.time()" ilk="argument" name="t" />
+      </scope>
+      <scope doc="Return a string representing time in seconds since epoch, t." ilk="function" line="103" lineend="117" name="time2netscape" returns="tuple" signature="time2netscape(t=None)">
+        <variable citdl="time.time()" ilk="argument" name="t" />
+      </scope>
+      <scope doc="Unrelated but handy function to calculate Unix timestamp&#10;from GMT." ilk="function" name="timegm" signature="timegm(tuple)" />
+      <scope doc="Return unmatched part of re.Match object." ilk="function" line="317" lineend="320" name="unmatched" returns="list" signature="unmatched(match)">
+        <variable line="319" name="start" />
+        <variable line="319" name="end" />
+        <variable ilk="argument" name="match" />
+      </scope>
+      <scope ilk="function" line="637" lineend="638" name="uppercase_escaped_char" returns="str" signature="uppercase_escaped_char(match)">
+        <variable ilk="argument" name="match" />
+      </scope>
+      <import module="urllib" />
+      <import module="urlparse" />
+      <scope doc="For blocking/accepting domains." ilk="function" line="561" lineend="579" name="user_domain_match" returns="bool" signature="user_domain_match(A, B)">
+        <variable citdl="A.lower()" ilk="argument" name="A" />
+        <variable citdl="B.lower()" ilk="argument" name="B" />
+        <variable citdl="B.startswith()" line="574" name="initial_dot" />
+      </scope>
+      <scope ilk="function" line="1175" lineend="1178" name="vals_sorted_by_key" returns="map()" signature="vals_sorted_by_key(adict)">
+        <variable citdl="adict.keys()" line="1176" name="keys" />
+        <variable ilk="argument" name="adict" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="437" lineend="442" name="_strip_quotes" returns="list" signature="_strip_quotes(text)">
+        <variable citdl="list" ilk="argument" name="text" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="57" lineend="65" name="_warn_unhandled_exception" signature="_warn_unhandled_exception()">
+        <import line="61" module="warnings" />
+        <import line="61" module="traceback" />
+        <import line="61" module="StringIO" />
+        <variable citdl="StringIO.StringIO()" line="62" name="f" />
+        <variable citdl="f.getvalue()" line="64" name="msg" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="72" lineend="78" name="_timegm" returns="timegm()" signature="_timegm(tt)">
+        <variable ilk="argument" name="tt" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="137" lineend="188" name="_str2time" returns="offset_from_tz_string()" signature="_str2time(day, mon, yr, hr, min, sec, tz)">
+        <variable citdl="int()" ilk="argument" name="day" />
+        <variable citdl="int()" ilk="argument" name="mon" />
+        <variable citdl="int()" ilk="argument" name="yr" />
+        <variable citdl="int" ilk="argument" name="hr" />
+        <variable citdl="int" ilk="argument" name="min" />
+        <variable citdl="int" ilk="argument" name="sec" />
+        <variable citdl="tz.upper()" ilk="argument" name="tz" />
+        <variable citdl="int()" line="145" name="imon" />
+        <variable line="166" name="cur_yr" />
+        <variable citdl="int" line="167" name="m" />
+        <variable citdl="int()" line="168" name="tmp" />
+        <variable citdl="_timegm()" line="176" name="t" />
+        <variable citdl="offset_from_tz_string()" line="183" name="offset" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="43" lineend="50" name="_debug" returns="logger.debug()" signature="_debug(*args)">
+        <import line="48" module="logging" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable citdl="logging.getLogger()" line="49" name="logger" />
+      </scope>
+    </scope>
+    

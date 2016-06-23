@@ -1,0 +1,124 @@
+<scope doc="Heap queue algorithm (a.k.a. priority queue).&#10;Heaps are arrays for which a[k] &lt;= a[2*k+1] and a[k] &lt;= a[2*k+2] for all k, counting elements from 0.  For the sake of comparison, non-existing elements are considered to be infinite.  The interesting property of a heap is that a[0] is always its smallest element.  Usage:  heap = []            # creates an empty heap heappush(heap, item) # pushes a new item on the heap item = heappop(heap) # pops the smallest item from the heap" ilk="blob" lang="Python" name="heapq">
+      <variable citdl="str" line="35" name="__about__" />
+      <variable citdl="list" line="129" name="__all__" />
+      <import module="bisect" />
+      <scope classrefs="object" doc="chain(*iterables) --&gt; chain object&#10;Return a chain object whose .next() method returns elements from the first iterable until it is exhausted, then elements from the next iterable, until all of the iterables are exhausted." ilk="class" name="chain">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+      </scope>
+      <scope ilk="function" line="136" lineend="139" name="cmp_lt" signature="cmp_lt(x, y)">
+        <variable ilk="argument" name="y" />
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope classrefs="object" doc="count(start=0, step=1) --&gt; count object&#10;Return a count object whose .next() method returns consecutive values. Equivalent to:  def count(firstval=0, step=1): x = firstval while 1: yield x x += step" ilk="class" name="count">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope doc="Transform list into a heap, in-place, in O(len(heap)) time." ilk="function" line="180" lineend="189" name="heapify" signature="heapify(x)">
+        <variable ilk="argument" name="x" />
+        <variable citdl="len()" line="182" name="n" />
+      </scope>
+      <scope doc="Pop the smallest item off the heap, maintaining the heap&#10;invariant." ilk="function" line="146" lineend="155" name="heappop" returns="heap.pop()" signature="heappop(heap)">
+        <variable citdl="heap.pop()" line="148" name="lastelt" />
+        <variable citdl="heap.pop()" line="150" name="returnitem" />
+        <variable ilk="argument" name="heap" />
+      </scope>
+      <scope doc="Push item onto heap, maintaining the heap invariant." ilk="function" line="141" lineend="144" name="heappush" signature="heappush(heap, item)">
+        <variable ilk="argument" name="item" />
+        <variable ilk="argument" name="heap" />
+      </scope>
+      <scope doc="Push item on the heap, then pop and return the smallest item&#10;from the heap." ilk="function" line="173" lineend="178" name="heappushpop" signature="heappushpop(heap, item)">
+        <variable ilk="argument" name="item" />
+        <variable ilk="argument" name="heap" />
+      </scope>
+      <scope doc="Pop and return the current smallest value, and add the new&#10;item." ilk="function" line="157" lineend="171" name="heapreplace" signature="heapreplace(heap, item)">
+        <variable ilk="argument" name="item" />
+        <variable line="168" name="returnitem" />
+        <variable ilk="argument" name="heap" />
+      </scope>
+      <scope classrefs="object" doc="imap(func, *iterables) --&gt; imap object&#10;Make an iterator that computes the function using arguments from each of the iterables.  Like map() except that it returns an iterator instead of a list and that it stops when the shortest iterable is exhausted instead of filling in None for shorter iterables." ilk="class" name="imap">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="islice(iterable, [start,] stop [, step]) --&gt; islice object&#10;Return an iterator whose next() method returns selected values from an iterable.  If start is specified, will skip all preceding elements; otherwise, start defaults to zero.  Step defaults to one.  If specified as another value, step determines how many values are skipped between successive calls.  Works like a slice() on a list but returns an iterator." ilk="class" name="islice">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope classrefs="object" doc="itemgetter(item, ...) --&gt; itemgetter object&#10;Return a callable object that fetches the given item(s) from its operand. After, f=itemgetter(2), the call f(r) returns r[2]. After, g=itemgetter(2,5,3), the call g(r) returns (r[2], r[5], r[3])" ilk="class" name="itemgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope classrefs="object" doc="izip(iter1 [,iter2 [...]]) --&gt; izip object&#10;Return a izip object whose .next() method returns a tuple where the i-th element comes from the i-th iterable argument.  The .next() method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.  Works like the zip() function but consumes less memory by returning an iterator instead of a list." ilk="class" name="izip">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope doc="Merge multiple sorted inputs into a single sorted output." ilk="function" line="319" name="merge" signature="merge(*iterables)">
+        <variable citdl="h.append" line="333" name="h_append" />
+        <variable attributes="protected" citdl="heapreplace" line="330" name="_heapreplace" />
+        <variable citdl="list" line="332" name="h" />
+        <variable citdl="it.next" line="336" name="next" />
+        <variable attributes="protected" citdl="StopIteration" line="330" name="_StopIteration" />
+        <variable attributes="protected" citdl="heappop" line="330" name="_heappop" />
+        <variable attributes="varargs" ilk="argument" name="iterables" />
+      </scope>
+      <scope doc="Find the n largest elements in a dataset." ilk="function" line="393" lineend="428" name="nlargest" returns="map()" signature="nlargest(n, iterable, key=None)">
+        <variable citdl="list()" line="402" name="head" />
+        <variable line="425" name="in1" />
+        <variable line="425" name="in2" />
+        <variable ilk="argument" name="n" />
+        <variable citdl="_nlargest()" line="421" name="result" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="izip()" line="401" name="it" />
+        <variable ilk="argument" name="iterable" />
+        <variable citdl="len()" line="411" name="size" />
+      </scope>
+      <scope doc="Find the n smallest elements in a dataset." ilk="function" line="356" lineend="390" name="nsmallest" returns="map()" signature="nsmallest(n, iterable, key=None)">
+        <variable citdl="list()" line="364" name="head" />
+        <variable line="387" name="in1" />
+        <variable line="387" name="in2" />
+        <variable ilk="argument" name="n" />
+        <variable citdl="_nsmallest()" line="383" name="result" />
+        <variable ilk="argument" name="key" />
+        <variable citdl="izip()" line="363" name="it" />
+        <variable ilk="argument" name="iterable" />
+        <variable citdl="len()" line="373" name="size" />
+      </scope>
+      <scope classrefs="object" doc="repeat(object [,times]) -&gt; create an iterator which returns the object&#10;for the specified number of times.  If not specified, returns the object endlessly." ilk="class" name="repeat">
+        <scope doc="Private method returning an estimate of len(list(it))." ilk="function" name="__length_hint__" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+      </scope>
+      <scope doc="tee(iterable, n=2) --&gt; tuple of n independent iterators." ilk="function" name="tee" signature="tee(iterable, n=2) --&gt; tuple of n independent iterators." />
+      <variable attributes="__hidden__" citdl="list" line="436" name="sort" />
+      <variable attributes="protected __hidden__" citdl="nsmallest" line="355" name="_nsmallest" />
+      <variable attributes="protected __hidden__" citdl="nlargest" line="392" name="_nlargest" />
+      <scope attributes="protected __hidden__" ilk="function" line="293" lineend="311" name="_siftup" signature="_siftup(heap, pos)">
+        <variable ilk="argument" name="heap" />
+        <variable citdl="int" ilk="argument" name="pos" />
+        <variable citdl="len()" line="294" name="endpos" />
+        <variable line="295" name="startpos" />
+        <variable line="296" name="newitem" />
+        <variable citdl="int" line="298" name="childpos" />
+        <variable citdl="int" line="301" name="rightpos" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="240" lineend="252" name="_siftdown" signature="_siftdown(heap, startpos, pos)">
+        <variable ilk="argument" name="heap" />
+        <variable ilk="argument" name="startpos" />
+        <variable citdl="int" ilk="argument" name="pos" />
+        <variable line="241" name="newitem" />
+        <variable citdl="int" line="245" name="parentpos" />
+        <variable line="246" name="parent" />
+      </scope>
+      <variable attributes="__hidden__" citdl="list" line="432" name="heap" />
+      <variable attributes="__hidden__" citdl="list" line="433" name="data" />
+    </scope>
+    

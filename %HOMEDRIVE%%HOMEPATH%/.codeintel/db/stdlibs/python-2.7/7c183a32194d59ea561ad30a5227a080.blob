@@ -1,0 +1,228 @@
+<scope doc="Locale support.&#10;The module provides low-level access to the C lib's locale APIs and adds high level number formatting APIs as well as a locale aliasing engine to complement these.  The aliasing engine includes support for many commonly used locale names and maps them to values suitable for passing to the C lib's setlocale() function. It also includes default encodings for all supported locale names." ilk="blob" lang="Python" name="locale">
+      <variable citdl="int" line="41" name="CHAR_MAX" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="49" name="Error" />
+      <variable citdl="int" line="42" name="LC_ALL" />
+      <variable citdl="int" line="43" name="LC_COLLATE" />
+      <variable citdl="int" line="44" name="LC_CTYPE" />
+      <variable citdl="int" line="46" name="LC_MONETARY" />
+      <variable citdl="int" line="47" name="LC_NUMERIC" />
+      <variable citdl="int" line="48" name="LC_TIME" />
+      <variable citdl="list" line="27" name="__all__" />
+      <scope doc="Parses a string as a float according to the locale settings." ilk="function" line="299" lineend="310" name="atof" returns="atof.func()" signature="atof(string, func=&lt;type 'float'&gt;)">
+        <variable line="306" name="dd" />
+        <variable citdl="string.replace()" ilk="argument" name="string" />
+        <variable citdl="float" ilk="argument" name="func" />
+        <variable line="302" name="ts" />
+      </scope>
+      <scope doc="Converts a string to an integer according to the locale&#10;settings." ilk="function" line="312" lineend="314" name="atoi" returns="atof()" signature="atoi(str)">
+        <variable ilk="argument" name="str" />
+      </scope>
+      <scope doc="Formats val according to the currency settings in the&#10;current locale." ilk="function" line="250" lineend="293" name="currency" signature="currency(val, symbol=True, grouping=False, international=False)">
+        <variable line="256" name="digits" />
+        <variable line="268" name="separated" />
+        <variable ilk="argument" name="val" />
+        <variable citdl="localeconv()" line="253" name="conv" />
+        <variable line="275" name="sign_pos" />
+        <variable citdl="True" ilk="argument" name="symbol" />
+        <variable line="276" name="sign" />
+        <variable citdl="str" line="261" name="s" />
+        <variable line="267" name="precedes" />
+        <variable citdl="False" ilk="argument" name="international" />
+        <variable line="266" name="smb" />
+        <variable citdl="False" ilk="argument" name="grouping" />
+      </scope>
+      <import module="encodings" />
+      <scope doc="Returns the locale-aware substitution of a %? specifier&#10;(percent)." ilk="function" line="179" lineend="190" name="format" returns="_format()" signature="format(percent, value, grouping=False, monetary=False, *additional)">
+        <variable attributes="varargs" ilk="argument" name="additional" />
+        <variable ilk="argument" name="percent" />
+        <variable citdl="False" ilk="argument" name="monetary" />
+        <variable ilk="argument" name="value" />
+        <variable citdl="_percent_re.match()" line="186" name="match" />
+        <variable citdl="False" ilk="argument" name="grouping" />
+      </scope>
+      <scope doc="Formats a string in the same way that the % formatting would&#10;use, but takes the current locale into account." ilk="function" line="216" lineend="248" name="format_string" returns="tuple" signature="format_string(f, val, grouping=False)">
+        <variable citdl="list" line="224" name="new_val" />
+        <variable citdl="tuple()" ilk="argument" name="val" />
+        <variable ilk="argument" name="f" />
+        <variable citdl="int" line="234" name="i" />
+        <variable line="239" name="starcount" />
+        <variable citdl="_percent_re.sub()" line="221" name="new_f" />
+        <variable citdl="list()" line="220" name="percents" />
+        <variable citdl="False" ilk="argument" name="grouping" />
+      </scope>
+      <import module="functools" />
+      <scope doc="Tries to determine the default locale settings and returns&#10;them as tuple (language code, encoding)." ilk="function" line="446" lineend="496" name="getdefaultlocale" returns="tuple" signature="getdefaultlocale(envvars=('LC_ALL', 'LC_CTYPE', 'LANG', 'LANGUAGE'))">
+        <variable citdl="tuple" ilk="argument" name="envvars" />
+        <variable citdl="lookup()" line="489" name="localename" />
+        <variable citdl="windows_locale.get()" line="473" name="code" />
+        <variable citdl="os.environ.get" line="487" name="lookup" />
+        <variable line="473" name="encoding" />
+      </scope>
+      <scope doc="Returns the current setting for the given locale category as&#10;tuple (language code, encoding)." ilk="function" line="499" lineend="515" name="getlocale" returns="_parse_localename()" signature="getlocale(category=2)">
+        <variable citdl="int" ilk="argument" name="category" />
+        <variable citdl="_setlocale()" line="512" name="localename" />
+      </scope>
+      <scope doc="Return the charset that the user is likely using." ilk="function" line="560" lineend="573" name="getpreferredencoding" returns="nl_langinfo()" signature="getpreferredencoding(do_setlocale=True)">
+        <variable citdl="True" ilk="argument" name="do_setlocale" />
+        <variable citdl="setlocale()" line="564" name="oldloc" />
+        <variable citdl="nl_langinfo()" line="569" name="result" />
+      </scope>
+      <variable citdl="dict" line="722" name="locale_alias" />
+      <variable citdl="dict" line="591" name="locale_encoding_alias" />
+      <scope doc="() -&gt; dict." ilk="function" line="103" lineend="107" name="localeconv" returns="_localeconv()" signature="localeconv()">
+        <variable citdl="_localeconv()" line="104" name="d" />
+      </scope>
+      <scope doc="Returns a normalized locale code for the given locale name." ilk="function" line="334" lineend="398" name="normalize" returns="localename.lower()" signature="normalize(localename)">
+        <variable citdl="encoding.replace()" line="363" name="norm_encoding" />
+        <variable citdl="localename.lower()" line="359" name="langname" />
+        <variable citdl="str" line="360" name="encoding" />
+        <variable citdl="str" line="365" name="lookup_name" />
+        <variable citdl="str" line="376" name="defenc" />
+        <variable ilk="argument" name="localename" />
+        <variable citdl="locale_alias.get()" line="366" name="code" />
+        <variable citdl="encoding" line="351" name="fullname" />
+      </scope>
+      <import module="operator" />
+      <import module="re" />
+      <scope doc="Sets the locale for category to the default setting." ilk="function" line="533" lineend="541" name="resetlocale" signature="resetlocale(category=0)">
+        <variable citdl="int" ilk="argument" name="category" />
+      </scope>
+      <scope doc="Set the locale for the given category." ilk="function" line="517" lineend="531" name="setlocale" returns="_setlocale()" signature="setlocale(category, locale=None)">
+        <variable ilk="argument" name="category" />
+        <variable citdl="normalize()" ilk="argument" name="locale" />
+      </scope>
+      <scope doc="Convert float to integer, taking the locale into account." ilk="function" line="295" lineend="297" name="str" returns="format()" signature="str(val)">
+        <variable ilk="argument" name="val" />
+      </scope>
+      <scope doc="string,string -&gt; int." ilk="function" line="83" lineend="87" name="strcoll" returns="cmp()" signature="strcoll(string,string) -&gt; int.">
+        <variable ilk="argument" name="a" />
+        <variable ilk="argument" name="b" />
+      </scope>
+      <scope doc="string -&gt; string." ilk="function" line="89" lineend="93" name="strxfrm" signature="strxfrm(string) -&gt; string.">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <import module="sys" />
+      <variable citdl="dict" line="1582" name="windows_locale" />
+      <variable attributes="__hidden__" citdl="int" line="45" name="LC_MESSAGES" />
+      <variable attributes="protected __hidden__" citdl="dict" line="100" name="_override_localeconv" />
+      <scope attributes="protected __hidden__" ilk="function" line="165" lineend="174" name="_strip_padding" returns="list" signature="_strip_padding(s, amount)">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="amount" />
+        <variable citdl="int" line="166" name="lpos" />
+        <variable citdl="len()" line="170" name="rpos" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="192" lineend="214" name="_format" returns="tuple" signature="_format(percent, value, grouping=False, monetary=False, *additional)">
+        <variable ilk="argument" name="percent" />
+        <variable ilk="argument" name="value" />
+        <variable citdl="False" ilk="argument" name="grouping" />
+        <variable citdl="False" ilk="argument" name="monetary" />
+        <variable attributes="varargs" ilk="argument" name="additional" />
+        <variable citdl="_strip_padding()" line="194" name="formatted" />
+        <variable citdl="int" line="199" name="seps" />
+        <variable citdl="formatted.split()" line="200" name="parts" />
+        <variable line="203" name="decimal_point" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="316" lineend="323" name="_test" signature="_test()">
+        <variable citdl="format()" line="319" name="s1" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="116" lineend="129" name="_grouping_intervals" signature="_grouping_intervals(grouping)">
+        <variable ilk="argument" name="grouping" />
+        <variable citdl="interval" line="117" name="last_interval" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="localeconv" line="96" name="_localeconv" />
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="176" name="_percent_re" />
+      <variable attributes="protected __hidden__" citdl="setlocale" line="332" name="_setlocale" />
+      <scope attributes="protected __hidden__" doc="Builds a locale code from the given tuple (language code,&#10;encoding)." ilk="function" line="430" lineend="444" name="_build_localename" returns="encoding" signature="_build_localename(localetuple)">
+        <variable ilk="argument" name="localetuple" />
+        <variable citdl="str" line="440" name="language" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Test function." ilk="function" line="1795" lineend="1849" name="_print_locale" signature="_print_locale()">
+        <variable citdl="dict" line="1799" name="categories" />
+        <scope attributes="protected" ilk="function" line="1800" lineend="1803" name="_init_categories" signature="_init_categories(categories=categories)">
+          <variable citdl="dict" ilk="argument" name="categories" />
+        </scope>
+        <variable line="1809" name="lang" />
+        <variable line="1809" name="enc" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Parses the locale code for localename and returns the result&#10;as tuple (language code, encoding)." ilk="function" line="400" lineend="428" name="_parse_localename" returns="tuple" signature="_parse_localename(localename)">
+        <variable ilk="argument" name="localename" />
+        <variable citdl="normalize()" line="414" name="code" />
+        <variable line="417" name="modifier" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="132" lineend="161" name="_group" returns="tuple" signature="_group(s, monetary=False)">
+        <variable citdl="s.rstrip()" ilk="argument" name="s" />
+        <variable citdl="False" ilk="argument" name="monetary" />
+        <variable citdl="localeconv()" line="133" name="conv" />
+        <variable line="134" name="thousands_sep" />
+        <variable line="135" name="grouping" />
+        <variable citdl="str" line="138" name="result" />
+        <variable citdl="int" line="139" name="seps" />
+        <variable citdl="s.rstrip()" line="141" name="stripped" />
+        <variable citdl="list" line="142" name="right_spaces" />
+        <variable citdl="s.rstrip()" line="146" name="left_spaces" />
+        <variable citdl="list" line="147" name="groups" />
+      </scope>
+      <variable citdl="int" name="ABMON_3" />
+      <variable citdl="int" name="ABMON_2" />
+      <variable citdl="int" name="ABMON_1" />
+      <variable citdl="int" name="AM_STR" />
+      <variable citdl="int" name="ABMON_6" />
+      <variable citdl="int" name="ABMON_5" />
+      <variable citdl="int" name="ABMON_4" />
+      <variable citdl="int" name="ALT_DIGITS" />
+      <variable citdl="int" name="ABMON_9" />
+      <variable citdl="int" name="ABMON_8" />
+      <variable citdl="int" name="MON_12" />
+      <variable citdl="int" name="DAY_3" />
+      <variable citdl="int" name="ERA" />
+      <variable citdl="int" name="CODESET" />
+      <variable citdl="int" name="THOUSEP" />
+      <variable citdl="int" name="ABMON_7" />
+      <scope doc="Bind the C library's domain to dir." ilk="function" name="bindtextdomain" returns="str" signature="bindtextdomain(domain, dir) -&gt; string" />
+      <variable citdl="int" name="ERA_T_FMT" />
+      <scope doc="Return translation of msg." ilk="function" name="gettext" returns="str" signature="gettext(msg) -&gt; string" />
+      <variable citdl="int" name="YESEXPR" />
+      <variable citdl="int" name="D_T_FMT" />
+      <variable citdl="int" name="T_FMT_AMPM" />
+      <variable citdl="int" name="PM_STR" />
+      <variable citdl="int" name="ERA_D_FMT" />
+      <scope doc="Return translation of msg in domain and category." ilk="function" name="dcgettext" returns="str" signature="dcgettext(domain, msg, category) -&gt; string" />
+      <variable citdl="int" name="MON_3" />
+      <variable citdl="int" name="ERA_D_T_FMT" />
+      <variable citdl="int" name="DAY_5" />
+      <variable citdl="int" name="MON_2" />
+      <variable citdl="int" name="D_FMT" />
+      <variable citdl="int" name="MON_1" />
+      <variable citdl="int" name="MON_6" />
+      <variable citdl="int" name="MON_7" />
+      <variable citdl="int" name="MON_4" />
+      <variable citdl="int" name="MON_5" />
+      <variable citdl="int" name="MON_8" />
+      <variable citdl="int" name="MON_9" />
+      <variable citdl="int" name="CRNCYSTR" />
+      <variable citdl="int" name="DAY_2" />
+      <variable citdl="int" name="MON_10" />
+      <scope doc="Return the value for the locale information associated with&#10;key." ilk="function" name="nl_langinfo" returns="str" signature="nl_langinfo(key) -&gt; string" />
+      <variable citdl="int" name="DAY_1" />
+      <variable citdl="int" name="DAY_6" />
+      <variable citdl="int" name="DAY_7" />
+      <variable citdl="int" name="DAY_4" />
+      <variable citdl="int" name="MON_11" />
+      <variable citdl="int" name="ABDAY_7" />
+      <variable citdl="int" name="ABDAY_6" />
+      <variable citdl="int" name="ABDAY_5" />
+      <variable citdl="int" name="ABDAY_4" />
+      <variable citdl="int" name="ABDAY_3" />
+      <variable citdl="int" name="ABDAY_2" />
+      <variable citdl="int" name="ABDAY_1" />
+      <variable citdl="int" name="T_FMT" />
+      <variable citdl="int" name="RADIXCHAR" />
+      <variable citdl="int" name="NOEXPR" />
+      <scope doc="Set the C library's textdmain to domain, returning the new&#10;domain." ilk="function" name="textdomain" returns="str" signature="textdomain(domain) -&gt; string" />
+      <variable citdl="int" name="ABMON_12" />
+      <variable citdl="int" name="ABMON_11" />
+      <variable citdl="int" name="ABMON_10" />
+      <scope doc="Bind the C library's domain to codeset." ilk="function" name="bind_textdomain_codeset" returns="str" signature="bind_textdomain_codeset(domain, codeset) -&gt; string" />
+      <scope doc="Return translation of msg in domain." ilk="function" name="dgettext" returns="str" signature="dgettext(domain, msg) -&gt; string" />
+    </scope>
+    

@@ -1,0 +1,940 @@
+<scope doc="Read from and write to tar format archives.&#10;" ilk="blob" lang="Python" name="tarfile">
+      <variable citdl="str" line="78" name="AREGTYPE" />
+      <variable citdl="str" line="82" name="BLKTYPE" />
+      <variable citdl="int" line="68" name="BLOCKSIZE" />
+      <variable citdl="str" line="81" name="CHRTYPE" />
+      <variable citdl="str" line="85" name="CONTTYPE" />
+      <scope classrefs="TarError" doc="Exception for unavailable compression methods.&#10;" ilk="class" line="335" lineend="337" name="CompressionError" />
+      <variable citdl="int" line="98" name="DEFAULT_FORMAT" />
+      <variable citdl="str" line="83" name="DIRTYPE" />
+      <variable citdl="str" line="160" name="ENCODING" />
+      <scope classrefs="HeaderError" doc="Exception for end of file headers.&#10;" ilk="class" line="350" lineend="352" name="EOFHeaderError" />
+      <scope classrefs="HeaderError" doc="Exception for empty headers.&#10;" ilk="class" line="344" lineend="346" name="EmptyHeaderError" />
+      <scope classrefs="object" doc="File-like object for reading an archive member.&#10;Is returned by TarFile.extractfile()." ilk="class" line="779" lineend="904" name="ExFileObject">
+        <scope doc="Read at most size bytes from the file." ilk="function" line="798" lineend="820" name="read" returns="str" signature="read(size=None)">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable citdl="str" line="805" name="buf" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Return a list with all remaining lines." ilk="function" line="853" lineend="861" name="readlines" returns="list" signature="readlines()">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable citdl="readline()" line="858" name="line" />
+          <variable citdl="list" line="856" name="result" />
+        </scope>
+        <scope doc="Get an iterator over the file's lines." ilk="function" line="897" lineend="904" name="__iter__" signature="__iter__()">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable citdl="readline()" line="901" name="line" />
+        </scope>
+        <scope doc="Close the file object." ilk="function" line="892" lineend="895" name="close" signature="close()">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read one entire line from the file." ilk="function" line="822" lineend="851" name="readline" returns="self.fileobj.read()" signature="readline(size=-1)">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable citdl="list" line="835" name="buf" />
+          <variable citdl="self.buffer.find()" line="831" name="pos" />
+          <variable citdl="list" line="833" name="buffers" />
+          <variable citdl="int" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Seek to a position in the file." ilk="function" line="871" lineend="890" name="seek" signature="seek(pos, whence=os.SEEK_SET)">
+          <variable citdl="os.SEEK_SET" ilk="argument" name="whence" />
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope doc="Return the current file position." ilk="function" line="863" lineend="869" name="tell" returns="int" signature="tell()">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="785" lineend="796" name="__init__" signature="ExFileObject(tarfile, tarinfo)">
+          <variable citdl="ExFileObject" ilk="argument" name="self" />
+          <variable ilk="argument" name="tarfile" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="tarinfo.name" line="790" name="name" />
+        <variable attributes="__instancevar__" citdl="str" line="796" name="buffer" />
+        <variable citdl="int" line="783" name="blocksize" />
+        <variable attributes="__instancevar__" citdl="str" line="791" name="mode" />
+        <variable attributes="__instancevar__" citdl="_FileInFile" line="786" name="fileobj" />
+        <variable attributes="__instancevar__" citdl="min()" line="795" name="position" />
+        <variable attributes="__instancevar__" citdl="tarinfo.size" line="793" name="size" />
+        <variable attributes="__instancevar__" citdl="False" line="792" name="closed" />
+      </scope>
+      <scope classrefs="TarError" doc="General exception for extract errors.&#10;" ilk="class" line="329" lineend="331" name="ExtractError" />
+      <variable citdl="str" line="84" name="FIFOTYPE" />
+      <variable citdl="str" line="88" name="GNUTYPE_LONGLINK" />
+      <variable citdl="str" line="87" name="GNUTYPE_LONGNAME" />
+      <variable citdl="str" line="89" name="GNUTYPE_SPARSE" />
+      <variable citdl="int" line="96" name="GNU_FORMAT" />
+      <variable citdl="str" line="70" name="GNU_MAGIC" />
+      <variable citdl="tuple" line="115" name="GNU_TYPES" />
+      <scope classrefs="TarError" doc="Base exception for header errors.&#10;" ilk="class" line="341" lineend="343" name="HeaderError" />
+      <scope classrefs="HeaderError" doc="Exception for invalid headers.&#10;" ilk="class" line="353" lineend="355" name="InvalidHeaderError" />
+      <variable citdl="int" line="74" name="LENGTH_LINK" />
+      <variable citdl="int" line="73" name="LENGTH_NAME" />
+      <variable citdl="int" line="75" name="LENGTH_PREFIX" />
+      <variable citdl="str" line="79" name="LNKTYPE" />
+      <variable citdl="str" line="67" name="NUL" />
+      <variable citdl="tuple" line="119" name="PAX_FIELDS" />
+      <variable citdl="int" line="97" name="PAX_FORMAT" />
+      <variable citdl="dict" line="124" name="PAX_NUMBER_FIELDS" />
+      <variable citdl="str" line="71" name="POSIX_MAGIC" />
+      <variable citdl="int" line="69" name="RECORDSIZE" />
+      <variable citdl="str" line="77" name="REGTYPE" />
+      <variable citdl="tuple" line="111" name="REGULAR_TYPES" />
+      <scope classrefs="TarError" doc="Exception for unreadble tar archives.&#10;" ilk="class" line="332" lineend="334" name="ReadError" />
+      <variable citdl="str" line="93" name="SOLARIS_XHDTYPE" />
+      <variable citdl="tuple" line="104" name="SUPPORTED_TYPES" />
+      <variable citdl="str" line="80" name="SYMTYPE" />
+      <variable citdl="int" line="138" name="S_IFBLK" />
+      <variable citdl="int" line="140" name="S_IFCHR" />
+      <variable citdl="int" line="139" name="S_IFDIR" />
+      <variable citdl="int" line="141" name="S_IFIFO" />
+      <variable citdl="int" line="136" name="S_IFLNK" />
+      <variable citdl="int" line="137" name="S_IFREG" />
+      <scope classrefs="TarError" doc="Exception for unsupported operations on stream-like TarFiles.&#10;" ilk="class" line="338" lineend="340" name="StreamError" />
+      <scope classrefs="HeaderError" doc="Exception for missing and invalid extended headers.&#10;" ilk="class" line="356" lineend="358" name="SubsequentHeaderError" />
+      <variable citdl="int" line="2529" name="TAR_GZIPPED" />
+      <variable citdl="int" line="2528" name="TAR_PLAIN" />
+      <variable citdl="int" line="152" name="TGEXEC" />
+      <variable citdl="int" line="150" name="TGREAD" />
+      <variable citdl="int" line="151" name="TGWRITE" />
+      <variable citdl="int" line="155" name="TOEXEC" />
+      <variable citdl="int" line="153" name="TOREAD" />
+      <variable citdl="int" line="154" name="TOWRITE" />
+      <variable citdl="int" line="144" name="TSGID" />
+      <variable citdl="int" line="143" name="TSUID" />
+      <variable citdl="int" line="145" name="TSVTX" />
+      <variable citdl="int" line="149" name="TUEXEC" />
+      <variable citdl="int" line="147" name="TUREAD" />
+      <variable citdl="int" line="148" name="TUWRITE" />
+      <scope classrefs="Exception" doc="Base exception.&#10;" ilk="class" line="326" lineend="328" name="TarError" />
+      <scope classrefs="object" doc="The TarFile Class provides an interface to tar archives.&#10;" ilk="class" line="1473" lineend="2443" name="TarFile">
+        <scope doc="Add the TarInfo object `tarinfo' to the archive." ilk="function" line="2002" lineend="2026" name="addfile" signature="addfile(tarinfo, fileobj=None)">
+          <variable line="2020" name="blocks" />
+          <variable line="2020" name="remainder" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="fileobj" />
+          <variable citdl="tarinfo.tobuf()" line="2013" name="buf" />
+          <variable citdl="copy.copy()" ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Set file permissions of targetpath according to tarinfo." ilk="function" line="2287" lineend="2294" name="chmod" signature="chmod(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Return a TarInfo object for member `name'." ilk="function" line="1786" lineend="1795" name="getmember" returns="self._getmember()" signature="getmember(name)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="self._getmember()" line="1792" name="tarinfo" />
+        </scope>
+        <scope doc="Close the TarFile." ilk="function" line="1766" lineend="1784" name="close" signature="close()">
+          <variable line="1778" name="remainder" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable line="1778" name="blocks" />
+        </scope>
+        <scope doc="Create a TarInfo object for either the file `name' or the&#10;file object `fileobj' (using os.fstat on its file&#10;descriptor)." ilk="function" line="1813" lineend="1909" name="gettarinfo" returns="tarinfo()" signature="gettarinfo(name=None, arcname=None, fileobj=None)">
+          <variable citdl="fileobj.name" ilk="argument" name="name" />
+          <variable citdl="str" line="1859" name="type" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable line="1832" name="drv" />
+          <variable citdl="statres.st_mode" line="1852" name="stmd" />
+          <variable citdl="fileobj.name" ilk="argument" name="arcname" />
+          <variable ilk="argument" name="fileobj" />
+          <variable citdl="os.readlink()" line="1850" name="linkname" />
+          <variable citdl="os.lstat()" line="1845" name="statres" />
+          <variable citdl="tuple" line="1854" name="inode" />
+          <variable citdl="tarinfo()" line="1838" name="tarinfo" />
+        </scope>
+        <scope doc="Open a tar archive for reading, writing or appending." ilk="function" line="1625" lineend="1695" name="open" returns="TarFile.open.func()" signature="open(name=None, mode='r', fileobj=None, bufsize=RECORDSIZE, **kwargs)">
+          <variable citdl="fileobj.tell()" line="1656" name="saved_pos" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="str" line="1666" name="filemode" />
+          <variable citdl="cls()" line="1686" name="t" />
+          <variable ilk="argument" name="fileobj" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="getattr()" line="1654" name="func" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable citdl="str" line="1666" name="comptype" />
+          <variable citdl="TarFile" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Open an (uncompressed) tar archive `name'." ilk="function" line="1499" lineend="1599" name="__init__" signature="TarFile(name=None, mode='r', fileobj=None, format=None, tarinfo=None, dereference=None, ignore_zeros=None, encoding=None, errors=None, pax_headers=None, debug=None, errorlevel=None)">
+          <variable ilk="argument" name="errors" />
+          <variable citdl="fileobj.name" ilk="argument" name="name" />
+          <variable ilk="argument" name="errorlevel" />
+          <variable ilk="argument" name="format" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="dereference" />
+          <variable ilk="argument" name="pax_headers" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="bltn_open()" ilk="argument" name="fileobj" />
+          <variable ilk="argument" name="ignore_zeros" />
+          <variable ilk="argument" name="debug" />
+          <variable citdl="self.tarinfo.create_pax_global_header()" line="1592" name="buf" />
+          <variable citdl="self.tarinfo.fromtarfile()" ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Make a fifo called targetpath." ilk="function" line="2211" lineend="2217" name="makefifo" signature="makefifo(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope ilk="function" line="1603" lineend="1610" name="_setposix" signature="_setposix(value)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Extract a member from the archive to the current working&#10;directory, using its full name." ilk="function" line="2065" lineend="2096" name="extract" signature="extract(member, path='')">
+          <variable ilk="argument" name="member" />
+          <variable citdl="str" ilk="argument" name="path" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="getmember()" line="2074" name="tarinfo" />
+        </scope>
+        <scope ilk="function" line="2431" lineend="2433" name="__enter__" returns="TarFile" signature="__enter__()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Make a file called targetpath." ilk="function" line="2194" lineend="2201" name="makefile" signature="makefile(tarinfo, targetpath)">
+          <variable citdl="extractfile()" line="2197" name="source" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable citdl="bltn_open()" line="2198" name="target" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Return the next member of the archive as a TarInfo object,&#10;when TarFile is opened for reading." ilk="function" line="2307" lineend="2351" name="next" returns="self.next()" signature="next()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="self.next()" line="2314" name="m" />
+          <variable citdl="self.tarinfo.fromtarfile()" line="2320" name="tarinfo" />
+        </scope>
+        <scope doc="Return the members of the archive as a list of their names." ilk="function" line="1807" lineend="1811" name="getnames" returns="list" signature="getnames()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add the file `name' to the archive." ilk="function" line="1940" lineend="2000" name="add" signature="add(name, arcname=None, recursive=True, exclude=None, filter=None)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="bltn_open()" line="1988" name="f" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="filter" />
+          <variable ilk="argument" name="arcname" />
+          <variable ilk="argument" name="exclude" />
+          <variable citdl="gettarinfo()" line="1973" name="tarinfo" />
+          <variable citdl="True" ilk="argument" name="recursive" />
+        </scope>
+        <scope doc="Make a (symbolic) link called targetpath." ilk="function" line="2234" lineend="2257" name="makelink" signature="makelink(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Return the members of the archive as a list of TarInfo&#10;objects." ilk="function" line="1797" lineend="1805" name="getmembers" returns="list" signature="getmembers()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write debugging output to sys.stderr." ilk="function" line="2425" lineend="2429" name="_dbg" signature="_dbg(level, msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope doc="Make a character or block device called targetpath." ilk="function" line="2219" lineend="2232" name="makedev" signature="makedev(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable citdl="tarinfo.mode" line="2225" name="mode" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Open gzip compressed tar archive name for reading or&#10;writing." ilk="function" line="1706" lineend="1729" name="gzopen" returns="taropen()" signature="gzopen(name, mode='r', fileobj=None, compresslevel=9, **kwargs)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="compresslevel" />
+          <variable citdl="taropen()" line="1723" name="t" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="bltn_open()" ilk="argument" name="fileobj" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="TarFile" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="2435" lineend="2443" name="__exit__" signature="__exit__(type, value, traceback)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="traceback" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope doc="Find an archive member by name from bottom to top." ilk="function" line="2356" lineend="2377" name="_getmember" returns="member" signature="_getmember(name, tarinfo=None, normalize=False)">
+          <variable citdl="False" ilk="argument" name="normalize" />
+          <variable citdl="os.path.normpath()" ilk="argument" name="name" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="getmembers()" line="2361" name="members" />
+          <variable citdl="os.path.normpath()" line="2372" name="member_name" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Find the target member of a symlink or hardlink member in&#10;the archive." ilk="function" line="2398" lineend="2415" name="_find_link_target" returns="_getmember()" signature="_find_link_target(tarinfo)">
+          <variable citdl="_getmember()" line="2412" name="member" />
+          <variable citdl="tarinfo.linkname" line="2404" name="linkname" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable line="2405" name="limit" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Extract all members from the archive to the current working&#10;directory and set owner, modification time and permissions&#10;on directories afterwards." ilk="function" line="2028" lineend="2063" name="extractall" signature="extractall(path='.', members=None)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="TarFile" ilk="argument" name="members" />
+          <variable citdl="os.path.join()" line="2054" name="dirpath" />
+          <variable citdl="str" ilk="argument" name="path" />
+          <variable citdl="list" line="2035" name="directories" />
+          <variable citdl="copy.copy()" line="2044" name="tarinfo" />
+        </scope>
+        <scope doc="Check if TarFile is still open, and if the operation's mode&#10;corresponds to TarFile's mode." ilk="function" line="2389" lineend="2396" name="_check" signature="_check(mode=None)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Open uncompressed tar archive name for reading or writing." ilk="function" line="1698" lineend="1703" name="taropen" returns="TarFile.taropen.cls()" signature="taropen(name, mode='r', fileobj=None, **kwargs)">
+          <variable ilk="argument" name="name" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable ilk="argument" name="fileobj" />
+          <variable citdl="TarFile" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Open bzip2 compressed tar archive name for reading or&#10;writing." ilk="function" line="1732" lineend="1754" name="bz2open" returns="taropen()" signature="bz2open(name, mode='r', fileobj=None, compresslevel=9, **kwargs)">
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="compresslevel" />
+          <variable citdl="taropen()" line="1750" name="t" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable citdl="_BZ2Proxy" ilk="argument" name="fileobj" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+          <variable citdl="TarFile" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Extract the TarInfo object tarinfo to a physical file called&#10;targetpath." ilk="function" line="2136" lineend="2176" name="_extract_member" signature="_extract_member(tarinfo, targetpath)">
+          <variable citdl="os.path.dirname()" line="2147" name="upperdirs" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="targetpath.replace()" ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Read through the entire archive file and look for readable&#10;members." ilk="function" line="2379" lineend="2387" name="_load" signature="_load()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="next()" line="2384" name="tarinfo" />
+        </scope>
+        <scope doc="Set modification time of targetpath according to tarinfo." ilk="function" line="2296" lineend="2304" name="utime" signature="utime(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Print a table of contents to sys.stdout." ilk="function" line="1911" lineend="1938" name="list" signature="list(verbose=True)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="verbose" />
+        </scope>
+        <scope doc="Provide an iterator object." ilk="function" line="2417" lineend="2423" name="__iter__" returns="TarIter()" signature="__iter__()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set owner of targetpath according to tarinfo." ilk="function" line="2259" lineend="2285" name="chown" signature="chown(tarinfo, targetpath)">
+          <variable citdl="os.getuid()" line="2272" name="u" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable citdl="os.getgid()" line="2265" name="g" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope ilk="function" line="1601" lineend="1602" name="_getposix" returns="bool" signature="_getposix()">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Extract a member from the archive as a file object." ilk="function" line="2098" lineend="2134" name="extractfile" returns="TarFile.fileobject()" signature="extractfile(member)">
+          <variable ilk="argument" name="member" />
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable citdl="getmember()" line="2110" name="tarinfo" />
+        </scope>
+        <scope doc="Make a directory called targetpath." ilk="function" line="2183" lineend="2192" name="makedir" signature="makedir(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <scope doc="Make a file from a TarInfo object with an unknown type at&#10;targetpath." ilk="function" line="2203" lineend="2209" name="makeunknown" signature="makeunknown(tarinfo, targetpath)">
+          <variable citdl="TarFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="targetpath" />
+          <variable ilk="argument" name="tarinfo" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="1562" name="members" />
+        <variable citdl="int" line="1485" name="errorlevel" />
+        <variable citdl="sys.getfilesystemencoding()" line="1491" name="encoding" />
+        <variable attributes="__instancevar__" citdl="dict" line="1566" name="inodes" />
+        <variable citdl="ExFileObject" line="1497" name="fileobject" />
+        <variable citdl="str" line="1493" name="errors" />
+        <variable citdl="False" line="1482" name="ignore_zeros" />
+        <variable attributes="protected __instancevar__" citdl="fileobj.mode" line="1513" name="_mode" />
+        <variable attributes="__instancevar__" citdl="self.next()" line="1571" name="firstmember" />
+        <variable attributes="__instancevar__" citdl="False" line="1561" name="closed" />
+        <variable citdl="int" line="1489" name="format" />
+        <variable citdl="dict" line="1757" name="OPEN_METH" />
+        <variable citdl="False" line="1479" name="dereference" />
+        <variable attributes="__instancevar__" citdl="bltn_open()" line="1529" name="fileobj" />
+        <variable attributes="__instancevar__" citdl="self.fileobj.tell()" line="1564" name="offset" />
+        <variable attributes="protected __instancevar__" citdl="False" line="1521" name="_extfileobj" />
+        <variable attributes="__instancevar__" line="1528" name="name" />
+        <variable attributes="__instancevar__" citdl="dict" line="1551" name="pax_headers" />
+        <variable citdl="property()" line="1611" name="posix" />
+        <variable attributes="__instancevar__" citdl="str" line="1512" name="mode" />
+        <variable citdl="int" line="1477" name="debug" />
+        <variable citdl="TarInfo" line="1495" name="tarinfo" />
+        <variable attributes="protected __instancevar__" citdl="False" line="1563" name="_loaded" />
+      </scope>
+      <scope doc="TarFile class compatible with standard module zipfile's&#10;ZipFile class." ilk="class" line="2530" lineend="2576" name="TarFileCompat">
+        <scope ilk="function" line="2550" lineend="2551" name="namelist" returns="map()" signature="namelist()">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2552" lineend="2554" name="infolist" returns="filter()" signature="infolist()">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2559" lineend="2560" name="getinfo" returns="self.tarfile.getmember()" signature="getinfo(name)">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="2561" lineend="2562" name="read" signature="read(name)">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="2555" lineend="2556" name="printdir" signature="printdir()">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2565" lineend="2574" name="writestr" signature="writestr(zinfo, bytes)">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+          <variable ilk="argument" name="bytes" />
+          <variable citdl="TarInfo" line="2571" name="tinfo" />
+          <variable ilk="argument" name="zinfo" />
+        </scope>
+        <scope ilk="function" line="2563" lineend="2564" name="write" signature="write(filename, arcname=None, compress_type=None)">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+          <variable ilk="argument" name="compress_type" />
+          <variable ilk="argument" name="arcname" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="2557" name="testzip" signature="testzip()">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2575" lineend="2576" name="close" signature="close()">
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2534" lineend="2549" name="__init__" signature="TarFileCompat(file, mode='r', compression=TAR_PLAIN)">
+          <variable citdl="self.tarfile.getmembers()" line="2545" name="members" />
+          <variable citdl="TarFileCompat" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="int" ilk="argument" name="compression" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="TarFile.taropen()" line="2539" name="tarfile" />
+      </scope>
+      <scope classrefs="object" doc="Informational class which holds the details about an&#10;archive member given by a tar header block. TarInfo objects are returned by TarFile.getmember(), TarFile.getmembers() and TarFile.gettarinfo() and are usually created internally." ilk="class" line="910" lineend="1470" name="TarInfo">
+        <scope ilk="function" line="1457" lineend="1458" name="issym" returns="bool" signature="issym()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1469" lineend="1470" name="isdev" returns="bool" signature="isdev()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the object as a pax global header block sequence." ilk="function" line="1079" lineend="1082" name="create_pax_global_header" returns="cls._create_pax_generic_header()" signature="create_pax_global_header(pax_headers)">
+          <variable ilk="argument" name="pax_headers" />
+          <variable citdl="TarInfo" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Round up a byte count by BLOCKSIZE and return it, e.g." ilk="function" line="1442" lineend="1449" name="_block" returns="int" signature="_block(count)">
+          <variable ilk="argument" name="count" />
+          <variable line="1446" name="remainder" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable line="1446" name="blocks" />
+        </scope>
+        <scope doc="Split a name longer than 100 chars into a prefix and a name&#10;part." ilk="function" line="1084" lineend="1097" name="_posix_split_name" returns="tuple" signature="_posix_split_name(name)">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="list" line="1088" name="prefix" />
+          <variable citdl="list" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the TarInfo's attributes as a dictionary." ilk="function" line="958" lineend="984" name="get_info" returns="dict" signature="get_info(encoding, errors)">
+          <variable citdl="dict" line="961" name="info" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="errors" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope ilk="function" line="1453" lineend="1454" name="isfile" returns="TarInfo.isreg()" signature="isfile()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Replace fields with supplemental information from a previous&#10;pax extended or global header." ilk="function" line="1419" lineend="1440" name="_apply_pax_info" signature="_apply_pax_info(pax_headers, encoding, errors)">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="pax_headers" />
+          <variable ilk="argument" name="errors" />
+          <variable citdl="int" line="1428" name="value" />
+          <variable ilk="argument" name="encoding" />
+        </scope>
+        <scope doc="Construct a TarInfo object." ilk="function" line="918" lineend="939" name="__init__" signature="TarInfo(name='')">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Return the object as a ustar header block." ilk="function" line="1027" lineend="1076" name="create_pax_header" returns="self._create_header()" signature="create_pax_header(info, encoding, errors)">
+          <variable ilk="argument" name="info" />
+          <variable ilk="argument" name="errors" />
+          <variable line="1045" name="val" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="self.pax_headers.copy()" line="1033" name="pax_headers" />
+          <variable citdl="str" line="1072" name="buf" />
+        </scope>
+        <scope ilk="function" line="951" lineend="952" name="_setlinkpath" signature="_setlinkpath(linkname)">
+          <variable ilk="argument" name="linkname" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the object as a GNU header block sequence." ilk="function" line="1013" lineend="1025" name="create_gnu_header" returns="str" signature="create_gnu_header(info)">
+          <variable ilk="argument" name="info" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="str" line="1018" name="buf" />
+        </scope>
+        <scope doc="Return the object as a ustar header block." ilk="function" line="1000" lineend="1011" name="create_ustar_header" returns="self._create_header()" signature="create_ustar_header(info)">
+          <variable ilk="argument" name="info" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1451" lineend="1452" name="isreg" returns="bool" signature="isreg()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Choose the right processing method depending on the type and&#10;call it." ilk="function" line="1253" lineend="1264" name="_proc_member" returns="self._proc_builtin()" signature="_proc_member(tarfile)">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="tarfile" />
+        </scope>
+        <scope doc="Process the blocks that hold a GNU longname or longlink&#10;member." ilk="function" line="1283" lineend="1303" name="_proc_gnulong" returns="fromtarfile()" signature="_proc_gnulong(tarfile)">
+          <variable citdl="tarfile.fileobj.read()" line="1287" name="buf" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="tarfile" />
+          <variable citdl="fromtarfile()" line="1291" name="next" />
+        </scope>
+        <scope doc="Return a GNUTYPE_LONGNAME or GNUTYPE_LONGLINK sequence for&#10;name." ilk="function" line="1138" lineend="1152" name="_create_gnu_long_header" returns="TarInfo._create_header()" signature="_create_gnu_long_header(name, type)">
+          <variable citdl="dict" line="1144" name="info" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="TarInfo" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Return a POSIX.1-2001 extended or global header sequence&#10;that contains a list of keyword, value pairs." ilk="function" line="1155" lineend="1184" name="_create_pax_generic_header" returns="TarInfo._create_header()" signature="_create_pax_generic_header(pax_headers, type=XHDTYPE)">
+          <variable citdl="dict" line="1176" name="info" />
+          <variable citdl="keyword.encode()" line="1162" name="keyword" />
+          <variable citdl="int" line="1170" name="p" />
+          <variable ilk="argument" name="pax_headers" />
+          <variable citdl="len()" line="1164" name="l" />
+          <variable citdl="value.encode()" line="1163" name="value" />
+          <variable citdl="len()" line="1165" name="n" />
+          <variable citdl="list" line="1160" name="records" />
+          <variable citdl="str" ilk="argument" name="type" />
+          <variable citdl="TarInfo" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="1461" lineend="1462" name="ischr" returns="bool" signature="ischr()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the next TarInfo object from TarFile object tarfile." ilk="function" line="1233" lineend="1240" name="fromtarfile" returns="obj._proc_member()" signature="fromtarfile(tarfile)">
+          <variable citdl="tarfile.fileobj.read()" line="1237" name="buf" />
+          <variable ilk="argument" name="tarfile" />
+          <variable citdl="frombuf()" line="1238" name="obj" />
+          <variable citdl="TarInfo" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="949" lineend="950" name="_getlinkpath" returns="str" signature="_getlinkpath()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="945" lineend="946" name="_setpath" signature="_setpath(name)">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="# In pax headers the &quot;name&quot; and &quot;linkname&quot; field are called&#10;# &quot;path&quot; and &quot;linkpath&quot;." ilk="function" line="943" lineend="944" name="_getpath" returns="str" signature="_getpath()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a TarInfo object from a 512 byte string buffer." ilk="function" line="1187" lineend="1230" name="frombuf" returns="cls()" signature="frombuf(buf)">
+          <variable citdl="cls()" line="1201" name="obj" />
+          <variable citdl="nts()" line="1216" name="prefix" />
+          <variable citdl="nti()" line="1197" name="chksum" />
+          <variable ilk="argument" name="buf" />
+          <variable citdl="TarInfo" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Process an extended or global header as described in&#10;POSIX.1-2001." ilk="function" line="1361" lineend="1417" name="_proc_pax" returns="fromtarfile()" signature="_proc_pax(tarfile)">
+          <variable citdl="re.compile()" line="1380" name="regex" />
+          <variable citdl="keyword.decode()" line="1387" name="keyword" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="tarfile.pax_headers" line="1372" name="pax_headers" />
+          <variable ilk="argument" name="tarfile" />
+          <variable citdl="int" line="1381" name="pos" />
+          <variable citdl="list" line="1389" name="value" />
+          <variable citdl="fromtarfile()" line="1399" name="next" />
+          <variable citdl="int()" line="1387" name="length" />
+          <variable citdl="next.offset_data" line="1412" name="offset" />
+          <variable citdl="tarfile.fileobj.read()" line="1366" name="buf" />
+          <variable citdl="regex.match()" line="1383" name="match" />
+        </scope>
+        <scope doc="Return a header block." ilk="function" line="1100" lineend="1125" name="_create_header" returns="str" signature="_create_header(info, format)">
+          <variable citdl="TarInfo" ilk="argument" name="info" />
+          <variable citdl="list" line="1104" name="parts" />
+          <variable citdl="list" line="1122" name="buf" />
+          <variable line="1123" name="chksum" />
+          <variable ilk="argument" name="format" />
+        </scope>
+        <scope ilk="function" line="1455" lineend="1456" name="isdir" returns="bool" signature="isdir()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1463" lineend="1464" name="isblk" returns="bool" signature="isblk()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Process a builtin type or an unknown type which will be&#10;treated as a regular file." ilk="function" line="1266" lineend="1281" name="_proc_builtin" returns="TarInfo" signature="_proc_builtin(tarfile)">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable ilk="argument" name="tarfile" />
+          <variable citdl="int" line="1271" name="offset" />
+        </scope>
+        <scope doc="Return a tar header as a string of 512 byte blocks." ilk="function" line="986" lineend="998" name="tobuf" returns="self.create_pax_header()" signature="tobuf(format=DEFAULT_FORMAT, encoding=ENCODING, errors='strict')">
+          <variable citdl="get_info()" line="989" name="info" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="errors" />
+          <variable citdl="sys.getfilesystemencoding()" ilk="argument" name="encoding" />
+          <variable citdl="int" ilk="argument" name="format" />
+        </scope>
+        <scope ilk="function" line="1467" lineend="1468" name="issparse" returns="bool" signature="issparse()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the string payload filled with zero bytes up to the&#10;next 512 byte border." ilk="function" line="1128" lineend="1135" name="_create_payload" returns="TarInfo" signature="_create_payload(payload)">
+          <variable line="1132" name="remainder" />
+          <variable line="1132" name="blocks" />
+          <variable citdl="TarInfo" ilk="argument" name="payload" />
+        </scope>
+        <scope ilk="function" line="1465" lineend="1466" name="isfifo" returns="bool" signature="isfifo()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="955" lineend="956" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1459" lineend="1460" name="islnk" returns="bool" signature="islnk()">
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Process a GNU sparse header plus extra headers." ilk="function" line="1305" lineend="1359" name="_proc_sparse" returns="TarInfo" signature="_proc_sparse(tarfile)">
+          <variable citdl="long" line="1312" name="realpos" />
+          <variable citdl="nti()" line="1329" name="origsize" />
+          <variable citdl="nti()" line="1311" name="lastpos" />
+          <variable citdl="TarInfo" ilk="argument" name="self" />
+          <variable citdl="_ringbuffer()" line="1309" name="sp" />
+          <variable ilk="argument" name="tarfile" />
+          <variable citdl="int" line="1310" name="pos" />
+          <variable citdl="nti()" line="1318" name="numbytes" />
+          <variable citdl="nti()" line="1317" name="offset" />
+          <variable citdl="ord()" line="1328" name="isextended" />
+          <variable citdl="tarfile.fileobj.read()" line="1308" name="buf" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="939" name="pax_headers" />
+        <variable attributes="__instancevar__" citdl="int" line="933" name="devmajor" />
+        <variable attributes="__instancevar__" citdl="int" line="924" name="uid" />
+        <variable attributes="__instancevar__" citdl="str" line="922" name="name" />
+        <variable citdl="property()" line="953" name="linkpath" />
+        <variable attributes="__instancevar__" citdl="int" line="927" name="mtime" />
+        <variable attributes="__instancevar__" citdl="_ringbuffer()" line="1353" name="sparse" />
+        <variable attributes="__instancevar__" citdl="int" line="936" name="offset" />
+        <variable attributes="__instancevar__" citdl="int" line="937" name="offset_data" />
+        <variable attributes="__instancevar__" citdl="int" line="934" name="devminor" />
+        <variable attributes="__instancevar__" citdl="str" line="931" name="uname" />
+        <variable attributes="__instancevar__" citdl="int" line="925" name="gid" />
+        <variable attributes="__instancevar__" citdl="int" line="923" name="mode" />
+        <variable attributes="__instancevar__" citdl="int" line="928" name="chksum" />
+        <variable attributes="__instancevar__" citdl="str" line="932" name="gname" />
+        <variable attributes="__instancevar__" citdl="str" line="930" name="linkname" />
+        <variable citdl="property()" line="947" name="path" />
+        <variable attributes="__instancevar__" citdl="str" line="929" name="type" />
+        <variable attributes="__instancevar__" citdl="int" line="926" name="size" />
+      </scope>
+      <scope doc="Iterator Class.&#10;for tarinfo in TarFile(...): suite..." ilk="class" line="2446" lineend="2480" name="TarIter">
+        <scope doc="Return iterator object." ilk="function" line="2458" lineend="2461" name="__iter__" returns="TarIter" signature="__iter__()">
+          <variable citdl="TarIter" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Construct a TarIter object." ilk="function" line="2453" lineend="2457" name="__init__" signature="TarIter(tarfile)">
+          <variable citdl="TarIter" ilk="argument" name="self" />
+          <variable ilk="argument" name="tarfile" />
+        </scope>
+        <scope doc="Return the next item using TarFile's next() method." ilk="function" line="2462" lineend="2480" name="next" returns="self.tarfile.next()" signature="next()">
+          <variable citdl="TarIter" ilk="argument" name="self" />
+          <variable citdl="self.tarfile.next()" line="2470" name="tarinfo" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="2457" name="index" />
+        <variable attributes="__instancevar__" line="2456" name="tarfile" />
+      </scope>
+      <scope classrefs="HeaderError" doc="Exception for truncated headers.&#10;" ilk="class" line="347" lineend="349" name="TruncatedHeaderError" />
+      <variable citdl="int" line="95" name="USTAR_FORMAT" />
+      <variable citdl="str" line="92" name="XGLTYPE" />
+      <variable citdl="str" line="91" name="XHDTYPE" />
+      <variable citdl="list" line="62" name="__all__" />
+      <variable citdl="str" line="37" name="__author__" />
+      <variable citdl="str" line="40" name="__credits__" />
+      <variable citdl="str" line="39" name="__cvsid__" />
+      <variable citdl="str" line="38" name="__date__" />
+      <variable citdl="str" line="33" name="__version__" />
+      <scope doc="Open a file using the file() type, returns a file object." ilk="function" line="2593" name="bltn_open" returns="file" signature="open(name[, mode[, buffering]]) -&gt; file object" />
+      <scope doc="Calculate the checksum for a member's header by summing up&#10;all characters except for the chksum field which is treated&#10;as if it was filled with spaces." ilk="function" line="246" lineend="257" name="calc_chksums" returns="tuple" signature="calc_chksums(buf)">
+        <variable citdl="sum()" line="256" name="signed_chksum" />
+        <variable ilk="argument" name="buf" />
+        <variable citdl="sum()" line="255" name="unsigned_chksum" />
+      </scope>
+      <import module="copy" />
+      <scope doc="Copy length bytes from fileobj src to fileobj dst." ilk="function" line="259" name="copyfileobj" signature="copyfileobj(src, dst, length=None)">
+        <variable ilk="argument" name="src" />
+        <variable line="270" name="blocks" />
+        <variable citdl="src.read()" line="272" name="buf" />
+        <variable ilk="argument" name="dst" />
+        <variable ilk="argument" name="length" />
+        <variable citdl="int" line="269" name="BUFSIZE" />
+        <variable line="270" name="remainder" />
+      </scope>
+      <import module="errno" />
+      <scope doc="Convert a file's mode to a string of the form -rwxrwxrwx." ilk="function" line="311" lineend="324" name="filemode" returns="str.join()" signature="filemode(mode)">
+        <variable ilk="argument" name="mode" />
+        <variable citdl="list" line="316" name="perm" />
+      </scope>
+      <variable citdl="tuple" line="284" name="filemode_table" />
+      <variable citdl="NoneType" line="59" name="grp" />
+      <scope doc="Return True if name points to a tar archive that we are able&#10;to handle, else return False." ilk="function" line="2582" lineend="2591" name="is_tarfile" returns="bool" signature="is_tarfile(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="open()" line="2587" name="t" />
+      </scope>
+      <scope doc="Convert a python number to a number field." ilk="function" line="199" lineend="224" name="itn" returns="tuple" signature="itn(n, digits=8, format=1)">
+        <variable citdl="int" ilk="argument" name="digits" />
+        <variable citdl="str" line="209" name="s" />
+        <variable citdl="int" ilk="argument" name="format" />
+        <variable ilk="argument" name="n" />
+      </scope>
+      <scope doc="Convert a number field to a python number." ilk="function" line="182" lineend="197" name="nti" returns="int()" signature="nti(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int()" line="189" name="n" />
+      </scope>
+      <scope doc="Convert a null-terminated string field to a python string." ilk="function" line="173" lineend="180" name="nts" returns="list" signature="nts(s)">
+        <variable citdl="s.find()" line="177" name="p" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Open a tar archive for reading, writing or appending." ilk="function" line="2594" name="open" />
+      <import module="operator" />
+      <import module="os" />
+      <variable citdl="NoneType" name="pwd" />
+      <import module="re" />
+      <import module="shutil" />
+      <import module="stat" />
+      <scope doc="Convert a python string to a null-terminated string buffer." ilk="function" line="168" lineend="171" name="stn" returns="str" signature="stn(s, length)">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="length" />
+      </scope>
+      <import module="struct" />
+      <import module="sys" />
+      <import module="time" />
+      <scope doc="Convert a unicode object to a string." ilk="function" line="226" lineend="244" name="uts" returns="s.encode()" signature="uts(s, encoding, errors)">
+        <variable citdl="list" line="236" name="x" />
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="errors" />
+        <variable ilk="argument" name="encoding" />
+      </scope>
+      <variable citdl="str" line="36" name="version" />
+      <scope attributes="protected __hidden__" classrefs="object" doc="Small proxy class that enables external file object support&#10;for &quot;r:bz2&quot; and &quot;w:bz2&quot; modes." ilk="class" line="638" lineend="697" name="_BZ2Proxy">
+        <variable citdl="int" line="646" name="blocksize" />
+        <scope attributes="__ctor__" ilk="function" line="648" lineend="652" name="__init__" signature="_BZ2Proxy(fileobj, mode)">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="fileobj" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <variable attributes="__instancevar__" line="649" name="fileobj" />
+        <variable attributes="__instancevar__" line="650" name="mode" />
+        <variable attributes="__instancevar__" citdl="getattr()" line="651" name="name" />
+        <scope ilk="function" line="654" lineend="662" name="init" signature="init()">
+          <import line="655" module="bz2" />
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="656" name="pos" />
+        <variable attributes="__instancevar__" citdl="bz2.BZ2Decompressor()" line="658" name="bz2obj" />
+        <variable attributes="__instancevar__" citdl="list" line="660" name="buf" />
+        <scope ilk="function" line="664" lineend="679" name="read" returns="list" signature="read(size)">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable citdl="list" line="665" name="b" />
+          <variable citdl="len()" line="666" name="x" />
+          <variable citdl="self.fileobj.read()" line="668" name="raw" />
+          <variable citdl="self.bz2obj.decompress()" line="671" name="data" />
+          <variable citdl="list" line="676" name="buf" />
+        </scope>
+        <scope ilk="function" line="681" lineend="684" name="seek" signature="seek(pos)">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <scope ilk="function" line="686" lineend="687" name="tell" returns="int" signature="tell()">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="689" lineend="692" name="write" signature="write(data)">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="self.bz2obj.compress()" line="691" name="raw" />
+        </scope>
+        <scope ilk="function" line="694" lineend="697" name="close" signature="close()">
+          <variable citdl="_BZ2Proxy" ilk="argument" name="self" />
+          <variable citdl="self.bz2obj.flush()" line="696" name="raw" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" doc="A thin wrapper around an existing file object that provides&#10;a part of its data as an individual file object." ilk="class" line="703" lineend="775" name="_FileInFile">
+        <scope attributes="__ctor__" ilk="function" line="709" lineend="714" name="__init__" signature="_FileInFile(fileobj, offset, size, sparse=None)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="fileobj" />
+          <variable ilk="argument" name="offset" />
+          <variable ilk="argument" name="size" />
+          <variable ilk="argument" name="sparse" />
+        </scope>
+        <variable attributes="__instancevar__" line="710" name="fileobj" />
+        <variable attributes="__instancevar__" line="711" name="offset" />
+        <variable attributes="__instancevar__" line="712" name="size" />
+        <variable attributes="__instancevar__" line="713" name="sparse" />
+        <variable attributes="__instancevar__" citdl="int" line="714" name="position" />
+        <scope doc="Return the current file position." ilk="function" line="716" lineend="719" name="tell" returns="int" signature="tell()">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Seek to a position in the file." ilk="function" line="721" lineend="724" name="seek" signature="seek(position)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="position" />
+        </scope>
+        <scope doc="Read data from the file." ilk="function" line="726" lineend="737" name="read" returns="self.readnormal()" signature="read(size=None)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="size" />
+        </scope>
+        <scope doc="Read operation for regular files." ilk="function" line="739" lineend="744" name="readnormal" returns="self.fileobj.read()" signature="readnormal(size)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Read operation for sparse files." ilk="function" line="746" lineend="756" name="readsparse" returns="str.join()" signature="readsparse(size)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable citdl="list" line="749" name="data" />
+          <variable citdl="self.readsparsesection()" line="751" name="buf" />
+        </scope>
+        <scope doc="Read a single section of a sparse file." ilk="function" line="758" lineend="775" name="readsparsesection" returns="self.fileobj.read()" signature="readsparsesection(size)">
+          <variable citdl="_FileInFile" ilk="argument" name="self" />
+          <variable citdl="min()" ilk="argument" name="size" />
+          <variable citdl="self.sparse.find()" line="761" name="section" />
+          <variable citdl="section.realpos" line="769" name="realpos" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Base class for _data and _hole." ilk="class" line="2483" lineend="2490" name="_section">
+        <scope attributes="__ctor__" ilk="function" line="2486" lineend="2488" name="__init__" signature="_section(offset, size)">
+          <variable citdl="_section" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <variable attributes="__instancevar__" line="2487" name="offset" />
+        <variable attributes="__instancevar__" line="2488" name="size" />
+        <scope ilk="function" line="2489" lineend="2490" name="__contains__" returns="bool" signature="__contains__(offset)">
+          <variable citdl="_section" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="list" doc="Ringbuffer class which increases performance over a regular&#10;list." ilk="class" line="2504" lineend="2523" name="_ringbuffer">
+        <scope attributes="__ctor__" ilk="function" line="2508" lineend="2509" name="__init__" signature="_ringbuffer()">
+          <variable citdl="_ringbuffer" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="2509" name="idx" />
+        <scope ilk="function" line="2510" lineend="2523" name="find" signature="find(offset)">
+          <variable citdl="_ringbuffer" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+          <variable citdl="int" line="2511" name="idx" />
+          <variable line="2513" name="item" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Low-level file object. Supports reading and writing." ilk="class" line="363" lineend="385" name="_LowLevelFile">
+        <scope attributes="__ctor__" ilk="function" line="369" lineend="376" name="__init__" signature="_LowLevelFile(name, mode)">
+          <variable citdl="_LowLevelFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.open()" line="376" name="fd" />
+        <scope ilk="function" line="378" lineend="379" name="close" signature="close()">
+          <variable citdl="_LowLevelFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="381" lineend="382" name="read" returns="os.read()" signature="read(size)">
+          <variable citdl="_LowLevelFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="384" lineend="385" name="write" signature="write(s)">
+          <variable citdl="_LowLevelFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Class that serves as an adapter between TarFile and a&#10;stream-like object." ilk="class" line="387" lineend="611" name="_Stream">
+        <scope attributes="__ctor__" doc="Construct a _Stream object." ilk="function" line="398" lineend="442" name="__init__" signature="_Stream(name, mode, comptype, fileobj, bufsize)">
+          <import line="423" module="zlib" />
+          <import line="435" module="bz2" />
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mode" />
+          <variable citdl="fileobj.getcomptype()" ilk="argument" name="comptype" />
+          <variable citdl="_LowLevelFile" ilk="argument" name="fileobj" />
+          <variable ilk="argument" name="bufsize" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="True" line="401" name="_extfileobj" />
+        <variable attributes="__instancevar__" citdl="list" line="412" name="name" />
+        <variable attributes="__instancevar__" line="413" name="mode" />
+        <variable attributes="__instancevar__" citdl="fileobj.getcomptype()" line="414" name="comptype" />
+        <variable attributes="__instancevar__" citdl="_LowLevelFile" line="415" name="fileobj" />
+        <variable attributes="__instancevar__" line="416" name="bufsize" />
+        <variable attributes="__instancevar__" citdl="list" line="417" name="buf" />
+        <variable attributes="__instancevar__" citdl="long" line="418" name="pos" />
+        <variable attributes="__instancevar__" citdl="False" line="419" name="closed" />
+        <variable attributes="__instancevar__" line="426" name="zlib" />
+        <variable attributes="__instancevar__" citdl="int" line="427" name="crc" />
+        <variable attributes="__instancevar__" citdl="str" line="439" name="dbuf" />
+        <variable attributes="__instancevar__" citdl="bz2.BZ2Compressor()" line="440" name="cmp" />
+        <scope ilk="function" line="444" lineend="446" name="__del__" signature="__del__()">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" doc="Initialize for writing with gzip compression." ilk="function" line="448" lineend="459" name="_init_write_gz" signature="_init_write_gz()">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable citdl="struct.pack()" line="455" name="timestamp" />
+        </scope>
+        <scope doc="Write string s to the stream." ilk="function" line="461" lineend="469" name="write" signature="write(s)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable citdl="self.cmp.compress()" ilk="argument" name="s" />
+        </scope>
+        <scope attributes="private" doc="Write string s to the stream if a whole new block is ready&#10;to be written." ilk="function" line="471" lineend="478" name="__write" signature="__write(s)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <scope doc="Close the _Stream object." ilk="function" line="480" lineend="506" name="close" signature="close()">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" doc="Initialize for reading a gzip compressed fileobj." ilk="function" line="508" lineend="537" name="_init_read_gz" signature="_init_read_gz()">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable citdl="ord()" line="520" name="flag" />
+          <variable citdl="ord()" line="524" name="xlen" />
+          <variable citdl="self.__read()" line="528" name="s" />
+        </scope>
+        <scope doc="Return the stream's file pointer position." ilk="function" line="539" lineend="542" name="tell" returns="long" signature="tell()">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the stream's file pointer to pos." ilk="function" line="544" lineend="555" name="seek" returns="long" signature="seek(pos=0)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="pos" />
+          <variable line="549" name="blocks" />
+          <variable line="549" name="remainder" />
+        </scope>
+        <scope doc="Return the next size number of bytes from the stream." ilk="function" line="557" lineend="573" name="read" returns="self._read()" signature="read(size=None)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable citdl="list" line="563" name="t" />
+          <variable citdl="self._read()" line="565" name="buf" />
+        </scope>
+        <scope attributes="protected" doc="Return size bytes from the stream." ilk="function" line="575" lineend="595" name="_read" returns="list" signature="_read(size)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable citdl="len()" line="581" name="c" />
+          <variable citdl="list" line="582" name="t" />
+          <variable citdl="self.__read()" line="584" name="buf" />
+        </scope>
+        <scope attributes="private" doc="Return size bytes from stream." ilk="function" line="597" lineend="611" name="__read" returns="list" signature="__read(size)">
+          <variable citdl="_Stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable citdl="len()" line="601" name="c" />
+          <variable citdl="list" line="602" name="t" />
+          <variable citdl="self.fileobj.read()" line="604" name="buf" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="_section" doc="Represent a hole section in a sparse file." ilk="class" line="2499" lineend="2502" name="_hole" />
+      <scope attributes="protected __hidden__" classrefs="_section" doc="Represent a data section in a sparse file." ilk="class" line="2492" lineend="2497" name="_data">
+        <scope attributes="__ctor__" ilk="function" line="2495" lineend="2497" name="__init__" signature="_data(offset, size, realpos)">
+          <variable citdl="_data" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+          <variable ilk="argument" name="size" />
+          <variable ilk="argument" name="realpos" />
+        </scope>
+        <variable attributes="__instancevar__" line="2497" name="realpos" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="object" doc="Small proxy class that enables transparent compression&#10;detection for the Stream interface (mode 'r|*')." ilk="class" line="614" lineend="635" name="_StreamProxy">
+        <scope attributes="__ctor__" ilk="function" line="619" lineend="621" name="__init__" signature="_StreamProxy(fileobj)">
+          <variable citdl="_StreamProxy" ilk="argument" name="self" />
+          <variable ilk="argument" name="fileobj" />
+        </scope>
+        <variable attributes="__instancevar__" line="620" name="fileobj" />
+        <variable attributes="__instancevar__" citdl="self.fileobj.read()" line="621" name="buf" />
+        <variable attributes="__instancevar__" citdl="function" line="623" name="read" />
+        <scope ilk="function" line="627" lineend="632" name="getcomptype" returns="str" signature="getcomptype()">
+          <variable citdl="_StreamProxy" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="634" lineend="635" name="close" signature="close()">
+          <variable citdl="_StreamProxy" ilk="argument" name="self" />
+        </scope>
+      </scope>
+    </scope>
+    

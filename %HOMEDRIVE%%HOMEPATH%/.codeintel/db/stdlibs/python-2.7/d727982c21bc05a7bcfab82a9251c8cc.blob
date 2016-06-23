@@ -1,0 +1,193 @@
+<scope doc="CSV parsing and writing.&#10;This module provides classes that assist in the reading and writing of Comma Separated Value (CSV) files, and implements the interface described by PEP 305.  Although many CSV files are simple to parse, the format is not formally defined by a stable specification and is subtle enough that parsing lines of a CSV file with something like line.split(&quot;,&quot;) is bound to fail.  The module supports three basic APIs: reading, writing, and registration of dialects.   DIALECT REGISTRATION:" ilk="blob" lang="Python" name="csv">
+      <scope doc="Describe an Excel dialect.&#10;This must be subclassed (see csv.excel).  Valid attributes are: delimiter, quotechar, escapechar, doublequote, skipinitialspace, lineterminator, quoting." ilk="class" line="26" lineend="55" name="Dialect">
+        <scope ilk="function" line="50" lineend="55" name="_validate" signature="_validate()">
+          <variable citdl="Dialect" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="45" lineend="48" name="__init__" signature="Dialect()">
+          <variable citdl="Dialect" ilk="argument" name="self" />
+        </scope>
+        <variable line="39" name="escapechar" />
+        <variable attributes="protected" citdl="False" line="35" name="_valid" />
+        <variable line="41" name="skipinitialspace" />
+        <variable line="43" name="quoting" />
+        <variable attributes="protected" citdl="str" line="34" name="_name" />
+        <variable line="37" name="delimiter" />
+        <variable line="42" name="lineterminator" />
+        <variable line="38" name="quotechar" />
+        <variable line="40" name="doublequote" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="73" lineend="120" name="DictReader">
+        <scope ilk="function" line="100" lineend="120" name="next" returns="dict()" signature="next()">
+          <variable citdl="len()" line="113" name="lf" />
+          <variable citdl="DictReader" ilk="argument" name="self" />
+          <variable citdl="len()" line="114" name="lr" />
+          <variable citdl="dict()" line="112" name="d" />
+          <variable citdl="self.reader.next()" line="104" name="row" />
+        </scope>
+        <scope ilk="function" line="83" lineend="84" name="__iter__" returns="DictReader" signature="__iter__()">
+          <variable citdl="DictReader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="74" lineend="81" name="__init__" signature="DictReader(f, fieldnames=None, restkey=None, restval=None, dialect='excel', *args, **kwds)">
+          <variable ilk="argument" name="restval" />
+          <variable citdl="str" ilk="argument" name="dialect" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="f" />
+          <variable citdl="DictReader" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="fieldnames" />
+          <variable ilk="argument" name="restkey" />
+        </scope>
+        <variable attributes="__instancevar__" line="78" name="restval" />
+        <variable attributes="__instancevar__" citdl="str" line="80" name="dialect" />
+        <variable attributes="__instancevar__" citdl="int" line="81" name="line_num" />
+        <variable attributes="property" citdl="self.reader.next()" line="87" name="fieldnames" />
+        <variable attributes="__instancevar__" line="77" name="restkey" />
+        <variable attributes="protected __instancevar__" citdl="self.reader.next()" line="76" name="_fieldnames" />
+        <scope attributes="__hidden__" ilk="function" line="97" lineend="98" name="fieldnames (property setter)" signature="fieldnames (property setter)(value)">
+          <variable citdl="DictReader" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="reader()" line="79" name="reader" />
+        <scope attributes="__hidden__" ilk="function" line="87" lineend="94" name="fieldnames (property getter)" returns="self.reader.next()" signature="fieldnames (property getter)()">
+          <variable citdl="DictReader" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="123" lineend="154" name="DictWriter">
+        <scope ilk="function" line="139" lineend="145" name="_dict_to_list" returns="list" signature="_dict_to_list(rowdict)">
+          <variable citdl="DictWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="rowdict" />
+          <variable citdl="list" line="141" name="wrong_fields" />
+        </scope>
+        <scope ilk="function" line="147" lineend="148" name="writerow" returns="self.writer.writerow()" signature="writerow(rowdict)">
+          <variable citdl="DictWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="rowdict" />
+        </scope>
+        <scope ilk="function" line="135" lineend="137" name="writeheader" signature="writeheader()">
+          <variable citdl="dict()" line="136" name="header" />
+          <variable citdl="DictWriter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="150" lineend="154" name="writerows" returns="self.writer.writerows()" signature="writerows(rowdicts)">
+          <variable citdl="DictWriter" ilk="argument" name="self" />
+          <variable citdl="list" line="151" name="rows" />
+          <variable ilk="argument" name="rowdicts" />
+        </scope>
+        <scope ilk="function" line="124" lineend="133" name="__init__" signature="DictWriter(f, fieldnames, restval='', extrasaction='raise', dialect='excel', *args, **kwds)">
+          <variable citdl="str" ilk="argument" name="restval" />
+          <variable citdl="str" ilk="argument" name="dialect" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+          <variable ilk="argument" name="f" />
+          <variable citdl="DictWriter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="fieldnames" />
+          <variable citdl="str" ilk="argument" name="extrasaction" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="127" name="restval" />
+        <variable attributes="__instancevar__" citdl="writer()" line="133" name="writer" />
+        <variable attributes="__instancevar__" line="126" name="fieldnames" />
+        <variable attributes="__instancevar__" citdl="str" line="132" name="extrasaction" />
+      </scope>
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="Error" />
+      <variable citdl="int" name="QUOTE_ALL" />
+      <variable citdl="int" name="QUOTE_MINIMAL" />
+      <variable citdl="int" name="QUOTE_NONE" />
+      <variable citdl="int" name="QUOTE_NONNUMERIC" />
+      <scope doc="&quot;Sniffs&quot; the format of a CSV file (i.e. delimiter, quotechar)&#10;Returns a Dialect object." ilk="class" line="162" lineend="451" name="Sniffer">
+        <scope doc="Looks for text enclosed between two identical quotes (the&#10;probable quotechar) which are preceded and followed by the&#10;same character (the probable delimiter)." ilk="function" line="201" lineend="274" name="_guess_quote_and_delimiter" returns="tuple" signature="_guess_quote_and_delimiter(data, delimiters)">
+          <variable citdl="int" line="254" name="skipinitialspace" />
+          <variable ilk="argument" name="delimiters" />
+          <variable citdl="Sniffer" ilk="argument" name="self" />
+          <variable citdl="str" line="252" name="delim" />
+          <variable citdl="dict" line="227" name="delims" />
+          <variable citdl="int" line="230" name="n" />
+          <variable citdl="list" line="213" name="matches" />
+          <variable citdl="int" line="228" name="spaces" />
+          <variable citdl="dict" line="226" name="quotes" />
+          <variable citdl="True" line="270" name="doublequote" />
+          <variable line="231" name="key" />
+          <variable citdl="reduce()" line="248" name="quotechar" />
+          <variable citdl="re.compile()" line="218" name="regexp" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="re.compile()" line="264" name="dq_regexp" />
+        </scope>
+        <scope doc="The delimiter /should/ occur the same number of times on&#10;each row." ilk="function" line="277" lineend="379" name="_guess_delimiter" returns="tuple" signature="_guess_delimiter(data, delimiters)">
+          <variable citdl="min()" line="301" name="chunkLength" />
+          <variable citdl="dict" line="304" name="modes" />
+          <variable citdl="charFrequency.get()" line="311" name="metaFrequency" />
+          <variable citdl="bool" line="352" name="skipinitialspace" />
+          <variable ilk="argument" name="delimiters" />
+          <variable citdl="list" line="319" name="items" />
+          <variable citdl="Sniffer" ilk="argument" name="self" />
+          <variable line="351" name="delim" />
+          <variable citdl="int" line="302" name="iteration" />
+          <variable citdl="filter()" ilk="argument" name="data" />
+          <variable citdl="modes.items()" line="336" name="modeList" />
+          <variable citdl="dict" line="303" name="charFrequency" />
+          <variable citdl="dict" line="305" name="delims" />
+          <variable citdl="float" line="339" name="consistency" />
+          <variable citdl="float" line="341" name="threshold" />
+          <variable citdl="min()" line="306" name="end" />
+          <variable citdl="line.count()" line="313" name="freq" />
+          <variable citdl="float()" line="337" name="total" />
+          <variable citdl="list" line="298" name="ascii" />
+          <variable citdl="int" line="306" name="start" />
+        </scope>
+        <scope ilk="function" line="382" lineend="451" name="has_header" returns="bool" signature="has_header(sample)">
+          <variable citdl="int" line="400" name="checked" />
+          <variable citdl="reader()" line="392" name="rdr" />
+          <variable citdl="Sniffer" ilk="argument" name="self" />
+          <variable citdl="int" line="420" name="thisType" />
+          <variable ilk="argument" name="sample" />
+          <variable citdl="rdr.next()" line="394" name="header" />
+          <variable citdl="dict" line="397" name="columnTypes" />
+          <variable citdl="int" line="436" name="hasHeader" />
+          <variable citdl="len()" line="396" name="columns" />
+        </scope>
+        <scope ilk="function" line="167" lineend="169" name="__init__" signature="Sniffer()">
+          <variable citdl="Sniffer" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Returns a dialect (or None) corresponding to the sample" ilk="function" line="172" lineend="198" name="sniff" returns="Sniffer.sniff.dialect" signature="sniff(sample, delimiters=None)">
+          <scope classrefs="Dialect" ilk="class" line="186" lineend="189" name="dialect">
+            <variable attributes="protected" citdl="str" line="187" name="_name" />
+            <variable citdl="str" line="188" name="lineterminator" />
+            <variable citdl="QUOTE_MINIMAL" line="189" name="quoting" />
+            <variable attributes="__instancevar__" line="192" name="doublequote" />
+            <variable attributes="__instancevar__" line="193" name="delimiter" />
+            <variable attributes="__instancevar__" citdl="str" line="195" name="quotechar" />
+            <variable attributes="__instancevar__" line="196" name="skipinitialspace" />
+          </scope>
+          <variable line="177" name="skipinitialspace" />
+          <variable ilk="argument" name="delimiters" />
+          <variable citdl="Sniffer" ilk="argument" name="self" />
+          <variable ilk="argument" name="sample" />
+          <variable line="177" name="delimiter" />
+          <variable line="177" name="quotechar" />
+          <variable line="177" name="doublequote" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="169" name="preferred" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="20" name="__all__" />
+      <variable citdl="str" name="__version__" />
+      <scope classrefs="Dialect" doc="Describe the usual properties of Excel-generated CSV files.&#10;" ilk="class" line="57" lineend="64" name="excel">
+        <variable citdl="str" line="63" name="lineterminator" />
+        <variable citdl="False" line="62" name="skipinitialspace" />
+        <variable citdl="QUOTE_MINIMAL" line="64" name="quoting" />
+        <variable citdl="str" line="59" name="delimiter" />
+        <variable citdl="str" line="60" name="quotechar" />
+        <variable citdl="True" line="61" name="doublequote" />
+      </scope>
+      <scope classrefs="excel" doc="Describe the usual properties of Excel-generated TAB-delimited files.&#10;" ilk="class" line="67" lineend="69" name="excel_tab">
+        <variable citdl="str" line="69" name="delimiter" />
+      </scope>
+      <scope doc="Sets an upper limit on parsed fields." ilk="function" name="field_size_limit" />
+      <scope doc="Return the dialect instance associated with name." ilk="function" name="get_dialect" />
+      <scope doc="Return a list of all know dialect names." ilk="function" name="list_dialects" />
+      <import module="re" />
+      <scope doc="csv_reader = reader(iterable [, dialect='excel'] [optional&#10;keyword args]) for row in csv_reader: process(row)" ilk="function" name="reader" />
+      <scope doc="Apply a function of two arguments cumulatively to the items&#10;of a sequence, from left to right, so as to reduce the&#10;sequence to a single value." ilk="function" name="reduce" signature="reduce(function, sequence[, initial]) -&gt; value" />
+      <scope doc="Create a mapping from a string name to a dialect class." ilk="function" name="register_dialect" />
+      <scope doc="Delete the name/dialect mapping associated with a string&#10;name." ilk="function" name="unregister_dialect" />
+      <scope doc="csv_writer = csv.writer(fileobj [, dialect='excel']&#10;[optional keyword args]) for row in sequence:&#10;csv_writer.writerow(row)" ilk="function" name="writer" />
+      <variable attributes="__hidden__" citdl="float" line="160" name="complex" />
+    </scope>
+    

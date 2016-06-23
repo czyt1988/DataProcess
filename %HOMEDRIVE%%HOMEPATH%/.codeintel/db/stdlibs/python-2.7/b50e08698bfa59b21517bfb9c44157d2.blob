@@ -1,0 +1,72 @@
+<scope doc="JSON (JavaScript Object Notation) &lt;http://json.org&gt; is a subset of&#10;JavaScript syntax (ECMA-262 3rd edition) used as a lightweight data interchange format.  :mod:`json` exposes an API familiar to users of the standard library :mod:`marshal` and :mod:`pickle` modules. It is the externally maintained version of the :mod:`json` library contained in Python 2.6, but maintains compatibility with Python 2.4 and Python 2.5 and (currently) has significant performance advantages, even without using the optional C extension for speedups. " ilk="blob" lang="Python" name="json">
+      <scope classrefs="object" doc="Simple JSON &lt;http://json.org&gt; decoder&#10;Performs the following translations in decoding by default:  +---------------+-------------------+ | JSON          | Python            | +===============+===================+ | object        | dict              | +---------------+-------------------+ | array         | list              | +---------------+-------------------+ | string        | unicode           |" ilk="class" name="JSONDecoder">
+        <scope doc="Decode a JSON document from ``s`` (a ``str`` or ``unicode``&#10;beginning with a JSON document) and return a 2-tuple of the&#10;Python representation and the index in ``s`` where the&#10;document ended." ilk="function" name="raw_decode" />
+        <scope doc="Return the Python representation of ``s`` (a ``str`` or&#10;``unicode`` instance containing a JSON document)" ilk="function" name="decode" />
+        <scope doc="``encoding`` determines the encoding used to interpret any&#10;``str`` objects decoded by this instance (utf-8 by default)." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="Extensible JSON &lt;http://json.org&gt; encoder for Python data structures.&#10;Supports the following objects and types by default:  +-------------------+---------------+ | Python            | JSON          | +===================+===============+ | dict              | object        | +-------------------+---------------+ | list, tuple       | array         | +-------------------+---------------+ | str, unicode      | string        |" ilk="class" name="JSONEncoder">
+        <scope doc="Implement this method in a subclass such that it returns a&#10;serializable object for ``o``, or calls the base&#10;implementation (to raise a ``TypeError``)." ilk="function" name="default" />
+        <scope doc="Constructor for JSONEncoder, with sensible defaults." ilk="function" name="__init__" />
+        <scope doc="Return a JSON string representation of a Python data&#10;structure." ilk="function" name="encode" />
+        <scope doc="Encode the given object and yield each string representation&#10;as available." ilk="function" name="iterencode" />
+      </scope>
+      <variable citdl="list" line="101" name="__all__" />
+      <variable citdl="str" line="106" name="__author__" />
+      <variable citdl="str" line="100" name="__version__" />
+      <import module="decoder" />
+      <scope doc="Serialize ``obj`` as a JSON formatted stream to ``fp`` (a&#10;``.write()``-supporting file-like object)." ilk="function" line="122" lineend="182" name="dump" signature="dump(obj, fp, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, encoding='utf-8', default=None, **kw)">
+        <variable ilk="argument" name="fp" />
+        <variable ilk="argument" name="obj" />
+        <variable citdl="str" ilk="argument" name="encoding" />
+        <variable ilk="argument" name="default" />
+        <variable citdl="True" ilk="argument" name="check_circular" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable citdl="False" ilk="argument" name="skipkeys" />
+        <variable citdl="True" ilk="argument" name="allow_nan" />
+        <variable ilk="argument" name="indent" />
+        <variable citdl="True" ilk="argument" name="ensure_ascii" />
+        <variable ilk="argument" name="separators" />
+        <variable citdl="_default_encoder.iterencode()" line="171" name="iterable" />
+        <variable citdl="JSONEncoder" ilk="argument" name="cls" />
+      </scope>
+      <scope doc="Serialize ``obj`` to a JSON formatted ``str``." ilk="function" line="185" lineend="238" name="dumps" returns="_default_encoder.encode()" signature="dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, encoding='utf-8', default=None, **kw)">
+        <variable ilk="argument" name="obj" />
+        <variable citdl="str" ilk="argument" name="encoding" />
+        <variable ilk="argument" name="default" />
+        <variable citdl="True" ilk="argument" name="check_circular" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable citdl="False" ilk="argument" name="skipkeys" />
+        <variable citdl="True" ilk="argument" name="allow_nan" />
+        <variable ilk="argument" name="indent" />
+        <variable citdl="True" ilk="argument" name="ensure_ascii" />
+        <variable ilk="argument" name="separators" />
+        <variable citdl="JSONEncoder" ilk="argument" name="cls" />
+      </scope>
+      <import module="encoder" />
+      <scope doc="Deserialize ``fp`` (a ``.read()``-supporting file-like&#10;object containing a JSON document) to a Python object." ilk="function" line="245" lineend="278" name="load" returns="loads()" signature="load(fp, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)">
+        <variable ilk="argument" name="fp" />
+        <variable ilk="argument" name="parse_constant" />
+        <variable ilk="argument" name="parse_float" />
+        <variable ilk="argument" name="object_hook" />
+        <variable ilk="argument" name="encoding" />
+        <variable ilk="argument" name="parse_int" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable ilk="argument" name="object_pairs_hook" />
+        <variable ilk="argument" name="cls" />
+      </scope>
+      <scope doc="Deserialize ``s`` (a ``str`` or ``unicode`` instance&#10;containing a JSON document) to a Python object." ilk="function" line="281" lineend="339" name="loads" returns="_default_decoder.decode()" signature="loads(s, encoding=None, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)">
+        <variable ilk="argument" name="parse_constant" />
+        <variable ilk="argument" name="parse_float" />
+        <variable ilk="argument" name="object_hook" />
+        <variable ilk="argument" name="encoding" />
+        <variable ilk="argument" name="parse_int" />
+        <variable ilk="argument" name="s" />
+        <variable attributes="kwargs" ilk="argument" name="kw" />
+        <variable ilk="argument" name="object_pairs_hook" />
+        <variable citdl="JSONDecoder" ilk="argument" name="cls" />
+      </scope>
+      <import module="scanner" />
+      <variable attributes="protected __hidden__" citdl="JSONEncoder()" line="111" name="_default_encoder" />
+      <variable attributes="protected __hidden__" citdl="JSONDecoder()" line="241" name="_default_decoder" />
+    </scope>
+    

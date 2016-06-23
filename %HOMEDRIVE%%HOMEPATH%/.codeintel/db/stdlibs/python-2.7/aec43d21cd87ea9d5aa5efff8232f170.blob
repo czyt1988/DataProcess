@@ -1,0 +1,307 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_bsddb">
+      <scope ilk="function" name="DB" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBAccessError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBAgainError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBBusyError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBCursorClosedError" />
+      <scope ilk="function" name="DBEnv" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="DBError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBFileExistsError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBForeignConflictError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBInvalidArgError" />
+      <scope classrefs="DBError KeyError" doc="&#10;" ilk="class" name="DBKeyEmptyError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBKeyExistError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBLockDeadlockError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBLockNotGrantedError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoMemoryError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoServerError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoServerHomeError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoServerIDError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoSpaceError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBNoSuchFileError" />
+      <scope classrefs="DBError KeyError" doc="&#10;" ilk="class" name="DBNotFoundError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBOldVersionError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBPageNotFoundError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBPermissionsError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBRepHandleDeadError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBRepLeaseExpiredError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBRepLockoutError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBRepUnavailError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBRunRecoveryError" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBSecondaryBadError" />
+      <scope ilk="function" name="DBSequence" />
+      <scope classrefs="DBError" doc="&#10;" ilk="class" name="DBVerifyBadError" />
+      <variable citdl="int" name="DB_AFTER" />
+      <variable citdl="int" name="DB_AGGRESSIVE" />
+      <variable citdl="int" name="DB_APPEND" />
+      <variable citdl="int" name="DB_ARCH_ABS" />
+      <variable citdl="int" name="DB_ARCH_DATA" />
+      <variable citdl="int" name="DB_ARCH_LOG" />
+      <variable citdl="int" name="DB_ARCH_REMOVE" />
+      <variable citdl="int" name="DB_AUTO_COMMIT" />
+      <variable citdl="int" name="DB_BEFORE" />
+      <variable citdl="int" name="DB_BTREE" />
+      <variable citdl="int" name="DB_BUFFER_SMALL" />
+      <variable citdl="int" name="DB_CDB_ALLDB" />
+      <variable citdl="int" name="DB_CHKSUM" />
+      <variable citdl="int" name="DB_CONSUME" />
+      <variable citdl="int" name="DB_CONSUME_WAIT" />
+      <variable citdl="int" name="DB_CREATE" />
+      <variable citdl="int" name="DB_CURRENT" />
+      <variable citdl="int" name="DB_DIRECT_DB" />
+      <variable citdl="int" name="DB_DIRTY_READ" />
+      <variable citdl="int" name="DB_DONOTINDEX" />
+      <variable citdl="int" name="DB_DSYNC_DB" />
+      <variable citdl="int" name="DB_DUP" />
+      <variable citdl="int" name="DB_DUPSORT" />
+      <variable citdl="int" name="DB_EID_BROADCAST" />
+      <variable citdl="int" name="DB_EID_INVALID" />
+      <variable citdl="int" name="DB_ENCRYPT" />
+      <variable citdl="int" name="DB_ENCRYPT_AES" />
+      <variable citdl="int" name="DB_EVENT_PANIC" />
+      <variable citdl="int" name="DB_EVENT_REP_CLIENT" />
+      <variable citdl="int" name="DB_EVENT_REP_ELECTED" />
+      <variable citdl="int" name="DB_EVENT_REP_MASTER" />
+      <variable citdl="int" name="DB_EVENT_REP_NEWMASTER" />
+      <variable citdl="int" name="DB_EVENT_REP_PERM_FAILED" />
+      <variable citdl="int" name="DB_EVENT_REP_STARTUPDONE" />
+      <variable citdl="int" name="DB_EVENT_WRITE_FAILED" />
+      <variable citdl="int" name="DB_EXCL" />
+      <variable citdl="int" name="DB_EXTENT" />
+      <variable citdl="int" name="DB_FAST_STAT" />
+      <variable citdl="int" name="DB_FCNTL_LOCKING" />
+      <variable citdl="int" name="DB_FIRST" />
+      <variable citdl="int" name="DB_FLUSH" />
+      <variable citdl="int" name="DB_FORCE" />
+      <variable citdl="int" name="DB_FOREIGN_ABORT" />
+      <variable citdl="int" name="DB_FOREIGN_CASCADE" />
+      <variable citdl="int" name="DB_FOREIGN_NULLIFY" />
+      <variable citdl="int" name="DB_FREELIST_ONLY" />
+      <variable citdl="int" name="DB_FREE_SPACE" />
+      <variable citdl="int" name="DB_GET_BOTH" />
+      <variable citdl="int" name="DB_GET_BOTH_RANGE" />
+      <variable citdl="int" name="DB_GET_RECNO" />
+      <variable citdl="int" name="DB_GID_SIZE" />
+      <variable citdl="int" name="DB_HASH" />
+      <variable citdl="int" name="DB_IGNORE_LEASE" />
+      <variable citdl="int" name="DB_IMMUTABLE_KEY" />
+      <variable citdl="int" name="DB_INIT_CDB" />
+      <variable citdl="int" name="DB_INIT_LOCK" />
+      <variable citdl="int" name="DB_INIT_LOG" />
+      <variable citdl="int" name="DB_INIT_MPOOL" />
+      <variable citdl="int" name="DB_INIT_REP" />
+      <variable citdl="int" name="DB_INIT_TXN" />
+      <variable citdl="int" name="DB_INORDER" />
+      <variable citdl="int" name="DB_JOINENV" />
+      <variable citdl="int" name="DB_JOIN_ITEM" />
+      <variable citdl="int" name="DB_JOIN_NOSORT" />
+      <variable citdl="int" name="DB_KEYEMPTY" />
+      <variable citdl="int" name="DB_KEYEXIST" />
+      <variable citdl="int" name="DB_KEYFIRST" />
+      <variable citdl="int" name="DB_KEYLAST" />
+      <variable citdl="int" name="DB_LAST" />
+      <variable citdl="int" name="DB_LOCKDOWN" />
+      <variable citdl="int" name="DB_LOCK_CONFLICT" />
+      <variable citdl="int" name="DB_LOCK_DEADLOCK" />
+      <variable citdl="int" name="DB_LOCK_DEFAULT" />
+      <variable citdl="int" name="DB_LOCK_DUMP" />
+      <variable citdl="int" name="DB_LOCK_EXPIRE" />
+      <variable citdl="int" name="DB_LOCK_GET" />
+      <variable citdl="int" name="DB_LOCK_INHERIT" />
+      <variable citdl="int" name="DB_LOCK_IREAD" />
+      <variable citdl="int" name="DB_LOCK_IWR" />
+      <variable citdl="int" name="DB_LOCK_IWRITE" />
+      <variable citdl="int" name="DB_LOCK_MAXLOCKS" />
+      <variable citdl="int" name="DB_LOCK_MAXWRITE" />
+      <variable citdl="int" name="DB_LOCK_MINLOCKS" />
+      <variable citdl="int" name="DB_LOCK_MINWRITE" />
+      <variable citdl="int" name="DB_LOCK_NG" />
+      <variable citdl="int" name="DB_LOCK_NORUN" />
+      <variable citdl="int" name="DB_LOCK_NOTGRANTED" />
+      <variable citdl="int" name="DB_LOCK_NOWAIT" />
+      <variable citdl="int" name="DB_LOCK_OLDEST" />
+      <variable citdl="int" name="DB_LOCK_PUT" />
+      <variable citdl="int" name="DB_LOCK_PUT_ALL" />
+      <variable citdl="int" name="DB_LOCK_PUT_OBJ" />
+      <variable citdl="int" name="DB_LOCK_RANDOM" />
+      <variable citdl="int" name="DB_LOCK_READ" />
+      <variable citdl="int" name="DB_LOCK_READ_UNCOMMITTED" />
+      <variable citdl="int" name="DB_LOCK_RECORD" />
+      <variable citdl="int" name="DB_LOCK_SWITCH" />
+      <variable citdl="int" name="DB_LOCK_UPGRADE" />
+      <variable citdl="int" name="DB_LOCK_UPGRADE_WRITE" />
+      <variable citdl="int" name="DB_LOCK_WAIT" />
+      <variable citdl="int" name="DB_LOCK_WRITE" />
+      <variable citdl="int" name="DB_LOCK_WWRITE" />
+      <variable citdl="int" name="DB_LOCK_YOUNGEST" />
+      <variable citdl="int" name="DB_LOG_AUTO_REMOVE" />
+      <variable citdl="int" name="DB_LOG_DIRECT" />
+      <variable citdl="int" name="DB_LOG_DSYNC" />
+      <variable citdl="int" name="DB_LOG_IN_MEMORY" />
+      <variable citdl="int" name="DB_LOG_ZERO" />
+      <variable citdl="int" name="DB_LSTAT_ABORTED" />
+      <variable citdl="int" name="DB_LSTAT_FREE" />
+      <variable citdl="int" name="DB_LSTAT_HELD" />
+      <variable citdl="int" name="DB_LSTAT_PENDING" />
+      <variable citdl="int" name="DB_LSTAT_WAITING" />
+      <variable citdl="int" name="DB_MAX_PAGES" />
+      <variable citdl="int" name="DB_MAX_RECORDS" />
+      <variable citdl="int" name="DB_MULTIPLE" />
+      <variable citdl="int" name="DB_MULTIPLE_KEY" />
+      <variable citdl="int" name="DB_MULTIVERSION" />
+      <variable citdl="int" name="DB_NEXT" />
+      <variable citdl="int" name="DB_NEXT_DUP" />
+      <variable citdl="int" name="DB_NEXT_NODUP" />
+      <variable citdl="int" name="DB_NODUPDATA" />
+      <variable citdl="int" name="DB_NOLOCKING" />
+      <variable citdl="int" name="DB_NOMMAP" />
+      <variable citdl="int" name="DB_NOORDERCHK" />
+      <variable citdl="int" name="DB_NOOVERWRITE" />
+      <variable citdl="int" name="DB_NOPANIC" />
+      <variable citdl="int" name="DB_NOSERVER" />
+      <variable citdl="int" name="DB_NOSERVER_HOME" />
+      <variable citdl="int" name="DB_NOSERVER_ID" />
+      <variable citdl="int" name="DB_NOSYNC" />
+      <variable citdl="int" name="DB_NOTFOUND" />
+      <variable citdl="int" name="DB_ODDFILESIZE" />
+      <variable citdl="int" name="DB_OLD_VERSION" />
+      <variable citdl="int" name="DB_OPFLAGS_MASK" />
+      <variable citdl="int" name="DB_ORDERCHKONLY" />
+      <variable citdl="int" name="DB_OVERWRITE" />
+      <variable citdl="int" name="DB_PAGE_NOTFOUND" />
+      <variable citdl="int" name="DB_PANIC_ENVIRONMENT" />
+      <variable citdl="int" name="DB_POSITION" />
+      <variable citdl="int" name="DB_PREV" />
+      <variable citdl="int" name="DB_PREV_DUP" />
+      <variable citdl="int" name="DB_PREV_NODUP" />
+      <variable citdl="int" name="DB_PRINTABLE" />
+      <variable citdl="int" name="DB_PRIORITY_DEFAULT" />
+      <variable citdl="int" name="DB_PRIORITY_HIGH" />
+      <variable citdl="int" name="DB_PRIORITY_LOW" />
+      <variable citdl="int" name="DB_PRIORITY_UNCHANGED" />
+      <variable citdl="int" name="DB_PRIORITY_VERY_HIGH" />
+      <variable citdl="int" name="DB_PRIORITY_VERY_LOW" />
+      <variable citdl="int" name="DB_PRIVATE" />
+      <variable citdl="int" name="DB_PR_PAGE" />
+      <variable citdl="int" name="DB_PR_RECOVERYTEST" />
+      <variable citdl="int" name="DB_QUEUE" />
+      <variable citdl="int" name="DB_RDONLY" />
+      <variable citdl="int" name="DB_RDWRMASTER" />
+      <variable citdl="int" name="DB_READ_COMMITTED" />
+      <variable citdl="int" name="DB_READ_UNCOMMITTED" />
+      <variable citdl="int" name="DB_RECNO" />
+      <variable citdl="int" name="DB_RECNUM" />
+      <variable citdl="int" name="DB_RECOVER" />
+      <variable citdl="int" name="DB_RECOVER_FATAL" />
+      <variable citdl="int" name="DB_REGION_INIT" />
+      <variable citdl="int" name="DB_REGISTER" />
+      <variable citdl="int" name="DB_RENUMBER" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_ALL" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_ALL_PEERS" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_NONE" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_ONE" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_ONE_PEER" />
+      <variable citdl="int" name="DB_REPMGR_ACKS_QUORUM" />
+      <variable citdl="int" name="DB_REPMGR_CONF_2SITE_STRICT" />
+      <variable citdl="int" name="DB_REPMGR_CONNECTED" />
+      <variable citdl="int" name="DB_REPMGR_DISCONNECTED" />
+      <variable citdl="int" name="DB_REPMGR_PEER" />
+      <variable citdl="int" name="DB_REP_ACK_TIMEOUT" />
+      <variable citdl="int" name="DB_REP_ANYWHERE" />
+      <variable citdl="int" name="DB_REP_CHECKPOINT_DELAY" />
+      <variable citdl="int" name="DB_REP_CLIENT" />
+      <variable citdl="int" name="DB_REP_CONF_BULK" />
+      <variable citdl="int" name="DB_REP_CONF_DELAYCLIENT" />
+      <variable citdl="int" name="DB_REP_CONF_LEASE" />
+      <variable citdl="int" name="DB_REP_CONF_NOAUTOINIT" />
+      <variable citdl="int" name="DB_REP_CONF_NOWAIT" />
+      <variable citdl="int" name="DB_REP_CONNECTION_RETRY" />
+      <variable citdl="int" name="DB_REP_DUPMASTER" />
+      <variable citdl="int" name="DB_REP_ELECTION" />
+      <variable citdl="int" name="DB_REP_ELECTION_RETRY" />
+      <variable citdl="int" name="DB_REP_ELECTION_TIMEOUT" />
+      <variable citdl="int" name="DB_REP_FULL_ELECTION_TIMEOUT" />
+      <variable citdl="int" name="DB_REP_HEARTBEAT_MONITOR" />
+      <variable citdl="int" name="DB_REP_HEARTBEAT_SEND" />
+      <variable citdl="int" name="DB_REP_HOLDELECTION" />
+      <variable citdl="int" name="DB_REP_IGNORE" />
+      <variable citdl="int" name="DB_REP_ISPERM" />
+      <variable citdl="int" name="DB_REP_JOIN_FAILURE" />
+      <variable citdl="int" name="DB_REP_LEASE_EXPIRED" />
+      <variable citdl="int" name="DB_REP_LEASE_TIMEOUT" />
+      <variable citdl="int" name="DB_REP_MASTER" />
+      <variable citdl="int" name="DB_REP_NEWSITE" />
+      <variable citdl="int" name="DB_REP_NOBUFFER" />
+      <variable citdl="int" name="DB_REP_NOTPERM" />
+      <variable citdl="int" name="DB_REP_PERMANENT" />
+      <variable citdl="int" name="DB_REP_REREQUEST" />
+      <variable citdl="int" name="DB_REVSPLITOFF" />
+      <variable citdl="int" name="DB_RMW" />
+      <variable citdl="int" name="DB_RPCCLIENT" />
+      <variable citdl="int" name="DB_RUNRECOVERY" />
+      <variable citdl="int" name="DB_SALVAGE" />
+      <variable citdl="int" name="DB_SECONDARY_BAD" />
+      <variable citdl="int" name="DB_SEQ_DEC" />
+      <variable citdl="int" name="DB_SEQ_INC" />
+      <variable citdl="int" name="DB_SEQ_WRAP" />
+      <variable citdl="int" name="DB_SET" />
+      <variable citdl="int" name="DB_SET_LOCK_TIMEOUT" />
+      <variable citdl="int" name="DB_SET_RANGE" />
+      <variable citdl="int" name="DB_SET_RECNO" />
+      <variable citdl="int" name="DB_SET_TXN_TIMEOUT" />
+      <variable citdl="int" name="DB_SNAPSHOT" />
+      <variable citdl="int" name="DB_STAT_ALL" />
+      <variable citdl="int" name="DB_STAT_CLEAR" />
+      <variable citdl="int" name="DB_STAT_MEMP_HASH" />
+      <variable citdl="int" name="DB_STAT_SUBSYSTEM" />
+      <variable citdl="int" name="DB_SYSTEM_MEM" />
+      <variable citdl="int" name="DB_THREAD" />
+      <variable citdl="int" name="DB_TIME_NOTGRANTED" />
+      <variable citdl="int" name="DB_TRUNCATE" />
+      <variable citdl="int" name="DB_TXN_NOSYNC" />
+      <variable citdl="int" name="DB_TXN_NOT_DURABLE" />
+      <variable citdl="int" name="DB_TXN_NOWAIT" />
+      <variable citdl="int" name="DB_TXN_SNAPSHOT" />
+      <variable citdl="int" name="DB_TXN_SYNC" />
+      <variable citdl="int" name="DB_TXN_WAIT" />
+      <variable citdl="int" name="DB_TXN_WRITE_NOSYNC" />
+      <variable citdl="int" name="DB_UNKNOWN" />
+      <variable citdl="int" name="DB_UPGRADE" />
+      <variable citdl="int" name="DB_USE_ENVIRON" />
+      <variable citdl="int" name="DB_USE_ENVIRON_ROOT" />
+      <variable citdl="int" name="DB_VERB_DEADLOCK" />
+      <variable citdl="int" name="DB_VERB_FILEOPS" />
+      <variable citdl="int" name="DB_VERB_FILEOPS_ALL" />
+      <variable citdl="int" name="DB_VERB_RECOVERY" />
+      <variable citdl="int" name="DB_VERB_REGISTER" />
+      <variable citdl="int" name="DB_VERB_REPLICATION" />
+      <variable citdl="int" name="DB_VERB_WAITSFOR" />
+      <variable citdl="int" name="DB_VERIFY" />
+      <variable citdl="int" name="DB_VERIFY_BAD" />
+      <variable citdl="int" name="DB_VERSION_MAJOR" />
+      <variable citdl="int" name="DB_VERSION_MINOR" />
+      <variable citdl="int" name="DB_VERSION_PATCH" />
+      <variable citdl="str" name="DB_VERSION_STRING" />
+      <variable citdl="int" name="DB_WRITECURSOR" />
+      <variable citdl="int" name="DB_XA_CREATE" />
+      <variable citdl="int" name="DB_XIDDATASIZE" />
+      <variable citdl="int" name="DB_YIELDCPU" />
+      <variable citdl="int" name="EACCES" />
+      <variable citdl="int" name="EAGAIN" />
+      <variable citdl="int" name="EBUSY" />
+      <variable citdl="int" name="EEXIST" />
+      <variable citdl="int" name="EINVAL" />
+      <variable citdl="int" name="ENOENT" />
+      <variable citdl="int" name="ENOMEM" />
+      <variable citdl="int" name="ENOSPC" />
+      <variable citdl="int" name="EPERM" />
+      <variable citdl="str" name="__version__" />
+      <variable citdl="PyCObject" name="api" />
+      <variable citdl="str" name="cvsid" />
+      <scope doc="Returns a tuple of major, minor, and patch release numbers&#10;of the underlying DB library." ilk="function" name="version" />
+      <variable citdl="int" name="DB_LOG_AUTOREMOVE" />
+      <variable citdl="int" name="DB_DIRECT_LOG" />
+      <variable citdl="int" name="DB_DSYNC_LOG" />
+      <variable citdl="int" name="DB_LOG_INMEMORY" />
+    </scope>
+    

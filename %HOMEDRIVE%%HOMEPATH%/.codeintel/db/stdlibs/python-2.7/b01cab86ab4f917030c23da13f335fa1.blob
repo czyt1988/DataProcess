@@ -1,0 +1,26 @@
+<scope doc="# ElementTree&#10;# $Id: ElementInclude.py 3375 2008-02-13 08:05:08Z fredrik $ # # limited xinclude support for element trees # # history: # 2003-08-15 fl   created # 2003-11-14 fl   fixed default loader # # Copyright (c) 2003-2004 by Fredrik Lundh.  All rights reserved. #" ilk="blob" lang="Python" name="xml.etree.ElementInclude">
+      <import module="ElementTree" />
+      <scope classrefs="SyntaxError" doc="&#10;" ilk="class" line="62" lineend="63" name="FatalIncludeError" />
+      <variable citdl="str" line="54" name="XINCLUDE" />
+      <variable citdl="str" line="57" name="XINCLUDE_FALLBACK" />
+      <variable citdl="str" line="56" name="XINCLUDE_INCLUDE" />
+      <import module="copy" />
+      <scope ilk="function" line="77" lineend="86" name="default_loader" returns="file.read()" signature="default_loader(href, parse, encoding=None)">
+        <variable ilk="argument" name="parse" />
+        <variable ilk="argument" name="href" />
+        <variable citdl="file.read()" line="80" name="data" />
+        <variable citdl="open()" line="78" name="file" />
+        <variable ilk="argument" name="encoding" />
+      </scope>
+      <scope ilk="function" line="99" lineend="143" name="include" signature="include(elem, loader=None)">
+        <variable citdl="loader()" line="111" name="node" />
+        <variable line="105" name="e" />
+        <variable citdl="int" line="103" name="i" />
+        <variable citdl="loader()" line="121" name="text" />
+        <variable ilk="argument" name="elem" />
+        <variable citdl="default_loader" ilk="argument" name="loader" />
+        <variable citdl="e.get()" line="109" name="parse" />
+        <variable citdl="e.get()" line="108" name="href" />
+      </scope>
+    </scope>
+    

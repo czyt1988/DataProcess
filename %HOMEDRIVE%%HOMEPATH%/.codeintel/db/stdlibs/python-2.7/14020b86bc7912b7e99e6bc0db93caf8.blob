@@ -1,0 +1,24 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_subprocess">
+      <variable citdl="int" name="CREATE_NEW_CONSOLE" />
+      <variable citdl="int" name="CREATE_NEW_PROCESS_GROUP" />
+      <scope doc="Create an anonymous pipe, and return handles to the read and&#10;write ends of the pipe." ilk="function" name="CreatePipe" signature="CreatePipe(pipe_attrs, size) -&gt; (read_handle, write_handle)" />
+      <scope doc="CreateProcess(app_name, cmd_line, proc_attrs, thread_attrs,&#10;inherit, flags, env_mapping, curdir, startup_info) -&gt;&#10;(proc_handle, thread_handle, pid, tid)" ilk="function" name="CreateProcess" />
+      <variable citdl="int" name="DUPLICATE_SAME_ACCESS" />
+      <scope doc="DuplicateHandle(source_proc_handle, source_handle,&#10;target_proc_handle, target_handle, access, inherit[,&#10;options]) -&gt; handle" ilk="function" name="DuplicateHandle" />
+      <scope doc="Return a handle object for the current process." ilk="function" name="GetCurrentProcess" signature="GetCurrentProcess() -&gt; handle" />
+      <scope doc="Return the termination status of the specified process." ilk="function" name="GetExitCodeProcess" signature="GetExitCodeProcess(handle) -&gt; Exit code" />
+      <scope doc="Return the fully-qualified path for the file that contains&#10;the specified module." ilk="function" name="GetModuleFileName" signature="GetModuleFileName(module) -&gt; path" />
+      <scope doc="Return a handle to the specified standard device&#10;(STD_INPUT_HANDLE, STD_OUTPUT_HANDLE, STD_ERROR_HANDLE)." ilk="function" name="GetStdHandle" returns="int" signature="GetStdHandle(handle) -&gt; integer" />
+      <scope doc="Return the version number of the current operating system." ilk="function" name="GetVersion" signature="GetVersion() -&gt; version" />
+      <variable citdl="int" name="INFINITE" />
+      <variable citdl="int" name="STARTF_USESHOWWINDOW" />
+      <variable citdl="int" name="STARTF_USESTDHANDLES" />
+      <variable citdl="int" name="STD_ERROR_HANDLE" />
+      <variable citdl="int" name="STD_INPUT_HANDLE" />
+      <variable citdl="int" name="STD_OUTPUT_HANDLE" />
+      <variable citdl="int" name="SW_HIDE" />
+      <scope doc="Terminate the specified process and all of its threads." ilk="function" name="TerminateProcess" signature="TerminateProcess(handle, exit_code) -&gt; None" />
+      <variable citdl="int" name="WAIT_OBJECT_0" />
+      <scope doc="Wait until the specified object is in the signaled state or&#10;the time-out interval elapses." ilk="function" name="WaitForSingleObject" signature="WaitForSingleObject(handle, timeout) -&gt; result" />
+    </scope>
+    

@@ -1,0 +1,68 @@
+<scope doc="This module provides access to some objects used or maintained by the&#10;interpreter and to functions that interact strongly with the interpreter.  Dynamic objects:  argv -- command line arguments; argv[0] is the script pathname if known path -- module search path; path[0] is the script directory, else '' modules -- dictionary of loaded modules  displayhook -- called to show results in an interactive session excepthook -- called to handle any uncaught exception other than SystemExit" ilk="blob" lang="Python" name="sys">
+      <scope doc="Print an object to sys.stdout and also save it in&#10;__builtin__._" ilk="function" name="__displayhook__" signature="displayhook(object) -&gt; None" />
+      <scope doc="Handle an exception by displaying it with a traceback on&#10;sys.stderr." ilk="function" name="__excepthook__" signature="excepthook(exctype, value, traceback) -&gt; None" />
+      <variable citdl="file" name="__stderr__" />
+      <variable citdl="file" name="__stdin__" />
+      <variable citdl="file" name="__stdout__" />
+      <variable citdl="int" name="api_version" />
+      <variable citdl="list" name="argv" />
+      <variable citdl="tuple" name="builtin_module_names" />
+      <variable citdl="str" name="byteorder" />
+      <scope doc="Call func(*args), while tracing is enabled." ilk="function" name="call_tracing" returns="object" signature="call_tracing(func, args) -&gt; object" />
+      <scope doc="Return a tuple of function call statistics, if CALL_PROFILE&#10;was defined when Python was built." ilk="function" name="callstats" returns="tuple" signature="callstats() -&gt; tuple of integers" />
+      <variable citdl="str" name="copyright" />
+      <scope doc="Print an object to sys.stdout and also save it in&#10;__builtin__._" ilk="function" name="displayhook" signature="displayhook(object) -&gt; None" />
+      <variable citdl="int" name="dllhandle" />
+      <variable citdl="bool" name="dont_write_bytecode" />
+      <scope doc="Clear global information on the current exception." ilk="function" name="exc_clear" signature="exc_clear() -&gt; None" />
+      <scope doc="Return information about the most recent exception caught by&#10;an except clause in the current stack frame or in an older&#10;stack frame." ilk="function" name="exc_info" signature="exc_info() -&gt; (type, value, traceback)" />
+      <scope classrefs="StandardError" doc="Inappropriate argument type.&#10;" ilk="class" name="exc_type">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="TypeError" name="exc_value" />
+      <scope doc="Handle an exception by displaying it with a traceback on&#10;sys.stderr." ilk="function" name="excepthook" signature="excepthook(exctype, value, traceback) -&gt; None" />
+      <variable citdl="str" name="exec_prefix" />
+      <variable citdl="str" name="executable" />
+      <scope doc="Exit the interpreter by raising SystemExit(status)." ilk="function" name="exit" signature="exit([status])" />
+      <scope doc="run any registered exit functions" ilk="function" name="exitfunc" signature="exitfunc()" />
+      <variable citdl="flags" name="flags" />
+      <variable citdl="float_info" name="float_info" />
+      <variable citdl="str" name="float_repr_style" />
+      <scope doc="getcheckinterval() -&gt; current check interval; see setcheckinterval()." ilk="function" name="getcheckinterval" signature="getcheckinterval() -&gt; current check interval; see setcheckinterval()." />
+      <scope doc="Return the current default string encoding used by the&#10;Unicode implementation." ilk="function" name="getdefaultencoding" returns="str" signature="getdefaultencoding() -&gt; string" />
+      <scope doc="Return the encoding used to convert Unicode filenames in&#10;operating system filenames." ilk="function" name="getfilesystemencoding" returns="str" signature="getfilesystemencoding() -&gt; string" />
+      <scope doc="Return the profiling function set with sys.setprofile." ilk="function" name="getprofile" signature="getprofile()" />
+      <scope doc="Return the current value of the recursion limit, the maximum&#10;depth of the Python interpreter stack." ilk="function" name="getrecursionlimit" signature="getrecursionlimit()" />
+      <scope doc="Return the reference count of object." ilk="function" name="getrefcount" returns="int" signature="getrefcount(object) -&gt; integer" />
+      <scope doc="Return the size of object in bytes." ilk="function" name="getsizeof" returns="int" signature="getsizeof(object, default) -&gt; int" />
+      <scope doc="Return the global debug tracing function set with&#10;sys.settrace." ilk="function" name="gettrace" signature="gettrace()" />
+      <scope doc="Return information about the running version of Windows as a&#10;named tuple." ilk="function" name="getwindowsversion" signature="getwindowsversion()" />
+      <variable citdl="int" name="hexversion" />
+      <variable citdl="long_info" name="long_info" />
+      <variable citdl="int" name="maxint" />
+      <variable citdl="int" name="maxsize" />
+      <variable citdl="int" name="maxunicode" />
+      <variable citdl="list" name="meta_path" />
+      <variable citdl="dict" name="modules" />
+      <variable citdl="list" name="path" />
+      <variable citdl="list" name="path_hooks" />
+      <variable citdl="dict" name="path_importer_cache" />
+      <variable citdl="str" name="platform" />
+      <variable citdl="str" name="prefix" />
+      <variable citdl="bool" name="py3kwarning" />
+      <scope doc="Tell the Python interpreter to check for asynchronous events&#10;every n instructions." ilk="function" name="setcheckinterval" signature="setcheckinterval(n)" />
+      <scope doc="Set the profiling function." ilk="function" name="setprofile" signature="setprofile(function)" />
+      <scope doc="Set the maximum depth of the Python interpreter stack to n." ilk="function" name="setrecursionlimit" signature="setrecursionlimit(n)" />
+      <scope doc="Set the global debug tracing function." ilk="function" name="settrace" signature="settrace(function)" />
+      <variable citdl="file" name="stderr" />
+      <variable citdl="file" name="stdin" />
+      <variable citdl="file" name="stdout" />
+      <variable citdl="tuple" name="subversion" />
+      <variable citdl="str" name="version" />
+      <variable citdl="version_info" name="version_info" />
+      <variable citdl="list" name="warnoptions" />
+      <variable citdl="str" name="winver" />
+      <scope doc="Return the current value of the flags that are used for&#10;dlopen calls." ilk="function" name="getdlopenflags" returns="int" signature="getdlopenflags() -&gt; int" />
+      <scope doc="Set the flags used by the interpreter for dlopen calls, such&#10;as when the interpreter loads extension modules." ilk="function" name="setdlopenflags" signature="setdlopenflags(n) -&gt; None" />
+    </scope>
+    

@@ -1,0 +1,311 @@
+<scope doc="Restricted execution facilities.&#10;The class RExec exports methods r_exec(), r_eval(), r_execfile(), and r_import(), which correspond roughly to the built-in operations exec, eval(), execfile() and import, but executing the code in an environment that only exposes those built-in operations that are deemed safe.  To this end, a modest collection of 'fake' modules is created which mimics the standard modules by the same names.  It is a policy decision which built-in modules and operations are made available; this module provides a reasonable default, but derived classes can change the policies e.g. by overriding or extending class variables like ok_builtin_modules or methods like make_sys()." ilk="blob" lang="Python" name="rexec">
+      <scope doc="&#10;" ilk="class" line="32" lineend="36" name="FileBase">
+        <variable citdl="tuple" line="34" name="ok_file_methods" />
+      </scope>
+      <scope classrefs="FileBase" doc="&#10;" ilk="class" line="57" lineend="64" name="FileDelegate">
+        <scope ilk="function" name="fileno" />
+        <scope ilk="function" name="isatty" />
+        <scope ilk="function" name="read" />
+        <scope ilk="function" name="readlines" />
+        <scope ilk="function" name="xreadlines" />
+        <scope ilk="function" name="write" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="flush" />
+        <scope ilk="function" name="close" />
+        <scope ilk="function" name="writelines" />
+        <scope ilk="function" name="readline" />
+        <scope ilk="function" name="seek" />
+        <scope ilk="function" name="tell" />
+        <scope ilk="function" line="59" lineend="61" name="__init__" signature="FileDelegate(mod, name)">
+          <variable citdl="FileDelegate" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="mod" />
+        </scope>
+        <variable attributes="__instancevar__" line="61" name="name" />
+        <variable attributes="__instancevar__" line="60" name="mod" />
+      </scope>
+      <scope classrefs="FileBase" doc="&#10;" ilk="class" line="39" lineend="49" name="FileWrapper">
+        <scope ilk="function" line="48" lineend="49" name="close" signature="close()">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="43" lineend="46" name="__init__" signature="FileWrapper(f)">
+          <variable citdl="FileWrapper" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+      </scope>
+      <scope classrefs="_Verbose" doc="Basic restricted execution framework.&#10;Code executed in this restricted environment will only have access to modules and functions that are deemed safe; you can subclass RExec to add or remove capabilities as desired.  The RExec class can prevent code from performing unsafe operations like reading or writing disk files, or using TCP/IP sockets.  However, it does not protect against code using extremely large amounts of memory or processor time." ilk="class" line="123" lineend="532" name="RExec">
+        <scope ilk="function" line="408" lineend="411" name="restore_files" signature="restore_files()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="230" lineend="233" name="get_suffixes" returns="list" signature="get_suffixes()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="281" lineend="289" name="copy_only" returns="self.copy_none()" signature="copy_only(src, names)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="names" />
+          <variable citdl="getattr()" line="285" name="value" />
+          <variable citdl="self.copy_none()" line="282" name="dst" />
+        </scope>
+        <scope ilk="function" line="214" lineend="222" name="load_dynamic" returns="self.copy_except()" signature="load_dynamic(name, filename, file)">
+          <variable citdl="imp.load_dynamic()" line="218" name="src" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="self.copy_except()" line="221" name="dst" />
+        </scope>
+        <scope doc="Import a module, raising an ImportError exception if the&#10;module is considered unsafe." ilk="function" line="462" lineend="475" name="s_import" returns="RExec.s_apply()" signature="s_import(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="209" lineend="212" name="set_trusted_path" signature="set_trusted_path()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="413" lineend="420" name="s_apply" returns="func()" signature="s_apply(func, args=(), kw={})">
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="func()" line="417" name="r" />
+          <variable citdl="dict" ilk="argument" name="kw" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope ilk="function" line="235" lineend="236" name="is_builtin" returns="bool" signature="is_builtin(mname)">
+          <variable ilk="argument" name="mname" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="249" lineend="255" name="make_osname" signature="make_osname()">
+          <variable citdl="__import__()" line="251" name="src" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="os.name" line="250" name="osname" />
+          <variable citdl="self.copy_only()" line="252" name="dst" />
+        </scope>
+        <scope ilk="function" line="298" lineend="303" name="add_module" returns="self.modules.get()" signature="add_module(mname)">
+          <variable ilk="argument" name="mname" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="self.modules.get()" line="299" name="m" />
+        </scope>
+        <scope ilk="function" line="224" lineend="226" name="make_initial_modules" signature="make_initial_modules()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="382" lineend="393" name="set_files" signature="set_files()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable line="387" name="s" />
+        </scope>
+        <scope doc="Evaluate code within a restricted environment." ilk="function" line="436" lineend="449" name="s_eval" returns="RExec.s_apply()" signature="s_eval(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="246" lineend="247" name="make_main" signature="make_main()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="240" lineend="244" name="make_builtin" signature="make_builtin()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="self.copy_except()" line="241" name="m" />
+        </scope>
+        <scope ilk="function" line="291" lineend="294" name="copy_none" returns="self.add_module()" signature="copy_none(src)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="self.add_module()" line="292" name="m" />
+        </scope>
+        <scope doc="Execute code within a restricted environment." ilk="function" line="422" lineend="434" name="s_exec" returns="RExec.s_apply()" signature="s_exec(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Returns an instance of the RExec class." ilk="function" line="158" lineend="207" name="__init__" signature="RExec(hooks=None, verbose=0)">
+          <variable ilk="argument" name="hooks" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="list" line="195" name="list" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <scope ilk="function" line="529" lineend="532" name="r_exc_info" returns="tuple" signature="r_exc_info()">
+          <variable line="530" name="va" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable line="530" name="tr" />
+          <variable line="530" name="ty" />
+        </scope>
+        <scope doc="Reload the module object, re-parsing and re-initializing it." ilk="function" line="477" lineend="489" name="s_reload" returns="RExec.s_apply()" signature="s_reload(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope doc="Method called when open() is called in the restricted&#10;environment." ilk="function" line="509" lineend="525" name="r_open" returns="open()" signature="r_open(file, mode='r', buf=-1)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="buf" />
+          <variable citdl="str()" ilk="argument" name="mode" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope doc="Execute code within a restricted environment." ilk="function" line="307" lineend="316" name="r_exec" signature="r_exec(code)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="add_module()" line="315" name="m" />
+        </scope>
+        <scope doc="Execute the Python code in the file in the restricted&#10;environment's __main__ module." ilk="function" line="451" lineend="460" name="s_execfile" returns="RExec.s_apply()" signature="s_execfile(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="270" lineend="279" name="copy_except" returns="self.copy_none()" signature="copy_except(src, exceptions)">
+          <variable ilk="argument" name="exceptions" />
+          <variable ilk="argument" name="src" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="self.copy_none()" line="271" name="dst" />
+        </scope>
+        <scope doc="Unload the module." ilk="function" line="491" lineend="505" name="s_unload" returns="RExec.s_apply()" signature="s_unload(*args)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="403" lineend="406" name="save_files" signature="save_files()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Import a module, raising an ImportError exception if the&#10;module is considered unsafe." ilk="function" line="338" lineend="347" name="r_import" returns="self.importer.import_module()" signature="r_import(mname, globals={}, locals={}, fromlist=[])">
+          <variable citdl="list" ilk="argument" name="fromlist" />
+          <variable ilk="argument" name="mname" />
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="globals" />
+          <variable citdl="dict" ilk="argument" name="locals" />
+        </scope>
+        <scope doc="Evaluate code within a restricted environment." ilk="function" line="318" lineend="328" name="r_eval" returns="eval()" signature="r_eval(code)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+          <variable citdl="add_module()" line="327" name="m" />
+        </scope>
+        <scope doc="Execute the Python code in the file in the restricted&#10;environment's __main__ module." ilk="function" line="330" lineend="336" name="r_execfile" signature="r_execfile(file)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="add_module()" line="335" name="m" />
+          <variable ilk="argument" name="file" />
+        </scope>
+        <scope doc="Unload the module." ilk="function" line="359" lineend="369" name="r_unload" returns="self.importer.unload()" signature="r_unload(m)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+        </scope>
+        <scope ilk="function" line="257" lineend="266" name="make_sys" signature="make_sys()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable citdl="self.copy_only()" line="258" name="m" />
+          <variable citdl="self.modules.keys()" line="264" name="l" />
+        </scope>
+        <scope ilk="function" line="373" lineend="380" name="make_delegate_files" signature="make_delegate_files()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable line="374" name="s" />
+        </scope>
+        <scope ilk="function" line="395" lineend="400" name="reset_files" signature="reset_files()">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable line="397" name="s" />
+        </scope>
+        <scope doc="Reload the module object, re-parsing and re-initializing it." ilk="function" line="349" lineend="357" name="r_reload" returns="self.importer.reload()" signature="r_reload(m)">
+          <variable citdl="RExec" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+        </scope>
+        <variable citdl="tuple" line="154" name="nok_builtin_names" />
+        <variable attributes="__instancevar__" citdl="sys.stdout" line="405" name="save_stdout" />
+        <variable attributes="__instancevar__" citdl="tuple" line="194" name="ok_dynamic_modules" />
+        <variable attributes="__instancevar__" citdl="FileDelegate" line="376" name="delegate_stdout" />
+        <variable citdl="tuple" line="150" name="ok_sys_names" />
+        <variable citdl="tuple()" line="139" name="ok_builtin_modules" />
+        <variable citdl="tuple()" line="137" name="ok_path" />
+        <variable attributes="__instancevar__" citdl="FileDelegate" line="375" name="delegate_stdin" />
+        <variable attributes="__instancevar__" citdl="RHooks" line="191" name="hooks" />
+        <variable attributes="__instancevar__" citdl="sys.stderr" line="406" name="save_stderr" />
+        <variable attributes="__instancevar__" citdl="dict" line="193" name="modules" />
+        <variable attributes="__instancevar__" citdl="RModuleLoader()" line="206" name="loader" />
+        <variable attributes="__instancevar__" citdl="FileWrapper" line="378" name="restricted_stdin" />
+        <variable attributes="__instancevar__" citdl="FileWrapper" line="379" name="restricted_stdout" />
+        <variable attributes="__instancevar__" citdl="RModuleImporter()" line="207" name="importer" />
+        <variable attributes="__instancevar__" citdl="FileWrapper" line="380" name="restricted_stderr" />
+        <variable attributes="__instancevar__" citdl="filter()" line="212" name="trusted_path" />
+        <variable attributes="__instancevar__" citdl="sys.stdin" line="404" name="save_stdin" />
+        <variable attributes="__instancevar__" citdl="FileDelegate" line="377" name="delegate_stderr" />
+        <variable citdl="tuple" line="156" name="ok_file_types" />
+        <variable citdl="tuple" line="146" name="ok_posix_names" />
+      </scope>
+      <scope classrefs="Hooks" doc="&#10;" ilk="class" line="67" lineend="115" name="RHooks">
+        <scope ilk="function" line="102" lineend="102" name="load_compiled" signature="load_compiled(*args)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="86" lineend="88" name="set_rexec" signature="set_rexec(rexec)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="rexec" />
+        </scope>
+        <scope ilk="function" line="101" lineend="101" name="load_source" signature="load_source(*args)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="90" lineend="91" name="get_suffixes" returns="self.rexec.get_suffixes()" signature="get_suffixes()">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="105" lineend="106" name="load_dynamic" returns="self.rexec.load_dynamic()" signature="load_dynamic(name, filename, file)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="96" lineend="98" name="init_builtin" returns="self.rexec.copy_except()" signature="init_builtin(name)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable citdl="__import__()" line="97" name="m" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="103" lineend="103" name="load_package" signature="load_package(*args)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="114" lineend="115" name="default_path" signature="default_path()">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="108" lineend="109" name="add_module" returns="self.rexec.add_module()" signature="add_module(name)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="111" lineend="112" name="modules_dict" returns="self.rexec.modules" signature="modules_dict()">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="100" lineend="100" name="init_frozen" signature="init_frozen(name)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="93" lineend="94" name="is_builtin" returns="self.rexec.is_builtin()" signature="is_builtin(name)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="69" lineend="84" name="__init__" signature="RHooks(*args)">
+          <variable citdl="RHooks" ilk="argument" name="self" />
+          <variable attributes="varargs" citdl="list" ilk="argument" name="args" />
+          <variable line="74" name="rexec" />
+          <variable citdl="int" line="73" name="verbose" />
+        </scope>
+        <variable attributes="__instancevar__" line="84" name="rexec" />
+      </scope>
+      <scope classrefs="BasicModuleImporter" doc="A module importer that supports packages.&#10;" ilk="class" line="120" name="RModuleImporter">
+        <scope ilk="function" name="find_head_package" />
+        <scope ilk="function" name="import_it" />
+        <scope ilk="function" name="reload" />
+        <scope ilk="function" name="determine_parent" />
+        <scope ilk="function" name="load_tail" />
+        <scope ilk="function" name="ensure_fromlist" />
+        <scope ilk="function" name="import_module" />
+      </scope>
+      <scope classrefs="ModuleLoader" doc="Fancy module loader -- parses and execs the code itself.&#10;" ilk="class" line="119" name="RModuleLoader">
+        <scope ilk="function" name="load_module" />
+      </scope>
+      <variable citdl="str" line="52" name="TEMPLATE" />
+      <variable citdl="list" line="30" name="__all__" />
+      <import module="__builtin__" />
+      <import module="ihooks" />
+      <import module="imp" />
+      <import module="os" />
+      <import module="sys" />
+      <scope ilk="function" line="535" lineend="584" name="test" returns="n" signature="test()">
+        <variable citdl="open()" line="553" name="fp" />
+        <variable citdl="compile()" line="577" name="c" />
+        <variable citdl="int" line="538" name="verbose" />
+        <variable citdl="fp.read()" line="575" name="text" />
+        <variable line="537" name="args" />
+        <variable citdl="RExec" line="545" name="r" />
+        <variable line="537" name="opts" />
+        <scope classrefs="code.InteractiveConsole" ilk="class" line="566" lineend="569" name="RestrictedConsole">
+          <scope ilk="function" line="567" lineend="569" name="runcode" signature="runcode(co)">
+            <variable citdl="RestrictedConsole" ilk="argument" name="self" />
+            <variable ilk="argument" name="co" />
+          </scope>
+        </scope>
+        <variable citdl="list" line="539" name="trusted" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,227 @@
+<scope doc="#-*- coding: ISO-8859-1 -*-&#10;# pysqlite2/__init__.py: the pysqlite2 package. # # Copyright (C) 2005 Gerhard H&#228;ring &lt;gh@ghaering.de&gt; # # This file is part of pysqlite. # # This software is provided 'as-is', without any express or implied # warranty.  In no event will the authors be held liable for any damages # arising from the use of this software. #" ilk="blob" lang="Python" name="sqlite3">
+      <scope classrefs="object" doc="buffer(object [, offset[, size]])&#10;Create a new buffer object which references the given object. The buffer will reference a slice of the target object from the start of the object (or at the specified offset). The slice will extend to the end of the target object (or with the specified size)." ilk="class" name="Binary">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Cache">
+        <scope doc="For debugging only." ilk="function" name="display" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Gets an entry from the cache or calls the factory function&#10;to produce one." ilk="function" name="get" />
+      </scope>
+      <scope classrefs="object" doc="SQLite database connection object.&#10;" ilk="class" name="Connection">
+        <scope doc="Sets progress handler callback. Non-standard." ilk="function" name="set_progress_handler" />
+        <scope doc="Creates a new aggregate. Non-standard." ilk="function" name="create_aggregate" />
+        <scope doc="Closes the connection." ilk="function" name="close" />
+        <scope doc="Roll back the current transaction." ilk="function" name="rollback" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="For context manager. Non-standard." ilk="function" name="__enter__" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="Load SQLite extension module. Non-standard." ilk="function" name="load_extension" />
+        <scope doc="Creates a collation function. Non-standard." ilk="function" name="create_collation" />
+        <scope doc="For context manager. Non-standard." ilk="function" name="__exit__" />
+        <scope doc="Enable dynamic loading of SQLite extension modules." ilk="function" name="enable_load_extension" />
+        <scope doc="Abort any pending database operation. Non-standard." ilk="function" name="interrupt" />
+        <scope doc="Executes a SQL statement. Non-standard." ilk="function" name="execute" />
+        <scope doc="Repeatedly executes a SQL statement. Non-standard." ilk="function" name="executemany" />
+        <scope doc="Executes a multiple SQL statements at once. Non-standard." ilk="function" name="executescript" />
+        <scope doc="Returns iterator to the dump of the database in an SQL text&#10;format." ilk="function" name="iterdump" />
+        <scope doc="Return a cursor for the connection." ilk="function" name="cursor" />
+        <scope doc="Sets authorizer callback. Non-standard." ilk="function" name="set_authorizer" />
+        <scope doc="Creates a new function. Non-standard." ilk="function" name="create_function" />
+        <scope doc="Commit the current transaction." ilk="function" name="commit" />
+      </scope>
+      <scope classrefs="object" doc="SQLite database cursor class.&#10;" ilk="class" name="Cursor">
+        <scope doc="Fetches all rows from the resultset." ilk="function" name="fetchall" />
+        <scope doc="Executes a SQL statement." ilk="function" name="execute" />
+        <scope doc="Repeatedly executes a SQL statement." ilk="function" name="executemany" />
+        <scope doc="Fetches several rows from the resultset." ilk="function" name="fetchmany" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+        <scope doc="Required by DB-API. Does nothing in pysqlite." ilk="function" name="setoutputsize" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="Required by DB-API. Does nothing in pysqlite." ilk="function" name="setinputsizes" />
+        <scope doc="Closes the cursor." ilk="function" name="close" />
+        <scope doc="Fetches one row from the resultset." ilk="function" name="fetchone" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Executes a multiple SQL statements at once. Non-standard." ilk="function" name="executescript" />
+      </scope>
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="DataError" />
+      <scope classrefs="Error" doc="&#10;" ilk="class" name="DatabaseError" />
+      <scope classrefs="object" doc="date(year, month, day) --&gt; date object&#10;" ilk="class" name="Date">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Return proleptic Gregorian ordinal." ilk="function" name="toordinal" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return a 3-tuple containing ISO year, week number, and&#10;weekday." ilk="function" name="isocalendar" />
+        <scope doc="Formats self with strftime." ilk="function" name="__format__" />
+        <scope doc="Return time tuple, compatible with time.localtime()." ilk="function" name="timetuple" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="weekday" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return the day of the week represented by the date." ilk="function" name="isoweekday" />
+        <scope doc="Return date with new specified fields." ilk="function" name="replace" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return string in ISO 8601 format, YYYY-MM-DD." ilk="function" name="isoformat" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return ctime() style string." ilk="function" name="ctime" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="format -&gt; strftime() style string." ilk="function" name="strftime" />
+      </scope>
+      <scope ilk="function" name="DateFromTicks" signature="DateFromTicks(ticks)" />
+      <scope classrefs="StandardError" doc="&#10;" ilk="class" name="Error" />
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="IntegrityError" />
+      <scope classrefs="Error" doc="&#10;" ilk="class" name="InterfaceError" />
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="InternalError" />
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="NotSupportedError" />
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="OperationalError" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="OptimizedUnicode">
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+      </scope>
+      <variable citdl="int" name="PARSE_COLNAMES" />
+      <variable citdl="int" name="PARSE_DECLTYPES" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="PrepareProtocol">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="DatabaseError" doc="&#10;" ilk="class" name="ProgrammingError" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Row">
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Returns the keys of the row." ilk="function" name="keys" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <variable citdl="int" name="SQLITE_ALTER_TABLE" />
+      <variable citdl="int" name="SQLITE_ANALYZE" />
+      <variable citdl="int" name="SQLITE_ATTACH" />
+      <variable citdl="int" name="SQLITE_CREATE_INDEX" />
+      <variable citdl="int" name="SQLITE_CREATE_TABLE" />
+      <variable citdl="int" name="SQLITE_CREATE_TEMP_INDEX" />
+      <variable citdl="int" name="SQLITE_CREATE_TEMP_TABLE" />
+      <variable citdl="int" name="SQLITE_CREATE_TEMP_TRIGGER" />
+      <variable citdl="int" name="SQLITE_CREATE_TEMP_VIEW" />
+      <variable citdl="int" name="SQLITE_CREATE_TRIGGER" />
+      <variable citdl="int" name="SQLITE_CREATE_VIEW" />
+      <variable citdl="int" name="SQLITE_DELETE" />
+      <variable citdl="int" name="SQLITE_DENY" />
+      <variable citdl="int" name="SQLITE_DETACH" />
+      <variable citdl="int" name="SQLITE_DROP_INDEX" />
+      <variable citdl="int" name="SQLITE_DROP_TABLE" />
+      <variable citdl="int" name="SQLITE_DROP_TEMP_INDEX" />
+      <variable citdl="int" name="SQLITE_DROP_TEMP_TABLE" />
+      <variable citdl="int" name="SQLITE_DROP_TEMP_TRIGGER" />
+      <variable citdl="int" name="SQLITE_DROP_TEMP_VIEW" />
+      <variable citdl="int" name="SQLITE_DROP_TRIGGER" />
+      <variable citdl="int" name="SQLITE_DROP_VIEW" />
+      <variable citdl="int" name="SQLITE_IGNORE" />
+      <variable citdl="int" name="SQLITE_INSERT" />
+      <variable citdl="int" name="SQLITE_OK" />
+      <variable citdl="int" name="SQLITE_PRAGMA" />
+      <variable citdl="int" name="SQLITE_READ" />
+      <variable citdl="int" name="SQLITE_REINDEX" />
+      <variable citdl="int" name="SQLITE_SELECT" />
+      <variable citdl="int" name="SQLITE_TRANSACTION" />
+      <variable citdl="int" name="SQLITE_UPDATE" />
+      <scope classrefs="object" doc="&#10;" ilk="class" name="Statement" />
+      <scope classrefs="object" doc="time([hour[, minute[, second[, microsecond[, tzinfo]]]]]) --&gt; a time object&#10;All arguments are optional. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments may be ints or longs." ilk="class" name="Time">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return string in ISO 8601 format, HH:MM:SS[.mmmmmm][+HH:MM]." ilk="function" name="isoformat" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return self.tzinfo.dst(self)." ilk="function" name="dst" />
+        <scope doc="Formats self with strftime." ilk="function" name="__format__" />
+        <scope doc="Return self.tzinfo.tzname(self)." ilk="function" name="tzname" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Return self.tzinfo.utcoffset(self)." ilk="function" name="utcoffset" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return time with new specified fields." ilk="function" name="replace" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="format -&gt; strftime() style string." ilk="function" name="strftime" />
+      </scope>
+      <scope ilk="function" name="TimeFromTicks" signature="TimeFromTicks(ticks)" />
+      <scope classrefs="date" doc="datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])&#10;The year, month and day arguments are required. tzinfo may be None, or an instance of a tzinfo subclass. The remaining arguments may be ints or longs." ilk="class" name="Timestamp">
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__radd__(y) &lt;==&gt; y+x" ilk="function" name="__radd__" signature="x.__radd__(y) &lt;==&gt; y+x" />
+        <scope doc="Return UTC time tuple, compatible with time.localtime()." ilk="function" name="utctimetuple" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="Return self.tzinfo.dst(self)." ilk="function" name="dst" />
+        <scope doc="tz -&gt; convert to local time in new timezone tz" ilk="function" name="astimezone" />
+        <scope doc="Return time tuple, compatible with time.localtime()." ilk="function" name="timetuple" />
+        <scope doc="Return self.tzinfo.tzname(self)." ilk="function" name="tzname" />
+        <scope doc="[sep] -&gt; string in ISO 8601 format, YYYY-MM-&#10;DDTHH:MM:SS[.mmmmmm][+HH:MM]." ilk="function" name="isoformat" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="__reduce__() -&gt; (cls, state)" ilk="function" name="__reduce__" signature="__reduce__() -&gt; (cls, state)" />
+        <scope doc="Return datetime with new specified fields." ilk="function" name="replace" />
+        <scope doc="Return self.tzinfo.utcoffset(self)." ilk="function" name="utcoffset" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return date object with same year, month and day." ilk="function" name="date" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="Return ctime() style string." ilk="function" name="ctime" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return time object with same time but with tzinfo=None." ilk="function" name="time" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="Return time object with same time and tzinfo." ilk="function" name="timetz" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope ilk="function" name="TimestampFromTicks" signature="TimestampFromTicks(ticks)" />
+      <scope classrefs="StandardError" doc="&#10;" ilk="class" name="Warning" />
+      <scope doc="adapt(obj, protocol, alternate) -&gt; adapt obj to given protocol. Non-standard." ilk="function" name="adapt" signature="adapt(obj, protocol, alternate) -&gt; adapt obj to given protocol. Non-standard." />
+      <variable citdl="dict" name="adapters" />
+      <variable citdl="str" name="apilevel" />
+      <scope doc="Checks if a string contains a complete SQL statement." ilk="function" name="complete_statement" signature="complete_statement(sql)" />
+      <scope doc="Opens a connection to the SQLite database file *database*." ilk="function" name="connect" signature="connect(database[, timeout, isolation_level, detect_types, factory])" />
+      <variable citdl="dict" name="converters" />
+      <import module="datetime" />
+      <import module="dbapi2" />
+      <scope doc="Enable or disable callback functions throwing errors to&#10;stderr." ilk="function" name="enable_callback_tracebacks" signature="enable_callback_tracebacks(flag)" />
+      <scope doc="Enable or disable shared cache mode for the calling thread." ilk="function" name="enable_shared_cache" signature="enable_shared_cache(do_enable)" />
+      <variable citdl="str" name="paramstyle" />
+      <scope doc="Registers an adapter with pysqlite's adapter registry." ilk="function" name="register_adapter" signature="register_adapter(type, callable)" />
+      <scope doc="Registers a converter with pysqlite. Non-standard." ilk="function" name="register_converter" signature="register_converter(typename, callable)" />
+      <variable citdl="str" name="sqlite_version" />
+      <variable citdl="tuple" name="sqlite_version_info" />
+      <variable citdl="int" name="threadsafety" />
+      <import module="time" />
+      <variable citdl="str" name="version" />
+      <variable citdl="tuple" name="version_info" />
+      <variable citdl="str" name="x" />
+    </scope>
+    

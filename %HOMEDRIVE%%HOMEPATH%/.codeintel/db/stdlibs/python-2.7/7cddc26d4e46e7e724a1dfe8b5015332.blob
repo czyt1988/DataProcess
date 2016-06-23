@@ -1,0 +1,80 @@
+<scope doc="distutils.command.build_scripts&#10;Implements the Distutils 'build_scripts' command." ilk="blob" lang="Python" name="distutils.command.build_scripts">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <variable citdl="int" name="ST_MODE" />
+      <variable citdl="str" line="5" name="__revision__" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="17" lineend="127" name="build_scripts">
+        <scope ilk="function" line="44" lineend="45" name="get_source_files" returns="self.distribution.scripts" signature="get_source_files()">
+          <variable citdl="build_scripts" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="47" lineend="50" name="run" signature="run()">
+          <variable citdl="build_scripts" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="30" lineend="35" name="initialize_options" signature="initialize_options()">
+          <variable citdl="build_scripts" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="37" lineend="42" name="finalize_options" signature="finalize_options()">
+          <variable citdl="build_scripts" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Copy each script listed in 'self.scripts'; if it's marked as&#10;a Python script in the Unix way (first line matches&#10;'first_line_re', ie." ilk="function" line="53" lineend="127" name="copy_scripts" signature="copy_scripts()">
+          <variable citdl="int" line="123" name="newmode" />
+          <variable citdl="convert_path()" line="64" name="script" />
+          <variable citdl="int" line="122" name="oldmode" />
+          <variable citdl="build_scripts" ilk="argument" name="self" />
+          <variable citdl="open()" line="76" name="f" />
+          <variable citdl="match.group()" line="90" name="post_interp" />
+          <variable citdl="os.path.join()" line="65" name="outfile" />
+          <variable attributes="protected" citdl="__import__()" line="59" name="_sysconfig" />
+          <variable citdl="int" line="63" name="adjust" />
+          <variable citdl="open()" line="96" name="outf" />
+          <variable citdl="f.readline()" line="82" name="first_line" />
+          <variable citdl="list" line="61" name="outfiles" />
+          <variable citdl="first_line_re.match()" line="87" name="match" />
+        </scope>
+        <variable citdl="list" line="21" name="user_options" />
+        <variable attributes="__instancevar__" line="33" name="force" />
+        <variable citdl="str" line="19" name="description" />
+        <variable attributes="__instancevar__" line="34" name="executable" />
+        <variable attributes="__instancevar__" line="31" name="build_dir" />
+        <variable citdl="list" line="27" name="boolean_options" />
+        <variable attributes="__instancevar__" citdl="self.distribution.scripts" line="32" name="scripts" />
+        <variable attributes="__instancevar__" line="35" name="outfiles" />
+      </scope>
+      <scope doc="Return 'pathname' as a name that will work on the native&#10;filesystem, i.e." ilk="function" name="convert_path" signature="convert_path(pathname)" />
+      <variable citdl="SRE_Pattern" line="15" name="first_line_re" />
+      <import module="log" />
+      <scope doc="Tells if the target is newer than the source." ilk="function" name="newer" signature="newer(source, target)" />
+      <import module="os" />
+      <import module="re" />
+    </scope>
+    

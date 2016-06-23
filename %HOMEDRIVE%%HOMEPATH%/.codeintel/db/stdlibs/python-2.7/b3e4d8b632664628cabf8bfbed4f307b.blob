@@ -1,0 +1,76 @@
+<scope doc="Main program for 2to3.&#10;" ilk="blob" lang="Python" name="lib2to3.main">
+      <scope classrefs="MultiprocessRefactoringTool" doc="Prints output to stdout.&#10;" ilk="class" line="26" name="StdoutRefactoringTool">
+        <scope ilk="function" line="36" lineend="38" name="log_error" signature="log_error(msg, *args, **kwargs)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="StdoutRefactoringTool" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="40" lineend="57" name="write_file" signature="write_file(new_text, filename, old_text, encoding)">
+          <variable ilk="argument" name="new_text" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="StdoutRefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="old_text" />
+          <variable ilk="argument" name="filename" />
+          <variable line="54" name="write" />
+          <variable citdl="str" line="43" name="backup" />
+        </scope>
+        <scope ilk="function" line="59" name="print_output" signature="print_output(old, new, filename, equal)">
+          <variable ilk="argument" name="old" />
+          <variable citdl="StdoutRefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="equal" />
+          <variable ilk="argument" name="filename" />
+          <variable ilk="argument" name="new" />
+          <variable citdl="diff_texts()" line="65" name="diff_lines" />
+        </scope>
+        <scope ilk="function" line="31" lineend="34" name="__init__" signature="StdoutRefactoringTool(fixers, options, explicit, nobackups, show_diffs)">
+          <variable citdl="StdoutRefactoringTool" ilk="argument" name="self" />
+          <variable ilk="argument" name="explicit" />
+          <variable ilk="argument" name="fixers" />
+          <variable ilk="argument" name="nobackups" />
+          <variable ilk="argument" name="show_diffs" />
+          <variable ilk="argument" name="options" />
+        </scope>
+        <variable attributes="__instancevar__" line="33" name="show_diffs" />
+        <variable attributes="__instancevar__" line="32" name="nobackups" />
+      </scope>
+      <scope doc="Return a unified diff of two strings." ilk="function" line="17" lineend="23" name="diff_texts" returns="difflib.unified_diff()" signature="diff_texts(a, b, filename)">
+        <variable citdl="a.splitlines()" ilk="argument" name="a" />
+        <variable citdl="b.splitlines()" ilk="argument" name="b" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="difflib" />
+      <import module="logging" />
+      <scope doc="Main program." ilk="function" line="85" lineend="182" name="main" returns="int()" signature="main(fixer_pkg, args=None)">
+        <variable citdl="StdoutRefactoringTool" line="163" name="rt" />
+        <variable citdl="avail_fixes.union()" line="159" name="requested" />
+        <variable ilk="argument" name="fixer_pkg" />
+        <variable citdl="optparse.OptionParser()" line="96" name="parser" />
+        <variable line="145" name="level" />
+        <variable ilk="argument" name="args" />
+        <variable citdl="set()" line="151" name="explicit" />
+        <variable citdl="set()" line="149" name="avail_fixes" />
+        <variable citdl="requested.difference()" line="162" name="fixer_names" />
+        <variable citdl="dict" line="120" name="flags" />
+        <variable citdl="True" line="153" name="all_present" />
+        <variable citdl="True" line="119" name="refactor_stdin" />
+        <variable line="121" name="options" />
+        <variable citdl="set()" line="150" name="unwanted_fixes" />
+      </scope>
+      <import module="optparse" />
+      <import module="os" />
+      <import module="refactor" />
+      <import module="shutil" />
+      <import module="sys" />
+      <scope ilk="function" line="81" lineend="82" name="warn" signature="warn(msg)">
+        <variable ilk="argument" name="msg" />
+      </scope>
+      <variable citdl="__future__._Feature" name="with_statement" />
+      <scope doc="&#10;" ilk="class" name="_Feature">
+        <scope doc="Return release in which this feature will become mandatory." ilk="function" name="getMandatoryRelease" />
+        <scope doc="Return first release in which this feature was recognized." ilk="function" name="getOptionalRelease" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+    </scope>
+    

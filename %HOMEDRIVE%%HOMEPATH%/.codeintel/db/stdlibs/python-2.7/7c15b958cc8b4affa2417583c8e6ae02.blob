@@ -1,0 +1,280 @@
+<scope doc="program/module to trace Python program or function execution&#10;Sample use, command line: trace.py -c -f counts --ignore-dir '$prefix' spam.py eggs trace.py -t --ignore-dir '$prefix' spam.py eggs trace.py --trackcalls spam.py eggs  Sample use, programmatically import sys  # create a Trace object, telling it what to ignore, and whether to # do tracing or line-counting or both." ilk="blob" lang="Python" name="trace">
+      <scope doc="&#10;" ilk="class" line="221" lineend="391" name="CoverageResults">
+        <scope doc="@param coverdir" ilk="function" line="266" lineend="355" name="write_results" signature="write_results(show_missing=True, summary=False, coverdir=None)">
+          <variable citdl="dict" line="304" name="sums" />
+          <variable citdl="dict" line="298" name="per_file" />
+          <variable citdl="fullmodname()" line="318" name="modulename" />
+          <variable ilk="argument" name="coverdir" />
+          <variable citdl="self.callers.keys()" line="273" name="calls" />
+          <variable citdl="cfile" line="290" name="lastcfile" />
+          <variable citdl="CoverageResults" ilk="argument" name="self" />
+          <variable citdl="int" line="338" name="percent" />
+          <variable citdl="False" ilk="argument" name="summary" />
+          <variable citdl="linecache.getlines()" line="332" name="source" />
+          <variable citdl="per_file.get()" line="300" name="lines_hit" />
+          <variable citdl="sums.keys()" line="342" name="mods" />
+          <variable citdl="os.path.dirname()" line="317" name="dir" />
+          <variable line="334" name="n_lines" />
+          <variable citdl="dict" line="328" name="lnotab" />
+          <variable citdl="pfile" line="284" name="lastfile" />
+          <variable citdl="list" line="314" name="filename" />
+          <variable citdl="os.path.join()" line="333" name="coverpath" />
+          <variable citdl="True" ilk="argument" name="show_missing" />
+          <variable line="334" name="n_hits" />
+        </scope>
+        <scope doc="Return a coverage results file in path." ilk="function" line="357" lineend="391" name="write_results_file" returns="tuple" signature="write_results_file(path, lines, lnotab, lines_hit)">
+          <variable citdl="int" line="368" name="n_hits" />
+          <variable citdl="int" line="367" name="n_lines" />
+          <variable citdl="CoverageResults" ilk="argument" name="self" />
+          <variable ilk="argument" name="lines" />
+          <variable citdl="open()" line="361" name="outfile" />
+          <variable ilk="argument" name="lines_hit" />
+          <variable citdl="i" line="370" name="lineno" />
+          <variable ilk="argument" name="lnotab" />
+          <variable ilk="argument" name="path" />
+        </scope>
+        <scope doc="Merge in the data from another CoverageResults" ilk="function" line="248" lineend="264" name="update" signature="update(other)">
+          <variable citdl="other.counts" line="253" name="other_counts" />
+          <variable citdl="other.calledfuncs" line="254" name="other_calledfuncs" />
+          <variable citdl="CoverageResults" ilk="argument" name="self" />
+          <variable citdl="other.callers" line="255" name="other_callers" />
+          <variable citdl="self.calledfuncs.copy()" line="251" name="calledfuncs" />
+          <variable citdl="dict" line="250" name="counts" />
+          <variable ilk="argument" name="other" />
+          <variable citdl="self.callers.copy()" line="252" name="callers" />
+        </scope>
+        <scope ilk="function" line="222" lineend="245" name="__init__" signature="CoverageResults(counts=None, calledfuncs=None, infile=None, callers=None, outfile=None)">
+          <variable citdl="CoverageResults" ilk="argument" name="self" />
+          <variable ilk="argument" name="outfile" />
+          <variable ilk="argument" name="callers" />
+          <variable ilk="argument" name="counts" />
+          <variable ilk="argument" name="calledfuncs" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.counts.copy()" line="227" name="counter" />
+        <variable attributes="__instancevar__" line="237" name="outfile" />
+        <variable attributes="__instancevar__" citdl="self.calledfuncs.copy()" line="228" name="calledfuncs" />
+        <variable attributes="__instancevar__" citdl="dict" line="224" name="counts" />
+        <variable attributes="__instancevar__" line="236" name="infile" />
+        <variable attributes="__instancevar__" citdl="self.callers.copy()" line="232" name="callers" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="133" lineend="184" name="Ignore">
+        <scope ilk="function" line="141" lineend="184" name="names" returns="int" signature="names(filename, modulename)">
+          <variable citdl="len()" line="155" name="n" />
+          <variable citdl="Ignore" ilk="argument" name="self" />
+          <variable ilk="argument" name="modulename" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="134" lineend="139" name="__init__" signature="Ignore(modules=None, dirs=None)">
+          <variable ilk="argument" name="dirs" />
+          <variable citdl="Ignore" ilk="argument" name="self" />
+          <variable ilk="argument" name="modules" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="map()" line="136" name="_dirs" />
+        <variable attributes="protected __instancevar__" citdl="list" line="135" name="_mods" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="139" name="_ignore" />
+      </scope>
+      <variable citdl="str" line="128" name="PRAGMA_NOCOVER" />
+      <scope doc="&#10;" ilk="class" line="450" lineend="661" name="Trace">
+        <scope ilk="function" line="502" lineend="513" name="run" signature="run(cmd)">
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="dict" line="504" name="dict" />
+        </scope>
+        <scope ilk="function" line="537" lineend="576" name="file_module_function_of" returns="tuple" signature="file_module_function_of(frame)">
+          <variable citdl="list" line="554" name="funcs" />
+          <variable line="546" name="clsname" />
+          <variable citdl="frame.f_code" line="538" name="code" />
+          <variable citdl="list" line="560" name="dicts" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable citdl="code.co_filename" line="539" name="filename" />
+          <variable citdl="code.co_name" line="545" name="funcname" />
+          <variable citdl="modname()" line="541" name="modulename" />
+          <variable citdl="list" line="563" name="classes" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="621" lineend="634" name="localtrace_trace_and_count" returns="self.localtrace_trace" signature="localtrace_trace_and_count(frame, why, arg)">
+          <variable ilk="argument" name="frame" />
+          <variable citdl="frame.f_code.co_filename" line="624" name="filename" />
+          <variable ilk="argument" name="why" />
+          <variable citdl="os.path.basename()" line="631" name="bname" />
+          <variable citdl="frame.f_lineno" line="625" name="lineno" />
+          <variable citdl="tuple" line="626" name="key" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handler for call events." ilk="function" line="598" lineend="619" name="globaltrace_lt" returns="self.localtrace_trace" signature="globaltrace_lt(frame, why, arg)">
+          <variable citdl="frame.f_code" line="605" name="code" />
+          <variable citdl="self.ignore.names()" line="612" name="ignore_it" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable citdl="frame.f_globals.get()" line="606" name="filename" />
+          <variable ilk="argument" name="why" />
+          <variable citdl="modname()" line="610" name="modulename" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="657" lineend="661" name="results" returns="CoverageResults" signature="results()">
+          <variable citdl="Trace" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Handler for call events." ilk="function" line="578" lineend="587" name="globaltrace_trackcallers" signature="globaltrace_trackcallers(frame, why, arg)">
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable citdl="file_module_function_of()" line="586" name="parent_func" />
+          <variable ilk="argument" name="why" />
+          <variable citdl="file_module_function_of()" line="585" name="this_func" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="649" lineend="655" name="localtrace_count" returns="self.localtrace_trace" signature="localtrace_count(frame, why, arg)">
+          <variable ilk="argument" name="frame" />
+          <variable citdl="frame.f_code.co_filename" line="651" name="filename" />
+          <variable ilk="argument" name="why" />
+          <variable citdl="frame.f_lineno" line="652" name="lineno" />
+          <variable citdl="tuple" line="653" name="key" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="526" lineend="535" name="runfunc" returns="func()" signature="runfunc(func, *args, **kw)">
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable citdl="func()" line="527" name="result" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope doc="Handler for call events." ilk="function" line="589" lineend="596" name="globaltrace_countfuncs" signature="globaltrace_countfuncs(frame, why, arg)">
+          <variable citdl="file_module_function_of()" line="595" name="this_func" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable ilk="argument" name="why" />
+          <variable ilk="argument" name="frame" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="515" lineend="524" name="runctx" signature="runctx(cmd, globals=None, locals=None)">
+          <variable citdl="dict" ilk="argument" name="globals" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="dict" ilk="argument" name="locals" />
+        </scope>
+        <scope doc="@param count true iff it should count number of times each&#10;line is executed @param trace true iff it should print out&#10;each line that is being counted" ilk="function" line="451" lineend="500" name="__init__" signature="Trace(count=1, trace=1, countfuncs=0, countcallers=0, ignoremods=(), ignoredirs=(), infile=None, outfile=None, timing=False)">
+          <variable citdl="int" ilk="argument" name="count" />
+          <variable citdl="int" ilk="argument" name="trace" />
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="ignoredirs" />
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="int" ilk="argument" name="countfuncs" />
+          <variable citdl="False" ilk="argument" name="timing" />
+          <variable citdl="int" ilk="argument" name="countcallers" />
+          <variable ilk="argument" name="infile" />
+          <variable citdl="tuple" ilk="argument" name="ignoremods" />
+        </scope>
+        <scope ilk="function" line="636" lineend="647" name="localtrace_trace" returns="self.localtrace_trace" signature="localtrace_trace(frame, why, arg)">
+          <variable citdl="Trace" ilk="argument" name="self" />
+          <variable citdl="frame.f_code.co_filename" line="639" name="filename" />
+          <variable ilk="argument" name="why" />
+          <variable citdl="os.path.basename()" line="644" name="bname" />
+          <variable citdl="frame.f_lineno" line="640" name="lineno" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.localtrace_trace_and_count" line="491" name="localtrace" />
+        <variable attributes="__instancevar__" citdl="Ignore" line="473" name="ignore" />
+        <variable attributes="__instancevar__" citdl="dict" line="476" name="pathtobasename" />
+        <variable attributes="__instancevar__" citdl="int" line="478" name="trace" />
+        <variable attributes="__instancevar__" citdl="self.globaltrace_lt" line="486" name="globaltrace" />
+        <variable attributes="__instancevar__" citdl="time.time()" line="482" name="start_time" />
+        <variable attributes="__instancevar__" citdl="dict" line="475" name="blabbed" />
+        <variable attributes="__instancevar__" line="472" name="outfile" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="479" name="_calledfuncs" />
+        <variable attributes="__instancevar__" citdl="int" line="477" name="donothing" />
+        <variable attributes="__instancevar__" citdl="dict" line="474" name="counts" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="481" name="_caller_cache" />
+        <variable attributes="__instancevar__" line="471" name="infile" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="480" name="_callers" />
+      </scope>
+      <import module="cPickle" />
+      <import module="dis" />
+      <scope doc="Return dict where keys are line numbers in the line number&#10;table." ilk="function" line="438" lineend="448" name="find_executable_linenos" returns="dict" signature="find_executable_linenos(filename)">
+        <variable line="441" name="prog" />
+        <variable citdl="find_strings()" line="447" name="strs" />
+        <variable citdl="compile()" line="446" name="code" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return lineno dict for all code objects reachable from code." ilk="function" line="403" lineend="413" name="find_lines" returns="find_lines_from_code()" signature="find_lines(code, strs)">
+        <variable ilk="argument" name="strs" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="find_lines_from_code()" line="406" name="linenos" />
+      </scope>
+      <scope doc="Return dict where keys are lines in the line number table." ilk="function" line="393" lineend="401" name="find_lines_from_code" returns="dict" signature="find_lines_from_code(code, strs)">
+        <variable ilk="argument" name="strs" />
+        <variable ilk="argument" name="code" />
+        <variable citdl="dict" line="395" name="linenos" />
+      </scope>
+      <scope doc="Return a dict of possible docstring positions." ilk="function" line="415" lineend="436" name="find_strings" returns="dict" signature="find_strings(filename)">
+        <variable citdl="token.INDENT" line="425" name="prev_ttype" />
+        <variable citdl="open()" line="426" name="f" />
+        <variable citdl="dict" line="422" name="d" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Return a plausible module name for the path." ilk="function" line="193" lineend="219" name="fullmodname" returns="filename.lstrip()" signature="fullmodname(path)">
+        <variable citdl="os.path.normcase()" line="201" name="comparepath" />
+        <variable line="214" name="drive" />
+        <variable line="218" name="filename" />
+        <variable line="218" name="ext" />
+        <variable citdl="base.replace()" line="210" name="base" />
+        <variable citdl="os.path.normcase()" line="202" name="longest" />
+        <variable ilk="argument" name="path" />
+        <variable citdl="os.path.normcase()" line="204" name="dir" />
+      </scope>
+      <import module="gc" />
+      <import module="inspect" />
+      <import module="linecache" />
+      <scope ilk="function" line="667" lineend="824" name="main" signature="main(argv=None)">
+        <variable citdl="compile()" line="807" name="code" />
+        <variable citdl="int" line="690" name="no_report" />
+        <variable line="673" name="prog_argv" />
+        <variable citdl="t.results()" line="794" name="results" />
+        <variable citdl="int" line="689" name="report" />
+        <variable citdl="dict" line="809" name="globs" />
+        <variable citdl="val" line="695" name="coverdir" />
+        <variable citdl="list" line="694" name="ignore_dirs" />
+        <variable citdl="int" line="687" name="trace" />
+        <variable citdl="int" line="692" name="missing" />
+        <variable line="798" name="progname" />
+        <variable citdl="sys.argv" ilk="argument" name="argv" />
+        <variable citdl="True" line="699" name="timing" />
+        <variable citdl="True" line="698" name="countcallers" />
+        <variable citdl="int" line="688" name="count" />
+        <variable citdl="True" line="697" name="listfuncs" />
+        <variable citdl="val" line="691" name="counts_file" />
+        <variable citdl="list" line="693" name="ignore_modules" />
+        <variable citdl="int" line="696" name="summary" />
+        <variable citdl="s.replace()" line="761" name="s" />
+        <variable citdl="Trace" line="801" name="t" />
+        <variable line="673" name="opts" />
+      </scope>
+      <scope doc="Return a plausible module name for the patch." ilk="function" line="186" lineend="191" name="modname" signature="modname(path)">
+        <variable ilk="argument" name="path" />
+        <variable line="190" name="ext" />
+        <variable citdl="os.path.basename()" line="189" name="base" />
+        <variable line="190" name="filename" />
+      </scope>
+      <import module="os" />
+      <import module="pickle" />
+      <import module="re" />
+      <variable citdl="SRE_Pattern" line="131" name="rx_blank" />
+      <import module="sys" />
+      <import module="threading" />
+      <import module="time" />
+      <import module="token" />
+      <import module="tokenize" />
+      <scope ilk="function" line="83" lineend="126" name="usage" signature="usage(outfile)">
+        <variable ilk="argument" name="outfile" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="75" lineend="77" name="_settrace" signature="_settrace(func)">
+        <variable ilk="argument" name="func" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="663" lineend="665" name="_err_exit" signature="_err_exit(msg)">
+        <variable ilk="argument" name="msg" />
+      </scope>
+      <variable attributes="__hidden__" citdl="cPickle" line="63" name="pickle" />
+      <scope attributes="protected __hidden__" ilk="function" line="79" lineend="81" name="_unsettrace" signature="_unsettrace()" />
+    </scope>
+    

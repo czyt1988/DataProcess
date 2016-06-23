@@ -1,0 +1,1 @@
+<scope ilk="blob" lang="Python" name="pylab" src="d:\Program Files (x86)\Python35-32\lib\site-packages\pylab.py"><import line="1" module="matplotlib.pylab" symbol="*" /><import line="2" module="matplotlib.pylab" /><variable citdl="matplotlib.pylab.__doc__" line="3" name="__doc__" /></scope>

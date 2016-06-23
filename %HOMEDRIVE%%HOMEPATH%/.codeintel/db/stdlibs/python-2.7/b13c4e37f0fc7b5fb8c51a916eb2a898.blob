@@ -1,0 +1,275 @@
+<scope doc="A collection of string operations (most are no longer used).&#10;Warning: most of the code you see here isn't normally used nowadays. Beginning with Python 1.6, many of these functions are implemented as methods on the standard string object. They used to be implemented by a built-in module called strop, but strop is now obsolete itself.  Public module variables:  whitespace -- a string containing all characters considered whitespace lowercase -- a string containing all characters considered lowercase letters uppercase -- a string containing all characters considered uppercase letters" ilk="blob" lang="Python" name="string">
+      <scope classrefs="object" doc="&#10;" ilk="class" line="543" lineend="642" name="Formatter">
+        <scope ilk="function" line="598" lineend="599" name="format_field" returns="Formatter.format()" signature="format_field(value, format_spec)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="format_spec" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="544" lineend="545" name="format" returns="self.vformat()" signature="format(format_string, *args, **kwargs)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="format_string" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="602" lineend="610" name="convert_field" returns="repr()" signature="convert_field(value, conversion)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="conversion" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="587" lineend="591" name="get_value" signature="get_value(key, args, kwargs)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="key" />
+          <variable ilk="argument" name="kwargs" />
+        </scope>
+        <scope ilk="function" line="547" lineend="551" name="vformat" returns="self._vformat()" signature="vformat(format_string, args, kwargs)">
+          <variable citdl="set()" line="548" name="used_args" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="self._vformat()" line="549" name="result" />
+          <variable ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="format_string" />
+        </scope>
+        <scope ilk="function" line="553" lineend="584" name="_vformat" returns="str.join()" signature="_vformat(format_string, args, kwargs, used_args, recursion_depth)">
+          <variable ilk="argument" name="used_args" />
+          <variable ilk="argument" name="recursion_depth" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="list" line="556" name="result" />
+          <variable citdl="()" line="578" name="format_spec" />
+          <variable ilk="argument" name="kwargs" />
+          <variable citdl="self.convert_field()" line="571" name="obj" />
+          <variable line="571" name="arg_used" />
+          <variable ilk="argument" name="format_string" />
+        </scope>
+        <scope doc="# returns an iterable that contains tuples of the form: #&#10;(literal_text, field_name, format_spec, conversion) #&#10;literal_text can be zero length # field_name can be None, in&#10;which case there's no" ilk="function" line="620" lineend="621" name="parse" returns="format_string._formatter_parser()" signature="parse(format_string)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="format_string" />
+        </scope>
+        <scope doc="# given a field_name, find the object it references." ilk="function" line="629" lineend="642" name="get_field" returns="tuple" signature="get_field(field_name, args, kwargs)">
+          <variable citdl="get_value()" line="632" name="obj" />
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable line="630" name="rest" />
+          <variable ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="field_name" />
+          <variable line="630" name="first" />
+        </scope>
+        <scope ilk="function" line="594" lineend="595" name="check_unused_args" signature="check_unused_args(used_args, args, kwargs)">
+          <variable citdl="Formatter" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="used_args" />
+          <variable ilk="argument" name="kwargs" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="A string class for supporting $-substitutions.&#10;" ilk="class" line="124" lineend="205" name="Template">
+        <scope ilk="function" line="136" lineend="146" name="_invalid" signature="_invalid(mo)">
+          <variable citdl="mo.start()" line="137" name="i" />
+          <variable ilk="argument" name="mo" />
+          <variable line="138" name="lines" />
+          <variable citdl="int" line="141" name="lineno" />
+          <variable citdl="int" line="140" name="colno" />
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="174" lineend="205" name="safe_substitute" returns="self.pattern.sub()" signature="safe_substitute(*args, **kws)">
+          <variable citdl="_multimap" line="178" name="mapping" />
+          <scope ilk="function" line="184" lineend="204" name="convert" returns="tuple" signature="convert(mo)">
+            <variable ilk="argument" name="mo" />
+            <variable citdl="mo.group()" line="185" name="named" />
+            <variable citdl="mo.group()" line="193" name="braced" />
+          </scope>
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kws" />
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="131" lineend="132" name="__init__" signature="Template(template)">
+          <variable citdl="Template" ilk="argument" name="self" />
+          <variable ilk="argument" name="template" />
+        </scope>
+        <scope ilk="function" line="148" lineend="172" name="substitute" returns="self.pattern.sub()" signature="substitute(*args, **kws)">
+          <variable citdl="_multimap" line="152" name="mapping" />
+          <scope ilk="function" line="158" lineend="171" name="convert" returns="tuple" signature="convert(mo)">
+            <variable ilk="argument" name="mo" />
+            <variable citdl="mo.group()" line="160" name="named" />
+            <variable line="162" name="val" />
+          </scope>
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kws" />
+          <variable citdl="Template" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="str" line="129" name="idpattern" />
+        <variable citdl="_TemplateMetaclass" line="126" name="__metaclass__" />
+        <variable citdl="str" line="128" name="delimiter" />
+        <variable attributes="__instancevar__" line="132" name="template" />
+      </scope>
+      <import module="_re" />
+      <variable citdl="str" line="29" name="ascii_letters" />
+      <variable citdl="str" line="27" name="ascii_lowercase" />
+      <variable citdl="str" line="28" name="ascii_uppercase" />
+      <scope doc="Return the floating point number represented by the string&#10;s." ilk="function" line="382" lineend="388" name="atof" returns="_float()" signature="atof(s) -&gt; float">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope classrefs="StandardError" doc="Inappropriate argument value (of correct type).&#10;" ilk="class" line="216" name="atof_error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return the integer represented by the string s in the given&#10;base, which defaults to 10." ilk="function" line="392" lineend="403" name="atoi" returns="_int()" signature="atoi(s [,base]) -&gt; int">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="base" />
+      </scope>
+      <scope classrefs="StandardError" doc="Inappropriate argument value (of correct type).&#10;" ilk="class" line="215" name="atoi_error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return the long integer represented by the string s in the&#10;given base, which defaults to 10." ilk="function" line="407" lineend="419" name="atol" returns="_long()" signature="atol(s [,base]) -&gt; long">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="base" />
+      </scope>
+      <scope classrefs="StandardError" doc="Inappropriate argument value (of correct type).&#10;" ilk="class" line="217" name="atol_error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return a copy of the string s with only its first character&#10;capitalized." ilk="function" line="501" lineend="508" name="capitalize" returns="s.capitalize()" signature="capitalize(s) -&gt; string">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Split the argument into words using split, capitalize each&#10;word using capitalize, and join the capitalized words using&#10;join." ilk="function" line="45" lineend="56" name="capwords" returns="str" signature="capwords(s [,sep]) -&gt; string">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="sep" />
+      </scope>
+      <scope doc="Return a center version of s, in a field of the specified&#10;width." ilk="function" line="445" lineend="453" name="center" returns="s.center()" signature="center(s, width[, fillchar]) -&gt; string">
+        <variable ilk="argument" name="width" />
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Return the number of occurrences of substring sub in string&#10;s[start:end]." ilk="function" line="340" lineend="348" name="count" returns="s.count()" signature="count(s, sub[, start[,end]]) -&gt; int">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <variable citdl="str" line="30" name="digits" />
+      <scope doc="Return a copy of the string s with all tab characters&#10;replaced by the appropriate number of spaces, depending on&#10;the current column, and the tabsize (default 8)." ilk="function" line="471" lineend="479" name="expandtabs" returns="s.expandtabs()" signature="expandtabs(s [,tabsize]) -&gt; string">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="tabsize" />
+      </scope>
+      <scope doc="Return the lowest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" line="351" lineend="361" name="find" returns="s.find()" signature="find(s, sub [,start [,end]]) -&gt; in">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <variable citdl="str" line="31" name="hexdigits" />
+      <scope doc="Like find but raises ValueError when the substring is not&#10;found." ilk="function" line="322" lineend="328" name="index" returns="s.index()" signature="index(s, sub [,start [,end]]) -&gt; int">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope classrefs="StandardError" doc="Inappropriate argument value (of correct type).&#10;" ilk="class" line="214" name="index_error">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return a string composed of the words in list, with&#10;intervening occurrences of sep." ilk="function" line="308" lineend="318" name="join" returns="sep.join()" signature="join(list [,sep]) -&gt; string">
+        <variable ilk="argument" name="words" />
+        <variable citdl="str" ilk="argument" name="sep" />
+      </scope>
+      <scope doc="Return a string composed of the words in list, with&#10;intervening occurrences of sep." ilk="function" line="319" name="joinfields" returns="str" signature="join(list [,sep]) -&gt; string" />
+      <variable citdl="str" line="26" name="letters" />
+      <scope doc="Return a left-justified version of s, in a field of the&#10;specified width, padded with spaces as needed." ilk="function" line="423" lineend="431" name="ljust" returns="s.ljust()" signature="ljust(s, width[, fillchar]) -&gt; string">
+        <variable ilk="argument" name="width" />
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Return a copy of the string s converted to lowercase." ilk="function" line="220" lineend="226" name="lower" returns="s.lower()" signature="lower(s) -&gt; string">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <variable citdl="str" line="24" name="lowercase" />
+      <scope doc="Return a copy of the string s with leading whitespace&#10;removed." ilk="function" line="260" lineend="267" name="lstrip" returns="s.lstrip()" signature="lstrip(s [,chars]) -&gt; string">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="chars" />
+      </scope>
+      <scope doc="Return a translation table (a string of 256 bytes long)&#10;suitable for use in string.translate." ilk="function" line="61" lineend="78" name="maketrans" returns="str.join()" signature="maketrans(frm, to) -&gt; string">
+        <variable ilk="argument" name="tostr" />
+        <variable citdl="map()" ilk="argument" name="fromstr" />
+        <variable attributes="protected" citdl="list()" line="73" name="_idmapL" />
+        <variable citdl="list" line="74" name="L" />
+      </scope>
+      <variable citdl="str" line="32" name="octdigits" />
+      <variable citdl="str" line="34" name="printable" />
+      <variable citdl="str" line="33" name="punctuation" />
+      <scope doc="Return a copy of string str with all occurrences of&#10;substring old replaced by new." ilk="function" line="511" lineend="519" name="replace" returns="s.replace()" signature="replace (str, old, new[, maxreplace]) -&gt; string">
+        <variable ilk="argument" name="new" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="maxreplace" />
+        <variable ilk="argument" name="old" />
+      </scope>
+      <scope doc="Return the highest index in s where substring sub is found,&#10;such that sub is contained within s[start,end]." ilk="function" line="364" lineend="374" name="rfind" returns="s.rfind()" signature="rfind(s, sub [,start [,end]]) -&gt; int">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Like rfind but raises ValueError when the substring is not&#10;found." ilk="function" line="331" lineend="337" name="rindex" returns="s.rindex()" signature="rindex(s, sub [,start [,end]]) -&gt; int">
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Return a right-justified version of s, in a field of the&#10;specified width, padded with spaces as needed." ilk="function" line="434" lineend="442" name="rjust" returns="s.rjust()" signature="rjust(s, width[, fillchar]) -&gt; string">
+        <variable ilk="argument" name="width" />
+        <variable ilk="argument" name="s" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" line="296" lineend="305" name="rsplit" returns="list" signature="rsplit(s [,sep [,maxsplit]]) -&gt; list of strings">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="maxsplit" />
+        <variable ilk="argument" name="sep" />
+      </scope>
+      <scope doc="Return a copy of the string s with trailing whitespace&#10;removed." ilk="function" line="270" lineend="277" name="rstrip" returns="s.rstrip()" signature="rstrip(s [,chars]) -&gt; string">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="chars" />
+      </scope>
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string." ilk="function" line="281" lineend="292" name="split" returns="list" signature="split(s [,sep [,maxsplit]]) -&gt; list of strings">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="maxsplit" />
+        <variable ilk="argument" name="sep" />
+      </scope>
+      <scope doc="Return a list of the words in the string s, using sep as the&#10;delimiter string." ilk="function" line="293" name="splitfields" returns="list" signature="split(s [,sep [,maxsplit]]) -&gt; list of strings" />
+      <scope doc="Return a copy of the string s with leading and trailing&#10;whitespace removed." ilk="function" line="248" lineend="257" name="strip" returns="s.strip()" signature="strip(s [,chars]) -&gt; string">
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="chars" />
+      </scope>
+      <scope doc="Return a copy of the string s with upper case characters&#10;converted to lowercase and vice versa." ilk="function" line="238" lineend="245" name="swapcase" returns="s.swapcase()" signature="swapcase(s) -&gt; string">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Return a copy of the string s, where all characters&#10;occurring in the optional argument deletions are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" line="482" lineend="498" name="translate" returns="s.translate()" signature="translate(s,table [,deletions]) -&gt; string">
+        <variable citdl="str" ilk="argument" name="deletions" />
+        <variable ilk="argument" name="table" />
+        <variable ilk="argument" name="s" />
+      </scope>
+      <scope doc="Return a copy of the string s converted to uppercase." ilk="function" line="229" lineend="235" name="upper" returns="s.upper()" signature="upper(s) -&gt; string">
+        <variable ilk="argument" name="s" />
+      </scope>
+      <variable citdl="str" line="25" name="uppercase" />
+      <variable citdl="str" line="23" name="whitespace" />
+      <scope doc="Pad a numeric string x with zeros on the left, to fill a&#10;field of the specified width." ilk="function" line="458" lineend="467" name="zfill" returns="x.zfill()" signature="zfill(x, width) -&gt; string">
+        <variable citdl="repr()" ilk="argument" name="x" />
+        <variable ilk="argument" name="width" />
+      </scope>
+      <variable attributes="protected __hidden__" line="60" name="_idmapL" />
+      <variable attributes="protected __hidden__" citdl="int" line="378" name="_int" />
+      <variable attributes="protected __hidden__" citdl="float" line="377" name="_float" />
+      <variable attributes="protected __hidden__" citdl="long" line="379" name="_long" />
+      <variable attributes="__hidden__" citdl="map()" line="38" name="l" />
+      <scope attributes="protected __hidden__" doc="Helper class for combining multiple mappings." ilk="class" line="85" lineend="99" name="_multimap">
+        <scope attributes="__ctor__" ilk="function" line="91" lineend="93" name="__init__" signature="_multimap(primary, secondary)">
+          <variable citdl="_multimap" ilk="argument" name="self" />
+          <variable ilk="argument" name="primary" />
+          <variable ilk="argument" name="secondary" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="92" name="_primary" />
+        <variable attributes="protected __instancevar__" line="93" name="_secondary" />
+        <scope ilk="function" line="95" lineend="99" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="_multimap" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="type" ilk="class" line="102" lineend="121" name="_TemplateMetaclass">
+        <variable citdl="str" line="103" name="pattern" />
+        <scope attributes="__ctor__" ilk="function" line="112" lineend="121" name="__init__" signature="_TemplateMetaclass(name, bases, dct)">
+          <variable citdl="_TemplateMetaclass" ilk="argument" name="cls" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="bases" />
+          <variable ilk="argument" name="dct" />
+          <variable citdl="str" line="115" name="pattern" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" line="39" name="_idmap" />
+    </scope>
+    

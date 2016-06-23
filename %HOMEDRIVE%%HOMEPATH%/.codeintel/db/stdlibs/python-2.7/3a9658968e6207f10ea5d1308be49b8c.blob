@@ -1,0 +1,155 @@
+<scope doc="# Module which supports allocation of ctypes objects from shared memory&#10;# # multiprocessing/sharedctypes.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #" ilk="blob" lang="Python" name="multiprocessing.sharedctypes">
+      <scope doc="Return a synchronization wrapper for a RawArray" ilk="function" line="108" lineend="122" name="Array" returns="RawArray()" signature="Array(typecode_or_type, size_or_initializer, **kwds)">
+        <variable citdl="RLock()" line="112" name="lock" />
+        <variable ilk="argument" name="size_or_initializer" />
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable citdl="RawArray()" line="115" name="obj" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+      </scope>
+      <scope classrefs="Pickler" doc="&#10;" ilk="class" name="ForkingPickler">
+        <scope ilk="function" name="register" />
+      </scope>
+      <scope doc="Returns a recursive lock object" ilk="function" name="RLock" signature="RLock()" />
+      <scope doc="Returns a ctypes array allocated from shared memory" ilk="function" line="76" lineend="90" name="RawArray" returns="_new_value()" signature="RawArray(typecode_or_type, size_or_initializer)">
+        <variable citdl="_new_value()" line="83" name="obj" />
+        <variable citdl="typecode_to_type.get()" line="80" name="type_" />
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable citdl="_new_value()" line="88" name="result" />
+        <variable ilk="argument" name="size_or_initializer" />
+      </scope>
+      <scope doc="Returns a ctypes object allocated from shared memory" ilk="function" line="66" lineend="74" name="RawValue" returns="_new_value()" signature="RawValue(typecode_or_type, *args)">
+        <variable citdl="_new_value()" line="71" name="obj" />
+        <variable citdl="typecode_to_type.get()" line="70" name="type_" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="typecode_or_type" />
+      </scope>
+      <scope classrefs="SynchronizedBase" doc="&#10;" ilk="class" line="226" lineend="227" name="Synchronized">
+        <variable citdl="make_property()" line="227" name="value" />
+      </scope>
+      <scope classrefs="SynchronizedBase" doc="&#10;" ilk="class" line="230" lineend="261" name="SynchronizedArray">
+        <scope ilk="function" line="249" lineend="254" name="__getslice__" returns="list" signature="__getslice__(start, stop)">
+          <variable ilk="argument" name="start" />
+          <variable citdl="SynchronizedArray" ilk="argument" name="self" />
+          <variable ilk="argument" name="stop" />
+        </scope>
+        <scope ilk="function" line="235" lineend="240" name="__getitem__" signature="__getitem__(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="SynchronizedArray" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="256" lineend="261" name="__setslice__" signature="__setslice__(start, stop, values)">
+          <variable ilk="argument" name="values" />
+          <variable ilk="argument" name="start" />
+          <variable citdl="SynchronizedArray" ilk="argument" name="self" />
+          <variable ilk="argument" name="stop" />
+        </scope>
+        <scope ilk="function" line="242" lineend="247" name="__setitem__" signature="__setitem__(i, value)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="SynchronizedArray" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="232" lineend="233" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="SynchronizedArray" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="204" lineend="223" name="SynchronizedBase">
+        <scope ilk="function" line="222" lineend="223" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="SynchronizedBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="219" lineend="220" name="get_lock" returns="RLock()" signature="get_lock()">
+          <variable citdl="SynchronizedBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="212" lineend="214" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="SynchronizedBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="216" lineend="217" name="get_obj" signature="get_obj()">
+          <variable citdl="SynchronizedBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="206" lineend="210" name="__init__" signature="SynchronizedBase(obj, lock=None)">
+          <variable ilk="argument" name="lock" />
+          <variable citdl="SynchronizedBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="obj" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self._lock.release" line="210" name="release" />
+        <variable attributes="__instancevar__" citdl="self._lock.acquire" line="209" name="acquire" />
+        <variable attributes="protected __instancevar__" citdl="RLock()" line="208" name="_lock" />
+        <variable attributes="protected __instancevar__" line="207" name="_obj" />
+      </scope>
+      <scope classrefs="SynchronizedArray" doc="&#10;" ilk="class" line="264" lineend="266" name="SynchronizedString">
+        <variable citdl="make_property()" line="266" name="raw" />
+        <variable citdl="make_property()" line="265" name="value" />
+      </scope>
+      <scope doc="Return a synchronization wrapper for a Value" ilk="function" line="92" lineend="106" name="Value" returns="RawValue()" signature="Value(typecode_or_type, *args, **kwds)">
+        <variable citdl="RLock()" line="96" name="lock" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+        <variable ilk="argument" name="typecode_or_type" />
+        <variable citdl="RawValue()" line="99" name="obj" />
+        <variable attributes="kwargs" ilk="argument" name="kwds" />
+      </scope>
+      <variable citdl="list" line="42" name="__all__" />
+      <scope ilk="function" name="assert_spawning" signature="assert_spawning(self)" />
+      <variable citdl="weakref.WeakKeyDictionary" line="198" name="class_cache" />
+      <scope classrefs="UserDict" doc="Mapping class that references keys weakly.&#10;Entries in the dictionary will be discarded when there is no longer a strong reference to the key. This can be used to associate additional data with an object owned by other parts of an application without adding attributes to those objects. This can be especially useful with objects that override attribute accesses." ilk="class" name="WeakKeyDictionary">
+        <scope ilk="function" name="iteritems" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="has_key" />
+        <scope doc="Return a list of weak references to the keys." ilk="function" name="keyrefs" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="itervalues" />
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="get" />
+        <scope ilk="function" name="keys" />
+        <scope ilk="function" name="__deepcopy__" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="popitem" />
+        <scope ilk="function" name="copy" />
+        <scope ilk="function" name="iterkeys" />
+        <scope ilk="function" name="__delitem__" />
+        <scope ilk="function" name="setdefault" />
+        <scope ilk="function" name="items" />
+        <scope doc="Return an iterator that yields the weak references to the&#10;keys." ilk="function" name="iterkeyrefs" />
+        <scope ilk="function" name="__setitem__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__copy__" />
+      </scope>
+      <scope ilk="function" line="124" lineend="127" name="copy" returns="_new_value()" signature="copy(obj)">
+        <variable ilk="argument" name="obj" />
+        <variable citdl="_new_value()" line="125" name="new_obj" />
+      </scope>
+      <import module="ctypes" />
+      <import module="heap" />
+      <scope ilk="function" line="172" lineend="179" name="make_property" signature="make_property(name)">
+        <variable ilk="argument" name="name" />
+        <variable citdl="dict" line="176" name="d" />
+      </scope>
+      <variable citdl="dict" line="197" name="prop_cache" />
+      <scope ilk="function" line="160" lineend="166" name="rebuild_ctype" returns="type_.from_address()" signature="rebuild_ctype(type_, wrapper, length)">
+        <variable ilk="argument" name="type_" />
+        <variable citdl="type_.from_address()" line="164" name="obj" />
+        <variable ilk="argument" name="length" />
+        <variable ilk="argument" name="wrapper" />
+      </scope>
+      <scope ilk="function" line="153" lineend="158" name="reduce_ctype" returns="tuple" signature="reduce_ctype(obj)">
+        <variable ilk="argument" name="obj" />
+      </scope>
+      <scope ilk="function" line="129" lineend="147" name="synchronized" returns="SynchronizedArray()" signature="synchronized(obj, lock=None)">
+        <variable ilk="argument" name="obj" />
+        <variable citdl="dict()" line="144" name="d" />
+        <variable ilk="argument" name="lock" />
+        <variable citdl="cls.__name__" line="145" name="classname" />
+        <variable citdl="type()" line="141" name="scls" />
+        <variable citdl="list" line="143" name="names" />
+        <variable citdl="type()" line="139" name="cls" />
+      </scope>
+      <import module="sys" />
+      <variable citdl="str" line="181" name="template" />
+      <variable citdl="dict" line="48" name="typecode_to_type" />
+      <import module="weakref" />
+      <scope attributes="protected __hidden__" ilk="function" line="61" lineend="64" name="_new_value" returns="rebuild_ctype()" signature="_new_value(type_)">
+        <variable ilk="argument" name="type_" />
+        <variable citdl="ctypes.sizeof()" line="62" name="size" />
+        <variable citdl="heap.BufferWrapper()" line="63" name="wrapper" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,5 @@
+<scope doc="distutils.command&#10;Package containing implementation of all the standard Distutils commands." ilk="blob" lang="Python" name="distutils.command">
+      <variable citdl="list" line="8" name="__all__" />
+      <variable citdl="str" line="6" name="__revision__" />
+    </scope>
+    

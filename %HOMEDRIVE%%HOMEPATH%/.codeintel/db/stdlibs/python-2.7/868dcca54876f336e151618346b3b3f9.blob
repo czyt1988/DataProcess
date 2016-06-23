@@ -1,0 +1,274 @@
+<scope doc="Class for profiling Python code.&#10;" ilk="blob" lang="Python" name="profile">
+      <scope classrefs="OptionContainer" doc="Class attributes:&#10;standard_option_list : [Option] list of standard options that will be accepted by all instances of this parser class (intended to be overridden by subclasses).  Instance attributes: usage : string a usage string for your program.  Before it is displayed to the user, &quot;%prog&quot; will be expanded to the name of your program (self.prog or os.path.basename(sys.argv[0])). prog : string" ilk="class" name="OptionParser">
+        <scope ilk="function" name="format_epilog" />
+        <scope ilk="function" name="_process_long_opt" />
+        <scope doc="_process_args(largs : [string], rargs : [string], values :&#10;Values)" ilk="function" name="_process_args" />
+        <scope ilk="function" name="get_usage" />
+        <scope ilk="function" name="exit" />
+        <scope doc="-&gt; (values : Values, args : [string])" ilk="function" name="check_values" signature="check_values(values : Values, args : [string])" />
+        <scope doc="Set parsing to not stop on the first non-option, allowing&#10;interspersing switches with command arguments." ilk="function" name="enable_interspersed_args" />
+        <scope ilk="function" name="set_usage" />
+        <scope ilk="function" name="set_process_default_values" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="add_option_group" />
+        <scope ilk="function" name="_get_args" />
+        <scope ilk="function" name="format_option_help" />
+        <scope ilk="function" name="get_version" />
+        <scope ilk="function" name="_populate_option_list" />
+        <scope ilk="function" name="get_option_group" />
+        <scope ilk="function" name="set_default" />
+        <scope doc="Print an extended help message, listing all options and any&#10;help text provided with them, to 'file' (default stdout)." ilk="function" name="print_help" signature="print_help(file : file = stdout)" />
+        <scope doc="Set parsing to stop on the first non-option." ilk="function" name="disable_interspersed_args" />
+        <scope ilk="function" name="expand_prog_name" />
+        <scope ilk="function" name="_add_help_option" />
+        <scope doc="Print a usage message incorporating 'msg' to stderr and&#10;exit." ilk="function" name="error" signature="error(msg : string)" />
+        <scope ilk="function" name="get_description" />
+        <scope ilk="function" name="get_default_values" />
+        <scope ilk="function" name="get_prog_name" />
+        <scope doc="Declare that you are done with this OptionParser." ilk="function" name="destroy" />
+        <scope doc="Determine which long option string 'opt' matches, ie." ilk="function" name="_match_long_opt" returns="str" signature="_match_long_opt(opt : string) -&gt; string" />
+        <scope doc="# used by test suite" ilk="function" name="_get_encoding" />
+        <scope doc="parse_args(args : [string] = sys.argv[1:], values : Values =&#10;None) -&gt; (values : Values, args : [string])" ilk="function" name="parse_args" />
+        <scope ilk="function" name="format_help" />
+        <scope ilk="function" name="_create_option_list" />
+        <scope ilk="function" name="set_defaults" />
+        <scope ilk="function" name="_add_version_option" />
+        <scope ilk="function" name="_get_all_options" />
+        <scope doc="Print the version message for this program (self.version) to&#10;'file' (default stdout)." ilk="function" name="print_version" signature="print_version(file : file = stdout)" />
+        <scope ilk="function" name="_process_short_opts" />
+        <scope ilk="function" name="_init_parsing_state" />
+        <scope doc="Print the usage message for the current program (self.usage)&#10;to 'file' (default stdout)." ilk="function" name="print_usage" signature="print_usage(file : file = stdout)" />
+      </scope>
+      <scope doc="Profiler class.&#10;self.cur is always a tuple.  Each such tuple corresponds to a stack frame that is currently active (self.cur[-2]).  The following are the definitions of its members.  We use this external &quot;parallel stack&quot; to avoid contaminating the program that we are profiling. (old profiler used to write into the frames local dictionary!!) Derived classes can change the definition of some entries, as long as they leave [-2:] intact (frame and previous tuple).  In case an internal error is detected, the -3 element is used as the function name.  [ 0] = Time that needs to be charged to the parent frame's function." ilk="class" line="120" lineend="579" name="Profile">
+        <scope ilk="function" line="508" lineend="517" name="calibrate" returns="self._calibrate_inner()" signature="calibrate(m, verbose=0)">
+          <variable citdl="int" line="512" name="saved_bias" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+          <variable citdl="int" ilk="argument" name="verbose" />
+        </scope>
+        <scope ilk="function" line="161" lineend="208" name="__init__" signature="Profile(timer=None, bias=None)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="timer" />
+          <scope ilk="function" line="204" lineend="205" name="get_time_timer" returns="Profile.__init__.get_time_timer.sum()" signature="get_time_timer(timer=timer, sum=sum)">
+            <variable ilk="argument" name="timer" />
+            <variable citdl="sum" ilk="argument" name="sum" />
+          </scope>
+          <variable citdl="len()" line="190" name="length" />
+          <variable citdl="int" ilk="argument" name="bias" />
+          <variable citdl="timer()" line="188" name="t" />
+        </scope>
+        <scope ilk="function" line="245" lineend="255" name="trace_dispatch_mac" signature="trace_dispatch_mac(frame, event, arg)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="os.times" line="246" name="timer" />
+          <variable ilk="argument" name="event" />
+          <variable citdl="Profile.trace_dispatch_i.timer()" line="247" name="t" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope doc="# This method is more useful to profile a single function&#10;call." ilk="function" line="459" lineend="465" name="runcall" returns="Profile.runcall.func()" signature="runcall(func, *args, **kw)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <scope ilk="function" line="431" lineend="438" name="snapshot_stats" signature="snapshot_stats()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="callers.copy()" line="434" name="callers" />
+          <variable citdl="int" line="435" name="nc" />
+        </scope>
+        <scope ilk="function" line="319" lineend="354" name="trace_dispatch_return" returns="int" signature="trace_dispatch_return(frame, t)">
+          <variable citdl="ret" line="329" name="frame_total" />
+          <variable citdl="int" line="342" name="cc" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="dict" line="334" name="timings" />
+          <variable ilk="argument" name="t" />
+          <variable ilk="argument" name="frame" />
+          <variable line="328" name="rit" />
+          <variable citdl="ret" line="341" name="ct" />
+        </scope>
+        <scope ilk="function" line="373" lineend="376" name="set_cmd" signature="set_cmd(cmd)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+        </scope>
+        <scope ilk="function" line="427" lineend="429" name="create_stats" signature="create_stats()">
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="230" lineend="240" name="trace_dispatch_i" signature="trace_dispatch_i(frame, event, arg)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="os.times" line="231" name="timer" />
+          <variable ilk="argument" name="event" />
+          <variable citdl="get_time()" line="232" name="t" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <scope ilk="function" line="259" lineend="269" name="trace_dispatch_l" signature="trace_dispatch_l(frame, event, arg)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="Profile.trace_dispatch_l.get_time()" line="261" name="t" />
+          <variable ilk="argument" name="frame" />
+          <variable ilk="argument" name="arg" />
+          <variable citdl="_get_time_resource" line="260" name="get_time" />
+          <variable ilk="argument" name="event" />
+        </scope>
+        <scope ilk="function" line="449" lineend="456" name="runctx" returns="Profile" signature="runctx(cmd, globals, locals)">
+          <variable ilk="argument" name="globals" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="locals" />
+        </scope>
+        <scope ilk="function" line="444" lineend="447" name="run" returns="self.runctx()" signature="run(cmd)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="dict" line="446" name="dict" />
+        </scope>
+        <scope ilk="function" line="519" lineend="579" name="_calibrate_inner" returns="get_time()" signature="_calibrate_inner(m, verbose)">
+          <scope ilk="function" line="528" lineend="530" name="f1" signature="f1(n)">
+            <variable ilk="argument" name="n" />
+            <variable citdl="int" line="530" name="x" />
+          </scope>
+          <variable ilk="argument" name="verbose" />
+          <scope ilk="function" line="532" lineend="534" name="f" signature="f(m, f1=f1)">
+            <variable ilk="argument" name="m" />
+            <variable citdl="Profile._calibrate_inner.f1" ilk="argument" name="f1" />
+          </scope>
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="m" />
+          <variable citdl="get_time()" line="539" name="t0" />
+          <variable citdl="get_time()" line="541" name="t1" />
+          <variable citdl="" line="549" name="p" />
+          <variable citdl="float" line="559" name="reported_time" />
+          <variable citdl="float" line="558" name="total_calls" />
+          <variable citdl="_get_time_resource" line="520" name="get_time" />
+          <variable citdl="get_time()" line="576" name="mean" />
+          <variable citdl="get_time()" line="542" name="elapsed_noprofile" />
+          <variable citdl="get_time()" line="553" name="elapsed_profile" />
+        </scope>
+        <scope ilk="function" line="308" lineend="317" name="trace_dispatch_c_call" returns="int" signature="trace_dispatch_c_call(frame, t)">
+          <variable citdl="dict" line="311" name="timings" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame" />
+          <variable citdl="tuple" line="309" name="fn" />
+          <variable ilk="argument" name="t" />
+        </scope>
+        <scope ilk="function" line="405" lineend="413" name="simulate_cmd_complete" signature="simulate_cmd_complete()">
+          <variable citdl="_get_time_resource" line="406" name="get_time" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="Profile.trace_dispatch_l.get_time()" line="407" name="t" />
+        </scope>
+        <scope ilk="function" line="393" lineend="400" name="simulate_call" signature="simulate_call(name)">
+          <variable line="396" name="pframe" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="fake_code" line="394" name="code" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="fake_frame" line="399" name="frame" />
+        </scope>
+        <scope ilk="function" line="286" lineend="306" name="trace_dispatch_call" returns="int" signature="trace_dispatch_call(frame, t)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="dict" line="300" name="timings" />
+          <variable citdl="frame.f_code" line="297" name="fcode" />
+          <variable ilk="argument" name="t" />
+          <variable ilk="argument" name="frame" />
+          <variable citdl="tuple" line="298" name="fn" />
+        </scope>
+        <scope ilk="function" line="416" lineend="418" name="print_stats" signature="print_stats(sort=-1)">
+          <variable citdl="int" ilk="argument" name="sort" />
+          <variable citdl="Profile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="278" lineend="283" name="trace_dispatch_exception" returns="int" signature="trace_dispatch_exception(frame, t)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="frame" />
+          <variable ilk="argument" name="t" />
+        </scope>
+        <scope ilk="function" line="421" lineend="425" name="dump_stats" signature="dump_stats(file)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="open()" line="422" name="f" />
+        </scope>
+        <scope ilk="function" line="212" lineend="225" name="trace_dispatch" signature="trace_dispatch(frame, event, arg)">
+          <variable citdl="Profile" ilk="argument" name="self" />
+          <variable citdl="os.times" line="213" name="timer" />
+          <variable ilk="argument" name="event" />
+          <variable citdl="timer()" line="224" name="r" />
+          <variable citdl="timer()" line="214" name="t" />
+          <variable ilk="argument" name="arg" />
+          <variable ilk="argument" name="frame" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.times" line="173" name="timer" />
+        <variable attributes="__instancevar__" citdl="str" line="164" name="cmd" />
+        <variable attributes="__instancevar__" citdl="dict" line="432" name="stats" />
+        <variable attributes="__instancevar__" citdl="arg.__name__" line="165" name="c_func_name" />
+        <scope ilk="class" line="388" lineend="391" name="fake_frame">
+          <scope attributes="__ctor__" ilk="function" line="389" lineend="391" name="__init__" signature="fake_frame(code, prior)">
+            <variable citdl="fake_frame" ilk="argument" name="self" />
+            <variable ilk="argument" name="code" />
+            <variable ilk="argument" name="prior" />
+          </scope>
+          <variable attributes="__instancevar__" line="390" name="f_code" />
+          <variable attributes="__instancevar__" line="391" name="f_back" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="162" name="timings" />
+        <variable attributes="__instancevar__" citdl="get_time()" line="207" name="t" />
+        <variable citdl="int" line="159" name="bias" />
+        <variable citdl="dict" line="357" name="dispatch" />
+        <variable attributes="__instancevar__" citdl="Profile.__init__.get_time_timer" line="175" name="get_time" />
+        <scope ilk="class" line="378" lineend="386" name="fake_code">
+          <scope attributes="__ctor__" ilk="function" line="379" lineend="383" name="__init__" signature="fake_code(filename, line, name)">
+            <variable citdl="fake_code" ilk="argument" name="self" />
+            <variable ilk="argument" name="filename" />
+            <variable ilk="argument" name="line" />
+            <variable ilk="argument" name="name" />
+          </scope>
+          <variable attributes="__instancevar__" line="380" name="co_filename" />
+          <variable attributes="__instancevar__" line="381" name="co_line" />
+          <variable attributes="__instancevar__" line="382" name="co_name" />
+          <variable attributes="__instancevar__" citdl="int" line="383" name="co_firstlineno" />
+          <scope ilk="function" line="385" lineend="386" name="__repr__" returns="repr()" signature="__repr__()">
+            <variable citdl="fake_code" ilk="argument" name="self" />
+          </scope>
+        </scope>
+        <variable attributes="__instancevar__" citdl="self.trace_dispatch" line="174" name="dispatcher" />
+        <variable attributes="__instancevar__" citdl="tuple" line="163" name="cur" />
+      </scope>
+      <scope doc="#***********************************************************&#10;*****************" ilk="function" line="582" lineend="583" name="Stats" signature="Stats(*args)">
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <variable citdl="list" line="42" name="__all__" />
+      <scope doc="# Backwards compatibility." ilk="function" line="96" lineend="98" name="help" signature="help()" />
+      <scope ilk="function" line="585" lineend="615" name="main" returns="OptionParser()" signature="main()">
+        <variable citdl="compile()" line="606" name="code" />
+        <variable line="599" name="args" />
+        <variable citdl="OptionParser()" line="587" name="parser" />
+        <variable line="603" name="progname" />
+        <variable citdl="str" line="586" name="usage" />
+        <variable citdl="dict" line="607" name="globs" />
+        <variable line="599" name="options" />
+      </scope>
+      <import module="marshal" />
+      <import module="os" />
+      <scope doc="Run statement under profiler optionally saving results in&#10;filename" ilk="function" line="57" lineend="76" name="run" returns="prof.print_stats()" signature="run(statement, filename=None, sort=-1)">
+        <variable citdl="int" ilk="argument" name="sort" />
+        <variable citdl="Profile()" line="68" name="prof" />
+        <variable ilk="argument" name="statement" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Run statement under profiler, supplying your own globals and&#10;locals, optionally saving results in filename." ilk="function" line="78" lineend="93" name="runctx" returns="prof.print_stats()" signature="runctx(statement, globals, locals, filename=None, sort=-1)">
+        <variable citdl="int" ilk="argument" name="sort" />
+        <variable ilk="argument" name="filename" />
+        <variable ilk="argument" name="globals" />
+        <variable ilk="argument" name="statement" />
+        <variable citdl="Profile()" line="84" name="prof" />
+        <variable ilk="argument" name="locals" />
+      </scope>
+      <import module="sys" />
+      <import module="time" />
+      <variable attributes="__hidden__" line="112" name="resgetrusage" signature="resgetrusage()" />
+      <scope attributes="protected __hidden__" ilk="function" line="113" lineend="115" name="_get_time_resource" signature="_get_time_resource(timer=resgetrusage)">
+        <variable ilk="argument" name="timer" />
+        <variable citdl="timer()" line="114" name="t" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="109" name="_has_res" />
+      <scope attributes="protected __hidden__" ilk="function" line="101" lineend="103" name="_get_time_times" signature="_get_time_times(timer=os.times)">
+        <variable citdl="os.times" ilk="argument" name="timer" />
+        <variable citdl="timer()" line="102" name="t" />
+      </scope>
+    </scope>
+    

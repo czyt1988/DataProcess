@@ -1,0 +1,174 @@
+<scope doc="distutils.command.build_py&#10;Implements the Distutils 'build_py' command." ilk="blob" lang="Python" name="distutils.command.build_py">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Any problems in the filesystem: expected file not found, etc.&#10;Typically this is for problems that we detect before IOError or OSError could be raised." ilk="class" name="DistutilsFileError" />
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <variable citdl="str" line="5" name="__revision__" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="16" lineend="393" name="build_py">
+        <scope ilk="function" line="183" lineend="208" name="check_package" returns="os.path.join()" signature="check_package(package, package_dir)">
+          <variable ilk="argument" name="package_dir" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="199" name="init_py" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope ilk="function" line="353" lineend="372" name="build_packages" signature="build_packages()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="find_package_modules()" line="366" name="modules" />
+          <variable citdl="get_package_dir()" line="365" name="package_dir" />
+        </scope>
+        <scope ilk="function" line="210" lineend="215" name="check_module" returns="bool" signature="check_module(module, module_file)">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable ilk="argument" name="module_file" />
+          <variable ilk="argument" name="module" />
+        </scope>
+        <scope doc="Copy data files into build directory" ilk="function" line="134" lineend="141" name="build_package_data" signature="build_package_data()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="138" name="target" />
+        </scope>
+        <scope ilk="function" line="33" lineend="41" name="initialize_options" signature="initialize_options()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the directory, relative to the top of the source&#10;distribution, where package 'package' should be found (at&#10;least according to the 'package_dir' option, if any)." ilk="function" line="143" lineend="181" name="get_package_dir" returns="str" signature="get_package_dir(package)">
+          <variable citdl="package.split()" line="148" name="path" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="self.package_dir.get()" line="159" name="pdir" />
+          <variable citdl="list" line="156" name="tail" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope ilk="function" line="374" lineend="393" name="byte_compile" signature="byte_compile(files)">
+          <variable ilk="argument" name="files" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="os.sep" line="380" name="prefix" />
+        </scope>
+        <scope ilk="function" line="307" lineend="326" name="get_outputs" returns="list" signature="get_outputs(include_bytecode=1)">
+          <variable citdl="int" ilk="argument" name="include_bytecode" />
+          <variable citdl="package.split()" line="311" name="package" />
+          <variable citdl="list" line="309" name="outputs" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="find_all_modules()" line="308" name="modules" />
+          <variable citdl="get_module_outfile()" line="312" name="filename" />
+        </scope>
+        <scope doc="Compute the list of all modules that will be built, whether&#10;they are specified one-module-at-a-time ('self.py_modules')&#10;or by whole packages ('self.packages')." ilk="function" line="284" lineend="298" name="find_all_modules" returns="list" signature="find_all_modules()">
+          <variable citdl="find_package_modules()" line="296" name="m" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="list" line="290" name="modules" />
+          <variable citdl="get_package_dir()" line="295" name="package_dir" />
+        </scope>
+        <scope ilk="function" line="68" lineend="96" name="run" signature="run()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="303" lineend="305" name="get_module_outfile" returns="os.path.join()" signature="get_module_outfile(build_dir, package, module)">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="list" line="304" name="outfile_path" />
+          <variable ilk="argument" name="build_dir" />
+          <variable ilk="argument" name="module" />
+          <variable ilk="argument" name="package" />
+        </scope>
+        <scope ilk="function" line="43" lineend="66" name="finalize_options" signature="finalize_options()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="343" lineend="351" name="build_modules" signature="build_modules()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="find_modules()" line="344" name="modules" />
+        </scope>
+        <scope doc="Finds individually-specified Python modules, ie." ilk="function" line="232" lineend="282" name="find_modules" returns="list" signature="find_modules()">
+          <variable citdl="int" line="265" name="checked" />
+          <variable citdl="str.join()" line="258" name="package" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="check_package()" line="268" name="init_py" />
+          <variable citdl="list" line="250" name="modules" />
+          <variable line="259" name="module_base" />
+          <variable citdl="module.split()" line="257" name="path" />
+          <variable citdl="os.path.join()" line="276" name="module_file" />
+          <variable citdl="dict" line="247" name="packages" />
+          <variable citdl="get_package_dir()" line="264" name="package_dir" />
+        </scope>
+        <scope doc="Return filenames for package's data files in 'src_dir'" ilk="function" line="122" lineend="132" name="find_data_files" returns="list" signature="find_data_files(package, src_dir)">
+          <variable citdl="list" line="126" name="files" />
+          <variable ilk="argument" name="package" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="glob()" line="129" name="filelist" />
+          <variable ilk="argument" name="src_dir" />
+          <variable citdl="self.package_data.get()" line="124" name="globs" />
+        </scope>
+        <scope ilk="function" line="300" lineend="301" name="get_source_files" returns="list" signature="get_source_files()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Generate list of '(package,src_dir,build_dir,filenames)'&#10;tuples" ilk="function" line="98" lineend="120" name="get_data_files" returns="list" signature="get_data_files()">
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="108" name="build_dir" />
+          <variable citdl="list" line="116" name="filenames" />
+          <variable citdl="int" line="111" name="plen" />
+          <variable citdl="self.get_package_dir()" line="105" name="src_dir" />
+          <variable citdl="list" line="100" name="data" />
+        </scope>
+        <scope ilk="function" line="328" lineend="341" name="build_module" returns="self.copy_file()" signature="build_module(module, module_file, package)">
+          <variable citdl="package.split()" ilk="argument" name="package" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable ilk="argument" name="module" />
+          <variable citdl="get_module_outfile()" line="338" name="outfile" />
+          <variable ilk="argument" name="module_file" />
+          <variable citdl="os.path.dirname()" line="339" name="dir" />
+        </scope>
+        <scope ilk="function" line="217" lineend="230" name="find_package_modules" returns="list" signature="find_package_modules(package, package_dir)">
+          <variable ilk="argument" name="package" />
+          <variable citdl="glob()" line="219" name="module_files" />
+          <variable citdl="build_py" ilk="argument" name="self" />
+          <variable citdl="os.path.abspath()" line="221" name="setup_script" />
+          <variable citdl="list" line="220" name="modules" />
+          <variable citdl="os.path.abspath()" line="224" name="abs_f" />
+          <variable line="226" name="module" />
+          <variable ilk="argument" name="package_dir" />
+        </scope>
+        <variable citdl="list" line="20" name="user_options" />
+        <variable attributes="__instancevar__" citdl="self.distribution.packages" line="50" name="packages" />
+        <variable attributes="__instancevar__" line="41" name="force" />
+        <variable citdl="str" line="18" name="description" />
+        <variable attributes="__instancevar__" line="36" name="package" />
+        <variable attributes="__instancevar__" citdl="self.distribution.py_modules" line="35" name="py_modules" />
+        <variable attributes="__instancevar__" citdl="int" line="39" name="compile" />
+        <variable attributes="__instancevar__" citdl="self.distribution.package_data" line="37" name="package_data" />
+        <variable citdl="list" line="30" name="boolean_options" />
+        <variable attributes="__instancevar__" line="34" name="build_lib" />
+        <variable attributes="__instancevar__" citdl="self.get_data_files()" line="57" name="data_files" />
+        <variable citdl="dict" line="31" name="negative_opt" />
+        <variable attributes="__instancevar__" citdl="int" line="40" name="optimize" />
+        <variable attributes="__instancevar__" citdl="dict" line="38" name="package_dir" />
+      </scope>
+      <scope doc="Return 'pathname' as a name that will work on the native&#10;filesystem, i.e." ilk="function" name="convert_path" signature="convert_path(pathname)" />
+      <scope doc="Return a list of paths matching a pathname pattern." ilk="function" name="glob" signature="glob(pathname)" />
+      <import module="log" />
+      <import module="os" />
+      <import module="sys" />
+    </scope>
+    

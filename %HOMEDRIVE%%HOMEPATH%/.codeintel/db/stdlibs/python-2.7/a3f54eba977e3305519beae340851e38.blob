@@ -1,0 +1,191 @@
+<scope doc="distutils.command.config&#10;Implements the Distutils 'config' command, a (mostly) empty command class that exists mainly to be sub-classed by specific module distributions and applications.  The idea is that while every &quot;config&quot; command is different, at least they're all named the same, and users always see &quot;config&quot; in the list of standard commands.  Also, this is a good place to put common configure-like tasks: &quot;try to compile this C code&quot;, or &quot;figure out where this header file lives&quot;." ilk="blob" lang="Python" name="distutils.command.config">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Any problems executing an external program (such as the C&#10;compiler, when compiling C files)." ilk="class" name="DistutilsExecError" />
+      <variable citdl="dict" line="22" name="LANG_EXT" />
+      <variable citdl="str" line="12" name="__revision__" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="24" lineend="341" name="config">
+        <scope doc="Construct a source file (just like 'try_cpp()'), run it&#10;through the preprocessor, and return true if any line of the&#10;output matches 'pattern'." ilk="function" line="196" lineend="223" name="search_cpp" returns="int" signature="search_cpp(pattern, body=None, headers=None, include_dirs=None, lang='c')">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable line="206" name="src" />
+          <variable citdl="re.compile()" ilk="argument" name="pattern" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="open()" line="211" name="file" />
+          <variable citdl="file.readline()" line="214" name="line" />
+          <variable line="206" name="out" />
+          <variable citdl="int" line="212" name="match" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="132" lineend="139" name="_compile" returns="tuple" signature="_compile(body, headers, include_dirs, lang)">
+          <variable ilk="argument" name="body" />
+          <variable citdl="_gen_temp_sourcefile()" line="133" name="src" />
+          <variable line="136" name="obj" />
+          <variable ilk="argument" name="lang" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="85" lineend="86" name="run" signature="run()">
+          <variable citdl="config" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Try to compile and link a source file, built from 'body' and&#10;'headers', to executable form." ilk="function" line="241" lineend="258" name="try_link" returns="int" signature="try_link(body, headers=None, include_dirs=None, libraries=None, library_dirs=None, lang='c')">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable citdl="int" line="252" name="ok" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="54" lineend="67" name="initialize_options" signature="initialize_options()">
+          <variable citdl="config" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Check that 'self.compiler' really is a CCompiler object; if&#10;not, make it one." ilk="function" line="93" lineend="109" name="_check_compiler" signature="_check_compiler()">
+          <variable citdl="config" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Determine if function 'func' is available by constructing a&#10;source file that refers to 'func', and compiles and links&#10;it." ilk="function" line="285" lineend="315" name="check_func" returns="config.try_link()" signature="check_func(func, headers=None, include_dirs=None, libraries=None, library_dirs=None, decl=0, call=0)">
+          <variable citdl="int" ilk="argument" name="decl" />
+          <variable citdl="list" line="303" name="body" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="int" ilk="argument" name="call" />
+          <variable ilk="argument" name="func" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="141" lineend="154" name="_link" returns="tuple" signature="_link(body, headers, include_dirs, libraries, library_dirs, lang)">
+          <variable ilk="argument" name="body" />
+          <variable ilk="argument" name="lang" />
+          <variable line="143" name="obj" />
+          <variable line="143" name="src" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="self.compiler.exe_extension" line="144" name="prog" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Determine if 'library' is available to be linked against,&#10;without actually checking that any particular symbols are&#10;provided by it." ilk="function" line="319" lineend="332" name="check_lib" returns="config.try_link()" signature="check_lib(library, library_dirs=None, headers=None, include_dirs=None, other_libraries=[])">
+          <variable citdl="list" ilk="argument" name="other_libraries" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="library" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="156" lineend="165" name="_clean" signature="_clean(*filenames)">
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable attributes="varargs" citdl="list" ilk="argument" name="filenames" />
+        </scope>
+        <scope doc="Try to compile a source file built from 'body' and&#10;'headers'." ilk="function" line="225" lineend="239" name="try_compile" returns="int" signature="try_compile(body, headers=None, include_dirs=None, lang='c')">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable citdl="int" line="233" name="ok" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Try to compile, link to an executable, and run a program&#10;built from 'body' and 'headers'." ilk="function" line="260" lineend="278" name="try_run" returns="int" signature="try_run(body, headers=None, include_dirs=None, libraries=None, library_dirs=None, lang='c')">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable line="269" name="exe" />
+          <variable line="269" name="obj" />
+          <variable line="269" name="src" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="libraries" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="int" line="272" name="ok" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="69" lineend="83" name="finalize_options" signature="finalize_options()">
+          <variable citdl="config" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="112" lineend="123" name="_gen_temp_sourcefile" returns="str" signature="_gen_temp_sourcefile(body, headers, lang)">
+          <variable ilk="argument" name="body" />
+          <variable ilk="argument" name="lang" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable citdl="str" line="113" name="filename" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="open()" line="114" name="file" />
+        </scope>
+        <scope doc="Determine if the system header file named by 'header_file'&#10;exists and can be found by the preprocessor; return true if&#10;so, false otherwise." ilk="function" line="334" lineend="341" name="check_header" returns="config.try_cpp()" signature="check_header(header, include_dirs=None, library_dirs=None, lang='c')">
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable ilk="argument" name="header" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="library_dirs" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope ilk="function" line="125" lineend="130" name="_preprocess" returns="tuple" signature="_preprocess(body, headers, include_dirs, lang)">
+          <variable ilk="argument" name="body" />
+          <variable citdl="_gen_temp_sourcefile()" line="126" name="src" />
+          <variable ilk="argument" name="lang" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="str" line="127" name="out" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <scope doc="Construct a source file from 'body' (a string containing&#10;lines of C/C++ code) and 'headers' (a list of header files&#10;to include) and run it through the preprocessor." ilk="function" line="178" lineend="194" name="try_cpp" returns="int" signature="try_cpp(body=None, headers=None, include_dirs=None, lang='c')">
+          <variable ilk="argument" name="body" />
+          <variable citdl="str" ilk="argument" name="lang" />
+          <variable citdl="int" line="187" name="ok" />
+          <variable citdl="config" ilk="argument" name="self" />
+          <variable ilk="argument" name="headers" />
+          <variable ilk="argument" name="include_dirs" />
+        </scope>
+        <variable citdl="list" line="28" name="user_options" />
+        <variable citdl="str" line="26" name="description" />
+        <variable attributes="__instancevar__" line="56" name="cc" />
+        <variable attributes="__instancevar__" citdl="self.library_dirs.split()" line="59" name="library_dirs" />
+        <variable attributes="__instancevar__" citdl="list" line="58" name="libraries" />
+        <variable attributes="__instancevar__" citdl="int" line="63" name="dump_source" />
+        <variable attributes="__instancevar__" citdl="list" line="57" name="include_dirs" />
+        <variable attributes="__instancevar__" citdl="new_compiler()" line="55" name="compiler" />
+        <variable attributes="__instancevar__" citdl="list" line="67" name="temp_files" />
+        <variable attributes="__instancevar__" citdl="int" line="62" name="noisy" />
+      </scope>
+      <scope doc="Do any platform-specific customization of a CCompiler&#10;instance." ilk="function" name="customize_compiler" signature="customize_compiler(compiler)" />
+      <scope doc="Dumps a file content into log.info." ilk="function" line="344" lineend="357" name="dump_file" signature="dump_file(filename, head=None)">
+        <variable ilk="argument" name="head" />
+        <variable citdl="open()" line="353" name="file" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <import module="re" />
+    </scope>
+    

@@ -1,0 +1,143 @@
+<scope doc="A more or less complete user-defined wrapper around list objects.&#10;" ilk="blob" lang="Python" name="UserList">
+      <scope classrefs="MutableSequence" doc="&#10;" ilk="class" line="5" lineend="88" name="UserList">
+        <scope ilk="function" line="34" lineend="36" name="__getslice__" returns="self.__class__()" signature="__getslice__(i, j)">
+          <variable citdl="max()" ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="j" />
+        </scope>
+        <scope ilk="function" name="_UserList__cast" />
+        <scope ilk="function" line="55" lineend="61" name="__radd__" returns="self.__class__()" signature="__radd__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="62" lineend="69" name="__iadd__" returns="UserList" signature="__iadd__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="72" name="__rmul__" />
+        <scope ilk="function" line="17" lineend="17" name="__lt__" returns="bool" signature="__lt__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="6" lineend="15" name="__init__" signature="UserList(initlist=None)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="initlist" />
+        </scope>
+        <scope ilk="function" line="81" lineend="81" name="index" returns="self.data.index()" signature="index(item, *args)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+        </scope>
+        <scope ilk="function" line="45" lineend="47" name="__delslice__" signature="__delslice__(i, j)">
+          <variable citdl="max()" ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="j" />
+        </scope>
+        <scope ilk="function" line="31" lineend="31" name="__getitem__" signature="__getitem__(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="29" lineend="29" name="__contains__" returns="bool" signature="__contains__(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="26" lineend="27" name="__cmp__" returns="cmp()" signature="__cmp__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="76" lineend="76" name="append" signature="append(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="30" lineend="30" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="16" lineend="16" name="__repr__" returns="repr()" signature="__repr__()">
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="83" lineend="83" name="sort" signature="sort(*args, **kwds)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kwds" />
+        </scope>
+        <scope ilk="function" line="20" lineend="20" name="__ne__" returns="bool" signature="__ne__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="84" lineend="88" name="extend" signature="extend(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="33" lineend="33" name="__delitem__" signature="__delitem__(i)">
+          <variable ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="32" lineend="32" name="__setitem__" signature="__setitem__(i, item)">
+          <variable ilk="argument" name="i" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="78" lineend="78" name="pop" returns="self.data.pop()" signature="pop(i=-1)">
+          <variable citdl="int" ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="48" lineend="54" name="__add__" returns="self.__class__()" signature="__add__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="21" lineend="21" name="__gt__" returns="bool" signature="__gt__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="19" lineend="19" name="__eq__" returns="bool" signature="__eq__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="73" lineend="75" name="__imul__" returns="UserList" signature="__imul__(n)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="80" lineend="80" name="count" returns="self.data.count()" signature="count(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="77" lineend="77" name="insert" signature="insert(i, item)">
+          <variable ilk="argument" name="i" />
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="82" lineend="82" name="reverse" signature="reverse()">
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="37" lineend="44" name="__setslice__" signature="__setslice__(i, j, other)">
+          <variable citdl="max()" ilk="argument" name="i" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable citdl="max()" ilk="argument" name="j" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="79" lineend="79" name="remove" signature="remove(item)">
+          <variable ilk="argument" name="item" />
+          <variable citdl="UserList" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="18" lineend="18" name="__le__" returns="bool" signature="__le__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="70" lineend="71" name="__mul__" returns="self.__class__()" signature="__mul__(n)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="22" lineend="22" name="__ge__" returns="bool" signature="__ge__(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <variable line="28" name="__hash__" />
+        <scope attributes="private" ilk="function" line="23" lineend="25" name="__cast" returns="other.data" signature="__cast(other)">
+          <variable citdl="UserList" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list()" line="7" name="data" />
+      </scope>
+      <import module="collections" />
+    </scope>
+    

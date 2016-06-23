@@ -1,0 +1,600 @@
+<scope doc="IMAP4 client.&#10;Based on RFC 2060.  Public class:           IMAP4 Public variable:        Debug Public functions:       Internaldate2tuple Int2AP ParseFlags Time2Internaldate" ilk="blob" lang="Python" name="imaplib">
+      <variable citdl="tuple" line="36" name="AllowedVersions" />
+      <variable citdl="str" line="32" name="CRLF" />
+      <variable citdl="dict" line="40" name="Commands" />
+      <variable citdl="SRE_Pattern" line="84" name="Continuation" />
+      <variable citdl="int" line="33" name="Debug" />
+      <variable citdl="SRE_Pattern" line="85" name="Flags" />
+      <scope doc="IMAP4 client class.&#10;Instantiate with: IMAP4([host[, port]])  host - host's name (default: localhost); port - port number (default: standard IMAP4 port).  All IMAP4rev1 commands are supported by methods of the same name (in lower-case).  All arguments to commands are converted to strings, except for AUTHENTICATE, and the last argument to APPEND which is passed as" ilk="class" line="99" lineend="1121" name="IMAP4">
+        <scope doc="Rename old mailbox name to new." ilk="function" line="608" lineend="613" name="rename" returns="self._simple_command()" signature="rename(oldmailbox, newmailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="oldmailbox" />
+          <variable ilk="argument" name="newmailbox" />
+        </scope>
+        <scope doc="Set the quota root's resource limits." ilk="function" line="679" lineend="685" name="setquota" returns="self._untagged_response()" signature="setquota(root, limits)">
+          <variable line="684" name="dat" />
+          <variable line="684" name="typ" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="root" />
+          <variable ilk="argument" name="limits" />
+        </scope>
+        <scope doc="Get the quota root's resource usage and limits." ilk="function" line="464" lineend="472" name="getquota" returns="self._untagged_response()" signature="getquota(root)">
+          <variable line="471" name="dat" />
+          <variable line="471" name="typ" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="root" />
+        </scope>
+        <scope doc="Execute &quot;command arg ...&quot; with messages identified by UID,&#10;rather than message number." ilk="function" line="743" lineend="765" name="uid" returns="self._untagged_response()" signature="uid(command, *args)">
+          <variable citdl="str" line="759" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="760" name="dat" />
+          <variable citdl="command.upper()" ilk="argument" name="command" />
+          <variable line="760" name="typ" />
+        </scope>
+        <scope doc="Get the ACLs for a mailbox." ilk="function" line="447" lineend="453" name="getacl" returns="self._untagged_response()" signature="getacl(mailbox)">
+          <variable line="452" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="452" name="typ" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope ilk="function" line="985" lineend="1004" name="_get_tagged_response" signature="_get_tagged_response(tag)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable line="988" name="result" />
+        </scope>
+        <scope ilk="function" line="1073" lineend="1083" name="_untagged_response" returns="tuple" signature="_untagged_response(typ, dat, name)">
+          <variable ilk="argument" name="dat" />
+          <variable citdl="self.untagged_responses.pop()" line="1079" name="data" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="typ" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="1026" lineend="1035" name="_match" returns="bool" signature="_match(cre, s)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+          <variable ilk="argument" name="cre" />
+        </scope>
+        <scope ilk="function" line="1110" lineend="1121" name="print_log" signature="print_log()">
+          <variable citdl="int" line="1112" name="i" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="int" line="1112" name="n" />
+        </scope>
+        <scope doc="Allow simple extension commands notified by server in&#10;CAPABILITY response." ilk="function" line="776" lineend="791" name="xatom" returns="self._simple_command()" signature="xatom(name, *args)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="name.upper()" ilk="argument" name="name" />
+        </scope>
+        <scope doc="Subscribe to new mailbox." ilk="function" line="725" lineend="730" name="subscribe" returns="self._simple_command()" signature="subscribe(mailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope doc="Delete the ACLs (remove any rights) set for who on mailbox." ilk="function" line="411" lineend="416" name="deleteacl" returns="self._simple_command()" signature="deleteacl(mailbox, who)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="who" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope doc="Send data to remote." ilk="function" line="243" lineend="245" name="send" signature="send(data)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Close I/O established in &quot;open&quot;." ilk="function" line="248" lineend="258" name="shutdown" signature="shutdown()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1046" lineend="1057" name="_checkquote" returns="self._quote()" signature="_checkquote(arg)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope doc="Close currently selected mailbox." ilk="function" line="373" lineend="385" name="close" returns="tuple" signature="close()">
+          <variable line="382" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="382" name="typ" />
+        </scope>
+        <scope ilk="function" line="1088" lineend="1093" name="_mesg" signature="_mesg(s, secs=None)">
+          <variable ilk="argument" name="s" />
+          <variable citdl="time.strftime()" line="1091" name="tm" />
+          <variable citdl="time.time()" ilk="argument" name="secs" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Setup connection to remote server on &quot;host:port&quot; (default:&#10;localhost:standard IMAP4 port)." ilk="function" line="221" lineend="230" name="open" signature="open(host='', port=IMAP4_PORT)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope doc="Checkpoint mailbox on server." ilk="function" line="365" lineend="370" name="check" returns="self._simple_command()" signature="check()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Append message to named mailbox." ilk="function" line="304" lineend="324" name="append" returns="self._simple_command()" signature="append(mailbox, flags, date_time, message)">
+          <variable citdl="Time2Internaldate()" ilk="argument" name="date_time" />
+          <variable citdl="str" line="311" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="mailbox" />
+          <variable citdl="str" ilk="argument" name="flags" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope ilk="function" line="892" lineend="906" name="_command_complete" returns="tuple" signature="_command_complete(name, tag)">
+          <variable line="897" name="data" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="tag" />
+          <variable line="897" name="typ" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="798" lineend="809" name="_append_untagged" signature="_append_untagged(typ, dat)">
+          <variable citdl="str" ilk="argument" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="typ" />
+          <variable citdl="dict" line="801" name="ur" />
+        </scope>
+        <scope doc="Authenticate command - requires response processing." ilk="function" line="327" lineend="353" name="authenticate" returns="tuple" signature="authenticate(mechanism, authobject)">
+          <variable citdl="mechanism.upper()" line="343" name="mech" />
+          <variable ilk="argument" name="authobject" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mechanism" />
+          <variable line="349" name="dat" />
+          <variable line="349" name="typ" />
+        </scope>
+        <scope doc="Force use of CRAM-MD5 authentication." ilk="function" line="512" lineend="518" name="login_cram_md5" returns="IMAP4.authenticate()" signature="login_cram_md5(user, password)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="password" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope ilk="function" line="1038" lineend="1043" name="_new_tag" returns="tuple" signature="_new_tag()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="str" line="1040" name="tag" />
+        </scope>
+        <scope doc="Create new mailbox." ilk="function" line="396" lineend="401" name="create" returns="self._simple_command()" signature="create(mailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope ilk="function" line="1068" lineend="1070" name="_simple_command" returns="IMAP4._command_complete()" signature="_simple_command(name, *args)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope doc="Returns IMAP namespaces ala rfc2342" ilk="function" line="562" lineend="569" name="namespace" returns="self._untagged_response()" signature="namespace()">
+          <variable line="568" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="568" name="typ" />
+          <variable citdl="str" line="567" name="name" />
+        </scope>
+        <scope ilk="function" line="210" lineend="214" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+        <scope doc="Send NOOP command." ilk="function" line="572" lineend="580" name="noop" returns="self._simple_command()" signature="noop()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="151" lineend="207" name="__init__" signature="IMAP4(host='', port=IMAP4_PORT)">
+          <variable line="192" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="192" name="typ" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1007" lineend="1023" name="_get_line" returns="list" signature="_get_line()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="readline()" line="1009" name="line" />
+        </scope>
+        <scope doc="(typ, [data]) = &lt;instance&gt;.setannotation(mailbox[, entry,&#10;attribute]+) Set ANNOTATIONs." ilk="function" line="671" lineend="676" name="setannotation" returns="self._untagged_response()" signature="setannotation(*args)">
+          <variable line="675" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable line="675" name="typ" />
+        </scope>
+        <scope doc="Authobject to use with CRAM-MD5 authentication." ilk="function" line="521" lineend="524" name="_CRAM_MD5_AUTH" returns="str" signature="_CRAM_MD5_AUTH(challenge)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="challenge" />
+        </scope>
+        <scope doc="Select a mailbox." ilk="function" line="631" lineend="660" name="select" returns="tuple" signature="select(mailbox='INBOX', readonly=False)">
+          <variable citdl="str" line="646" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="mailbox" />
+          <variable line="649" name="dat" />
+          <variable citdl="False" ilk="argument" name="readonly" />
+          <variable line="649" name="typ" />
+        </scope>
+        <scope doc="Get the list of quota roots for the named mailbox." ilk="function" line="475" lineend="483" name="getquotaroot" returns="tuple" signature="getquotaroot(mailbox)">
+          <variable line="482" name="quotaroot" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="481" name="quota" />
+          <variable ilk="argument" name="mailbox" />
+          <variable line="480" name="dat" />
+          <variable line="480" name="typ" />
+        </scope>
+        <scope doc="Show my ACLs for a mailbox (i.e." ilk="function" line="554" lineend="560" name="myrights" returns="self._untagged_response()" signature="myrights(mailbox)">
+          <variable line="559" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="559" name="typ" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope doc="Read 'size' bytes from remote." ilk="function" line="233" lineend="235" name="read" returns="self.file.read()" signature="read(size)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="812" lineend="815" name="_check_bye" signature="_check_bye()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="self.untagged_responses.get()" line="813" name="bye" />
+        </scope>
+        <scope doc="IMAP4rev1 extension SORT command." ilk="function" line="688" lineend="699" name="sort" returns="self._untagged_response()" signature="sort(sort_criteria, charset, *search_criteria)">
+          <variable citdl="str" line="693" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable citdl="str" ilk="argument" name="sort_criteria" />
+          <variable attributes="varargs" ilk="argument" name="search_criteria" />
+          <variable line="698" name="dat" />
+          <variable line="698" name="typ" />
+        </scope>
+        <scope ilk="function" line="909" lineend="982" name="_get_response" returns="self._get_line()" signature="_get_response()">
+          <variable citdl="read()" line="961" name="data" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="self.mo.group()" line="929" name="dat2" />
+          <variable citdl="self.mo.group()" line="926" name="dat" />
+          <variable citdl="self.mo.group()" line="921" name="tag" />
+          <variable citdl="self.mo.group()" line="925" name="typ" />
+          <variable citdl="self._get_line()" line="916" name="resp" />
+          <variable citdl="int()" line="957" name="size" />
+        </scope>
+        <scope doc="Assume authentication as &quot;user&quot;." ilk="function" line="595" lineend="605" name="proxyauth" returns="self._simple_command()" signature="proxyauth(user)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="user" />
+          <variable citdl="str" line="604" name="name" />
+        </scope>
+        <scope doc="Shutdown connection to server." ilk="function" line="527" lineend="540" name="logout" returns="tuple" signature="logout()">
+          <variable citdl="list" line="535" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="str" line="535" name="typ" />
+        </scope>
+        <scope doc="Fetch truncated part of a message." ilk="function" line="583" lineend="592" name="partial" returns="self._untagged_response()" signature="partial(message_num, message_part, start, length)">
+          <variable ilk="argument" name="message_num" />
+          <variable citdl="str" line="590" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="591" name="dat" />
+          <variable ilk="argument" name="start" />
+          <variable ilk="argument" name="length" />
+          <variable ilk="argument" name="message_part" />
+          <variable line="591" name="typ" />
+        </scope>
+        <scope doc="List 'subscribed' mailbox names in directory matching&#10;pattern." ilk="function" line="543" lineend="552" name="lsub" returns="self._untagged_response()" signature="lsub(directory='&quot;&quot;', pattern='*')">
+          <variable citdl="str" line="550" name="name" />
+          <variable citdl="str" ilk="argument" name="pattern" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="551" name="dat" />
+          <variable citdl="str" ilk="argument" name="directory" />
+          <variable line="551" name="typ" />
+        </scope>
+        <scope ilk="function" line="1103" lineend="1108" name="_log" signature="_log(line)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope doc="Read line from remote." ilk="function" line="238" lineend="240" name="readline" returns="self.file.readline()" signature="readline()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Copy 'message_set' messages onto end of 'new_mailbox'." ilk="function" line="388" lineend="393" name="copy" returns="self._simple_command()" signature="copy(message_set, new_mailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="message_set" />
+          <variable ilk="argument" name="new_mailbox" />
+        </scope>
+        <scope doc="Return data for response 'code' if received, or None." ilk="function" line="290" lineend="297" name="response" returns="self._untagged_response()" signature="response(code)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <scope doc="Return most recent 'RECENT' responses if any exist, else&#10;prompt server for an update using the 'NOOP' command." ilk="function" line="273" lineend="287" name="recent" returns="tuple" signature="recent()">
+          <variable line="283" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="283" name="typ" />
+          <variable citdl="str" line="282" name="name" />
+        </scope>
+        <scope doc="Search mailbox for matching messages." ilk="function" line="616" lineend="628" name="search" returns="self._untagged_response()" signature="search(charset, *criteria)">
+          <variable citdl="str" line="623" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable line="625" name="dat" />
+          <variable attributes="varargs" ilk="argument" name="criteria" />
+          <variable line="625" name="typ" />
+        </scope>
+        <scope ilk="function" line="1060" lineend="1065" name="_quote" returns="str" signature="_quote(arg)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable citdl="arg.replace()" ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="1095" lineend="1101" name="_dump_ur" signature="_dump_ur(dict)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="dict" />
+          <variable citdl="dict.items()" line="1097" name="l" />
+          <variable citdl="str" line="1099" name="t" />
+        </scope>
+        <scope doc="Return socket instance used to connect to IMAP4 server." ilk="function" line="261" lineend="266" name="socket" returns="socket.create_connection()" signature="socket()">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+        </scope>
+        <scope doc="IMAPrev1 extension THREAD command." ilk="function" line="733" lineend="740" name="thread" returns="self._untagged_response()" signature="thread(threading_algorithm, charset, *search_criteria)">
+          <variable citdl="str" line="738" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="charset" />
+          <variable attributes="varargs" ilk="argument" name="search_criteria" />
+          <variable line="739" name="dat" />
+          <variable line="739" name="typ" />
+          <variable ilk="argument" name="threading_algorithm" />
+        </scope>
+        <scope doc="Permanently remove deleted items from selected mailbox." ilk="function" line="418" lineend="429" name="expunge" returns="self._untagged_response()" signature="expunge()">
+          <variable line="428" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="428" name="typ" />
+          <variable citdl="str" line="427" name="name" />
+        </scope>
+        <scope doc="Set a mailbox acl." ilk="function" line="663" lineend="668" name="setacl" returns="self._simple_command()" signature="setacl(mailbox, who, what)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="who" />
+          <variable ilk="argument" name="what" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope doc="List mailbox names in directory matching pattern." ilk="function" line="486" lineend="495" name="list" returns="self._untagged_response()" signature="list(directory='&quot;&quot;', pattern='*')">
+          <variable citdl="str" line="493" name="name" />
+          <variable citdl="str" ilk="argument" name="pattern" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="494" name="dat" />
+          <variable citdl="str" ilk="argument" name="directory" />
+          <variable line="494" name="typ" />
+        </scope>
+        <scope doc="(typ, [data]) = &lt;instance&gt;.capability() Fetch capabilities&#10;list from server." ilk="function" line="356" lineend="362" name="capability" returns="self._untagged_response()" signature="capability()">
+          <variable line="361" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="361" name="typ" />
+          <variable citdl="str" line="360" name="name" />
+        </scope>
+        <scope ilk="function" line="818" lineend="889" name="_command" returns="self._new_tag()" signature="_command(name, *args)">
+          <variable citdl="MapCRLF.sub()" line="845" name="literator" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable citdl="literator()" line="841" name="literal" />
+          <variable citdl="self._new_tag()" line="835" name="tag" />
+          <variable citdl="str" line="836" name="data" />
+        </scope>
+        <scope doc="Request named status conditions for mailbox." ilk="function" line="702" lineend="711" name="status" returns="self._untagged_response()" signature="status(mailbox, names)">
+          <variable citdl="str" line="707" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+          <variable line="710" name="dat" />
+          <variable ilk="argument" name="names" />
+          <variable line="710" name="typ" />
+        </scope>
+        <scope doc="Alters flag dispositions for messages in mailbox." ilk="function" line="714" lineend="722" name="store" returns="self._untagged_response()" signature="store(message_set, command, flags)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="721" name="dat" />
+          <variable ilk="argument" name="message_set" />
+          <variable citdl="str" ilk="argument" name="flags" />
+          <variable ilk="argument" name="command" />
+          <variable line="721" name="typ" />
+        </scope>
+        <scope doc="Unsubscribe from old mailbox." ilk="function" line="768" lineend="773" name="unsubscribe" returns="self._simple_command()" signature="unsubscribe(mailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <scope doc="Identify client using plaintext password." ilk="function" line="498" lineend="509" name="login" returns="tuple" signature="login(user, password)">
+          <variable line="505" name="dat" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="password" />
+          <variable line="505" name="typ" />
+          <variable ilk="argument" name="user" />
+        </scope>
+        <scope doc="(typ, [data, ...]) = &lt;instance&gt;.fetch(message_set,&#10;message_parts)" ilk="function" line="432" lineend="444" name="fetch" returns="self._untagged_response()" signature="Fetch (parts of) messages.">
+          <variable ilk="argument" name="message_parts" />
+          <variable citdl="str" line="442" name="name" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable line="443" name="dat" />
+          <variable ilk="argument" name="message_set" />
+          <variable line="443" name="typ" />
+        </scope>
+        <scope doc="(typ, [data]) = &lt;instance&gt;.getannotation(mailbox, entry,&#10;attribute) Retrieve ANNOTATIONs." ilk="function" line="456" lineend="461" name="getannotation" returns="self._untagged_response()" signature="getannotation(mailbox, entry, attribute)">
+          <variable ilk="argument" name="attribute" />
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+          <variable line="460" name="dat" />
+          <variable ilk="argument" name="entry" />
+          <variable line="460" name="typ" />
+        </scope>
+        <scope doc="Delete old mailbox." ilk="function" line="404" lineend="409" name="delete" returns="self._simple_command()" signature="delete(mailbox)">
+          <variable citdl="IMAP4" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailbox" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="dict" line="156" name="untagged_responses" />
+        <variable attributes="protected __instancevar__" citdl="int" line="177" name="_cmd_log_len" />
+        <scope classrefs="IMAP4.error" ilk="class" line="146" lineend="146" name="abort" />
+        <variable attributes="__instancevar__" citdl="self.sock.makefile()" line="230" name="file" />
+        <variable attributes="__instancevar__" citdl="version" line="204" name="PROTOCOL_VERSION" />
+        <variable attributes="__instancevar__" citdl="int" line="228" name="port" />
+        <scope classrefs="IMAP4.abort" ilk="class" line="147" lineend="147" name="readonly" />
+        <variable citdl="re.compile()" line="149" name="mustquote" />
+        <variable attributes="__instancevar__" citdl="re.compile()" line="169" name="tagre" />
+        <variable attributes="__instancevar__" citdl="dict" line="155" name="tagged_commands" />
+        <variable attributes="__instancevar__" citdl="socket.create_connection()" line="229" name="sock" />
+        <variable attributes="__instancevar__" citdl="str" line="153" name="state" />
+        <variable attributes="__instancevar__" citdl="tuple()" line="195" name="capabilities" />
+        <variable attributes="__instancevar__" citdl="MapCRLF.sub()" line="154" name="literal" />
+        <variable attributes="protected __instancevar__" citdl="int" line="178" name="_cmd_log_idx" />
+        <variable attributes="__instancevar__" citdl="self._get_response()" line="184" name="welcome" />
+        <variable attributes="__instancevar__" citdl="str" line="227" name="host" />
+        <variable attributes="__instancevar__" line="517" name="user" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="179" name="_cmd_log" />
+        <variable attributes="__instancevar__" line="517" name="password" />
+        <variable attributes="__instancevar__" citdl="False" line="158" name="is_readonly" />
+        <variable attributes="__instancevar__" citdl="int" line="159" name="tagnum" />
+        <variable attributes="__instancevar__" citdl="cre.match()" line="1031" name="mo" />
+        <variable attributes="__instancevar__" citdl="self.mo.group()" line="157" name="continuation_response" />
+        <variable attributes="__instancevar__" citdl="Int2AP()" line="168" name="tagpre" />
+        <scope classrefs="Exception" ilk="class" line="145" lineend="145" name="error" />
+        <variable attributes="__instancevar__" citdl="int" line="152" name="debug" />
+      </scope>
+      <variable citdl="int" line="34" name="IMAP4_PORT" />
+      <scope classrefs="IMAP4" doc="IMAP4 client class over SSL connection&#10;Instantiate with: IMAP4_SSL([host[, port[, keyfile[, certfile]]]])  host - host's name (default: localhost); port - port number (default: standard IMAP4 SSL port). keyfile - PEM formatted file that contains your private key (default: None); certfile - PEM formatted certificate chain file (default: None);  for more documentation see the docstring of the parent class IMAP4." ilk="class" line="1130" lineend="1204" name="IMAP4_SSL">
+        <scope doc="Return socket instance used to connect to IMAP4 server." ilk="function" line="1191" lineend="1196" name="socket" returns="socket.create_connection()" signature="socket()">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read 'size' bytes from remote." ilk="function" line="1164" lineend="1166" name="read" returns="self.file.read()" signature="read(size)">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Send data to remote." ilk="function" line="1174" lineend="1182" name="send" signature="send(data)">
+          <variable citdl="len()" line="1176" name="bytes" />
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="data" />
+          <variable citdl="self.sslobj.write()" line="1178" name="sent" />
+        </scope>
+        <scope doc="Return SSLObject instance used to communicate with the IMAP4&#10;server." ilk="function" line="1199" lineend="1204" name="ssl" returns="ssl.wrap_socket()" signature="ssl()">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close I/O established in &quot;open&quot;." ilk="function" line="1185" lineend="1188" name="shutdown" signature="shutdown()">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read line from remote." ilk="function" line="1169" lineend="1171" name="readline" returns="self.file.readline()" signature="readline()">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Setup connection to remote server on &quot;host:port&quot;." ilk="function" line="1151" lineend="1161" name="open" signature="open(host='', port=IMAP4_SSL_PORT)">
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1145" lineend="1148" name="__init__" signature="IMAP4_SSL(host='', port=IMAP4_SSL_PORT, keyfile=None, certfile=None)">
+          <variable ilk="argument" name="certfile" />
+          <variable citdl="IMAP4_SSL" ilk="argument" name="self" />
+          <variable ilk="argument" name="keyfile" />
+          <variable citdl="str" ilk="argument" name="host" />
+          <variable citdl="int" ilk="argument" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" line="1147" name="certfile" />
+        <variable attributes="__instancevar__" citdl="socket.create_connection()" line="1159" name="sock" />
+        <variable attributes="__instancevar__" citdl="str" line="1157" name="host" />
+        <variable attributes="__instancevar__" citdl="self.sslobj.makefile()" line="1161" name="file" />
+        <variable attributes="__instancevar__" citdl="ssl.wrap_socket()" line="1160" name="sslobj" />
+        <variable attributes="__instancevar__" line="1146" name="keyfile" />
+        <variable attributes="__instancevar__" citdl="int" line="1158" name="port" />
+      </scope>
+      <variable citdl="int" line="35" name="IMAP4_SSL_PORT" />
+      <scope classrefs="IMAP4" doc="IMAP4 client class over a stream&#10;Instantiate with: IMAP4_stream(command)  where &quot;command&quot; is a string that can be passed to subprocess.Popen()  for more documentation see the docstring of the parent class IMAP4." ilk="class" line="1209" lineend="1262" name="IMAP4_stream">
+        <scope doc="Read 'size' bytes from remote." ilk="function" line="1242" lineend="1244" name="read" returns="self.readfile.read()" signature="read(size)">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Send data to remote." ilk="function" line="1252" lineend="1255" name="send" signature="send(data)">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Close I/O established in &quot;open&quot;." ilk="function" line="1258" lineend="1262" name="shutdown" signature="shutdown()">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read line from remote." ilk="function" line="1247" lineend="1249" name="readline" returns="self.readfile.readline()" signature="readline()">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Setup a stream connection." ilk="function" line="1226" lineend="1239" name="open" signature="open(host=None, port=None)">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope ilk="function" line="1221" lineend="1223" name="__init__" signature="IMAP4_stream(command)">
+          <variable citdl="IMAP4_stream" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="subprocess.Popen()" line="1235" name="process" />
+        <variable attributes="__instancevar__" line="1233" name="sock" />
+        <variable attributes="__instancevar__" citdl="self.process.stdin" line="1238" name="writefile" />
+        <variable attributes="__instancevar__" citdl="self.process.stdout" line="1239" name="readfile" />
+        <variable attributes="__instancevar__" line="1231" name="host" />
+        <variable attributes="__instancevar__" line="1222" name="command" />
+        <variable attributes="__instancevar__" line="1234" name="file" />
+        <variable attributes="__instancevar__" line="1232" name="port" />
+      </scope>
+      <scope doc="Convert integer to A-P string representation." ilk="function" line="1358" lineend="1367" name="Int2AP" returns="str" signature="Int2AP(num)">
+        <variable citdl="str" line="1362" name="AP" />
+        <variable citdl="int()" ilk="argument" name="num" />
+        <variable citdl="str" line="1362" name="val" />
+        <variable line="1365" name="mod" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="86" name="InternalDate" />
+      <scope doc="Parse an IMAP4 INTERNALDATE string." ilk="function" line="1313" lineend="1354" name="Internaldate2tuple" returns="time.localtime()" signature="Internaldate2tuple(resp)">
+        <variable citdl="time.mktime()" line="1343" name="utc" />
+        <variable citdl="int()" line="1337" name="zone" />
+        <variable citdl="int()" line="1329" name="hour" />
+        <variable citdl="int()" line="1330" name="min" />
+        <variable citdl="InternalDate.match()" line="1320" name="mo" />
+        <variable citdl="int()" line="1332" name="zoneh" />
+        <variable citdl="mo.group()" line="1325" name="zonen" />
+        <variable citdl="int()" line="1333" name="zonem" />
+        <variable citdl="int()" line="1327" name="day" />
+        <variable citdl="time.localtime()" line="1348" name="lt" />
+        <variable citdl="tuple" line="1341" name="tt" />
+        <variable citdl="int()" line="1331" name="sec" />
+        <variable line="1324" name="mon" />
+        <variable citdl="int()" line="1328" name="year" />
+        <variable ilk="argument" name="resp" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="91" name="Literal" />
+      <variable citdl="SRE_Pattern" line="92" name="MapCRLF" />
+      <variable citdl="dict" line="1310" name="Mon2num" />
+      <scope doc="Convert IMAP4 flags response to python tuple." ilk="function" line="1371" lineend="1379" name="ParseFlags" returns="tuple" signature="ParseFlags(resp)">
+        <variable ilk="argument" name="resp" />
+        <variable citdl="Flags.match()" line="1375" name="mo" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="93" name="Response_code" />
+      <scope doc="Convert date_time to IMAP4 INTERNALDATE representation." ilk="function" line="1382" lineend="1410" name="Time2Internaldate" returns="time.strftime()" signature="Time2Internaldate(date_time)">
+        <variable ilk="argument" name="date_time" />
+        <variable citdl="time.localtime()" line="1395" name="tt" />
+        <variable citdl="time.strftime()" line="1403" name="dt" />
+        <variable citdl="time.altzone" line="1407" name="zone" />
+      </scope>
+      <variable citdl="SRE_Pattern" line="94" name="Untagged_response" />
+      <variable citdl="SRE_Pattern" line="95" name="Untagged_status" />
+      <variable citdl="list" line="27" name="__all__" />
+      <variable citdl="str" line="23" name="__version__" />
+      <import module="binascii" />
+      <import module="errno" />
+      <import module="random" />
+      <import module="re" />
+      <import module="socket" />
+      <import module="ssl" />
+      <import module="subprocess" />
+      <import module="sys" />
+      <import module="time" />
+      <variable attributes="__hidden__" citdl="list" line="1443" name="test_seq1" />
+      <variable attributes="__hidden__" citdl="val" line="1427" name="stream_command" />
+      <variable attributes="__hidden__" citdl="tuple" line="1460" name="test_seq2" />
+      <scope attributes="__hidden__" ilk="function" line="1470" lineend="1475" name="run" signature="run(cmd, args)">
+        <variable ilk="argument" name="cmd" />
+        <variable ilk="argument" name="args" />
+        <variable line="1472" name="dat" />
+        <variable line="1472" name="typ" />
+      </scope>
+      <variable attributes="__hidden__" line="1502" name="uid" />
+      <variable attributes="__hidden__" citdl="tuple" line="1423" name="optlist" />
+      <variable attributes="__hidden__" citdl="getpass.getpass()" line="1440" name="PASSWD" />
+      <variable attributes="__hidden__" citdl="re.match()" line="1491" name="mo" />
+      <variable attributes="__hidden__" citdl="tuple" line="1423" name="args" />
+      <variable attributes="__hidden__" citdl="IMAP4" line="1479" name="M" />
+      <variable attributes="__hidden__" citdl="run()" line="1497" name="dat" />
+      <variable attributes="__hidden__" line="1437" name="host" />
+      <variable attributes="__hidden__" citdl="dict" line="1442" name="test_mesg" />
+      <variable attributes="__hidden__" citdl="mo.group()" line="1492" name="path" />
+      <scope attributes="protected __hidden__" doc="Private class to provide en/decoding for base64-based&#10;authentication conversation." ilk="class" line="1266" lineend="1306" name="_Authenticator">
+        <scope attributes="__ctor__" ilk="function" line="1272" lineend="1273" name="__init__" signature="_Authenticator(mechinst)">
+          <variable citdl="_Authenticator" ilk="argument" name="self" />
+          <variable ilk="argument" name="mechinst" />
+        </scope>
+        <variable attributes="__instancevar__" line="1273" name="mech" />
+        <scope ilk="function" line="1275" lineend="1279" name="process" returns="str" signature="process(data)">
+          <variable citdl="_Authenticator" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="mech()" line="1276" name="ret" />
+        </scope>
+        <scope ilk="function" line="1281" lineend="1301" name="encode" returns="str" signature="encode(inp)">
+          <variable citdl="_Authenticator" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="inp" />
+          <variable citdl="str" line="1290" name="oup" />
+          <variable citdl="list" line="1293" name="t" />
+          <variable citdl="binascii.b2a_base64()" line="1298" name="e" />
+        </scope>
+        <scope ilk="function" line="1303" lineend="1306" name="decode" returns="binascii.a2b_base64()" signature="decode(inp)">
+          <variable citdl="_Authenticator" ilk="argument" name="self" />
+          <variable ilk="argument" name="inp" />
+        </scope>
+      </scope>
+      <variable attributes="__hidden__" citdl="getpass.getuser()" line="1439" name="USER" />
+    </scope>
+    

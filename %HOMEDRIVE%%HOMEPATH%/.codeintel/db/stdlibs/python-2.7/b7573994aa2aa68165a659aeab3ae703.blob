@@ -1,0 +1,14 @@
+<scope doc="Base class for MIME type messages that are not multipart.&#10;" ilk="blob" lang="Python" name="email.mime.nonmultipart">
+      <scope classrefs="Message" doc="Base class for MIME specializations.&#10;" ilk="class" name="MIMEBase">
+        <scope doc="This constructor adds a Content-Type: and a MIME-Version:&#10;header." ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" line="14" lineend="22" name="MIMENonMultipart">
+        <scope ilk="function" line="17" lineend="22" name="attach" signature="attach(payload)">
+          <variable citdl="MIMENonMultipart" ilk="argument" name="self" />
+          <variable ilk="argument" name="payload" />
+        </scope>
+      </scope>
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="errors" />
+    </scope>
+    

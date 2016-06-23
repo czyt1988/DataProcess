@@ -1,0 +1,256 @@
+<scope doc="Base classes for server/gateway implementations&#10;" ilk="blob" lang="Python" name="wsgiref.handlers">
+      <scope classrefs="SimpleHandler" doc="CGI-like systems using input/output/error streams and environ mapping&#10;Usage::  handler = BaseCGIHandler(inp,out,err,env) handler.run(app)  This handler class is useful for gateway protocols like ReadyExec and FastCGI, that have usable input/output/error streams and an environment mapping.  It's also the base class for CGIHandler, which just uses sys.stdin, os.environ, and so on. " ilk="class" line="397" lineend="418" name="BaseCGIHandler">
+        <variable citdl="False" line="418" name="origin_server" />
+      </scope>
+      <scope doc="Manage the invocation of a WSGI application&#10;" ilk="class" line="42" lineend="353" name="BaseHandler">
+        <scope doc="'start_response()' callable as specified by PEP 333" ilk="function" line="158" lineend="182" name="start_response" returns="self.write" signature="start_response(status, headers, exc_info=None)">
+          <variable ilk="argument" name="status" />
+          <variable ilk="argument" name="headers" />
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="exc_info" />
+        </scope>
+        <scope doc="Override in subclass to return suitable 'wsgi.input'" ilk="function" line="343" lineend="345" name="get_stdin" signature="get_stdin()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Platform-specific file transmission" ilk="function" line="219" lineend="237" name="sendfile" returns="bool" signature="sendfile()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Compute Content-Length or switch to chunked encoding if&#10;possible" ilk="function" line="137" name="set_content_length" signature="set_content_length()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable citdl="len()" line="140" name="blocks" />
+        </scope>
+        <scope doc="Transmit version/status/date/server, via self._write()" ilk="function" line="185" lineend="197" name="send_preamble" signature="send_preamble()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close the iterable (if needed) and reset all instance vars" ilk="function" line="250" lineend="260" name="close" signature="close()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Log current error, and send error output to client if&#10;possible" ilk="function" line="299" lineend="304" name="handle_error" signature="handle_error()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Send any iterable data, then close self and the iterable" ilk="function" line="117" lineend="129" name="finish_response" signature="finish_response()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="'write()' callable as specified by PEP 333" ilk="function" line="199" lineend="216" name="write" signature="write(data)">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Set up the environment for one request" ilk="function" line="96" lineend="114" name="setup_environ" signature="setup_environ()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable citdl="self.os_environ.copy()" line="99" name="env" />
+        </scope>
+        <scope doc="Invoke the application" ilk="function" line="76" lineend="93" name="run" signature="run(application)">
+          <variable ilk="argument" name="application" />
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Log the 'exc_info' tuple in the server log" ilk="function" line="283" lineend="297" name="log_exception" signature="log_exception(exc_info)">
+          <variable ilk="argument" name="exc_info" />
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable citdl="self.get_stderr()" line="290" name="stderr" />
+        </scope>
+        <scope doc="True if client can accept status and headers" ilk="function" line="278" lineend="280" name="client_is_modern" returns="bool" signature="client_is_modern()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Override in subclass to force sending of recent '_write()'&#10;calls" ilk="function" line="335" lineend="341" name="_flush" signature="_flush()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="True if 'self.result' is an instance of&#10;'self.wsgi_file_wrapper'" ilk="function" line="272" lineend="275" name="result_is_file" returns="bool" signature="result_is_file()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable citdl="FileWrapper" line="274" name="wrapper" />
+        </scope>
+        <scope doc="Override in subclass to buffer data for send to client" ilk="function" line="326" lineend="333" name="_write" signature="_write(data)">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="WSGI mini-app to create error output" ilk="function" line="307" lineend="321" name="error_output" returns="list" signature="error_output(environ, start_response)">
+          <variable ilk="argument" name="start_response" />
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="environ" />
+        </scope>
+        <scope doc="Return the URL scheme being used" ilk="function" line="132" lineend="134" name="get_scheme" returns="guess_scheme()" signature="get_scheme()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Override in subclass to return suitable 'wsgi.errors'" ilk="function" line="347" lineend="349" name="get_stderr" signature="get_stderr()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Transmit headers to the client, via self._write()" ilk="function" line="263" lineend="269" name="send_headers" signature="send_headers()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Make any necessary header changes or defaults" ilk="function" line="150" lineend="156" name="cleanup_headers" signature="cleanup_headers()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Ensure headers and content have both been sent" ilk="function" line="240" lineend="248" name="finish_content" signature="finish_content()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Override in subclass to insert CGI variables in&#10;'self.environ'" ilk="function" line="351" lineend="353" name="add_cgi_vars" signature="add_cgi_vars()">
+          <variable citdl="BaseHandler" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="True" line="47" name="wsgi_multithread" />
+        <variable line="71" name="status" />
+        <variable citdl="FileWrapper" line="61" name="wsgi_file_wrapper" />
+        <variable citdl="False" line="72" name="headers_sent" />
+        <variable citdl="int" line="74" name="bytes_sent" />
+        <variable citdl="str" line="52" name="http_version" />
+        <variable citdl="str" line="68" name="error_body" />
+        <variable line="53" name="server_software" />
+        <variable citdl="True" line="48" name="wsgi_multiprocess" />
+        <variable citdl="tuple" line="46" name="wsgi_version" />
+        <variable citdl="headers_class()" line="73" name="headers" />
+        <variable citdl="str" line="66" name="error_status" />
+        <variable citdl="list" line="67" name="error_headers" />
+        <variable attributes="__instancevar__" citdl="self.error_output()" line="85" name="result" />
+        <variable citdl="dict()" line="58" name="os_environ" />
+        <variable citdl="True" line="51" name="origin_server" />
+        <variable citdl="False" line="49" name="wsgi_run_once" />
+        <variable line="65" name="traceback_limit" />
+        <variable citdl="Headers" line="62" name="headers_class" />
+      </scope>
+      <scope classrefs="BaseCGIHandler" doc="CGI-based invocation via sys.stdin/stdout/stderr and os.environ&#10;Usage::  CGIHandler().run(app)  The difference between this class and BaseCGIHandler is that it always uses 'wsgi.run_once' of 'True', 'wsgi.multithread' of 'False', and 'wsgi.multiprocess' of 'True'.  It does not take any initialization parameters, but always uses 'sys.stdin', 'os.environ', and friends.  If you need to override any of these parameters, use BaseCGIHandler" ilk="class" line="421" lineend="447" name="CGIHandler">
+        <scope ilk="function" line="444" lineend="447" name="__init__" signature="CGIHandler()">
+          <variable citdl="CGIHandler" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="True" line="438" name="wsgi_run_once" />
+        <variable citdl="dict" line="442" name="os_environ" />
+      </scope>
+      <scope doc="Wrapper to convert file-like objects to iterables&#10;" ilk="class" name="FileWrapper">
+        <scope ilk="function" name="__getitem__" />
+        <scope ilk="function" name="next" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Manage a collection of HTTP response headers&#10;" ilk="class" name="Headers">
+        <scope doc="Delete all occurrences of a header, if present." ilk="function" name="__delitem__" />
+        <scope doc="Return first matching header value for 'name', or 'value'" ilk="function" name="setdefault" />
+        <scope doc="Get the first header value for 'name'" ilk="function" name="__getitem__" />
+        <scope doc="Return true if the message contains the header." ilk="function" name="__contains__" />
+        <scope doc="Return a list of all the header field names." ilk="function" name="keys" />
+        <scope doc="Get all the header fields and values." ilk="function" name="items" />
+        <scope doc="suitable for direct HTTP transmission." ilk="function" name="__str__" signature="str() returns the formatted headers, complete with end line," />
+        <scope doc="Return a list of all the values for the named field." ilk="function" name="get_all" />
+        <scope doc="Extended header setting." ilk="function" name="add_header" />
+        <scope doc="Set the value of a header." ilk="function" name="__setitem__" />
+        <scope doc="Return true if the message contains the header." ilk="function" name="has_key" />
+        <scope doc="Return a list of all header values." ilk="function" name="values" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="Get the first header value for 'name', or return 'default'" ilk="function" name="get" />
+        <scope doc="Return the total number of headers, including duplicates." ilk="function" name="__len__" />
+        <scope ilk="function" name="__repr__" />
+      </scope>
+      <scope classrefs="BaseHandler" doc="Handler that's just initialized with streams, environment, etc.&#10;This handler subclass is intended for synchronous HTTP/1.0 origin servers, and handles sending the entire response output, given the correct inputs.  Usage::  handler = SimpleHandler( inp,out,err,env, multithread=False, multiprocess=True ) handler.run(app)" ilk="class" line="356" lineend="394" name="SimpleHandler">
+        <scope ilk="function" line="382" lineend="383" name="get_stderr" signature="get_stderr()">
+          <variable citdl="SimpleHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="392" name="_flush" />
+        <scope ilk="function" line="379" lineend="380" name="get_stdin" signature="get_stdin()">
+          <variable citdl="SimpleHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="388" name="_write" />
+        <scope ilk="function" line="385" lineend="386" name="add_cgi_vars" signature="add_cgi_vars()">
+          <variable citdl="SimpleHandler" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="369" lineend="377" name="__init__" signature="SimpleHandler(stdin, stdout, stderr, environ, multithread=True, multiprocess=False)">
+          <variable citdl="False" ilk="argument" name="multiprocess" />
+          <variable ilk="argument" name="stdout" />
+          <variable citdl="SimpleHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="stdin" />
+          <variable citdl="True" ilk="argument" name="multithread" />
+          <variable ilk="argument" name="environ" />
+          <variable ilk="argument" name="stderr" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="True" line="376" name="wsgi_multithread" />
+        <variable attributes="__instancevar__" line="373" name="stdout" />
+        <variable attributes="__instancevar__" line="372" name="stdin" />
+        <variable attributes="__instancevar__" citdl="False" line="377" name="wsgi_multiprocess" />
+        <variable attributes="__instancevar__" line="375" name="base_env" />
+        <variable attributes="__instancevar__" line="374" name="stderr" />
+      </scope>
+      <scope classrefs="basestring" doc="str(object) -&gt; string&#10;Return a nice string representation of the object. If the argument is a string, the return value is the same object." ilk="class" name="StringType">
+        <scope doc="Return a copy of the string S converted to uppercase." ilk="function" name="upper" returns="str" signature="S.upper() -&gt; string" />
+        <scope doc="Return a formatted version of S as described by format_spec." ilk="function" name="__format__" returns="str" signature="S.__format__(format_spec) -&gt; string" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Return True if S starts with the specified prefix, False&#10;otherwise." ilk="function" name="startswith" returns="bool" signature="S.startswith(prefix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a copy of the string S with leading whitespace&#10;removed." ilk="function" name="lstrip" returns="str" signature="S.lstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Return a copy of the string S with only its first character&#10;capitalized." ilk="function" name="capitalize" returns="str" signature="S.capitalize() -&gt; string" />
+        <scope doc="x.__str__() &lt;==&gt; str(x)" ilk="function" name="__str__" signature="x.__str__() &lt;==&gt; str(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Search for the separator sep in S, starting at the end of S,&#10;and return the part before it, the separator itself, and the&#10;part after it." ilk="function" name="rpartition" signature="S.rpartition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return a copy of string S with all occurrences of substring&#10;old replaced by new." ilk="function" name="replace" returns="str" signature="S.replace(old, new[, count]) -&gt; string" />
+        <scope doc="Return True if all characters in S are digits and there is&#10;at least one character in S, False otherwise." ilk="function" name="isdigit" returns="bool" signature="S.isdigit() -&gt; bool" />
+        <scope doc="Return True if S ends with the specified suffix, False&#10;otherwise." ilk="function" name="endswith" returns="bool" signature="S.endswith(suffix[, start[, end]]) -&gt; bool" />
+        <scope doc="Return a list of the lines in S, breaking at line&#10;boundaries." ilk="function" name="splitlines" returns="list" signature="S.splitlines([keepends]) -&gt; list of strings" />
+        <scope doc="Return a copy of S where all tab characters are expanded&#10;using spaces." ilk="function" name="expandtabs" returns="str" signature="S.expandtabs([tabsize]) -&gt; string" />
+        <scope doc="Return a copy of the string S with leading and trailing&#10;whitespace removed." ilk="function" name="strip" returns="str" signature="S.strip([chars]) -&gt; string or unicode" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="Return S left-justified in a string of length width." ilk="function" name="ljust" returns="str" signature="S.ljust(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__rmod__(y) &lt;==&gt; y%x" ilk="function" name="__rmod__" signature="x.__rmod__(y) &lt;==&gt; y%x" />
+        <scope doc="Like S.find() but raise ValueError when the substring is not&#10;found." ilk="function" name="index" returns="int" signature="S.index(sub [,start [,end]]) -&gt; int" />
+        <scope ilk="function" name="__getnewargs__" />
+        <scope doc="Return True if all characters in S are alphanumeric and&#10;there is at least one character in S, False otherwise." ilk="function" name="isalnum" returns="bool" signature="S.isalnum() -&gt; bool" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="Like S.rfind() but raise ValueError when the substring is&#10;not found." ilk="function" name="rindex" returns="int" signature="S.rindex(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string, starting at the end of the string and&#10;working to the front." ilk="function" name="rsplit" returns="list" signature="S.rsplit([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a formatted version of S, using substitutions from&#10;args and kwargs." ilk="function" name="format" returns="str" signature="S.format(*args, **kwargs) -&gt; string" />
+        <scope doc="Return the lowest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="find" returns="int" signature="S.find(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Decodes S using the codec registered for encoding." ilk="function" name="decode" returns="object" signature="S.decode([encoding[,errors]]) -&gt; object" />
+        <scope doc="Return True if all characters in S are alphabetic and there&#10;is at least one character in S, False otherwise." ilk="function" name="isalpha" returns="bool" signature="S.isalpha() -&gt; bool" />
+        <scope doc="Return a list of the words in the string S, using sep as the&#10;delimiter string." ilk="function" name="split" returns="list" signature="S.split([sep [,maxsplit]]) -&gt; list of strings" />
+        <scope doc="Return a copy of the string S with trailing whitespace&#10;removed." ilk="function" name="rstrip" returns="str" signature="S.rstrip([chars]) -&gt; string or unicode" />
+        <scope doc="Encodes S using the codec registered for encoding." ilk="function" name="encode" returns="object" signature="S.encode([encoding[,errors]]) -&gt; object" />
+        <scope ilk="function" name="_formatter_parser" />
+        <scope doc="Return a copy of the string S, where all characters&#10;occurring in the optional argument deletechars are removed,&#10;and the remaining characters have been mapped through the&#10;given translation table, which must be a string of length&#10;256." ilk="function" name="translate" returns="str" signature="S.translate(table [,deletechars]) -&gt; string" />
+        <scope doc="Return True if all characters in S are whitespace and there&#10;is at least one character in S, False otherwise." ilk="function" name="isspace" returns="bool" signature="S.isspace() -&gt; bool" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Return S right-justified in a string of length width." ilk="function" name="rjust" returns="str" signature="S.rjust(width[, fillchar]) -&gt; string" />
+        <scope doc="Return a copy of the string S with uppercase characters&#10;converted to lowercase and vice versa." ilk="function" name="swapcase" returns="str" signature="S.swapcase() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are lowercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="islower" returns="bool" signature="S.islower() -&gt; bool" />
+        <scope doc="Pad a numeric string S with zeros on the left, to fill a&#10;field of the specified width." ilk="function" name="zfill" returns="str" signature="S.zfill(width) -&gt; string" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope doc="Return the number of non-overlapping occurrences of&#10;substring sub in string S[start:end]." ilk="function" name="count" returns="int" signature="S.count(sub[, start[, end]]) -&gt; int" />
+        <scope doc="Return a copy of the string S converted to lowercase." ilk="function" name="lower" returns="str" signature="S.lower() -&gt; string" />
+        <scope doc="Return a string which is the concatenation of the strings in&#10;the iterable." ilk="function" name="join" returns="str" signature="S.join(iterable) -&gt; string" />
+        <scope doc="Return S centered in a string of length width." ilk="function" name="center" returns="str" signature="S.center(width[, fillchar]) -&gt; string" />
+        <scope doc="x.__mod__(y) &lt;==&gt; x%y" ilk="function" name="__mod__" signature="x.__mod__(y) &lt;==&gt; x%y" />
+        <scope doc="Search for the separator sep in S, and return the part&#10;before it, the separator itself, and the part after it." ilk="function" name="partition" signature="S.partition(sep) -&gt; (head, sep, tail)" />
+        <scope doc="Return the highest index in S where substring sub is found,&#10;such that sub is contained within s[start:end]." ilk="function" name="rfind" returns="int" signature="S.rfind(sub [,start [,end]]) -&gt; int" />
+        <scope doc="Return True if S is a titlecased string and there is at&#10;least one character in S, i.e." ilk="function" name="istitle" returns="bool" signature="S.istitle() -&gt; bool" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="_formatter_field_name_split" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="Return a titlecased version of S, i.e." ilk="function" name="title" returns="str" signature="S.title() -&gt; string" />
+        <scope doc="Return True if all cased characters in S are uppercase and&#10;there is at least one cased character in S, False otherwise." ilk="function" name="isupper" returns="bool" signature="S.isupper() -&gt; bool" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <variable citdl="list" line="9" name="__all__" />
+      <scope ilk="function" line="35" lineend="38" name="format_date_time" returns="tuple" signature="format_date_time(timestamp)">
+        <variable line="36" name="wd" />
+        <variable line="36" name="mm" />
+        <variable ilk="argument" name="timestamp" />
+        <variable line="36" name="month" />
+        <variable line="36" name="ss" />
+        <variable line="36" name="hh" />
+        <variable line="36" name="year" />
+        <variable line="36" name="y" />
+        <variable line="36" name="z" />
+        <variable line="36" name="day" />
+      </scope>
+      <scope doc="Return a guess for whether 'wsgi.url_scheme' should be&#10;'http' or 'https'" ilk="function" name="guess_scheme" signature="guess_scheme(environ)" />
+      <scope doc="Return true if 'header_name' is an HTTP/1.1 &quot;Hop-by-Hop&quot;&#10;header" ilk="function" name="is_hop_by_hop" signature="is_hop_by_hop(header_name)" />
+      <import module="os" />
+      <import module="sys" />
+      <import module="time" />
+      <variable attributes="protected __hidden__" citdl="list" line="31" name="_monthname" />
+      <scope attributes="__hidden__" ilk="function" line="14" lineend="18" name="dict" returns="dict" signature="dict(items)">
+        <variable ilk="argument" name="items" />
+        <variable citdl="dict" line="15" name="d" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="30" name="_weekdayname" />
+    </scope>
+    

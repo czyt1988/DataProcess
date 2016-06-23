@@ -1,0 +1,22 @@
+<scope doc="Fixer for exec.&#10;This converts usages of the exec statement into calls to a built-in exec() function.  exec code in ns1, ns2 -&gt; exec(code, ns1, ns2)" ilk="blob" lang="Python" name="lib2to3.fixes.fix_exec">
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="18" lineend="40" name="FixExec">
+        <scope ilk="function" line="27" lineend="40" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="30" name="a" />
+          <variable citdl="results.get()" line="32" name="c" />
+          <variable citdl="results.get()" line="31" name="b" />
+          <variable citdl="FixExec" ilk="argument" name="self" />
+          <variable citdl="list" line="33" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="self.syms" line="29" name="syms" />
+        </scope>
+        <variable citdl="True" line="19" name="BM_compatible" />
+        <variable citdl="str" line="21" name="PATTERN" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <import module="fixer_base" />
+      <import module="pytree" />
+    </scope>
+    

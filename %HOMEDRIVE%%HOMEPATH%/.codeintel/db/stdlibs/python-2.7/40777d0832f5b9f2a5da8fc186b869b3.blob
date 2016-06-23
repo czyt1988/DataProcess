@@ -1,0 +1,69 @@
+<scope doc="Routines to decode AppleSingle files&#10;" ilk="blob" lang="Python" name="applesingle">
+      <variable citdl="int" line="43" name="AS_DATAFORK" />
+      <variable citdl="str" line="39" name="AS_ENTRY_FORMAT" />
+      <variable citdl="int" line="40" name="AS_ENTRY_LENGTH" />
+      <variable citdl="str" line="32" name="AS_HEADER_FORMAT" />
+      <variable citdl="int" line="33" name="AS_HEADER_LENGTH" />
+      <variable citdl="tuple" line="45" name="AS_IGNORE" />
+      <variable citdl="int" line="35" name="AS_MAGIC" />
+      <variable citdl="int" line="44" name="AS_RESOURCEFORK" />
+      <variable citdl="int" line="36" name="AS_VERSION" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="47" lineend="105" name="AppleSingle">
+        <scope ilk="function" line="86" lineend="105" name="tofile" signature="tofile(path, resonly=False)">
+          <variable citdl="open()" line="92" name="fp" />
+          <variable citdl="AppleSingle" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="resonly" />
+          <variable citdl="open()" line="87" name="outfile" />
+          <variable ilk="argument" name="path" />
+          <variable citdl="False" line="88" name="data" />
+        </scope>
+        <scope ilk="function" line="51" lineend="84" name="__init__" signature="AppleSingle(fileobj, verbose=False)">
+          <variable line="54" name="magic" />
+          <variable citdl="False" ilk="argument" name="verbose" />
+          <variable citdl="list" line="67" name="headers" />
+          <variable citdl="AppleSingle" ilk="argument" name="self" />
+          <variable line="71" name="restype" />
+          <variable line="54" name="nentry" />
+          <variable citdl="fileobj.read()" line="52" name="header" />
+          <variable line="71" name="length" />
+          <variable line="54" name="version" />
+          <variable ilk="argument" name="fileobj" />
+          <variable line="71" name="offset" />
+          <variable citdl="fileobj.read()" line="77" name="data" />
+          <variable line="54" name="ig" />
+        </scope>
+        <variable citdl="fileobj.read()" line="49" name="resourcefork" />
+        <variable attributes="__instancevar__" citdl="list" line="68" name="forks" />
+        <variable citdl="fileobj.read()" line="48" name="datafork" />
+      </scope>
+      <import module="Carbon" />
+      <scope classrefs="ValueError" doc="# all of the errors in this module are really errors in the input&#10;# so I think it should test positive against ValueError." ilk="class" line="28" lineend="29" name="Error" />
+      <import module="MacOS" />
+      <scope doc="Creates a decoded file from an AppleSingle encoded file." ilk="function" line="107" lineend="132" name="decode" signature="decode(infile, outpath [, resonly=False, verbose=False])">
+        <variable citdl="infile.as_pathname()" ilk="argument" name="infile" />
+        <variable citdl="AppleSingle" line="131" name="asfile" />
+        <variable citdl="False" ilk="argument" name="verbose" />
+        <variable ilk="argument" name="outpath" />
+        <variable citdl="False" ilk="argument" name="resonly" />
+      </scope>
+      <import module="struct" />
+      <import module="sys" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <scope attributes="__hidden__" ilk="class" line="17" lineend="24" name="Carbon">
+        <scope ilk="class" line="18" lineend="24" name="File">
+          <scope ilk="class" line="19" lineend="20" name="FSSpec" />
+          <scope ilk="class" line="21" lineend="22" name="FSRef" />
+          <scope ilk="class" line="23" lineend="24" name="Alias" />
+        </scope>
+      </scope>
+      <scope attributes="__hidden__" ilk="class" line="13" lineend="16" name="MacOS">
+        <scope ilk="function" line="16" lineend="15" name="openrf" returns="open()" signature="openrf(mode)">
+          <variable citdl="MacOS" ilk="argument" name="path" />
+          <variable ilk="argument" name="mode" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="134" lineend="143" name="_test" signature="_test()">
+        <variable citdl="True" line="139" name="resonly" />
+      </scope>
+    </scope>
+    

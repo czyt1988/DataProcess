@@ -1,0 +1,385 @@
+<scope doc="Get useful information from live Python objects.&#10;This module encapsulates the interface provided by the internal special attributes (func_*, co_*, im_*, tb_*, etc.) in a friendlier fashion. It also provides some help for examining source code and class layout.  Here are some of the useful functions provided by this module:  ismodule(), isclass(), ismethod(), isfunction(), isgeneratorfunction(), isgenerator(), istraceback(), isframe(), iscode(), isbuiltin(), isroutine() - check object types getmembers() - get members of an object that satisfy a given condition" ilk="blob" lang="Python" name="inspect">
+      <scope classrefs="tuple" doc="ArgInfo(args, varargs, keywords, locals)&#10;" ilk="class" line="817" name="ArgInfo">
+        <scope doc="Create new instance of ArgInfo(args, varargs, keywords,&#10;locals)" ilk="function" name="__new__" signature="__new__(_cls, args, varargs, keywords, locals)" />
+        <scope doc="Make a new ArgInfo object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new ArgInfo object replacing specified fields with&#10;new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <scope classrefs="tuple" doc="ArgSpec(args, varargs, keywords, defaults)&#10;" ilk="class" line="799" name="ArgSpec">
+        <scope doc="Create new instance of ArgSpec(args, varargs, keywords,&#10;defaults)" ilk="function" name="__new__" signature="__new__(_cls, args, varargs, keywords, defaults)" />
+        <scope doc="Make a new ArgSpec object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new ArgSpec object replacing specified fields with&#10;new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <scope classrefs="tuple" doc="Arguments(args, varargs, keywords)&#10;" ilk="class" line="739" name="Arguments">
+        <scope doc="Create new instance of Arguments(args, varargs, keywords)" ilk="function" name="__new__" signature="__new__(_cls, args, varargs, keywords)" />
+        <scope doc="Make a new Arguments object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new Arguments object replacing specified fields&#10;with new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <scope classrefs="tuple" doc="Attribute(name, kind, defining_class, object)&#10;" ilk="class" line="261" name="Attribute">
+        <scope doc="Create new instance of Attribute(name, kind, defining_class,&#10;object)" ilk="function" name="__new__" signature="__new__(_cls, name, kind, defining_class, object)" />
+        <scope doc="Make a new Attribute object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new Attribute object replacing specified fields&#10;with new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <scope doc="Provide a tokeneater() method to detect the end of a code block.&#10;" ilk="class" line="630" lineend="669" name="BlockFinder">
+        <scope ilk="function" line="639" lineend="669" name="tokeneater" signature="tokeneater(type, token, srow_scol, erow_ecol, line)">
+          <variable citdl="BlockFinder" ilk="argument" name="self" />
+          <variable ilk="argument" name="token" />
+          <variable ilk="argument" name="erow_ecol" />
+          <variable ilk="argument" name="line" />
+          <variable ilk="argument" name="type" />
+          <variable ilk="argument" name="srow_scol" />
+        </scope>
+        <scope ilk="function" line="632" lineend="637" name="__init__" signature="BlockFinder()">
+          <variable citdl="BlockFinder" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="False" line="635" name="started" />
+        <variable attributes="__instancevar__" citdl="False" line="634" name="islambda" />
+        <variable attributes="__instancevar__" citdl="int" line="633" name="indent" />
+        <variable attributes="__instancevar__" citdl="int" line="637" name="last" />
+        <variable attributes="__instancevar__" citdl="True" line="636" name="passline" />
+      </scope>
+      <variable citdl="int" line="46" name="CO_GENERATOR" />
+      <variable citdl="int" line="46" name="CO_NESTED" />
+      <variable citdl="int" line="45" name="CO_NEWLOCALS" />
+      <variable citdl="int" line="46" name="CO_NOFREE" />
+      <variable citdl="int" line="45" name="CO_OPTIMIZED" />
+      <variable citdl="int" line="45" name="CO_VARARGS" />
+      <variable citdl="int" line="45" name="CO_VARKEYWORDS" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="628" lineend="628" name="EndOfBlock" />
+      <scope classrefs="tuple" doc="ModuleInfo(name, suffix, mode, module_type)&#10;" ilk="class" line="424" name="ModuleInfo">
+        <scope doc="Create new instance of ModuleInfo(name, suffix, mode,&#10;module_type)" ilk="function" name="__new__" signature="__new__(_cls, name, suffix, mode, module_type)" />
+        <scope doc="Make a new ModuleInfo object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new ModuleInfo object replacing specified fields&#10;with new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+      </scope>
+      <variable citdl="int" line="48" name="TPFLAGS_IS_ABSTRACT" />
+      <scope classrefs="tuple" doc="Traceback(filename, lineno, function, code_context, index)&#10;" ilk="class" line="983" name="Traceback">
+        <scope doc="Create new instance of Traceback(filename, lineno, function,&#10;code_context, index)" ilk="function" name="__new__" signature="__new__(_cls, filename, lineno, function, code_context, index)" />
+        <scope doc="Make a new Traceback object from a sequence or iterable" ilk="function" name="_make" />
+        <scope doc="Return a new Traceback object replacing specified fields&#10;with new values" ilk="function" name="_replace" />
+        <scope doc="Return a new OrderedDict which maps field names to their&#10;values" ilk="function" name="_asdict" />
+        <scope doc="Return a nicely formatted representation string" ilk="function" name="__repr__" />
+        <scope doc="Return self as a plain tuple. Used by copy and pickle." ilk="function" name="__getnewargs__" />
+      </scope>
+      <variable citdl="str" line="29" name="__author__" />
+      <variable citdl="str" line="30" name="__date__" />
+      <scope classrefs="object" doc="attrgetter(attr, ...) --&gt; attrgetter object&#10;Return a callable object that fetches the given attribute(s) from its operand. After, f=attrgetter('name'), the call f(r) returns r.name. After, g=attrgetter('name', 'date'), the call g(r) returns (r.name, r.date). After, h=attrgetter('name.first', 'name.last'), the call h(r) returns (r.name.first, r.name.last)." ilk="class" name="attrgetter">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+      </scope>
+      <scope doc="Return list of attribute-descriptor tuples." ilk="function" line="263" lineend="331" name="classify_class_attrs" returns="list" signature="classify_class_attrs(cls)">
+        <variable citdl="str" line="318" name="kind" />
+        <variable citdl="getattr()" line="295" name="obj" />
+        <variable citdl="getmro()" line="287" name="mro" />
+        <variable citdl="dir()" line="288" name="names" />
+        <variable citdl="getattr()" line="314" name="obj_via_getattr" />
+        <variable citdl="getattr()" line="300" name="homecls" />
+        <variable ilk="argument" name="cls" />
+        <variable citdl="list" line="289" name="result" />
+      </scope>
+      <scope doc="Clean up indentation from docstrings." ilk="function" line="371" lineend="398" name="cleandoc" returns="string.join()" signature="cleandoc(doc)">
+        <variable citdl="len()" line="384" name="content" />
+        <variable ilk="argument" name="doc" />
+        <variable citdl="min()" line="382" name="margin" />
+        <variable citdl="len()" line="386" name="indent" />
+        <variable citdl="string.split()" line="377" name="lines" />
+      </scope>
+      <scope doc="Return a frame object from the call stack." ilk="function" line="1046" name="currentframe" signature="_getframe([depth]) -&gt; frameobject" />
+      <import module="dis" />
+      <scope doc="Return the entire source file and starting line number for&#10;an object." ilk="function" line="520" lineend="581" name="findsource" returns="tuple" signature="findsource(object)">
+        <variable citdl="re.compile()" line="543" name="pat" />
+        <variable citdl="object.__name__" line="542" name="name" />
+        <variable citdl="object.co_firstlineno" line="575" name="lnum" />
+        <variable citdl="object.f_code" ilk="argument" name="object" />
+        <variable citdl="linecache.getlines()" line="532" name="lines" />
+        <variable citdl="getmodule()" line="530" name="module" />
+        <variable citdl="list" line="547" name="candidates" />
+        <variable citdl="getsourcefile()" line="527" name="file" />
+        <variable citdl="pat.match()" line="549" name="match" />
+      </scope>
+      <scope doc="Format an argument spec from the 4 values returned by&#10;getargspec." ilk="function" line="842" lineend="866" name="formatargspec" returns="string.join()" signature="formatargspec(args, varargs=None, varkw=None, defaults=None, formatarg=&lt;type 'str'&gt;, formatvarargs=&lt;function &lt;lambda&gt; at 0x01F7EC70&gt;, formatvarkw=&lt;function &lt;lambda&gt; at 0x01F7ECB0&gt;, formatvalue=&lt;function &lt;lambda&gt; at 0x01F7ECF0&gt;, join=&lt;function joinseq at 0x01F7EAF0&gt;)">
+        <variable ilk="argument" name="args" />
+        <variable citdl="joinseq" ilk="argument" name="join" />
+        <variable ilk="argument" name="formatvarkw" />
+        <variable ilk="argument" name="formatvalue" />
+        <variable citdl="len()" line="856" name="firstdefault" />
+        <variable citdl="strseq()" line="858" name="spec" />
+        <variable citdl="str" ilk="argument" name="formatarg" />
+        <variable ilk="argument" name="defaults" />
+        <variable ilk="argument" name="varargs" />
+        <variable ilk="argument" name="formatvarargs" />
+        <variable ilk="argument" name="varkw" />
+        <variable citdl="list" line="854" name="specs" />
+      </scope>
+      <scope doc="Format an argument spec from the 4 values returned by&#10;getargvalues." ilk="function" line="868" lineend="890" name="formatargvalues" returns="string.join()" signature="formatargvalues(args, varargs, varkw, locals, formatarg=&lt;type 'str'&gt;, formatvarargs=&lt;function &lt;lambda&gt; at 0x01F7ED70&gt;, formatvarkw=&lt;function &lt;lambda&gt; at 0x01F7EDB0&gt;, formatvalue=&lt;function &lt;lambda&gt; at 0x01F7EDF0&gt;, join=&lt;function joinseq at 0x01F7EAF0&gt;)">
+        <scope ilk="function" line="880" lineend="882" name="convert" returns="formatargvalues.convert.formatvalue()" signature="convert(name, locals=locals, formatarg=formatarg, formatvalue=formatvalue)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="locals" />
+          <variable citdl="str" ilk="argument" name="formatarg" />
+          <variable ilk="argument" name="formatvalue" />
+        </scope>
+        <variable ilk="argument" name="args" />
+        <variable citdl="joinseq" ilk="argument" name="join" />
+        <variable ilk="argument" name="formatvarkw" />
+        <variable ilk="argument" name="formatvalue" />
+        <variable citdl="str" ilk="argument" name="formatarg" />
+        <variable ilk="argument" name="varargs" />
+        <variable ilk="argument" name="formatvarargs" />
+        <variable ilk="argument" name="varkw" />
+        <variable citdl="list" line="883" name="specs" />
+        <variable ilk="argument" name="locals" />
+      </scope>
+      <scope doc="Return an absolute path to the source or compiled file for&#10;an object." ilk="function" line="462" lineend="469" name="getabsfile" returns="os.path.normcase()" signature="getabsfile(object, _filename=None)">
+        <variable citdl="getsourcefile()" ilk="argument" name="_filename" />
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Get information about the arguments accepted by a code&#10;object." ilk="function" line="741" lineend="797" name="getargs" returns="Arguments()" signature="getargs(co)">
+        <variable citdl="list" line="759" name="count" />
+        <variable ilk="argument" name="co" />
+        <variable citdl="list()" line="753" name="args" />
+        <variable citdl="co.co_argcount" line="751" name="nargs" />
+        <variable citdl="list" line="759" name="remain" />
+        <variable citdl="ord()" line="765" name="value" />
+        <variable citdl="int" line="754" name="step" />
+        <variable citdl="co.co_varnames" line="752" name="names" />
+        <variable line="790" name="varargs" />
+        <variable line="764" name="opname" />
+        <variable citdl="count.pop()" line="783" name="size" />
+        <variable line="794" name="varkw" />
+        <variable citdl="list" line="759" name="stack" />
+        <variable citdl="ord()" line="761" name="op" />
+      </scope>
+      <scope doc="Get the names and default values of a function's arguments." ilk="function" line="801" lineend="815" name="getargspec" returns="ArgSpec()" signature="getargspec(func)">
+        <variable line="814" name="args" />
+        <variable line="814" name="varkw" />
+        <variable citdl="func.im_func" ilk="argument" name="func" />
+        <variable line="814" name="varargs" />
+      </scope>
+      <scope doc="Get information about arguments passed into a particular&#10;frame." ilk="function" line="819" lineend="827" name="getargvalues" returns="ArgInfo()" signature="getargvalues(frame)">
+        <variable ilk="argument" name="frame" />
+        <variable line="826" name="args" />
+        <variable line="826" name="varkw" />
+        <variable line="826" name="varargs" />
+      </scope>
+      <scope doc="Extract the block of code at the top of the given list of&#10;lines." ilk="function" line="671" lineend="678" name="getblock" returns="list" signature="getblock(lines)">
+        <variable citdl="BlockFinder" line="673" name="blockfinder" />
+        <variable ilk="argument" name="lines" />
+      </scope>
+      <scope doc="Get the mapping of arguments to values." ilk="function" line="892" lineend="979" name="getcallargs" returns="dict" signature="getcallargs(func, *positional, **named)">
+        <variable attributes="kwargs" ilk="argument" name="named" />
+        <variable citdl="unexpected.encode()" line="968" name="unexpected" />
+        <scope ilk="function" line="923" lineend="926" name="is_assigned" returns="bool" signature="is_assigned(arg)">
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <variable ilk="argument" name="func" />
+        <variable citdl="dict" line="900" name="arg2value" />
+        <variable citdl="len()" line="930" name="num_pos" />
+        <variable citdl="func.__name__" line="899" name="f_name" />
+        <variable line="898" name="args" />
+        <variable citdl="list" line="903" name="assigned_tuple_params" />
+        <variable attributes="varargs" citdl="tuple" ilk="argument" name="positional" />
+        <variable citdl="len()" line="973" name="unassigned" />
+        <variable citdl="len()" line="932" name="num_args" />
+        <variable line="898" name="defaults" />
+        <variable line="898" name="varargs" />
+        <variable citdl="len()" line="975" name="num_required" />
+        <variable line="898" name="varkw" />
+        <scope ilk="function" line="904" lineend="922" name="assign" signature="assign(arg, value)">
+          <variable ilk="argument" name="arg" />
+          <variable citdl="iter()" ilk="argument" name="value" />
+          <variable citdl="next()" line="912" name="subvalue" />
+        </scope>
+        <variable citdl="len()" line="931" name="num_total" />
+        <variable line="933" name="num_defaults" />
+      </scope>
+      <scope doc="Arrange the given list of classes into a hierarchy of nested&#10;lists." ilk="function" line="713" lineend="736" name="getclasstree" returns="walktree()" signature="getclasstree(classes, unique=0)">
+        <variable citdl="int" ilk="argument" name="unique" />
+        <variable ilk="argument" name="classes" />
+        <variable citdl="dict" line="722" name="children" />
+        <variable citdl="list" line="723" name="roots" />
+      </scope>
+      <scope doc="Get lines of comments immediately preceding an object's&#10;source code." ilk="function" line="583" lineend="626" name="getcomments" returns="string.join()" signature="getcomments(object)">
+        <variable citdl="string.lstrip()" line="616" name="comment" />
+        <variable citdl="int" line="601" name="end" />
+        <variable line="589" name="lnum" />
+        <variable ilk="argument" name="object" />
+        <variable line="589" name="lines" />
+        <variable citdl="list" line="600" name="comments" />
+        <variable citdl="int" line="595" name="start" />
+        <variable citdl="indentsize()" line="609" name="indent" />
+      </scope>
+      <scope doc="Get the documentation string for an object." ilk="function" line="357" lineend="369" name="getdoc" returns="cleandoc()" signature="getdoc(object)">
+        <variable citdl="object.__doc__" line="364" name="doc" />
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Work out which source or compiled file an object was defined&#10;in." ilk="function" line="400" lineend="422" name="getfile" returns="object.co_filename" signature="getfile(object)">
+        <variable citdl="object.f_code" ilk="argument" name="object" />
+      </scope>
+      <scope doc="Get information about a frame or traceback object." ilk="function" line="985" lineend="1016" name="getframeinfo" returns="Traceback()" signature="getframeinfo(frame, context=1)">
+        <variable citdl="frame.tb_lineno" line="1012" name="index" />
+        <variable line="1005" name="lnum" />
+        <variable citdl="frame.tb_frame" ilk="argument" name="frame" />
+        <variable citdl="list" line="1005" name="lines" />
+        <variable citdl="getsourcefile()" line="1001" name="filename" />
+        <variable citdl="max()" line="1003" name="start" />
+        <variable citdl="frame.tb_lineno" line="994" name="lineno" />
+        <variable citdl="int" ilk="argument" name="context" />
+      </scope>
+      <scope doc="Get a list of records for a traceback's frame and all lower&#10;frames." ilk="function" line="1034" lineend="1043" name="getinnerframes" returns="list" signature="getinnerframes(tb, context=1)">
+        <variable citdl="list" line="1039" name="framelist" />
+        <variable citdl="tb.tb_next" ilk="argument" name="tb" />
+        <variable citdl="int" ilk="argument" name="context" />
+      </scope>
+      <scope doc="Get the line number from a frame object, allowing for&#10;optimization." ilk="function" line="1018" lineend="1021" name="getlineno" returns="frame.f_lineno" signature="getlineno(frame)">
+        <variable ilk="argument" name="frame" />
+      </scope>
+      <scope doc="Return all members of an object as (name, value) pairs&#10;sorted by name." ilk="function" line="247" lineend="259" name="getmembers" returns="list" signature="getmembers(object, predicate=None)">
+        <variable ilk="argument" name="predicate" />
+        <variable ilk="argument" name="object" />
+        <variable citdl="list" line="250" name="results" />
+        <variable citdl="getattr()" line="253" name="value" />
+      </scope>
+      <scope doc="Return the module an object was defined in, or None if not&#10;found." ilk="function" line="474" lineend="518" name="getmodule" returns="sys.modules.get()" signature="getmodule(object, _filename=None)">
+        <variable citdl="module.__file__" line="494" name="f" />
+        <variable ilk="argument" name="_filename" />
+        <variable ilk="argument" name="object" />
+        <variable line="514" name="builtin" />
+        <variable citdl="getabsfile()" line="485" name="file" />
+        <variable citdl="getattr()" line="516" name="builtinobject" />
+        <variable line="506" name="main" />
+        <variable citdl="getattr()" line="510" name="mainobject" />
+      </scope>
+      <scope doc="Get the module name, suffix, mode, and module type for a&#10;given file." ilk="function" line="426" lineend="435" name="getmoduleinfo" returns="ModuleInfo()" signature="getmoduleinfo(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="map()" line="429" name="suffixes" />
+        <variable citdl="os.path.basename()" line="428" name="filename" />
+      </scope>
+      <scope doc="Return the module name for a given file, or None." ilk="function" line="437" lineend="440" name="getmodulename" signature="getmodulename(path)">
+        <variable citdl="getmoduleinfo()" line="439" name="info" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Return tuple of base classes (including cls) in method&#10;resolution order." ilk="function" line="342" lineend="349" name="getmro" returns="cls.__mro__" signature="getmro(cls)">
+        <variable citdl="list" line="347" name="result" />
+        <variable ilk="argument" name="cls" />
+      </scope>
+      <scope doc="Get a list of records for a frame and all higher (calling)&#10;frames." ilk="function" line="1023" lineend="1032" name="getouterframes" returns="list" signature="getouterframes(frame, context=1)">
+        <variable citdl="frame.f_back" ilk="argument" name="frame" />
+        <variable citdl="list" line="1028" name="framelist" />
+        <variable citdl="int" ilk="argument" name="context" />
+      </scope>
+      <scope doc="Return the text of the source code for an object." ilk="function" line="693" lineend="700" name="getsource" returns="string.join()" signature="getsource(object)">
+        <variable line="699" name="lnum" />
+        <variable ilk="argument" name="object" />
+        <variable line="699" name="lines" />
+      </scope>
+      <scope doc="Return the filename that can be used to locate an object's&#10;source." ilk="function" line="442" lineend="460" name="getsourcefile" returns="str" signature="getsourcefile(object)">
+        <variable ilk="argument" name="object" />
+        <variable citdl="list" line="446" name="filename" />
+      </scope>
+      <scope doc="Return a list of source lines and starting line number for&#10;an object." ilk="function" line="680" lineend="691" name="getsourcelines" returns="tuple" signature="getsourcelines(object)">
+        <variable line="688" name="lnum" />
+        <variable ilk="argument" name="object" />
+        <variable line="688" name="lines" />
+      </scope>
+      <import module="imp" />
+      <scope doc="Return the indent size, in spaces, at the start of a line of&#10;text." ilk="function" line="352" lineend="355" name="indentsize" returns="len()" signature="indentsize(line)">
+        <variable citdl="string.expandtabs()" line="354" name="expline" />
+        <variable ilk="argument" name="line" />
+      </scope>
+      <scope doc="Return true if the object is an abstract base class (ABC)." ilk="function" line="243" lineend="245" name="isabstract" returns="bool()" signature="isabstract(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a built-in function or method." ilk="function" line="227" lineend="234" name="isbuiltin" returns="isinstance()" signature="isbuiltin(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a class." ilk="function" line="59" lineend="65" name="isclass" returns="isinstance()" signature="isclass(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a code object." ilk="function" line="209" lineend="225" name="iscode" returns="isinstance()" signature="iscode(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a data descriptor." ilk="function" line="98" lineend="106" name="isdatadescriptor" returns="hasattr()" signature="isdatadescriptor(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a frame object." ilk="function" line="191" lineend="207" name="isframe" returns="isinstance()" signature="isframe(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a user-defined function." ilk="function" line="142" lineend="153" name="isfunction" returns="isinstance()" signature="isfunction(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a generator." ilk="function" line="164" lineend="179" name="isgenerator" returns="isinstance()" signature="isgenerator(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a user-defined generator&#10;function." ilk="function" line="155" lineend="162" name="isgeneratorfunction" returns="bool()" signature="isgeneratorfunction(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a getset descriptor." ilk="function" line="135" lineend="140" name="isgetsetdescriptor" returns="bool" signature="isgetsetdescriptor(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a member descriptor." ilk="function" line="118" lineend="123" name="ismemberdescriptor" returns="bool" signature="ismemberdescriptor(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is an instance method." ilk="function" line="67" lineend="76" name="ismethod" returns="isinstance()" signature="ismethod(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a method descriptor." ilk="function" line="78" lineend="96" name="ismethoddescriptor" returns="bool" signature="ismethoddescriptor(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a module." ilk="function" line="51" lineend="57" name="ismodule" returns="isinstance()" signature="ismodule(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is any kind of function or method." ilk="function" line="236" lineend="241" name="isroutine" returns="isbuiltin()" signature="isroutine(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope doc="Return true if the object is a traceback." ilk="function" line="181" lineend="189" name="istraceback" returns="isinstance()" signature="istraceback(object)">
+        <variable ilk="argument" name="object" />
+      </scope>
+      <scope ilk="function" line="829" lineend="833" name="joinseq" returns="string.join()" signature="joinseq(seq)">
+        <variable ilk="argument" name="seq" />
+      </scope>
+      <import module="linecache" />
+      <variable citdl="dict" line="471" name="modulesbyfile" />
+      <scope doc="Returns a new subclass of tuple with named fields." ilk="function" name="namedtuple" signature="namedtuple(typename, field_names, verbose=False, rename=False)" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Return a list of records for the stack above the caller's&#10;frame." ilk="function" line="1050" lineend="1052" name="stack" returns="getouterframes()" signature="stack(context=1)">
+        <variable citdl="int" ilk="argument" name="context" />
+      </scope>
+      <import module="string" />
+      <scope doc="Recursively walk a sequence, stringifying each element." ilk="function" line="835" lineend="840" name="strseq" returns="strseq.join()" signature="strseq(object, convert, join=&lt;function joinseq at 0x01F7EAF0&gt;)">
+        <variable ilk="argument" name="convert" />
+        <variable ilk="argument" name="object" />
+        <variable citdl="joinseq" ilk="argument" name="join" />
+      </scope>
+      <import module="sys" />
+      <import module="tokenize" />
+      <scope doc="Return a list of records for the stack below the current&#10;exception." ilk="function" line="1054" lineend="1056" name="trace" returns="getinnerframes()" signature="trace(context=1)">
+        <variable citdl="int" ilk="argument" name="context" />
+      </scope>
+      <import module="types" />
+      <scope doc="Recursive helper function for getclasstree()." ilk="function" line="703" lineend="711" name="walktree" returns="list" signature="walktree(classes, children, parent)">
+        <variable ilk="argument" name="classes" />
+        <variable ilk="argument" name="children" />
+        <variable ilk="argument" name="parent" />
+        <variable citdl="list" line="705" name="results" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="334" lineend="340" name="_searchbases" signature="_searchbases(cls, accum)">
+        <variable ilk="argument" name="cls" />
+        <variable ilk="argument" name="accum" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="472" name="_filesbymodname" />
+    </scope>
+    

@@ -1,0 +1,118 @@
+<scope doc="Various tools used by MIME-reading or MIME-writing programs.&#10;" ilk="blob" lang="Python" name="mimetools">
+      <scope classrefs="Message" doc="A derived class of rfc822.Message that knows about MIME headers and&#10;contains some hooks for decoding encoded and multipart messages." ilk="class" line="20" lineend="99" name="Message">
+        <scope ilk="function" line="79" lineend="85" name="getparamnames" returns="list" signature="getparamnames()">
+          <variable citdl="p.find()" line="82" name="i" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="list" line="80" name="result" />
+        </scope>
+        <scope ilk="function" line="95" lineend="96" name="getmaintype" signature="getmaintype()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="33" lineend="48" name="parsetype" signature="parsetype()">
+          <variable citdl="str.index()" line="38" name="i" />
+          <variable citdl="str.split()" line="43" name="fields" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="list" line="34" name="str" />
+        </scope>
+        <scope ilk="function" line="87" lineend="90" name="getencoding" returns="str" signature="getencoding()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="92" lineend="93" name="gettype" returns="str.join()" signature="gettype()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="68" lineend="69" name="getplist" returns="list" signature="getplist()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="98" lineend="99" name="getsubtype" returns="str.join()" signature="getsubtype()">
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="71" lineend="77" name="getparam" returns="rfc822.unquote()" signature="getparam(name)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="name.lower()" ilk="argument" name="name" />
+          <variable citdl="len()" line="73" name="n" />
+        </scope>
+        <scope ilk="function" line="50" lineend="66" name="parseplist" signature="parseplist()">
+          <variable citdl="f.index()" line="62" name="i" />
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable citdl="str.index()" line="57" name="end" />
+          <variable citdl="list" line="51" name="str" />
+          <variable citdl="list" line="60" name="f" />
+        </scope>
+        <scope ilk="function" line="24" lineend="31" name="__init__" signature="Message(fp, seekable=1)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="int" ilk="argument" name="seekable" />
+          <variable citdl="Message" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="39" name="plisttext" />
+        <variable attributes="__instancevar__" line="47" name="maintype" />
+        <variable attributes="__instancevar__" citdl="str.join()" line="48" name="subtype" />
+        <variable attributes="__instancevar__" citdl="self.getheader()" line="28" name="typeheader" />
+        <variable attributes="__instancevar__" citdl="self.getheader()" line="26" name="encodingheader" />
+        <variable attributes="__instancevar__" citdl="str.join()" line="46" name="type" />
+        <variable attributes="__instancevar__" citdl="list" line="52" name="plist" />
+      </scope>
+      <variable citdl="list" line="17" name="__all__" />
+      <scope classrefs="object" doc="A context manager that copies and restores the warnings filter upon&#10;exiting the context.  The 'record' argument specifies whether warnings should be captured by a custom implementation of warnings.showwarning() and be appended to a list returned by the context manager. Otherwise None is returned by the context manager. The objects appended to the list are arguments whose attributes mirror the arguments to showwarning().  The 'module' argument is to specify an alternative module to the module named 'warnings' and imported under that name. This argument is only useful" ilk="class" name="catch_warnings">
+        <scope ilk="function" name="__exit__" />
+        <scope ilk="function" name="__repr__" />
+        <scope ilk="function" name="__enter__" />
+        <scope doc="Specify whether to record warnings and if an alternative&#10;module should be used other than sys.modules['warnings']." ilk="function" name="__init__" />
+      </scope>
+      <scope doc="Return a string usable as a multipart boundary." ilk="function" line="125" lineend="152" name="choose_boundary" returns="tuple" signature="choose_boundary()">
+        <variable attributes="protected" citdl="str" line="151" name="_prefix" />
+        <variable citdl="str" line="140" name="hostid" />
+        <variable citdl="str" line="148" name="pid" />
+        <variable citdl="str" line="144" name="uid" />
+      </scope>
+      <scope ilk="function" line="245" lineend="250" name="copybinary" signature="copybinary(input, output)">
+        <variable ilk="argument" name="input" />
+        <variable citdl="input.read()" line="248" name="line" />
+        <variable citdl="int" line="246" name="BUFSIZE" />
+        <variable ilk="argument" name="output" />
+      </scope>
+      <scope ilk="function" line="239" lineend="243" name="copyliteral" signature="copyliteral(input, output)">
+        <variable ilk="argument" name="input" />
+        <variable citdl="input.readline()" line="241" name="line" />
+        <variable ilk="argument" name="output" />
+      </scope>
+      <scope doc="Decode common content-transfer-encodings (base64, quopri,&#10;uuencode)." ilk="function" line="157" lineend="174" name="decode" returns="output.write()" signature="decode(input, output, encoding)">
+        <variable ilk="argument" name="input" />
+        <variable ilk="argument" name="encoding" />
+        <variable ilk="argument" name="output" />
+      </scope>
+      <variable citdl="dict" line="206" name="decodetab" />
+      <scope doc="Encode common content-transfer-encodings (base64, quopri,&#10;uuencode)." ilk="function" line="176" lineend="193" name="encode" returns="output.write()" signature="encode(input, output, encoding)">
+        <variable ilk="argument" name="input" />
+        <variable ilk="argument" name="encoding" />
+        <variable ilk="argument" name="output" />
+      </scope>
+      <variable citdl="dict" line="215" name="encodetab" />
+      <scope doc="Insert an entry into the list of warnings filters (at the&#10;front)." ilk="function" name="filterwarnings" signature="filterwarnings(action, message='', category=&lt;type 'exceptions.Warning'&gt;, module='', lineno=0, append=0)" />
+      <import module="os" />
+      <scope ilk="function" line="229" lineend="237" name="pipethrough" signature="pipethrough(input, command, output)">
+        <variable citdl="os.fdopen()" line="231" name="temp" />
+        <variable ilk="argument" name="command" />
+        <variable citdl="os.popen()" line="234" name="pipe" />
+        <variable line="230" name="fd" />
+        <variable ilk="argument" name="input" />
+        <variable ilk="argument" name="output" />
+        <variable line="230" name="tempname" />
+      </scope>
+      <scope ilk="function" line="224" lineend="227" name="pipeto" signature="pipeto(input, command)">
+        <variable citdl="os.popen()" line="225" name="pipe" />
+        <variable ilk="argument" name="input" />
+        <variable ilk="argument" name="command" />
+      </scope>
+      <import module="rfc822" />
+      <import module="sys" />
+      <import module="tempfile" />
+      <variable citdl="str" line="199" name="uudecode_pipe" />
+      <scope doc="Issue a deprecation warning for Python 3.x related changes." ilk="function" name="warnpy3k" signature="warnpy3k(message, category=None, stacklevel=1)" />
+      <variable attributes="protected __hidden__" citdl="int" line="114" name="_counter" />
+      <scope attributes="protected __hidden__" ilk="function" line="115" lineend="121" name="_get_next_counter" returns="int" signature="_get_next_counter()">
+        <variable citdl="int" line="119" name="result" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="thread.allocate_lock()" line="111" name="_counter_lock" />
+      <variable attributes="protected __hidden__" line="123" name="_prefix" />
+    </scope>
+    

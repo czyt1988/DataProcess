@@ -1,0 +1,129 @@
+<scope doc="FeedParser - An email feed parser.&#10;The feed parser implements an interface for incrementally parsing an email message, line by line.  This has advantages for certain applications, such as those reading email messages off a socket.  FeedParser.feed() is the primary interface for pushing new data into the parser.  It returns when there's nothing more it can do with the available data.  When you have no more data to push into the parser, call .close(). This completes the parsing and returns the root message object.  The other advantage of this parser is that it will never throw a parsing" ilk="blob" lang="Python" name="email.feedparser">
+      <scope classrefs="object" doc="A file-ish object that can have new data loaded into it.&#10;You can also push and pop line-matching predicates onto a stack.  When the current predicate matches the current line, a false EOF response (i.e. empty string) is returned instead.  This lets the parser adhere to a simple abstraction -- it parses until EOF closes the current message." ilk="class" line="43" lineend="133" name="BufferedSubFile">
+        <scope ilk="function" line="61" lineend="62" name="push_eof_matcher" signature="push_eof_matcher(pred)">
+          <variable ilk="argument" name="pred" />
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="64" lineend="65" name="pop_eof_matcher" returns="self._eofstack.pop()" signature="pop_eof_matcher()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="129" lineend="133" name="next" returns="readline()" signature="next()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+          <variable citdl="readline()" line="130" name="line" />
+        </scope>
+        <scope ilk="function" line="126" lineend="127" name="__iter__" returns="BufferedSubFile" signature="__iter__()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="51" lineend="59" name="__init__" signature="BufferedSubFile()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Push some new data into this object." ilk="function" line="96" lineend="117" name="push" signature="push(data)">
+          <variable citdl="list" line="114" name="lines" />
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+          <variable citdl="NLCRE_crack.split()" line="101" name="parts" />
+          <variable citdl="str" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="67" lineend="71" name="close" signature="close()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="73" lineend="89" name="readline" returns="str" signature="readline()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+          <variable citdl="self._lines.pop()" line="80" name="line" />
+        </scope>
+        <scope ilk="function" line="119" lineend="121" name="pushlines" signature="pushlines(lines)">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="lines" />
+        </scope>
+        <scope ilk="function" line="91" lineend="94" name="unreadline" signature="unreadline(line)">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="123" lineend="124" name="is_closed" returns="bool" signature="is_closed()">
+          <variable citdl="BufferedSubFile" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="True" line="59" name="_closed" />
+        <variable attributes="protected __instancevar__" citdl="list" line="57" name="_eofstack" />
+        <variable attributes="protected __instancevar__" citdl="list" line="55" name="_lines" />
+        <variable attributes="protected __instancevar__" citdl="str" line="53" name="_partial" />
+      </scope>
+      <variable citdl="str" line="36" name="EMPTYSTRING" />
+      <scope doc="A feed-style parser of email.&#10;" ilk="class" line="137" lineend="484" name="FeedParser">
+        <scope doc="Push more data into the parser." ilk="function" line="154" lineend="157" name="feed" signature="feed(data)">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="187" lineend="193" name="_pop_message" returns="self._msgstack.pop()" signature="_pop_message()">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable citdl="self._msgstack.pop()" line="188" name="retval" />
+        </scope>
+        <scope ilk="function" line="159" lineend="163" name="_call_parse" signature="_call_parse()">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="431" lineend="484" name="_parse_headers" signature="_parse_headers(lines)">
+          <variable citdl="list" line="434" name="lastvalue" />
+          <variable citdl="line.find()" line="474" name="i" />
+          <variable citdl="NLCRE_eol.search()" line="456" name="mo" />
+          <variable ilk="argument" name="lines" />
+          <variable citdl="errors.MalformedHeaderDefect()" line="442" name="defect" />
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable line="449" name="lhdr" />
+          <variable citdl="list" line="458" name="line" />
+          <variable citdl="str" line="433" name="lastheader" />
+        </scope>
+        <scope ilk="function" line="177" lineend="185" name="_new_message" signature="_new_message()">
+          <variable citdl="_factory()" line="178" name="msg" />
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="195" lineend="429" name="_parsegen" signature="_parsegen()">
+          <variable citdl="self._input.readline()" line="222" name="line" />
+          <variable citdl="re.compile()" line="301" name="boundaryre" />
+          <variable citdl="len()" line="368" name="end" />
+          <variable line="415" name="firstline" />
+          <variable citdl="NLCRE_eol.search()" line="329" name="eolmo" />
+          <variable citdl="list" line="362" name="epilogue" />
+          <variable citdl="NLCRE_eol.search()" line="314" name="mo" />
+          <variable citdl="list" line="220" name="lines" />
+          <variable citdl="False" line="306" name="linesep" />
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable citdl="list" line="198" name="headers" />
+          <variable citdl="NLCRE_bol.match()" line="416" name="bolmo" />
+          <variable citdl="self._cur.get_boundary()" line="300" name="separator" />
+          <variable line="328" name="lastline" />
+          <variable citdl="_pop_message()" line="244" name="msg" />
+          <variable citdl="True" line="304" name="capturing_preamble" />
+          <variable citdl="self._cur.get_boundary()" line="281" name="boundary" />
+          <variable citdl="list" line="305" name="preamble" />
+          <variable citdl="self._last.get_payload()" line="371" name="payload" />
+        </scope>
+        <scope doc="# Non-public interface for supporting Parser's headersonly&#10;flag" ilk="function" line="151" lineend="152" name="_set_headersonly" signature="_set_headersonly()">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Parse all remaining data and return the root message object." ilk="function" line="165" lineend="175" name="close" returns="self._pop_message()" signature="close()">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable citdl="self._pop_message()" line="169" name="root" />
+        </scope>
+        <scope doc="_factory is called with no arguments to create a new message&#10;obj" ilk="function" line="140" lineend="148" name="__init__" signature="FeedParser(_factory=message.Message)">
+          <variable citdl="FeedParser" ilk="argument" name="self" />
+          <variable citdl="message.Message" ilk="argument" name="_factory" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="BufferedSubFile" line="143" name="_input" />
+        <variable attributes="protected __instancevar__" citdl="list" line="144" name="_msgstack" />
+        <variable attributes="protected __instancevar__" citdl="message.Message" line="142" name="_factory" />
+        <variable attributes="protected __instancevar__" citdl="True" line="148" name="_headersonly" />
+        <variable attributes="protected __instancevar__" line="145" name="_parse" />
+        <variable attributes="protected __instancevar__" citdl="_factory()" line="146" name="_cur" />
+        <variable attributes="protected __instancevar__" citdl="_factory()" line="147" name="_last" />
+      </scope>
+      <variable citdl="str" line="37" name="NL" />
+      <variable citdl="SRE_Pattern" line="29" name="NLCRE" />
+      <variable citdl="SRE_Pattern" line="30" name="NLCRE_bol" />
+      <variable citdl="SRE_Pattern" line="32" name="NLCRE_crack" />
+      <variable citdl="SRE_Pattern" line="31" name="NLCRE_eol" />
+      <variable citdl="object" line="39" name="NeedMoreData" />
+      <variable citdl="list" line="22" name="__all__" />
+      <import module="errors" />
+      <variable citdl="SRE_Pattern" line="35" name="headerRE" />
+      <import module="message" />
+      <import module="re" />
+    </scope>
+    

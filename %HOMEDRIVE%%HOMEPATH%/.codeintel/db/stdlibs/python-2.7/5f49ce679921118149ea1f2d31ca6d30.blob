@@ -1,0 +1,4 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="crypt">
+      <scope doc="word will usually be a user's password." ilk="function" name="crypt" returns="str" signature="crypt(word, salt) -&gt; string" />
+    </scope>
+    

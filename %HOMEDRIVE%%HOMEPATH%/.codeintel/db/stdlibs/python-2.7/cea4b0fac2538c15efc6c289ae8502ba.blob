@@ -1,0 +1,142 @@
+<scope doc="Redo the builtin repr() (representation) but with limits on most sizes.&#10;" ilk="blob" lang="Python" name="repr">
+      <scope doc="&#10;" ilk="class" name="Repr">
+        <scope ilk="function" name="repr_instance" />
+        <scope ilk="function" name="repr_array" />
+        <scope ilk="function" name="repr_tuple" />
+        <scope ilk="function" name="repr_list" />
+        <scope ilk="function" name="repr_str" />
+        <scope ilk="function" name="repr_long" />
+        <scope ilk="function" name="_repr_iterable" />
+        <scope ilk="function" name="repr" />
+        <scope ilk="function" name="repr_set" />
+        <scope ilk="function" name="repr_frozenset" />
+        <scope ilk="function" name="repr_deque" />
+        <scope ilk="function" name="repr1" />
+        <scope ilk="function" name="repr_dict" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="3" name="__all__" />
+      <import module="__builtin__" />
+      <variable citdl="Repr" line="131" name="aRepr" />
+      <scope doc="&#10;" ilk="class" line="8" lineend="119" name="Repr">
+        <scope ilk="function" line="108" lineend="119" name="repr_instance" returns="tuple" signature="repr_instance(x, level)">
+          <variable ilk="argument" name="level" />
+          <variable citdl="max()" line="116" name="i" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="max()" line="117" name="j" />
+          <variable citdl="list" line="110" name="s" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="60" lineend="62" name="repr_array" returns="Repr._repr_iterable()" signature="repr_array(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="x.typecode" line="61" name="header" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="54" lineend="55" name="repr_tuple" returns="Repr._repr_iterable()" signature="repr_tuple(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="57" lineend="58" name="repr_list" returns="Repr._repr_iterable()" signature="repr_list(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="91" lineend="98" name="repr_str" returns="__builtin__.repr()" signature="repr_str(x, level)">
+          <variable ilk="argument" name="level" />
+          <variable citdl="max()" line="94" name="i" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="max()" line="95" name="j" />
+          <variable citdl="__builtin__.repr()" line="92" name="s" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="100" lineend="106" name="repr_long" returns="__builtin__.repr()" signature="repr_long(x, level)">
+          <variable ilk="argument" name="level" />
+          <variable citdl="max()" line="103" name="i" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="max()" line="104" name="j" />
+          <variable citdl="list" line="101" name="s" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="41" lineend="52" name="_repr_iterable" returns="tuple" signature="_repr_iterable(x, level, left, right, maxiter, trail='')">
+          <variable citdl="str" ilk="argument" name="right" />
+          <variable ilk="argument" name="level" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="int" line="46" name="newlevel" />
+          <variable citdl="Repr.repr1" line="47" name="repr1" />
+          <variable citdl="str" ilk="argument" name="trail" />
+          <variable citdl="str.join()" line="44" name="s" />
+          <variable citdl="list" line="48" name="pieces" />
+          <variable ilk="argument" name="maxiter" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="len()" line="42" name="n" />
+          <variable ilk="argument" name="left" />
+        </scope>
+        <scope ilk="function" line="23" lineend="24" name="repr" returns="self.repr1()" signature="repr(x)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="64" lineend="66" name="repr_set" returns="Repr._repr_iterable()" signature="repr_set(x, level)">
+          <variable citdl="_possibly_sorted()" ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="68" lineend="71" name="repr_frozenset" returns="Repr._repr_iterable()" signature="repr_frozenset(x, level)">
+          <variable citdl="_possibly_sorted()" ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="73" lineend="74" name="repr_deque" returns="Repr._repr_iterable()" signature="repr_deque(x, level)">
+          <variable ilk="argument" name="x" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="26" lineend="39" name="repr1" returns="__builtin__.repr()" signature="repr1(x, level)">
+          <variable ilk="argument" name="level" />
+          <variable citdl="max()" line="36" name="i" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="max()" line="37" name="j" />
+          <variable citdl="str.join()" line="27" name="typename" />
+          <variable citdl="list" line="34" name="s" />
+          <variable citdl="typename.split()" line="29" name="parts" />
+          <variable ilk="argument" name="x" />
+        </scope>
+        <scope ilk="function" line="76" lineend="89" name="repr_dict" returns="tuple" signature="repr_dict(x, level)">
+          <variable ilk="argument" name="level" />
+          <variable citdl="Repr" ilk="argument" name="self" />
+          <variable citdl="repr1()" line="85" name="valrepr" />
+          <variable citdl="int" line="80" name="newlevel" />
+          <variable citdl="Repr.repr1" line="81" name="repr1" />
+          <variable citdl="str.join()" line="88" name="s" />
+          <variable citdl="list" line="82" name="pieces" />
+          <variable citdl="repr1()" line="84" name="keyrepr" />
+          <variable ilk="argument" name="x" />
+          <variable citdl="len()" line="77" name="n" />
+        </scope>
+        <scope ilk="function" line="10" lineend="21" name="__init__" signature="Repr()">
+          <variable citdl="Repr" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="12" name="maxtuple" />
+        <variable attributes="__instancevar__" citdl="int" line="18" name="maxdeque" />
+        <variable attributes="__instancevar__" citdl="int" line="14" name="maxarray" />
+        <variable attributes="__instancevar__" citdl="int" line="21" name="maxother" />
+        <variable attributes="__instancevar__" citdl="int" line="19" name="maxstring" />
+        <variable attributes="__instancevar__" citdl="int" line="20" name="maxlong" />
+        <variable attributes="__instancevar__" citdl="int" line="17" name="maxfrozenset" />
+        <variable attributes="__instancevar__" citdl="int" line="15" name="maxdict" />
+        <variable attributes="__instancevar__" citdl="int" line="16" name="maxset" />
+        <variable attributes="__instancevar__" citdl="int" line="13" name="maxlist" />
+        <variable attributes="__instancevar__" citdl="int" line="11" name="maxlevel" />
+      </scope>
+      <scope classrefs="object" doc="islice(iterable, [start,] stop [, step]) --&gt; islice object&#10;Return an iterator whose next() method returns selected values from an iterable.  If start is specified, will skip all preceding elements; otherwise, start defaults to zero.  Step defaults to one.  If specified as another value, step determines how many values are skipped between successive calls.  Works like a slice() on a list but returns an iterator." ilk="class" name="islice">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope ilk="function" line="132" name="repr" />
+      <scope attributes="protected __hidden__" ilk="function" line="122" lineend="129" name="_possibly_sorted" returns="list()" signature="_possibly_sorted(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+    </scope>
+    

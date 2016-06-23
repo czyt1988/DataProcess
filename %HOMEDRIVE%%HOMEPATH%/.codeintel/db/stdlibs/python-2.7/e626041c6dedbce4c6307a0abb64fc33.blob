@@ -1,0 +1,21 @@
+<scope doc="Fixer that cleans up a tuple argument to isinstance after the tokens&#10;in it were fixed.  This is mainly used to remove double occurrences of tokens as a leftover of the long -&gt; int / unicode -&gt; str conversion.  eg.  isinstance(x, (int, long)) -&gt; isinstance(x, (int, int)) -&gt; isinstance(x, int)" ilk="blob" lang="Python" name="lib2to3.fixes.fix_isinstance">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="16" lineend="52" name="FixIsinstance">
+        <scope ilk="function" line="29" lineend="52" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="set()" line="30" name="names_inserted" />
+          <variable citdl="enumerate()" line="34" name="iterator" />
+          <variable citdl="FixIsinstance" ilk="argument" name="self" />
+          <variable citdl="testlist.children" line="32" name="args" />
+          <variable line="31" name="testlist" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="testlist.parent" line="47" name="atom" />
+          <variable citdl="list" line="33" name="new_args" />
+        </scope>
+        <variable citdl="True" line="17" name="BM_compatible" />
+        <variable citdl="int" line="27" name="run_order" />
+        <variable citdl="str" line="18" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <import module="token" />
+    </scope>
+    

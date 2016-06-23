@@ -1,0 +1,115 @@
+<scope doc="# Module providing various facilities to other parts of the package&#10;# # multiprocessing/util.py # # Copyright (c) 2006-2008, R Oudkerk # All rights reserved. # # Redistribution and use in source and binary forms, with or without # modification, are permitted provided that the following conditions # are met: #" ilk="blob" lang="Python" name="multiprocessing.util">
+      <variable citdl="int" line="56" name="DEBUG" />
+      <variable citdl="str" line="61" name="DEFAULT_LOGGING_FORMAT" />
+      <scope classrefs="object" doc="Class which supports object finalization using weakrefs&#10;" ilk="class" line="170" lineend="240" name="Finalize">
+        <scope doc="Run the callback unless it has already been called or&#10;cancelled" ilk="function" line="189" lineend="203" name="__call__" returns="_callback()" signature="__call__(wr=None)">
+          <variable citdl="_callback()" line="200" name="res" />
+          <variable citdl="Finalize" ilk="argument" name="self" />
+          <variable ilk="argument" name="wr" />
+        </scope>
+        <scope ilk="function" line="223" lineend="240" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="getattr()" line="232" name="x" />
+          <variable citdl="Finalize" ilk="argument" name="self" />
+          <variable citdl="_weakref()" line="225" name="obj" />
+        </scope>
+        <scope doc="Return whether this finalizer is still waiting to invoke&#10;callback" ilk="function" line="217" lineend="221" name="still_active" returns="bool" signature="still_active()">
+          <variable citdl="Finalize" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Cancel finalization of the object" ilk="function" line="205" lineend="215" name="cancel" signature="cancel()">
+          <variable citdl="Finalize" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="174" lineend="187" name="__init__" signature="Finalize(obj, callback, args=(), kwargs=None, exitpriority=None)">
+          <variable ilk="argument" name="obj" />
+          <variable citdl="Finalize" ilk="argument" name="self" />
+          <variable citdl="tuple" ilk="argument" name="args" />
+          <variable ilk="argument" name="callback" />
+          <variable ilk="argument" name="kwargs" />
+          <variable ilk="argument" name="exitpriority" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="tuple" line="185" name="_key" />
+        <variable attributes="protected __instancevar__" citdl="tuple" line="183" name="_args" />
+        <variable attributes="protected __instancevar__" citdl="weakref.ref()" line="178" name="_weakref" />
+        <variable attributes="protected __instancevar__" line="182" name="_callback" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="184" name="_kwargs" />
+      </scope>
+      <scope classrefs="_local" doc="&#10;" ilk="class" line="313" lineend="317" name="ForkAwareLocal">
+        <scope ilk="function" line="316" lineend="317" name="__reduce__" returns="tuple" signature="__reduce__()">
+          <variable citdl="ForkAwareLocal" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="314" lineend="315" name="__init__" signature="ForkAwareLocal()">
+          <variable citdl="ForkAwareLocal" ilk="argument" name="self" />
+        </scope>
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" line="306" lineend="311" name="ForkAwareThreadLock">
+        <scope ilk="function" line="307" lineend="311" name="__init__" signature="ForkAwareThreadLock()">
+          <variable citdl="ForkAwareThreadLock" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="self._lock.release" line="310" name="release" />
+        <variable attributes="__instancevar__" citdl="self._lock.acquire" line="309" name="acquire" />
+        <variable attributes="protected __instancevar__" citdl="threading.Lock()" line="308" name="_lock" />
+      </scope>
+      <variable citdl="int" line="57" name="INFO" />
+      <variable citdl="str" line="60" name="LOGGER_NAME" />
+      <variable citdl="int" line="54" name="NOTSET" />
+      <variable citdl="int" line="55" name="SUBDEBUG" />
+      <variable citdl="int" line="58" name="SUBWARNING" />
+      <variable citdl="list" line="43" name="__all__" />
+      <scope doc="Return list of process objects corresponding to live child&#10;processes" ilk="function" name="active_children" signature="active_children()" />
+      <import module="atexit" />
+      <scope doc="Return process object representing the current process" ilk="function" name="current_process" signature="current_process()" />
+      <scope ilk="function" line="70" lineend="72" name="debug" signature="debug(msg, *args)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Returns logger used by multiprocessing" ilk="function" line="82" lineend="109" name="get_logger" returns="logging.getLogger()" signature="get_logger()">
+        <variable attributes="protected" citdl="logging.getLogger()" line="93" name="_logger" />
+      </scope>
+      <scope ilk="function" line="133" lineend="141" name="get_temp_dir" signature="get_temp_dir()">
+        <variable citdl="tempfile.mkdtemp()" line="137" name="tempdir" />
+      </scope>
+      <scope ilk="function" line="74" lineend="76" name="info" signature="info(msg, *args)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope doc="Returns true if the process is shutting down" ilk="function" line="273" lineend="277" name="is_exiting" returns="bool" signature="is_exiting()" />
+      <import module="itertools" />
+      <scope doc="Turn on logging and add a handler which prints to stderr" ilk="function" line="111" lineend="127" name="log_to_stderr" signature="log_to_stderr(level=None)">
+        <variable citdl="get_logger()" line="118" name="logger" />
+        <variable citdl="logging.StreamHandler()" line="120" name="handler" />
+        <variable citdl="logging.Formatter()" line="119" name="formatter" />
+        <variable attributes="protected" citdl="True" line="126" name="_log_to_stderr" />
+        <variable ilk="argument" name="level" />
+      </scope>
+      <scope ilk="function" line="159" lineend="160" name="register_after_fork" signature="register_after_fork(obj, func)">
+        <variable ilk="argument" name="obj" />
+        <variable ilk="argument" name="func" />
+      </scope>
+      <scope ilk="function" line="66" lineend="68" name="sub_debug" signature="sub_debug(msg, *args)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope ilk="function" line="78" lineend="80" name="sub_warning" signature="sub_warning(msg, *args)">
+        <variable ilk="argument" name="msg" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <import module="threading" />
+      <import module="weakref" />
+      <variable attributes="protected __hidden__" citdl="itertools.count()" line="148" name="_afterfork_counter" />
+      <scope attributes="protected __hidden__" ilk="function" line="281" lineend="298" name="_exit_function" signature="_exit_function()" />
+      <variable attributes="protected __hidden__" citdl="weakref.WeakValueDictionary()" line="147" name="_afterfork_registry" />
+      <variable attributes="protected __hidden__" line="63" name="_logger" />
+      <scope attributes="protected __hidden__" ilk="function" line="150" lineend="157" name="_run_after_forkers" signature="_run_after_forkers()">
+        <variable citdl="list()" line="151" name="items" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="166" name="_finalizer_registry" />
+      <variable attributes="protected __hidden__" citdl="False" line="64" name="_log_to_stderr" />
+      <variable attributes="protected __hidden__" citdl="False" line="279" name="_exiting" />
+      <scope attributes="protected __hidden__" doc="Run all finalizers whose exit priority is not None and at&#10;least minpriority" ilk="function" line="243" lineend="267" name="_run_finalizers" signature="_run_finalizers(minpriority=None)">
+        <import line="263" module="traceback" />
+        <variable ilk="argument" name="minpriority" />
+        <variable line="251" name="f" />
+        <variable citdl="list" line="255" name="items" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="itertools.count()" line="167" name="_finalizer_counter" />
+    </scope>
+    

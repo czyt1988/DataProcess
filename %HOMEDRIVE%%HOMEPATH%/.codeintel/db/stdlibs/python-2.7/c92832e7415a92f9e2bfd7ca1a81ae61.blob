@@ -1,0 +1,62 @@
+<scope doc="Create and manipulate C compatible data types in Python.&#10;" ilk="blob" lang="Python" name="_ctypes">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="ArgumentError" />
+      <scope classrefs="_CData" doc="XXX to be provided&#10;" ilk="class" name="Array">
+        <scope doc="x.__delitem__(y) &lt;==&gt; del x[y]" ilk="function" name="__delitem__" signature="x.__delitem__(y) &lt;==&gt; del x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__delslice__" signature="x.__delslice__(i, j) &lt;==&gt; del x[i:j]" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope doc="Use  of negative indices is not supported." ilk="function" name="__setslice__" signature="x.__setslice__(i, j, y) &lt;==&gt; x[i:j]=y" />
+        <scope doc="x.__setitem__(i, y) &lt;==&gt; x[i]=y" ilk="function" name="__setitem__" signature="x.__setitem__(i, y) &lt;==&gt; x[i]=y" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+      </scope>
+      <scope classrefs="_CData" doc="Function Pointer&#10;" ilk="class" name="CFuncPtr">
+        <scope doc="x.__nonzero__() &lt;==&gt; x != 0" ilk="function" name="__nonzero__" signature="x.__nonzero__() &lt;==&gt; x != 0" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+      </scope>
+      <scope classrefs="Exception" doc="Raised when a COM method call failed.&#10;" ilk="class" name="COMError">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope doc="CopyComPointer(src, dst) -&gt; HRESULT value" ilk="function" name="CopyComPointer" signature="CopyComPointer(src, dst) -&gt; HRESULT value" />
+      <variable citdl="int" name="FUNCFLAG_CDECL" />
+      <variable citdl="int" name="FUNCFLAG_HRESULT" />
+      <variable citdl="int" name="FUNCFLAG_PYTHONAPI" />
+      <variable citdl="int" name="FUNCFLAG_STDCALL" />
+      <variable citdl="int" name="FUNCFLAG_USE_ERRNO" />
+      <variable citdl="int" name="FUNCFLAG_USE_LASTERROR" />
+      <scope doc="Convert a win32 error code into a string." ilk="function" name="FormatError" returns="str" signature="FormatError([integer]) -&gt; string" />
+      <scope doc="Free the handle of an executable previously loaded by&#10;LoadLibrary." ilk="function" name="FreeLibrary" signature="FreeLibrary(handle) -&gt; void" />
+      <scope doc="Load an executable (usually a DLL), and return a handle to&#10;it." ilk="function" name="LoadLibrary" signature="LoadLibrary(name) -&gt; handle" />
+      <scope ilk="function" name="POINTER" />
+      <scope ilk="function" name="PyObj_FromPtr" />
+      <scope ilk="function" name="Py_DECREF" />
+      <scope ilk="function" name="Py_INCREF" />
+      <variable citdl="int" name="RTLD_GLOBAL" />
+      <variable citdl="int" name="RTLD_LOCAL" />
+      <scope classrefs="_CData" doc="Structure base class&#10;" ilk="class" name="Structure">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="_CData" doc="Union base class&#10;" ilk="class" name="Union">
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" name="__version__" />
+      <scope doc="Return the address of the C instance internal buffer" ilk="function" name="addressof" returns="int" signature="addressof(C instance) -&gt; integer" />
+      <scope doc="Return the alignment requirements of a C instance" ilk="function" name="alignment" signature="alignment(C type) -&gt; integer&#10;alignment(C instance) -&gt; integer" />
+      <scope doc="Return a pointer lookalike to a C instance, only usable as&#10;function argument" ilk="function" name="byref" signature="byref(C instance[, offset=0]) -&gt; byref-object" />
+      <scope ilk="function" name="call_cdeclfunction" />
+      <scope ilk="function" name="call_commethod" />
+      <scope ilk="function" name="call_function" />
+      <scope ilk="function" name="get_errno" />
+      <scope ilk="function" name="get_last_error" />
+      <scope ilk="function" name="pointer" />
+      <scope doc="Resize the memory buffer of a ctypes instance" ilk="function" name="resize" />
+      <scope doc="Set the encoding and error handling ctypes uses when&#10;converting between unicode and strings." ilk="function" name="set_conversion_mode" signature="set_conversion_mode(encoding, errors) -&gt; (previous-encoding, previous-errors)" />
+      <scope ilk="function" name="set_errno" />
+      <scope ilk="function" name="set_last_error" />
+      <scope doc="Return the size in bytes of a C instance" ilk="function" name="sizeof" signature="sizeof(C type) -&gt; integer&#10;sizeof(C instance) -&gt; integer" />
+      <scope doc="find symbol in shared library" ilk="function" name="dlsym" />
+      <scope doc="dlclose a library" ilk="function" name="dlclose" />
+      <scope doc="dlopen(name, flag={RTLD_GLOBAL|RTLD_LOCAL}) open a shared library" ilk="function" name="dlopen" signature="dlopen(name, flag={RTLD_GLOBAL|RTLD_LOCAL}) open a shared library" />
+    </scope>
+    

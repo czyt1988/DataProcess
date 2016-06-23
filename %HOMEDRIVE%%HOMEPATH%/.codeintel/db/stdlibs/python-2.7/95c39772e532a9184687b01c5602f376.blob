@@ -1,0 +1,39 @@
+<scope doc="Cache lines from files.&#10;This is intended to read lines from modules imported -- hence if a filename is not found, it will look down the module search path for a file by that name." ilk="blob" lang="Python" name="linecache">
+      <variable citdl="list" line="11" name="__all__" />
+      <variable citdl="dict" line="23" name="cache" />
+      <scope doc="Discard cache entries that are out of date." ilk="function" line="43" lineend="65" name="checkcache" signature="checkcache(filename=None)">
+        <variable citdl="os.stat()" line="60" name="stat" />
+        <variable citdl="cache.keys()" line="48" name="filenames" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Clear the cache entirely." ilk="function" line="26" lineend="30" name="clearcache" signature="clearcache()">
+        <variable citdl="dict" line="30" name="cache" />
+      </scope>
+      <scope ilk="function" line="13" lineend="18" name="getline" returns="str" signature="getline(filename, lineno, module_globals=None)">
+        <variable ilk="argument" name="module_globals" />
+        <variable citdl="getlines()" line="14" name="lines" />
+        <variable ilk="argument" name="lineno" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <scope doc="Get the lines for a file from the cache." ilk="function" line="33" lineend="40" name="getlines" returns="updatecache()" signature="getlines(filename, module_globals=None)">
+        <variable ilk="argument" name="module_globals" />
+        <variable ilk="argument" name="filename" />
+      </scope>
+      <import module="os" />
+      <import module="sys" />
+      <scope doc="Update a cache entry and return its list of lines." ilk="function" line="68" lineend="135" name="updatecache" returns="list" signature="updatecache(filename, module_globals=None)">
+        <variable citdl="os.stat()" line="80" name="stat" />
+        <variable ilk="argument" name="module_globals" />
+        <variable citdl="module_globals.get()" line="86" name="name" />
+        <variable citdl="getattr()" line="88" name="get_source" />
+        <variable line="82" name="basename" />
+        <variable citdl="fp.readlines()" line="128" name="lines" />
+        <variable ilk="argument" name="filename" />
+        <variable citdl="stat.st_mtime" line="133" name="mtime" />
+        <variable citdl="os.path.join()" line="78" name="fullname" />
+        <variable line="87" name="loader" />
+        <variable citdl="get_source()" line="92" name="data" />
+        <variable citdl="stat.st_size" line="133" name="size" />
+      </scope>
+    </scope>
+    

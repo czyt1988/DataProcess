@@ -1,0 +1,999 @@
+<scope doc="Read/write support for Maildir, mbox, MH, Babyl, and MMDF mailboxes.&#10;" ilk="blob" lang="Python" name="mailbox">
+      <scope classrefs="_singlefileMailbox" doc="An Rmail-style Babyl mailbox.&#10;" ilk="class" line="1168" lineend="1386" name="Babyl">
+        <scope doc="Called before writing each message to file f." ilk="function" line="1292" lineend="1294" name="_pre_message_hook" signature="_pre_message_hook(f)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Called before writing the mailbox to file f." ilk="function" line="1286" lineend="1290" name="_pre_mailbox_hook" signature="_pre_mailbox_hook(f)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Return a Message representation or raise a KeyError." ilk="function" line="1198" lineend="1221" name="get_message" returns="BabylMessage()" signature="get_message(key)">
+          <variable line="1215" name="body" />
+          <variable citdl="StringIO.StringIO()" line="1203" name="original_headers" />
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable line="1200" name="stop" />
+          <variable line="1200" name="start" />
+          <variable citdl="StringIO.StringIO()" line="1209" name="visible_headers" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="BabylMessage()" line="1217" name="msg" />
+          <variable citdl="self._file.readline()" line="1205" name="line" />
+        </scope>
+        <scope doc="Write message contents and return (start, stop)." ilk="function" line="1300" lineend="1386" name="_install_message" returns="tuple" signature="_install_message(message)">
+          <variable citdl="StringIO.StringIO()" line="1332" name="vis_buffer" />
+          <variable citdl="message.tell()" line="1366" name="original_pos" />
+          <variable citdl="email.generator.Generator()" line="1322" name="orig_generator" />
+          <variable citdl="StringIO.StringIO()" line="1321" name="orig_buffer" />
+          <variable citdl="orig_buffer.read()" line="1348" name="buffer" />
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable citdl="list" line="1305" name="labels" />
+          <variable citdl="self._file.tell()" line="1385" name="stop" />
+          <variable citdl="email.generator.Generator()" line="1333" name="vis_generator" />
+          <variable citdl="self._file.tell()" line="1302" name="start" />
+          <variable citdl="message.find()" line="1353" name="body_start" />
+          <variable citdl="list" line="1304" name="special_labels" />
+          <variable citdl="True" line="1367" name="first_pass" />
+          <variable citdl="orig_buffer.readline()" line="1326" name="line" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Replace the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="1192" lineend="1196" name="__setitem__" signature="__setitem__(key, message)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Remove the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="1186" lineend="1190" name="remove" signature="remove(key)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a file-like representation or raise a KeyError." ilk="function" line="1242" lineend="1245" name="get_file" returns="StringIO.StringIO()" signature="get_file(key)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Add message and return assigned key." ilk="function" line="1179" lineend="1184" name="add" returns="_singlefileMailbox.add()" signature="add(message)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="_singlefileMailbox.add()" line="1181" name="key" />
+        </scope>
+        <scope doc="Generate key-to-(start, stop) table of contents." ilk="function" line="1256" lineend="1284" name="_generate_toc" signature="_generate_toc()">
+          <variable citdl="list" line="1261" name="label_lists" />
+          <variable citdl="int" line="1260" name="next_pos" />
+          <variable citdl="list" line="1258" name="starts" />
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable citdl="list" line="1270" name="labels" />
+          <variable citdl="int" line="1263" name="line_pos" />
+          <variable citdl="list" line="1258" name="stops" />
+          <variable citdl="self._file.readline()" line="1264" name="line" />
+        </scope>
+        <scope doc="Return a string representation or raise a KeyError." ilk="function" line="1223" lineend="1240" name="get_string" returns="original_headers.getvalue()" signature="get_string(key)">
+          <variable citdl="StringIO.StringIO()" line="1228" name="original_headers" />
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable line="1225" name="stop" />
+          <variable line="1225" name="start" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="self._file.readline()" line="1230" name="line" />
+        </scope>
+        <scope doc="Return a list of user-defined labels in the mailbox." ilk="function" line="1247" lineend="1254" name="get_labels" returns="list()" signature="get_labels()">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable citdl="set()" line="1250" name="labels" />
+        </scope>
+        <scope doc="Called after writing each message to file f." ilk="function" line="1296" lineend="1298" name="_post_message_hook" signature="_post_message_hook(f)">
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Initialize a Babyl mailbox." ilk="function" line="1174" lineend="1177" name="__init__" signature="Babyl(path, factory=None, create=True)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="Babyl" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="factory" />
+        </scope>
+        <variable attributes="protected" citdl="frozenset()" line="1171" name="_special_labels" />
+        <variable attributes="protected __instancevar__" citdl="dict()" line="1280" name="_toc" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="1284" name="_file_length" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="1282" name="_next_key" />
+        <variable attributes="protected __instancevar__" citdl="dict()" line="1177" name="_labels" />
+      </scope>
+      <scope classrefs="_Mailbox" doc="&#10;" ilk="class" line="2135" name="BabylMailbox">
+        <scope ilk="function" line="2137" name="_search_start" signature="_search_start()">
+          <variable citdl="BabylMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2139" name="line" />
+        </scope>
+        <scope ilk="function" line="2145" name="_search_end" signature="_search_end()">
+          <variable citdl="BabylMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2148" name="line" />
+          <variable citdl="self.fp.tell()" line="2147" name="pos" />
+        </scope>
+      </scope>
+      <scope classrefs="Message" doc="Message with Babyl-specific properties.&#10;" ilk="class" line="1713" lineend="1803" name="BabylMessage">
+        <scope doc="Set the Message representation of visible headers." ilk="function" line="1749" lineend="1751" name="set_visible" signature="set_visible(visible)">
+          <variable ilk="argument" name="visible" />
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a Message representation of visible headers." ilk="function" line="1745" lineend="1747" name="get_visible" returns="Message" signature="get_visible()">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the list of labels on the message." ilk="function" line="1726" lineend="1728" name="set_labels" signature="set_labels(labels)">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="labels" />
+        </scope>
+        <scope doc="Remove label from the list of labels on the message." ilk="function" line="1738" lineend="1743" name="remove_label" signature="remove_label(label)">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="label" />
+        </scope>
+        <scope doc="Return a list of labels on the message." ilk="function" line="1722" lineend="1724" name="get_labels" returns="list" signature="get_labels()">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Update and/or sensibly generate a set of visible headers." ilk="function" line="1753" lineend="1762" name="update_visible" signature="update_visible()">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Copy Babyl-specific state to message insofar as possible." ilk="function" line="1764" lineend="1803" name="_explain_to" signature="_explain_to(message)">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+          <variable citdl="set()" line="1767" name="labels" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Initialize an BabylMessage instance." ilk="function" line="1716" lineend="1720" name="__init__" signature="BabylMessage(message=None)">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Add label to list of labels on the message." ilk="function" line="1730" lineend="1736" name="add_label" signature="add_label(label)">
+          <variable citdl="BabylMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="label" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list()" line="1718" name="_labels" />
+        <variable attributes="protected __instancevar__" citdl="Message" line="1719" name="_visible" />
+      </scope>
+      <scope classrefs="Exception" doc="Raised for module-specific errors.&#10;" ilk="class" line="2158" name="Error" />
+      <scope classrefs="Error" doc="Another process caused an action to fail.&#10;" ilk="class" line="2167" name="ExternalClashError" />
+      <scope classrefs="Error" doc="A file appears to have an invalid format.&#10;" ilk="class" line="2170" name="FormatError" />
+      <scope classrefs="Mailbox" doc="An MH mailbox.&#10;" ilk="class" line="857" lineend="1165" name="MH">
+        <scope doc="Lock the mailbox." ilk="function" line="1018" lineend="1023" name="lock" signature="lock()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of folder names." ilk="function" line="1042" lineend="1048" name="list_folders" returns="list" signature="list_folders()">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="list" line="1044" name="result" />
+        </scope>
+        <scope doc="Unlock the mailbox if it is locked." ilk="function" line="1025" lineend="1031" name="unlock" signature="unlock()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the keyed message exists, False otherwise." ilk="function" line="1010" lineend="1012" name="has_key" returns="os.path.exists()" signature="has_key(key)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Write any pending changes to the disk." ilk="function" line="1033" name="flush" signature="flush()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush and close the mailbox." ilk="function" line="1037" lineend="1040" name="close" signature="close()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a name-to-key-list dictionary to define each&#10;sequence." ilk="function" line="1072" lineend="1097" name="get_sequences" returns="dict" signature="get_sequences()">
+          <variable line="1080" name="name" />
+          <variable citdl="open()" line="1075" name="f" />
+          <variable citdl="set()" line="1077" name="all_keys" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="dict" line="1074" name="results" />
+          <variable citdl="set()" line="1081" name="keys" />
+          <variable line="1080" name="contents" />
+        </scope>
+        <scope doc="Initialize an MH instance." ilk="function" line="860" lineend="870" name="__init__" signature="MH(path, factory=None, create=True)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="factory" />
+        </scope>
+        <scope doc="Create a folder and return an MH instance representing it." ilk="function" line="1055" lineend="1058" name="add_folder" returns="MH" signature="add_folder(folder)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+        </scope>
+        <scope doc="Delete the named folder, which must be empty." ilk="function" line="1060" lineend="1070" name="remove_folder" signature="remove_folder(folder)">
+          <variable citdl="os.path.join()" line="1062" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+          <variable citdl="os.listdir()" line="1063" name="entries" />
+        </scope>
+        <scope doc="Inspect a new MHMessage and update sequences appropriately." ilk="function" line="1153" lineend="1165" name="_dump_sequences" signature="_dump_sequences(message, key)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="message.get_sequences()" line="1155" name="pending_sequences" />
+          <variable ilk="argument" name="message" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="get_sequences()" line="1156" name="all_sequences" />
+        </scope>
+        <scope doc="Add message and return assigned key." ilk="function" line="872" lineend="904" name="add" returns="max()" signature="add(message)">
+          <variable citdl="os.path.join()" line="879" name="new_path" />
+          <variable citdl="_create_carefully()" line="880" name="f" />
+          <variable citdl="self.keys()" line="874" name="keys" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="False" line="881" name="closed" />
+          <variable citdl="int" line="876" name="new_key" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Return a string representation or raise a KeyError." ilk="function" line="971" lineend="992" name="get_string" returns="f.read()" signature="get_string(key)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="975" name="f" />
+        </scope>
+        <scope doc="Return an MH instance for the named folder." ilk="function" line="1050" lineend="1053" name="get_folder" returns="MH" signature="get_folder(folder)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+        </scope>
+        <scope doc="Return a count of messages in the mailbox." ilk="function" line="1014" lineend="1016" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a Message representation or raise a KeyError." ilk="function" line="944" lineend="969" name="get_message" returns="MHMessage()" signature="get_message(key)">
+          <variable citdl="MHMessage()" line="960" name="msg" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="948" name="f" />
+        </scope>
+        <scope doc="Replace the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="920" lineend="942" name="__setitem__" signature="__setitem__(key, message)">
+          <variable citdl="os.path.join()" line="922" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="924" name="f" />
+        </scope>
+        <scope doc="Return an iterator over keys." ilk="function" line="1005" lineend="1008" name="iterkeys" returns="iter()" signature="iterkeys()">
+          <variable citdl="MH" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="906" lineend="918" name="remove" signature="remove(key)">
+          <variable citdl="os.path.join()" line="908" name="path" />
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="910" name="f" />
+        </scope>
+        <scope doc="Return a file-like representation or raise a KeyError." ilk="function" line="994" lineend="1003" name="get_file" returns="_ProxyFile()" signature="get_file(key)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="997" name="f" />
+        </scope>
+        <scope doc="Set sequences using the given name-to-key-list dictionary." ilk="function" line="1099" lineend="1126" name="set_sequences" signature="set_sequences(sequences)">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="key" line="1108" name="prev" />
+          <variable citdl="False" line="1109" name="completing" />
+          <variable citdl="open()" line="1101" name="f" />
+          <variable ilk="argument" name="sequences" />
+        </scope>
+        <scope doc="Re-name messages to eliminate numbering gaps." ilk="function" line="1128" lineend="1151" name="pack" signature="pack()">
+          <variable citdl="MH" ilk="argument" name="self" />
+          <variable citdl="int" line="1131" name="prev" />
+          <variable citdl="list" line="1132" name="changes" />
+          <variable citdl="get_sequences()" line="1130" name="sequences" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="open()" line="1021" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="int" line="1144" name="_next_key" />
+        <variable attributes="protected __instancevar__" citdl="False" line="870" name="_locked" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="2101" lineend="2132" name="MHMailbox">
+        <scope ilk="function" line="2119" lineend="2120" name="__iter__" returns="iter()" signature="__iter__()">
+          <variable citdl="MHMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="2103" lineend="2117" name="__init__" signature="MHMailbox(dirname, factory=rfc822.Message)">
+          <variable citdl="map()" line="2109" name="list" />
+          <variable citdl="MHMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="dirname" />
+          <variable citdl="re.compile()" line="2105" name="pat" />
+          <variable citdl="rfc822.Message" ilk="argument" name="factory" />
+        </scope>
+        <scope ilk="function" line="2122" lineend="2132" name="next" returns="factory()" signature="next()">
+          <variable citdl="open()" line="2126" name="fp" />
+          <variable citdl="factory()" line="2127" name="msg" />
+          <variable citdl="MHMailbox" ilk="argument" name="self" />
+          <variable citdl="self.boxes.pop()" line="2125" name="fn" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="map()" line="2115" name="boxes" />
+        <variable attributes="__instancevar__" line="2106" name="dirname" />
+        <variable attributes="__instancevar__" citdl="rfc822.Message" line="2117" name="factory" />
+      </scope>
+      <scope classrefs="Message" doc="Message with MH-specific properties.&#10;" ilk="class" line="1643" lineend="1710" name="MHMessage">
+        <scope doc="Add sequence to list of sequences including the message." ilk="function" line="1659" lineend="1665" name="add_sequence" signature="add_sequence(sequence)">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope doc="Initialize an MHMessage instance." ilk="function" line="1646" lineend="1649" name="__init__" signature="MHMessage(message=None)">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Remove sequence from the list of sequences including the&#10;message." ilk="function" line="1667" lineend="1672" name="remove_sequence" signature="remove_sequence(sequence)">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="sequence" />
+        </scope>
+        <scope doc="Return a list of sequences that include the message." ilk="function" line="1651" lineend="1653" name="get_sequences" returns="list" signature="get_sequences()">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Copy MH-specific state to message insofar as possible." ilk="function" line="1674" lineend="1710" name="_explain_to" signature="_explain_to(message)">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="set()" line="1677" name="sequences" />
+        </scope>
+        <scope doc="Set the list of sequences that include the message." ilk="function" line="1655" lineend="1657" name="set_sequences" signature="set_sequences(sequences)">
+          <variable citdl="MHMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="sequences" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="list()" line="1648" name="_sequences" />
+      </scope>
+      <scope classrefs="_mboxMMDF" doc="An MMDF mailbox.&#10;" ilk="class" line="812" lineend="854" name="MMDF">
+        <scope doc="Called before writing each message to file f." ilk="function" line="820" lineend="822" name="_pre_message_hook" signature="_pre_message_hook(f)">
+          <variable citdl="MMDF" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Called after writing each message to file f." ilk="function" line="824" lineend="826" name="_post_message_hook" signature="_post_message_hook(f)">
+          <variable citdl="MMDF" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Generate key-to-(start, stop) table of contents." ilk="function" line="828" lineend="854" name="_generate_toc" signature="_generate_toc()">
+          <variable citdl="self._file.tell()" line="832" name="next_pos" />
+          <variable citdl="list" line="830" name="starts" />
+          <variable citdl="MMDF" ilk="argument" name="self" />
+          <variable citdl="int" line="834" name="line_pos" />
+          <variable citdl="list" line="830" name="stops" />
+          <variable citdl="self._file.readline()" line="835" name="line" />
+        </scope>
+        <scope doc="Initialize an MMDF mailbox." ilk="function" line="815" lineend="818" name="__init__" signature="MMDF(path, factory=None, create=True)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="MMDF" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="factory" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="dict()" line="851" name="_toc" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="854" name="_file_length" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="852" name="_next_key" />
+        <variable attributes="protected __instancevar__" citdl="MMDFMessage" line="817" name="_message_factory" />
+      </scope>
+      <scope classrefs="_mboxMMDFMessage" doc="Message with MMDF-specific properties.&#10;" ilk="class" line="1806" name="MMDFMessage" />
+      <scope doc="A group of messages in a particular place.&#10;" ilk="class" line="42" lineend="226" name="Mailbox">
+        <scope doc="Lock the mailbox." ilk="function" line="188" lineend="190" name="lock" signature="lock()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete an arbitrary (key, message) pair and return it." ilk="function" line="160" lineend="165" name="popitem" returns="tuple" signature="popitem()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete the keyed message and return it, or default." ilk="function" line="151" lineend="158" name="pop" signature="pop(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable line="154" name="result" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Unlock the mailbox if it is locked." ilk="function" line="192" lineend="194" name="unlock" signature="unlock()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the keyed message exists, False otherwise." ilk="function" line="135" lineend="137" name="has_key" signature="has_key(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Write any pending changes to the disk." ilk="function" line="184" lineend="186" name="flush" signature="flush()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush and close the mailbox." ilk="function" line="196" lineend="198" name="close" signature="close()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a Mailbox instance." ilk="function" line="45" lineend="48" name="__init__" signature="Mailbox(path, factory=None, create=True)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="factory" />
+        </scope>
+        <scope ilk="function" line="139" lineend="140" name="__contains__" returns="Mailbox.has_key()" signature="__contains__(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Dump message contents to target file." ilk="function" line="200" lineend="226" name="_dump_message" signature="_dump_message(message, target, mangle_from_=False)">
+          <variable ilk="argument" name="target" />
+          <variable citdl="StringIO.StringIO()" line="206" name="buffer" />
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="mangle_from_" />
+          <variable citdl="message.replace()" ilk="argument" name="message" />
+          <variable citdl="message.readline()" line="218" name="line" />
+          <variable citdl="email.generator.Generator()" line="207" name="gen" />
+        </scope>
+        <scope doc="Add message and return assigned key." ilk="function" line="50" lineend="52" name="add" signature="add(message)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Return an iterator over all messages." ilk="function" line="106" lineend="113" name="itervalues" signature="itervalues()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable line="110" name="value" />
+        </scope>
+        <scope doc="Return a count of messages in the mailbox." ilk="function" line="142" lineend="144" name="__len__" signature="__len__()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a string representation or raise a KeyError." ilk="function" line="90" lineend="92" name="get_string" signature="get_string(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="79" lineend="84" name="__getitem__" returns="self.get_message()" signature="__getitem__(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return the keyed message, or default if it doesn't exist." ilk="function" line="72" lineend="77" name="get" returns="self.__getitem__()" signature="get(key, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a list of keys." ilk="function" line="102" lineend="104" name="keys" returns="list()" signature="keys()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a Message representation or raise a KeyError." ilk="function" line="86" lineend="88" name="get_message" signature="get_message(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Change the messages that correspond to certain keys." ilk="function" line="167" lineend="182" name="update" signature="update(arg=None)">
+          <variable citdl="arg.iteritems()" line="170" name="source" />
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable citdl="False" line="175" name="bad_key" />
+          <variable ilk="argument" name="arg" />
+        </scope>
+        <scope ilk="function" line="115" lineend="116" name="__iter__" returns="Mailbox.itervalues()" signature="__iter__()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return an iterator over (key, message) tuples." ilk="function" line="122" lineend="129" name="iteritems" signature="iteritems()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable line="126" name="value" />
+        </scope>
+        <scope doc="Return an iterator over keys." ilk="function" line="98" lineend="100" name="iterkeys" signature="iterkeys()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="58" lineend="59" name="__delitem__" signature="__delitem__(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a list of (key, message) tuples. Memory intensive." ilk="function" line="131" lineend="133" name="items" returns="list()" signature="items()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Delete all messages." ilk="function" line="146" lineend="149" name="clear" signature="clear()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Replace the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="68" lineend="70" name="__setitem__" signature="__setitem__(key, message)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Remove the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="54" lineend="56" name="remove" signature="remove(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a list of messages. Memory intensive." ilk="function" line="118" lineend="120" name="values" returns="list()" signature="values()">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="If the keyed message exists, remove it." ilk="function" line="61" lineend="66" name="discard" signature="discard(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a file-like representation or raise a KeyError." ilk="function" line="94" lineend="96" name="get_file" signature="get_file(key)">
+          <variable citdl="Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="os.path.abspath()" line="47" name="_path" />
+        <variable attributes="protected __instancevar__" line="48" name="_factory" />
+      </scope>
+      <scope classrefs="Mailbox" doc="A qmail-style Maildir mailbox.&#10;" ilk="class" line="229" lineend="542" name="Maildir">
+        <scope doc="Lock the mailbox." ilk="function" line="388" name="lock" signature="lock()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create a file in the tmp subdirectory and open and return&#10;it." ilk="function" line="454" lineend="480" name="_create_tmp" returns="_create_carefully()" signature="_create_tmp()">
+          <variable citdl="os.path.join()" line="464" name="path" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="str" line="462" name="uniq" />
+          <variable citdl="time.time()" line="456" name="now" />
+          <variable citdl="hostname.replace()" line="457" name="hostname" />
+        </scope>
+        <scope doc="Return a list of folder names." ilk="function" line="400" lineend="407" name="list_folders" returns="list" signature="list_folders()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="list" line="402" name="result" />
+        </scope>
+        <scope doc="Unlock the mailbox if it is locked." ilk="function" line="392" name="unlock" signature="unlock()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the keyed message exists, False otherwise." ilk="function" line="372" lineend="375" name="has_key" returns="bool" signature="has_key(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Write any pending changes to disk." ilk="function" line="382" lineend="386" name="flush" signature="flush()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush and close the mailbox." ilk="function" line="396" name="close" signature="close()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a Maildir instance." ilk="function" line="234" lineend="254" name="__init__" signature="Maildir(dirname, factory=rfc822.Message, create=True)">
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="dirname" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="rfc822.Message" ilk="argument" name="factory" />
+        </scope>
+        <scope doc="Use TOC to return subpath for given key, or raise a&#10;KeyError." ilk="function" line="518" lineend="529" name="_lookup" signature="_lookup(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Create a folder and return a Maildir instance representing&#10;it." ilk="function" line="415" lineend="423" name="add_folder" signature="add_folder(folder)">
+          <variable citdl="os.path.join()" line="417" name="path" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+          <variable citdl="os.path.join()" line="419" name="maildirfolder_path" />
+          <variable citdl="" line="418" name="result" />
+        </scope>
+        <scope doc="Delete the named folder, which must be empty." ilk="function" line="425" lineend="442" name="remove_folder" signature="remove_folder(folder)">
+          <variable citdl="os.path.join()" line="427" name="path" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+        </scope>
+        <scope doc="Return the next message in a one-time iteration." ilk="function" line="532" lineend="542" name="next" signature="next()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Add message and return assigned key." ilk="function" line="256" lineend="291" name="add" signature="add(message)">
+          <variable citdl="self._create_tmp()" line="258" name="tmp_file" />
+          <variable citdl="str" line="268" name="suffix" />
+          <variable citdl="os.path.join()" line="275" name="dest" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="message.get_subdir()" line="267" name="subdir" />
+          <variable ilk="argument" name="message" />
+          <variable line="274" name="uniq" />
+        </scope>
+        <scope doc="Return a string representation or raise a KeyError." ilk="function" line="349" lineend="355" name="get_string" returns="f.read()" signature="get_string(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="351" name="f" />
+        </scope>
+        <scope doc="Return a Maildir instance for the named folder." ilk="function" line="409" lineend="413" name="get_folder" returns="Maildir" signature="get_folder(folder)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="folder" />
+        </scope>
+        <scope doc="Return a count of messages in the mailbox." ilk="function" line="377" lineend="380" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a Message representation or raise a KeyError." ilk="function" line="331" lineend="347" name="get_message" returns="MaildirMessage()" signature="get_message(key)">
+          <variable line="342" name="name" />
+          <variable citdl="open()" line="334" name="f" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="self._lookup()" line="333" name="subpath" />
+          <variable line="342" name="subdir" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="self._factory()" line="337" name="msg" />
+        </scope>
+        <scope doc="Update table of contents mapping." ilk="function" line="482" lineend="516" name="_refresh" signature="_refresh()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="False" line="498" name="refresh" />
+          <variable citdl="os.path.join()" line="511" name="p" />
+          <variable citdl="os.path.getmtime()" line="500" name="mtime" />
+          <variable line="509" name="path" />
+          <variable line="514" name="uniq" />
+        </scope>
+        <scope doc="Replace the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="308" lineend="329" name="__setitem__" signature="__setitem__(key, message)">
+          <variable citdl="os.path.join()" line="325" name="new_path" />
+          <variable citdl="str" line="321" name="suffix" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="self._lookup()" line="315" name="dominant_subpath" />
+          <variable citdl="self._lookup()" line="310" name="old_subpath" />
+          <variable citdl="self._lookup()" line="312" name="temp_subpath" />
+          <variable citdl="os.path.dirname()" line="319" name="subdir" />
+          <variable ilk="argument" name="key" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="add()" line="311" name="temp_key" />
+        </scope>
+        <scope doc="Return an iterator over keys." ilk="function" line="362" lineend="370" name="iterkeys" signature="iterkeys()">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Remove the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="293" lineend="295" name="remove" signature="remove(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Delete old files in &quot;tmp&quot;." ilk="function" line="444" lineend="450" name="clean" signature="clean()">
+          <variable citdl="os.path.join()" line="448" name="path" />
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable citdl="time.time()" line="446" name="now" />
+        </scope>
+        <scope doc="If the keyed message exists, remove it." ilk="function" line="297" lineend="306" name="discard" signature="discard(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a file-like representation or raise a KeyError." ilk="function" line="357" lineend="360" name="get_file" returns="_ProxyFile()" signature="get_file(key)">
+          <variable citdl="Maildir" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="open()" line="359" name="f" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="dict" line="250" name="_toc_mtimes" />
+        <variable attributes="protected" citdl="int" line="452" name="_count" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="237" name="_paths" />
+        <variable attributes="protected __instancevar__" citdl="iterkeys()" line="535" name="_onetime_keys" />
+        <variable citdl="str" line="232" name="colon" />
+        <variable attributes="protected __instancevar__" citdl="float" line="254" name="_skewfactor" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="249" name="_toc" />
+        <variable attributes="protected __instancevar__" citdl="time.time()" line="253" name="_last_read" />
+      </scope>
+      <scope classrefs="Message" doc="Message with Maildir-specific properties.&#10;" ilk="class" line="1421" lineend="1525" name="MaildirMessage">
+        <scope doc="Return as a string the flags that are set." ilk="function" line="1442" lineend="1447" name="get_flags" returns="str" signature="get_flags()">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the given flag(s) without changing others." ilk="function" line="1453" lineend="1455" name="add_flag" signature="add_flag(flag)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope doc="Return delivery date of message, in seconds since the epoch." ilk="function" line="1462" lineend="1464" name="get_date" returns="time.time()" signature="get_date()">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return 'new' or 'cur'." ilk="function" line="1431" lineend="1433" name="get_subdir" returns="str" signature="get_subdir()">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set delivery date of message, in seconds since the epoch." ilk="function" line="1466" lineend="1471" name="set_date" signature="set_date(date)">
+          <variable ilk="argument" name="date" />
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Get the message's &quot;info&quot; as a string." ilk="function" line="1473" lineend="1475" name="get_info" returns="str" signature="get_info()">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a MaildirMessage instance." ilk="function" line="1424" lineend="1429" name="__init__" signature="MaildirMessage(message=None)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Unset the given string flag(s) without changing others." ilk="function" line="1457" lineend="1460" name="remove_flag" signature="remove_flag(flag)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope doc="Set the message's &quot;info&quot; string." ilk="function" line="1477" lineend="1482" name="set_info" signature="set_info(info)">
+          <variable ilk="argument" name="info" />
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Copy Maildir-specific state to message insofar as possible." ilk="function" line="1484" lineend="1525" name="_explain_to" signature="_explain_to(message)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable citdl="set()" line="1491" name="flags" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Set subdir to 'new' or 'cur'." ilk="function" line="1435" lineend="1440" name="set_subdir" signature="set_subdir(subdir)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="subdir" />
+        </scope>
+        <scope doc="Set the given flags and unset all others." ilk="function" line="1449" lineend="1451" name="set_flags" signature="set_flags(flags)">
+          <variable citdl="MaildirMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="flags" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="1427" name="_info" />
+        <variable attributes="protected __instancevar__" citdl="str" line="1426" name="_subdir" />
+        <variable attributes="protected __instancevar__" citdl="float()" line="1428" name="_date" />
+      </scope>
+      <scope classrefs="Message" doc="Message with mailbox-format-specific properties.&#10;" ilk="class" line="1389" lineend="1418" name="Message">
+        <scope doc="Assume the non-format-specific state of message." ilk="function" line="1407" lineend="1411" name="_become_message" signature="_become_message(message)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Initialize a Message instance." ilk="function" line="1392" lineend="1405" name="__init__" signature="Message(message=None)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Copy format-specific state to message insofar as possible." ilk="function" line="1413" lineend="1418" name="_explain_to" signature="_explain_to(message)">
+          <variable citdl="Message" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+      </scope>
+      <scope classrefs="_Mailbox" doc="&#10;" ilk="class" line="2080" name="MmdfMailbox">
+        <scope ilk="function" line="2082" name="_search_start" signature="_search_start()">
+          <variable citdl="MmdfMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2084" name="line" />
+        </scope>
+        <scope ilk="function" line="2090" name="_search_end" signature="_search_end()">
+          <variable citdl="MmdfMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2093" name="line" />
+          <variable citdl="self.fp.tell()" line="2092" name="pos" />
+        </scope>
+      </scope>
+      <scope classrefs="Error" doc="The specified mailbox does not exist and won't be created.&#10;" ilk="class" line="2161" name="NoSuchMailboxError" />
+      <scope classrefs="Error" doc="The specified mailbox is not empty and deletion was requested.&#10;" ilk="class" line="2164" name="NotEmptyError" />
+      <scope classrefs="UnixMailbox" doc="&#10;" ilk="class" line="2076" lineend="2077" name="PortableUnixMailbox">
+        <scope ilk="function" line="2077" name="_isrealfromline" />
+      </scope>
+      <import module="StringIO" />
+      <scope classrefs="_Mailbox" doc="# Recommended to use PortableUnixMailbox instead!&#10;" ilk="class" line="2010" lineend="2073" name="UnixMailbox">
+        <scope ilk="function" line="2070" lineend="2071" name="_portable_isrealfromline" returns="bool" signature="_portable_isrealfromline(line)">
+          <variable citdl="UnixMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="2073" name="_isrealfromline" />
+        <scope ilk="function" line="2022" name="_search_end" signature="_search_end()">
+          <variable citdl="UnixMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2026" name="line" />
+          <variable citdl="self.fp.tell()" line="2025" name="pos" />
+        </scope>
+        <scope ilk="function" line="2064" lineend="2068" name="_strict_isrealfromline" returns="self._regexp.match()" signature="_strict_isrealfromline(line)">
+          <variable citdl="UnixMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="2012" name="_search_start" signature="_search_start()">
+          <variable citdl="UnixMailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.readline()" line="2015" name="line" />
+          <variable citdl="self.fp.tell()" line="2014" name="pos" />
+        </scope>
+        <variable attributes="protected" citdl="str" line="2058" name="_fromlinepattern" />
+        <variable attributes="protected" citdl="re.compile()" line="2062" name="_regexp" />
+      </scope>
+      <variable citdl="list" line="37" name="__all__" />
+      <import module="calendar" />
+      <import module="copy" />
+      <import module="email" />
+      <import module="errno" />
+      <variable citdl="NoneType" line="28" name="fcntl" />
+      <scope classrefs="_mboxMMDF" doc="A classic mbox mailbox.&#10;" ilk="class" line="778" lineend="809" name="mbox">
+        <scope doc="Called before writing each message to file f." ilk="function" line="788" lineend="791" name="_pre_message_hook" signature="_pre_message_hook(f)">
+          <variable citdl="mbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Generate key-to-(start, stop) table of contents." ilk="function" line="793" lineend="809" name="_generate_toc" signature="_generate_toc()">
+          <variable citdl="list" line="795" name="starts" />
+          <variable citdl="mbox" ilk="argument" name="self" />
+          <variable citdl="self._file.readline()" line="799" name="line" />
+          <variable citdl="list" line="795" name="stops" />
+          <variable citdl="self._file.tell()" line="798" name="line_pos" />
+        </scope>
+        <scope doc="Initialize an mbox mailbox." ilk="function" line="783" lineend="786" name="__init__" signature="mbox(path, factory=None, create=True)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="mbox" ilk="argument" name="self" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable ilk="argument" name="factory" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="dict()" line="807" name="_toc" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="809" name="_file_length" />
+        <variable attributes="protected __instancevar__" citdl="len()" line="808" name="_next_key" />
+        <variable attributes="protected" citdl="True" line="781" name="_mangle_from_" />
+        <variable attributes="protected __instancevar__" citdl="mboxMessage" line="785" name="_message_factory" />
+      </scope>
+      <scope classrefs="_mboxMMDFMessage" doc="Message with mbox-specific properties.&#10;" ilk="class" line="1639" name="mboxMessage" />
+      <import module="os" />
+      <import module="rfc822" />
+      <import module="socket" />
+      <import module="sys" />
+      <import module="time" />
+      <import module="warnings" />
+      <scope attributes="protected __hidden__" classrefs="Message" doc="Message with mbox- or MMDF-specific properties." ilk="class" line="1528" lineend="1636" name="_mboxMMDFMessage">
+        <scope attributes="__ctor__" doc="Initialize an mboxMMDFMessage instance." ilk="function" line="1531" lineend="1538" name="__init__" signature="_mboxMMDFMessage(message=None)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="message.get_unixfrom()" line="1535" name="unixfrom" />
+        </scope>
+        <scope doc="Return contents of &quot;From &quot; line." ilk="function" line="1540" lineend="1542" name="get_from" returns="self._from" signature="get_from()">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set &quot;From &quot; line, formatting and appending time_ if&#10;specified." ilk="function" line="1544" lineend="1550" name="set_from" signature="set_from(from_, time_=None)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="from_" />
+          <variable citdl="time.gmtime()" ilk="argument" name="time_" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1550" name="_from" />
+        <scope doc="Return as a string the flags that are set." ilk="function" line="1552" lineend="1554" name="get_flags" returns="self.get()" signature="get_flags()">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the given flags and unset all others." ilk="function" line="1556" lineend="1576" name="set_flags" signature="set_flags(flags)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable citdl="set()" ilk="argument" name="flags" />
+          <variable citdl="str" line="1559" name="status_flags" />
+          <variable citdl="str" line="1559" name="xstatus_flags" />
+        </scope>
+        <scope doc="Set the given flag(s) without changing others." ilk="function" line="1578" lineend="1580" name="add_flag" signature="add_flag(flag)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope doc="Unset the given string flag(s) without changing others." ilk="function" line="1582" lineend="1585" name="remove_flag" signature="remove_flag(flag)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="flag" />
+        </scope>
+        <scope attributes="protected" doc="Copy mbox- or MMDF-specific state to message insofar as&#10;possible." ilk="function" line="1587" lineend="1636" name="_explain_to" signature="_explain_to(message)">
+          <variable citdl="_mboxMMDFMessage" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="set()" line="1590" name="flags" />
+          <variable citdl="str.join()" line="1603" name="maybe_date" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="_ProxyFile" doc="A read-only wrapper of part of a file." ilk="class" line="1869" lineend="1899" name="_PartialFile">
+        <scope attributes="__ctor__" doc="Initialize a _PartialFile." ilk="function" line="1872" lineend="1876" name="__init__" signature="_PartialFile(f, start=None, stop=None)">
+          <variable citdl="_PartialFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+          <variable ilk="argument" name="start" />
+          <variable ilk="argument" name="stop" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1875" name="_start" />
+        <variable attributes="protected __instancevar__" line="1876" name="_stop" />
+        <scope doc="Return the position with respect to start." ilk="function" line="1878" lineend="1880" name="tell" returns="_ProxyFile.tell()" signature="tell()">
+          <variable citdl="_PartialFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Change position, possibly with respect to start or stop." ilk="function" line="1882" lineend="1890" name="seek" signature="seek(offset, whence=0)">
+          <variable citdl="_PartialFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+          <variable citdl="int" ilk="argument" name="whence" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1885" name="_pos" />
+        <scope attributes="protected" doc="Read size bytes using read_method, honoring start and stop." ilk="function" line="1892" lineend="1899" name="_read" returns="str" signature="_read(size, read_method)">
+          <variable citdl="_PartialFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+          <variable ilk="argument" name="read_method" />
+          <variable line="1894" name="remaining" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Create a file if it doesn't exist and open for reading and&#10;writing." ilk="function" line="1954" lineend="1960" name="_create_carefully" returns="open()" signature="_create_carefully(path)">
+        <variable ilk="argument" name="path" />
+        <variable citdl="os.open()" line="1956" name="fd" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="Mailbox" doc="A single-file mailbox." ilk="class" line="545" lineend="718" name="_singlefileMailbox">
+        <scope attributes="__ctor__" doc="Initialize a single-file mailbox." ilk="function" line="548" lineend="568" name="__init__" signature="_singlefileMailbox(path, factory=None, create=True)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="path" />
+          <variable ilk="argument" name="factory" />
+          <variable citdl="True" ilk="argument" name="create" />
+          <variable citdl="open()" line="552" name="f" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="open()" line="563" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="564" name="_toc" />
+        <variable attributes="protected __instancevar__" citdl="int" line="565" name="_next_key" />
+        <variable attributes="protected __instancevar__" citdl="True" line="566" name="_pending" />
+        <variable attributes="protected __instancevar__" citdl="False" line="567" name="_locked" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="568" name="_file_length" />
+        <scope doc="Add message and return assigned key." ilk="function" line="570" lineend="576" name="add" returns="int" signature="add(message)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Remove the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="578" lineend="582" name="remove" signature="remove(key)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Replace the keyed message; raise KeyError if it doesn't&#10;exist." ilk="function" line="584" lineend="588" name="__setitem__" signature="__setitem__(key, message)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable ilk="argument" name="message" />
+        </scope>
+        <scope doc="Return an iterator over keys." ilk="function" line="590" lineend="594" name="iterkeys" signature="iterkeys()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return True if the keyed message exists, False otherwise." ilk="function" line="596" lineend="599" name="has_key" returns="bool" signature="has_key(key)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope doc="Return a count of messages in the mailbox." ilk="function" line="601" lineend="604" name="__len__" returns="len()" signature="__len__()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Lock the mailbox." ilk="function" line="606" lineend="610" name="lock" signature="lock()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Unlock the mailbox if it is locked." ilk="function" line="612" lineend="616" name="unlock" signature="unlock()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write any pending changes to disk." ilk="function" line="618" lineend="674" name="flush" signature="flush()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable citdl="self._file.tell()" line="631" name="cur_len" />
+          <variable citdl="_create_temporary()" line="637" name="new_file" />
+          <variable citdl="dict" line="639" name="new_toc" />
+          <variable citdl="new_file.tell()" line="645" name="new_start" />
+          <variable citdl="self._file.read()" line="647" name="buffer" />
+        </scope>
+        <scope attributes="protected" doc="Called before writing the mailbox to file f." ilk="function" line="676" name="_pre_mailbox_hook" signature="_pre_mailbox_hook(f)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope attributes="protected" doc="Called before writing each message to file f." ilk="function" line="680" name="_pre_message_hook" signature="_pre_message_hook(f)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope attributes="protected" doc="Called after writing each message to file f." ilk="function" line="684" name="_post_message_hook" signature="_post_message_hook(f)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+        </scope>
+        <scope doc="Flush and close the mailbox." ilk="function" line="688" lineend="693" name="close" signature="close()">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="695" lineend="703" name="_lookup" signature="Return (start, stop) or raise KeyError.">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope attributes="protected" doc="Append message to mailbox and return (start, stop) offsets." ilk="function" line="705" lineend="718" name="_append_message" returns="self._install_message()" signature="_append_message(message)">
+          <variable citdl="_singlefileMailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="message" />
+          <variable citdl="self._file.tell()" line="708" name="before" />
+          <variable citdl="self._install_message()" line="711" name="offsets" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="_singlefileMailbox" doc="An mbox or MMDF mailbox." ilk="class" line="722" lineend="775" name="_mboxMMDF">
+        <variable attributes="protected" citdl="True" line="725" name="_mangle_from_" />
+        <scope doc="Return a Message representation or raise a KeyError." ilk="function" line="727" lineend="735" name="get_message" returns="self._message_factory()" signature="get_message(key)">
+          <variable citdl="_mboxMMDF" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable line="729" name="stop" />
+          <variable line="729" name="start" />
+          <variable line="731" name="from_line" />
+          <variable citdl="self._file.read()" line="732" name="string" />
+          <variable citdl="self._message_factory()" line="733" name="msg" />
+        </scope>
+        <scope doc="Return a string representation or raise a KeyError." ilk="function" line="737" lineend="744" name="get_string" returns="string.replace()" signature="get_string(key, from_=False)">
+          <variable citdl="_mboxMMDF" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="False" ilk="argument" name="from_" />
+          <variable line="739" name="start" />
+          <variable line="739" name="stop" />
+          <variable citdl="self._file.read()" line="743" name="string" />
+        </scope>
+        <scope doc="Return a file-like representation or raise a KeyError." ilk="function" line="746" lineend="752" name="get_file" returns="_PartialFile()" signature="get_file(key, from_=False)">
+          <variable citdl="_mboxMMDF" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+          <variable citdl="False" ilk="argument" name="from_" />
+          <variable line="748" name="start" />
+          <variable line="748" name="stop" />
+        </scope>
+        <scope attributes="protected" doc="Format a message and blindly write to self._file." ilk="function" line="754" lineend="775" name="_install_message" returns="tuple" signature="_install_message(message)">
+          <variable citdl="_mboxMMDF" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="message" />
+          <variable citdl="list" line="756" name="from_line" />
+          <variable citdl="message.find()" line="758" name="newline" />
+          <variable citdl="self._file.tell()" line="771" name="start" />
+          <variable citdl="self._file.tell()" line="774" name="stop" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Create a temp file based on path and open for reading and&#10;writing." ilk="function" line="1962" lineend="1966" name="_create_temporary" returns="_create_carefully()" signature="_create_temporary(path)">
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Lock file f using lockf and dot locking." ilk="function" line="1902" lineend="1945" name="_lock_file" signature="_lock_file(f, dotlock=True)">
+        <variable ilk="argument" name="f" />
+        <variable citdl="True" ilk="argument" name="dotlock" />
+        <variable citdl="True" line="1904" name="dotlock_done" />
+        <variable citdl="_create_temporary()" line="1917" name="pre_lock" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Ensure changes to file f are physically on disk." ilk="function" line="1968" lineend="1972" name="_sync_flush" signature="_sync_flush(f)">
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Close file f, ensuring all changes are physically on disk." ilk="function" line="1974" lineend="1977" name="_sync_close" signature="_sync_close(f)">
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="A read-only wrapper of a file." ilk="class" line="1810" lineend="1866" name="_ProxyFile">
+        <scope attributes="__ctor__" doc="Initialize a _ProxyFile." ilk="function" line="1813" lineend="1819" name="__init__" signature="_ProxyFile(f, pos=None)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="f" />
+          <variable ilk="argument" name="pos" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="1815" name="_file" />
+        <variable attributes="protected __instancevar__" citdl="self._file.tell()" line="1817" name="_pos" />
+        <scope doc="Read bytes." ilk="function" line="1821" lineend="1823" name="read" returns="self._read()" signature="read(size=None)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Read a line." ilk="function" line="1825" lineend="1827" name="readline" returns="self._read()" signature="readline(size=None)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="size" />
+        </scope>
+        <scope doc="Read multiple lines." ilk="function" line="1829" lineend="1838" name="readlines" returns="list" signature="readlines(sizehint=None)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="sizehint" />
+          <variable citdl="list" line="1831" name="result" />
+        </scope>
+        <scope doc="Iterate over lines." ilk="function" line="1840" lineend="1842" name="__iter__" returns="iter()" signature="__iter__()">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the position." ilk="function" line="1844" lineend="1846" name="tell" returns="f.tell()" signature="tell()">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Change position." ilk="function" line="1848" lineend="1853" name="seek" signature="seek(offset, whence=0)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable ilk="argument" name="offset" />
+          <variable citdl="int" ilk="argument" name="whence" />
+        </scope>
+        <scope doc="Close the file." ilk="function" line="1855" lineend="1857" name="close" signature="close()">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+        </scope>
+        <scope attributes="protected" doc="Read size bytes using read_method." ilk="function" line="1859" lineend="1866" name="_read" returns="read_method()" signature="_read(size, read_method)">
+          <variable citdl="_ProxyFile" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="size" />
+          <variable ilk="argument" name="read_method" />
+          <variable citdl="read_method()" line="1864" name="result" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="class" line="1984" lineend="2007" name="_Mailbox">
+        <scope attributes="__ctor__" ilk="function" line="1986" lineend="1989" name="__init__" signature="_Mailbox(fp, factory=rfc822.Message)">
+          <variable citdl="_Mailbox" ilk="argument" name="self" />
+          <variable ilk="argument" name="fp" />
+          <variable citdl="rfc822.Message" ilk="argument" name="factory" />
+        </scope>
+        <variable attributes="__instancevar__" line="1987" name="fp" />
+        <variable attributes="__instancevar__" citdl="self.fp.tell()" line="1988" name="seekp" />
+        <variable attributes="__instancevar__" citdl="rfc822.Message" line="1989" name="factory" />
+        <scope ilk="function" line="1991" lineend="1992" name="__iter__" returns="iter()" signature="__iter__()">
+          <variable citdl="_Mailbox" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="1994" lineend="2007" name="next" returns="_Mailbox.factory()" signature="next()">
+          <variable citdl="_Mailbox" ilk="argument" name="self" />
+          <variable citdl="self.fp.tell()" line="2002" name="start" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" doc="Unlock file f using lockf and dot locking." ilk="function" line="1947" lineend="1952" name="_unlock_file" signature="_unlock_file(f)">
+        <variable ilk="argument" name="f" />
+      </scope>
+    </scope>
+    

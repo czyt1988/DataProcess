@@ -1,0 +1,19 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="imageop">
+      <scope ilk="function" name="crop" />
+      <scope ilk="function" name="dither2grey2" />
+      <scope ilk="function" name="dither2mono" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" name="grey22grey" />
+      <scope ilk="function" name="grey2grey2" />
+      <scope ilk="function" name="grey2grey4" />
+      <scope ilk="function" name="grey2mono" />
+      <scope ilk="function" name="grey2rgb" />
+      <scope ilk="function" name="grey42grey" />
+      <scope ilk="function" name="mono2grey" />
+      <scope ilk="function" name="rgb2grey" />
+      <scope ilk="function" name="rgb2rgb8" />
+      <scope ilk="function" name="rgb82rgb" />
+      <scope ilk="function" name="scale" />
+      <scope ilk="function" name="tovideo" />
+    </scope>
+    

@@ -1,0 +1,652 @@
+Starting logging SublimeCodeIntel v2.2.0 rev GIT-unknown (1458280265) on Mon Jun 20 14:23:14 2016
+=================================================================================================
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 529ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'np' at temp.py#13  <Trigger 'python-complete-local-symbols' at 341>
+start scope is (<Element 'scope' at 0x0000000006050EB8>, [])
++ Info: Updating indexes... The first time this can take a while. Do not despair!
++ Event: Adding python-2.7 stdlib
+    cplns: [('module', 'np')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took ~5s
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
++ Info: processing `Python': please wait...
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'np.ones' at temp.py#13  <Trigger 'python-calltip-call-signature' at 349>
+start scope is (<Element 'scope' at 0x0000000006050F28>, [])
+find 'np ...' starting at (<Element 'scope' at 0x0000000006050F28>, []):
+is blob 'numpy' from <Python curdirlib>? no
+is blob 'numpy' from <Python envlib>? no
+is blob 'numpy' from <Python sitelib>? yes
+imports:: setting reldirlib to: 'd:\\Program Files (x86)\\Python35-32\\lib\\site-packages\\numpy'
+is 'np' accessible on (<Element 'scope' at 0x0000000006050F28>, [])? yes: <Element 'scope' at 0x00000000039CB9E8>
+resolve getattr 'ones' on <Element 'scope' at 0x00000000039CB9E8> in (<Element 'scope' at 0x00000000039CB9E8>, []):
+is blob 'core' from <Python curdirlib>? no
+is blob 'lib' from <Python curdirlib>? no
+is blob 'matrixlib' from <Python curdirlib>? no
+evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x00000000039CB9E8> in (<Element 'scope' at 0x00000000039CB9E8>, [])
+done eval: eval error
+Done 'Python' CodeIntel! Full CodeIntel took 763ms
++ Warning: evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x00000000039CB9E8> in (<Element 'scope' at 0x00000000039CB9E8>, [])
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'np.ones' at temp.py#13  <Trigger 'python-calltip-call-signature' at 349>
+start scope is (<Element 'scope' at 0x0000000006050978>, [])
+find 'np ...' starting at (<Element 'scope' at 0x0000000006050978>, []):
+is blob 'numpy' from <Python curdirlib>? no
+is blob 'numpy' from <Python envlib>? no
+is blob 'numpy' from <Python sitelib>? yes
+imports:: setting reldirlib to: 'd:\\Program Files (x86)\\Python35-32\\lib\\site-packages\\numpy'
+is 'np' accessible on (<Element 'scope' at 0x0000000006050978>, [])? yes: <Element 'scope' at 0x00000000039CBE48>
+resolve getattr 'ones' on <Element 'scope' at 0x00000000039CBE48> in (<Element 'scope' at 0x00000000039CBE48>, []):
+is blob 'core' from <Python curdirlib>? no
+is blob 'lib' from <Python curdirlib>? no
+is blob 'matrixlib' from <Python curdirlib>? no
+evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x00000000039CBE48> in (<Element 'scope' at 0x00000000039CBE48>, [])
+done eval: eval error
+Done 'Python' CodeIntel! Full CodeIntel took 16ms
++ Warning: evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x00000000039CBE48> in (<Element 'scope' at 0x00000000039CBE48>, [])
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 0ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+eval 'pr' at temp.py#13  <Trigger 'python-complete-local-symbols' at 341>
+start scope is (<Element 'scope' at 0x0000000006050B38>, [])
+    cplns: [('function', 'print'), ('keyword', 'print'), ('class', 'property')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'print' at temp.py#13  <Trigger 'python-calltip-call-signature' at 347>
+start scope is (<Element 'scope' at 0x0000000006050A58>, [])
+find 'print ...' starting at (<Element 'scope' at 0x0000000006050A58>, []):
+is 'print' accessible on (<Element 'scope' at 0x0000000006050A58>, [])? no
+is 'print' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x0000000004662978>
+'print' is <Element 'scope' at 0x0000000004662978> on (<Element 'scope' at 0x00000000039DEF98>, [])
+    calltips: ["print(value, ..., sep=' ', end='\\n', file=sys.stdout)\nPrints the values to a stream, or to sys.stdout by default."]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+eval 'np.ones' at temp.py#13  <Trigger 'python-calltip-call-signature' at 355>
+start scope is (<Element 'scope' at 0x00000000039D2F98>, [])
+find 'np ...' starting at (<Element 'scope' at 0x00000000039D2F98>, []):
+is blob 'numpy' from <Python curdirlib>? no
+is blob 'numpy' from <Python envlib>? no
+is blob 'numpy' from <Python sitelib>? yes
+imports:: setting reldirlib to: 'd:\\Program Files (x86)\\Python35-32\\lib\\site-packages\\numpy'
+is 'np' accessible on (<Element 'scope' at 0x00000000039D2F98>, [])? yes: <Element 'scope' at 0x0000000006050978>
+resolve getattr 'ones' on <Element 'scope' at 0x0000000006050978> in (<Element 'scope' at 0x0000000006050978>, []):
+is blob 'core' from <Python curdirlib>? no
+is blob 'lib' from <Python curdirlib>? no
+is blob 'matrixlib' from <Python curdirlib>? no
+evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x0000000006050978> in (<Element 'scope' at 0x0000000006050978>, [])
+done eval: eval error
+Done 'Python' CodeIntel! Full CodeIntel took 7ms
++ Warning: evaluating 'np.ones' at temp.py#13: could not resolve 'ones' getattr on <Element 'scope' at 0x0000000006050978> in (<Element 'scope' at 0x0000000006050978>, [])
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
++ Info: processing `Python': please wait...
+Updating indexes for 'Python'... The first time this can take a while.
+Python Syntax Error in 'D:/cloudDisk/share/python/DataProcess/DataProcess/temp.py': invalid syntax (<unknown>, line 13)
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 0ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'fl' at temp.py#13  <Trigger 'python-complete-local-symbols' at 370>
+start scope is (<Element 'scope' at 0x0000000003844668>, [])
+    cplns: [('class', 'float')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
++ Info: processing `Python': please wait...
+Updating indexes for 'Python'... The first time this can take a while.
++ Info: Updating indexes... The first time this can take a while. Do not despair!
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 312ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 80ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
++ Info: processing `Python': please wait...
+eval 'pa' at exportCFXCgns.py#20  <Trigger 'python-complete-local-symbols' at 736>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+    cplns: [('variable', 'path')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took ~1s
+Autocomplete called (Python) [cplns]
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+eval 'path' at exportCFXCgns.py#20  <Trigger 'python-calltip-call-signature' at 741>
+start scope is (<Element 'scope' at 0x00000000039CBCF8>, ['main'])
+find 'path ...' starting at (<Element 'scope' at 0x00000000039CBCF8>, ['main']):
+is 'path' accessible on (<Element 'scope' at 0x00000000039CBCF8>, ['main'])? yes: <Element 'variable' at 0x00000000039CB748>
+resolve 'str' type inference for <Element 'variable' at 0x00000000039CB748>:
+find 'str ...' starting at (<Element 'scope' at 0x00000000039CBCF8>, ['main']):
+is 'str' accessible on (<Element 'scope' at 0x00000000039CBCF8>, ['main'])? no
+is 'str' accessible on (<Element 'scope' at 0x00000000039CBCF8>, [])? no
+is 'str' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x000000000463D3C8>
+'str' is <Element 'scope' at 0x000000000463D3C8> on (<Element 'scope' at 0x00000000039DEF98>, [])
+'path' is <Element 'scope' at 0x000000000463D3C8> on (<Element 'scope' at 0x00000000039DEF98>, [])
+resolve 'basestring' type inference:
+find 'basestring ...' starting at (<Element 'scope' at 0x00000000039DEF98>, []):
+is 'basestring' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x0000000005FFF278>
+'basestring' is <Element 'scope' at 0x0000000005FFF278> on (<Element 'scope' at 0x00000000039DEF98>, [])
+resolve 'object' type inference:
+find 'object ...' starting at (<Element 'scope' at 0x00000000039DEF98>, []):
+is 'object' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x000000000463B278>
+'object' is <Element 'scope' at 0x000000000463B278> on (<Element 'scope' at 0x00000000039DEF98>, [])
+    calltips: ['str(object) -> string\nReturn a nice string representation of the object. If the argument is a string, the return value is the same object.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 9ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os' at exportCFXCgns.py#31  <Trigger 'python-complete-local-symbols' at 1112>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+    cplns: [('module', 'os')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os' at exportCFXCgns.py#31  <Trigger 'python-complete-object-members' at 1115>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+'os' is <Element 'scope' at 0x00000000039D2BA8> on (<Element 'scope' at 0x00000000039D2BA8>, [])
+    cplns: [('function', 'abort'), ('function', 'access'), ('variable', 'altsep'), ('function', 'chdir'), ('function', 'chmod'), ('function', 'chown'), ('function', 'chroot'), ('function', 'close'), ('function', 'closerange'), ('function', 'confstr'), ('variable', 'confstr_names'), ('function', 'ctermid'), ('variable', 'curdir'), ('variable', 'defpath'), ('variable', 'devnull'), ('function', 'dup'), ('function', 'dup2'), ('variable', 'environ'), ('module', 'errno'), ('class', 'error'), ('function', 'execl'), ('function', 'execle'), ('function', 'execlp'), ('function', 'execlpe'), ('function', 'execv'), ('function', 'execve'), ('function', 'execvp'), ('function', 'execvpe'), ('variable', 'extsep'), ('variable', 'EX_CANTCREAT'), ('variable', 'EX_CONFIG'), ('variable', 'EX_DATAERR'), ('variable', 'EX_IOERR'), ('variable', 'EX_NOHOST'), ('variable', 'EX_NOINPUT'), ('variable', 'EX_NOPERM'), ('variable', 'EX_NOUSER'), ('variable', 'EX_OK'), ('variable', 'EX_OSERR'), ('variable', 'EX_OSFILE'), ('variable', 'EX_PROTOCOL'), ('variable', 'EX_SOFTWARE'), ('variable', 'EX_TEMPFAIL'), ('variable', 'EX_UNAVAILABLE'), ('variable', 'EX_USAGE'), ('function', 'fchdir'), ('function', 'fchmod'), ('function', 'fchown'), ('function', 'fdatasync'), ('function', 'fdopen'), ('function', 'fork'), ('function', 'forkpty'), ('function', 'fpathconf'), ('function', 'fstat'), ('function', 'fstatvfs'), ('function', 'fsync'), ('function', 'ftruncate'), ('variable', 'F_OK'), ('function', 'getcwd'), ('function', 'getcwdu'), ('function', 'getegid'), ('function', 'getenv'), ('function', 'geteuid'), ('function', 'getgid'), ('function', 'getgroups'), ('function', 'getloadavg'), ('function', 'getlogin'), ('function', 'getpgid'), ('function', 'getpgrp'), ('function', 'getpid'), ('function', 'getppid'), ('function', 'getresgid'), ('function', 'getresuid'), ('function', 'getsid'), ('function', 'getuid'), ('function', 'initgroups'), ('function', 'isatty'), ('function', 'kill'), ('function', 'killpg'), ('function', 'lchmod'), ('function', 'lchown'), ('variable', 'linesep'), ('function', 'link'), ('function', 'listdir'), ('function', 'lseek'), ('function', 'lstat'), ('function', 'major'), ('function', 'makedev'), ('function', 'makedirs'), ('function', 'minor'), ('function', 'mkdir'), ('function', 'mkfifo'), ('function', 'mknod'), ('variable', 'name'), ('variable', 'NGROUPS_MAX'), ('function', 'nice'), ('function', 'open'), ('function', 'openpty'), ('variable', 'O_APPEND'), ('variable', 'O_ASYNC'), ('variable', 'O_BINARY'), ('variable', 'O_CREAT'), ('variable', 'O_DIRECT'), ('variable', 'O_DIRECTORY'), ('variable', 'O_DSYNC'), ('variable', 'O_EXCL'), ('variable', 'O_EXLOCK'), ('variable', 'O_LARGEFILE'), ('variable', 'O_NDELAY'), ('variable', 'O_NOATIME'), ('variable', 'O_NOCTTY'), ('variable', 'O_NOFOLLOW'), ('variable', 'O_NOINHERIT'), ('variable', 'O_NONBLOCK'), ('variable', 'O_RANDOM'), ('variable', 'O_RDONLY'), ('variable', 'O_RDWR'), ('variable', 'O_RSYNC'), ('variable', 'O_SEQUENTIAL'), ('variable', 'O_SHLOCK'), ('variable', 'O_SHORT_LIVED'), ('variable', 'O_SYNC'), ('variable', 'O_TEMPORARY'), ('variable', 'O_TEXT'), ('variable', 'O_TRUNC'), ('variable', 'O_WRONLY'), ('variable', 'pardir'), ('module', 'path'), ('function', 'pathconf'), ('variable', 'pathconf_names'), ('variable', 'pathsep'), ('function', 'pipe'), ('function', 'popen'), ('function', 'popen2'), ('function', 'popen3'), ('function', 'popen4'), ('function', 'putenv'), ('variable', 'P_DETACH'), ('variable', 'P_NOWAIT'), ('variable', 'P_NOWAITO'), ('variable', 'P_OVERLAY'), ('variable', 'P_WAIT'), ('function', 'read'), ('function', 'readlink'), ('function', 'remove'), ('function', 'removedirs'), ('function', 'rename'), ('function', 'renames'), ('function', 'rmdir'), ('variable', 'R_OK'), ('variable', 'SEEK_CUR'), ('variable', 'SEEK_END'), ('variable', 'SEEK_SET'), ('variable', 'sep'), ('function', 'setegid'), ('function', 'seteuid'), ('function', 'setgid'), ('function', 'setgroups'), ('function', 'setpgid'), ('function', 'setpgrp'), ('function', 'setregid'), ('function', 'setresgid'), ('function', 'setresuid'), ('function', 'setreuid'), ('function', 'setsid'), ('function', 'setuid'), ('function', 'spawnl'), ('function', 'spawnle'), ('function', 'spawnv'), ('function', 'spawnve'), ('function', 'startfile'), ('function', 'stat'), ('function', 'statvfs'), ('class', 'statvfs_result'), ('function', 'stat_float_times'), ('class', 'stat_result'), ('function', 'strerror'), ('function', 'symlink'), ('module', 'sys'), ('function', 'sysconf'), ('variable', 'sysconf_names'), ('function', 'system'), ('function', 'tcgetpgrp'), ('function', 'tcsetpgrp'), ('function', 'tempnam'), ('function', 'times'), ('function', 'tmpfile'), ('function', 'tmpnam'), ('variable', 'TMP_MAX'), ('function', 'ttyname'), ('function', 'umask'), ('function', 'uname'), ('function', 'unlink'), ('function', 'unsetenv'), ('function', 'urandom'), ('module', 'UserDict'), ('function', 'utime'), ('function', 'wait'), ('function', 'wait3'), ('function', 'wait4'), ('function', 'waitpid'), ('function', 'walk'), ('variable', 'WCONTINUED'), ('function', 'WCOREDUMP'), ('function', 'WEXITSTATUS'), ('function', 'WIFCONTINUED'), ('function', 'WIFEXITED'), ('function', 'WIFSIGNALED'), ('function', 'WIFSTOPPED'), ('variable', 'WNOHANG'), ('function', 'write'), ('function', 'WSTOPSIG'), ('function', 'WTERMSIG'), ('variable', 'WUNTRACED'), ('variable', 'W_OK'), ('variable', 'X_OK'), ('module', '_copy_reg'), ('class', '_Environ'), ('variable', '__all__'), ('variable', '__doc__')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 442ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path' at exportCFXCgns.py#31  <Trigger 'python-complete-object-members' at 1120>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+'os.path' is <Element 'scope' at 0x00000000043E2048> on (<Element 'scope' at 0x00000000043E2048>, [])
+    cplns: [('function', 'abspath'), ('variable', 'altsep'), ('function', 'basename'), ('function', 'commonprefix'), ('variable', 'curdir'), ('variable', 'defpath'), ('variable', 'devnull'), ('function', 'dirname'), ('function', 'exists'), ('function', 'expanduser'), ('function', 'expandvars'), ('variable', 'extsep'), ('module', 'genericpath'), ('function', 'getatime'), ('function', 'getctime'), ('function', 'getmtime'), ('function', 'getsize'), ('function', 'isabs'), ('function', 'isdir'), ('function', 'isfile'), ('function', 'islink'), ('function', 'ismount'), ('function', 'join'), ('function', 'lexists'), ('function', 'normcase'), ('function', 'normpath'), ('module', 'os'), ('variable', 'pardir'), ('variable', 'pathsep'), ('function', 'realpath'), ('function', 'relpath'), ('function', 'samefile'), ('function', 'sameopenfile'), ('function', 'samestat'), ('variable', 'sep'), ('function', 'split'), ('function', 'splitdrive'), ('function', 'splitext'), ('function', 'splitunc'), ('module', 'stat'), ('variable', 'supports_unicode_filenames'), ('module', 'sys'), ('function', 'walk'), ('module', 'warnings'), ('variable', '__all__'), ('variable', '__doc__')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 10ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#31  <Trigger 'python-calltip-call-signature' at 1125>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [calltips]
+Updating indexes for 'Python'... The first time this can take a while.
+Python Syntax Error in 'D:/cloudDisk/share/python/exportCFXCgns.py': invalid syntax (<unknown>, line 31)
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#31  <Trigger 'python-calltip-call-signature' at 1125>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#33  <Trigger 'python-calltip-call-signature' at 1327>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#33  <Trigger 'python-calltip-call-signature' at 1327>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'pr' at exportCFXCgns.py#5  <Trigger 'python-complete-local-symbols' at 94>
+start scope is (<Element 'scope' at 0x0000000003844668>, [])
+    cplns: [('function', 'print'), ('keyword', 'print'), ('class', 'property')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
++ Info: processing `Python': please wait...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'print' at exportCFXCgns.py#5  <Trigger 'python-calltip-call-signature' at 100>
+start scope is (<Element 'scope' at 0x0000000003844668>, [])
+find 'print ...' starting at (<Element 'scope' at 0x0000000003844668>, []):
+is 'print' accessible on (<Element 'scope' at 0x0000000003844668>, [])? no
+is 'print' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x0000000004662978>
+'print' is <Element 'scope' at 0x0000000004662978> on (<Element 'scope' at 0x00000000039DEF98>, [])
+    calltips: ["print(value, ..., sep=' ', end='\\n', file=sys.stdout)\nPrints the values to a stream, or to sys.stdout by default."]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'cf' at exportCFXCgns.py#5  <Trigger 'python-complete-local-symbols' at 100>
+start scope is (<Element 'scope' at 0x0000000003844668>, [])
+    cplns: [('variable', 'cfx5exportPath')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'cfx5exportPath' at exportCFXCgns.py#5  <Trigger 'python-calltip-call-signature' at 115>
+start scope is (<Element 'scope' at 0x0000000003844668>, [])
+find 'cfx5exportPath ...' starting at (<Element 'scope' at 0x0000000003844668>, []):
+is 'cfx5exportPath' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'variable' at 0x00000000039D2978>
+resolve 'str' type inference for <Element 'variable' at 0x00000000039D2978>:
+find 'str ...' starting at (<Element 'scope' at 0x0000000003844668>, []):
+is 'str' accessible on (<Element 'scope' at 0x0000000003844668>, [])? no
+is 'str' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x000000000463D3C8>
+'str' is <Element 'scope' at 0x000000000463D3C8> on (<Element 'scope' at 0x00000000039DEF98>, [])
+'cfx5exportPath' is <Element 'scope' at 0x000000000463D3C8> on (<Element 'scope' at 0x00000000039DEF98>, [])
+resolve 'basestring' type inference:
+find 'basestring ...' starting at (<Element 'scope' at 0x00000000039DEF98>, []):
+is 'basestring' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x0000000005FFF278>
+'basestring' is <Element 'scope' at 0x0000000005FFF278> on (<Element 'scope' at 0x00000000039DEF98>, [])
+resolve 'object' type inference:
+find 'object ...' starting at (<Element 'scope' at 0x00000000039DEF98>, []):
+is 'object' accessible on (<Element 'scope' at 0x00000000039DEF98>, [])? yes: <Element 'scope' at 0x000000000463B278>
+'object' is <Element 'scope' at 0x000000000463B278> on (<Element 'scope' at 0x00000000039DEF98>, [])
+    calltips: ['str(object) -> string\nReturn a nice string representation of the object. If the argument is a string, the return value is the same object.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 4ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
++ Info: processing `Python': please wait...
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 131ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os' at exportCFXCgns.py#11  <Trigger 'python-complete-local-symbols' at 391>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+    cplns: [('module', 'os')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 3ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os' at exportCFXCgns.py#11  <Trigger 'python-complete-object-members' at 394>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+'os' is <Element 'scope' at 0x00000000039D2BA8> on (<Element 'scope' at 0x00000000039D2BA8>, [])
+    cplns: [('function', 'abort'), ('function', 'access'), ('variable', 'altsep'), ('function', 'chdir'), ('function', 'chmod'), ('function', 'chown'), ('function', 'chroot'), ('function', 'close'), ('function', 'closerange'), ('function', 'confstr'), ('variable', 'confstr_names'), ('function', 'ctermid'), ('variable', 'curdir'), ('variable', 'defpath'), ('variable', 'devnull'), ('function', 'dup'), ('function', 'dup2'), ('variable', 'environ'), ('module', 'errno'), ('class', 'error'), ('function', 'execl'), ('function', 'execle'), ('function', 'execlp'), ('function', 'execlpe'), ('function', 'execv'), ('function', 'execve'), ('function', 'execvp'), ('function', 'execvpe'), ('variable', 'extsep'), ('variable', 'EX_CANTCREAT'), ('variable', 'EX_CONFIG'), ('variable', 'EX_DATAERR'), ('variable', 'EX_IOERR'), ('variable', 'EX_NOHOST'), ('variable', 'EX_NOINPUT'), ('variable', 'EX_NOPERM'), ('variable', 'EX_NOUSER'), ('variable', 'EX_OK'), ('variable', 'EX_OSERR'), ('variable', 'EX_OSFILE'), ('variable', 'EX_PROTOCOL'), ('variable', 'EX_SOFTWARE'), ('variable', 'EX_TEMPFAIL'), ('variable', 'EX_UNAVAILABLE'), ('variable', 'EX_USAGE'), ('function', 'fchdir'), ('function', 'fchmod'), ('function', 'fchown'), ('function', 'fdatasync'), ('function', 'fdopen'), ('function', 'fork'), ('function', 'forkpty'), ('function', 'fpathconf'), ('function', 'fstat'), ('function', 'fstatvfs'), ('function', 'fsync'), ('function', 'ftruncate'), ('variable', 'F_OK'), ('function', 'getcwd'), ('function', 'getcwdu'), ('function', 'getegid'), ('function', 'getenv'), ('function', 'geteuid'), ('function', 'getgid'), ('function', 'getgroups'), ('function', 'getloadavg'), ('function', 'getlogin'), ('function', 'getpgid'), ('function', 'getpgrp'), ('function', 'getpid'), ('function', 'getppid'), ('function', 'getresgid'), ('function', 'getresuid'), ('function', 'getsid'), ('function', 'getuid'), ('function', 'initgroups'), ('function', 'isatty'), ('function', 'kill'), ('function', 'killpg'), ('function', 'lchmod'), ('function', 'lchown'), ('variable', 'linesep'), ('function', 'link'), ('function', 'listdir'), ('function', 'lseek'), ('function', 'lstat'), ('function', 'major'), ('function', 'makedev'), ('function', 'makedirs'), ('function', 'minor'), ('function', 'mkdir'), ('function', 'mkfifo'), ('function', 'mknod'), ('variable', 'name'), ('variable', 'NGROUPS_MAX'), ('function', 'nice'), ('function', 'open'), ('function', 'openpty'), ('variable', 'O_APPEND'), ('variable', 'O_ASYNC'), ('variable', 'O_BINARY'), ('variable', 'O_CREAT'), ('variable', 'O_DIRECT'), ('variable', 'O_DIRECTORY'), ('variable', 'O_DSYNC'), ('variable', 'O_EXCL'), ('variable', 'O_EXLOCK'), ('variable', 'O_LARGEFILE'), ('variable', 'O_NDELAY'), ('variable', 'O_NOATIME'), ('variable', 'O_NOCTTY'), ('variable', 'O_NOFOLLOW'), ('variable', 'O_NOINHERIT'), ('variable', 'O_NONBLOCK'), ('variable', 'O_RANDOM'), ('variable', 'O_RDONLY'), ('variable', 'O_RDWR'), ('variable', 'O_RSYNC'), ('variable', 'O_SEQUENTIAL'), ('variable', 'O_SHLOCK'), ('variable', 'O_SHORT_LIVED'), ('variable', 'O_SYNC'), ('variable', 'O_TEMPORARY'), ('variable', 'O_TEXT'), ('variable', 'O_TRUNC'), ('variable', 'O_WRONLY'), ('variable', 'pardir'), ('module', 'path'), ('function', 'pathconf'), ('variable', 'pathconf_names'), ('variable', 'pathsep'), ('function', 'pipe'), ('function', 'popen'), ('function', 'popen2'), ('function', 'popen3'), ('function', 'popen4'), ('function', 'putenv'), ('variable', 'P_DETACH'), ('variable', 'P_NOWAIT'), ('variable', 'P_NOWAITO'), ('variable', 'P_OVERLAY'), ('variable', 'P_WAIT'), ('function', 'read'), ('function', 'readlink'), ('function', 'remove'), ('function', 'removedirs'), ('function', 'rename'), ('function', 'renames'), ('function', 'rmdir'), ('variable', 'R_OK'), ('variable', 'SEEK_CUR'), ('variable', 'SEEK_END'), ('variable', 'SEEK_SET'), ('variable', 'sep'), ('function', 'setegid'), ('function', 'seteuid'), ('function', 'setgid'), ('function', 'setgroups'), ('function', 'setpgid'), ('function', 'setpgrp'), ('function', 'setregid'), ('function', 'setresgid'), ('function', 'setresuid'), ('function', 'setreuid'), ('function', 'setsid'), ('function', 'setuid'), ('function', 'spawnl'), ('function', 'spawnle'), ('function', 'spawnv'), ('function', 'spawnve'), ('function', 'startfile'), ('function', 'stat'), ('function', 'statvfs'), ('class', 'statvfs_result'), ('function', 'stat_float_times'), ('class', 'stat_result'), ('function', 'strerror'), ('function', 'symlink'), ('module', 'sys'), ('function', 'sysconf'), ('variable', 'sysconf_names'), ('function', 'system'), ('function', 'tcgetpgrp'), ('function', 'tcsetpgrp'), ('function', 'tempnam'), ('function', 'times'), ('function', 'tmpfile'), ('function', 'tmpnam'), ('variable', 'TMP_MAX'), ('function', 'ttyname'), ('function', 'umask'), ('function', 'uname'), ('function', 'unlink'), ('function', 'unsetenv'), ('function', 'urandom'), ('module', 'UserDict'), ('function', 'utime'), ('function', 'wait'), ('function', 'wait3'), ('function', 'wait4'), ('function', 'waitpid'), ('function', 'walk'), ('variable', 'WCONTINUED'), ('function', 'WCOREDUMP'), ('function', 'WEXITSTATUS'), ('function', 'WIFCONTINUED'), ('function', 'WIFEXITED'), ('function', 'WIFSIGNALED'), ('function', 'WIFSTOPPED'), ('variable', 'WNOHANG'), ('function', 'write'), ('function', 'WSTOPSIG'), ('function', 'WTERMSIG'), ('variable', 'WUNTRACED'), ('variable', 'W_OK'), ('variable', 'X_OK'), ('module', '_copy_reg'), ('class', '_Environ'), ('variable', '__all__'), ('variable', '__doc__')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path' at exportCFXCgns.py#11  <Trigger 'python-complete-object-members' at 399>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+'os.path' is <Element 'scope' at 0x00000000043E2048> on (<Element 'scope' at 0x00000000043E2048>, [])
+    cplns: [('function', 'abspath'), ('variable', 'altsep'), ('function', 'basename'), ('function', 'commonprefix'), ('variable', 'curdir'), ('variable', 'defpath'), ('variable', 'devnull'), ('function', 'dirname'), ('function', 'exists'), ('function', 'expanduser'), ('function', 'expandvars'), ('variable', 'extsep'), ('module', 'genericpath'), ('function', 'getatime'), ('function', 'getctime'), ('function', 'getmtime'), ('function', 'getsize'), ('function', 'isabs'), ('function', 'isdir'), ('function', 'isfile'), ('function', 'islink'), ('function', 'ismount'), ('function', 'join'), ('function', 'lexists'), ('function', 'normcase'), ('function', 'normpath'), ('module', 'os'), ('variable', 'pardir'), ('variable', 'pathsep'), ('function', 'realpath'), ('function', 'relpath'), ('function', 'samefile'), ('function', 'sameopenfile'), ('function', 'samestat'), ('variable', 'sep'), ('function', 'split'), ('function', 'splitdrive'), ('function', 'splitext'), ('function', 'splitunc'), ('module', 'stat'), ('variable', 'supports_unicode_filenames'), ('module', 'sys'), ('function', 'walk'), ('module', 'warnings'), ('variable', '__all__'), ('variable', '__doc__')]
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [cplns]
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#11  <Trigger 'python-calltip-call-signature' at 404>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [calltips]
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 7ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'os.path.join' at exportCFXCgns.py#11  <Trigger 'python-calltip-call-signature' at 404>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
+find 'os ...' starting at (<Element 'scope' at 0x0000000003844668>, ['main']):
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, ['main'])? no
+is blob 'os' from <Python curdirlib>? no
+is blob 'os' from <Python envlib>? no
+is blob 'os' from <Python sitelib>? no
+is blob 'os' from <Python cataloglib: >? no
+is blob 'os' from <python-2.7 stdlib>? yes
+is 'os' accessible on (<Element 'scope' at 0x0000000003844668>, [])? yes: <Element 'scope' at 0x00000000039D2BA8>
+resolve getattr 'path' on <Element 'scope' at 0x00000000039D2BA8> in (<Element 'scope' at 0x00000000039D2BA8>, []):
+is blob 'os.path' from <Python curdirlib>? no
+is blob 'os.path' from <Python envlib>? no
+is blob 'os.path' from <Python sitelib>? no
+is blob 'os.path' from <Python cataloglib: >? no
+is blob 'os.path' from <python-2.7 stdlib>? yes
+resolve getattr 'join' on <Element 'scope' at 0x00000000043E2048> in (<Element 'scope' at 0x00000000043E2048>, []):
+attr is <Element 'scope' at 0x00000000043E2CF8> in <Element 'scope' at 0x00000000043E2048>
+'os.path.join' is <Element 'scope' at 0x00000000043E2CF8> on (<Element 'scope' at 0x00000000043E2048>, [])
+    calltips: ['join(a, *p)\nJoin two or more pathname components, inserting "\\" as\nneeded.']
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took 5ms
+Autocomplete called (Python) [calltips]
+Doing CodeIntel for 'Python' (hold on)...
++ Info: processing `Python': please wait...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
++ Info: processing `Python': please wait...
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 802ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
++ Info: processing `Python': please wait...
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Doing CodeIntel for 'Python' (hold on)...
+eval 'TR' at exportCFXCgns.py#10  <Trigger 'python-complete-local-symbols' at 266>
+start scope is (<Element 'scope' at 0x0000000003844668>, ['main'])
++ Info: Doing CodeIntel for 'Python' (hold on)...
+    cplns: []
+done eval: success
+Done 'Python' CodeIntel! Full CodeIntel took ~1s
+Doing CodeIntel for 'Python' (hold on)...
++ Info: processing `Python': please wait...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 2ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 1ms
+Updating indexes for 'Python'... The first time this can take a while.
+Doing CodeIntel for 'Python' (hold on)...
+Done 'Python' CodeIntel! Full CodeIntel took 6ms
+Updating indexes for 'Python'... The first time this can take a while.

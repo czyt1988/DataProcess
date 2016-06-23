@@ -1,0 +1,10 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="_curses_panel">
+      <variable citdl="str" name="__version__" />
+      <scope ilk="function" name="bottom_panel" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" name="new_panel" />
+      <scope ilk="function" name="top_panel" />
+      <scope ilk="function" name="update_panels" />
+      <variable citdl="str" name="version" />
+    </scope>
+    

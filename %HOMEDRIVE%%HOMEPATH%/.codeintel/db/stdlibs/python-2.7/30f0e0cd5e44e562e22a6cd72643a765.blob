@@ -1,0 +1,44 @@
+<scope doc="Fixer for dict methods.&#10;d.keys() -&gt; list(d.keys()) d.items() -&gt; list(d.items()) d.values() -&gt; list(d.values())  d.iterkeys() -&gt; iter(d.keys()) d.iteritems() -&gt; iter(d.items()) d.itervalues() -&gt; iter(d.values())  d.viewkeys() -&gt; d.keys() d.viewitems() -&gt; d.items()" ilk="blob" lang="Python" name="lib2to3.fixes.fix_dict">
+      <scope doc="A parenthesised argument list, used by Call()" ilk="function" name="ArgList" signature="ArgList(args, lparen=Leaf(7, u'('), rparen=Leaf(8, u')'))" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A period (.) leaf" ilk="function" name="Dot" signature="Dot()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="42" lineend="107" name="FixDict">
+        <scope ilk="function" line="91" lineend="107" name="in_special_context" returns="bool" signature="in_special_context(node, isiter)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="isiter" />
+          <variable citdl="dict" line="94" name="results" />
+        </scope>
+        <scope ilk="function" line="55" lineend="81" name="transform" returns="Call()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="method.value" line="60" name="method_name" />
+          <variable citdl="list" line="56" name="head" />
+          <variable citdl="method_name.startswith()" line="61" name="isiter" />
+          <variable citdl="FixDict" ilk="argument" name="self" />
+          <variable citdl="list" line="69" name="args" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="self.syms" line="59" name="syms" />
+          <variable citdl="list" line="58" name="tail" />
+          <variable citdl="method_name.startswith()" line="62" name="isview" />
+          <variable citdl="pytree.Node()" line="74" name="new" />
+          <variable line="57" name="method" />
+          <variable citdl="self.in_special_context()" line="68" name="special" />
+        </scope>
+        <variable citdl="str" line="86" name="P2" />
+        <variable citdl="patcomp.compile_pattern()" line="89" name="p2" />
+        <variable citdl="str" line="83" name="P1" />
+        <variable citdl="str" line="45" name="PATTERN" />
+        <variable citdl="True" line="43" name="BM_compatible" />
+        <variable citdl="patcomp.compile_pattern()" line="84" name="p1" />
+      </scope>
+      <scope ilk="function" name="LParen" signature="LParen()" />
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope ilk="function" name="RParen" signature="RParen()" />
+      <import module="fixer_base" />
+      <import module="fixer_util" />
+      <variable citdl="set" line="39" name="iter_exempt" />
+      <import module="patcomp" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

@@ -1,0 +1,35 @@
+<scope doc="The functions in this module allow compression and decompression using the&#10;zlib library, which is based on GNU zip.  adler32(string[, start]) -- Compute an Adler-32 checksum. compress(string[, level]) -- Compress string, with compression level in 1-9. compressobj([level]) -- Return a compressor object. crc32(string[, start]) -- Compute a CRC-32 checksum. decompress(string,[wbits],[bufsize]) -- Decompresses a compressed string. decompressobj([wbits]) -- Return a decompressor object.  'wbits' is window buffer size." ilk="blob" lang="Python" name="zlib">
+      <variable citdl="int" name="DEFLATED" />
+      <variable citdl="int" name="DEF_MEM_LEVEL" />
+      <variable citdl="int" name="MAX_WBITS" />
+      <variable citdl="str" name="ZLIB_VERSION" />
+      <variable citdl="int" name="Z_BEST_COMPRESSION" />
+      <variable citdl="int" name="Z_BEST_SPEED" />
+      <variable citdl="int" name="Z_DEFAULT_COMPRESSION" />
+      <variable citdl="int" name="Z_DEFAULT_STRATEGY" />
+      <variable citdl="int" name="Z_FILTERED" />
+      <variable citdl="int" name="Z_FINISH" />
+      <variable citdl="int" name="Z_FULL_FLUSH" />
+      <variable citdl="int" name="Z_HUFFMAN_ONLY" />
+      <variable citdl="int" name="Z_NO_FLUSH" />
+      <variable citdl="int" name="Z_SYNC_FLUSH" />
+      <variable citdl="str" name="__version__" />
+      <scope doc="Compute an Adler-32 checksum of string." ilk="function" name="adler32" signature="adler32(string[, start])" />
+      <scope doc="Returned compressed string." ilk="function" name="compress" signature="compress(string[, level])" />
+      <scope doc="Return a compressor object." ilk="function" name="compressobj" returns="Compress" signature="compressobj([level])" />
+      <scope doc="Compute a CRC-32 checksum of string." ilk="function" name="crc32" signature="crc32(string[, start])" />
+      <scope doc="Return decompressed string." ilk="function" name="decompress" signature="decompress(string[, wbits[, bufsize]])" />
+      <scope doc="Return a decompressor object." ilk="function" name="decompressobj" returns="Decompress" signature="decompressobj([wbits])" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope attributes="__hidden__" doc="&#10;" ilk="class" name="Compress">
+        <scope doc="Return a string containing data compressed." ilk="function" name="compress" signature="compress(data)" />
+        <scope doc="Return a string containing any remaining compressed data." ilk="function" name="flush" signature="flush( [mode] )" />
+        <scope doc="Return a copy of the compression object." ilk="function" name="copy" signature="copy()" />
+      </scope>
+      <scope attributes="__hidden__" doc="&#10;" ilk="class" name="Decompress">
+        <scope doc="Return a string containing the decompressed" ilk="function" name="decompress" signature="decompress(data, max_length)" />
+        <scope doc="Return a string containing any remaining" ilk="function" name="flush" signature="flush( [length] )" />
+        <scope doc="Return a copy of the decompression object." ilk="function" name="copy" signature="copy()" />
+      </scope>
+    </scope>
+    

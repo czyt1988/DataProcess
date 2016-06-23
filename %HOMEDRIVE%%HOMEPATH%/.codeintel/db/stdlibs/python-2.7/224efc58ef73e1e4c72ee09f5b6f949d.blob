@@ -1,0 +1,85 @@
+<scope doc="Abstract Base Classes (ABCs) according to PEP 3119.&#10;" ilk="blob" lang="Python" name="abc">
+      <scope classrefs="type" doc="Metaclass for defining Abstract Base Classes (ABCs).&#10;Use this metaclass to create an ABC.  An ABC can be subclassed directly, and then acts as a mix-in class.  You can also register unrelated concrete classes (even built-in classes) and unrelated ABCs as 'virtual subclasses' -- these and their descendants will be considered subclasses of the registering ABC by the built-in issubclass() function, but the registering ABC won't show up in their MRO (Method Resolution Order) nor will method implementations defined by the registering ABC be callable (not even via super())." ilk="class" line="65" lineend="185" name="ABCMeta">
+        <scope ilk="function" line="86" lineend="103" name="__new__" signature="__new__(mcls, name, bases, namespace)">
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="namespace" />
+          <variable citdl="getattr()" line="94" name="value" />
+          <variable ilk="argument" name="bases" />
+          <variable citdl="ABCMeta" ilk="argument" name="mcls" />
+          <variable citdl="set()" line="89" name="abstracts" />
+          <variable line="87" name="cls" />
+        </scope>
+        <scope doc="Override for isinstance(instance, cls)." ilk="function" line="128" lineend="146" name="__instancecheck__" returns="bool" signature="__instancecheck__(instance)">
+          <variable ilk="argument" name="instance" />
+          <variable citdl="getattr()" line="134" name="subtype" />
+          <variable citdl="getattr()" line="131" name="subclass" />
+          <variable citdl="ABCMeta" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Register a virtual subclass of an ABC." ilk="function" line="105" lineend="117" name="register" signature="register(subclass)">
+          <variable ilk="argument" name="subclass" />
+          <variable citdl="ABCMeta" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Override for issubclass(subclass, cls)." ilk="function" line="148" lineend="185" name="__subclasscheck__" returns="bool" signature="__subclasscheck__(subclass)">
+          <variable citdl="cls.__subclasshook__()" line="161" name="ok" />
+          <variable ilk="argument" name="subclass" />
+          <variable citdl="ABCMeta" ilk="argument" name="cls" />
+        </scope>
+        <scope doc="Debug helper to print the ABC registry." ilk="function" line="119" lineend="126" name="_dump_registry" signature="_dump_registry(file=None)">
+          <variable citdl="getattr()" line="125" name="value" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="ABCMeta" ilk="argument" name="cls" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="WeakSet()" line="156" name="_abc_negative_cache" />
+        <variable attributes="protected __instancevar__" citdl="int" line="157" name="_abc_negative_cache_version" />
+        <variable attributes="protected" citdl="int" line="84" name="_abc_invalidation_counter" />
+      </scope>
+      <scope classrefs="object" doc="&#10;" ilk="class" name="WeakSet">
+        <scope ilk="function" name="difference_update" />
+        <scope ilk="function" name="symmetric_difference" />
+        <scope ilk="function" name="__reduce__" />
+        <scope ilk="function" name="pop" />
+        <scope ilk="function" name="issuperset" />
+        <scope ilk="function" name="remove" />
+        <scope ilk="function" name="__and__" />
+        <scope ilk="function" name="__lt__" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="_commit_removals" />
+        <scope ilk="function" name="intersection" />
+        <scope ilk="function" name="__iand__" />
+        <scope ilk="function" name="issubset" />
+        <scope ilk="function" name="__contains__" />
+        <scope ilk="function" name="union" />
+        <scope ilk="function" name="discard" />
+        <scope ilk="function" name="add" />
+        <scope ilk="function" name="__ixor__" />
+        <scope ilk="function" name="__len__" />
+        <scope ilk="function" name="__isub__" />
+        <scope ilk="function" name="symmetric_difference_update" />
+        <scope ilk="function" name="update" />
+        <scope ilk="function" name="difference" />
+        <scope ilk="function" name="__iter__" />
+        <scope ilk="function" name="__or__" />
+        <scope ilk="function" name="__gt__" />
+        <scope ilk="function" name="copy" />
+        <scope ilk="function" name="__eq__" />
+        <scope ilk="function" name="isdisjoint" />
+        <scope ilk="function" name="clear" />
+        <scope ilk="function" name="intersection_update" />
+        <scope ilk="function" name="__xor__" />
+        <scope ilk="function" name="__ior__" />
+        <scope ilk="function" name="__le__" />
+        <scope doc="# Helper functions for simple delegating methods." ilk="function" name="_apply" />
+        <scope ilk="function" name="__sub__" />
+        <scope ilk="function" name="__ge__" />
+      </scope>
+      <scope doc="A decorator indicating abstract methods." ilk="function" line="15" lineend="33" name="abstractmethod" signature="abstractmethod(funcobj)">
+        <variable ilk="argument" name="funcobj" />
+      </scope>
+      <scope classrefs="property" doc="A decorator indicating abstract properties.&#10;Requires that the metaclass is ABCMeta or derived from it.  A class that has a metaclass derived from ABCMeta cannot be instantiated unless all of its abstract properties are overridden. The abstract properties can be called using any of the normal 'super' call mechanisms.  Usage:  class C: __metaclass__ = ABCMeta" ilk="class" line="36" lineend="62" name="abstractproperty">
+        <variable citdl="True" line="62" name="__isabstractmethod__" />
+      </scope>
+      <import module="types" />
+      <variable attributes="protected __hidden__" citdl="type()" line="12" name="_InstanceType" />
+      <scope attributes="protected __hidden__" ilk="class" line="11" lineend="11" name="_C" />
+    </scope>
+    

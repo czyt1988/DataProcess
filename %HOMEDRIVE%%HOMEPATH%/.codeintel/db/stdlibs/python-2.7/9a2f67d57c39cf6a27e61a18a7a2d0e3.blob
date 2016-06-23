@@ -1,0 +1,132 @@
+<scope doc="Support for regular expressions (RE).&#10;This module provides regular expression matching operations similar to those found in Perl.  It supports both 8-bit and Unicode strings; both the pattern and the strings being processed can contain null bytes and characters outside the US ASCII range.  Regular expressions can contain both special and ordinary characters. Most ordinary characters, like &quot;A&quot;, &quot;a&quot;, or &quot;0&quot;, are the simplest regular expressions; they simply match themselves.  You can concatenate ordinary characters, so last matches the string 'last'. " ilk="blob" lang="Python" name="re">
+      <variable citdl="int" line="126" name="DEBUG" />
+      <variable citdl="int" name="DOTALL" />
+      <variable citdl="int" line="117" name="I" />
+      <variable citdl="int" name="IGNORECASE" />
+      <variable citdl="int" line="118" name="L" />
+      <variable citdl="int" name="LOCALE" />
+      <variable citdl="int" line="120" name="M" />
+      <variable citdl="int" name="MULTILINE" />
+      <variable citdl="int" line="121" name="S" />
+      <scope doc="&#10;" ilk="class" line="292" lineend="326" name="Scanner">
+        <scope ilk="function" line="293" lineend="306" name="__init__" signature="Scanner(lexicon, flags=0)">
+          <variable citdl="sre_parse.SubPattern()" line="297" name="p" />
+          <variable citdl="Scanner" ilk="argument" name="self" />
+          <variable ilk="argument" name="lexicon" />
+          <variable citdl="int" ilk="argument" name="flags" />
+          <variable citdl="sre_parse.Pattern()" line="298" name="s" />
+        </scope>
+        <scope ilk="function" line="307" lineend="326" name="scan" returns="tuple" signature="scan(string)">
+          <variable ilk="argument" name="string" />
+          <variable citdl="int" line="311" name="i" />
+          <variable citdl="Scanner" ilk="argument" name="self" />
+          <variable citdl="m.end()" line="316" name="j" />
+          <variable citdl="match()" line="313" name="m" />
+          <variable citdl="result.append" line="309" name="append" />
+          <variable citdl="action()" line="319" name="action" />
+          <variable line="310" name="match" />
+          <variable citdl="list" line="308" name="result" />
+        </scope>
+        <variable attributes="__instancevar__" line="295" name="lexicon" />
+        <variable attributes="__instancevar__" citdl="sre_compile.compile()" line="306" name="scanner" />
+        <variable attributes="__instancevar__" citdl="match()" line="321" name="match" />
+      </scope>
+      <variable citdl="int" line="125" name="T" />
+      <variable citdl="int" name="TEMPLATE" />
+      <variable citdl="int" line="119" name="U" />
+      <variable citdl="int" name="UNICODE" />
+      <variable citdl="int" name="VERBOSE" />
+      <variable citdl="int" line="122" name="X" />
+      <variable citdl="list" line="109" name="__all__" />
+      <variable citdl="str" line="114" name="__version__" />
+      <scope doc="Compile a regular expression pattern, returning a pattern&#10;object." ilk="function" line="188" lineend="190" name="compile" returns="_compile()" signature="compile(pattern, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+      </scope>
+      <import module="copy_reg" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="129" name="error" />
+      <scope doc="Escape all non-alphanumeric characters in pattern." ilk="function" line="206" lineend="216" name="escape" returns="str" signature="escape(pattern)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="list()" line="208" name="s" />
+        <variable citdl="dict" line="209" name="alphanum" />
+      </scope>
+      <scope doc="Return a list of all non-overlapping matches in the string." ilk="function" line="169" lineend="177" name="findall" returns="list" signature="findall(pattern, string, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="Return an iterator over all non-overlapping matches in the&#10;string." ilk="function" line="181" lineend="186" name="finditer" signature="finditer(pattern, string, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="Try to apply the pattern at the start of the string,&#10;returning a match object, or None if no match was found." ilk="function" line="134" lineend="137" name="match" returns="compile().match()" signature="match(pattern, string, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="Clear the regular expression cache" ilk="function" line="192" lineend="195" name="purge" signature="purge()" />
+      <scope doc="Scan through string looking for a match to the pattern,&#10;returning a match object, or None if no match was found." ilk="function" line="139" lineend="142" name="search" returns="compile().search()" signature="search(pattern, string, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="Split the source string by the occurrences of the pattern,&#10;returning a list containing the resulting substrings." ilk="function" line="164" lineend="167" name="split" returns="list" signature="split(pattern, string, maxsplit=0, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="maxsplit" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <import module="sre_compile" />
+      <import module="sre_parse" />
+      <scope doc="Return the string obtained by replacing the leftmost non-&#10;overlapping occurrences of the pattern in string by the&#10;replacement repl." ilk="function" line="144" lineend="151" name="sub" returns="str" signature="sub(pattern, repl, string, count=0, flags=0)">
+        <variable citdl="int" ilk="argument" name="count" />
+        <variable ilk="argument" name="pattern" />
+        <variable ilk="argument" name="repl" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <scope doc="Return a 2-tuple containing (new_string, number)." ilk="function" line="153" lineend="162" name="subn" returns="str" signature="subn(pattern, repl, string, count=0, flags=0)">
+        <variable citdl="int" ilk="argument" name="count" />
+        <variable ilk="argument" name="pattern" />
+        <variable ilk="argument" name="repl" />
+        <variable citdl="int" ilk="argument" name="flags" />
+        <variable ilk="argument" name="string" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Compile a template pattern, returning a pattern object" ilk="function" line="197" lineend="199" name="template" returns="_compile()" signature="template(pattern, flags=0)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="int" ilk="argument" name="flags" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="270" lineend="278" name="_subx" returns="_subx.filter" signature="_subx(pattern, template)">
+        <variable ilk="argument" name="pattern" />
+        <variable citdl="_compile_repl()" ilk="argument" name="template" />
+        <scope ilk="function" line="276" lineend="277" name="filter" returns="sre_parse.expand_template()" signature="filter(match, template=template)">
+          <variable ilk="argument" name="match" />
+          <variable citdl="_compile_repl()" ilk="argument" name="template" />
+        </scope>
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="265" lineend="268" name="_expand" returns="sre_parse.expand_template()" signature="_expand(pattern, match, template)">
+        <variable ilk="argument" name="pattern" />
+        <variable ilk="argument" name="match" />
+        <variable citdl="sre_parse.parse_template()" ilk="argument" name="template" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="284" lineend="285" name="_pickle" returns="tuple" signature="_pickle(p)">
+        <variable ilk="argument" name="p" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="int" line="226" name="_MAXCACHE" />
+      <variable attributes="protected __hidden__" citdl="dict" line="201" name="_alphanum" />
+      <variable attributes="protected __hidden__" citdl="type()" line="224" name="_pattern_type" />
+      <variable attributes="protected __hidden__" citdl="dict" line="222" name="_cache_repl" />
+      <variable attributes="protected __hidden__" citdl="dict" line="221" name="_cache" />
+      <scope attributes="protected __hidden__" ilk="function" line="228" lineend="248" name="_compile" returns="sre_compile.compile()" signature="_compile(*key)">
+        <variable attributes="varargs" ilk="argument" name="key" />
+        <variable citdl="tuple" line="230" name="cachekey" />
+        <variable citdl="sre_compile.compile()" line="231" name="p" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="250" lineend="263" name="_compile_repl" returns="_cache_repl.get()" signature="_compile_repl(*key)">
+        <variable attributes="varargs" ilk="argument" name="key" />
+        <variable citdl="sre_parse.parse_template()" line="252" name="p" />
+      </scope>
+    </scope>
+    

@@ -1,0 +1,4 @@
+<scope doc="Python interfaces to XML parsers.&#10;This package contains one module:  expat -- Python wrapper for James Clark's Expat parser, with namespace support." ilk="blob" lang="Python" name="xml.parsers">
+      <import module="expat" />
+    </scope>
+    

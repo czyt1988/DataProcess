@@ -1,0 +1,320 @@
+<scope doc="Configuration file parser.&#10;A setup file consists of sections, lead by a &quot;[section]&quot; header, and followed by &quot;name: value&quot; entries, with continuations and such in the style of RFC 822.  The option values can contain format strings which refer to other values in the same section, or values in a special [DEFAULT] section.  For example:  something: %(dir)s/whatever" ilk="blob" lang="Python" name="ConfigParser">
+      <scope classrefs="RawConfigParser" doc="&#10;" ilk="class" line="580" lineend="675" name="ConfigParser">
+        <scope doc="Get an option value for a given section." ilk="function" line="582" lineend="615" name="get" returns="self._interpolate()" signature="get(section, option, raw=False, vars=None)">
+          <variable citdl="self.optionxform()" ilk="argument" name="option" />
+          <variable ilk="argument" name="vars" />
+          <variable citdl="ConfigParser" ilk="argument" name="self" />
+          <variable line="608" name="value" />
+          <variable citdl="dict" line="601" name="vardict" />
+          <variable citdl="False" ilk="argument" name="raw" />
+          <variable citdl="dict" line="594" name="sectiondict" />
+          <variable ilk="argument" name="section" />
+          <variable citdl="_Chainmap" line="605" name="d" />
+        </scope>
+        <scope ilk="function" line="670" lineend="675" name="_interpolation_replace" returns="str" signature="_interpolation_replace(match)">
+          <variable citdl="ConfigParser" ilk="argument" name="self" />
+          <variable citdl="match.group()" line="671" name="s" />
+          <variable ilk="argument" name="match" />
+        </scope>
+        <scope doc="Return a list of tuples with (name, value) for each option&#10;in the section." ilk="function" line="617" lineend="647" name="items" returns="list" signature="items(section, raw=False, vars=None)">
+          <variable citdl="self._defaults.copy()" line="629" name="d" />
+          <variable ilk="argument" name="vars" />
+          <variable citdl="ConfigParser" ilk="argument" name="self" />
+          <variable citdl="False" ilk="argument" name="raw" />
+          <variable ilk="argument" name="section" />
+          <variable citdl="d.keys()" line="639" name="options" />
+        </scope>
+        <scope ilk="function" line="649" lineend="666" name="_interpolate" returns="self._KEYCRE.sub()" signature="_interpolate(section, option, rawval, vars)">
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="vars" />
+          <variable ilk="argument" name="rawval" />
+          <variable citdl="ConfigParser" ilk="argument" name="self" />
+          <variable citdl="self._KEYCRE.sub()" line="651" name="value" />
+          <variable citdl="int" line="652" name="depth" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="protected" citdl="re.compile()" line="668" name="_KEYCRE" />
+      </scope>
+      <variable citdl="str" line="105" name="DEFAULTSECT" />
+      <scope classrefs="Error" doc="Raised when a section is multiply-created.&#10;" ilk="class" line="146" lineend="151" name="DuplicateSectionError">
+        <scope ilk="function" line="149" lineend="151" name="__init__" signature="DuplicateSectionError(section)">
+          <variable citdl="DuplicateSectionError" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="__instancevar__" line="151" name="section" />
+      </scope>
+      <scope classrefs="Exception" doc="Base class for ConfigParser exceptions.&#10;" ilk="class" line="112" lineend="137" name="Error">
+        <scope doc="Setter for 'message'; needed only to override deprecation in&#10;BaseException." ilk="function" line="120" lineend="123" name="_set_message" signature="_set_message(value)">
+          <variable citdl="Error" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="137" name="__str__" />
+        <scope doc="Getter for 'message'; needed only to override deprecation in&#10;BaseException." ilk="function" line="115" lineend="118" name="_get_message" returns="self.__message" signature="_get_message()">
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="134" lineend="135" name="__repr__" returns="str" signature="__repr__()">
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="130" lineend="132" name="__init__" signature="Error(msg='')">
+          <variable citdl="str" ilk="argument" name="msg" />
+          <variable citdl="Error" ilk="argument" name="self" />
+        </scope>
+        <variable citdl="property()" line="128" name="message" />
+        <variable attributes="private __instancevar__" line="123" name="__message" />
+      </scope>
+      <scope classrefs="InterpolationError" doc="Raised when substitutions are nested too deeply.&#10;" ilk="class" line="187" lineend="196" name="InterpolationDepthError">
+        <scope ilk="function" line="190" lineend="196" name="__init__" signature="InterpolationDepthError(option, section, rawval)">
+          <variable citdl="str" line="191" name="msg" />
+          <variable ilk="argument" name="rawval" />
+          <variable citdl="InterpolationDepthError" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="section" />
+        </scope>
+      </scope>
+      <scope classrefs="Error" doc="Base class for interpolation-related exceptions.&#10;" ilk="class" line="162" lineend="168" name="InterpolationError">
+        <scope ilk="function" line="165" lineend="168" name="__init__" signature="InterpolationError(option, section, msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="InterpolationError" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="__instancevar__" line="168" name="section" />
+        <variable attributes="__instancevar__" line="167" name="option" />
+      </scope>
+      <scope classrefs="InterpolationError" doc="A string substitution required a setting which was not available.&#10;" ilk="class" line="170" lineend="181" name="InterpolationMissingOptionError">
+        <scope ilk="function" line="173" lineend="181" name="__init__" signature="InterpolationMissingOptionError(option, section, rawval, reference)">
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="reference" />
+          <variable ilk="argument" name="rawval" />
+          <variable citdl="InterpolationMissingOptionError" ilk="argument" name="self" />
+          <variable citdl="str" line="174" name="msg" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="__instancevar__" line="181" name="reference" />
+      </scope>
+      <scope classrefs="InterpolationError" doc="Raised when the source text into which substitutions are made&#10;does not conform to the required syntax." ilk="class" line="183" name="InterpolationSyntaxError" />
+      <variable citdl="int" line="107" name="MAX_INTERPOLATION_DEPTH" />
+      <scope classrefs="ParsingError" doc="Raised when a key-value pair is found before any section header.&#10;" ilk="class" line="210" lineend="220" name="MissingSectionHeaderError">
+        <scope ilk="function" line="213" lineend="220" name="__init__" signature="MissingSectionHeaderError(filename, lineno, line)">
+          <variable ilk="argument" name="lineno" />
+          <variable citdl="MissingSectionHeaderError" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" line="220" name="line" />
+        <variable attributes="__instancevar__" line="219" name="lineno" />
+        <variable attributes="__instancevar__" line="218" name="filename" />
+      </scope>
+      <scope classrefs="Error" doc="A requested option was not found.&#10;" ilk="class" line="153" lineend="160" name="NoOptionError">
+        <scope ilk="function" line="156" lineend="160" name="__init__" signature="NoOptionError(option, section)">
+          <variable citdl="NoOptionError" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="__instancevar__" line="160" name="section" />
+        <variable attributes="__instancevar__" line="159" name="option" />
+      </scope>
+      <scope classrefs="Error" doc="Raised when no section matches a requested option.&#10;" ilk="class" line="139" lineend="144" name="NoSectionError">
+        <scope ilk="function" line="142" lineend="144" name="__init__" signature="NoSectionError(section)">
+          <variable citdl="NoSectionError" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="__instancevar__" line="144" name="section" />
+      </scope>
+      <scope classrefs="Error" doc="Raised when a configuration file does not follow legal syntax.&#10;" ilk="class" line="198" lineend="208" name="ParsingError">
+        <scope ilk="function" line="201" lineend="204" name="__init__" signature="ParsingError(filename)">
+          <variable citdl="ParsingError" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="206" lineend="208" name="append" signature="append(lineno, line)">
+          <variable citdl="ParsingError" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+          <variable ilk="argument" name="lineno" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="204" name="errors" />
+        <variable attributes="__instancevar__" line="203" name="filename" />
+      </scope>
+      <scope doc="&#10;" ilk="class" line="223" lineend="546" name="RawConfigParser">
+        <scope ilk="function" line="365" lineend="366" name="optionxform" returns="optionstr.lower()" signature="optionxform(optionstr)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="optionstr" />
+        </scope>
+        <scope doc="Set an option." ilk="function" line="380" lineend="389" name="set" signature="set(section, option, value=None)">
+          <variable citdl="_dict()" line="383" name="sectdict" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="353" lineend="354" name="getfloat" returns="RawConfigParser._get()" signature="getfloat(section, option)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Indicate whether the named section is present in the&#10;configuration." ilk="function" line="259" lineend="264" name="has_section" returns="bool" signature="has_section(section)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <scope doc="Remove an option." ilk="function" line="408" lineend="421" name="remove_option" returns="bool" signature="remove_option(section, option)">
+          <variable citdl="_dict()" line="411" name="sectdict" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="bool" line="418" name="existed" />
+          <variable ilk="argument" name="section" />
+          <variable citdl="optionxform()" ilk="argument" name="option" />
+        </scope>
+        <scope doc="Remove a file section." ilk="function" line="423" lineend="428" name="remove_section" returns="bool" signature="remove_section(section)">
+          <variable citdl="bool" line="425" name="existed" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <scope ilk="function" line="224" lineend="235" name="__init__" signature="RawConfigParser(defaults=None, dict_type=_default_dict, allow_no_value=False)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="dict_type" />
+          <variable ilk="argument" name="defaults" />
+          <variable citdl="False" ilk="argument" name="allow_no_value" />
+        </scope>
+        <scope ilk="function" line="359" lineend="363" name="getboolean" signature="getboolean(section, option)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="get()" line="360" name="v" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Check for the existence of a given option in a given&#10;section." ilk="function" line="368" lineend="378" name="has_option" returns="bool" signature="has_option(section, option)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable citdl="optionxform()" ilk="argument" name="option" />
+        </scope>
+        <scope doc="Write an .ini-format representation of the configuration&#10;state." ilk="function" line="391" lineend="406" name="write" signature="write(fp)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="str.join()" line="404" name="key" />
+        </scope>
+        <scope doc="Create a new section in the configuration." ilk="function" line="245" lineend="257" name="add_section" signature="add_section(section)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <scope doc="Return a list of section names, excluding [DEFAULT]" ilk="function" line="240" lineend="243" name="sections" returns="self._sections.keys()" signature="sections()">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="318" lineend="332" name="get" signature="get(section, option)">
+          <variable citdl="self.optionxform()" line="319" name="opt" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Read and parse a filename or a list of filenames." ilk="function" line="277" lineend="300" name="read" returns="list" signature="read(filenames)">
+          <variable citdl="open()" line="294" name="fp" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="list" line="291" name="read_ok" />
+          <variable citdl="list" ilk="argument" name="filenames" />
+        </scope>
+        <scope ilk="function" line="347" lineend="348" name="_get" returns="RawConfigParser._get.conv()" signature="_get(section, conv, option)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="conv" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="334" lineend="345" name="items" returns="d.items()" signature="items(section)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="_dict()" line="336" name="d2" />
+          <variable ilk="argument" name="section" />
+          <variable citdl="self._defaults.copy()" line="341" name="d" />
+        </scope>
+        <scope doc="Parse a sectioned setup file." ilk="function" line="456" lineend="546" name="_read" signature="_read(fp, fpname)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="_dict()" line="466" name="cursect" />
+          <variable citdl="ParsingError" line="469" name="e" />
+          <variable ilk="argument" name="fpname" />
+          <variable citdl="mo.group()" line="491" name="sectname" />
+          <variable line="509" name="vi" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="optval.find()" line="517" name="pos" />
+          <variable citdl="line.strip()" line="483" name="value" />
+          <variable citdl="optionxform()" line="467" name="optname" />
+          <variable citdl="int" line="468" name="lineno" />
+          <variable citdl="fp.readline()" line="471" name="line" />
+          <variable citdl="list" line="541" name="all_sections" />
+          <variable citdl="self.SECTCRE.match()" line="489" name="mo" />
+          <variable citdl="optval.strip()" line="509" name="optval" />
+        </scope>
+        <scope doc="Like read() but the argument must be a file-like object." ilk="function" line="302" lineend="316" name="readfp" signature="readfp(fp, filename=None)">
+          <variable ilk="argument" name="fp" />
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable citdl="fp.name" ilk="argument" name="filename" />
+        </scope>
+        <scope ilk="function" line="350" lineend="351" name="getint" returns="RawConfigParser._get()" signature="getint(section, option)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="237" lineend="238" name="defaults" returns="_dict()" signature="defaults()">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return a list of option names for the given section name." ilk="function" line="266" lineend="275" name="options" returns="opts.keys()" signature="options(section)">
+          <variable citdl="RawConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable line="269" name="opts" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="self.OPTCRE" line="230" name="_optcre" />
+        <variable citdl="re.compile()" line="433" name="SECTCRE" />
+        <variable citdl="re.compile()" line="446" name="OPTCRE_NV" />
+        <variable citdl="re.compile()" line="438" name="OPTCRE" />
+        <variable attributes="protected __instancevar__" citdl="_dict()" line="228" name="_defaults" />
+        <variable attributes="protected" citdl="dict" line="356" name="_boolean_states" />
+        <variable attributes="protected __instancevar__" citdl="dict" line="226" name="_dict" />
+        <variable attributes="protected __instancevar__" citdl="_dict()" line="227" name="_sections" />
+      </scope>
+      <scope classrefs="ConfigParser" doc="&#10;" ilk="class" line="678" lineend="745" name="SafeConfigParser">
+        <scope doc="Set an option." ilk="function" line="726" lineend="745" name="set" signature="set(section, option, value=None)">
+          <variable citdl="value.replace()" line="739" name="tmp_value" />
+          <variable citdl="SafeConfigParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="section" />
+          <variable ilk="argument" name="value" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="688" lineend="724" name="_interpolate_some" signature="_interpolate_some(option, accum, rest, section, map, depth)">
+          <variable ilk="argument" name="map" />
+          <variable citdl="list" line="700" name="c" />
+          <variable ilk="argument" name="option" />
+          <variable citdl="SafeConfigParser" ilk="argument" name="self" />
+          <variable citdl="self._interpvar_re.match()" line="705" name="m" />
+          <variable citdl="list" ilk="argument" name="rest" />
+          <variable citdl="rest.find()" line="692" name="p" />
+          <variable ilk="argument" name="depth" />
+          <variable line="712" name="v" />
+          <variable citdl="self.optionxform()" line="709" name="var" />
+          <variable ilk="argument" name="accum" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <scope ilk="function" line="680" lineend="684" name="_interpolate" returns="str.join()" signature="_interpolate(section, option, rawval, vars)">
+          <variable ilk="argument" name="option" />
+          <variable ilk="argument" name="vars" />
+          <variable ilk="argument" name="rawval" />
+          <variable citdl="SafeConfigParser" ilk="argument" name="self" />
+          <variable citdl="list" line="682" name="L" />
+          <variable ilk="argument" name="section" />
+        </scope>
+        <variable attributes="protected" citdl="re.compile()" line="686" name="_interpvar_re" />
+      </scope>
+      <import module="_UserDict" />
+      <variable citdl="list" line="98" name="__all__" />
+      <import module="re" />
+      <scope attributes="protected __hidden__" classrefs="_UserDict.DictMixin" doc="Combine multiple mappings for successive lookups." ilk="class" line="550" lineend="578" name="_Chainmap">
+        <scope attributes="__ctor__" ilk="function" line="559" lineend="560" name="__init__" signature="_Chainmap(*maps)">
+          <variable citdl="_Chainmap" ilk="argument" name="self" />
+          <variable attributes="varargs" ilk="argument" name="maps" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="560" name="_maps" />
+        <scope ilk="function" line="562" lineend="568" name="__getitem__" signature="__getitem__(key)">
+          <variable citdl="_Chainmap" ilk="argument" name="self" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <scope ilk="function" line="570" lineend="578" name="keys" returns="list" signature="keys()">
+          <variable citdl="_Chainmap" ilk="argument" name="self" />
+          <variable citdl="list" line="571" name="result" />
+          <variable citdl="set()" line="572" name="seen" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="94" name="_default_dict" />
+    </scope>
+    

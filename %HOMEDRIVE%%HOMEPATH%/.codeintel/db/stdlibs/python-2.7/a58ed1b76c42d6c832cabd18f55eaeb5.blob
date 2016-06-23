@@ -1,0 +1,8 @@
+<scope doc="This module contains functions for accessing NIS maps.&#10;" ilk="blob" lang="Python" name="nis">
+      <scope doc="Returns the entire map as a dictionary." ilk="function" name="cat" signature="cat(map, domain = defaultdomain)" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope doc="Corresponds to the C library yp_get_default_domain() call,&#10;returning the default NIS domain." ilk="function" name="get_default_domain" returns="str" signature="get_default_domain() -&gt; str" />
+      <scope doc="Returns an array of all available NIS maps within a domain." ilk="function" name="maps" signature="maps(domain = defaultdomain)" />
+      <scope doc="Corresponds to the C library yp_match() call, returning the&#10;value of key in the given map." ilk="function" name="match" signature="match(key, map, domain = defaultdomain)" />
+    </scope>
+    

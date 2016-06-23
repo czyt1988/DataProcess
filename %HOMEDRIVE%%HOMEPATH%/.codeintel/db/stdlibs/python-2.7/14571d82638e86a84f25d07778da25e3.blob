@@ -1,0 +1,66 @@
+<scope doc="Adjust some old Python 2 idioms to their modern counterparts.&#10;* Change some type comparisons to isinstance() calls: type(x) == T -&gt; isinstance(x, T) type(x) is T -&gt; isinstance(x, T) type(x) != T -&gt; not isinstance(x, T) type(x) is not T -&gt; not isinstance(x, T)  * Change &quot;while 1:&quot; into &quot;while True:&quot;.  * Change both " ilk="blob" lang="Python" name="lib2to3.fixes.fix_idioms">
+      <scope doc="A blank line" ilk="function" name="BlankLine" signature="BlankLine()" />
+      <variable citdl="str" line="34" name="CMP" />
+      <scope doc="A function call" ilk="function" name="Call" signature="Call(func_name, args=None, prefix=None)" />
+      <scope doc="A comma leaf" ilk="function" name="Comma" signature="Comma()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="37" lineend="152" name="FixIdioms">
+        <scope ilk="function" line="90" lineend="98" name="transform" returns="self.transform_sort()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixIdioms" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <scope ilk="function" line="100" lineend="110" name="transform_isinstance" returns="Call()" signature="transform_isinstance(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixIdioms" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="102" name="T" />
+          <variable citdl="Call()" line="105" name="test" />
+          <variable line="101" name="x" />
+        </scope>
+        <scope ilk="function" line="112" lineend="114" name="transform_while" signature="transform_while(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixIdioms" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="113" name="one" />
+        </scope>
+        <scope ilk="function" line="116" lineend="152" name="transform_sort" signature="transform_sort(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable line="117" name="sort_stmt" />
+          <variable line="118" name="next_stmt" />
+          <variable citdl="sort_stmt.prefix" line="133" name="btwn" />
+          <variable citdl="results.get()" line="119" name="list_call" />
+          <variable citdl="tuple" line="141" name="prefix_lines" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="results.get()" line="120" name="simple_expr" />
+          <variable citdl="BlankLine()" line="147" name="end_line" />
+          <variable citdl="simple_expr.clone()" line="125" name="new" />
+          <variable citdl="FixIdioms" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="79" lineend="88" name="match" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixIdioms" ilk="argument" name="self" />
+          <variable line="80" name="r" />
+        </scope>
+        <variable citdl="str" line="40" name="PATTERN" />
+        <variable citdl="True" line="38" name="explicit" />
+      </scope>
+      <scope doc="Return a NAME leaf" ilk="function" name="Name" signature="Name(name, prefix=None)" />
+      <scope classrefs="Base" doc="Concrete implementation for interior nodes.&#10;" ilk="class" name="Node">
+        <scope doc="Return a post-order iterator for the tree." ilk="function" name="post_order" />
+        <scope doc="Equivalent to 'node.children.append(child)'." ilk="function" name="append_child" />
+        <scope doc="The whitespace and comments preceding this node in the&#10;input." ilk="function" name="_prefix_getter" />
+        <scope doc="Return a pre-order iterator for the tree." ilk="function" name="pre_order" />
+        <scope doc="Return a cloned (deep) copy of self." ilk="function" name="clone" />
+        <scope doc="Return a pretty string representation." ilk="function" name="__unicode__" />
+        <scope ilk="function" name="_prefix_setter" />
+        <scope doc="Equivalent to 'node.children[i] = child'." ilk="function" name="set_child" />
+        <scope doc="Equivalent to 'node.children.insert(i, child)'." ilk="function" name="insert_child" />
+        <scope doc="Compare two nodes for equality." ilk="function" name="_eq" />
+        <scope doc="Initializer." ilk="function" name="__init__" />
+        <scope doc="Return a canonical string representation." ilk="function" name="__repr__" />
+      </scope>
+      <variable citdl="str" line="35" name="TYPE" />
+      <import module="fixer_base" />
+      <variable citdl="Symbols" name="syms" />
+    </scope>
+    

@@ -1,0 +1,201 @@
+<scope doc="Utilities to support packages.&#10;" ilk="blob" lang="Python" name="pkgutil">
+      <scope doc="PEP 302 Importer that wraps Python's &quot;classic&quot; import algorithm&#10;ImpImporter(dirname) produces a PEP 302 importer that searches that directory.  ImpImporter(None) produces a PEP 302 importer that searches the current sys.path, plus any modules that are frozen or built-in.  Note that ImpImporter does not currently support being used by placement on sys.meta_path." ilk="class" line="162" lineend="221" name="ImpImporter">
+        <scope ilk="function" line="191" lineend="221" name="iter_modules" signature="iter_modules(prefix='')">
+          <variable citdl="inspect.getmodulename()" line="202" name="modname" />
+          <variable citdl="ImpImporter" ilk="argument" name="self" />
+          <variable citdl="os.listdir()" line="198" name="filenames" />
+          <variable citdl="str" ilk="argument" name="prefix" />
+          <variable citdl="inspect.getmodulename()" line="212" name="subname" />
+          <variable citdl="os.path.join()" line="206" name="path" />
+          <variable citdl="True" line="207" name="ispkg" />
+          <variable citdl="dict" line="195" name="yielded" />
+        </scope>
+        <scope ilk="function" line="173" lineend="174" name="__init__" signature="ImpImporter(path=None)">
+          <variable ilk="argument" name="path" />
+          <variable citdl="ImpImporter" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="176" lineend="189" name="find_module" returns="ImpLoader()" signature="find_module(fullname, path=None)">
+          <variable citdl="ImpImporter" ilk="argument" name="self" />
+          <variable line="186" name="filename" />
+          <variable line="186" name="etc" />
+          <variable line="178" name="subname" />
+          <variable line="186" name="file" />
+          <variable citdl="list" ilk="argument" name="path" />
+          <variable ilk="argument" name="fullname" />
+        </scope>
+        <variable attributes="__instancevar__" line="174" name="path" />
+      </scope>
+      <scope doc="PEP 302 Loader that wraps Python's &quot;classic&quot; import algorithm&#10;" ilk="class" line="224" lineend="316" name="ImpLoader">
+        <scope ilk="function" line="306" lineend="307" name="_get_delegate" signature="_get_delegate()">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="286" lineend="303" name="get_source" returns="f.read()" signature="get_source(fullname=None)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable line="289" name="mod_type" />
+          <variable citdl="_fix_name()" ilk="argument" name="fullname" />
+          <variable citdl="open()" line="298" name="f" />
+        </scope>
+        <scope ilk="function" line="249" lineend="255" name="_reopen" signature="_reopen()">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable line="251" name="mod_type" />
+        </scope>
+        <scope ilk="function" line="265" lineend="267" name="is_package" returns="bool" signature="is_package(fullname)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable citdl="_fix_name()" ilk="argument" name="fullname" />
+        </scope>
+        <scope ilk="function" line="246" lineend="247" name="get_data" signature="get_data(pathname)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="pathname" />
+        </scope>
+        <scope ilk="function" line="235" lineend="244" name="load_module" returns="imp.load_module()" signature="load_module(fullname)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="fullname" />
+          <variable citdl="imp.load_module()" line="238" name="mod" />
+        </scope>
+        <scope ilk="function" line="257" lineend="263" name="_fix_name" signature="_fix_name(fullname)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="fullname" />
+        </scope>
+        <scope ilk="function" line="309" lineend="316" name="get_filename" signature="get_filename(fullname=None)">
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable line="311" name="mod_type" />
+          <variable citdl="_fix_name()" ilk="argument" name="fullname" />
+        </scope>
+        <scope ilk="function" line="269" lineend="284" name="get_code" returns="compile()" signature="get_code(fullname=None)">
+          <variable citdl="self.get_source()" line="274" name="source" />
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable line="272" name="mod_type" />
+          <variable citdl="_fix_name()" ilk="argument" name="fullname" />
+        </scope>
+        <scope ilk="function" line="229" lineend="233" name="__init__" signature="ImpLoader(fullname, file, filename, etc)">
+          <variable ilk="argument" name="etc" />
+          <variable citdl="ImpLoader" ilk="argument" name="self" />
+          <variable ilk="argument" name="fullname" />
+          <variable ilk="argument" name="file" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable citdl="compile()" line="227" name="code" />
+        <variable attributes="__instancevar__" citdl="self.file.read()" line="293" name="source" />
+        <variable attributes="__instancevar__" line="231" name="filename" />
+        <variable attributes="__instancevar__" line="233" name="etc" />
+        <variable attributes="__instancevar__" citdl="open()" line="230" name="file" />
+        <variable attributes="__instancevar__" line="232" name="fullname" />
+      </scope>
+      <scope classrefs="object" doc="module(name[, doc])&#10;Create a module object. The name must be a string; the optional doc argument can have any type." ilk="class" name="ModuleType">
+        <scope doc="x.__setattr__('name', value) &lt;==&gt; x.name = value" ilk="function" name="__setattr__" signature="x.__setattr__('name', value) &lt;==&gt; x.name = value" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.__delattr__('name') &lt;==&gt; del x.name" ilk="function" name="__delattr__" signature="x.__delattr__('name') &lt;==&gt; del x.name" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="list" line="12" name="__all__" />
+      <scope doc="Extend a package's path." ilk="function" line="474" lineend="546" name="extend_path" returns="list" signature="extend_path(path, name)">
+        <variable citdl="os.extsep.join()" line="514" name="sname" />
+        <variable citdl="os.path.join()" line="526" name="initfile" />
+        <variable ilk="argument" name="name" />
+        <variable citdl="open()" line="534" name="f" />
+        <variable citdl="str" line="516" name="init_py" />
+        <variable citdl="os.path.join()" line="512" name="pname" />
+        <variable citdl="os.path.join()" line="523" name="subdir" />
+        <variable citdl="list" ilk="argument" name="path" />
+        <variable citdl="line.rstrip()" line="540" name="line" />
+        <variable citdl="os.path.join()" line="531" name="pkgfile" />
+        <variable citdl="os.extsep.join()" line="515" name="sname_pkg" />
+      </scope>
+      <scope doc="Find a PEP 302 &quot;loader&quot; object for fullname" ilk="function" line="458" lineend="471" name="find_loader" returns="importer.find_module()" signature="find_loader(fullname)">
+        <variable ilk="argument" name="fullname" />
+        <variable citdl="importer.find_module()" line="467" name="loader" />
+      </scope>
+      <scope doc="Get a resource from a package." ilk="function" line="548" lineend="583" name="get_data" returns="loader.get_data()" signature="get_data(package, resource)">
+        <variable citdl="os.path.join()" line="582" name="resource_name" />
+        <variable ilk="argument" name="resource" />
+        <variable ilk="argument" name="package" />
+        <variable citdl="get_loader()" line="570" name="loader" />
+        <variable citdl="resource.split()" line="580" name="parts" />
+        <variable citdl="loader.load_module()" line="573" name="mod" />
+      </scope>
+      <scope doc="Retrieve a PEP 302 importer for the given path item" ilk="function" line="358" lineend="389" name="get_importer" returns="path_hook()" signature="get_importer(path_item)">
+        <variable citdl="path_hook()" line="372" name="importer" />
+        <variable ilk="argument" name="path_item" />
+      </scope>
+      <scope doc="Get a PEP 302 &quot;loader&quot; object for module_or_name" ilk="function" line="433" lineend="456" name="get_loader" returns="getattr()" signature="get_loader(module_or_name)">
+        <variable ilk="argument" name="module_or_name" />
+        <variable citdl="module.__name__" line="453" name="fullname" />
+        <variable line="449" name="module" />
+        <variable citdl="getattr()" line="450" name="loader" />
+      </scope>
+      <import module="imp" />
+      <scope ilk="function" line="154" lineend="157" name="iter_importer_modules" returns="list" signature="iter_importer_modules(*args, **kw)">
+        <variable ilk="argument" name="importer" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+      </scope>
+      <scope doc="Yield PEP 302 importers for the given module name" ilk="function" line="392" lineend="431" name="iter_importers" signature="iter_importers(fullname='')">
+        <variable citdl="getattr()" line="423" name="path" />
+        <variable citdl="str" ilk="argument" name="fullname" />
+        <variable citdl="str.join()" line="420" name="pkg" />
+      </scope>
+      <scope doc="or, if path is None, all top-level modules on sys.path." ilk="function" line="129" lineend="150" name="iter_modules" signature="Yields (module_loader, name, ispkg) for all submodules on path,">
+        <variable ilk="argument" name="path" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="iter_importers()" line="141" name="importers" />
+        <variable citdl="dict" line="145" name="yielded" />
+      </scope>
+      <scope ilk="function" line="323" lineend="350" name="iter_zipimport_modules" signature="iter_zipimport_modules(importer, prefix='')">
+        <variable line="324" name="dirlist" />
+        <variable attributes="protected" citdl="importer.prefix" line="326" name="_prefix" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable citdl="dict" line="328" name="yielded" />
+        <variable ilk="argument" name="importer" />
+        <variable citdl="inspect.getmodulename()" line="344" name="modname" />
+        <variable citdl="len()" line="327" name="plen" />
+        <variable line="334" name="fn" />
+      </scope>
+      <import module="os" />
+      <scope ilk="function" line="18" lineend="28" name="read_code" returns="marshal.load()" signature="read_code(stream)">
+        <variable citdl="stream.read()" line="23" name="magic" />
+        <variable ilk="argument" name="stream" />
+      </scope>
+      <scope doc="Make a trivial single-dispatch generic function" ilk="function" line="31" lineend="68" name="simplegeneric" returns="simplegeneric.wrapper" signature="simplegeneric(func)">
+        <scope ilk="function" line="59" lineend="63" name="register" signature="register(typ, func=None)">
+          <variable ilk="argument" name="typ" />
+          <variable ilk="argument" name="func" />
+        </scope>
+        <variable citdl="dict" line="33" name="registry" />
+        <variable ilk="argument" name="func" />
+        <scope ilk="function" line="34" lineend="53" name="wrapper" returns="simplegeneric.func()" signature="wrapper(*args, **kw)">
+          <variable attributes="varargs" ilk="argument" name="args" />
+          <variable attributes="kwargs" ilk="argument" name="kw" />
+          <variable line="35" name="ob" />
+          <variable citdl="list" line="41" name="mro" />
+          <scope classrefs="ob.__class__ object" ilk="class" line="44" lineend="45" name="cls" />
+          <variable citdl="func.__name__" line="55" name="__name__" />
+          <variable citdl="dict" line="65" name="__dict__" />
+          <variable citdl="func.__doc__" line="66" name="__doc__" />
+          <variable citdl="simplegeneric.register" line="67" name="register" />
+        </scope>
+      </scope>
+      <import module="sys" />
+      <scope doc="on path, or, if path is None, all accessible modules." ilk="function" line="71" lineend="126" name="walk_packages" signature="Yields (module_loader, name, ispkg) for all modules recursively">
+        <variable ilk="argument" name="onerror" />
+        <variable citdl="list" ilk="argument" name="path" />
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <scope ilk="function" line="100" lineend="103" name="seen" returns="bool" signature="seen(p, m={})">
+          <variable ilk="argument" name="p" />
+          <variable citdl="dict" ilk="argument" name="m" />
+        </scope>
+      </scope>
+      <import module="zipimport" />
+      <scope classrefs="object" doc="zipimporter(archivepath) -&gt; zipimporter object&#10;Create a new zipimporter instance. 'archivepath' must be a path to a zipfile, or to a specific path inside a zipfile. For example, it can be '/tmp/myimport.zip', or '/tmp/myimport.zip/mydirectory', if mydirectory is a valid directory inside the archive.  'ZipImportError is raised if 'archivepath' doesn't point to a valid Zip archive.  The 'archive' attribute of zipimporter objects contains the name of the zipfile targeted." ilk="class" name="zipimporter">
+        <scope doc="Return the source code for the specified module." ilk="function" name="get_source" signature="get_source(fullname) -&gt; source string." />
+        <scope doc="Search for a module specified by 'fullname'." ilk="function" name="find_module" signature="find_module(fullname, path=None) -&gt; self or None." />
+        <scope doc="Return the data associated with 'pathname'." ilk="function" name="get_data" returns="str" signature="get_data(pathname) -&gt; string with file data." />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Load the module specified by 'fullname'." ilk="function" name="load_module" signature="load_module(fullname) -&gt; module." />
+        <scope doc="Return the filename for the specified module." ilk="function" name="get_filename" signature="get_filename(fullname) -&gt; filename string." />
+        <scope doc="Return True if the module specified by fullname is a&#10;package." ilk="function" name="is_package" signature="is_package(fullname) -&gt; bool." />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="Return the code object for the specified module." ilk="function" name="get_code" returns="code" signature="get_code(fullname) -&gt; code object." />
+        <scope ilk="function" name="__init__" />
+      </scope>
+    </scope>
+    

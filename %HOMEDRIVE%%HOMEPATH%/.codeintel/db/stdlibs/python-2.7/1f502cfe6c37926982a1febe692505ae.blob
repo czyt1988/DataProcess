@@ -1,0 +1,23 @@
+<scope doc="Optional fixer to transform set() calls to set literals.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_set_literal">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="53" name="FixSetLiteral">
+        <scope ilk="function" line="27" lineend="53" name="transform" returns="pytree.Node()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="pytree.Node()" line="33" name="items" />
+          <variable citdl="FixSetLiteral" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable line="48" name="n" />
+          <variable citdl="list" line="38" name="literal" />
+          <variable citdl="pytree.Node()" line="31" name="fake" />
+          <variable citdl="pytree.Node()" line="43" name="maker" />
+          <variable citdl="results.get()" line="28" name="single" />
+        </scope>
+        <variable citdl="True" line="14" name="BM_compatible" />
+        <variable citdl="True" line="15" name="explicit" />
+        <variable citdl="str" line="17" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <import module="pytree" />
+      <variable citdl="Symbols" name="syms" />
+      <import module="token" />
+    </scope>
+    

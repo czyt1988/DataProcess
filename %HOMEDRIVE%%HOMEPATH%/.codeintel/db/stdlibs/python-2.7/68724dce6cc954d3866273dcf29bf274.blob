@@ -1,0 +1,16 @@
+<scope doc="Remove __future__ imports&#10;from __future__ import foo is replaced with an empty line." ilk="blob" lang="Python" name="lib2to3.fixes.fix_future">
+      <scope doc="A blank line" ilk="function" name="BlankLine" signature="BlankLine()" />
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="11" lineend="22" name="FixFuture">
+        <scope ilk="function" line="19" lineend="22" name="transform" returns="BlankLine()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="BlankLine()" line="20" name="new" />
+          <variable citdl="FixFuture" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="12" name="BM_compatible" />
+        <variable citdl="int" line="17" name="run_order" />
+        <variable citdl="str" line="14" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+    </scope>
+    

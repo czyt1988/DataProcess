@@ -1,0 +1,21 @@
+<scope doc="Fixer that changes 'a ,b' into 'a, b'.&#10;This also changes '{a :b}' into '{a: b}', but does not touch other uses of colons.  It does not touch other uses of whitespace." ilk="blob" lang="Python" name="lib2to3.fixes.fix_ws_comma">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="39" name="FixWsComma">
+        <scope ilk="function" line="24" lineend="39" name="transform" returns="node.clone()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixWsComma" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+          <variable citdl="child.prefix" line="29" name="prefix" />
+          <variable citdl="False" line="26" name="comma" />
+          <variable citdl="node.clone()" line="25" name="new" />
+        </scope>
+        <variable citdl="str" line="16" name="PATTERN" />
+        <variable citdl="tuple" line="22" name="SEPS" />
+        <variable citdl="pytree.Leaf()" line="21" name="COLON" />
+        <variable citdl="True" line="14" name="explicit" />
+        <variable citdl="pytree.Leaf()" line="20" name="COMMA" />
+      </scope>
+      <import module="fixer_base" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

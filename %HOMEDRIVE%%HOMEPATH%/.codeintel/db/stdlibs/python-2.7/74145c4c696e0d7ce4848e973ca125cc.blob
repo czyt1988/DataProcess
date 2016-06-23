@@ -1,0 +1,21 @@
+<scope doc="PlaySound(sound, flags) - play a sound&#10;SND_FILENAME - sound is a wav file name SND_ALIAS - sound is a registry sound association name SND_LOOP - Play the sound repeatedly; must also specify SND_ASYNC SND_MEMORY - sound is a memory image of a wav file SND_PURGE - stop all instances of the specified sound SND_ASYNC - PlaySound returns immediately SND_NODEFAULT - Do not play a default beep if the sound can not be found SND_NOSTOP - Do not interrupt any sounds currently playing SND_NOWAIT - Return immediately if the sound driver is busy " ilk="blob" lang="Python" name="winsound">
+      <scope doc="a wrapper around the Windows Beep API" ilk="function" name="Beep" signature="Beep(frequency, duration)" />
+      <variable citdl="long" name="MB_ICONASTERISK" />
+      <variable citdl="long" name="MB_ICONEXCLAMATION" />
+      <variable citdl="long" name="MB_ICONHAND" />
+      <variable citdl="long" name="MB_ICONQUESTION" />
+      <variable citdl="long" name="MB_OK" />
+      <scope doc="call Windows MessageBeep(x). x defaults to MB_OK." ilk="function" name="MessageBeep" signature="MessageBeep(x)" />
+      <scope doc="a wrapper around the Windows PlaySound API" ilk="function" name="PlaySound" signature="PlaySound(sound, flags)" />
+      <variable citdl="long" name="SND_ALIAS" />
+      <variable citdl="long" name="SND_APPLICATION" />
+      <variable citdl="long" name="SND_ASYNC" />
+      <variable citdl="long" name="SND_FILENAME" />
+      <variable citdl="long" name="SND_LOOP" />
+      <variable citdl="long" name="SND_MEMORY" />
+      <variable citdl="long" name="SND_NODEFAULT" />
+      <variable citdl="long" name="SND_NOSTOP" />
+      <variable citdl="long" name="SND_NOWAIT" />
+      <variable citdl="long" name="SND_PURGE" />
+    </scope>
+    

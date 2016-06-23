@@ -1,0 +1,14 @@
+<scope doc="Fixer that turns 'long' into 'int' everywhere.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_long">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="19" name="FixLong">
+        <scope ilk="function" line="16" lineend="19" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixLong" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="True" line="13" name="BM_compatible" />
+        <variable citdl="str" line="14" name="PATTERN" />
+      </scope>
+      <import module="fixer_base" />
+      <scope doc="Check that something isn't an attribute or function name&#10;etc." ilk="function" name="is_probably_builtin" signature="is_probably_builtin(node)" />
+    </scope>
+    

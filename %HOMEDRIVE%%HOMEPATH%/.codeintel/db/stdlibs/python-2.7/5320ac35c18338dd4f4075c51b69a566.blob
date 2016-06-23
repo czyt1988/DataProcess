@@ -1,0 +1,21 @@
+<scope doc="This module provides functions that will be builtins in Python 3.0,&#10;but that conflict with builtins that already exist in Python 2.x.  Functions:  ascii(arg) -- Returns the canonical string representation of an object. filter(pred, iterable) -- Returns an iterator yielding those items of iterable for which pred(item) is true. hex(arg) -- Returns the hexadecimal representation of an integer. map(func, *iterables) -- Returns an iterator that computes the function using arguments from each of the iterables." ilk="blob" lang="Python" name="future_builtins">
+      <scope doc="Return the same as repr()." ilk="function" name="ascii" returns="str" signature="ascii(object) -&gt; string" />
+      <scope classrefs="object" doc="ifilter(function or None, sequence) --&gt; ifilter object&#10;Return those items of sequence for which function(item) is true. If function is None, return the items that are true." ilk="class" name="filter">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope doc="Return the hexadecimal representation of an integer or long&#10;integer." ilk="function" name="hex" returns="str" signature="hex(number) -&gt; string" />
+      <scope classrefs="object" doc="imap(func, *iterables) --&gt; imap object&#10;Make an iterator that computes the function using arguments from each of the iterables.  Like map() except that it returns an iterator instead of a list and that it stops when the shortest iterable is exhausted instead of filling in None for shorter iterables." ilk="class" name="map">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+      <scope doc="Return the octal representation of an integer or long&#10;integer." ilk="function" name="oct" returns="str" signature="oct(number) -&gt; string" />
+      <scope classrefs="object" doc="izip(iter1 [,iter2 [...]]) --&gt; izip object&#10;Return a izip object whose .next() method returns a tuple where the i-th element comes from the i-th iterable argument.  The .next() method continues until the shortest iterable in the argument sequence is exhausted and then it raises StopIteration.  Works like the zip() function but consumes less memory by returning an iterator instead of a list." ilk="class" name="zip">
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="x.next() -&gt; the next value, or raise StopIteration" ilk="function" name="next" signature="x.next() -&gt; the next value, or raise StopIteration" />
+      </scope>
+    </scope>
+    

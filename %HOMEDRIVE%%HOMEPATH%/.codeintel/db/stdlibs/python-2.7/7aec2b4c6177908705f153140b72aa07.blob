@@ -1,0 +1,290 @@
+<scope doc="subprocess - Subprocesses with accessible I/O streams&#10;This module allows you to spawn processes, connect to their input/output/error pipes, and obtain their return codes.  This module intends to replace several other, older modules and functions, like:  os.system os.spawn* os.popen* popen2.* commands.* " ilk="blob" lang="Python" name="subprocess">
+      <variable citdl="int" name="CREATE_NEW_CONSOLE" />
+      <variable citdl="int" name="CREATE_NEW_PROCESS_GROUP" />
+      <scope classrefs="Exception" doc="This exception is raised when a process run by check_call() or&#10;check_output() returns a non-zero exit status. The exit status will be stored in the returncode attribute; check_output() will also store the output in the output attribute." ilk="class" line="402" lineend="413" name="CalledProcessError">
+        <scope ilk="function" line="412" lineend="413" name="__str__" returns="tuple" signature="__str__()">
+          <variable citdl="CalledProcessError" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="408" lineend="411" name="__init__" signature="CalledProcessError(returncode, cmd, output=None)">
+          <variable ilk="argument" name="cmd" />
+          <variable ilk="argument" name="output" />
+          <variable citdl="CalledProcessError" ilk="argument" name="self" />
+          <variable ilk="argument" name="returncode" />
+        </scope>
+        <variable attributes="__instancevar__" line="410" name="cmd" />
+        <variable attributes="__instancevar__" line="411" name="output" />
+        <variable attributes="__instancevar__" line="409" name="returncode" />
+      </scope>
+      <variable citdl="int" line="454" name="MAXFD" />
+      <variable citdl="int" line="471" name="PIPE" />
+      <scope classrefs="object" doc="&#10;" ilk="class" line="618" lineend="1446" name="Popen">
+        <scope doc="Return a duplicate of handle, which is inheritable" ilk="function" line="819" lineend="823" name="_make_inheritable" returns="_subprocess.DuplicateHandle()" signature="_make_inheritable(handle)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="handle" />
+        </scope>
+        <scope ilk="function" line="709" lineend="717" name="__del__" signature="__del__(_maxint=sys.maxint, _active=_active)">
+          <variable citdl="sys.maxint" ilk="argument" name="_maxint" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="list" ilk="argument" name="_active" />
+        </scope>
+        <scope doc="Interact with process: Send data to stdin." ilk="function" line="720" lineend="751" name="communicate" returns="tuple" signature="communicate(input=None)">
+          <variable ilk="argument" name="input" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="self.stderr.read()" line="733" name="stderr" />
+          <variable citdl="self.stdout.read()" line="732" name="stdout" />
+        </scope>
+        <scope doc="Terminates the process" ilk="function" line="1438" lineend="1441" name="terminate" signature="terminate()">
+          <variable citdl="Popen" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="947" lineend="948" name="_readerthread" signature="_readerthread(fh, buffer)">
+          <variable ilk="argument" name="fh" />
+          <variable ilk="argument" name="buffer" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Terminates the process" ilk="function" line="1443" lineend="1446" name="kill" signature="kill()">
+          <variable citdl="Popen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Check if child process has terminated." ilk="function" line="1245" lineend="1262" name="_internal_poll" returns="_subprocess.GetExitCodeProcess()" signature="_internal_poll(_deadstate=None, _waitpid=os.waitpid, _WNOHANG=os.WNOHANG, _os_error=os.error)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="os.error" ilk="argument" name="_os_error" />
+          <variable line="1256" name="pid" />
+          <variable citdl="os.WNOHANG" ilk="argument" name="_WNOHANG" />
+          <variable line="1256" name="sts" />
+          <variable ilk="argument" name="_deadstate" />
+          <variable citdl="os.waitpid" ilk="argument" name="_waitpid" />
+        </scope>
+        <scope doc="Construct and return tuple with IO objects: p2cread,&#10;p2cwrite, c2pread, c2pwrite, errread, errwrite" ilk="function" line="1024" lineend="1066" name="_get_handles" returns="tuple" signature="_get_handles(stdin, stdout, stderr)">
+          <variable line="1030" name="errread" />
+          <variable citdl="stdin.fileno()" line="1028" name="p2cread" />
+          <variable ilk="argument" name="stdout" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="stdin" />
+          <variable line="1028" name="p2cwrite" />
+          <variable citdl="stdout.fileno()" line="1030" name="errwrite" />
+          <variable ilk="argument" name="stderr" />
+          <variable citdl="stdout.fileno()" line="1029" name="c2pwrite" />
+          <variable line="1029" name="c2pread" />
+        </scope>
+        <scope doc="Execute program (MS Windows version)" ilk="function" line="1096" lineend="1228" name="_execute_child" signature="_execute_child(args, executable, preexec_fn, close_fds, cwd, env, universal_newlines, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite)">
+          <variable ilk="argument" name="errread" />
+          <variable ilk="argument" name="c2pread" />
+          <variable citdl="gc.isenabled()" line="1125" name="gc_was_enabled" />
+          <variable ilk="argument" name="errwrite" />
+          <variable citdl="traceback.format_exception()" line="1187" name="exc_lines" />
+          <variable citdl="pickle.loads()" line="1224" name="child_exception" />
+          <variable line="1120" name="errpipe_write" />
+          <variable line="1185" name="exc_type" />
+          <variable ilk="argument" name="executable" />
+          <variable ilk="argument" name="close_fds" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="env" />
+          <variable line="1185" name="tb" />
+          <variable line="1185" name="exc_value" />
+          <variable ilk="argument" name="shell" />
+          <scope attributes="protected" ilk="function" line="1149" lineend="1156" name="_dup2" signature="_dup2(a, b)">
+            <variable ilk="argument" name="a" />
+            <variable ilk="argument" name="b" />
+          </scope>
+          <variable citdl="list" ilk="argument" name="args" />
+          <variable ilk="argument" name="c2pwrite" />
+          <variable citdl="_eintr_retry_call()" line="1213" name="data" />
+          <variable ilk="argument" name="creationflags" />
+          <variable line="1120" name="errpipe_read" />
+          <variable ilk="argument" name="preexec_fn" />
+          <variable ilk="argument" name="p2cread" />
+          <variable ilk="argument" name="startupinfo" />
+          <variable ilk="argument" name="p2cwrite" />
+          <variable ilk="argument" name="cwd" />
+          <variable ilk="argument" name="universal_newlines" />
+          <variable line="1163" name="closed" />
+        </scope>
+        <scope ilk="function" line="754" lineend="755" name="poll" returns="self._internal_poll()" signature="poll()">
+          <variable citdl="Popen" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create new Popen instance." ilk="function" line="619" lineend="700" name="__init__" signature="Popen(args, bufsize=0, executable=None, stdin=None, stdout=None, stderr=None, preexec_fn=None, close_fds=False, shell=False, cwd=None, env=None, universal_newlines=False, startupinfo=None, creationflags=0)">
+          <variable ilk="argument" name="executable" />
+          <variable ilk="argument" name="stdin" />
+          <variable ilk="argument" name="preexec_fn" />
+          <variable line="672" name="p2cread" />
+          <variable ilk="argument" name="stdout" />
+          <variable ilk="argument" name="startupinfo" />
+          <variable citdl="False" ilk="argument" name="close_fds" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable citdl="msvcrt.open_osfhandle()" line="672" name="p2cwrite" />
+          <variable ilk="argument" name="cwd" />
+          <variable citdl="msvcrt.open_osfhandle()" line="672" name="errread" />
+          <variable citdl="False" ilk="argument" name="shell" />
+          <variable line="672" name="errwrite" />
+          <variable ilk="argument" name="stderr" />
+          <variable citdl="int" ilk="argument" name="creationflags" />
+          <variable line="672" name="c2pwrite" />
+          <variable citdl="int" ilk="argument" name="bufsize" />
+          <variable ilk="argument" name="env" />
+          <variable citdl="msvcrt.open_osfhandle()" line="672" name="c2pread" />
+          <variable citdl="False" ilk="argument" name="universal_newlines" />
+        </scope>
+        <scope doc="Wait for child process to terminate." ilk="function" line="1265" lineend="1279" name="wait" returns="_subprocess.GetExitCodeProcess()" signature="wait()">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable line="1270" name="pid" />
+          <variable citdl="int" line="1270" name="sts" />
+        </scope>
+        <scope doc="Find and return absolut path to w9xpopen.exe" ilk="function" line="826" lineend="840" name="_find_w9xpopen" returns="os.path.join()" signature="_find_w9xpopen()">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="os.path.join()" line="828" name="w9xpopen" />
+        </scope>
+        <scope ilk="function" line="703" lineend="706" name="_translate_newlines" returns="data.replace()" signature="_translate_newlines(data)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="data.replace()" ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="1282" lineend="1312" name="_communicate" returns="tuple" signature="_communicate(input)">
+          <variable ilk="argument" name="input" />
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable citdl="str.join()" line="1291" name="stderr" />
+          <variable citdl="str.join()" line="1291" name="stdout" />
+        </scope>
+        <scope doc="Send a signal to the process" ilk="function" line="1433" lineend="1436" name="send_signal" signature="send_signal(sig)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="sig" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="True" line="627" name="_child_created" />
+        <scope attributes="protected" ilk="function" line="1231" lineend="1242" name="_handle_exitstatus" signature="_handle_exitstatus(sts, _WIFSIGNALED=os.WIFSIGNALED, _WTERMSIG=os.WTERMSIG, _WIFEXITED=os.WIFEXITED, _WEXITSTATUS=os.WEXITSTATUS)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="sts" />
+          <variable citdl="os.WIFSIGNALED" ilk="argument" name="_WIFSIGNALED" />
+          <variable citdl="os.WTERMSIG" ilk="argument" name="_WTERMSIG" />
+          <variable citdl="os.WIFEXITED" ilk="argument" name="_WIFEXITED" />
+          <variable citdl="os.WEXITSTATUS" ilk="argument" name="_WEXITSTATUS" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="_handle_exitstatus._WEXITSTATUS()" line="652" name="returncode" />
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="649" name="stdout" />
+        <scope attributes="protected" ilk="function" line="1069" lineend="1079" name="_set_cloexec_flag" signature="_set_cloexec_flag(fd, cloexec=True)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="fd" />
+          <variable citdl="True" ilk="argument" name="cloexec" />
+          <variable citdl="int" line="1071" name="cloexec_flag" />
+          <variable citdl="fcntl.fcntl()" line="1075" name="old" />
+        </scope>
+        <scope attributes="protected" ilk="function" line="1082" lineend="1093" name="_close_fds" signature="_close_fds(but)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="but" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.fork()" line="651" name="pid" />
+        <variable attributes="protected __instancevar__" line="916" name="_handle" />
+        <scope attributes="protected" ilk="function" line="1376" lineend="1430" name="_communicate_with_select" returns="tuple" signature="_communicate_with_select(input)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="input" />
+          <variable citdl="list" line="1377" name="read_set" />
+          <variable citdl="list" line="1378" name="write_set" />
+          <variable citdl="list" line="1379" name="stdout" />
+          <variable citdl="list" line="1380" name="stderr" />
+          <variable citdl="int" line="1391" name="input_offset" />
+          <variable line="1394" name="rlist" />
+          <variable line="1394" name="wlist" />
+          <variable line="1394" name="xlist" />
+          <variable citdl="list" line="1401" name="chunk" />
+          <variable citdl="os.write()" line="1403" name="bytes_written" />
+          <variable citdl="os.read()" line="1417" name="data" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="650" name="stderr" />
+        <variable attributes="__instancevar__" citdl="False" line="653" name="universal_newlines" />
+        <scope attributes="protected" ilk="function" line="1315" lineend="1373" name="_communicate_with_poll" returns="tuple" signature="_communicate_with_poll(input)">
+          <variable citdl="Popen" ilk="argument" name="self" />
+          <variable ilk="argument" name="input" />
+          <variable line="1316" name="stdout" />
+          <variable line="1317" name="stderr" />
+          <variable citdl="dict" line="1318" name="fd2file" />
+          <variable citdl="dict" line="1319" name="fd2output" />
+          <variable citdl="select.poll()" line="1321" name="poller" />
+          <scope ilk="function" line="1322" lineend="1324" name="register_and_append" signature="register_and_append(file_obj, eventmask)">
+            <variable ilk="argument" name="file_obj" />
+            <variable ilk="argument" name="eventmask" />
+          </scope>
+          <scope ilk="function" line="1326" lineend="1329" name="close_unregister_and_remove" signature="close_unregister_and_remove(fd)">
+            <variable ilk="argument" name="fd" />
+          </scope>
+          <variable citdl="int" line="1334" name="select_POLLIN_POLLPRI" />
+          <variable citdl="int" line="1342" name="input_offset" />
+          <variable citdl="poller.poll()" line="1345" name="ready" />
+          <variable citdl="list" line="1353" name="chunk" />
+          <variable citdl="os.read()" line="1365" name="data" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="os.fdopen()" line="648" name="stdin" />
+      </scope>
+      <variable citdl="int" name="STARTF_USESHOWWINDOW" />
+      <variable citdl="int" name="STARTF_USESTDHANDLES" />
+      <scope doc="&#10;" ilk="class" line="420" lineend="425" name="STARTUPINFO">
+        <variable line="423" name="hStdOutput" />
+        <variable citdl="int" line="425" name="wShowWindow" />
+        <variable line="422" name="hStdInput" />
+        <variable line="424" name="hStdError" />
+        <variable citdl="int" line="421" name="dwFlags" />
+      </scope>
+      <variable citdl="int" line="472" name="STDOUT" />
+      <variable citdl="int" name="STD_ERROR_HANDLE" />
+      <variable citdl="int" name="STD_INPUT_HANDLE" />
+      <variable citdl="int" name="STD_OUTPUT_HANDLE" />
+      <variable citdl="int" name="SW_HIDE" />
+      <variable citdl="list" line="440" name="__all__" />
+      <import module="_subprocess" />
+      <scope doc="Run command with arguments." ilk="function" line="485" lineend="493" name="call" signature="call(*popenargs, **kwargs)">
+        <variable attributes="varargs" ilk="argument" name="popenargs" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Run command with arguments. Wait for command to complete." ilk="function" line="496" lineend="512" name="check_call" returns="int" signature="check_call(*popenargs, **kwargs)">
+        <variable citdl="kwargs.get()" line="508" name="cmd" />
+        <variable citdl="call()" line="506" name="retcode" />
+        <variable attributes="varargs" ilk="argument" name="popenargs" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+      </scope>
+      <scope doc="Run command with arguments and return its output as a byte&#10;string." ilk="function" line="515" lineend="545" name="check_output" signature="check_output(*popenargs, **kwargs)">
+        <variable citdl="process.poll()" line="539" name="retcode" />
+        <variable citdl="Popen()" line="537" name="process" />
+        <variable citdl="kwargs.get()" line="541" name="cmd" />
+        <variable line="538" name="unused_err" />
+        <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        <variable line="538" name="output" />
+        <variable attributes="varargs" ilk="argument" name="popenargs" />
+      </scope>
+      <import module="errno" />
+      <import module="gc" />
+      <scope doc="Translate a sequence of arguments into a command line&#10;string, using the same rules as the MS C runtime:" ilk="function" line="548" lineend="615" name="list2cmdline" returns="str.join()" signature="list2cmdline(seq)">
+        <variable citdl="False" line="579" name="needquote" />
+        <variable citdl="list" line="578" name="result" />
+        <variable ilk="argument" name="seq" />
+        <variable citdl="list" line="581" name="bs_buf" />
+      </scope>
+      <import module="msvcrt" />
+      <variable citdl="bool" line="392" name="mswindows" />
+      <import module="os" />
+      <scope doc="&#10;" ilk="class" line="426" lineend="427" name="pywintypes">
+        <variable citdl="IOError" line="427" name="error" />
+      </scope>
+      <import module="signal" />
+      <import module="sys" />
+      <import module="threading" />
+      <import module="traceback" />
+      <import module="types" />
+      <variable attributes="protected __hidden__" citdl="hasattr()" line="430" name="_has_poll" />
+      <variable attributes="protected __hidden__" citdl="list" line="458" name="_active" />
+      <scope attributes="protected __hidden__" ilk="function" line="1449" lineend="1487" name="_demo_posix" signature="_demo_posix()">
+        <variable line="1453" name="plist" />
+        <variable citdl="Popen" line="1461" name="p" />
+        <variable citdl="Popen" line="1468" name="p1" />
+        <variable citdl="Popen" line="1469" name="p2" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="460" lineend="469" name="_cleanup" signature="_cleanup()">
+        <variable citdl="inst._internal_poll()" line="462" name="res" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="475" lineend="482" name="_eintr_retry_call" returns="_eintr_retry_call.func()" signature="_eintr_retry_call(func, *args)">
+        <variable ilk="argument" name="func" />
+        <variable attributes="varargs" ilk="argument" name="args" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="1490" lineend="1504" name="_demo_windows" signature="_demo_windows()">
+        <variable citdl="Popen" line="1495" name="p1" />
+        <variable citdl="Popen" line="1496" name="p2" />
+        <variable citdl="Popen" line="1503" name="p" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="getattr()" line="437" name="_PIPE_BUF" />
+    </scope>
+    

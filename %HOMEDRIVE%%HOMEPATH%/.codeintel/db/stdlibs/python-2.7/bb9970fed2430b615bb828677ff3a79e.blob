@@ -1,0 +1,128 @@
+<scope doc="Implementation of JSONDecoder&#10;" ilk="blob" lang="Python" name="json.decoder">
+      <variable citdl="dict" line="58" name="BACKSLASH" />
+      <variable citdl="str" line="63" name="DEFAULT_ENCODING" />
+      <variable citdl="int" line="15" name="FLAGS" />
+      <scope ilk="function" line="237" lineend="272" name="JSONArray" returns="tuple" signature="JSONArray(s_and_end, scan_once, _w=&lt;built-in method match of _sre.SRE_Pattern object at 0x041AECE0&gt;, _ws=' \t\n\r')">
+        <variable attributes="protected" citdl="values.append" line="247" name="_append" />
+        <variable line="242" name="end" />
+        <variable citdl="WHITESPACE.match" ilk="argument" name="_w" />
+        <variable citdl="str" ilk="argument" name="_ws" />
+        <variable citdl="list" line="239" name="values" />
+        <variable line="250" name="value" />
+        <variable ilk="argument" name="scan_once" />
+        <variable ilk="argument" name="s_and_end" />
+        <variable citdl="list" line="240" name="nextchar" />
+      </scope>
+      <scope classrefs="object" doc="Simple JSON &lt;http://json.org&gt; decoder&#10;Performs the following translations in decoding by default:  +---------------+-------------------+ | JSON          | Python            | +===============+===================+ | object        | dict              | +---------------+-------------------+ | array         | list              | +---------------+-------------------+ | string        | unicode           |" ilk="class" line="274" lineend="385" name="JSONDecoder">
+        <scope doc="Decode a JSON document from ``s`` (a ``str`` or ``unicode``&#10;beginning with a JSON document) and return a 2-tuple of the&#10;Python representation and the index in ``s`` where the&#10;document ended." ilk="function" line="372" lineend="385" name="raw_decode" returns="tuple" signature="raw_decode(s, idx=0)">
+          <variable line="382" name="end" />
+          <variable citdl="JSONDecoder" ilk="argument" name="self" />
+          <variable line="382" name="obj" />
+          <variable ilk="argument" name="s" />
+          <variable citdl="int" ilk="argument" name="idx" />
+        </scope>
+        <scope doc="Return the Python representation of ``s`` (a ``str`` or&#10;``unicode`` instance containing a JSON document)" ilk="function" line="361" lineend="370" name="decode" signature="decode(s, _w=WHITESPACE.match)">
+          <variable citdl="WHITESPACE.match" ilk="argument" name="_w" />
+          <variable line="366" name="end" />
+          <variable citdl="JSONDecoder" ilk="argument" name="self" />
+          <variable line="366" name="obj" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <scope doc="``encoding`` determines the encoding used to interpret any&#10;``str`` objects decoded by this instance (utf-8 by default)." ilk="function" line="304" lineend="359" name="__init__" signature="JSONDecoder(encoding=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)">
+          <variable ilk="argument" name="parse_constant" />
+          <variable ilk="argument" name="parse_float" />
+          <variable ilk="argument" name="object_hook" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="JSONDecoder" ilk="argument" name="self" />
+          <variable ilk="argument" name="parse_int" />
+          <variable citdl="True" ilk="argument" name="strict" />
+          <variable ilk="argument" name="object_pairs_hook" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="JSONObject" line="356" name="parse_object" />
+        <variable attributes="__instancevar__" citdl="int" line="353" name="parse_int" />
+        <variable attributes="__instancevar__" citdl="scanner.make_scanner()" line="359" name="scan_once" />
+        <variable attributes="__instancevar__" citdl="float" line="352" name="parse_float" />
+        <variable attributes="__instancevar__" line="350" name="object_hook" />
+        <variable attributes="__instancevar__" line="349" name="encoding" />
+        <variable attributes="__instancevar__" citdl="_CONSTANTS.__getitem__" line="354" name="parse_constant" />
+        <variable attributes="__instancevar__" citdl="py_scanstring" line="358" name="parse_string" />
+        <variable attributes="__instancevar__" citdl="True" line="355" name="strict" />
+        <variable attributes="__instancevar__" citdl="JSONArray" line="357" name="parse_array" />
+        <variable attributes="__instancevar__" line="351" name="object_pairs_hook" />
+      </scope>
+      <scope ilk="function" line="149" lineend="235" name="JSONObject" returns="tuple" signature="JSONObject(s_and_end, encoding, strict, scan_once, object_hook, object_pairs_hook, _w=&lt;built-in method match of _sre.SRE_Pattern object at 0x041AECE0&gt;, _ws=' \t\n\r')">
+        <variable citdl="object_hook()" line="152" name="pairs" />
+        <variable ilk="argument" name="scan_once" />
+        <variable ilk="argument" name="object_hook" />
+        <variable ilk="argument" name="encoding" />
+        <variable citdl="WHITESPACE.match" ilk="argument" name="_w" />
+        <variable citdl="pairs.append" line="153" name="pairs_append" />
+        <variable line="195" name="value" />
+        <variable ilk="argument" name="strict" />
+        <variable citdl="str" ilk="argument" name="_ws" />
+        <variable line="175" name="key" />
+        <variable line="160" name="end" />
+        <variable ilk="argument" name="s_and_end" />
+        <variable citdl="list" line="156" name="nextchar" />
+        <variable ilk="argument" name="object_pairs_hook" />
+        <variable citdl="object_pairs_hook()" line="165" name="result" />
+      </scope>
+      <variable citdl="float" line="24" name="NaN" />
+      <variable citdl="float" line="24" name="NegInf" />
+      <variable citdl="float" line="24" name="PosInf" />
+      <variable citdl="SRE_Pattern" line="57" name="STRINGCHUNK" />
+      <variable citdl="SRE_Pattern" line="146" name="WHITESPACE" />
+      <variable citdl="str" line="147" name="WHITESPACE_STR" />
+      <variable citdl="list" line="13" name="__all__" />
+      <scope doc="Scan the string s for a JSON string." ilk="function" line="11" name="c_scanstring" signature="scanstring(basestring, end, encoding, strict=True) -&gt; (str, end)" />
+      <scope ilk="function" line="36" lineend="46" name="errmsg" returns="fmt.format()" signature="errmsg(msg, doc, pos, end=None)">
+        <variable ilk="argument" name="end" />
+        <variable ilk="argument" name="doc" />
+        <variable citdl="str" line="40" name="fmt" />
+        <variable ilk="argument" name="pos" />
+        <variable line="44" name="endlineno" />
+        <variable line="38" name="lineno" />
+        <variable line="38" name="colno" />
+        <variable ilk="argument" name="msg" />
+        <variable line="44" name="endcolno" />
+      </scope>
+      <scope ilk="function" line="27" lineend="33" name="linecol" returns="tuple" signature="linecol(doc, pos)">
+        <variable ilk="argument" name="doc" />
+        <variable ilk="argument" name="pos" />
+        <variable citdl="doc.rindex()" line="30" name="colno" />
+        <variable citdl="doc.count()" line="28" name="lineno" />
+      </scope>
+      <scope doc="Scan the string s for a JSON string." ilk="function" line="65" lineend="140" name="py_scanstring" returns="tuple" signature="py_scanstring(s, end, encoding=None, strict=True, _b={'r': u'\r', '&quot;': u'&quot;', 't': u'\t', 'f': u'\x0c', 'b': u'\x08', '\\': u'\\', '/': u'/', 'n': u'\n'}, _m=&lt;built-in method match of _sre.SRE_Pattern object at 0x04047820&gt;)">
+        <variable citdl="int()" line="133" name="uni2" />
+        <variable citdl="unichr()" line="112" name="char" />
+        <variable citdl="int" line="79" name="begin" />
+        <variable citdl="chunk.end()" ilk="argument" name="end" />
+        <variable citdl="str" ilk="argument" name="encoding" />
+        <variable citdl="_m()" line="81" name="chunk" />
+        <variable citdl="STRINGCHUNK.match" ilk="argument" name="_m" />
+        <variable citdl="unicode()" line="86" name="content" />
+        <variable citdl="True" ilk="argument" name="strict" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="list" line="130" name="esc2" />
+        <variable attributes="protected" citdl="chunks.append" line="78" name="_append" />
+        <variable line="86" name="terminator" />
+        <variable citdl="int" line="124" name="uni" />
+        <variable citdl="str" line="99" name="msg" />
+        <variable citdl="list" line="105" name="esc" />
+        <variable citdl="dict" ilk="argument" name="_b" />
+        <variable citdl="list" line="77" name="chunks" />
+        <variable citdl="chunk.end()" line="120" name="next_end" />
+      </scope>
+      <import module="re" />
+      <import module="scanner" />
+      <scope doc="Scan the string s for a JSON string." ilk="function" line="144" name="scanstring" signature="scanstring(basestring, end, encoding, strict=True) -&gt; (str, end)" />
+      <import module="struct" />
+      <import module="sys" />
+      <scope attributes="protected __hidden__" ilk="function" line="17" lineend="22" name="_floatconstants" returns="tuple" signature="_floatconstants()">
+        <variable attributes="protected" citdl="str.decode()" line="18" name="_BYTES" />
+        <variable line="21" name="nan" />
+        <variable line="21" name="inf" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="51" name="_CONSTANTS" />
+    </scope>
+    

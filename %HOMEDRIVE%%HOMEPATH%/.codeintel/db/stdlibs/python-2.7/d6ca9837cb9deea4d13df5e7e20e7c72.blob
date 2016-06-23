@@ -1,0 +1,207 @@
+<scope doc="distutils.cmd&#10;Provides the Command class, the base class for the command classes in the distutils.command package." ilk="blob" lang="Python" name="distutils.cmd">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" line="14" lineend="426" name="Command">
+        <scope ilk="function" line="253" lineend="258" name="_ensure_tested_string" signature="_ensure_tested_string(option, tester, what, error_fmt, default=None)">
+          <variable ilk="argument" name="what" />
+          <variable ilk="argument" name="option" />
+          <variable citdl="_ensure_stringlike()" line="255" name="val" />
+          <variable ilk="argument" name="tester" />
+          <variable ilk="argument" name="default" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="error_fmt" />
+        </scope>
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" line="383" lineend="386" name="spawn" signature="spawn(cmd, search_path=1, level=1)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="cmd" />
+          <variable citdl="int" ilk="argument" name="search_path" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope ilk="function" line="107" lineend="110" name="ensure_finalized" signature="ensure_finalized()">
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create and initialize a new Command object." ilk="function" line="49" lineend="94" name="__init__" signature="Command(dist)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="dist" />
+        </scope>
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" line="125" lineend="136" name="initialize_options" signature="initialize_options()">
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="153" lineend="165" name="dump_options" signature="dump_options(header=None, indent='')">
+          <variable citdl="self.get_command_name()" ilk="argument" name="header" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="indent" />
+          <variable citdl="list" line="160" name="option" />
+          <variable citdl="getattr()" line="163" name="value" />
+        </scope>
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" line="97" lineend="105" name="__getattr__" returns="getattr()" signature="__getattr__(attr)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+          <variable citdl="getattr()" line="99" name="myval" />
+        </scope>
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" line="328" lineend="339" name="get_sub_commands" returns="list" signature="get_sub_commands()">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable citdl="list" line="335" name="commands" />
+        </scope>
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" line="367" lineend="377" name="copy_tree" returns="dir_util.copy_tree()" signature="copy_tree(infile, outfile, preserve_mode=1, preserve_times=1, preserve_symlinks=0, level=1)">
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="int" ilk="argument" name="preserve_times" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="int" ilk="argument" name="preserve_symlinks" />
+          <variable citdl="int" ilk="argument" name="preserve_mode" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" line="180" lineend="184" name="announce" signature="announce(msg, level=1)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" line="321" lineend="326" name="run_command" signature="run_command(command)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+        </scope>
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" line="280" lineend="302" name="set_undefined_options" signature="set_undefined_options(src_cmd, *option_pairs)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="src_cmd" />
+          <variable attributes="varargs" ilk="argument" name="option_pairs" />
+          <variable citdl="self.distribution.get_command_obj()" line="297" name="src_cmd_obj" />
+        </scope>
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" line="167" lineend="178" name="run" signature="run()">
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" line="317" lineend="319" name="reinitialize_command" returns="self.distribution.reinitialize_command()" signature="reinitialize_command(command, reinit_subcommands=0)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+          <variable citdl="int" ilk="argument" name="reinit_subcommands" />
+        </scope>
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" line="354" lineend="365" name="copy_file" returns="file_util.copy_file()" signature="copy_file(infile, outfile, preserve_mode=1, preserve_times=1, link=None, level=1)">
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="int" ilk="argument" name="preserve_times" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="outfile" />
+          <variable ilk="argument" name="link" />
+          <variable citdl="int" ilk="argument" name="preserve_mode" />
+          <variable ilk="argument" name="infile" />
+        </scope>
+        <scope ilk="function" line="344" lineend="346" name="warn" signature="warn(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="266" lineend="269" name="ensure_dirname" signature="ensure_dirname(option)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Move a file respecting dry-run flag." ilk="function" line="379" lineend="381" name="move_file" returns="file_util.move_file()" signature="move_file(src, dst, level=1)">
+          <variable ilk="argument" name="src" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="dst" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" line="225" lineend="250" name="ensure_string_list" signature="ensure_string_list(option)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable citdl="int" line="239" name="ok" />
+          <variable ilk="argument" name="option" />
+          <variable citdl="getattr()" line="231" name="val" />
+        </scope>
+        <scope ilk="function" line="209" lineend="217" name="_ensure_stringlike" returns="getattr()" signature="_ensure_stringlike(option, what, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+          <variable citdl="getattr()" line="210" name="val" />
+          <variable ilk="argument" name="what" />
+        </scope>
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" line="305" lineend="313" name="get_finalized_command" returns="self.distribution.get_command_obj()" signature="get_finalized_command(command, create=1)">
+          <variable citdl="self.distribution.get_command_obj()" line="311" name="cmd_obj" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="command" />
+          <variable citdl="int" ilk="argument" name="create" />
+        </scope>
+        <scope ilk="function" line="348" lineend="349" name="execute" signature="execute(func, args, msg=None, level=1)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="func" />
+          <variable citdl="int" ilk="argument" name="level" />
+        </scope>
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" line="219" lineend="223" name="ensure_string" signature="ensure_string(option, default=None)">
+          <variable ilk="argument" name="default" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope ilk="function" line="351" lineend="352" name="mkpath" signature="mkpath(name, mode=511)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable citdl="int" ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="388" lineend="392" name="make_archive" returns="archive_util.make_archive()" signature="make_archive(base_name, format, root_dir=None, base_dir=None, owner=None, group=None)">
+          <variable ilk="argument" name="root_dir" />
+          <variable ilk="argument" name="base_name" />
+          <variable ilk="argument" name="format" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="owner" />
+          <variable ilk="argument" name="group" />
+          <variable ilk="argument" name="base_dir" />
+        </scope>
+        <scope ilk="function" line="274" lineend="278" name="get_command_name" returns="self.command_name" signature="get_command_name()">
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" line="394" lineend="426" name="make_file" signature="make_file(infiles, outfile, func, args, exec_msg=None, skip_msg=None, level=1)">
+          <variable citdl="tuple" ilk="argument" name="infiles" />
+          <variable citdl="int" ilk="argument" name="level" />
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="args" />
+          <variable ilk="argument" name="outfile" />
+          <variable citdl="str" ilk="argument" name="exec_msg" />
+          <variable ilk="argument" name="func" />
+          <variable citdl="str" ilk="argument" name="skip_msg" />
+        </scope>
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" line="138" lineend="150" name="finalize_options" signature="finalize_options()">
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" line="260" lineend="264" name="ensure_filename" signature="ensure_filename(option)">
+          <variable citdl="Command" ilk="argument" name="self" />
+          <variable ilk="argument" name="option" />
+        </scope>
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" line="186" lineend="193" name="debug_print" signature="debug_print(msg)">
+          <variable ilk="argument" name="msg" />
+          <variable citdl="Command" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="84" name="force" />
+        <variable attributes="__instancevar__" citdl="int" line="88" name="help" />
+        <variable attributes="__instancevar__" citdl="int" line="94" name="finalized" />
+        <variable citdl="list" line="44" name="sub_commands" />
+        <variable attributes="protected __instancevar__" line="74" name="_dry_run" />
+        <variable attributes="__instancevar__" line="63" name="distribution" />
+        <variable attributes="__instancevar__" citdl="dist.verbose" line="78" name="verbose" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <variable citdl="str" line="7" name="__revision__" />
+      <import module="archive_util" />
+      <import module="dep_util" />
+      <import module="dir_util" />
+      <import module="file_util" />
+      <scope classrefs="Command" doc="Common base class for installing some files in a subdirectory.&#10;Currently used by install_data and install_scripts." ilk="class" line="433" lineend="457" name="install_misc">
+        <scope ilk="function" line="444" lineend="445" name="_install_dir_from" signature="_install_dir_from(dirname)">
+          <variable citdl="install_misc" ilk="argument" name="self" />
+          <variable ilk="argument" name="dirname" />
+        </scope>
+        <scope ilk="function" line="440" lineend="442" name="initialize_options" signature="initialize_options()">
+          <variable citdl="install_misc" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="447" lineend="454" name="_copy_files" signature="_copy_files(filelist)">
+          <variable citdl="install_misc" ilk="argument" name="self" />
+          <variable ilk="argument" name="filelist" />
+        </scope>
+        <scope ilk="function" line="456" lineend="457" name="get_outputs" returns="list" signature="get_outputs()">
+          <variable citdl="install_misc" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="442" name="outfiles" />
+        <variable citdl="list" line="438" name="user_options" />
+        <variable attributes="__instancevar__" line="441" name="install_dir" />
+      </scope>
+      <import module="log" />
+      <import module="os" />
+      <import module="re" />
+      <import module="sys" />
+      <import module="util" />
+    </scope>
+    

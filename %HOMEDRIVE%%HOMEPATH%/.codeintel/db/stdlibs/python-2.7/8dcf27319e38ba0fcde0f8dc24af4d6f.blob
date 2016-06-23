@@ -1,0 +1,105 @@
+<scope doc="distutils.util&#10;Miscellaneous utility functions -- anything that doesn't fit into one of the other *util.py modules." ilk="blob" lang="Python" name="distutils.util">
+      <scope classrefs="DistutilsError" doc="Byte compile error.&#10;" ilk="class" name="DistutilsByteCompileError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <variable citdl="str" line="7" name="__revision__" />
+      <scope doc="Byte-compile a collection of Python source files to either&#10;.pyc or .pyo files in the same directory." ilk="function" line="418" lineend="557" name="byte_compile" signature="byte_compile(py_files, optimize=0, force=0, prefix=None, base_dir=None, verbose=1, dry_run=0, direct=None)">
+        <variable citdl="__debug__" line="538" name="cfile" />
+        <variable ilk="argument" name="py_files" />
+        <variable citdl="file" line="539" name="dfile" />
+        <variable citdl="int" ilk="argument" name="force" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+        <variable citdl="open()" line="480" name="script" />
+        <variable citdl="list" line="513" name="cmd" />
+        <variable citdl="__debug__" ilk="argument" name="direct" />
+        <variable citdl="mktemp()" line="473" name="script_name" />
+        <variable citdl="os.path.basename()" line="549" name="cfile_base" />
+        <variable ilk="argument" name="prefix" />
+        <variable line="473" name="script_fd" />
+        <variable citdl="int" ilk="argument" name="optimize" />
+        <variable ilk="argument" name="base_dir" />
+      </scope>
+      <scope doc="Return 'pathname' with 'new_root' prepended." ilk="function" line="213" lineend="239" name="change_root" returns="os.path.join()" signature="change_root(new_root, pathname)">
+        <variable citdl="list" line="226" name="path" />
+        <variable ilk="argument" name="pathname" />
+        <variable ilk="argument" name="new_root" />
+        <variable line="226" name="drive" />
+      </scope>
+      <scope doc="Ensure that 'os.environ' has all the environment variables&#10;we guarantee that users can use in config files, command-&#10;line options, etc." ilk="function" line="243" lineend="262" name="check_environ" signature="check_environ()">
+        <variable attributes="protected" citdl="int" line="262" name="_environ_checked" />
+      </scope>
+      <scope doc="Return 'pathname' as a name that will work on the native&#10;filesystem, i.e." ilk="function" line="185" lineend="208" name="convert_path" returns="os.curdir" signature="convert_path(pathname)">
+        <variable citdl="string.split()" line="203" name="paths" />
+        <variable ilk="argument" name="pathname" />
+      </scope>
+      <scope doc="Perform some action that affects the outside world (eg." ilk="function" line="383" lineend="399" name="execute" signature="execute(func, args, msg=None, verbose=0, dry_run=0)">
+        <variable citdl="str" ilk="argument" name="msg" />
+        <variable ilk="argument" name="args" />
+        <variable citdl="int" ilk="argument" name="verbose" />
+        <variable ilk="argument" name="func" />
+        <variable citdl="int" ilk="argument" name="dry_run" />
+      </scope>
+      <scope doc="Return a string that identifies the current platform." ilk="function" line="16" lineend="180" name="get_platform" returns="tuple" signature="get_platform()">
+        <variable line="47" name="look" />
+        <variable citdl="open()" line="111" name="f" />
+        <variable citdl="string.find()" line="43" name="i" />
+        <variable citdl="cfgvars.get()" line="100" name="macver" />
+        <variable citdl="string.find()" line="46" name="j" />
+        <variable citdl="re.search()" line="87" name="m" />
+        <variable citdl="str" line="61" name="osname" />
+        <variable citdl="str" line="61" name="machine" />
+        <variable citdl="str.join()" line="61" name="release" />
+        <variable citdl="str" line="42" name="prefix" />
+        <variable line="61" name="version" />
+        <variable citdl="re.compile()" line="86" name="rel_re" />
+        <variable line="144" name="cflags" />
+        <variable line="61" name="host" />
+        <variable citdl="cfgvars.get()" line="106" name="macrelease" />
+        <variable citdl="tuple()" line="146" name="archs" />
+        <variable citdl="get_config_vars()" line="98" name="cfgvars" />
+      </scope>
+      <scope doc="Generate a useful error message from an EnvironmentError&#10;(IOError or OSError) exception object." ilk="function" line="290" lineend="309" name="grok_environment_error" returns="tuple" signature="grok_environment_error(exc, prefix='error: ')">
+        <variable citdl="str" ilk="argument" name="prefix" />
+        <variable ilk="argument" name="exc" />
+        <variable citdl="str" line="301" name="error" />
+      </scope>
+      <import module="log" />
+      <scope doc="Tells if the target is newer than the source." ilk="function" name="newer" signature="newer(source, target)" />
+      <import module="os" />
+      <import module="re" />
+      <scope doc="Return a version of the string escaped for inclusion in an&#10;RFC-822 header, by ensuring there are 8 spaces space after&#10;each newline." ilk="function" line="561" lineend="567" name="rfc822_escape" returns="string.join()" signature="rfc822_escape(header)">
+        <variable citdl="string.join()" ilk="argument" name="header" />
+        <variable citdl="string.split()" line="565" name="lines" />
+      </scope>
+      <scope doc="Run another program, specified as a command list 'cmd', in a&#10;new process." ilk="function" name="spawn" signature="spawn(cmd, search_path=1, verbose=0, dry_run=0)" />
+      <scope doc="Split a string up according to Unix shell-like rules for&#10;quotes and backslashes." ilk="function" line="320" lineend="378" name="split_quoted" returns="list" signature="split_quoted(s)">
+        <variable citdl="m.end()" line="342" name="end" />
+        <variable citdl="_dquote_re.match()" line="341" name="m" />
+        <variable citdl="int" line="338" name="pos" />
+        <variable line="370" name="beg" />
+        <variable citdl="list" ilk="argument" name="s" />
+        <variable citdl="list" line="337" name="words" />
+      </scope>
+      <import module="string" />
+      <scope doc="Convert a string representation of truth to true (1) or&#10;false (0)." ilk="function" line="402" lineend="415" name="strtobool" returns="int" signature="strtobool(val)">
+        <variable citdl="string.lower()" ilk="argument" name="val" />
+      </scope>
+      <scope doc="Perform shell/Perl-style variable substitution on 'string'." ilk="function" line="265" lineend="285" name="subst_vars" returns="re.sub()" signature="subst_vars(s, local_vars)">
+        <scope attributes="protected" ilk="function" line="275" lineend="280" name="_subst" returns="str()" signature="_subst(match, local_vars=local_vars)">
+          <variable ilk="argument" name="match" />
+          <variable ilk="argument" name="local_vars" />
+          <variable citdl="match.group()" line="276" name="var_name" />
+        </scope>
+        <variable ilk="argument" name="s" />
+        <variable ilk="argument" name="local_vars" />
+      </scope>
+      <import module="sys" />
+      <variable attributes="protected __hidden__" citdl="int" line="242" name="_environ_checked" />
+      <scope attributes="protected __hidden__" ilk="function" line="314" lineend="318" name="_init_regex" signature="_init_regex()">
+        <variable attributes="protected" citdl="re.compile()" line="316" name="_wordchars_re" />
+        <variable attributes="protected" citdl="re.compile()" line="317" name="_squote_re" />
+        <variable attributes="protected" citdl="re.compile()" line="318" name="_dquote_re" />
+      </scope>
+      <variable attributes="protected __hidden__" line="313" name="_wordchars_re" />
+    </scope>
+    

@@ -1,0 +1,26 @@
+<scope doc="Class representing audio/* type MIME documents.&#10;" ilk="blob" lang="Python" name="email.mime.audio">
+      <scope classrefs="MIMENonMultipart" doc="Class for generating audio/* MIME documents.&#10;" ilk="class" line="42" lineend="73" name="MIMEAudio">
+        <scope doc="Create an audio/* type MIME document." ilk="function" line="45" lineend="73" name="__init__" signature="MIMEAudio(_audiodata, _subtype=None, _encoder=encoders.encode_base64, **_params)">
+          <variable ilk="argument" name="_audiodata" />
+          <variable citdl="MIMEAudio" ilk="argument" name="self" />
+          <variable citdl="encoders.encode_base64" ilk="argument" name="_encoder" />
+          <variable attributes="kwargs" ilk="argument" name="_params" />
+          <variable citdl="_whatsnd()" ilk="argument" name="_subtype" />
+        </scope>
+      </scope>
+      <scope classrefs="MIMEBase" doc="Base class for MIME multipart/* type messages.&#10;" ilk="class" name="MIMENonMultipart">
+        <scope ilk="function" name="attach" />
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="7" name="__all__" />
+      <import module="encoders" />
+      <import module="sndhdr" />
+      <variable attributes="protected __hidden__" citdl="dict" line="17" name="_sndhdr_MIMEmap" />
+      <scope attributes="protected __hidden__" doc="Try to identify a sound file type." ilk="function" line="25" lineend="38" name="_whatsnd" returns="_sndhdr_MIMEmap.get()" signature="_whatsnd(data)">
+        <variable ilk="argument" name="data" />
+        <variable citdl="list" line="32" name="hdr" />
+        <variable citdl="StringIO()" line="33" name="fakefile" />
+        <variable citdl="testfn()" line="35" name="res" />
+      </scope>
+    </scope>
+    

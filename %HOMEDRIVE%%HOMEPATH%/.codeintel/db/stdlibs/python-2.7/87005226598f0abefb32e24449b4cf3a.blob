@@ -1,0 +1,190 @@
+<scope doc="Generic (shallow and deep) copying operations.&#10;Interface summary:  import copy  x = copy.copy(y)        # make a shallow copy of y x = copy.deepcopy(y)    # make a deep copy of y  For module specific errors, copy.Error is raised.  The difference between shallow and deep copying is only relevant for" ilk="blob" lang="Python" name="copy">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="55" lineend="56" name="Error" />
+      <variable citdl="NoneType" line="62" name="PyStringMap" />
+      <variable citdl="list" line="64" name="__all__" />
+      <scope doc="Shallow copy operation on arbitrary Python objects." ilk="function" line="66" lineend="96" name="copy" returns="copy.copier()" signature="copy(x)">
+        <variable citdl="getattr()" line="82" name="reductor" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="reductor()" line="84" name="rv" />
+        <variable citdl="_copy_dispatch.get()" line="74" name="copier" />
+        <variable citdl="type()" line="72" name="cls" />
+      </scope>
+      <scope doc="Deep copy operation on arbitrary Python objects." ilk="function" line="145" lineend="194" name="deepcopy" returns="_deepcopy_atomic()" signature="deepcopy(x, memo=None, _nil=[])">
+        <variable citdl="getattr()" line="176" name="reductor" />
+        <variable citdl="reductor()" line="178" name="rv" />
+        <variable citdl="id()" line="154" name="d" />
+        <variable citdl="int" line="166" name="issc" />
+        <variable citdl="dict" ilk="argument" name="memo" />
+        <variable citdl="_deepcopy_dispatch.get()" line="161" name="copier" />
+        <variable citdl="copier()" line="155" name="y" />
+        <variable citdl="list" ilk="argument" name="_nil" />
+        <variable ilk="argument" name="x" />
+        <variable citdl="type()" line="159" name="cls" />
+      </scope>
+      <variable citdl="dict" name="dispatch_table" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" line="57" name="error" />
+      <variable citdl="str" name="name" />
+      <scope classrefs="object" doc="set() -&gt; new empty set object&#10;set(iterable) -&gt; new set object  Build an unordered collection of unique elements." ilk="class" line="109" name="t">
+        <scope doc="x.__ror__(y) &lt;==&gt; y|x" ilk="function" name="__ror__" signature="x.__ror__(y) &lt;==&gt; y|x" />
+        <scope doc="Remove all elements of another set from this set." ilk="function" name="difference_update" />
+        <scope doc="x.__isub__(y) &lt;==&gt; x-y" ilk="function" name="__isub__" signature="x.__isub__(y) &lt;==&gt; x-y" />
+        <scope doc="Return the symmetric difference of two sets as a new set." ilk="function" name="symmetric_difference" />
+        <scope doc="x.__getattribute__('name') &lt;==&gt; x.name" ilk="function" name="__getattribute__" signature="x.__getattribute__('name') &lt;==&gt; x.name" />
+        <scope doc="Remove and return an arbitrary set element." ilk="function" name="pop" />
+        <scope doc="Report whether this set contains another set." ilk="function" name="issuperset" />
+        <scope doc="Report whether another set contains this set." ilk="function" name="issubset" />
+        <scope doc="x.__rsub__(y) &lt;==&gt; y-x" ilk="function" name="__rsub__" signature="x.__rsub__(y) &lt;==&gt; y-x" />
+        <scope doc="Remove an element from a set; it must be a member." ilk="function" name="remove" />
+        <scope doc="x.__and__(y) &lt;==&gt; x&amp;y" ilk="function" name="__and__" signature="x.__and__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="S.__sizeof__() -&gt; size of S in memory, in bytes" ilk="function" name="__sizeof__" signature="S.__sizeof__() -&gt; size of S in memory, in bytes" />
+        <scope ilk="function" name="__init__" />
+        <scope doc="x.__rand__(y) &lt;==&gt; y&amp;x" ilk="function" name="__rand__" signature="x.__rand__(y) &lt;==&gt; y&amp;x" />
+        <scope doc="Return the intersection of two or more sets as a new set." ilk="function" name="intersection" />
+        <scope doc="Return the difference of two or more sets as a new set." ilk="function" name="difference" />
+        <scope doc="x.__iand__(y) &lt;==&gt; x&amp;y" ilk="function" name="__iand__" signature="x.__iand__(y) &lt;==&gt; x&amp;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x." ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x." />
+        <scope doc="Return the union of sets as a new set." ilk="function" name="union" />
+        <scope doc="Remove an element from a set if it is a member." ilk="function" name="discard" />
+        <scope doc="x.__cmp__(y) &lt;==&gt; cmp(x,y)" ilk="function" name="__cmp__" signature="x.__cmp__(y) &lt;==&gt; cmp(x,y)" />
+        <scope doc="Add an element to a set." ilk="function" name="add" />
+        <scope doc="x.__ixor__(y) &lt;==&gt; x^y" ilk="function" name="__ixor__" signature="x.__ixor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="Update a set with the symmetric difference of itself and&#10;another." ilk="function" name="symmetric_difference_update" />
+        <scope doc="Return state information for pickling." ilk="function" name="__reduce__" />
+        <scope doc="Update a set with the union of itself and others." ilk="function" name="update" />
+        <scope doc="x.__iter__() &lt;==&gt; iter(x)" ilk="function" name="__iter__" signature="x.__iter__() &lt;==&gt; iter(x)" />
+        <scope doc="x.__or__(y) &lt;==&gt; x|y" ilk="function" name="__or__" signature="x.__or__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="Return a shallow copy of a set." ilk="function" name="copy" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__rxor__(y) &lt;==&gt; y^x" ilk="function" name="__rxor__" signature="x.__rxor__(y) &lt;==&gt; y^x" />
+        <scope doc="Return True if two sets have a null intersection." ilk="function" name="isdisjoint" />
+        <scope doc="Remove all elements from this set." ilk="function" name="clear" />
+        <scope doc="Update a set with the intersection of itself and another." ilk="function" name="intersection_update" />
+        <scope doc="x.__xor__(y) &lt;==&gt; x^y" ilk="function" name="__xor__" signature="x.__xor__(y) &lt;==&gt; x^y" />
+        <scope doc="x.__ior__(y) &lt;==&gt; x|y" ilk="function" name="__ior__" signature="x.__ior__(y) &lt;==&gt; x|y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__sub__(y) &lt;==&gt; x-y" ilk="function" name="__sub__" signature="x.__sub__(y) &lt;==&gt; x-y" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <import module="weakref" />
+      <scope attributes="protected __hidden__" ilk="function" line="118" lineend="119" name="_copy_with_copy_method" returns="x.copy()" signature="_copy_with_copy_method(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="113" lineend="114" name="_copy_with_constructor" returns="type()()" signature="_copy_with_constructor(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="101" lineend="102" name="_copy_immutable" signature="_copy_immutable(x)">
+        <variable ilk="argument" name="x" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="196" name="_deepcopy_dispatch" />
+      <scope attributes="protected __hidden__" ilk="function" line="198" lineend="199" name="_deepcopy_atomic" signature="_deepcopy_atomic(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="dict" line="99" name="_copy_dispatch" />
+      <scope attributes="protected __hidden__" ilk="function" line="263" lineend="264" name="_deepcopy_method" returns="type()()" signature="_deepcopy_method(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="226" lineend="231" name="_deepcopy_list" returns="list" signature="_deepcopy_list(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+        <variable citdl="list" line="227" name="y" />
+      </scope>
+      <scope attributes="protected __hidden__" doc="Keeps a reference to the object x in the memo." ilk="function" line="267" lineend="281" name="_keep_alive" signature="_keep_alive(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="306" lineend="359" name="_reconstruct" returns="callable()" signature="_reconstruct(x, info, deep, memo=None)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="info" />
+        <variable ilk="argument" name="deep" />
+        <variable citdl="dict" ilk="argument" name="memo" />
+        <variable citdl="len()" line="312" name="n" />
+        <variable citdl="deepcopy()" line="316" name="state" />
+        <variable line="320" name="listiter" />
+        <variable line="324" name="dictiter" />
+        <variable citdl="deepcopy()" line="328" name="args" />
+        <variable citdl="callable()" line="329" name="y" />
+        <variable line="341" name="slotstate" />
+        <variable citdl="deepcopy()" line="351" name="item" />
+        <variable citdl="deepcopy()" line="356" name="key" />
+        <variable citdl="deepcopy()" line="357" name="value" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="123" lineend="140" name="_copy_inst" returns="_EmptyClass()" signature="_copy_inst(x)">
+        <variable ilk="argument" name="x" />
+        <variable citdl="x.__getinitargs__()" line="127" name="args" />
+        <variable citdl="_EmptyClass()" line="128" name="y" />
+        <variable citdl="x.__getstate__()" line="133" name="state" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="234" lineend="250" name="_deepcopy_tuple" returns="list" signature="_deepcopy_tuple(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+        <variable citdl="list" line="235" name="y" />
+        <variable citdl="id()" line="238" name="d" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="253" lineend="258" name="_deepcopy_dict" returns="dict" signature="_deepcopy_dict(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+        <variable citdl="dict" line="254" name="y" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="class" line="366" lineend="367" name="_EmptyClass" />
+      <scope attributes="protected __hidden__" ilk="function" line="283" lineend="303" name="_deepcopy_inst" returns="_EmptyClass()" signature="_deepcopy_inst(x, memo)">
+        <variable ilk="argument" name="x" />
+        <variable ilk="argument" name="memo" />
+        <variable citdl="deepcopy()" line="287" name="args" />
+        <variable citdl="_EmptyClass()" line="289" name="y" />
+        <variable citdl="dict" line="295" name="state" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="369" lineend="430" name="_test" signature="_test()">
+        <import line="410" module="repr" />
+        <import line="416" module="repr" />
+        <variable citdl="list" line="370" name="l" />
+        <variable citdl="copy()" line="372" name="l1" />
+        <scope ilk="class" line="378" lineend="397" name="C">
+          <scope attributes="__ctor__" ilk="function" line="379" lineend="388" name="__init__" signature="C(arg=None)">
+            <import line="383" module="sys" />
+            <variable citdl="C" ilk="argument" name="self" />
+            <variable ilk="argument" name="arg" />
+            <variable citdl="__file__" line="384" name="file" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="int" line="380" name="a" />
+          <variable attributes="__instancevar__" line="381" name="arg" />
+          <variable attributes="__instancevar__" citdl="open()" line="387" name="fp" />
+          <scope ilk="function" line="389" lineend="390" name="__getstate__" returns="dict" signature="__getstate__()">
+            <variable citdl="C" ilk="argument" name="self" />
+          </scope>
+          <scope ilk="function" line="391" lineend="393" name="__setstate__" signature="__setstate__(state)">
+            <variable citdl="C" ilk="argument" name="self" />
+            <variable ilk="argument" name="state" />
+          </scope>
+          <scope ilk="function" line="394" lineend="397" name="__deepcopy__" returns="self.__class__()" signature="__deepcopy__(memo=None)">
+            <variable citdl="C" ilk="argument" name="self" />
+            <variable ilk="argument" name="memo" />
+            <variable citdl="self.__class__()" line="395" name="new" />
+          </scope>
+        </scope>
+        <variable citdl="C" line="398" name="c" />
+        <variable citdl="copy()" line="400" name="l2" />
+        <variable citdl="copy()" line="409" name="l3" />
+        <scope classrefs="dict" ilk="class" line="421" lineend="427" name="odict">
+          <scope attributes="__ctor__" ilk="function" line="422" lineend="424" name="__init__" signature="odict(d={})">
+            <variable citdl="odict" ilk="argument" name="self" />
+            <variable citdl="dict" ilk="argument" name="d" />
+          </scope>
+          <variable attributes="__instancevar__" citdl="int" line="423" name="a" />
+          <scope ilk="function" line="425" lineend="427" name="__setitem__" signature="__setitem__(k, i)">
+            <variable citdl="odict" ilk="argument" name="self" />
+            <variable ilk="argument" name="k" />
+            <variable ilk="argument" name="i" />
+          </scope>
+        </scope>
+        <variable citdl="odict" line="428" name="o" />
+        <variable citdl="deepcopy()" line="429" name="x" />
+      </scope>
+    </scope>
+    

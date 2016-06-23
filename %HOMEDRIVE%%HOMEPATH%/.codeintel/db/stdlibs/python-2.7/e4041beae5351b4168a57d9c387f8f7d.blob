@@ -1,0 +1,70 @@
+<scope doc="Recognize image file formats based on their first few bytes.&#10;" ilk="blob" lang="Python" name="imghdr">
+      <variable citdl="list" line="3" name="__all__" />
+      <scope ilk="function" line="127" lineend="140" name="test" signature="test()">
+        <variable citdl="int" line="129" name="recursive" />
+      </scope>
+      <scope ilk="function" line="117" lineend="119" name="test_bmp" returns="str" signature="test_bmp(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="JPEG data in Exif format" ilk="function" line="44" lineend="47" name="test_exif" returns="str" signature="test_exif(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="GIF ('87 and '89 variants)" ilk="function" line="57" lineend="60" name="test_gif" returns="str" signature="GIF ('87 and '89 variants)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="JPEG data in JFIF format" ilk="function" line="37" lineend="40" name="test_jpeg" returns="str" signature="test_jpeg(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="PBM (portable bitmap)" ilk="function" line="78" lineend="82" name="test_pbm" returns="str" signature="PBM (portable bitmap)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="PGM (portable graymap)" ilk="function" line="86" lineend="90" name="test_pgm" returns="str" signature="PGM (portable graymap)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="51" lineend="53" name="test_png" returns="str" signature="test_png(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="PPM (portable pixmap)" ilk="function" line="94" lineend="98" name="test_ppm" returns="str" signature="PPM (portable pixmap)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="Sun raster file" ilk="function" line="102" lineend="105" name="test_rast" returns="str" signature="test_rast(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="SGI image library" ilk="function" line="71" lineend="74" name="test_rgb" returns="str" signature="test_rgb(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="TIFF (can be in Motorola or Intel byte order)" ilk="function" line="64" lineend="67" name="test_tiff" returns="str" signature="TIFF (can be in Motorola or Intel byte order)">
+        <variable ilk="argument" name="h" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="X bitmap (X10 or X11)" ilk="function" line="109" lineend="113" name="test_xbm" returns="str" signature="test_xbm(h, f)">
+        <variable ilk="argument" name="h" />
+        <variable citdl="str" line="111" name="s" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope ilk="function" line="142" lineend="161" name="testall" signature="testall(list, recursive, toplevel)">
+        <variable ilk="argument" name="toplevel" />
+        <variable ilk="argument" name="list" />
+        <variable ilk="argument" name="recursive" />
+        <variable citdl="glob.glob()" line="151" name="names" />
+      </scope>
+      <variable citdl="list" line="35" name="tests" />
+      <scope ilk="function" line="9" lineend="28" name="what" returns="tf()" signature="what(file, h=None)">
+        <variable citdl="f.read()" ilk="argument" name="h" />
+        <variable citdl="tf()" line="23" name="res" />
+        <variable citdl="file.tell()" line="15" name="location" />
+        <variable ilk="argument" name="file" />
+        <variable citdl="open()" line="12" name="f" />
+      </scope>
+    </scope>
+    

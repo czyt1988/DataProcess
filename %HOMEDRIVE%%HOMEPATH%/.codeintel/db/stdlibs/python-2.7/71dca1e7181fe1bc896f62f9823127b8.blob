@@ -1,0 +1,10 @@
+<scope doc="curses.panel&#10;Module for using panels with curses." ilk="blob" lang="Python" name="curses.panel">
+      <variable citdl="str" line="6" name="__revision__" />
+      <scope ilk="function" name="bottom_panel" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope ilk="function" name="new_panel" />
+      <scope ilk="function" name="top_panel" />
+      <scope ilk="function" name="update_panels" />
+      <variable citdl="str" name="version" />
+    </scope>
+    

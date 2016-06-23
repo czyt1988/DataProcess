@@ -1,0 +1,7 @@
+<scope doc="Hook to allow user-specified customization code to run.&#10;As a policy, Python doesn't run user-specified code on startup of Python programs (interactive sessions execute the script specified in the PYTHONSTARTUP environment variable if it exists).  However, some programs or sites may find it convenient to allow users to have a standard customization file, which gets run when a program requests it.  This module implements such a mechanism.  A program that wishes to use the mechanism must execute the statement  import user" ilk="blob" lang="Python" name="user">
+      <variable citdl="str" line="29" name="home" />
+      <import module="os" />
+      <variable citdl="str" line="41" name="pythonrc" />
+      <variable attributes="__hidden__" citdl="open()" line="43" name="f" />
+    </scope>
+    

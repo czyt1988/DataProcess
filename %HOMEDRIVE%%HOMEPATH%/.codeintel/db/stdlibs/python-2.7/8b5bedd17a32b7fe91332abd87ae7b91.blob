@@ -1,0 +1,27 @@
+<scope doc="Check for errs in the AST.&#10;The Python parser does not catch all syntax errors.  Others, like assignments with invalid targets, are caught in the code generation phase.  The compiler package catches some errors in the transformer module. But it seems clearer to write checkers that use the AST to detect errors." ilk="blob" lang="Python" name="compiler.syntax">
+      <scope doc="A visitor to find syntax errors in the AST.&#10;" ilk="class" line="19" lineend="41" name="SyntaxErrorChecker">
+        <scope ilk="function" line="39" lineend="41" name="visitAssign" signature="visitAssign(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="SyntaxErrorChecker" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create new visitor object." ilk="function" line="22" lineend="30" name="__init__" signature="SyntaxErrorChecker(multi=None)">
+          <variable citdl="SyntaxErrorChecker" ilk="argument" name="self" />
+          <variable ilk="argument" name="multi" />
+        </scope>
+        <scope ilk="function" line="32" lineend="37" name="error" signature="error(node, msg)">
+          <variable ilk="argument" name="node" />
+          <variable ilk="argument" name="msg" />
+          <variable citdl="SyntaxErrorChecker" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="29" name="multi" />
+        <variable attributes="__instancevar__" citdl="int" line="30" name="errors" />
+      </scope>
+      <import module="ast" />
+      <scope ilk="function" line="14" lineend="17" name="check" returns="v.errors" signature="check(tree, multi=None)">
+        <variable ilk="argument" name="multi" />
+        <variable ilk="argument" name="tree" />
+        <variable citdl="SyntaxErrorChecker()" line="15" name="v" />
+      </scope>
+      <scope ilk="function" name="walk" signature="walk(tree, visitor, walker=None, verbose=None)" />
+    </scope>
+    

@@ -1,0 +1,5 @@
+<scope doc="The autoGIL module provides a function (installAutoGIL) that&#10;automatically locks and unlocks Python's Global Interpreter Lock when running an event loop." ilk="blob" lang="Python" name="autoGIL">
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="AutoGILError" />
+      <scope doc="Install an observer callback in the event loop (CFRunLoop)&#10;for the current thread, that will lock and unlock the Global&#10;Interpreter Lock (GIL) at appropriate times, allowing other&#10;Python threads to run while the event loop is idle." ilk="function" name="installAutoGIL" signature="installAutoGIL() -&gt; None" />
+    </scope>
+    

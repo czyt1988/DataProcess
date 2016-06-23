@@ -1,0 +1,19 @@
+<scope doc="Fixer that turns &lt;&gt; into !=.&#10;" ilk="blob" lang="Python" name="lib2to3.fixes.fix_ne">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="12" lineend="23" name="FixNe">
+        <scope ilk="function" line="17" lineend="19" name="match" returns="bool" signature="match(node)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixNe" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="21" lineend="23" name="transform" returns="pytree.Leaf()" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="pytree.Leaf()" line="22" name="new" />
+          <variable citdl="FixNe" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable attributes="protected" citdl="token.NOTEQUAL" line="15" name="_accept_type" />
+      </scope>
+      <import module="fixer_base" />
+      <import module="pytree" />
+      <import module="token" />
+    </scope>
+    

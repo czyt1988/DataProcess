@@ -1,0 +1,58 @@
+<scope doc="File-like objects that read from or write to a bsddb record.&#10;This implements (nearly) all stdio methods.  f = DBRecIO(db, key, txn=None) f.close()           # explicitly release resources held flag = f.isatty()   # always false pos = f.tell()      # get current position f.seek(pos)         # set current position f.seek(pos, mode)   # mode 0: absolute; 1: relative; 2: relative to EOF buf = f.read()      # read until EOF buf = f.read(n)     # read up to n bytes" ilk="blob" lang="Python" name="bsddb.dbrecio">
+      <scope doc="&#10;" ilk="class" line="34" lineend="142" name="DBRecIO">
+        <scope ilk="function" line="49" lineend="52" name="isatty" returns="int" signature="isatty()">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="114" lineend="124" name="truncate" signature="truncate(size=None)">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="size" />
+        </scope>
+        <scope ilk="function" line="68" lineend="80" name="read" returns="self.db.get()" signature="read(n=-1)">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+          <variable citdl="self.db.get()" line="78" name="r" />
+          <variable citdl="min()" line="72" name="newpos" />
+          <variable citdl="min()" line="76" name="dlen" />
+          <variable citdl="int" ilk="argument" name="n" />
+        </scope>
+        <scope ilk="function" line="137" lineend="138" name="writelines" signature="writelines(list)">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="list" />
+        </scope>
+        <scope ilk="function" line="126" lineend="135" name="write" signature="write(s)">
+          <variable ilk="argument" name="s" />
+          <variable citdl="DBRecIO.len()" line="133" name="newpos" />
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="140" lineend="142" name="flush" signature="flush()">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="44" lineend="47" name="close" signature="close()">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="54" lineend="61" name="seek" signature="seek(pos, mode=0)">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="pos" />
+          <variable citdl="int" ilk="argument" name="mode" />
+        </scope>
+        <scope ilk="function" line="63" lineend="66" name="tell" returns="max()" signature="tell()">
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="35" lineend="42" name="__init__" signature="DBRecIO(db, key, txn=None)">
+          <variable ilk="argument" name="txn" />
+          <variable citdl="DBRecIO" ilk="argument" name="self" />
+          <variable ilk="argument" name="db" />
+          <variable ilk="argument" name="key" />
+        </scope>
+        <variable attributes="__instancevar__" line="38" name="txn" />
+        <variable attributes="__instancevar__" citdl="int" line="42" name="softspace" />
+        <variable attributes="__instancevar__" citdl="int" line="41" name="closed" />
+        <variable attributes="__instancevar__" line="36" name="db" />
+        <variable attributes="__instancevar__" citdl="min()" line="40" name="pos" />
+        <variable attributes="__instancevar__" citdl="int" line="39" name="len" />
+        <variable attributes="private" citdl="str" line="82" name="__fixme" />
+        <variable attributes="__instancevar__" line="37" name="key" />
+      </scope>
+      <import module="errno" />
+      <import module="string" />
+    </scope>
+    

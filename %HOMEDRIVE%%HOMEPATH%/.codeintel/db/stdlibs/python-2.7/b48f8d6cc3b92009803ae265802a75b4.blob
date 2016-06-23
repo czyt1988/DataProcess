@@ -1,0 +1,91 @@
+<scope doc="Utilities needed to emulate Python's interactive interpreter.&#10;" ilk="blob" lang="Python" name="code">
+      <scope doc="Instances of this class have __call__ methods identical in&#10;signature to compile_command; the difference is that if the instance compiles program text containing a __future__ statement, the instance 'remembers' and compiles all subsequent program texts with the statement in force." ilk="class" name="CommandCompiler">
+        <scope doc="Compile a command and determine whether it is incomplete." ilk="function" name="__call__" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="InteractiveInterpreter" doc="Closely emulate the behavior of the interactive Python interpreter.&#10;This class builds on InteractiveInterpreter and adds prompting using the familiar sys.ps1 and sys.ps2, and input buffering." ilk="class" line="174" lineend="281" name="InteractiveConsole">
+        <scope doc="Closely emulate the interactive Python console." ilk="function" line="200" lineend="247" name="interact" signature="interact(banner=None)">
+          <variable citdl="sys.ps2" line="230" name="prompt" />
+          <variable citdl="getattr()" line="236" name="encoding" />
+          <variable citdl="InteractiveConsole" ilk="argument" name="self" />
+          <variable citdl="line.decode()" line="234" name="line" />
+          <variable citdl="str" line="219" name="cprt" />
+          <variable ilk="argument" name="banner" />
+          <variable citdl="int" line="226" name="more" />
+        </scope>
+        <scope doc="Reset the input buffer." ilk="function" line="196" lineend="198" name="resetbuffer" signature="resetbuffer()">
+          <variable citdl="InteractiveConsole" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Write a prompt and read a line." ilk="function" line="270" lineend="281" name="raw_input" returns="InteractiveConsole.raw_input()" signature="raw_input(prompt='')">
+          <variable citdl="InteractiveConsole" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="prompt" />
+        </scope>
+        <scope doc="Push a line to the interpreter." ilk="function" line="249" lineend="268" name="push" returns="self.runsource()" signature="push(line)">
+          <variable citdl="str.join()" line="264" name="source" />
+          <variable citdl="InteractiveConsole" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+          <variable citdl="self.runsource()" line="265" name="more" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="182" lineend="194" name="__init__" signature="InteractiveConsole(locals=None, filename='&lt;console&gt;')">
+          <variable citdl="InteractiveConsole" ilk="argument" name="self" />
+          <variable ilk="argument" name="locals" />
+          <variable citdl="str" ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="198" name="buffer" />
+        <variable attributes="__instancevar__" citdl="str" line="193" name="filename" />
+      </scope>
+      <scope doc="Base class for InteractiveConsole.&#10;This class deals with parsing and interpreter state (the user's namespace); it doesn't deal with input buffering or prompting or input file naming (the filename is always passed in explicitly)." ilk="class" line="28" lineend="171" name="InteractiveInterpreter">
+        <scope doc="Execute a code object." ilk="function" line="90" lineend="110" name="runcode" signature="runcode(code)">
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable ilk="argument" name="code" />
+        </scope>
+        <scope doc="Display the exception that just occurred." ilk="function" line="141" lineend="162" name="showtraceback" signature="showtraceback()">
+          <variable citdl="traceback.extract_tb()" line="154" name="tblist" />
+          <variable line="150" name="type" />
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable citdl="traceback.format_list()" line="156" name="list" />
+          <variable line="150" name="value" />
+          <variable line="150" name="tb" />
+        </scope>
+        <scope doc="Display the syntax error that just occurred." ilk="function" line="112" lineend="139" name="showsyntaxerror" signature="showsyntaxerror(filename=None)">
+          <variable citdl="traceback.format_exception_only()" line="138" name="list" />
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable line="124" name="type" />
+          <variable citdl="SyntaxError()" line="124" name="value" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Write a string." ilk="function" line="164" lineend="171" name="write" signature="write(data)">
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope doc="Compile and run some source in the interpreter." ilk="function" line="51" lineend="88" name="runsource" returns="bool" signature="runsource(source, filename='&lt;input&gt;', symbol='single')">
+          <variable ilk="argument" name="source" />
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable citdl="compile()" line="76" name="code" />
+          <variable citdl="str" ilk="argument" name="symbol" />
+          <variable citdl="str" ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Constructor." ilk="function" line="37" lineend="49" name="__init__" signature="InteractiveInterpreter(locals=None)">
+          <variable citdl="InteractiveInterpreter" ilk="argument" name="self" />
+          <variable citdl="dict" ilk="argument" name="locals" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="CommandCompiler()" line="49" name="compile" />
+        <variable attributes="__instancevar__" citdl="dict" line="48" name="locals" />
+      </scope>
+      <variable citdl="list" line="12" name="__all__" />
+      <scope doc="Compile a command and determine whether it is incomplete." ilk="function" name="compile_command" signature="compile_command(source, filename='&lt;input&gt;', symbol='single')" />
+      <scope doc="Closely emulate the interactive Python interpreter." ilk="function" line="284" lineend="306" name="interact" signature="interact(banner=None, readfunc=None, local=None)">
+        <variable ilk="argument" name="local" />
+        <variable ilk="argument" name="banner" />
+        <variable ilk="argument" name="readfunc" />
+        <variable citdl="InteractiveConsole" line="298" name="console" />
+      </scope>
+      <scope ilk="function" line="15" lineend="26" name="softspace" returns="file.softspace" signature="softspace(file, newvalue)">
+        <variable citdl="int" line="16" name="oldvalue" />
+        <variable ilk="argument" name="newvalue" />
+        <variable ilk="argument" name="file" />
+      </scope>
+      <import module="sys" />
+      <import module="traceback" />
+    </scope>
+    

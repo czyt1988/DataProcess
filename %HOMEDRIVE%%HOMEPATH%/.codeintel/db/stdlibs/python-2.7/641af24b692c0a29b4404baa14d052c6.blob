@@ -1,0 +1,266 @@
+<scope doc="plistlib.py -- a tool to generate and parse MacOSX .plist files.&#10;The PropertyList (.plist) file format is a simple XML pickle supporting basic object types, like dictionaries, lists, numbers and strings. Usually the top level object is a dictionary.  To write out a plist file, use the writePlist(rootObject, pathOrFile) function. 'rootObject' is the top level object, 'pathOrFile' is a filename or a (writable) file object.  To parse a plist from a file, use the readPlist(pathOrFile) function, with a file name or a (readable) file object as the only argument. It" ilk="blob" lang="Python" name="plistlib">
+      <scope doc="Wrapper for binary data.&#10;" ilk="class" line="365" lineend="390" name="Data">
+        <scope ilk="function" line="376" lineend="375" name="fromBase64" returns="Data.fromBase64.cls()" signature="fromBase64(data)">
+          <variable ilk="argument" name="data" />
+          <variable citdl="Data" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="381" lineend="387" name="__cmp__" returns="cmp()" signature="__cmp__(other)">
+          <variable citdl="Data" ilk="argument" name="self" />
+          <variable ilk="argument" name="other" />
+        </scope>
+        <scope ilk="function" line="378" lineend="379" name="asBase64" returns="_encodeBase64()" signature="asBase64(maxlinelength=76)">
+          <variable citdl="Data" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxlinelength" />
+        </scope>
+        <scope ilk="function" line="369" lineend="370" name="__init__" signature="Data(data)">
+          <variable citdl="Data" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="389" lineend="390" name="__repr__" returns="tuple" signature="__repr__()">
+          <variable citdl="Data" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="370" name="data" />
+      </scope>
+      <scope classrefs="_InternalDict" doc="&#10;" ilk="class" line="322" lineend="328" name="Dict">
+        <scope ilk="function" line="324" lineend="328" name="__init__" signature="Dict(**kwargs)">
+          <variable citdl="Dict" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="151" lineend="181" name="DumbXMLWriter">
+        <scope ilk="function" line="159" lineend="162" name="beginElement" signature="beginElement(element)">
+          <variable citdl="DumbXMLWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="164" lineend="168" name="endElement" signature="endElement(element)">
+          <variable citdl="DumbXMLWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="170" lineend="175" name="simpleElement" signature="simpleElement(element, value=None)">
+          <variable citdl="DumbXMLWriter" ilk="argument" name="self" />
+          <variable citdl="_escapeAndEncode()" ilk="argument" name="value" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="177" lineend="181" name="writeln" signature="writeln(line)">
+          <variable citdl="DumbXMLWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="line" />
+        </scope>
+        <scope ilk="function" line="153" lineend="157" name="__init__" signature="DumbXMLWriter(file, indentLevel=0, indent='\t')">
+          <variable citdl="DumbXMLWriter" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="indent" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="int" ilk="argument" name="indentLevel" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="str" line="157" name="indent" />
+        <variable attributes="__instancevar__" citdl="list" line="155" name="stack" />
+        <variable attributes="__instancevar__" line="154" name="file" />
+        <variable attributes="__instancevar__" citdl="int" line="156" name="indentLevel" />
+      </scope>
+      <variable citdl="str" line="225" name="PLISTHEADER" />
+      <scope classrefs="_InternalDict" doc="This class has been deprecated. Use readPlist() and writePlist()&#10;functions instead, together with regular dict objects." ilk="class" line="331" lineend="353" name="Plist">
+        <scope doc="Deprecated. Use the writePlist() function instead." ilk="function" line="351" lineend="353" name="write" signature="write(pathOrFile)">
+          <variable citdl="Plist" ilk="argument" name="self" />
+          <variable ilk="argument" name="pathOrFile" />
+        </scope>
+        <scope doc="Deprecated. Use the readPlist() function instead." ilk="function" line="349" lineend="348" name="fromFile" returns="cls()" signature="fromFile(pathOrFile)">
+          <variable ilk="argument" name="pathOrFile" />
+          <variable citdl="readPlist()" line="345" name="rootObject" />
+          <variable citdl="cls()" line="346" name="plist" />
+          <variable citdl="Plist" ilk="argument" name="cls" />
+        </scope>
+        <scope ilk="function" line="337" lineend="341" name="__init__" signature="Plist(**kwargs)">
+          <variable citdl="Plist" ilk="argument" name="self" />
+          <variable attributes="kwargs" ilk="argument" name="kwargs" />
+        </scope>
+      </scope>
+      <scope doc="&#10;" ilk="class" line="393" lineend="474" name="PlistParser">
+        <scope ilk="function" line="423" lineend="431" name="addObject" signature="addObject(value)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="465" lineend="466" name="end_integer" signature="end_integer()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="458" lineend="459" name="end_array" signature="end_array()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="473" lineend="474" name="end_date" signature="end_date()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="454" lineend="457" name="begin_array" signature="begin_array(attrs)">
+          <variable citdl="list" line="455" name="a" />
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="415" lineend="418" name="handleEndElement" signature="handleEndElement(element)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="416" name="handler" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="420" lineend="421" name="handleData" signature="handleData(data)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+        </scope>
+        <scope ilk="function" line="467" lineend="468" name="end_real" signature="end_real()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="471" lineend="472" name="end_data" signature="end_data()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="409" lineend="413" name="handleBeginElement" signature="handleBeginElement(element, attrs)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable citdl="getattr()" line="411" name="handler" />
+          <variable ilk="argument" name="attrs" />
+          <variable ilk="argument" name="element" />
+        </scope>
+        <scope ilk="function" line="463" lineend="464" name="end_false" signature="end_false()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="469" lineend="470" name="end_string" signature="end_string()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="400" lineend="407" name="parse" signature="parse(fileobj)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable citdl="ParserCreate()" line="402" name="parser" />
+          <variable ilk="argument" name="fileobj" />
+        </scope>
+        <scope ilk="function" line="448" lineend="449" name="end_dict" signature="end_dict()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="451" lineend="452" name="end_key" signature="end_key()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="433" lineend="440" name="getData" returns="str.join()" signature="getData()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable citdl="str.join()" line="434" name="data" />
+        </scope>
+        <scope ilk="function" line="444" lineend="447" name="begin_dict" signature="begin_dict(attrs)">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+          <variable ilk="argument" name="attrs" />
+          <variable citdl="_InternalDict" line="445" name="d" />
+        </scope>
+        <scope ilk="function" line="461" lineend="462" name="end_true" signature="end_true()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="395" lineend="398" name="__init__" signature="PlistParser()">
+          <variable citdl="PlistParser" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="398" name="root" />
+        <variable attributes="__instancevar__" citdl="list" line="410" name="data" />
+        <variable attributes="__instancevar__" citdl="list" line="396" name="stack" />
+        <variable attributes="__instancevar__" citdl="getData()" line="397" name="currentKey" />
+      </scope>
+      <scope classrefs="DumbXMLWriter" doc="&#10;" ilk="class" line="230" lineend="288" name="PlistWriter">
+        <scope ilk="function" line="262" lineend="271" name="writeData" signature="writeData(data)">
+          <variable citdl="PlistWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable citdl="len()" line="265" name="maxlinelength" />
+        </scope>
+        <scope ilk="function" line="284" lineend="288" name="writeArray" signature="writeArray(array)">
+          <variable citdl="PlistWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="array" />
+        </scope>
+        <scope ilk="function" line="237" lineend="260" name="writeValue" signature="writeValue(value)">
+          <variable citdl="PlistWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="273" lineend="282" name="writeDict" signature="writeDict(d)">
+          <variable citdl="d.items()" line="275" name="items" />
+          <variable citdl="PlistWriter" ilk="argument" name="self" />
+          <variable ilk="argument" name="d" />
+        </scope>
+        <scope ilk="function" line="232" lineend="235" name="__init__" signature="PlistWriter(file, indentLevel=0, indent='\t', writeHeader=1)">
+          <variable citdl="int" ilk="argument" name="writeHeader" />
+          <variable citdl="PlistWriter" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="indent" />
+          <variable ilk="argument" name="file" />
+          <variable citdl="int" ilk="argument" name="indentLevel" />
+        </scope>
+      </scope>
+      <scope doc="Return a StringIO-like stream for reading or writing" ilk="function" name="StringIO" signature="StringIO([s])" />
+      <variable citdl="list" line="54" name="__all__" />
+      <import module="binascii" />
+      <import module="datetime" />
+      <import module="re" />
+      <scope doc="Read a .plist file." ilk="function" line="68" lineend="81" name="readPlist" returns="p.parse()" signature="readPlist(pathOrFile)">
+        <variable citdl="int" line="73" name="didOpen" />
+        <variable citdl="PlistParser()" line="77" name="p" />
+        <variable citdl="open()" ilk="argument" name="pathOrFile" />
+        <variable citdl="p.parse()" line="78" name="rootObject" />
+      </scope>
+      <scope doc="Read plst resource from the resource fork of path." ilk="function" line="114" lineend="127" name="readPlistFromResource" returns="readPlistFromString()" signature="readPlistFromResource(path, restype='plst', resid=0)">
+        <variable citdl="FSRef()" line="122" name="fsRef" />
+        <variable citdl="Res.FSOpenResourceFile()" line="123" name="resNum" />
+        <variable citdl="str" ilk="argument" name="restype" />
+        <variable citdl="int" ilk="argument" name="resid" />
+        <variable line="125" name="plistData" />
+        <variable ilk="argument" name="path" />
+      </scope>
+      <scope doc="Read a plist data from a string. Return the root object." ilk="function" line="100" lineend="103" name="readPlistFromString" returns="readPlist()" signature="readPlistFromString(data)">
+        <variable ilk="argument" name="data" />
+      </scope>
+      <import module="warnings" />
+      <scope doc="Write 'rootObject' to a .plist file." ilk="function" line="84" lineend="97" name="writePlist" signature="writePlist(rootObject, pathOrFile)">
+        <variable citdl="int" line="88" name="didOpen" />
+        <variable citdl="open()" ilk="argument" name="pathOrFile" />
+        <variable citdl="PlistWriter()" line="92" name="writer" />
+        <variable ilk="argument" name="rootObject" />
+      </scope>
+      <scope doc="Write 'rootObject' as a plst resource to the resource fork&#10;of path." ilk="function" line="130" lineend="148" name="writePlistToResource" signature="writePlistToResource(rootObject, path, restype='plst', resid=0)">
+        <variable citdl="FSRef()" line="138" name="fsRef" />
+        <variable citdl="int" ilk="argument" name="resid" />
+        <variable citdl="Res.Resource()" line="145" name="res" />
+        <variable citdl="str" ilk="argument" name="restype" />
+        <variable ilk="argument" name="rootObject" />
+        <variable citdl="writePlistToString()" line="137" name="plistData" />
+        <variable ilk="argument" name="path" />
+        <variable citdl="Res.FSOpenResourceFile()" line="139" name="resNum" />
+      </scope>
+      <scope doc="Return 'rootObject' as a plist-formatted string." ilk="function" line="106" lineend="111" name="writePlistToString" returns="f.getvalue()" signature="writePlistToString(rootObject)">
+        <variable citdl="StringIO()" line="109" name="f" />
+        <variable ilk="argument" name="rootObject" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="187" name="_dateParser" />
+      <scope attributes="protected __hidden__" ilk="function" line="356" lineend="363" name="_encodeBase64" returns="str.join()" signature="_encodeBase64(s, maxlinelength=76)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="int" ilk="argument" name="maxlinelength" />
+        <variable citdl="int" line="358" name="maxbinsize" />
+        <variable citdl="list" line="359" name="pieces" />
+        <variable citdl="list" line="361" name="chunk" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="200" lineend="203" name="_dateToString" returns="tuple" signature="_dateToString(d)">
+        <variable ilk="argument" name="d" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="212" lineend="222" name="_escapeAndEncode" returns="text.encode()" signature="_escapeAndEncode(text)">
+        <variable citdl="text.replace()" ilk="argument" name="text" />
+        <variable citdl="_controlCharPat.search()" line="213" name="m" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="189" lineend="198" name="_dateFromString" returns="datetime.datetime()" signature="_dateFromString(s)">
+        <variable ilk="argument" name="s" />
+        <variable citdl="tuple" line="190" name="order" />
+        <variable line="191" name="gd" />
+        <variable citdl="list" line="192" name="lst" />
+        <variable line="194" name="val" />
+      </scope>
+      <scope attributes="protected __hidden__" classrefs="dict" ilk="class" line="291" lineend="320" name="_InternalDict">
+        <scope ilk="function" line="297" lineend="305" name="__getattr__" signature="__getattr__(attr)">
+          <import line="302" module="warnings" symbol="warn" />
+          <variable citdl="_InternalDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+          <variable line="299" name="value" />
+        </scope>
+        <scope ilk="function" line="307" lineend="311" name="__setattr__" signature="__setattr__(attr, value)">
+          <import line="308" module="warnings" symbol="warn" />
+          <variable citdl="_InternalDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="313" lineend="320" name="__delattr__" signature="__delattr__(attr)">
+          <import line="318" module="warnings" symbol="warn" />
+          <variable citdl="_InternalDict" ilk="argument" name="self" />
+          <variable ilk="argument" name="attr" />
+        </scope>
+      </scope>
+      <variable attributes="protected __hidden__" citdl="re.compile()" line="208" name="_controlCharPat" />
+    </scope>
+    

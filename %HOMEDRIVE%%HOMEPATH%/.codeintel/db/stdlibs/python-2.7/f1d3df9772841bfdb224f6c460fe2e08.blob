@@ -1,0 +1,37 @@
+<scope doc="This module provides various functions to manipulate time values.&#10;There are two standard representations of time.  One is the number of seconds since the Epoch, in UTC (a.k.a. GMT).  It may be an integer or a floating point number (to represent fractions of seconds). The Epoch is system-defined; on Unix, it is generally January 1st, 1970. The actual value can be retrieved by calling gmtime(0).  The other representation is a tuple of 9 integers giving local time. The tuple items are: year (four digits, e.g. 1998) month (1-12)" ilk="blob" lang="Python" name="time">
+      <variable citdl="int" name="accept2dyear" />
+      <variable citdl="int" name="altzone" />
+      <scope doc="Convert a time tuple to a string, e.g." ilk="function" name="asctime" returns="str" signature="asctime([tuple]) -&gt; string" />
+      <scope doc="Return the CPU time or real time since the start of the&#10;process or since the first call to clock()." ilk="function" name="clock" signature="clock() -&gt; floating point number" />
+      <scope doc="Convert a time in seconds since the Epoch to a string in&#10;local time." ilk="function" name="ctime" returns="str" signature="ctime(seconds) -&gt; string" />
+      <variable citdl="int" name="daylight" />
+      <scope doc="tm_sec, tm_wday, tm_yday, tm_isdst)" ilk="function" name="gmtime" signature="gmtime([seconds]) -&gt; (tm_year, tm_mon, tm_mday, tm_hour, tm_min," />
+      <scope doc="tm_sec,tm_wday,tm_yday,tm_isdst)" ilk="function" name="localtime" signature="localtime([seconds]) -&gt; (tm_year,tm_mon,tm_mday,tm_hour,tm_min," />
+      <scope doc="Convert a time tuple in local time to seconds since the&#10;Epoch." ilk="function" name="mktime" signature="mktime(tuple) -&gt; floating point number" />
+      <scope doc="Delay execution for a given number of seconds." ilk="function" name="sleep" signature="sleep(seconds)" />
+      <scope doc="Convert a time tuple to a string according to a format&#10;specification." ilk="function" name="strftime" returns="str" signature="strftime(format[, tuple]) -&gt; string" />
+      <scope doc="Parse a string to a time tuple according to a format&#10;specification." ilk="function" name="strptime" signature="strptime(string, format) -&gt; struct_time" />
+      <scope classrefs="object" doc="The time value as returned by gmtime(), localtime(), and strptime(), and&#10;accepted by asctime(), mktime() and strftime().  May be considered as a sequence of 9 integers.  Note that several fields' values are not the same as those defined by the C language standard for struct tm.  For example, the value of the field tm_year is the actual year, not year - 1900.  See individual fields' descriptions for details." ilk="class" name="struct_time">
+        <scope doc="Use of negative indices is not supported." ilk="function" name="__getslice__" signature="x.__getslice__(i, j) &lt;==&gt; x[i:j]" />
+        <scope ilk="function" name="__reduce__" />
+        <scope doc="x.__rmul__(n) &lt;==&gt; n*x" ilk="function" name="__rmul__" signature="x.__rmul__(n) &lt;==&gt; n*x" />
+        <scope doc="x.__lt__(y) &lt;==&gt; x&lt;y" ilk="function" name="__lt__" signature="x.__lt__(y) &lt;==&gt; x&lt;y" />
+        <scope doc="x.__contains__(y) &lt;==&gt; y in x" ilk="function" name="__contains__" signature="x.__contains__(y) &lt;==&gt; y in x" />
+        <scope doc="x.__mul__(n) &lt;==&gt; x*n" ilk="function" name="__mul__" signature="x.__mul__(n) &lt;==&gt; x*n" />
+        <scope doc="x.__repr__() &lt;==&gt; repr(x)" ilk="function" name="__repr__" signature="x.__repr__() &lt;==&gt; repr(x)" />
+        <scope doc="x.__ne__(y) &lt;==&gt; x!=y" ilk="function" name="__ne__" signature="x.__ne__(y) &lt;==&gt; x!=y" />
+        <scope doc="x.__getitem__(y) &lt;==&gt; x[y]" ilk="function" name="__getitem__" signature="x.__getitem__(y) &lt;==&gt; x[y]" />
+        <scope doc="x.__add__(y) &lt;==&gt; x+y" ilk="function" name="__add__" signature="x.__add__(y) &lt;==&gt; x+y" />
+        <scope doc="x.__gt__(y) &lt;==&gt; x&gt;y" ilk="function" name="__gt__" signature="x.__gt__(y) &lt;==&gt; x&gt;y" />
+        <scope doc="x.__eq__(y) &lt;==&gt; x==y" ilk="function" name="__eq__" signature="x.__eq__(y) &lt;==&gt; x==y" />
+        <scope doc="x.__le__(y) &lt;==&gt; x&lt;=y" ilk="function" name="__le__" signature="x.__le__(y) &lt;==&gt; x&lt;=y" />
+        <scope doc="x.__len__() &lt;==&gt; len(x)" ilk="function" name="__len__" signature="x.__len__() &lt;==&gt; len(x)" />
+        <scope doc="x.__hash__() &lt;==&gt; hash(x)" ilk="function" name="__hash__" signature="x.__hash__() &lt;==&gt; hash(x)" />
+        <scope doc="x.__ge__(y) &lt;==&gt; x&gt;=y" ilk="function" name="__ge__" signature="x.__ge__(y) &lt;==&gt; x&gt;=y" />
+      </scope>
+      <scope doc="Return the current time in seconds since the Epoch." ilk="function" name="time" signature="time() -&gt; floating point number" />
+      <variable citdl="int" name="timezone" />
+      <variable citdl="tuple" name="tzname" />
+      <scope doc="Initialize, or reinitialize, the local timezone to the value&#10;stored in os.environ['TZ']." ilk="function" name="tzset" signature="tzset()" />
+    </scope>
+    

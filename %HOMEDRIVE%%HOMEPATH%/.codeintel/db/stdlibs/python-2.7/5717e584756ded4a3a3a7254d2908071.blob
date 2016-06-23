@@ -1,0 +1,29 @@
+<scope doc="This file is only retained for backwards compatibility.&#10;It will be removed in the future.  sre was moved to re in version 2.5." ilk="blob" lang="Python" name="sre">
+      <variable citdl="int" name="DOTALL" />
+      <variable citdl="int" name="I" />
+      <variable citdl="int" name="IGNORECASE" />
+      <variable citdl="int" name="L" />
+      <variable citdl="int" name="LOCALE" />
+      <variable citdl="int" name="M" />
+      <variable citdl="int" name="MULTILINE" />
+      <variable citdl="int" name="S" />
+      <variable citdl="int" name="U" />
+      <variable citdl="int" name="UNICODE" />
+      <variable citdl="int" name="VERBOSE" />
+      <variable citdl="int" name="X" />
+      <variable citdl="list" name="__all__" />
+      <scope doc="Compile a regular expression pattern, returning a pattern&#10;object." ilk="function" name="compile" signature="compile(pattern, flags=0)" />
+      <scope classrefs="Exception" doc="&#10;" ilk="class" name="error" />
+      <scope doc="Escape all non-alphanumeric characters in pattern." ilk="function" name="escape" signature="escape(pattern)" />
+      <scope doc="Return a list of all non-overlapping matches in the string." ilk="function" name="findall" signature="findall(pattern, string, flags=0)" />
+      <scope doc="Return an iterator over all non-overlapping matches in the&#10;string." ilk="function" name="finditer" signature="finditer(pattern, string, flags=0)" />
+      <scope doc="Try to apply the pattern at the start of the string,&#10;returning a match object, or None if no match was found." ilk="function" name="match" signature="match(pattern, string, flags=0)" />
+      <scope doc="Clear the regular expression cache" ilk="function" name="purge" signature="purge()" />
+      <scope doc="Scan through string looking for a match to the pattern,&#10;returning a match object, or None if no match was found." ilk="function" name="search" signature="search(pattern, string, flags=0)" />
+      <scope doc="Split the source string by the occurrences of the pattern,&#10;returning a list containing the resulting substrings." ilk="function" name="split" signature="split(pattern, string, maxsplit=0, flags=0)" />
+      <scope doc="Return the string obtained by replacing the leftmost non-&#10;overlapping occurrences of the pattern in string by the&#10;replacement repl." ilk="function" name="sub" signature="sub(pattern, repl, string, count=0, flags=0)" />
+      <scope doc="Return a 2-tuple containing (new_string, number)." ilk="function" name="subn" signature="subn(pattern, repl, string, count=0, flags=0)" />
+      <scope doc="Compile a template pattern, returning a pattern object" ilk="function" name="template" signature="template(pattern, flags=0)" />
+      <import module="warnings" />
+    </scope>
+    

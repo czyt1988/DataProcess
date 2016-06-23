@@ -1,0 +1,102 @@
+<scope doc="Constants and membership tests for ASCII characters&#10;" ilk="blob" lang="Python" name="curses.ascii">
+      <variable citdl="int" line="9" name="ACK" />
+      <variable citdl="int" line="10" name="BEL" />
+      <variable citdl="int" line="11" name="BS" />
+      <variable citdl="int" line="29" name="CAN" />
+      <variable citdl="int" line="18" name="CR" />
+      <variable citdl="int" line="22" name="DC1" />
+      <variable citdl="int" line="23" name="DC2" />
+      <variable citdl="int" line="24" name="DC3" />
+      <variable citdl="int" line="25" name="DC4" />
+      <variable citdl="int" line="38" name="DEL" />
+      <variable citdl="int" line="21" name="DLE" />
+      <variable citdl="int" line="30" name="EM" />
+      <variable citdl="int" line="8" name="ENQ" />
+      <variable citdl="int" line="7" name="EOT" />
+      <variable citdl="int" line="32" name="ESC" />
+      <variable citdl="int" line="28" name="ETB" />
+      <variable citdl="int" line="6" name="ETX" />
+      <variable citdl="int" line="17" name="FF" />
+      <variable citdl="int" line="33" name="FS" />
+      <variable citdl="int" line="34" name="GS" />
+      <variable citdl="int" line="13" name="HT" />
+      <variable citdl="int" line="14" name="LF" />
+      <variable citdl="int" line="26" name="NAK" />
+      <variable citdl="int" line="15" name="NL" />
+      <variable citdl="int" line="3" name="NUL" />
+      <variable citdl="int" line="35" name="RS" />
+      <variable citdl="int" line="20" name="SI" />
+      <variable citdl="int" line="19" name="SO" />
+      <variable citdl="int" line="4" name="SOH" />
+      <variable citdl="int" line="37" name="SP" />
+      <variable citdl="int" line="5" name="STX" />
+      <variable citdl="int" line="31" name="SUB" />
+      <variable citdl="int" line="27" name="SYN" />
+      <variable citdl="int" line="12" name="TAB" />
+      <variable citdl="int" line="36" name="US" />
+      <variable citdl="int" line="16" name="VT" />
+      <scope ilk="function" line="83" lineend="87" name="alt" returns="chr()" signature="alt(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="71" lineend="75" name="ascii" returns="chr()" signature="ascii(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <variable citdl="list" line="40" name="controlnames" />
+      <scope ilk="function" line="77" lineend="81" name="ctrl" returns="chr()" signature="ctrl(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="54" lineend="54" name="isalnum" returns="isdigit()" signature="isalnum(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="55" lineend="55" name="isalpha" returns="islower()" signature="isalpha(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="56" lineend="56" name="isascii" returns="bool" signature="isascii(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="57" lineend="57" name="isblank" returns="bool" signature="isblank(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="58" lineend="58" name="iscntrl" returns="bool" signature="iscntrl(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="68" lineend="68" name="isctrl" returns="bool" signature="isctrl(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="59" lineend="59" name="isdigit" returns="bool" signature="isdigit(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="60" lineend="60" name="isgraph" returns="bool" signature="isgraph(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="61" lineend="61" name="islower" returns="bool" signature="islower(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="69" lineend="69" name="ismeta" returns="bool" signature="ismeta(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="62" lineend="62" name="isprint" returns="bool" signature="isprint(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="63" lineend="63" name="ispunct" returns="bool" signature="ispunct(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="64" lineend="64" name="isspace" returns="bool" signature="isspace(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="65" lineend="65" name="isupper" returns="bool" signature="isupper(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="66" lineend="67" name="isxdigit" returns="isdigit()" signature="isxdigit(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+      <scope ilk="function" line="89" lineend="99" name="unctrl" returns="str" signature="unctrl(c)">
+        <variable ilk="argument" name="c" />
+        <variable citdl="_ctoi()" line="90" name="bits" />
+        <variable citdl="chr()" line="92" name="rep" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="48" lineend="52" name="_ctoi" returns="ord()" signature="_ctoi(c)">
+        <variable ilk="argument" name="c" />
+      </scope>
+    </scope>
+  

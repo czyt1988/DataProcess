@@ -1,0 +1,420 @@
+<scope doc="Additional handlers for the logging package for Python. The core package is&#10;based on PEP 282 and comments thereto in comp.lang.python, and influenced by Apache's log4j system.  Copyright (C) 2001-2010 Vinay Sajip. All Rights Reserved.  To use, simply 'import logging.handlers' and log away!" ilk="blob" lang="Python" name="logging.handlers">
+      <scope classrefs="FileHandler" doc="Base class for handlers that rotate log files at a certain point.&#10;Not meant to be instantiated directly.  Instead, use RotatingFileHandler or TimedRotatingFileHandler." ilk="class" line="53" lineend="83" name="BaseRotatingHandler">
+        <scope doc="Use the specified filename for streamed logging" ilk="function" line="59" lineend="67" name="__init__" signature="BaseRotatingHandler(filename, mode, encoding=None, delay=0)">
+          <variable citdl="int" ilk="argument" name="delay" />
+          <variable citdl="BaseRotatingHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="encoding" />
+          <variable ilk="argument" name="mode" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="69" lineend="83" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="BaseRotatingHandler" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="__instancevar__" line="66" name="mode" />
+        <variable attributes="__instancevar__" line="67" name="encoding" />
+      </scope>
+      <scope classrefs="Handler" doc="A handler class which buffers logging records in memory. Whenever each&#10;record is added to the buffer, a check is made to see if the buffer should be flushed. If it should, then flush() is expected to do what's needed." ilk="class" line="1059" lineend="1108" name="BufferingHandler">
+        <scope doc="Should the handler flush its buffer?" ilk="function" line="1073" lineend="1080" name="shouldFlush" returns="bool" signature="shouldFlush(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="BufferingHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Override to implement custom flushing behaviour." ilk="function" line="1093" lineend="1099" name="flush" signature="flush()">
+          <variable citdl="BufferingHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Close the handler." ilk="function" line="1101" lineend="1108" name="close" signature="close()">
+          <variable citdl="BufferingHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="1082" lineend="1091" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="BufferingHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize the handler with the buffer size." ilk="function" line="1065" lineend="1071" name="__init__" signature="BufferingHandler(capacity)">
+          <variable citdl="BufferingHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="capacity" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="1071" name="buffer" />
+        <variable attributes="__instancevar__" line="1070" name="capacity" />
+      </scope>
+      <variable citdl="int" line="46" name="DEFAULT_HTTP_LOGGING_PORT" />
+      <variable citdl="int" line="47" name="DEFAULT_SOAP_LOGGING_PORT" />
+      <variable citdl="int" line="44" name="DEFAULT_TCP_LOGGING_PORT" />
+      <variable citdl="int" line="45" name="DEFAULT_UDP_LOGGING_PORT" />
+      <scope classrefs="SocketHandler" doc="A handler class which writes logging records, in pickle format, to&#10;a datagram socket.  The pickle which is sent is that of the LogRecord's attribute dictionary (__dict__), so that the receiver does not need to have the logging module installed in order to process the logging event.  To unpickle the record at the receiving end into a LogRecord, use the makeLogRecord function." ilk="class" line="571" lineend="607" name="DatagramHandler">
+        <scope doc="Initializes the handler with a specific host address and&#10;port." ilk="function" line="582" lineend="587" name="__init__" signature="DatagramHandler(host, port)">
+          <variable citdl="DatagramHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <scope doc="The factory method of SocketHandler is here overridden to&#10;create a UDP socket (SOCK_DGRAM)." ilk="function" line="589" lineend="595" name="makeSocket" returns="socket.socket()" signature="makeSocket()">
+          <variable citdl="DatagramHandler" ilk="argument" name="self" />
+          <variable citdl="socket.socket()" line="594" name="s" />
+        </scope>
+        <scope doc="Send a pickled string to a socket." ilk="function" line="597" lineend="607" name="send" signature="send(s)">
+          <variable citdl="DatagramHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="s" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="587" name="closeOnError" />
+      </scope>
+      <scope classrefs="Handler" doc="A class which sends records to a Web server, using either GET or&#10;POST semantics." ilk="class" line="997" lineend="1057" name="HTTPHandler">
+        <scope doc="Default implementation of mapping the log record into a dict&#10;that is sent as the CGI data." ilk="function" line="1015" lineend="1021" name="mapLogRecord" returns="dict" signature="mapLogRecord(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="HTTPHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="1023" lineend="1057" name="emit" signature="emit(record)">
+          <variable citdl="str" line="1037" name="sep" />
+          <variable citdl="host.find()" line="1044" name="i" />
+          <variable citdl="httplib.HTTP()" line="1032" name="h" />
+          <variable citdl="HTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="list" line="1031" name="host" />
+          <variable citdl="str" line="1033" name="url" />
+          <variable citdl="urllib.urlencode()" line="1034" name="data" />
+        </scope>
+        <scope doc="Initialize the instance with the host, the request URL, and&#10;the method (&quot;GET&quot; or &quot;POST&quot;)" ilk="function" line="1002" lineend="1013" name="__init__" signature="HTTPHandler(host, url, method='GET')">
+          <variable ilk="argument" name="url" />
+          <variable citdl="HTTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable citdl="method.upper()" ilk="argument" name="method" />
+        </scope>
+        <variable attributes="__instancevar__" line="1012" name="url" />
+        <variable attributes="__instancevar__" line="1011" name="host" />
+        <variable attributes="__instancevar__" citdl="method.upper()" line="1013" name="method" />
+      </scope>
+      <scope classrefs="BufferingHandler" doc="A handler class which buffers logging records in memory, periodically&#10;flushing them to a target handler. Flushing occurs whenever the buffer is full, or when an event of a certain severity or greater is seen." ilk="class" line="1110" lineend="1158" name="MemoryHandler">
+        <scope doc="Check for buffer full or a record at the flushLevel or&#10;higher." ilk="function" line="1128" lineend="1133" name="shouldFlush" returns="bool" signature="shouldFlush(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="MemoryHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="For a MemoryHandler, flushing means just sending the&#10;buffered records to the target, if there is one." ilk="function" line="1141" lineend="1150" name="flush" signature="flush()">
+          <variable citdl="MemoryHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Flush, set the target to None and lose the buffer." ilk="function" line="1152" lineend="1158" name="close" signature="close()">
+          <variable citdl="MemoryHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Set the target handler for this handler." ilk="function" line="1135" lineend="1139" name="setTarget" signature="setTarget(target)">
+          <variable citdl="MemoryHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="target" />
+        </scope>
+        <scope doc="Initialize the handler with the buffer size, the level at&#10;which flushing should occur and an optional target." ilk="function" line="1116" lineend="1126" name="__init__" signature="MemoryHandler(capacity, flushLevel=logging.ERROR, target=None)">
+          <variable citdl="MemoryHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="capacity" />
+          <variable ilk="argument" name="target" />
+          <variable citdl="logging.ERROR" ilk="argument" name="flushLevel" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="list" line="1150" name="buffer" />
+        <variable attributes="__instancevar__" line="1126" name="target" />
+        <variable attributes="__instancevar__" citdl="logging.ERROR" line="1125" name="flushLevel" />
+      </scope>
+      <scope classrefs="Handler" doc="A handler class which sends events to the NT Event Log. Adds a&#10;registry entry for the specified application name. If no dllname is provided, win32service.pyd (which contains some basic message placeholders) is used. Note that use of these placeholders will make your event logs big, as the entire message source is held in the log. If you want slimmer logs, you have to pass in the name of your own DLL which contains the message definitions you want to use in the event log." ilk="class" line="897" lineend="995" name="NTEventLogHandler">
+        <scope doc="Return the event category for the record." ilk="function" line="943" lineend="950" name="getEventCategory" returns="int" signature="getEventCategory(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the event type for the record." ilk="function" line="952" lineend="963" name="getEventType" returns="self.typemap.get()" signature="getEventType(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the message ID for the event record." ilk="function" line="933" lineend="941" name="getMessageID" returns="int" signature="getMessageID(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Clean up this handler." ilk="function" line="984" lineend="995" name="close" signature="close()">
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="965" lineend="982" name="emit" signature="emit(record)">
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+          <variable citdl="getEventCategory()" line="975" name="cat" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="self.format()" line="977" name="msg" />
+          <variable citdl="getEventType()" line="976" name="type" />
+          <variable citdl="getMessageID()" line="974" name="id" />
+        </scope>
+        <scope ilk="function" line="907" lineend="931" name="__init__" signature="NTEventLogHandler(appname, dllname=None, logtype='Application')">
+          <variable citdl="str" ilk="argument" name="logtype" />
+          <variable citdl="NTEventLogHandler" ilk="argument" name="self" />
+          <variable citdl="os.path.split()" ilk="argument" name="dllname" />
+          <variable ilk="argument" name="appname" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="win32evtlog.EVENTLOG_ERROR_TYPE" line="920" name="deftype" />
+        <variable attributes="protected __instancevar__" citdl="win32evtlogutil" line="912" name="_welu" />
+        <variable attributes="__instancevar__" line="911" name="appname" />
+        <variable attributes="__instancevar__" citdl="str" line="918" name="logtype" />
+        <variable attributes="__instancevar__" citdl="os.path.split()" line="917" name="dllname" />
+        <variable attributes="__instancevar__" citdl="dict" line="921" name="typemap" />
+      </scope>
+      <scope classrefs="BaseRotatingHandler" doc="Handler for logging to a set of files, which switches from one file&#10;to the next when the current file reaches a certain size." ilk="class" line="85" lineend="160" name="RotatingFileHandler">
+        <scope doc="Do a rollover, as described in __init__()." ilk="function" line="122" lineend="144" name="doRollover" signature="doRollover()">
+          <variable citdl="str" line="131" name="sfn" />
+          <variable citdl="RotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="str" line="132" name="dfn" />
+        </scope>
+        <scope doc="Determine if rollover should occur." ilk="function" line="146" lineend="160" name="shouldRollover" returns="int" signature="shouldRollover(record)">
+          <variable citdl="self.format()" line="156" name="msg" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="RotatingFileHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Open the specified file and use it as the stream for&#10;logging." ilk="function" line="90" lineend="120" name="__init__" signature="RotatingFileHandler(filename, mode='a', maxBytes=0, backupCount=0, encoding=None, delay=0)">
+          <variable citdl="int" ilk="argument" name="backupCount" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="RotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="maxBytes" />
+          <variable citdl="int" ilk="argument" name="delay" />
+          <variable citdl="str" ilk="argument" name="mode" />
+          <variable ilk="argument" name="filename" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="120" name="backupCount" />
+        <variable attributes="__instancevar__" citdl="str" line="143" name="mode" />
+        <variable attributes="__instancevar__" citdl="self._open()" line="128" name="stream" />
+        <variable attributes="__instancevar__" citdl="int" line="119" name="maxBytes" />
+      </scope>
+      <scope classrefs="Handler" doc="A handler class which sends an SMTP email for each logging event.&#10;" ilk="class" line="820" lineend="895" name="SMTPHandler">
+        <scope doc="Initialize the handler." ilk="function" line="824" lineend="854" name="__init__" signature="SMTPHandler(mailhost, fromaddr, toaddrs, subject, credentials=None, secure=None)">
+          <variable citdl="list" ilk="argument" name="toaddrs" />
+          <variable ilk="argument" name="secure" />
+          <variable ilk="argument" name="fromaddr" />
+          <variable citdl="SMTPHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="mailhost" />
+          <variable ilk="argument" name="credentials" />
+          <variable ilk="argument" name="subject" />
+        </scope>
+        <scope doc="Determine the subject for the email." ilk="function" line="856" lineend="863" name="getSubject" signature="getSubject(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="SMTPHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="865" lineend="895" name="emit" signature="emit(record)">
+          <variable citdl="self.format()" line="878" name="msg" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="SMTPHandler" ilk="argument" name="self" />
+          <variable citdl="smtplib.SMTP()" line="877" name="smtp" />
+          <variable citdl="smtplib.SMTP_PORT" line="874" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" line="848" name="username" />
+        <variable attributes="__instancevar__" citdl="list" line="852" name="toaddrs" />
+        <variable attributes="__instancevar__" line="854" name="secure" />
+        <variable attributes="__instancevar__" line="844" name="mailport" />
+        <variable attributes="__instancevar__" line="849" name="fromaddr" />
+        <variable attributes="__instancevar__" line="844" name="mailhost" />
+        <variable attributes="__instancevar__" line="853" name="subject" />
+      </scope>
+      <variable citdl="int" name="ST_DEV" />
+      <variable citdl="int" name="ST_INO" />
+      <variable citdl="int" name="ST_MTIME" />
+      <variable citdl="int" line="49" name="SYSLOG_TCP_PORT" />
+      <variable citdl="int" line="48" name="SYSLOG_UDP_PORT" />
+      <scope classrefs="Handler" doc="A handler class which writes logging records, in pickle format, to&#10;a streaming socket. The socket is kept open across logging calls. If the peer resets it, an attempt is made to reconnect on the next call. The pickle which is sent is that of the LogRecord's attribute dictionary (__dict__), so that the receiver does not need to have the logging module installed in order to process the logging event.  To unpickle the record at the receiving end into a LogRecord, use the makeLogRecord function." ilk="class" line="416" lineend="569" name="SocketHandler">
+        <scope doc="Try to create a socket, using an exponential backoff with a&#10;max retry time." ilk="function" line="461" lineend="487" name="createSocket" signature="createSocket()">
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable citdl="time.time()" line="467" name="now" />
+          <variable citdl="int" line="472" name="attempt" />
+        </scope>
+        <scope doc="Pickles the record in binary format with a length prefix,&#10;and returns it ready for transmission across the socket." ilk="function" line="516" lineend="529" name="makePickle" returns="struct.pack()" signature="makePickle(record)">
+          <variable citdl="self.format()" line="523" name="dummy" />
+          <variable citdl="struct.pack()" line="528" name="slen" />
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="cPickle.dumps()" line="525" name="s" />
+          <variable citdl="record.exc_info" line="521" name="ei" />
+        </scope>
+        <scope doc="Handle an error during logging." ilk="function" line="531" lineend="543" name="handleError" signature="handleError(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Send a pickled string to the socket." ilk="function" line="489" lineend="514" name="send" signature="send(s)">
+          <variable ilk="argument" name="s" />
+          <variable citdl="int" line="506" name="sentsofar" />
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable citdl="self.sock.send()" line="509" name="sent" />
+          <variable citdl="len()" line="507" name="left" />
+        </scope>
+        <scope doc="Closes the socket." ilk="function" line="562" lineend="569" name="close" signature="close()">
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="A factory method which allows subclasses to define the&#10;precise type of socket they want." ilk="function" line="450" lineend="459" name="makeSocket" returns="socket.socket()" signature="makeSocket(timeout=1)">
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable citdl="socket.socket()" line="455" name="s" />
+          <variable citdl="int" ilk="argument" name="timeout" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="545" lineend="560" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable citdl="makePickle()" line="555" name="s" />
+        </scope>
+        <scope doc="Initializes the handler with a specific host address and&#10;port." ilk="function" line="429" lineend="448" name="__init__" signature="SocketHandler(host, port)">
+          <variable citdl="SocketHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="host" />
+          <variable ilk="argument" name="port" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="float" line="446" name="retryStart" />
+        <variable attributes="__instancevar__" citdl="makeSocket()" line="440" name="sock" />
+        <variable attributes="__instancevar__" citdl="int" line="441" name="closeOnError" />
+        <variable attributes="__instancevar__" line="438" name="host" />
+        <variable attributes="__instancevar__" citdl="time.time()" line="442" name="retryTime" />
+        <variable attributes="__instancevar__" citdl="float" line="447" name="retryMax" />
+        <variable attributes="__instancevar__" citdl="float" line="482" name="retryPeriod" />
+        <variable attributes="__instancevar__" citdl="float" line="448" name="retryFactor" />
+        <variable attributes="__instancevar__" line="439" name="port" />
+      </scope>
+      <scope classrefs="Handler" doc="A handler class which sends formatted logging records to a syslog&#10;server. Based on Sam Rushing's syslog module: http://www.nightmare.com/squirl/python-ext/misc/syslog.py Contributed by Nicolas Untz (after which minor refactoring changes have been made)." ilk="class" line="609" lineend="818" name="SysLogHandler">
+        <scope doc="Closes the socket." ilk="function" line="766" lineend="772" name="close" signature="close()">
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Initialize a handler." ilk="function" line="712" lineend="735" name="__init__" signature="SysLogHandler(address=('localhost', SYSLOG_UDP_PORT), facility=LOG_USER, socktype=socket.SOCK_DGRAM)">
+          <variable citdl="socket.SOCK_DGRAM" ilk="argument" name="socktype" />
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="facility" />
+          <variable citdl="tuple" ilk="argument" name="address" />
+        </scope>
+        <scope doc="Map a logging level name to a key in the priority_names map." ilk="function" line="774" lineend="782" name="mapPriority" returns="self.priority_map.get()" signature="mapPriority(levelName)">
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="levelName" />
+        </scope>
+        <scope doc="Encode the facility and priority." ilk="function" line="753" lineend="764" name="encodePriority" returns="int" signature="encodePriority(facility, priority)">
+          <variable ilk="argument" name="priority" />
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="facility" />
+        </scope>
+        <scope ilk="function" line="737" lineend="745" name="_connect_unixsocket" signature="_connect_unixsocket(address)">
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="address" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="784" lineend="818" name="emit" signature="emit(record)">
+          <variable citdl="str" line="791" name="msg" />
+          <variable ilk="argument" name="record" />
+          <variable citdl="SysLogHandler" ilk="argument" name="self" />
+          <variable citdl="SysLogHandler.encodePriority()" line="796" name="prio" />
+        </scope>
+        <variable citdl="int" line="630" name="LOG_CRIT" />
+        <variable attributes="__instancevar__" citdl="int" line="724" name="facility" />
+        <variable citdl="int" line="631" name="LOG_ERR" />
+        <variable citdl="int" line="629" name="LOG_ALERT" />
+        <variable citdl="int" line="643" name="LOG_SYSLOG" />
+        <variable citdl="int" line="628" name="LOG_EMERG" />
+        <variable citdl="dict" line="704" name="priority_map" />
+        <variable citdl="int" line="640" name="LOG_MAIL" />
+        <variable citdl="int" line="634" name="LOG_INFO" />
+        <variable citdl="dict" line="661" name="priority_names" />
+        <variable citdl="int" line="633" name="LOG_NOTICE" />
+        <variable citdl="int" line="632" name="LOG_WARNING" />
+        <variable citdl="int" line="635" name="LOG_DEBUG" />
+        <variable citdl="int" line="648" name="LOG_AUTHPRIV" />
+        <variable citdl="int" line="641" name="LOG_DAEMON" />
+        <variable citdl="int" line="652" name="LOG_LOCAL0" />
+        <variable citdl="int" line="647" name="LOG_CRON" />
+        <variable citdl="str" line="751" name="log_format_string" />
+        <variable citdl="int" line="649" name="LOG_FTP" />
+        <variable citdl="int" line="638" name="LOG_KERN" />
+        <variable attributes="__instancevar__" line="735" name="formatter" />
+        <variable citdl="int" line="639" name="LOG_USER" />
+        <variable citdl="int" line="646" name="LOG_UUCP" />
+        <variable attributes="__instancevar__" citdl="tuple" line="723" name="address" />
+        <variable attributes="__instancevar__" citdl="socket.SOCK_DGRAM" line="725" name="socktype" />
+        <variable citdl="int" line="657" name="LOG_LOCAL5" />
+        <variable citdl="int" line="658" name="LOG_LOCAL6" />
+        <variable citdl="int" line="659" name="LOG_LOCAL7" />
+        <variable citdl="int" line="645" name="LOG_NEWS" />
+        <variable citdl="int" line="653" name="LOG_LOCAL1" />
+        <variable citdl="int" line="654" name="LOG_LOCAL2" />
+        <variable citdl="int" line="655" name="LOG_LOCAL3" />
+        <variable citdl="int" line="642" name="LOG_AUTH" />
+        <variable citdl="int" line="656" name="LOG_LOCAL4" />
+        <variable attributes="__instancevar__" citdl="socket.socket()" line="732" name="socket" />
+        <variable citdl="int" line="644" name="LOG_LPR" />
+        <variable citdl="dict" line="676" name="facility_names" />
+        <variable attributes="__instancevar__" citdl="int" line="728" name="unixsocket" />
+      </scope>
+      <scope classrefs="BaseRotatingHandler" doc="Handler for logging to a file, rotating the log file at certain timed&#10;intervals.  If backupCount is &gt; 0, when rollover is done, no more than backupCount files are kept - the oldest ones are deleted." ilk="class" line="162" lineend="363" name="TimedRotatingFileHandler">
+        <scope doc="Work out the rollover time based on the specified time." ilk="function" line="223" lineend="280" name="computeRollover" returns="int()" signature="computeRollover(currentTime)">
+          <variable line="272" name="dstNow" />
+          <variable citdl="int()" line="267" name="daysToWait" />
+          <variable ilk="argument" name="currentTime" />
+          <variable citdl="TimedRotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="int()" line="270" name="newRolloverAt" />
+          <variable line="243" name="currentSecond" />
+          <variable citdl="int" line="245" name="r" />
+          <variable citdl="time.localtime()" line="238" name="t" />
+          <variable line="241" name="currentHour" />
+          <variable line="273" name="dstAtRollover" />
+          <variable line="264" name="day" />
+          <variable line="242" name="currentMinute" />
+          <variable citdl="int" line="227" name="result" />
+        </scope>
+        <scope doc="Determine the files to delete when rolling over." ilk="function" line="295" lineend="316" name="getFilesToDelete" returns="list" signature="getFilesToDelete()">
+          <variable citdl="list" line="308" name="suffix" />
+          <variable citdl="TimedRotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="os.listdir()" line="302" name="fileNames" />
+          <variable citdl="str" line="304" name="prefix" />
+          <variable citdl="list" line="303" name="result" />
+          <variable citdl="len()" line="305" name="plen" />
+          <variable line="301" name="dirName" />
+          <variable line="301" name="baseName" />
+        </scope>
+        <scope doc="Determine if rollover should occur." ilk="function" line="282" lineend="293" name="shouldRollover" returns="int" signature="shouldRollover(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="TimedRotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="int()" line="289" name="t" />
+        </scope>
+        <scope doc="do a rollover; in this case, a date/time stamp is appended&#10;to the filename when the rollover happens." ilk="function" line="318" lineend="363" name="doRollover" signature="doRollover()">
+          <variable line="356" name="dstNow" />
+          <variable citdl="int()" line="350" name="currentTime" />
+          <variable citdl="TimedRotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="computeRollover()" line="351" name="newRolloverAt" />
+          <variable citdl="self.baseFilename" line="335" name="dfn" />
+          <variable citdl="self.computeRollover()" line="330" name="t" />
+          <variable citdl="time.gmtime()" line="332" name="timeTuple" />
+          <variable line="357" name="dstAtRollover" />
+        </scope>
+        <scope ilk="function" line="170" lineend="221" name="__init__" signature="TimedRotatingFileHandler(filename, when='h', interval=1, backupCount=0, encoding=None, delay=False, utc=False)">
+          <variable citdl="False" ilk="argument" name="utc" />
+          <variable citdl="int" ilk="argument" name="backupCount" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="TimedRotatingFileHandler" ilk="argument" name="self" />
+          <variable citdl="int" ilk="argument" name="interval" />
+          <variable citdl="str" ilk="argument" name="when" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="False" ilk="argument" name="delay" />
+          <variable citdl="int()" line="218" name="t" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int()" line="209" name="dayOfWeek" />
+        <variable attributes="__instancevar__" citdl="False" line="174" name="utc" />
+        <variable attributes="__instancevar__" citdl="int" line="173" name="backupCount" />
+        <variable attributes="__instancevar__" citdl="str" line="189" name="suffix" />
+        <variable attributes="__instancevar__" citdl="self._open()" line="328" name="stream" />
+        <variable attributes="__instancevar__" citdl="int" line="188" name="interval" />
+        <variable attributes="__instancevar__" citdl="when.upper()" line="172" name="when" />
+        <variable attributes="__instancevar__" citdl="str" line="348" name="mode" />
+        <variable attributes="__instancevar__" citdl="computeRollover()" line="221" name="rolloverAt" />
+        <variable attributes="__instancevar__" citdl="str" line="190" name="extMatch" />
+      </scope>
+      <scope classrefs="FileHandler" doc="A handler for logging to a file, which watches the file&#10;to see if it has changed while in use. This can happen because of usage of programs such as newsyslog and logrotate which perform log file rotation. This handler, intended for use under Unix, watches the file to see if it has changed since the last emit. (A file has changed if its device or inode have changed.) If it has changed, the old file stream is closed, and the file opened to get a new stream.  This handler is not appropriate for use under Windows, because under Windows open files cannot be moved or renamed - logging" ilk="class" line="365" lineend="414" name="WatchedFileHandler">
+        <scope ilk="function" line="385" lineend="391" name="__init__" signature="WatchedFileHandler(filename, mode='a', encoding=None, delay=0)">
+          <variable citdl="os.stat()" line="390" name="stat" />
+          <variable ilk="argument" name="encoding" />
+          <variable citdl="WatchedFileHandler" ilk="argument" name="self" />
+          <variable ilk="argument" name="filename" />
+          <variable citdl="int" ilk="argument" name="delay" />
+          <variable citdl="str" ilk="argument" name="mode" />
+        </scope>
+        <scope doc="Emit a record." ilk="function" line="393" lineend="414" name="emit" signature="emit(record)">
+          <variable ilk="argument" name="record" />
+          <variable citdl="WatchedFileHandler" ilk="argument" name="self" />
+          <variable citdl="int" line="403" name="changed" />
+          <variable citdl="os.stat()" line="402" name="stat" />
+        </scope>
+        <variable attributes="__instancevar__" citdl="int" line="388" name="ino" />
+        <variable attributes="__instancevar__" citdl="self._open()" line="410" name="stream" />
+        <variable attributes="__instancevar__" citdl="int" line="388" name="dev" />
+      </scope>
+      <import module="cPickle" />
+      <import module="codecs" />
+      <import module="logging" />
+      <import module="os" />
+      <import module="re" />
+      <import module="socket" />
+      <import module="struct" />
+      <import module="time" />
+      <variable attributes="protected __hidden__" citdl="False" line="36" name="_unicode" />
+      <variable attributes="protected __hidden__" citdl="int" line="51" name="_MIDNIGHT" />
+      <variable attributes="__hidden__" line="33" name="codecs" />
+    </scope>
+    

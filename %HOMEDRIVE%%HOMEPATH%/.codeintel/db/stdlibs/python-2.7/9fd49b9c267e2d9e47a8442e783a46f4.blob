@@ -1,0 +1,55 @@
+<scope doc="General floating point formatting functions.&#10;Functions: fix(x, digits_behind) sci(x, digits_behind)  Each takes a number or a string and a number of digits as arguments.  Parameters: x:             number to be formatted; or a string resembling a number digits_behind: number of digits behind the decimal point" ilk="blob" lang="Python" name="fpformat">
+      <scope classrefs="ValueError" doc="&#10;" ilk="class" line="30" name="NotANumber" />
+      <variable citdl="list" line="19" name="__all__" />
+      <variable citdl="SRE_Pattern" line="22" name="decoder" />
+      <scope doc="sign is '+' or '-' intpart is 0 or more digits beginning&#10;with a nonzero fraction is 0 or more digits expo is an&#10;integer" ilk="function" line="35" lineend="48" name="extract" returns="tuple" signature="Return (sign, intpart, fraction, expo) or raise an exception:">
+        <variable citdl="decoder.match()" line="41" name="res" />
+        <variable citdl="str" line="43" name="sign" />
+        <variable line="43" name="exppart" />
+        <variable ilk="argument" name="s" />
+        <variable citdl="int()" line="46" name="expo" />
+        <variable citdl="list" line="43" name="fraction" />
+        <variable line="43" name="intpart" />
+      </scope>
+      <scope doc="Format x as [-]ddd.ddd with 'digs' digits after the point&#10;and at least one digit before." ilk="function" line="90" lineend="104" name="fix" returns="repr()" signature="fix(x, digs)">
+        <variable line="96" name="sign" />
+        <variable line="96" name="expo" />
+        <variable line="96" name="fraction" />
+        <variable citdl="repr()" ilk="argument" name="x" />
+        <variable ilk="argument" name="digs" />
+        <variable citdl="list" line="96" name="intpart" />
+      </scope>
+      <import module="re" />
+      <scope doc="Round or extend the fraction to size digs." ilk="function" line="64" lineend="88" name="roundfrac" returns="tuple" signature="roundfrac(intpart, fraction, digs)">
+        <variable ilk="argument" name="digs" />
+        <variable citdl="len()" line="66" name="f" />
+        <variable citdl="len()" line="69" name="i" />
+        <variable citdl="len()" line="75" name="n" />
+        <variable line="73" name="nextdigit" />
+        <variable citdl="list" ilk="argument" name="fraction" />
+        <variable citdl="len()" line="72" name="total" />
+        <variable citdl="list" ilk="argument" name="intpart" />
+      </scope>
+      <scope doc="Format x as [-]d.dddE[+-]ddd with 'digs' digits after the&#10;point and exactly one digit before." ilk="function" line="106" lineend="136" name="sci" returns="str" signature="sci(x, digs)">
+        <variable citdl="str" line="132" name="e" />
+        <variable line="111" name="sign" />
+        <variable citdl="str" line="130" name="s" />
+        <variable citdl="len()" line="111" name="expo" />
+        <variable citdl="list" line="111" name="fraction" />
+        <variable citdl="repr()" ilk="argument" name="x" />
+        <variable citdl="max()" ilk="argument" name="digs" />
+        <variable citdl="str" line="111" name="intpart" />
+      </scope>
+      <scope doc="Interactive test run." ilk="function" line="138" lineend="145" name="test" signature="test()">
+        <variable line="142" name="x" />
+        <variable line="142" name="digs" />
+      </scope>
+      <scope doc="Remove the exponent by changing intpart and fraction." ilk="function" line="50" lineend="62" name="unexpo" returns="tuple" signature="unexpo(intpart, fraction, expo)">
+        <variable citdl="len()" line="58" name="i" />
+        <variable citdl="len()" line="53" name="f" />
+        <variable ilk="argument" name="expo" />
+        <variable citdl="list" ilk="argument" name="fraction" />
+        <variable citdl="list" ilk="argument" name="intpart" />
+      </scope>
+    </scope>
+    

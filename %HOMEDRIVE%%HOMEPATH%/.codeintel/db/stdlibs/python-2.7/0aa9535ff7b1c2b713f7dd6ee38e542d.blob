@@ -1,0 +1,178 @@
+<scope doc="distutils.command.sdist&#10;Implements the Distutils 'sdist' command (create a source distribution)." ilk="blob" lang="Python" name="distutils.command.sdist">
+      <scope doc="Abstract base class for defining command classes, the &quot;worker bees&quot;&#10;of the Distutils.  A useful analogy for command classes is to think of them as subroutines with local variables called &quot;options&quot;.  The options are &quot;declared&quot; in 'initialize_options()' and &quot;defined&quot; (given their final values, aka &quot;finalized&quot;) in 'finalize_options()', both of which must be defined by every command class.  The distinction between the two is necessary because option values might come from the outside world (command line, config file, ...), and any options dependent on other options must be computed *after* these outside influences have been processed -- hence 'finalize_options()'.  The &quot;body&quot; of the subroutine, where it does all its work based on the values of its" ilk="class" name="Command">
+        <scope ilk="function" name="_ensure_tested_string" />
+        <scope doc="Spawn an external command respecting dry-run flag." ilk="function" name="spawn" />
+        <scope ilk="function" name="ensure_finalized" />
+        <scope doc="Create and initialize a new Command object." ilk="function" name="__init__" />
+        <scope doc="Set default values for all the options that this command&#10;supports." ilk="function" name="initialize_options" />
+        <scope ilk="function" name="dump_options" />
+        <scope doc="# XXX A more explicit way to customize dry_run would be&#10;better." ilk="function" name="__getattr__" />
+        <scope doc="Determine the sub-commands that are relevant in the current&#10;distribution (ie., that need to be run)." ilk="function" name="get_sub_commands" />
+        <scope doc="Copy an entire directory tree respecting verbose, dry-run,&#10;and force flags." ilk="function" name="copy_tree" />
+        <scope doc="If the current verbosity level is of greater than or equal&#10;to 'level' print 'msg' to stdout." ilk="function" name="announce" />
+        <scope doc="Run some other command: uses the 'run_command()' method of&#10;Distribution, which creates and finalizes the command object&#10;if necessary and then invokes its 'run()' method." ilk="function" name="run_command" />
+        <scope doc="Set the values of any &quot;undefined&quot; options from corresponding&#10;option values in some other command object." ilk="function" name="set_undefined_options" />
+        <scope doc="A command's raison d'etre: carry out the action it exists to&#10;perform, controlled by the options initialized in&#10;'initialize_options()', customized by other commands, the&#10;setup script, the command-line, and config files, and&#10;finalized in" ilk="function" name="run" />
+        <scope doc="# XXX rename to 'get_reinitialized_command()'? (should do&#10;the # same in dist.py, if so)" ilk="function" name="reinitialize_command" />
+        <scope doc="Copy a file respecting verbose, dry-run and force flags." ilk="function" name="copy_file" />
+        <scope ilk="function" name="warn" />
+        <scope ilk="function" name="ensure_dirname" />
+        <scope doc="Move a file respecting dry-run flag." ilk="function" name="move_file" />
+        <scope doc="Ensure that 'option' is a list of strings." ilk="function" name="ensure_string_list" />
+        <scope ilk="function" name="_ensure_stringlike" />
+        <scope doc="Wrapper around Distribution's 'get_command_obj()' method:&#10;find (create if necessary and 'create' is true) the command&#10;object for 'command', call its 'ensure_finalized()' method,&#10;and return the finalized command object." ilk="function" name="get_finalized_command" />
+        <scope ilk="function" name="execute" />
+        <scope doc="Ensure that 'option' is a string; if not defined, set it to&#10;'default'." ilk="function" name="ensure_string" />
+        <scope ilk="function" name="mkpath" />
+        <scope ilk="function" name="make_archive" />
+        <scope ilk="function" name="get_command_name" />
+        <scope doc="Special case of 'execute()' for operations that process one&#10;or more input files and generate one output file." ilk="function" name="make_file" />
+        <scope doc="Set final values for all the options that this command&#10;supports." ilk="function" name="finalize_options" />
+        <scope doc="Ensure that 'option' is the name of an existing file." ilk="function" name="ensure_filename" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope classrefs="DistutilsError" doc="Syntactic/semantic errors in command options, such as use of&#10;mutually conflicting options, or inconsistent options, badly-spelled values, etc.  No distinction is made between option values originating in the setup script, the command line, config files, or what-have-you -- but if we *know* something originated in the setup script, we'll raise DistutilsSetupError instead." ilk="class" name="DistutilsOptionError" />
+      <scope classrefs="DistutilsError" doc="We don't know how to do something on the current platform (but&#10;we do know how to do it on some platform) -- eg. trying to compile C files on a platform not supported by a CCompiler subclass." ilk="class" name="DistutilsPlatformError" />
+      <scope classrefs="DistutilsError" doc="Syntax error in a file list template.&#10;" ilk="class" name="DistutilsTemplateError" />
+      <scope doc="A list of files built by on exploring the filesystem and filtered by&#10;applying various patterns to what we find there.  Instance attributes: dir directory from which files will be taken -- only used if 'allfiles' not supplied to constructor files list of filenames currently being built/filtered/manipulated allfiles complete list of files under consideration (ie. without any" ilk="class" name="FileList">
+        <scope ilk="function" name="sort" />
+        <scope doc="Select strings (presumably filenames) from 'self.files' that&#10;match 'pattern', a Unix-style wildcard (glob) pattern." ilk="function" name="include_pattern" />
+        <scope ilk="function" name="remove_duplicates" />
+        <scope ilk="function" name="set_allfiles" />
+        <scope ilk="function" name="extend" />
+        <scope ilk="function" name="process_template_line" />
+        <scope doc="Remove strings (presumably filenames) from 'files' that&#10;match 'pattern'." ilk="function" name="exclude_pattern" />
+        <scope ilk="function" name="_parse_template_line" />
+        <scope ilk="function" name="append" />
+        <scope ilk="function" name="__init__" />
+        <scope ilk="function" name="findall" />
+        <scope doc="Print 'msg' to stdout if the global DEBUG (taken from the&#10;DISTUTILS_DEBUG environment variable) flag is true." ilk="function" name="debug_print" />
+      </scope>
+      <scope doc="Provides a file-like object that takes care of all the things you&#10;commonly want to do when processing a text file that has some line-by-line syntax: strip comments (as long as &quot;#&quot; is your comment character), skip blank lines, join adjacent lines by escaping the newline (ie. backslash at end of line), strip leading and/or trailing whitespace.  All of these are optional and independently controllable.  Provides a 'warn()' method so you can generate warning messages that report physical line number, even if the logical line in question spans multiple physical lines.  Also provides 'unreadline()' for" ilk="class" name="TextFile">
+        <scope ilk="function" name="gen_error" />
+        <scope ilk="function" name="error" />
+        <scope doc="Read and return the list of all logical lines remaining in&#10;the current file." ilk="function" name="readlines" />
+        <scope doc="Push 'line' (a string) onto an internal buffer that will be&#10;checked by future 'readline()' calls." ilk="function" name="unreadline" />
+        <scope doc="line in the current file." ilk="function" name="warn" signature="Print (to stderr) a warning message tied to the current logical" />
+        <scope doc="Close the current file and forget everything we know about&#10;it (filename, current line number)." ilk="function" name="close" />
+        <scope doc="Read and return a single logical line from the current file&#10;(or from an internal buffer if lines have previously been&#10;&quot;unread&quot; with 'unreadline()')." ilk="function" name="readline" />
+        <scope doc="Open a new file named 'filename'." ilk="function" name="open" />
+        <scope doc="Construct a new TextFile object." ilk="function" name="__init__" />
+      </scope>
+      <variable citdl="str" line="5" name="__revision__" />
+      <import module="archive_util" />
+      <scope doc="Return 'pathname' as a name that will work on the native&#10;filesystem, i.e." ilk="function" name="convert_path" signature="convert_path(pathname)" />
+      <import module="dep_util" />
+      <import module="dir_util" />
+      <import module="file_util" />
+      <scope doc="Return a list of paths matching a pathname pattern." ilk="function" name="glob" signature="glob(pathname)" />
+      <import module="log" />
+      <import module="os" />
+      <scope classrefs="Command" doc="&#10;" ilk="class" line="36" lineend="464" name="sdist">
+        <scope doc="Read and parse manifest template file named by&#10;self.template." ilk="function" line="294" lineend="322" name="read_template" signature="read_template()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="template.readline()" line="311" name="line" />
+          <variable citdl="TextFile()" line="301" name="template" />
+        </scope>
+        <scope doc="Prune off branches that might slip into the file list as&#10;created by 'read_template()', but really don't belong there:&#10;* the build tree (typically &quot;build&quot;) * the release tree&#10;itself (only an issue if we ran &quot;sdist&quot;" ilk="function" line="324" lineend="348" name="prune_file_list" signature="prune_file_list()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="str" line="347" name="vcs_ptrn" />
+          <variable citdl="self.get_finalized_command()" line="332" name="build" />
+          <variable citdl="list" line="345" name="vcs_dirs" />
+          <variable citdl="str" line="341" name="seps" />
+          <variable citdl="self.distribution.get_fullname()" line="333" name="base_dir" />
+        </scope>
+        <scope doc="Figure out the list of files to include in the source&#10;distribution, and put it in 'self.filelist'." ilk="function" line="178" lineend="210" name="get_file_list" signature="get_file_list()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="os.path.isfile()" line="192" name="template_exists" />
+        </scope>
+        <scope ilk="function" line="102" lineend="123" name="initialize_options" signature="initialize_options()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Return the list of archive files created when the command&#10;was run, or None if the command hasn't run yet." ilk="function" line="460" lineend="464" name="get_archive_files" returns="list" signature="get_archive_files()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Create the directory tree that will become the source&#10;distribution archive." ilk="function" line="388" lineend="428" name="make_release_tree" signature="make_release_tree(base_dir, files)">
+          <variable ilk="argument" name="files" />
+          <variable citdl="os.path.join()" line="425" name="dest" />
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="str" line="411" name="link" />
+          <variable citdl="str" line="412" name="msg" />
+          <variable ilk="argument" name="base_dir" />
+        </scope>
+        <scope ilk="function" line="148" lineend="168" name="run" signature="run()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Deprecated API." ilk="function" line="170" lineend="176" name="check_metadata" signature="check_metadata()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="self.distribution.get_command_obj()" line="174" name="check" />
+        </scope>
+        <scope doc="Create the source distribution(s)." ilk="function" line="430" lineend="458" name="make_distribution" signature="make_distribution()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="list" line="444" name="archive_files" />
+          <variable citdl="self.make_archive()" line="450" name="file" />
+          <variable citdl="os.path.join()" line="441" name="base_name" />
+          <variable citdl="self.distribution.get_fullname()" line="440" name="base_dir" />
+        </scope>
+        <scope doc="Callable used for the check sub-command." ilk="function" line="40" lineend="44" name="checking_metadata" returns="self.metadata_check" signature="checking_metadata()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Read the manifest file (named by 'self.manifest') and use it&#10;to fill in 'self.filelist', the list of files to include in&#10;the source distribution." ilk="function" line="372" lineend="386" name="read_manifest" signature="read_manifest()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="list" line="380" name="line" />
+          <variable citdl="open()" line="378" name="manifest" />
+        </scope>
+        <scope doc="Add all the default files to self.filelist: - README or&#10;README.txt - setup.py - test/test*.py" ilk="function" line="212" lineend="292" name="add_defaults" signature="add_defaults()">
+          <variable citdl="filter()" line="249" name="files" />
+          <variable citdl="self.get_finalized_command()" line="256" name="build_py" />
+          <variable citdl="convert_path()" line="278" name="f" />
+          <variable citdl="int" line="231" name="got_it" />
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="list" line="227" name="standards" />
+          <variable citdl="convert_path()" line="272" name="item" />
+          <variable citdl="self.get_finalized_command()" line="291" name="build_scripts" />
+          <variable citdl="fn" line="230" name="alts" />
+          <variable citdl="self.get_finalized_command()" line="287" name="build_clib" />
+          <variable citdl="list" line="247" name="optional" />
+          <variable citdl="self.get_finalized_command()" line="283" name="build_ext" />
+        </scope>
+        <scope doc="Write the file list in 'self.filelist' (presumably as filled&#10;in by 'add_defaults()' and 'read_template()') to the&#10;manifest file named by 'self.manifest'." ilk="function" line="350" lineend="370" name="write_manifest" signature="write_manifest()">
+          <variable citdl="open()" line="356" name="fp" />
+          <variable citdl="fp.readline()" line="358" name="first_line" />
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="list" line="367" name="content" />
+        </scope>
+        <scope ilk="function" line="125" lineend="146" name="finalize_options" signature="finalize_options()">
+          <variable citdl="sdist" ilk="argument" name="self" />
+          <variable citdl="archive_util.check_archive_formats()" line="140" name="bad_format" />
+        </scope>
+        <variable citdl="list" line="46" name="user_options" />
+        <variable attributes="__instancevar__" citdl="list" line="116" name="formats" />
+        <variable attributes="__instancevar__" line="123" name="group" />
+        <variable citdl="str" line="38" name="description" />
+        <variable attributes="__instancevar__" citdl="int" line="110" name="use_defaults" />
+        <variable attributes="__instancevar__" citdl="int" line="111" name="prune" />
+        <variable citdl="list" line="100" name="sub_commands" />
+        <variable citdl="list" line="85" name="boolean_options" />
+        <variable citdl="list" line="89" name="help_options" />
+        <variable attributes="__instancevar__" citdl="FileList()" line="151" name="filelist" />
+        <variable attributes="__instancevar__" citdl="int" line="114" name="force_manifest" />
+        <variable attributes="__instancevar__" citdl="int" line="113" name="manifest_only" />
+        <variable attributes="__instancevar__" citdl="list" line="120" name="archive_files" />
+        <variable attributes="__instancevar__" citdl="int" line="121" name="metadata_check" />
+        <variable attributes="__instancevar__" citdl="str" line="105" name="template" />
+        <variable citdl="dict" line="97" name="default_format" />
+        <variable attributes="__instancevar__" line="122" name="owner" />
+        <variable attributes="__instancevar__" citdl="int" line="117" name="keep_temp" />
+        <variable attributes="__instancevar__" citdl="str" line="106" name="manifest" />
+        <variable attributes="__instancevar__" citdl="str" line="118" name="dist_dir" />
+        <variable citdl="dict" line="94" name="negative_opt" />
+      </scope>
+      <scope doc="Print all possible values for the 'formats' option (used by&#10;the &quot;--help-formats&quot; command-line option)." ilk="function" line="22" lineend="34" name="show_formats" signature="show_formats()">
+        <variable citdl="list" line="28" name="formats" />
+      </scope>
+      <import module="string" />
+      <import module="sys" />
+      <scope doc="Issue a warning, or maybe ignore it or raise an exception." ilk="function" name="warn" />
+    </scope>
+    

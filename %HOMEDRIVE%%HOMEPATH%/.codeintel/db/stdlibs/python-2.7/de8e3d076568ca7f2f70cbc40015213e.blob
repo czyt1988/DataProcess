@@ -1,0 +1,20 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="FixTk">
+      <import module="_tkinter" />
+      <scope ilk="function" line="21" lineend="47" name="convert_path" returns="str" signature="convert_path(s)">
+        <variable citdl="ctypes.windll.kernel32.CreateFileW()" line="24" name="hdir" />
+        <variable citdl="list" ilk="argument" name="s" />
+        <variable citdl="ctypes.create_unicode_buffer()" line="33" name="buf" />
+        <variable citdl="s.decode()" line="23" name="udir" />
+        <variable citdl="ctypes.windll.kernel32.GetFinalPathNameByHandleW()" line="34" name="res" />
+      </scope>
+      <import module="ctypes" />
+      <variable citdl="str" name="name" />
+      <import module="os" />
+      <variable citdl="str" line="49" name="prefix" />
+      <import module="sys" />
+      <variable citdl="str" line="60" name="tcldir" />
+      <variable citdl="str" line="76" name="tixdir" />
+      <variable citdl="str" line="68" name="v" />
+      <variable citdl="str" line="66" name="ver" />
+    </scope>
+    

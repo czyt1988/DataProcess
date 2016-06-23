@@ -1,0 +1,14 @@
+<scope doc="&#10;" ilk="blob" lang="Python" name="hotshot.stones">
+      <import module="errno" />
+      <import module="hotshot" />
+      <scope ilk="function" line="7" lineend="23" name="main" signature="main(logfile)">
+        <variable line="9" name="stones" />
+        <variable citdl="hotshot.Profile()" line="8" name="p" />
+        <variable ilk="argument" name="logfile" />
+        <variable line="9" name="benchtime" />
+        <variable citdl="hotshot.stats.load()" line="16" name="stats" />
+      </scope>
+      <import module="sys" />
+      <import module="test" />
+    </scope>
+    

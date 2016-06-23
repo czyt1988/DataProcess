@@ -1,0 +1,15 @@
+<scope doc="Fixer for reduce().&#10;Makes sure reduce() is imported from the functools module if reduce is used in that module." ilk="blob" lang="Python" name="lib2to3.fixes.fix_reduce">
+      <scope classrefs="BaseFix" doc="&#10;" ilk="class" line="15" lineend="35" name="FixReduce">
+        <scope ilk="function" line="34" lineend="35" name="transform" signature="transform(node, results)">
+          <variable ilk="argument" name="node" />
+          <variable citdl="FixReduce" ilk="argument" name="self" />
+          <variable ilk="argument" name="results" />
+        </scope>
+        <variable citdl="str" line="20" name="PATTERN" />
+        <variable citdl="str" line="18" name="order" />
+        <variable citdl="True" line="17" name="BM_compatible" />
+      </scope>
+      <import module="fixer_base" />
+      <scope doc="Works like `does_tree_import` but adds an import statement&#10;if it was not imported." ilk="function" name="touch_import" signature="touch_import(package, name, node)" />
+    </scope>
+    

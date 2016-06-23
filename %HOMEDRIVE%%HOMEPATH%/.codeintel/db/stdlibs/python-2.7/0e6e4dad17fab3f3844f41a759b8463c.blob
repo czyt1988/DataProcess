@@ -1,0 +1,38 @@
+<scope doc="JSON token scanner&#10;" ilk="blob" lang="Python" name="json.scanner">
+      <variable citdl="SRE_Pattern" line="11" name="NUMBER_RE" />
+      <variable citdl="list" line="9" name="__all__" />
+      <scope classrefs="object" doc="JSON scanner object&#10;" ilk="class" line="7" name="c_make_scanner">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope classrefs="object" doc="JSON scanner object&#10;" ilk="class" line="67" name="make_scanner">
+        <scope doc="x.__call__(...) &lt;==&gt; x(...)" ilk="function" name="__call__" signature="x.__call__(...) &lt;==&gt; x(...)" />
+        <scope ilk="function" name="__init__" />
+      </scope>
+      <scope ilk="function" line="15" lineend="65" name="py_make_scanner" returns="py_make_scanner._scan_once" signature="py_make_scanner(context)">
+        <variable citdl="context.parse_object" line="16" name="parse_object" />
+        <variable citdl="context.parse_int" line="23" name="parse_int" />
+        <variable citdl="context.parse_float" line="22" name="parse_float" />
+        <variable citdl="context.object_hook" line="25" name="object_hook" />
+        <variable citdl="context.encoding" line="20" name="encoding" />
+        <variable citdl="context.parse_constant" line="24" name="parse_constant" />
+        <scope attributes="protected" ilk="function" line="28" lineend="63" name="_scan_once" returns="tuple" signature="_scan_once(string, idx)">
+          <variable ilk="argument" name="string" />
+          <variable ilk="argument" name="idx" />
+          <variable line="30" name="nextchar" />
+          <variable citdl="match_number()" line="48" name="m" />
+          <variable line="50" name="frac" />
+          <variable line="50" name="exp" />
+          <variable line="50" name="integer" />
+          <variable citdl="parse_int()" line="52" name="res" />
+        </scope>
+        <variable citdl="context.parse_string" line="18" name="parse_string" />
+        <variable citdl="context.strict" line="21" name="strict" />
+        <variable citdl="NUMBER_RE.match" line="19" name="match_number" />
+        <variable citdl="context.parse_array" line="17" name="parse_array" />
+        <variable ilk="argument" name="context" />
+        <variable citdl="context.object_pairs_hook" line="26" name="object_pairs_hook" />
+      </scope>
+      <import module="re" />
+    </scope>
+    

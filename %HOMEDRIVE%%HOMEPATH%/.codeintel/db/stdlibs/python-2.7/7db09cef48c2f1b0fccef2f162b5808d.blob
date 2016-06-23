@@ -1,0 +1,10 @@
+<scope doc="Command-line tool to validate and pretty-print JSON&#10;Usage::  $ echo '{&quot;json&quot;:&quot;obj&quot;}' | python -m json.tool { &quot;json&quot;: &quot;obj&quot; } $ echo '{ 1.2:3.4}' | python -m json.tool Expecting property name: line 1 column 2 (char 2)" ilk="blob" lang="Python" name="json.tool">
+      <import module="json" />
+      <scope ilk="function" line="16" lineend="33" name="main" signature="main()">
+        <variable citdl="sys.stdout" line="19" name="outfile" />
+        <variable citdl="json.load()" line="29" name="obj" />
+        <variable citdl="open()" line="18" name="infile" />
+      </scope>
+      <import module="sys" />
+    </scope>
+    

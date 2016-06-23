@@ -1,0 +1,121 @@
+<scope doc="Extract, format and print information about Python stack traces.&#10;" ilk="blob" lang="Python" name="traceback">
+      <variable citdl="list" line="7" name="__all__" />
+      <scope doc="Extract the raw traceback from the current stack frame." ilk="function" line="280" lineend="312" name="extract_stack" returns="list" signature="extract_stack(f=None, limit=None)">
+        <variable citdl="f.f_code" line="301" name="co" />
+        <variable citdl="co.co_name" line="303" name="name" />
+        <variable citdl="f.f_back" ilk="argument" name="f" />
+        <variable citdl="list" line="297" name="list" />
+        <variable citdl="int" line="298" name="n" />
+        <variable citdl="sys.tracebacklimit" ilk="argument" name="limit" />
+        <variable citdl="f.f_lineno" line="300" name="lineno" />
+        <variable citdl="line.strip()" line="305" name="line" />
+        <variable citdl="co.co_filename" line="302" name="filename" />
+      </scope>
+      <scope doc="Return list of up to limit pre-processed entries from&#10;traceback." ilk="function" line="78" lineend="107" name="extract_tb" returns="list" signature="extract_tb(tb, limit=None)">
+        <variable citdl="f.f_code" line="97" name="co" />
+        <variable citdl="co.co_name" line="99" name="name" />
+        <variable citdl="tb.tb_frame" line="95" name="f" />
+        <variable citdl="list" line="92" name="list" />
+        <variable citdl="int" line="93" name="n" />
+        <variable citdl="sys.tracebacklimit" ilk="argument" name="limit" />
+        <variable citdl="tb.tb_lineno" line="96" name="lineno" />
+        <variable citdl="linecache.getline()" line="101" name="line" />
+        <variable citdl="co.co_filename" line="98" name="filename" />
+        <variable citdl="tb.tb_next" ilk="argument" name="tb" />
+      </scope>
+      <scope doc="Like print_exc() but return a string." ilk="function" line="237" lineend="243" name="format_exc" returns="str.join()" signature="format_exc(limit=None)">
+        <variable line="240" name="etype" />
+        <variable line="240" name="tb" />
+        <variable ilk="argument" name="limit" />
+        <variable line="240" name="value" />
+      </scope>
+      <scope doc="Format a stack trace and the exception information." ilk="function" line="130" lineend="145" name="format_exception" returns="format_exception_only()" signature="format_exception(etype, value, tb, limit=None)">
+        <variable ilk="argument" name="etype" />
+        <variable ilk="argument" name="limit" />
+        <variable citdl="list" line="140" name="list" />
+        <variable ilk="argument" name="value" />
+        <variable ilk="argument" name="tb" />
+      </scope>
+      <scope doc="Format the exception part of a traceback." ilk="function" line="147" lineend="200" name="format_exception_only" returns="list" signature="format_exception_only(etype, value)">
+        <variable line="192" name="caretspace" />
+        <variable citdl="list" line="181" name="lines" />
+        <variable citdl="msg" ilk="argument" name="value" />
+        <variable citdl="str" line="187" name="filename" />
+        <variable ilk="argument" name="etype" />
+        <variable citdl="etype.__name__" line="175" name="stype" />
+      </scope>
+      <scope doc="Format a list of traceback entry tuples for printing." ilk="function" line="27" lineend="43" name="format_list" returns="list" signature="format_list(extracted_list)">
+        <variable citdl="str" line="39" name="item" />
+        <variable citdl="list" line="37" name="list" />
+        <variable ilk="argument" name="extracted_list" />
+      </scope>
+      <scope doc="Shorthand for 'format_list(extract_stack(f, limit))'." ilk="function" line="271" lineend="278" name="format_stack" returns="format_list()" signature="format_stack(f=None, limit=None)">
+        <variable ilk="argument" name="limit" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="A shorthand for 'format_list(extract_stack(f, limit))." ilk="function" line="74" lineend="76" name="format_tb" returns="format_list()" signature="format_tb(tb, limit=None)">
+        <variable ilk="argument" name="limit" />
+        <variable ilk="argument" name="tb" />
+      </scope>
+      <import module="linecache" />
+      <scope doc="Shorthand for 'print_exception(sys.exc_type, sys.exc_value,&#10;sys.exc_traceback, limit, file)'." ilk="function" line="224" lineend="234" name="print_exc" signature="print_exc(limit=None, file=None)">
+        <variable line="231" name="etype" />
+        <variable line="231" name="tb" />
+        <variable ilk="argument" name="limit" />
+        <variable line="231" name="value" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+      </scope>
+      <scope doc="Print exception up to 'limit' stack trace entries from 'tb'&#10;to 'file'." ilk="function" line="110" lineend="128" name="print_exception" signature="print_exception(etype, value, tb, limit=None, file=None)">
+        <variable citdl="format_exception_only()" line="126" name="lines" />
+        <variable ilk="argument" name="value" />
+        <variable ilk="argument" name="limit" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+        <variable ilk="argument" name="etype" />
+        <variable ilk="argument" name="tb" />
+      </scope>
+      <scope doc="This is a shorthand for 'print_exception(sys.last_type,&#10;sys.last_value, sys.last_traceback, limit, file)'." ilk="function" line="246" lineend="254" name="print_last" signature="print_last(limit=None, file=None)">
+        <variable ilk="argument" name="limit" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+      </scope>
+      <scope doc="Print the list of tuples as returned by extract_tb() or&#10;extract_stack() as a formatted stack trace to the given&#10;file." ilk="function" line="16" lineend="25" name="print_list" signature="print_list(extracted_list, file=None)">
+        <variable ilk="argument" name="extracted_list" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+      </scope>
+      <scope doc="Print a stack trace from its invocation point." ilk="function" line="257" lineend="269" name="print_stack" signature="print_stack(f=None, limit=None, file=None)">
+        <variable ilk="argument" name="limit" />
+        <variable ilk="argument" name="file" />
+        <variable ilk="argument" name="f" />
+      </scope>
+      <scope doc="Print up to 'limit' stack trace entries from the traceback&#10;'tb'." ilk="function" line="46" lineend="72" name="print_tb" signature="print_tb(tb, limit=None, file=None)">
+        <variable citdl="f.f_code" line="63" name="co" />
+        <variable citdl="co.co_name" line="65" name="name" />
+        <variable citdl="tb.tb_frame" line="61" name="f" />
+        <variable citdl="int" line="59" name="n" />
+        <variable citdl="sys.tracebacklimit" ilk="argument" name="limit" />
+        <variable citdl="tb.tb_lineno" line="62" name="lineno" />
+        <variable citdl="sys.stderr" ilk="argument" name="file" />
+        <variable citdl="linecache.getline()" line="69" name="line" />
+        <variable citdl="co.co_filename" line="64" name="filename" />
+        <variable citdl="tb.tb_next" ilk="argument" name="tb" />
+      </scope>
+      <import module="sys" />
+      <scope doc="Calculate correct line number of traceback given in tb." ilk="function" line="314" lineend="319" name="tb_lineno" returns="tb.tb_lineno" signature="tb_lineno(tb)">
+        <variable ilk="argument" name="tb" />
+      </scope>
+      <import module="types" />
+      <scope attributes="protected __hidden__" doc="Return a list of a single line -- normal case for&#10;format_exception_only" ilk="function" line="202" lineend="209" name="_format_final_exc_line" returns="tuple" signature="_format_final_exc_line(etype, value)">
+        <variable ilk="argument" name="etype" />
+        <variable ilk="argument" name="value" />
+        <variable citdl="_some_str()" line="204" name="valuestr" />
+        <variable citdl="str" line="206" name="line" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="12" lineend="13" name="_print" signature="_print(file, str='', terminator='\n')">
+        <variable ilk="argument" name="file" />
+        <variable citdl="str" ilk="argument" name="str" />
+        <variable citdl="str" ilk="argument" name="terminator" />
+      </scope>
+      <scope attributes="protected __hidden__" ilk="function" line="211" lineend="221" name="_some_str" returns="str" signature="_some_str(value)">
+        <variable citdl="unicode()" ilk="argument" name="value" />
+      </scope>
+    </scope>
+    

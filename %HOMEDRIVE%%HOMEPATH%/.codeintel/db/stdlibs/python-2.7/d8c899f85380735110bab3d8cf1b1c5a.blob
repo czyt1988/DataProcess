@@ -1,0 +1,227 @@
+<scope doc="A library of useful helper classes to the SAX classes, for the&#10;convenience of application and driver writers." ilk="blob" lang="Python" name="xml.sax.saxutils">
+      <scope classrefs="XMLReader" doc="This class is designed to sit between an XMLReader and the&#10;client application's event handlers.  By default, it does nothing but pass requests up to the reader and events on to the handlers unmodified, but subclasses can override specific methods to modify the event stream or the configuration requests as they pass through." ilk="class" line="171" lineend="278" name="XMLFilterBase">
+        <scope ilk="function" line="263" lineend="264" name="setFeature" signature="setFeature(name, state)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="state" />
+        </scope>
+        <scope ilk="function" line="250" lineend="255" name="parse" signature="parse(source)">
+          <variable ilk="argument" name="source" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="196" lineend="197" name="setDocumentLocator" signature="setDocumentLocator(locator)">
+          <variable ilk="argument" name="locator" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="191" lineend="192" name="warning" signature="warning(exception)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <scope ilk="function" line="226" lineend="227" name="ignorableWhitespace" signature="ignorableWhitespace(chars)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="chars" />
+        </scope>
+        <scope ilk="function" line="240" lineend="241" name="unparsedEntityDecl" signature="unparsedEntityDecl(name, publicId, systemId, ndata)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="ndata" />
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="179" lineend="181" name="__init__" signature="XMLFilterBase(parent=None)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="220" lineend="221" name="endElementNS" signature="endElementNS(name, qname)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="qname" />
+        </scope>
+        <scope ilk="function" line="277" lineend="278" name="setParent" signature="setParent(parent)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="parent" />
+        </scope>
+        <scope ilk="function" line="237" lineend="238" name="notationDecl" signature="notationDecl(name, publicId, systemId)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="publicId" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="245" lineend="246" name="resolveEntity" returns="self._ent_handler.resolveEntity()" signature="resolveEntity(publicId, systemId)">
+          <variable ilk="argument" name="systemId" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="publicId" />
+        </scope>
+        <scope ilk="function" line="199" lineend="200" name="startDocument" signature="startDocument()">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="205" lineend="206" name="startPrefixMapping" signature="startPrefixMapping(prefix, uri)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="208" lineend="209" name="endPrefixMapping" signature="endPrefixMapping(prefix)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope ilk="function" line="229" lineend="230" name="processingInstruction" signature="processingInstruction(target, data)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="target" />
+        </scope>
+        <scope ilk="function" line="214" lineend="215" name="endElement" signature="endElement(name)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="185" lineend="186" name="error" signature="error(exception)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <scope ilk="function" line="232" lineend="233" name="skippedEntity" signature="skippedEntity(name)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="217" lineend="218" name="startElementNS" signature="startElementNS(name, qname, attrs)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="qname" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="223" lineend="224" name="characters" signature="characters(content)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="269" lineend="270" name="setProperty" signature="setProperty(name, value)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="value" />
+        </scope>
+        <scope ilk="function" line="260" lineend="261" name="getFeature" returns="self._parent.getFeature()" signature="getFeature(name)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="211" lineend="212" name="startElement" signature="startElement(name, attrs)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="266" lineend="267" name="getProperty" returns="self._parent.getProperty()" signature="getProperty(name)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="274" lineend="275" name="getParent" signature="getParent()">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="257" lineend="258" name="setLocale" signature="setLocale(locale)">
+          <variable ilk="argument" name="locale" />
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="188" lineend="189" name="fatalError" signature="fatalError(exception)">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+          <variable ilk="argument" name="exception" />
+        </scope>
+        <scope ilk="function" line="202" lineend="203" name="endDocument" signature="endDocument()">
+          <variable citdl="XMLFilterBase" ilk="argument" name="self" />
+        </scope>
+        <variable attributes="protected __instancevar__" line="181" name="_parent" />
+      </scope>
+      <scope classrefs="ContentHandler" doc="&#10;" ilk="class" line="84" lineend="168" name="XMLGenerator">
+        <scope ilk="function" line="126" lineend="129" name="startPrefixMapping" signature="startPrefixMapping(prefix, uri)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+          <variable ilk="argument" name="uri" />
+        </scope>
+        <scope ilk="function" line="131" lineend="133" name="endPrefixMapping" signature="endPrefixMapping(prefix)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="prefix" />
+        </scope>
+        <scope ilk="function" line="158" lineend="159" name="endElementNS" signature="endElementNS(name, qname)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="qname" />
+        </scope>
+        <scope ilk="function" line="167" lineend="168" name="processingInstruction" signature="processingInstruction(target, data)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="data" />
+          <variable ilk="argument" name="target" />
+        </scope>
+        <scope ilk="function" line="141" lineend="142" name="endElement" signature="endElement(name)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="135" lineend="139" name="startElement" signature="startElement(name, attrs)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <scope ilk="function" line="122" lineend="124" name="startDocument" signature="startDocument()">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope doc="Builds a qualified name from a (ns_url, localname) pair" ilk="function" line="103" lineend="118" name="_qname" returns="str" signature="_qname(name)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable line="113" name="prefix" />
+          <variable ilk="argument" name="name" />
+        </scope>
+        <scope ilk="function" line="161" lineend="162" name="characters" signature="characters(content)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="164" lineend="165" name="ignorableWhitespace" signature="ignorableWhitespace(content)">
+          <variable ilk="argument" name="content" />
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="97" lineend="101" name="_write" signature="_write(text)">
+          <variable ilk="argument" name="text" />
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+        </scope>
+        <scope ilk="function" line="86" lineend="95" name="__init__" signature="XMLGenerator(out=None, encoding='iso-8859-1')">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable citdl="str" ilk="argument" name="encoding" />
+          <variable citdl="sys.stdout" ilk="argument" name="out" />
+        </scope>
+        <scope ilk="function" line="144" lineend="156" name="startElementNS" signature="startElementNS(name, qname, attrs)">
+          <variable citdl="XMLGenerator" ilk="argument" name="self" />
+          <variable ilk="argument" name="qname" />
+          <variable ilk="argument" name="name" />
+          <variable ilk="argument" name="attrs" />
+        </scope>
+        <variable attributes="protected __instancevar__" citdl="str" line="95" name="_encoding" />
+        <variable attributes="protected __instancevar__" line="93" name="_current_context" />
+        <variable attributes="protected __instancevar__" citdl="list" line="94" name="_undeclared_ns_maps" />
+        <variable attributes="protected __instancevar__" citdl="list" line="92" name="_ns_contexts" />
+        <variable attributes="protected __instancevar__" citdl="sys.stdout" line="91" name="_out" />
+      </scope>
+      <scope doc="Escape &amp;, &lt;, and &gt; in a string of data." ilk="function" line="30" lineend="44" name="escape" returns="data.replace()" signature="escape(data, entities={})">
+        <variable citdl="dict" ilk="argument" name="entities" />
+        <variable citdl="data.replace()" ilk="argument" name="data" />
+      </scope>
+      <import module="handler" />
+      <import module="os" />
+      <scope doc="This function takes an InputSource and an optional base URL&#10;and returns a fully resolved InputSource object ready for&#10;reading." ilk="function" line="282" lineend="308" name="prepare_input_source" returns="xmlreader.InputSource()" signature="prepare_input_source(source, base='')">
+        <variable citdl="xmlreader.InputSource()" ilk="argument" name="source" />
+        <variable citdl="open()" line="289" name="f" />
+        <variable citdl="source.getSystemId()" line="296" name="sysid" />
+        <variable citdl="str" ilk="argument" name="base" />
+        <variable citdl="os.path.join()" line="298" name="sysidfilename" />
+        <variable citdl="os.path.dirname()" line="297" name="basehead" />
+      </scope>
+      <scope doc="Escape and quote an attribute value." ilk="function" line="60" lineend="81" name="quoteattr" returns="str" signature="quoteattr(data, entities={})">
+        <variable citdl="dict" ilk="argument" name="entities" />
+        <variable citdl="str" ilk="argument" name="data" />
+      </scope>
+      <import module="types" />
+      <scope doc="Unescape &amp;amp;, &amp;lt;, and &amp;gt; in a string of data." ilk="function" line="46" lineend="58" name="unescape" returns="data.replace()" signature="unescape(data, entities={})">
+        <variable citdl="dict" ilk="argument" name="entities" />
+        <variable citdl="data.replace()" ilk="argument" name="data" />
+      </scope>
+      <import module="urllib" />
+      <import module="urlparse" />
+      <import module="xmlreader" />
+      <variable attributes="protected __hidden__" citdl="str" line="19" name="_error_handling" />
+      <scope attributes="private __hidden__" doc="Replace substrings of a string using a dictionary." ilk="function" line="24" lineend="28" name="__dict_replace" returns="s.replace()" signature="__dict_replace(s, d)">
+        <variable citdl="s.replace()" ilk="argument" name="s" />
+        <variable ilk="argument" name="d" />
+      </scope>
+      <variable attributes="protected __hidden__" citdl="list" line="11" name="_StringTypes" />
+    </scope>
+    
