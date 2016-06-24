@@ -280,19 +280,29 @@ class PressureDataForSimulated(BaseChannelData):
 
 class PressureDataForStandard(BaseChannelData):
     '''
-    @brief 加载标准csv数据文件
+    加载标准csv数据文件
     '''
     def __init__(self):
         super().__init__()
 
     def loadData(self,fileFolder):
+        '''
+        加载标准csv数据文件
+        Args:
+            fileFolder:string 文件位置
+        '''
         self.clearValue()
-        info,names,datas = paserStandardCSVFile(fileFolder)
-        self.setInfo(info[1])
+        try:
+            info,names,datas = paserStandardCSVFile(fileFolder)
+            self.setInfo(info[1])
+        except IOError:
+            print('文件读取出错，文件不存在或被占用')
+            return False
         try:
             self.fs = float(info[2])
         except ValueError:
-            print('文件读取异常，采样率（row:0,column:3）因为浮点型数据，请更正')
+            print('文件读取异常，采样率（row:0,column:3）应为浮点型数据，请更正')
+            return False
         self.setNames(names)
         #self.setDatas(np.array(cd) for cd in datas)
         dd= []
@@ -303,9 +313,23 @@ class PressureDataForStandard(BaseChannelData):
             lengthRow.append(len(y))
         self.setDatas(dd)
         self.setRowCount(min(lengthRow),max(lengthRow))
-
+        return True
 
 def paserStandardCSVFile(filePath):
+    '''
+    解析标准的数据通道csv文件
+    Args:
+        filePath:string
+            文件路径
+    Return:
+        list:[infomations,names,datas]
+        [信息,名字,数据]其中：
+            infomations:string 数据的信息
+            names:string 数据名字
+            datas:np.array 数据
+        如果文件打开失败，会抛出异常
+    
+    '''
     infomations = []
     names = []
     datas = []
@@ -323,6 +347,7 @@ def paserStandardCSVFile(filePath):
                 for ii,data in enumerate(row):
                     datas[ii].append(data)
     return [infomations,names,datas]
+
 
 def loadData(path,dataType = 'std'):
     if dataType == 'sim':#模拟值

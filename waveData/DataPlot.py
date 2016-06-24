@@ -77,6 +77,24 @@ def _plotWave(wave,fs,ax=None,color='r'):
     return [x,[fig,ax]]
 
 def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
+    '''
+    Args:
+        iWaveData:data数据类型，包含多通道数据，以及数据的采样率
+        indexOrName:int or string
+            通道编号或者通道名称
+        ax:matplotlib object
+            绘图用坐标轴
+        otherSet:
+            fftN:int 
+                fft的数量，-1为自动寻找下个2基，0为当前长度，其他为自定义
+            isShowPeaks:bool
+                是否捕获峰值
+            scale:string
+                幅值处理方式：amp幅值Amplitude,ampDB为幅值加上分贝,mag为幅度谱，只是对fft结果取模
+    Returns:
+        [[fre,mag,ppd],[fig,ax]]:list
+            [[频率，幅值，峰值索引],[fig,ax]]
+    '''
     x,y,otherInfo = getXY(iWaveData,indexOrName)
     fs = otherInfo[0]
     fftN = -1
@@ -92,7 +110,7 @@ def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
                                              ,fftN=fftN,isShowPeaks=isShowPeaks,markPeaksNum=markPeaksNum)
     return [[fre,mag,ppd],[fig,ax]]
 
-def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,magType = 'mag'):
+def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,scale = 'amp'):
     '''绘制频谱图
     Args:
         wave:numpy.array 
@@ -105,13 +123,15 @@ def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,
             fft的数量，-1为自动寻找下个2基，0为当前长度，其他为自定义
         isShowPeaks:bool
             是否捕获峰值
+        scale:string
+                幅值处理方式：amp幅值Amplitude,ampDB为幅值加上分贝,mag为幅度谱，只是对fft结果取模
     Returns:
         [[fre,mag,ppd],[fig,ax]]:list
             [[频率，幅值，峰值索引],[fig,ax]]
     '''
     ppd = None
     fig = None
-    fre,mag = czySignal.spectrum(wave,fs)
+    fre,mag = czySignal.spectrum(wave,fs,fftN,1,scale)
     if ax is None:
         fig,ax = plt.subplots(1, 1, figsize=(8, 4))
         fig.set_facecolor('w')

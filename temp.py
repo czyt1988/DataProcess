@@ -14,7 +14,7 @@ pressuresData = pd.loadData('d:/cloudDisk/share/python/北区第一次实验数�
 fs = pressuresData.fs
 fig,ax = plt.subplots()
 fig.set_facecolor('w')
-r = dp.plotSpectrum(pressuresData,1,ax)
+r = dp.plotSpectrum(pressuresData,1,ax,)
 ppd = r[0][2]
 print(ppd)
 plt.show()

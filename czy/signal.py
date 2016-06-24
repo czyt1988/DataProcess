@@ -18,15 +18,6 @@ def spectrum(datas,fs,fftSize = -1,fftType=1,scale='amp',isDetrend = True):
     Return:
         (freqs,y):(nump.array,nump.array) 频率序列，幅值序列
     """
-    #fftSize = -1#-1为自动延拓，0为不指定长度由自身长度决定
-    #fftType = 1#0为fft，1为rfft
-    #scale='mag'#mag用正常幅值，db用分贝
-    #if 'fftSize' in OtherSet:
-    #    fftSize = OtherSet['fftSize']
-    #if 'fftType' in OtherSet:
-    #    fftType = OtherSet['fftType']
-    #if 'scale' in OtherSet:
-    #    scale = OtherSet['scale']
     if isDetrend:
         datas = datas - np.mean(datas)
 
