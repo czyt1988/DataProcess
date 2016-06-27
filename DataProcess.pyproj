@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d9c33ac0-6cfa-4dcb-a69c-6eaee46ff86b}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>processExp_cohere.py</StartupFile>
+    <StartupFile>paperPlot.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -60,6 +60,7 @@
     <Content Include="pressureData\__pycache__\IPressureData.cpython-35.pyc" />
     <Content Include="pressureData\__pycache__\PressureData_Experiment.cpython-35.pyc" />
     <Content Include="readme.md" />
+    <Content Include="waveData\readme.md" />
     <Content Include="waveData\__pycache__\__init__.cpython-35.pyc" />
   </ItemGroup>
   <PropertyGroup>

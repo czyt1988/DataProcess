@@ -316,83 +316,138 @@ def makeSubPlot(row,colum,datas,x=None,xs = None,titles = None,figsize=(8, 4),co
     fig.set_facecolor('w')
     
 
-def _plot3(x,y,z,ax=None,fig=None,color = None):
-    if ax is None:
+def _plot3(x,y,z,ax=None,fig=None,**otherSet):
+    if fig is None:
         fig = plt.figure()
+        fig.set_facecolor('w')
+    if ax is None:      
         ax = fig.gca(projection='3d')
-    if color is None:
-        ax.plot(x,y,z)
-    else:
-        ax.plot(x,y,z,color=color)
+    ax.plot(x,y,z,**otherSet)
     return [fig,ax]
 
-def _plotWaterFall(xs,ys,orders=None,ax=None,fig=None,isShow = False,edgecolors = None,facecolors = None):
+def _plotWaterFall(xs,ys,orders=None,ax=None,fig=None
+                    ,type = 'line',**otherSet):
     '''绘制瀑布图
     Args:
         x: list
             x轴数据list,，每个元素是需要绘制的x轴数据
         y: list
-            y轴数据list,，每个元素是需要绘制的y轴数据
+            y轴数据list,，每个元素是需要绘制的y轴数据,
+            ！！注意：这里的y，会以z轴绘制
+        type:string
+            type = 'line'以曲线形式绘制waterfall，type='poly'或者非line，以填充形状形式绘制
+        fig: matplotLib.figure
+            绘图容器，若传入，而没有ax，会以它生成ax
+        ax:
+            坐标系，默认为None,会自动生成
         order: list
             每个x,y对应的序号,如果设置，从1开始自增到len(x)
+        edgecolors:
+            边界线颜色
+            (0,0,0,0):int,int,int,int:R,G,B,A
+        facecolors:
+            填充颜色
+            (0,0,0,0):int,int,int,int:R,G,B,A
+        edgeAlpha:int
+            边界线的透明度，默认0.9
+        faceAlpha:int
+            填充色的透明度，默认0.2
+        sameColor:
+            设置在type='line'时，颜色一致
+            (0,0,0,0):int,int,int,int:R,G,B,A
     Return:
         [fig,ax] : list
             返回fig和ax，若指定，返回原样，若没指定将生成新的
     '''
-    if ax is None:
+    if fig is None:
         fig = plt.figure()
+        fig.set_facecolor('w')
+    if ax is None:
         ax = fig.gca(projection='3d')
-    #if orders is None:
-    #    orders = range(1,min([len(xs),len(ys)])+1)
-    #for index,yy in enumerate(y):
-    #    ys = np.ones(len(x))*yy
-    #    if color is None:
-    #        _plot3(x,ys,z[index],ax = ax,fig = fig)
-    #    elif color is list:
-    #        _plot3(x,ys,z[index],ax = ax,fig = fig,color = color[index])
-    #    else:
-    #        _plot3(x,ys,z[index],ax = ax,fig = fig,color = color)
     if orders is None:
         orders = range(1,min([len(xs),len(ys)])+1)
-    verts = []
-
-
-
-    for i,z in enumerate(orders):
-        verts.append(list(zip(xs[i], ys[i])))
-
-    if facecolors is None:
-        facecolors = []
-        for z in orders:
-            facecolors.append(colorConverter.to_rgba('r',alpha=0.5))
-    if edgecolors is None:
-        edgecolors = []
-        for z in orders:
-            edgecolors.append(colorConverter.to_rgba('r',alpha=0.8))
-
-    poly = PolyCollection(verts,edgecolors=edgecolors, facecolors=facecolors)
-    poly.set_alpha(0.5)
-
-    minxs = np.min(list(map(np.min,xs)))
-    maxxs = np.max(list(map(np.max,xs)))
-    minys = np.min(list(map(np.min,ys)))
-    maxys = np.max(list(map(np.max,ys)))
-    ax.add_collection3d(poly, zs=orders, zdir='y')
-    ax.set_xlim3d(minxs,maxxs)
-    ax.set_ylim3d(np.min(orders),np.max(orders))
-    ax.set_zlim3d(minys,maxys)
-    if isShow:
-        plt.show()
+    edgecolors = None
+    facecolors = None
+    edgeAlpha = 0.9
+    faceAlpha = 0.2
+    sameColor = None
+    #防止传入污染的dict
+    if 'edgecolors' in otherSet:
+        edgecolors = otherSet.pop('edgecolors')
+    if 'facecolors' in otherSet:
+        facecolors = otherSet.pop('facecolors')
+    if 'edgeAlpha' in otherSet:
+        edgeAlpha = otherSet.pop('edgeAlpha')
+    if 'faceAlpha' in otherSet:
+        faceAlpha = otherSet.pop('faceAlpha')
+    if 'sameColor' in otherSet:
+        sameColor = otherSet.pop('sameColor')
+    if type == 'line':
         
+            
+        for index,z in enumerate(ys):
+            x = xs[index]
+            y = np.ones(len(z))*(index+1)
+            if sameColor is None:
+                _plot3(x,y,z,ax = ax,fig = fig,**otherSet)
+            else:
+                _plot3(x,y,z,ax = ax,fig = fig,color=sameColor,**otherSet)
+
+    #序号,如果不指定，那么就是以1：N
+    else:
+
+        verts = []
+    
+        for i,z in enumerate(orders):
+            verts.append(list(zip(xs[i], ys[i])))
+
+        if facecolors is None:
+            facecolors = []
+            for z in orders:
+                facecolors.append(colorConverter.to_rgba('r',alpha=faceAlpha))#默认为红色
+        if edgecolors is None:
+            edgecolors = []
+            for z in orders:
+                edgecolors.append(colorConverter.to_rgba('r',alpha=edgeAlpha))
+        #生成轮廓
+        poly = PolyCollection(verts,edgecolors=edgecolors, facecolors=facecolors)
+        #poly.set_alpha(0.95)
+
+        minxs = np.min(list(map(np.min,xs)))
+        maxxs = np.max(list(map(np.max,xs)))
+        minys = np.min(list(map(np.min,ys)))
+        maxys = np.max(list(map(np.max,ys)))
+        ax.add_collection3d(poly, zs=orders, zdir='y')
+        ax.set_xlim3d(minxs,maxxs)
+        ax.set_ylim3d(np.min(orders),np.max(orders))
+        ax.set_zlim3d(minys,maxys)       
     return [fig,ax]
 
-def plotSpectrumWaterFall(iWaveData,ax = None,isShow = False,edgecolors = None,facecolors = None):
+def plotSpectrumWaterFall(iWaveData,ax = None,isShow = False
+                        ,scale = 'amp',type = 'line',**otherSet):
+    """
+    绘制iWaveData的频谱瀑布图
+    Args:
+    ----------------
+    iWaveData:
+        数据
+    ax:
+        坐标系，默认为None,会自动生成
+    isShow:bool
+        设定运行函数最后是否调用plt.show()
+    edgecolors:
+        边界线颜色
+        (0,0,0,0):int,int,int,int:R,G,B,A
+    facecolors:
+        填充颜色
+        (0,0,0,0):int,int,int,int:R,G,B,A
+    """
     z = iWaveData.datas
     fs = getDatasInfo(iWaveData)[0]
-    z = list(map(lambda d:czySignal.spectrum(d,fs),z))
+    z = list(map(lambda d:czySignal.spectrum(d,fs,scale=scale),z))
     x = list(map(lambda d:d[0],z))#把频率提取出来
     z = list(map(lambda d:d[1],z))#把幅值提取出来
-    [fig,ax] = _plotWaterFall(x,z,edgecolors = edgecolors,facecolors=facecolors)
+    [fig,ax] = _plotWaterFall(x,z,type=type,**otherSet)
     if isShow:
         plt.show()
     return [fig,ax]

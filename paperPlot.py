@@ -1,10 +1,27 @@
-﻿import os.path
+﻿'''
+论文绘图用文件
+变量：
+- DATA_FOLDER:string
+    数据文件夹
+- DATA_NAME:string
+    数据名
+
+- plotMassFlow
+    绘制质量流量的波形和频谱
+- loadData
+    根据标示dataType来加载数据，返回IData类型
+- plotWaterFallOneData
+    绘制一个图形的瀑布图
+'''
+
+import os.path
 #from pressureData import UnifyPressureData
 from waveData import Data as pd
 from waveData import DataPlot as dp
 import numpy as np
 import matplotlib.pyplot as plt  
-plt.rcParams['font.sans-serif'] = ['SimHei']
+
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei','SimHei','Times New Roman']
 plt.rcParams['axes.unicode_minus'] = False
 
 def plotMassFlow(massflowDataPath = 'd:/netDisk/sharebox/15001395919@163.com/PIV实验台协同目录/mass_flow_0.1478_NorthZone.txt'):
@@ -45,17 +62,20 @@ def loadData(path,dataType = 'std'):
         data.loadData(path)
     return data
 
-def plotWaterFallOneData(dataPath,dataType,pdData=None,color = 'r'):
+def plotWaterFallOneData(dataPath,dataType,pdData=None,edgecolors = None,facecolors = None,color = 'r',scale='amp',type = 'line',**otherSet):
     if pdData is None:
         pdData = loadData(dataPath,dataType)
-    [fig,ax]=dp.plotSpectrumWaterFall(pdData)
-
+    [fig,ax]=dp.plotSpectrumWaterFall(pdData,edgecolors=edgecolors,
+                    facecolors=facecolors,scale=scale,type=type,**otherSet)
     plt.show()
     
 #绘制质量流量的波形及频谱
 #plotMassFlow('X:/PIV实验台协同目录/mass_flow_0.1478_NorthZone.txt')
 
 #绘制某个文件的频谱瀑布图
-plotWaterFallOneData('D:/快盘/PIV实验台协同目录/python/统一格式数据/实验/双容间距0.5m.csv'
-                     ,'std')
+DATA_FOLDER = 'd:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/'
+DATA_NAME = '25m单容错位-开口-1.csv'
+
+DATA_PATH = os.path.join(DATA_FOLDER,DATA_NAME)
+plotWaterFallOneData(DATA_PATH,'std',type='poly',scale='amp',sameColor='r')
 

@@ -19,6 +19,11 @@
 - nextpow2 Find 2^n that is equal to or greater than.
 - getXByFs 根据采样率和波形长度，获取波形的x轴
 
+##waveData 通用包，波形数据分析
+###DataPlot 数据绘制
+- _plotWaterFall 绘制频谱
+	
+
 #processExp_cohere.py - 信号相干性分析
 此文件主要进行试验采集的通道数据进行频域相关分析
 - 对应目标 实验数据
@@ -38,4 +43,4 @@
 
 可以对多个信号进行相关分析，得到三维图:
 
-![](https://github.com/czyt1988/DataProcess/raw/master/doc/processExp_cohere/03.png)
+![](https://github.com/czyt1988/DataProcess/raw/master/doc/processExp_cohere/02.png)

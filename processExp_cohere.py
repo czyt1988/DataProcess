@@ -8,6 +8,7 @@
 - CHANNEL_NUM 通道号，如果通道小于0，进行全局分析
 - SHOW_TITLE 显示标题，以文件名作为标题(不带后缀)
 - SHOW_AXIS_TEXT 坐标轴label
+- MARK_MAX 标记最大值
 '''
 import os.path
 from waveData import Data as pd
@@ -19,13 +20,18 @@ from czy import signal as czySignal
 
 '''
 d:/cloudDisk/share/python/北区第一次实验数据分析/
-d:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/25m单容错位-开口-1.csv
+d:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/
 '''
-FILE_FOLDER = 'd:/cloudDisk/share/python/北区第一次实验数据分析/'
+FILE_FOLDER = 'd:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/'
 FILE_NAME = '25m单容错位-开口-1.csv'
-CHANNEL_NUM = 3#定义需要观察的通道数
+CHANNEL_NUM = -1#定义需要观察的通道数
 SHOW_TITLE = True#是否显示标题
 SHOW_AXIS_TEXT = True#是否显示坐标轴标题
+MARK_MAX = True#标记最大值
+
+
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei','SimHei','Times New Roman']
+plt.rcParams['axes.unicode_minus'] = False
 
 FILE_PATH = os.path.join(FILE_FOLDER,FILE_NAME)
 pressuresData = pd.loadData(FILE_PATH)#加载文件
@@ -41,13 +47,20 @@ titleText =  FILE_NAME.split('.')[0:-1]
 if CHANNEL_NUM<0:#通道数如果小于0，就进行全局分析
     fig = plt.figure()
     ax = fig.gca(projection='3d')
-    
+    maxCxyIndexs = []
+    maxCxy = []
+    maxFre = []
     for i in range(1,colCount-1):
         channelN = pressuresData.getColumnData(i)[0:dataSize]
         print('读取通道%d'%(i))
         cxy,f = mlab.cohere(channelN,channelEnd,NFFT = cohereNFFTSize,Fs = fs,detrend='mean')
         ax.plot(f,np.ones(len(f))*i,cxy)#绘制3d的相关系数
-
+        maxCxyIndexs.append( np.argmax(cxy) )
+        maxCxy.append(cxy[maxCxyIndexs[-1]])
+        maxFre.append(f[maxCxyIndexs[-1]])
+    #标记最大
+    if MARK_MAX:
+        ax.plot(maxFre,range(1,colCount-1),maxCxy,'o')
     if SHOW_AXIS_TEXT:
         ax.set_xlabel('frequency(Hz)')
         ax.set_ylabel('channel nums')
@@ -65,11 +78,17 @@ else:#对特定通道进行分析
     if SHOW_AXIS_TEXT:
         plt.xlabel('times(s)')
         plt.ylabel('amplitude')
-    plt.title(titleText)
+    if SHOW_TITLE:
+        plt.title(titleText)
+
     plt.subplot(212)
     cxy,f = plt.cohere(channelN,channelEnd,NFFT = cohereNFFTSize,Fs = fs,detrend='mean')
-    
-
+    if MARK_MAX:
+        index = np.argmax(cxy)
+        plt.plot(f[index],cxy[index],'o')
+    if SHOW_AXIS_TEXT:
+        plt.xlabel('frequency(Hz)')
+        plt.ylabel('coherence')
     
 
 plt.gcf().set_facecolor('w')
