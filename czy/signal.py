@@ -93,9 +93,12 @@ def nextpow2(i):
 
 def getXByFs(waveLength,fs):
     '''
-    @breif 根据采样率和波形，获取x轴值
-    @param waveLength int 波形长度
-    @param fs int 采样率
+    根据采样率和波形长度，获取波形的x轴
+    Args:
+        waveLength 波形数据的长度
+        fs 采样率
+    Returns:
+        x:numpy.array like
     '''
     detalT = 1.0/fs
     x = np.linspace(0,(waveLength-1)*detalT,waveLength)

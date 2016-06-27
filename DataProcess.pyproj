@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d9c33ac0-6cfa-4dcb-a69c-6eaee46ff86b}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>temp.py</StartupFile>
+    <StartupFile>processExp_cohere.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,9 @@
     <Compile Include="czy\__init__.py" />
     <Compile Include="DataProcess.py" />
     <Compile Include="paperPlot.py" />
+    <Compile Include="processExp_cohere.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="temp.py">
       <SubType>Code</SubType>
     </Compile>
@@ -56,6 +59,7 @@
     <Content Include="czy\__pycache__\__init__.cpython-35.pyc" />
     <Content Include="pressureData\__pycache__\IPressureData.cpython-35.pyc" />
     <Content Include="pressureData\__pycache__\PressureData_Experiment.cpython-35.pyc" />
+    <Content Include="readme.md" />
     <Content Include="waveData\__pycache__\__init__.cpython-35.pyc" />
   </ItemGroup>
   <PropertyGroup>

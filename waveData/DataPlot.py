@@ -87,10 +87,16 @@ def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
         otherSet:
             fftN:int 
                 fft的数量，-1为自动寻找下个2基，0为当前长度，其他为自定义
-            isShowPeaks:bool
-                是否捕获峰值
             scale:string
                 幅值处理方式：amp幅值Amplitude,ampDB为幅值加上分贝,mag为幅度谱，只是对fft结果取模
+            isShowPeaks:bool
+                是否捕获峰值
+            markPeaksNum:int
+                标记峰值的点数目
+            isShowPeaksNum:bool
+                标记峰值的数字显示
+            autoMarkType:string
+                自动标记的类型，如果为'y'，表示标记y值，'x'表示标记x值，'xy'表示标记x，y值
     Returns:
         [[fre,mag,ppd],[fig,ax]]:list
             [[频率，幅值，峰值索引],[fig,ax]]
@@ -100,17 +106,32 @@ def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
     fftN = -1
     isShowPeaks = True
     markPeaksNum = 5
+    scale = 'amp'
+    autoMarkType = 'y'
     if 'fftN' in otherSet:
         fftN = otherSet['fftN']
     if 'isShowPeaks' in otherSet:
         isShowPeaks = otherSet['isShowPeaks']
     if 'markPeaksNum' in otherSet:
         markPeaksNum = otherSet['markPeaksNum']
+    if 'scale' in otherSet:
+        scale = otherSet['scale']
+    if 'isShowPeaksNum' in otherSet:
+        isShowPeaksNum = otherSet['isShowPeaksNum']
+    if 'autoMarkType' in otherSet:
+        autoMarkType = otherSet['autoMarkType']
     [[fre,mag,ppd],[fig,ax]] = _plotSpectrum(y,fs,ax
-                                             ,fftN=fftN,isShowPeaks=isShowPeaks,markPeaksNum=markPeaksNum)
+                                             ,fftN=fftN
+                                             ,isShowPeaks=isShowPeaks
+                                             ,markPeaksNum=markPeaksNum
+                                             ,scale = scale
+                                             ,**otherSet)
+    if isShowPeaksNum:
+        ppdShow = ppd[::-1][0:markPeaksNum if len(ppd)>markPeaksNum else len(ppd)]
+        markPoints(ax,fre[ppdShow],mag[ppdShow],autoType=autoMarkType)
     return [[fre,mag,ppd],[fig,ax]]
 
-def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,scale = 'amp'):
+def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,scale = 'amp',**otherSet):
     '''绘制频谱图
     Args:
         wave:numpy.array 
@@ -124,28 +145,34 @@ def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,
         isShowPeaks:bool
             是否捕获峰值
         scale:string
-                幅值处理方式：amp幅值Amplitude,ampDB为幅值加上分贝,mag为幅度谱，只是对fft结果取模
+            幅值处理方式：amp幅值Amplitude,ampDB为幅值加上分贝,mag为幅度谱，只是对fft结果取模
+        peaksMarkStyle:string
+            标记极值点的样式，默认为'or'
     Returns:
         [[fre,mag,ppd],[fig,ax]]:list
             [[频率，幅值，峰值索引],[fig,ax]]
     '''
     ppd = None
     fig = None
+    peaksMarkStyle = 'or'
+    if 'peaksMarkStyle' in otherSet:
+        markStyle = otherSet['peaksMarkStyle']
     fre,mag = czySignal.spectrum(wave,fs,fftN,1,scale)
     if ax is None:
         fig,ax = plt.subplots(1, 1, figsize=(8, 4))
         fig.set_facecolor('w')
-    ax.plot(fre,mag)
+    ax.plot(fre,mag,**otherSet)
     if isShowPeaks:
         if ppd is None:
-            ppd = dp.detectPeaks(mag,sorting = True)
-            ppdShow = ppd[::-1][0:markPeaksNum if len(ppd)>markPeaksNum else len(ppd)]#取最后的10个参数
-        ax.plot(fre[ppdShow],mag[ppdShow],'or')
+            ppdShow = detectPeaks(mag,markPeaksNum)
+            #ppd = dp.detectPeaks(mag,sorting = True,edge='falling')
+            #ppdShow = ppd[0:markPeaksNum if len(ppd)>markPeaksNum else len(ppd)]
+        ax.plot(fre[ppdShow],mag[ppdShow],peaksMarkStyle)
     return [[fre,mag,ppd],[fig,ax]]
 
-def plotPressureAndSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
+def plotWaveAndSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
     '''
-    @brief 绘制一个压力图形和频谱
+    @brief 绘制一个波形和频谱
     @iData Data参数，需先加载一个csv参数
     @indexOrName 索引或者是通道名称，索引从0开始，通道名称为str类型
     ---
@@ -391,19 +418,52 @@ def plotTrend(xdatas,ydatas,names,ax = None,isShow = False):
     if isShow:
         plt.show()
 
-#ROOT_SHARE_PATH = 'd:/netDisk/sharebox/15001395919@163.com/PIV实验台协同目录/数据处理-综合数据分析/北区实验新/统一格式'
-##ROOT_SHARE_PATH = 'X:/PIV实验台协同目录/数据处理-综合数据分析/北区实验新/统一格式'#新笔记本
-##ROOT_SHARE_PATH = 'D:/快盘/PIV实验台协同目录/数据处理-综合数据分析/北区实验新/统一格式'#旧笔记本
-#FILE_PATH = '罐体长1米.csv'
-#filePath = os.path.join(ROOT_SHARE_PATH,FILE_PATH)
-#pds = PressureData.PressureDataForStandard()
-#pds.loadData(filePath)
-##plotWave(pds,'inlet')
-##plotPressure(pds,'inlet')
-##plotSpectrum(pds,'inlet')
-##plotPressureAndSpectrum(pds,'inlet',rc=(2,1),isShowPeaks=True)
-#from pressureData import WaveDataCalculator as wdc
-#pdsc = wdc.PressureDatasCalculator(pds)
-#datas = [pdsc.getResult('mean'),pdsc.getResult('ptp'),pdsc.getResult('max'),pdsc.getResult('std')]
-#titles = ['mean','peak to peak value','max data','std value']
-#makeSubPlot(2,2,datas,isSameColor=True,titles = titles)
+def markPoints(ax,xs,ys,text=None,autoType='y'):
+    '''
+    标记数据在图表上
+    Args
+        ax:matplotlib->axes
+            坐标系
+        xs:list
+            要标记数据的x值
+        ys:list
+            要标记数据的y值
+        text:list
+            要标记数据的内容，如果没有，则标记数据的x,y或者x，或者y，具体由autoType控制
+        autoType:string
+            自动标记的类型，如果为y，表示标记y值，x表示标记x值，xy表示标记x，y值        
+    '''
+    for (x,y) in zip(xs,ys):
+        if autoType == 'y':
+            label = '%g'%(y)
+        elif autoType == 'x':
+            label = '%g'%(x)
+        else:
+            label = '%g,%g'%(x,y)
+        ax.annotate(label,xy=(x,y),xycoords='data'
+            ,xytext=(-20, 20), textcoords='offset points'
+            ,arrowprops=dict(arrowstyle="->"))
+    
+def detectPeaks(data,peakNums = 10,mpd = 1,sorting = True,edge = 'falling'):
+    '''
+    获取峰值，默认降序，投一个为最大的峰值索引
+    Args:
+        data:
+            数据
+        peakNums:int
+            要获取的峰值数量，default:10
+        mpd:int
+            positive integer, optional (default = 1)
+            detect peaks that are at least separated by minimum peak distance (in
+            number of data).
+        sorting:bool
+            是否排序，默认为True
+        edge:string
+            排序方式，默认为falling，可以为{None, 'rising', 'falling', 'both'}, 
+            for a flat peak, keep only the rising edge ('rising'), only the
+            falling edge ('falling'), both edges ('both'), or don't detect a
+            flat peak (None).
+
+    '''
+    ppd = dp.detectPeaks(data,mpd = mpd,sorting = sorting,edge=edge)
+    return ppd[0:peakNums if len(ppd)>peakNums else len(ppd)]
