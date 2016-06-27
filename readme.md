@@ -31,7 +31,11 @@
 - SHOW_AXIS_TEXT 坐标轴label
 如：
 两列信号的在频域上的相关分析
-![](doc\processExp_cohere\00.png)
-![](doc\processExp_cohere\01.png)
-可以对多个信号进行相关分析，得到三维图
-![](doc\processExp_cohere\03.png)
+
+![](https://github.com/czyt1988/DataProcess/tree/master/doc/processExp_cohere/00.png)
+
+![](https://github.com/czyt1988/DataProcess/tree/master/doc/processExp_cohere/01.png)
+
+可以对多个信号进行相关分析，得到三维图:
+
+![](https://github.com/czyt1988/DataProcess/tree/master/doc/processExp_cohere/03.png)
