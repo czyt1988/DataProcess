@@ -2,6 +2,7 @@
 #waveData 通用包，波形数据分析
 ##DataPlot 数据绘制
 - _plotWaterFall 绘制频谱
+
 Args:
     x: list
         x轴数据list,，每个元素是需要绘制的x轴数据
@@ -30,11 +31,11 @@ Return:
         返回fig和ax，若指定，返回原样，若没指定将生成新的
 type = 'line'模式：
 
-![](https://github.com/czyt1988/DataProcess/raw/master/waveData/doc/DataPlot/01-_plotWaterFall-type-line.png)
+![](https://github.com/czyt1988/DataProcess/raw/master/waveData/doc/DataPlot/01-_plotWaterFall-type-poly.png)
 
 type = 'poly'模式：
 
-![](https://github.com/czyt1988/DataProcess/raw/master/waveData/doc/DataPlot/02-_plotWaterFall-type-poly.png)
+![](https://github.com/czyt1988/DataProcess/raw/master/waveData/doc/DataPlot/02-_plotWaterFall-type-line.png)
 
 type = 'line',sameColor='r' 模式：
 
