@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{d9c33ac0-6cfa-4dcb-a69c-6eaee46ff86b}</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>paperPlot.py</StartupFile>
+    <StartupFile>temp.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

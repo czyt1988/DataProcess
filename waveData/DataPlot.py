@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import Cursor
 from matplotlib import colors
 from matplotlib import lines
+from matplotlib import mlab
 from matplotlib.lines import Line2D
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib.collections import PolyCollection
@@ -76,8 +77,9 @@ def _plotWave(wave,fs,ax=None,color='r'):
         fig.set_facecolor('w')
     return [x,[fig,ax]]
 
-def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
+def plotFrequencySpectrum(iWaveData,indexOrName,ax = None,**otherSet):
     '''
+    注意这个只是绘制2d频谱，不是stft的色谱，绘制stft的色谱，见plotSpectrum
     Args:
         iWaveData:data数据类型，包含多通道数据，以及数据的采样率
         indexOrName:int or string
@@ -120,7 +122,7 @@ def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
         isShowPeaksNum = otherSet['isShowPeaksNum']
     if 'autoMarkType' in otherSet:
         autoMarkType = otherSet['autoMarkType']
-    [[fre,mag,ppd],[fig,ax]] = _plotSpectrum(y,fs,ax
+    [[fre,mag,ppd],[fig,ax]] = _plotFrequencySpectrum(y,fs,ax
                                              ,fftN=fftN
                                              ,isShowPeaks=isShowPeaks
                                              ,markPeaksNum=markPeaksNum
@@ -131,7 +133,7 @@ def plotSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
         markPoints(ax,fre[ppdShow],mag[ppdShow],autoType=autoMarkType)
     return [[fre,mag,ppd],[fig,ax]]
 
-def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,scale = 'amp',**otherSet):
+def _plotFrequencySpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,scale = 'amp',**otherSet):
     '''绘制频谱图
     Args:
         wave:numpy.array 
@@ -169,6 +171,37 @@ def _plotSpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeaksNum = 5,
             #ppdShow = ppd[0:markPeaksNum if len(ppd)>markPeaksNum else len(ppd)]
         ax.plot(fre[ppdShow],mag[ppdShow],peaksMarkStyle)
     return [[fre,mag,ppd],[fig,ax]]
+
+def plotSpectrum(x,ax = None, NFFT=None, Fs=None, Fc=None, detrend=None
+                 , window=None, noverlap=None, cmap=None, xextent=None
+                 , pad_to=None, sides=None, scale_by_freq=None, mode=None, scale=None, vmin=None, vmax=None, **kwargs):
+    """
+    spectrum: 2-D array
+        columns are the periodograms of successive segments
+    freqs: 1-D array
+        The frequencies corresponding to the rows in spectrum
+    t: 1-D array
+        The times corresponding to midpoints of segments (i.e the columns in spectrum).
+    """
+    if ax is None:
+        fig,ax = plt.subplots(1, 1, figsize=(8, 4))
+        fig.set_facecolor('w')
+    if mode.lower() == 'amplitude':
+        spectrum,freqs,t = mlab.specgram(x,NFFT=NFFT,Fs=Fs,detrend=detrend,window=window,noverlap=noverlap
+                            ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode='magnitude')
+        print(len(spectrum))
+        print(len(spectrum[0]))
+        print(len(freqs))
+        print(len(t))
+        print(spectrum)
+        print(freqs)
+        print(t)
+    else:
+        spectrum, freqs, t, im = ax.specgram(x,NFFT=NFFT,Fs=Fs,Fc=Fc,detrend=detrend,window=window,noverlap=noverlap,cmap=cmap,xextent=xextent
+                            ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode=mode,scale=scale,vmin=vmin,vmax=vmax,**kwargs)
+    plt.colorbar(im,ax = ax)
+    return (spectrum, freqs, t, im)
+
 
 def plotWaveAndSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
     '''
