@@ -39,15 +39,13 @@ def plotWave(iWaveData,indexOrName,ax = None,color = 'r',**otherSet):
         iWaveData:Data参数，需先加载一个csv参数
         indexOrName:int/str
             索引或者是通道名称，索引从0开始，通道名称为str类型
+
     Returns:
         [[x,y,otherInfo],[fig,ax]]
     '''
     y,otherInfo = getY(iWaveData,indexOrName)
     info = otherInfo[1]
-    fig = None
-    if ax is None:
-        fig,ax = plt.subplots(1, 1, figsize=(8, 4))
-    [x,[fig,ax]] = _plotWave(y,otherInfo[0],ax=ax,color=color)
+    [x,[fig,ax]] = _plotWave(y,otherInfo[0],ax=ax,color=color,**otherSet)
     ax.set_xlabel("times(s)")
     ax.set_ylabel("pressure(KPa)")
     if 'title' in otherSet:
@@ -56,13 +54,14 @@ def plotWave(iWaveData,indexOrName,ax = None,color = 'r',**otherSet):
         fig.set_facecolor('w')
     return [[x,y,otherInfo],[fig,ax]]
 
-def _plotWave(wave,fs,ax=None,color='r'):
+def _plotWave(wave,fs,ax=None,color='r',**kwargs):
     '''绘制一个压力图形
     Args:
         wave:numpy.array 波形
         fs:int 采样率
         ax:matplotlib.ax 绘图坐标系
         color:str or rgb 绘图颜色
+        **kwargs:matplotlib.axes.plot的**kwargs参数
     Returns:
         [x,[fig,ax]]:list
             x值，[fig,ax]
@@ -71,7 +70,7 @@ def _plotWave(wave,fs,ax=None,color='r'):
     fig=None
     if ax is None:
         fig,ax = plt.subplots(1, 1, figsize=(8, 4))
-    ax.plot(x,wave,color)
+    ax.plot(x,wave,color,**kwargs)
     ax.set_xlim([x[0],x[-1]])
     if not fig is None:
         fig.set_facecolor('w')
@@ -172,10 +171,14 @@ def _plotFrequencySpectrum(wave,fs,ax=None,fftN = -1,isShowPeaks = True,markPeak
         ax.plot(fre[ppdShow],mag[ppdShow],peaksMarkStyle)
     return [[fre,mag,ppd],[fig,ax]]
 
-def plotSpectrum(x,ax = None, NFFT=None, Fs=None, Fc=None, detrend=None
+def plotSpectrum(x,ax = None,fig = None, NFFT=None, Fs=None, Fc=None, detrend=None,plotType = None
                  , window=None, noverlap=None, cmap=None, xextent=None
                  , pad_to=None, sides=None, scale_by_freq=None, mode=None, scale=None, vmin=None, vmax=None, **kwargs):
     """
+    进行短时傅里叶变换
+    和plt.specgram一样但可以进行标准幅值计算amplitude，此时mode为amplitude，其他参数与plt.specgram一致
+    type:string
+        绘图样式，None为谱图，'3d'为三维线图-waterfall
     spectrum: 2-D array
         columns are the periodograms of successive segments
     freqs: 1-D array
@@ -183,24 +186,117 @@ def plotSpectrum(x,ax = None, NFFT=None, Fs=None, Fc=None, detrend=None
     t: 1-D array
         The times corresponding to midpoints of segments (i.e the columns in spectrum).
     """
-    if ax is None:
-        fig,ax = plt.subplots(1, 1, figsize=(8, 4))
+    im = None
+    if fig is None:
+        fig = plt.figure()
         fig.set_facecolor('w')
+    
+    if Fc is None:
+        Fc = 0
+
+    if mode == 'complex':
+        raise ValueError('Cannot plot a complex specgram')
+
+    if scale is None or scale == 'default':
+        if mode in ['angle', 'phase']:
+            scale = 'linear'
+        else:
+            scale = 'dB'
+    elif mode in ['angle', 'phase'] and scale == 'dB':
+        raise ValueError('Cannot use dB scale with angle or phase mode')
+
+    #edgecolors = None
+    #facecolors = None
+    #edgeAlpha = 0.9
+    #faceAlpha = 0.2
+    sameColor = None
+    ##防止传入污染的dict
+    #if 'edgecolors' in kwargs:
+    #    edgecolors = kwargs.pop('edgecolors')
+    #if 'facecolors' in kwargs:
+    #    facecolors = kwargs.pop('facecolors')
+    #if 'edgeAlpha' in kwargs:
+    #    edgeAlpha = kwargs.pop('edgeAlpha')
+    #if 'faceAlpha' in kwargs:
+    #    faceAlpha = kwargs.pop('faceAlpha')
+    if 'sameColor' in kwargs:
+        sameColor = kwargs.pop('sameColor')
+
+    is2Amp = False
     if mode.lower() == 'amplitude':
-        spectrum,freqs,t = mlab.specgram(x,NFFT=NFFT,Fs=Fs,detrend=detrend,window=window,noverlap=noverlap
-                            ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode='magnitude')
-        print(len(spectrum))
-        print(len(spectrum[0]))
-        print(len(freqs))
-        print(len(t))
-        print(spectrum)
-        print(freqs)
-        print(t)
+        mode = 'magnitude'
+        is2Amp = True
+    spec, freqs, t = mlab.specgram(x=x, NFFT=NFFT, Fs=Fs,
+                                    detrend=detrend, window=window,
+                                    noverlap=noverlap, pad_to=pad_to,
+                                    sides=sides,
+                                    scale_by_freq=scale_by_freq,
+                                    mode=mode)
+    Z = spec
+    if is2Amp:
+        Z[0] = spec[0]/NFFT
+        Z[1:-1] = spec[1:-1]*(2.0/NFFT)
+        Z[-1] = spec[-1]/NFFT
+    if scale == 'linear':
+        Z = spec
+    elif scale == 'dB':
+        if mode is None or mode == 'default' or mode == 'psd':
+            Z = 10. * np.log10(spec)
+        else:
+            Z = 20. * np.log10(spec)
     else:
-        spectrum, freqs, t, im = ax.specgram(x,NFFT=NFFT,Fs=Fs,Fc=Fc,detrend=detrend,window=window,noverlap=noverlap,cmap=cmap,xextent=xextent
-                            ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode=mode,scale=scale,vmin=vmin,vmax=vmax,**kwargs)
-    plt.colorbar(im,ax = ax)
-    return (spectrum, freqs, t, im)
+        raise ValueError('Unknown scale %s', scale)
+    freqs += Fc
+    if plotType == '3d':
+        if ax is None:
+            ax = fig.gca(projection='3d')
+        x = []
+        for index in range(0,len(t)):
+            x.append(freqs)
+        Z = np.transpose(Z)
+        _plotWaterFall(x,Z,orders = t,ax=ax,fig=fig,color=sameColor
+,**kwargs)
+    else:
+        if ax is None:
+            ax = fig.gca()
+        Z = np.flipud(Z)
+        if xextent is None:
+            xextent = 0, np.amax(t)
+        xmin, xmax = xextent
+        extent = xmin, xmax, freqs[0], freqs[-1]
+        im = ax.imshow(Z, cmap, extent=extent, vmin=vmin, vmax=vmax,
+                            **kwargs)
+        if im is not None:
+            plt.colorbar(im,ax = ax)
+
+
+    #im = None
+    #if ax is None:
+    #    fig,ax = plt.subplots(1, 1, figsize=(8, 4))
+    #    fig.set_facecolor('w')
+    #if mode.lower() == 'amplitude':
+    #    spectrum,freqs,t = mlab.specgram(x,NFFT=NFFT,Fs=Fs,detrend=detrend,window=window,noverlap=noverlap
+    #                        ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode='magnitude')
+    #    spectrum[0] = spectrum[0]/NFFT
+    #    spectrum[1:-1] = spectrum[1:-1]*(2.0/NFFT)
+    #    spectrum[-1] = spectrum[-1]/NFFT
+    #    if scale == 'dB':
+    #        spectrum = 20. * np.log10(spectrum)
+    #    spectrum = np.flipud(spectrum)#用imshow函数需要对数据进行上下翻转
+    #    if xextent is None:
+    #        xextent = 0, np.amax(t)
+    #    xmin, xmax = xextent
+    #    if Fc is not None:
+    #        freqs += Fc
+    #    extent = xmin, xmax, freqs[0], freqs[-1]
+    #    im = ax.imshow(spectrum, cmap, extent=extent, vmin=vmin, vmax=vmax,**kwargs)
+    #    #im = ax.contourf(t,freqs,spectrum)
+    #else:
+    #    spectrum, freqs, t, im = ax.specgram(x,NFFT=NFFT,Fs=Fs,Fc=Fc,detrend=detrend,window=window,noverlap=noverlap,cmap=cmap,xextent=xextent
+    #                        ,pad_to=pad_to,sides=sides,scale_by_freq=scale_by_freq,mode=mode,scale=scale,vmin=vmin,vmax=vmax,**kwargs)
+    
+    
+    return (Z, freqs, t, im),(fig,ax)
 
 
 def plotWaveAndSpectrum(iWaveData,indexOrName,ax = None,**otherSet):
@@ -362,9 +458,9 @@ def _plotWaterFall(xs,ys,orders=None,ax=None,fig=None
                     ,type = 'line',**otherSet):
     '''绘制瀑布图
     Args:
-        x: list
+        xs: list
             x轴数据list,，每个元素是需要绘制的x轴数据
-        y: list
+        ys: list
             y轴数据list,，每个元素是需要绘制的y轴数据,
             ！！注意：这里的y，会以z轴绘制
         type:string
@@ -415,12 +511,10 @@ def _plotWaterFall(xs,ys,orders=None,ax=None,fig=None
         faceAlpha = otherSet.pop('faceAlpha')
     if 'sameColor' in otherSet:
         sameColor = otherSet.pop('sameColor')
-    if type == 'line':
-        
-            
+    if type == 'line':          
         for index,z in enumerate(ys):
             x = xs[index]
-            y = np.ones(len(z))*(index+1)
+            y = np.ones(len(z))*orders[index]
             if sameColor is None:
                 _plot3(x,y,z,ax = ax,fig = fig,**otherSet)
             else:

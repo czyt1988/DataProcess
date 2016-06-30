@@ -22,7 +22,7 @@ from czy import signal as czySignal
 d:/cloudDisk/share/python/北区第一次实验数据分析/
 d:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/
 '''
-FILE_FOLDER = 'd:/netdisk/PIV实验台协同目录/shareCloud/python/北区第一次实验数据分析/'
+FILE_FOLDER = 'd:/cloudDisk/share/python/北区第一次实验数据分析/'
 FILE_NAME = '25m单容错位-开口-1.csv'
 CHANNEL_NUM = -1#定义需要观察的通道数
 SHOW_TITLE = True#是否显示标题
